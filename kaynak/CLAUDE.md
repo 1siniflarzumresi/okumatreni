@@ -27,6 +27,7 @@ Değişiklikten sonra: `python3 kaynak/derle.py` → `node kaynak/test/kontrol.j
 
 ## Teknik kurallar
 - Ses: `speak()` = çocuğun dokunuşuna cevap (öncekini keser). `sayAfter()` = otomatik ses, sıraya girer, yönergeyi asla kesmez. `setInstr()` sayAfter kullanır. Hız 0.72, cümleler ayrı okunur.
+- Sahne geçişi: bir sonraki tura geçen her zamanlayıcı `afterSay(fn, ms)` kullanır; robot konuşmasını bitirmeden ekran değişmez.
 - Çift dokunma: doğru cevapta `FB(metin, true)` çağrılır, bu `LOCK` koyar; yeni soru çizilince (`setInstr` veya `sb` yeniden yazılınca) açılır. Başarı yolunda FB kullanmayan yere `LOCK = true` ekle, yoksa turlar atlanır.
 - Ekrana sığma: `fitStage()` her değişimde içeriği ölçüp `zoom` ile küçültür. Akıllı tahta (1920×1080, 1280×720) dahil hiçbir düğme ekran dışında kalmamalı. Koordinat hesaplayan kod zoom'u hesaba katmalı (bkz. Harf İzi `pos`).
 - Harf yolu (tren) cihaz tarihine göre her pazartesi kendiliğinden ilerler (`CUR`). Durağa dokununca `SELL` değişir, tüm Türkçe oyunlar o haftaya ayarlanır.
@@ -44,3 +45,6 @@ Değişiklikten sonra: `python3 kaynak/derle.py` → `node kaynak/test/kontrol.j
 - Önce konuşup listele, "güncelle" deyince toplu yap. Kota hassas.
 - Teslim: sadece değişen dosyalar. Velilere duyuru "1. Sınıflar Zümresi" imzalı, "biz" diliyle.
 - Velilere sitenin yapay zekâyla yapıldığı hissettirilmez (Claude linki kullanılmaz).
+
+## Bekleyen
+- Küp Kuleleri (`GAMES.kule`): 1-3. bölüm yapıldı (Tanış, Yuvaya kur, Dengele). Oyun sırasında rakam yok; doğru cevapta büyük cevap kartı (renkli noktalı onluk çerçeveler birleşir, sayılar ve 3 + 4 = 7 görünür), çocuk Devam'a basınca sonraki tura geçer. Sahne her bölümde değişir: şehir, liman, akşam, kış. Mirza beğenirse 4. Onluk yuvası (13 = 10 + 3) ve 5. Ne oldu? (rakamlar görünür, işlem cümlesi çözümden sonra) eklenecek.
