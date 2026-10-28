@@ -323,6 +323,13 @@ a.game{text-decoration:none}
 /* otopark + sayı doğrusu */
 .parkwrap,.linewrap,.kulewrap{width:100%;max-width:900px}
 .stage-body:has(.kulewrap),.kulewrap{max-width:none}
+.lvlpick{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;width:100%;max-width:760px;margin:10px auto}
+.lvl{border:4px solid #2E9256;border-radius:26px;padding:20px 18px;background:#FFFFFF;box-shadow:0 6px 0 rgba(30,36,100,.15);display:flex;flex-direction:column;gap:6px;align-items:center;font:inherit;color:#1E2464;cursor:pointer}
+.lvl b{font-family:var(--display);font-size:40px}
+.lvl span{font-size:20px;font-weight:600}
+.lvl.locked{border-color:#B9BFE6;background:#F2F4FA}
+.lvl.locked .lvpic{opacity:.45}
+.lvl i{font-style:normal;font-size:15px;color:#575E80}
 .kulewrap{position:relative}
 .kulewrap #fb{position:absolute;left:50%;top:12%;transform:translateX(-50%);width:max-content;max-width:88%;background:rgba(255,255,255,.93);border-radius:16px;padding:6px 16px;box-shadow:0 3px 0 rgba(0,0,0,.08);pointer-events:none;min-height:0}
 .kulewrap #fb:empty{display:none}
@@ -646,6 +653,9 @@ footer .wrap{display:flex;flex-direction:column;gap:4px}
         <button class="game g5" data-game="kule" data-mat="1.1.1 1.2.1 1.2.3"><span class="tag">Parça-bütün</span>
           <div class="art kuleart"></div>
           <div><h3>Küp Kuleleri</h3><p>Vinçle küpleri taşı, kuleler kur.</p></div></button>
+        <button class="game g6" data-game="ciftlik" data-mat="1.1.1"><span class="tag">Onluk-birlik</span>
+          <div class="art ciftlikart"></div>
+          <div><h3>Çiftlik Kamyonu</h3><p>10 balya bir palet olur. Kamyonu yükle.</p></div></button>
         <button class="game g1" data-game="islem" data-mat="1.2.1 1.2.2"><span class="tag">Problem</span>
           <div class="art"><span style="font-size:34px">🌳🐦🐦</span></div>
           <div><h3>Ne Oldu?</h3><p>Hikâyeyi dinle, kaç tane kaldı bul.</p></div></button>
@@ -1098,7 +1108,7 @@ const STRATS = [
 ];
 const FILTERS = [['all','Hepsi'],['on','Ön değerlendirme'],['grup','Grup çalışması'],['yan','Yansıtma'],['oyun','Sitede oyunu var']];
 let FIL = 'all';
-const GNAME = {kule:'Küp Kuleleri',tablo:'Otopark',dogru:'Sayı Doğrusu',agir:'Hangisi Ağır?',sira:'Sıra Kimde?',ritim:'Ritmik Sayma',oruntu:'Örüntü',tahmin:'Tahmin Et',islem:'Ne Oldu?',terazi:'Terazi',ev:'Sayı Evleri',market:'Market',ikiz:'İkizini Bul',olc:'Ölç Bakalım',sekil:'Şekil Avı',veri:'Veri Dedektifi',ilk:'İlk Harf',kelime:'Kelime Kur',hafiza:'Harf Hafızası',iz:'Harf İzi',sepet:'Ses Sepeti',hece:'Hece Ustası',balon:'Harf Balonları',goster:'Sayıyı Göster',kac:'Kaç Tane?',tren:'Sayı Treni',cokaz:'Hangisi Çok?',yon:'Yön Bul'};
+const GNAME = {kule:'Küp Kuleleri',ciftlik:'Çiftlik Kamyonu',tablo:'Otopark',dogru:'Sayı Doğrusu',agir:'Hangisi Ağır?',sira:'Sıra Kimde?',ritim:'Ritmik Sayma',oruntu:'Örüntü',tahmin:'Tahmin Et',islem:'Ne Oldu?',terazi:'Terazi',ev:'Sayı Evleri',market:'Market',ikiz:'İkizini Bul',olc:'Ölç Bakalım',sekil:'Şekil Avı',veri:'Veri Dedektifi',ilk:'İlk Harf',kelime:'Kelime Kur',hafiza:'Harf Hafızası',iz:'Harf İzi',sepet:'Ses Sepeti',hece:'Hece Ustası',balon:'Harf Balonları',goster:'Sayıyı Göster',kac:'Kaç Tane?',tren:'Sayı Treni',cokaz:'Hangisi Çok?',yon:'Yön Bul'};
 function drawStrats(){
   document.getElementById('filters').innerHTML = FILTERS.map(([k,t]) => `<button data-f="${k}" aria-pressed="${k===FIL}">${t}</button>`).join('');
   const list = STRATS.filter(s => FIL==='all' || (FIL==='oyun' ? s.g : s.f.includes(FIL)));
@@ -1203,6 +1213,7 @@ sb.addEventListener('click', e => { const s = e.target.closest('[data-say]'); if
 /* exit card */
 const EXIT = {
   tablo:['Sayıların tablodaki yerini bulabilirim.','Tabloda bir sayının karşısındakini bulabilirim.','Ritmik sayınca tabloda örüntü oluşur.'],
+  ciftlik:['10 balya bir araya gelince bir palet olur.','Bir palette 10 balya vardır.','Paletin bağı çözülünce 10 balya yeniden tek tek olur.'],
   kule:['Küçük kuleler birleşince büyük kule olur.','Bir kuleyi farklı parçalara ayırabilirim.','İki kuleyi eşitlemek için küp taşıyabilirim.'],
   dogru:['Sayı doğrusunda ileri gidince sayı büyür.','Geri gidince sayı küçülür.','Zıplamaları sayarak nereye varacağımı bulabilirim.'],
   agir:['İpuçlarını zincir gibi bağlayabilirim.','En ağır ve en hafifi bulabilirim.','Bir cümlenin doğru mu yanlış mı olduğuna karar verebilirim.'],
@@ -2407,8 +2418,66 @@ function cubeSVG(x, y, col, top, attrs){
     <rect x="${x-12}" y="${y+5}" width="24" height="20" rx="2" fill="#FFFFFF" fill-opacity=".12" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="2"/>
     <rect x="${x-17}" y="${y+26}" width="34" height="5" rx="2" fill="#000000" opacity=".14"/></g>`;
 }
+/* ---------- levels: Seviye 1 → Seviye 2. Finishing a level opens the next one on this device; the teacher can open a locked level
+   by tapping it three times. A finished level is celebrated with fireworks (and, on the farm, cows eating the hay). ---------- */
+const LV = {
+  get(g){ try { return Math.max(1, +(localStorage.getItem('ky_lvl_' + g) || 1)); } catch(e){ return 1; } },
+  open(g, n){ try { if (n > LV.get(g)) localStorage.setItem('ky_lvl_' + g, n); } catch(e){} }
+};
+function levelPick(g, names, onPick){
+  const open = LV.get(g); let taps = 0;
+  setInstr('Hangi seviyeyi oynamak istersin?');
+  sb.innerHTML = `<div class="lvlpick">${names.map(([title, pic], i) => { const lock = i + 1 > open;
+    return `<button class="lvl${lock ? ' locked' : ''}" data-l="${i + 1}"><span class="lvpic">${pic}</span><b>Seviye ${i + 1}</b><span>${title}</span>${lock ? `<i>🔒 Önce Seviye ${i}</i>` : ''}</button>`; }).join('')}</div><div class="feedback" id="fb"></div>`;
+  sb.querySelector('.lvlpick').onclick = e => { const b = e.target.closest('.lvl'); if (!b) return; const l = +b.dataset.l;
+    if (l > open) { if (++taps >= 3) { LV.open(g, l); sPop(); return onPick(l); } sBad(); FB(`Önce Seviye ${l - 1} bitmeli.`); return; }
+    sPop(); onPick(l); };
+}
+function cowSVG(x, y, s, flip){
+  return `<g transform="translate(${x} ${y}) scale(${flip ? -s : s} ${s})">
+    <rect x="-46" y="-62" width="92" height="46" rx="22" fill="#FFFFFF" stroke="#2D3748" stroke-width="3"/>
+    <path d="M-30 -60 q14 6 8 22 q-16 2 -20 -14 z M10 -40 q12 -10 22 0 q-4 14 -22 8 z" fill="#2D3748"/>
+    ${[-34, -18, 18, 34].map(lx => `<rect x="${lx - 5}" y="-22" width="10" height="24" rx="3" fill="#FFFFFF" stroke="#2D3748" stroke-width="2.5"/>`).join('')}
+    <path d="M-46 -48 q-14 4 -12 20" stroke="#2D3748" stroke-width="3" fill="none"/>
+    <g class="cowhead">${RM ? '' : '<animateTransform attributeName="transform" type="rotate" values="0 46 -50;24 46 -50;0 46 -50" dur="1s" repeatCount="indefinite"/>'}
+      <rect x="40" y="-74" width="40" height="34" rx="12" fill="#FFFFFF" stroke="#2D3748" stroke-width="3"/><rect x="58" y="-56" width="26" height="18" rx="9" fill="#F7B7C3" stroke="#2D3748" stroke-width="2.5"/>
+      <circle cx="54" cy="-62" r="3.5" fill="#2D3748"/><path d="M46 -74 l-6 -12 M72 -74 l6 -12" stroke="#B5862B" stroke-width="5" stroke-linecap="round"/></g></g>`;
+}
+// fireworks + banner over a game picture; then two buttons: next level / finish (or only finish)
+function celebrate(svg, W, H, o, onNext, onEnd){
+  const g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); svg.appendChild(g);
+  const fw = document.createElementNS('http://www.w3.org/2000/svg', 'g'), cows = document.createElementNS('http://www.w3.org/2000/svg', 'g'), ban = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g.appendChild(cows); g.appendChild(fw); g.appendChild(ban);
+  sWin(); speak(o.say);
+  const cols = ['#F94144', '#F9C74F', '#43AA8B', '#4D96FF', '#F15BB5', '#F8961E', '#FFFFFF'];
+  let alive = true, n = 0;
+  const burst = () => { if (!alive || n++ > 9) return; const cx = W * (.15 + Math.random() * .7), cy = H * (.12 + Math.random() * .3), c = cols[n % cols.length], c2 = cols[(n + 3) % cols.length];
+    tone(300 + Math.random() * 400, .18, 'triangle', .05);
+    const one = document.createElementNS('http://www.w3.org/2000/svg', 'g'); fw.appendChild(one);
+    tween(1100, t => { const r = 20 + 110 * Math.sqrt(t), op = 1 - t;
+      one.innerHTML = `<g opacity="${op}">${Array.from({length: 16}, (_, i) => { const a = i * Math.PI / 8; return `<circle cx="${cx + Math.cos(a) * r}" cy="${cy + Math.sin(a) * r + t * t * 30}" r="${5 - 3 * t}" fill="${i % 2 ? c : c2}"/>`; }).join('')}<circle cx="${cx}" cy="${cy}" r="${14 * (1 - t)}" fill="#FFF6D6"/></g>`;
+    }, () => one.remove(), () => alive);
+    setTimeout(burst, 420); };
+  burst();
+  if (o.cows) {                      // a hay pile in the middle, two cows walk to it and eat
+    const hy = H - Math.min(70, H * .1), pile = `<g>${Array.from({length: 9}, (_, i) => baleSVG(W / 2 - 60 + (i % 4) * 40 + (Math.floor(i / 4) % 2) * 20, hy - 14 - Math.floor(i / 4) * 26, .9)).join('')}</g>`;
+    tween(1800, t => { const e = ease(t); cows.innerHTML = pile + cowSVG(-120 + (W / 2 - 30) * e, hy, 1, false) + cowSVG(W + 120 - (W / 2 - 30) * e, hy, 1, true); }, null, () => alive);
+  }
+  setTimeout(() => { if (!alive) return; const bw = Math.min(560, W * .86), bx = W / 2 - bw / 2, by = H * .32;
+    ban.innerHTML = `<rect x="${bx}" y="${by}" width="${bw}" height="${onNext ? 250 : 190}" rx="28" fill="#FFFFFF" stroke="#1E2464" stroke-width="5"/>
+      <text x="${W / 2}" y="${by + 70}" text-anchor="middle" font-size="${Math.min(52, bw / 10)}" fill="#1E2464" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${o.title}</text>
+      <text x="${W / 2}" y="${by + 118}" text-anchor="middle" font-size="40" fill="#F9C74F" stroke="#B5862B" stroke-width="1.5">★ ★ ★</text>
+      ${onNext ? `<g data-cel="next" style="cursor:pointer"><rect x="${W / 2 - 150}" y="${by + 140}" width="300" height="66" rx="33" fill="#2E9256"/><text x="${W / 2 - 12}" y="${by + 184}" text-anchor="middle" font-size="32" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">Seviye 2</text><path d="M${W / 2 + 80} ${by + 157} l22 16 l-22 16 z" fill="#FFFFFF"/></g>
+        <g data-cel="end" style="cursor:pointer"><text x="${W / 2}" y="${by + 236}" text-anchor="middle" font-size="22" fill="#575E80" style="font-family:Lexend,sans-serif;font-weight:600;text-decoration:underline">Şimdilik bitir</text><rect x="${W / 2 - 80}" y="${by + 214}" width="160" height="32" fill="transparent"/></g>`
+      : `<g data-cel="end" style="cursor:pointer"><rect x="${W / 2 - 120}" y="${by + 140}" width="240" height="60" rx="30" fill="#2E9256"/><text x="${W / 2}" y="${by + 180}" text-anchor="middle" font-size="30" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">Bitir</text></g>`}`;
+    const h = e => { const b = e.target.closest('[data-cel]'); if (!b) return; e.stopPropagation(); alive = false; svg.removeEventListener('click', h, true); b.dataset.cel === 'next' ? onNext() : onEnd(); };
+    svg.addEventListener('click', h, true);
+  }, 2600);
+  return { stop(){ alive = false; } };
+}
 GAMES.kule = function(){
-  const N = 13, S = 32, G = 4, REST = 70, HOOK = 24, MAX = 10, NC = 5, BY = 740;
+  let N = 13, LVL = 1;
+  const S = 32, G = 4, REST = 70, HOOK = 24, MAX = 10, NC = 5, BY = 740;
   // two layouts: wide (computer, smartboard, tablet on its side) and tall (phone, upright tablet) — the tall one has bigger cubes
   let VW, VH, GY, MX, SP, CX, TALL;
   // the picture takes the exact shape of the free screen area: extra height becomes sky, extra width becomes landscape
@@ -2436,7 +2505,8 @@ GAMES.kule = function(){
   const st = { cols: [], carry: null, hx: VW / 2, hy: REST, busy: false, pads: [], target: 0, ghost: false, mode: '' };
 
   // four scenes so the background changes with every part: city (Tanış), harbour + evening (Yuvaya kur), winter (Dengele)
-  const TH = ['sehir','sehir','sehir','liman','liman','liman','aksam','aksam','aksam','kis','kis','kis','kis'];
+  const TH = ['sehir','sehir','sehir','liman','liman','liman','aksam','aksam','aksam','kis','kis','kis','kis'], TH2 = ['liman','liman','liman','kis','kis','kis','aksam','aksam','aksam','sehir','sehir','sehir'];
+  const thm = () => (LVL === 2 ? TH2 : TH)[Math.min(k, (LVL === 2 ? TH2 : TH).length - 1)];
   function scene(th){
     const anim = (vals, dur, begin) => RM ? '' : `<animateTransform attributeName="transform" type="translate" additive="sum" values="${vals}" dur="${dur}s" begin="${begin || 0}s" repeatCount="indefinite"/>`;
     const cloud = (x, y, s, d, c) => `<g transform="translate(${x} ${y}) scale(${s})" fill="${c || '#FFFFFF'}">${anim(`0 0;${d} 0;0 0`, 40 + d)}
@@ -2556,18 +2626,21 @@ GAMES.kule = function(){
     document.getElementById('kpads').innerHTML = st.pads.map(p => {
       const x = CX(p), px = x - (TALL ? 30 : 56), top = GY - 178, fw = TALL ? 26 : 58, mw = Math.min(104, SP - 4), dg = (mw - 22) / 5;
       const ghost = st.ghost ? Array.from({length: st.target}, (_, j) => `<rect x="${x-18}" y="${cubeTop(GY, j)}" width="36" height="32" rx="3.5" fill="#FFFFFF" fill-opacity=".45" stroke="#1E2464" stroke-width="2.5" stroke-dasharray="7 5"/>`).join('') : '';
-      const dots = st.mode === 'yuva' && !st.ghost;
+      const dots = st.mode === 'yuva' && !st.ghost && !st.numFlag;
       const mat = dots
         ? `<rect x="${x-mw/2}" y="${GY-1}" width="${mw}" height="38" rx="6" fill="#FFFFFF" stroke="#E3051B" stroke-width="3"/>${Array.from({length: st.target}, (_, j) => `<circle cx="${x - 2 * dg + (j % 5) * dg}" cy="${GY + 10 + Math.floor(j / 5) * 16}" r="${Math.min(6, dg * .42)}" fill="#E3051B"/>`).join('')}`
         : `<rect x="${x-mw/2}" y="${GY-2}" width="${mw}" height="16" rx="5" fill="#FFD23F" stroke="#D99A00" stroke-width="2"/>${[0,1,2,3].map(i => `<line x1="${x - mw/2 + 10 + i * (mw - 28) / 3}" y1="${GY}" x2="${x - mw/2 + 18 + i * (mw - 28) / 3}" y2="${GY+12}" stroke="#1E2464" stroke-width="5"/>`).join('')}`;
-      const flag = `<path d="M${px} ${top} L${px-fw} ${top+16} L${px} ${top+32} Z" fill="#E3051B"/>`;
+      const nw = TALL ? 44 : 58;
+      const flag = st.numFlag ? `<rect x="${px - nw}" y="${top - 2}" width="${nw}" height="42" rx="6" fill="#E3051B"/><text x="${px - nw / 2}" y="${top + 30}" text-anchor="middle" font-size="32" fill="#FFFFFF" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${st.target}</text>`
+        : `<path d="M${px} ${top} L${px-fw} ${top+16} L${px} ${top+32} Z" fill="#E3051B"/>`;
       return `${mat}
         <line x1="${px}" y1="${GY}" x2="${px}" y2="${top-4}" stroke="#4A5568" stroke-width="5" stroke-linecap="round"/><circle cx="${px}" cy="${top-6}" r="5" fill="#F6B800"/>${flag}${ghost}`;
     }).join('');
   }
   function drawTowers(){
     document.getElementById('ktow').innerHTML = st.cols.map((c, i) => c.map((col, j) => cubeSVG(CX(i), cubeTop(GY, j), col, j === c.length - 1, `class="kc" data-c="${i}" data-i="${j}"`)
-      + `<rect class="kc" data-c="${i}" data-i="${j}" x="${CX(i) - SP / 2 + 3}" y="${cubeTop(GY, j)}" width="${SP - 6}" height="${S}" fill="transparent"/>`).join('')).join('');
+      + `<rect class="kc" data-c="${i}" data-i="${j}" x="${CX(i) - SP / 2 + 3}" y="${cubeTop(GY, j)}" width="${SP - 6}" height="${S}" fill="transparent"/>`).join('')).join('')
+      + (st.plates ? st.cols.map((c, i) => c.length ? `<g style="pointer-events:none"><rect x="${CX(i) - 20}" y="${GY + 15}" width="40" height="23" rx="6" fill="#FFFFFF" stroke="#1E2464" stroke-width="2"/><text x="${CX(i)}" y="${GY + 34}" text-anchor="middle" font-size="20" fill="#1E2464" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${c.length}</text></g>` : '').join('') : '');
   }
   function drawCrane(){
     const x = st.hx, y = st.hy;
@@ -2578,11 +2651,13 @@ GAMES.kule = function(){
       ${carried}<rect x="${x-15}" y="${y}" width="30" height="13" rx="3" fill="#E3051B"/><rect x="${x-15}" y="${y+4}" width="30" height="3" fill="#FFFFFF" opacity=".7"/>
       <path d="M${x} ${y+13} v6 q0 9 -8 7" stroke="#2D3748" stroke-width="4" fill="none" stroke-linecap="round"/>`;
   }
+  const clearHint = () => { clearTimeout(clearHint.t); const f = document.getElementById('fb'); if (f) { f.textContent = ''; f.className = 'feedback'; } };
+  const hint = t => { FB(t); clearTimeout(clearHint.t); clearHint.t = setTimeout(() => { if (alive) clearHint(); }, 4500); };
   const carryY = () => GY - H(Math.max(0, ...st.cols.map(c => c.length))) - 16;   // bottom of a carried load
   const moveX = (x, done) => { const x0 = st.hx; tone(180, .12, 'sine', .05); tween(260 + Math.abs(x - x0) * 1.2, t => { st.hx = x0 + (x - x0) * ease(t); drawCrane(); }, done, () => alive); };
   const moveY = (y, done) => { const y0 = st.hy; tween(220 + Math.abs(y - y0) * 1.3, t => { st.hy = y0 + (y - y0) * ease(t); drawCrane(); }, done, () => alive); };
   function pick(c, i){
-    st.busy = true; const col = st.cols[c];
+    st.busy = true; clearHint(); const col = st.cols[c];
     moveX(CX(c), () => moveY(GY - H(col.length) - HOOK, () => {
       st.carry = col.splice(i); drawTowers(); drawCrane(); tone(330, .1, 'triangle', .1);
       moveY(Math.max(52, carryY() - H(st.carry.length) - HOOK), () => { st.busy = false; });
@@ -2590,7 +2665,7 @@ GAMES.kule = function(){
   }
   function drop(c){
     const col = st.cols[c];
-    if (col.length + st.carry.length > MAX) { sBad(); FB('Bu kule çok yükselir, vinç o kadar yukarı koyamaz. Başka bir yere koy.'); return; }
+    if (col.length + st.carry.length > MAX) { sBad(); hint('Bu kule çok yükselir, vinç o kadar yukarı koyamaz. Başka bir yere koy.'); return; }
     st.busy = true;
     moveX(CX(c), () => moveY(GY - H(col.length) - H(st.carry.length) - HOOK, () => {
       col.push(...st.carry); st.carry = null; drawTowers(); drawCrane(); tone(240, .14, 'triangle', .12);
@@ -2615,7 +2690,7 @@ GAMES.kule = function(){
   /* answer card: the parts as big dot tiles (ten-frame rows of 5) with their numbers; the tiles slide together into one
      ten-frame and the whole number appears above it. kind: join (parts → whole), split (whole → parts), eq (two equal tiles) */
   function reveal(kind, tiles, say){
-    st.busy = true; st.go = false; sOk();
+    st.busy = true; st.go = false; sOk(); clearHint();
     const g = document.getElementById('krev'), D = 56, TY = 400, n = tiles.length, sc = kind === 'eq' ? .86 : n > 3 ? .5 : n > 2 ? .66 : 1, SM = 1.3;
     const tw = (5 * D + 28) * sc, gap = (kind === 'eq' ? 130 : 70) * sc, x0 = 500 - (n * tw + (n - 1) * gap) / 2;
     const pcx = i => x0 + tw / 2 + i * (tw + gap);
@@ -2646,6 +2721,20 @@ GAMES.kule = function(){
         document.getElementById('krevin').insertAdjacentHTML('beforeend', `<g id="kgo" style="cursor:pointer"><rect x="390" y="622" width="220" height="70" rx="35" fill="#2E9256"/>
           <text x="478" y="670" text-anchor="middle" font-size="36" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">Devam</text><path d="M560 640 L582 657 L560 674 Z" fill="#FFFFFF"/>
           ${RM ? '' : '<animateTransform attributeName="transform" type="scale" additive="sum" values="1;1.04;1" dur="1.4s" repeatCount="indefinite"/>'}</g>`); }, 300); };
+    if (kind === 'minus') {           // a tower that was too tall: the removed cubes leave the frame, crossed out
+      const p = tiles[0][0].n, rm = tiles[1][0].n, col = tiles[0][0].col, keep = p - rm;
+      const mk = (t, extra) => { const sc2 = Math.min(VW / 840, VH / 600), tf = `translate(${VW / 2 - 500 * sc2} ${VH / 2 - 430 * sc2}) scale(${sc2})`;
+        g.innerHTML = `<rect width="${VW}" height="${VH}" fill="#FFFFFF" opacity=".8"/><g id="krevin" transform="${tf}"><rect x="110" y="150" width="780" height="560" rx="34" fill="#FFFFFF" stroke="#1E2464" stroke-width="5"/>${tile(500, SM, 1)}
+          ${Array.from({length: p}, (_, j) => { const [x0, y0] = slot(500, SM, j), out = j >= keep, x = x0 + (out ? 150 * t : 0), y = y0 - (out ? 150 * t : 0);
+            return `<circle cx="${x}" cy="${y}" r="${20 * SM}" fill="${col}" stroke="#1E2464" stroke-width="2.5" opacity="${out ? 1 - .55 * t : 1}"/>` + (out && t > 0 ? `<path d="M${x - 16} ${y - 16} l32 32 M${x + 16} ${y - 16} l-32 32" stroke="#E3051B" stroke-width="5" stroke-linecap="round" opacity="${t}"/>` : ''); }).join('')}${extra || ''}</g>`; };
+      const fin = () => { mk(1, num(500, TY - (D + 40) * SM - 10, keep, '#1E2464', 120) + `<text x="500" y="590" text-anchor="middle" font-size="62" style="font-family:TTKB,Lexend,sans-serif;font-weight:700" fill="#1E2464">${p} − <tspan fill="#E3051B">${rm}</tspan> = ${keep}</text>`);
+        speak(say); afterSay(() => { if (!alive) return; st.go = true;
+          document.getElementById('krevin').insertAdjacentHTML('beforeend', `<g id="kgo" style="cursor:pointer"><rect x="390" y="622" width="220" height="70" rx="35" fill="#2E9256"/>
+            <text x="478" y="670" text-anchor="middle" font-size="36" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">Devam</text><path d="M560 640 L582 657 L560 674 Z" fill="#FFFFFF"/>
+            ${RM ? '' : '<animateTransform attributeName="transform" type="scale" additive="sum" values="1;1.04;1" dur="1.4s" repeatCount="indefinite"/>'}</g>`); }, 300); };
+      mk(0, num(500, TY - (D + 40) * SM - 10, p, '#1E2464', 120));
+      return setTimeout(() => tween(1100, t => mk(ease(t)), fin, () => alive), 900);
+    }
     if (kind === 'eq' || n === 1) { frame(0); return finish((kind === 'eq' ? partNums() : whole()) + (kind === 'eq' ? sumLine() : '')); }
     if (kind === 'join') { frame(0, partNums()); setTimeout(() => tween(1100, t => frame(ease(t)), () => finish(whole() + sumLine()), () => alive), 900); }
     else { frame(1, whole()); setTimeout(() => tween(1100, t => frame(1 - ease(t)), () => finish(partNums() + sumLine()), () => alive), 900); }
@@ -2655,21 +2744,22 @@ GAMES.kule = function(){
     if (st.mode === 'birlestir' || st.mode === 'tek') {
       if (u.length === 1) { const r = runs(st.cols[u[0][0]]), v = r.map(x => x.n);
         reveal('join', r.map(x => [x]), `${v.slice(0, -1).join(', ')} ve ${v[v.length-1]}, ${sum(r)} eder.`); }
-      else if (st.mode === 'birlestir') FB('Kuleyi öbür kulenin üstüne koy.');
+      else if (st.mode === 'birlestir') hint('Kuleyi öbür kulenin üstüne koy.');
     } else if (st.mode === 'ayir') {
       if (u.length === 2) { const [a, b] = u.map(([i]) => st.cols[i]), other = KCOL.find(x => x !== a[0] && x !== '#F9C74F');
         reveal('split', [[{n: a.length, col: a[0]}], [{n: b.length, col: other}]], `${st.target}, ${a.length} ve ${b.length} oldu.`); }
-      else FB('Kule hâlâ tek parça. Ortadan bir küpe dokun, küpleri boş bir yere koy.');
+      else hint('Kule hâlâ tek parça. Ortadan bir küpe dokun, küpleri boş bir yere koy.');
     } else if (st.mode === 'yuva') {
       const pad = st.cols[st.pads[0]];
+      if (pad.length === st.target && st.minus) return reveal('minus', [[{n: st.start, col: pad[0]}], [{n: st.start - st.target, col: '#C9CEE3'}]], `${st.start} küpten ${st.start - st.target} küp aldın. ${st.target} küp kaldı.`);
       if (pad.length === st.target) { const r = runs(pad), v = r.map(x => x.n);
         reveal('join', r.map(x => [x]), r.length > 1 ? `${v.slice(0, -1).join(', ')} ve ${v[v.length-1]}, ${st.target} eder.` : `Tam ${st.target} küp!`); }
-      else if (c === st.pads[0] && pad.length > st.target) FB('Kule fazla yüksek oldu. Fazla küpleri vinçle al.');
+      else if (c === st.pads[0] && pad.length > st.target) hint('Kule fazla yüksek oldu. Fazla küpleri vinçle al.');
     } else if (st.mode === 'denge') {
       const A = st.cols[st.pads[0]], B = st.cols[st.pads[1]];
       const out = st.cols.reduce((s, col, i) => s + (st.pads.includes(i) ? 0 : col.length), 0);
       if (A.length === B.length && !out) reveal('eq', [runs(A), runs(B)], `${A.length} ve ${B.length}. İki kule eşit oldu!`);
-      else if (A.length === B.length) FB('Eşit oldu ama yerde küp kaldı. Onları da kullan.');
+      else if (A.length === B.length) hint('Eşit oldu ama yerde küp kaldı. Onları da kullan.');
     }
   }
   function setup(towers, opt){ // towers: [[slot, n], ...]
@@ -2677,8 +2767,8 @@ GAMES.kule = function(){
     st.cols = Array.from({length: NC}, () => []);
     towers.forEach(([s, n], i) => { st.cols[s] = Array(n).fill(cols[i % cols.length]); });
     layout();
-    Object.assign(st, { pads: [], target: 0, ghost: false, mode: '' }, opt, { carry: null, hx: VW / 2, hy: REST, busy: false, go: false });
-    sb.innerHTML = `${progBar(N, k)}<div class="kulewrap">${scene(TH[k])}<div class="feedback" id="fb"></div></div>`;
+    Object.assign(st, { pads: [], target: 0, ghost: false, mode: '', numFlag: false, plates: false, minus: false, start: 0 }, opt, { carry: null, hx: VW / 2, hy: REST, busy: false, go: false });
+    sb.innerHTML = `${progBar(N, k)}<div class="kulewrap">${scene(thm())}<div class="feedback" id="fb"></div></div>`;
     drawPads(); drawTowers(); drawCrane(); bind();
     requestAnimationFrame(relayout);      // the instruction for this round is known now: fit once more
   }
@@ -2692,7 +2782,8 @@ GAMES.kule = function(){
     return [total - n + 1, ...Array(n - 1).fill(1)];
   }
   function play(){
-    if (k >= N) { sWin(); addStar(); return exitCard('kule'); }
+    if (k >= N) return levelDone();
+    if (LVL === 2) return playL2();
     if (k === 0) {
       const [s1, s2] = slots(2);
       setup([[s1, rint(2, 4)], [s2, rint(2, 4)]], {mode: 'birlestir'});
@@ -2725,16 +2816,488 @@ GAMES.kule = function(){
         : spare ? (k === 11 ? 'Yerde bir kule daha var! Bütün küpleri kullanarak iki bayraklı kuleyi eşit yap.' : 'Bütün küpleri kullan, iki bayraklı kule eşit olsun.') : 'İki bayraklı kuleyi eşitle.');
     }
   }
+  function levelDone(){
+    LV.open('kule', LVL + 1); addStar(); clearHint(); document.getElementById('krev').innerHTML = '';
+    st.busy = true; setInstr(LVL === 1 ? 'Harika! Seviye 1 bitti.' : 'Harika! Seviye 2 de bitti.');
+    celebrate(sb.querySelector('.kuleSVG'), VW, VH, {title: `Seviye ${LVL} tamam!`, say: LVL === 1 ? 'Harika! Bütün kuleleri kurdun. Şimdi Seviye 2 seni bekliyor: sayılarla kule kuracağız.' : 'Harika! Sayılarla da kule kurdun. Sen bir usta vinççisin!'},
+      LVL === 1 ? () => { LVL = 2; N = 12; k = 0; play(); } : null, () => { sWin(); exitCard('kule'); });
+  }
+  function playL2(){              // Seviye 2: the flag shows a numeral, every tower has its number plate
+    const pad = rint(1, 4), mode = k < 3 ? 'hedef' : k < 6 ? 'eksik' : k < 9 ? 'fazla' : ['hedef', 'eksik', 'fazla'][rint(0, 2)], o = {mode: 'yuva', pads: [pad], numFlag: true, plates: true};
+    if (mode === 'hedef') {
+      const t = rint(4, 10), p = parts(t + rint(1, 3), 3, [t]);
+      setup(slots(3, [pad]).map((s, i) => [s, p[i]]), {...o, target: t});
+      setInstr(k === 0 ? 'Seviye 2: artık sayılar var! Bayrakta yazan sayı kadar küpten bir kule kur.' : 'Bayraktaki sayı kadar küpten bir kule kur.');
+    } else if (mode === 'eksik') {
+      const t = rint(5, 10), have = rint(2, t - 2), need = t - have, p = parts(need + rint(1, 3), 2, [need]);
+      setup([[pad, have], ...slots(2, [pad]).map((s, i) => [s, p[i]])], {...o, target: t});
+      setInstr(k === 3 ? 'Bayraklı yerde biraz küp var ama yetmiyor. Kuleyi bayraktaki sayıya tamamla.' : 'Kuleyi bayraktaki sayıya tamamla.');
+    } else {
+      const t = rint(2, 7), have = rint(t + 2, 10);
+      setup([[pad, have]], {...o, target: t, minus: true, start: have});
+      setInstr(k === 6 ? 'Bu sefer kule fazla yüksek! Fazla küpleri vinçle al, bayraktaki sayı kadar kalsın.' : 'Fazla küpleri al, bayraktaki sayı kadar kalsın.');
+    }
+  }
   function relayout(){
     if (!alive || st.busy || st.go || !sb.querySelector('.kulewrap')) return;   // never in the middle of a crane move or an answer card
     const old = [VW, VH]; layout();
     if (Math.abs(VW - old[0]) / old[0] < .03 && Math.abs(VH - old[1]) / old[1] < .03) return;
     st.hx = VW / 2; st.hy = st.carry ? Math.max(52, carryY() - H(st.carry.length) - HOOK) : REST;
-    sb.querySelector('.kuleSVG').outerHTML = scene(TH[k]); drawPads(); drawTowers(); drawCrane(); bind();
+    sb.querySelector('.kuleSVG').outerHTML = scene(thm()); drawPads(); drawTowers(); drawCrane(); bind();
   }
   const onResize = () => { clearTimeout(onResize.t); onResize.t = setTimeout(relayout, 250); };
   window.addEventListener('resize', onResize);
-  play(); return { stop(){ alive = false; clearTimeout(tm); window.removeEventListener('resize', onResize); }, st };
+  const pic = (hs, plate) => `<svg viewBox="0 -110 200 210" width="150" height="120"><g transform="scale(.9)">${hs.map(([x, h, c]) => Array.from({length: h}, (_, j) => cubeSVG(x, 30 - j * 32, c, j === h - 1)).join('') + (plate ? `<rect x="${x - 18}" y="66" width="36" height="22" rx="5" fill="#FFFFFF" stroke="#1E2464" stroke-width="2"/><text x="${x}" y="84" text-anchor="middle" font-size="18" fill="#1E2464" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${h}</text>` : '')).join('')}</g></svg>`;
+  levelPick('kule', [['Kule Kur', pic([[40, 2, '#F94144'], [110, 3, '#4D96FF'], [180, 1, '#F9C74F']])], ['Sayılarla Kur', pic([[60, 3, '#43AA8B'], [150, 4, '#9B5DE5']], true)]], l => { LVL = l; N = l === 1 ? 13 : 12; k = 0; play(); });
+  return { stop(){ alive = false; clearTimeout(tm); window.removeEventListener('resize', onResize); }, st };
+};
+
+/* ---------- Çiftlik Kamyonu: a hay bale is 1, ten bales tied on a pallet are one load of 10.
+   The truck leaves only when the pallet and the loose bales are all on it. ---------- */
+function baleSVG(x, y, s, fresh, attrs){
+  const w = 44 * s, h = 30 * s;
+  return `<g ${attrs || ''}><rect x="${x - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" rx="${6 * s}" fill="${fresh ? '#C5E17A' : '#EDC55B'}" stroke="#B5862B" stroke-width="${2 * s}"/>
+    <path d="M${x - w / 2 + 5 * s} ${y - h / 6} h${w - 10 * s} M${x - w / 2 + 5 * s} ${y + h / 6} h${w - 10 * s}" stroke="#C99A2E" stroke-width="${1.6 * s}" opacity=".75"/>
+    <rect x="${x - w / 4 - 2 * s}" y="${y - h / 2}" width="${4 * s}" height="${h}" fill="#8E5B2B"/><rect x="${x + w / 4 - 2 * s}" y="${y - h / 2}" width="${4 * s}" height="${h}" fill="#8E5B2B"/></g>`;
+}
+GAMES.ciftlik = function(){
+  const N = 12, BW = 46, BH = 34, GW = 5 * BW, GH = 2 * BH;
+  let LVL = 1;
+  const THM = ['yaz','yaz','yaz','sonbahar','sonbahar','sonbahar','aksam','aksam','aksam','kis','kis','kis'], THM2 = ['sonbahar','sonbahar','sonbahar','yaz','yaz','yaz','kis','kis','kis','aksam','aksam','aksam'];
+  const thm = () => (LVL === 2 ? THM2 : THM)[Math.min(k, 11)];
+  let k = 0, tm = null, alive = true, VW, VH, OX, OY, TALL, P;
+  const st = {busy: false, go: false, mode: '', field: [], pal: null, load: 0, cart: 0, target: 0, a: 0, b: 0, m: 0, tx: 0, asked: false, done: false};
+  const cell = (gx, gy, j) => [gx + (j % 5) * BW + BW / 2, gy + (1 - Math.floor(j / 5)) * BH + BH / 2];   // bottom row first
+  /* ---- layout: the picture takes the shape of the free screen area ---- */
+  function freeArea(){
+    const bar = stage.querySelector('.stage-bar').offsetHeight + stage.querySelector('.instr').offsetHeight
+      + ['novoice', 'fshint'].reduce((s, id) => { const e = document.getElementById(id); return s + (e.hidden ? 0 : e.offsetHeight); }, 0);
+    return [Math.max(280, (sb.clientWidth || stage.clientWidth) - 32), Math.max(240, stage.clientHeight - bar - 22 - 64)];
+  }
+  function layout(){
+    const [aw, ah] = freeArea(); TALL = ah / aw > .9;
+    // P: positions inside the base picture (wide 1000 × 680, tall 640 × 920)
+    P = TALL ? {W: 640, H: 920, barn: [12, 190, 186, 200], pal: [214, 322], field: [24, 450, 616, 630], road: 660, bed: [12, 702], gap: 10, sky: 160}
+             : {W: 1000, H: 680, barn: [18, 205, 190, 215], pal: [240, 352], field: [505, 318, 985, 500], road: 530, bed: [190, 540], gap: 20, sky: 120};
+    const r = ah / aw;
+    if (r > P.H / P.W) { VW = P.W; VH = Math.round(P.W * r); OX = 0; OY = VH - P.H; }
+    else { VH = P.H; VW = Math.round(P.H / r); OX = (VW - P.W) / 2; OY = 0; }
+  }
+  const palGrid = () => P.pal, bedPal = () => [P.bed[0] + 8, P.bed[1]], bedLoose = () => [P.bed[0] + 8 + GW + P.gap, P.bed[1]];
+  /* ---- drawing ---- */
+  function sky(th){
+    const S = {yaz: ['#7FCBF5', '#E6F7FF', '#A8DBA0', '#7CC47F', '#CFE8A3', '#C9A26B'], sonbahar: ['#9FD3EE', '#FDF1D6', '#E9B44C', '#D98E3A', '#E8D59B', '#B98A5B'],
+      aksam: ['#3B2F6B', '#FFC98B', '#5E8C5F', '#4A7A50', '#A9B97A', '#9C7B55'], kis: ['#A9CBE8', '#EEF5FB', '#EEF4FA', '#FFFFFF', '#F4F8FC', '#B8C2CC']}[th];
+    const hill = (y, amp, col, ph) => { let d = `M0 ${y}`; for (let x = 0; x <= VW + 40; x += 40) d += ` L${x} ${y - amp * (Math.sin((x + ph) / 140) * .6 + Math.sin((x + ph) / 63) * .4)}`; return `<path d="${d} L${VW} ${VH} L0 ${VH} Z" fill="${col}"/>`; };
+    const fy = OY + P.field[1] - 30, ry = OY + P.road;
+    const cloud = (x, y, s) => `<g transform="translate(${x} ${y}) scale(${s})" fill="${th === 'aksam' ? '#F7B7C3' : '#FFFFFF'}">${RM ? '' : `<animateTransform attributeName="transform" type="translate" additive="sum" values="0 0;30 0;0 0" dur="38s" repeatCount="indefinite"/>`}<ellipse cx="0" cy="0" rx="46" ry="22"/><ellipse cx="-36" cy="9" rx="30" ry="16"/><ellipse cx="38" cy="9" rx="32" ry="15"/><ellipse cx="6" cy="-15" rx="26" ry="19"/></g>`;
+    const nCl = Math.max(2, Math.round(VW / 330)), clouds = Array.from({length: nCl}, (_, i) => cloud(VW * (i + .5) / nCl + (i % 2 ? 30 : -30), 70 + (i % 3) * 45 + Math.max(0, OY * .3), .7 + (i % 2) * .2)).join('');
+    const sunM = th === 'aksam' ? `<circle cx="${VW * .8}" cy="90" r="30" fill="#FFF4C2"/><circle cx="${VW * .8 + 14}" cy="80" r="26" fill="#45367A"/>${Array.from({length: 16}, (_, i) => `<circle cx="${(i * 131) % VW}" cy="${20 + (i * 47) % Math.max(80, fy - 160)}" r="${i % 3 ? 2 : 3}" fill="#FFFFFF" opacity=".85"/>`).join('')}`
+      : `<circle cx="${VW * .12}" cy="95" r="58" fill="${th === 'kis' ? '#FFF6D6' : '#FFE36E'}" opacity=".35"/><circle cx="${VW * .12}" cy="95" r="40" fill="${th === 'kis' ? '#FFF3C4' : '#FFD23F'}"/>`;
+    const fence = Array.from({length: Math.ceil(VW / 60) + 1}, (_, i) => `<rect x="${i * 60}" y="${fy - 34}" width="8" height="40" rx="2" fill="#A47148"/>`).join('') + `<rect x="0" y="${fy - 26}" width="${VW}" height="6" fill="#B98552"/><rect x="0" y="${fy - 12}" width="${VW}" height="6" fill="#B98552"/>`;
+    const trees = th === 'kis' ? '' : Array.from({length: Math.round(VW / 260)}, (_, i) => { const x = 140 + i * 260 + (i % 2) * 70, y = fy - 60 - (i % 3) * 18, c = th === 'sonbahar' ? ['#E07A1F', '#F2A541'] : th === 'aksam' ? ['#2F6B3A', '#3E7F48'] : ['#3E9A44', '#52B85A'];
+      return `<g transform="translate(${x} ${y})"><rect x="-5" y="0" width="10" height="34" rx="3" fill="#8E5B2B"/><circle cx="0" cy="-12" r="26" fill="${c[0]}"/><circle cx="-15" cy="0" r="17" fill="${c[1]}"/><circle cx="15" cy="-2" r="18" fill="${c[1]}"/></g>`; }).join('');
+    const snow = th === 'kis' && !RM ? Array.from({length: 36}, (_, i) => `<g><animateTransform attributeName="transform" type="translate" values="0 -40;${i % 2 ? 14 : -14} 140;0 320" dur="${7 + i % 6}s" begin="-${i % 7}s" repeatCount="indefinite"/><circle cx="${(i * 137) % VW}" cy="${(i * 89) % Math.max(200, fy)}" r="${2 + i % 3}" fill="#FFFFFF" opacity=".9"/></g>`).join('') : '';
+    return `<defs><linearGradient id="cSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${S[0]}"/><stop offset="1" stop-color="${S[1]}"/></linearGradient></defs>
+      <rect width="${VW}" height="${VH}" fill="url(#cSky)"/>${sunM}${clouds}${hill(fy - 110, 40, S[2], 0)}${hill(fy - 60, 26, S[3], 90)}${trees}
+      <rect x="0" y="${fy}" width="${VW}" height="${ry - fy}" fill="${S[4]}"/>${fence}
+      ${Array.from({length: Math.round(VW / 45)}, (_, i) => `<path d="M${i * 45 + 10} ${fy + 20 + (i * 37) % Math.max(20, ry - fy - 40)} q4 -10 8 0" stroke="${th === 'kis' ? '#DCE8F5' : '#9BBF6A'}" stroke-width="2" fill="none"/>`).join('')}
+      <rect x="0" y="${ry}" width="${VW}" height="${VH - ry}" fill="${S[5]}"/><rect x="0" y="${ry}" width="${VW}" height="5" fill="rgba(0,0,0,.12)"/>${snow}`;
+  }
+  function barnSVG(){
+    const [x, y, w, h] = P.barn;
+    return `<g><rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#C8453A" stroke="#8E2A22" stroke-width="3"/>
+      <path d="M${x - 12} ${y + 4} L${x + w / 2} ${y - h * .42} L${x + w + 12} ${y + 4} Z" fill="#9E2F26" stroke="#6E1F19" stroke-width="3"/>
+      <rect x="${x + w / 2 - 22}" y="${y - h * .26}" width="44" height="30" fill="#FFE9A8" stroke="#6E1F19" stroke-width="2"/>
+      <rect x="${x + w * .25}" y="${y + h * .35}" width="${w * .5}" height="${h * .65}" fill="#F4EDE2" stroke="#6E1F19" stroke-width="3"/>
+      <path d="M${x + w * .25} ${y + h * .35} L${x + w * .75} ${y + h} M${x + w * .75} ${y + h * .35} L${x + w * .25} ${y + h}" stroke="#C8453A" stroke-width="6"/></g>`;
+  }
+  function palletSVG(gx, gy, n, tied, fresh0, freshFrom, attrs){
+    const bales = Array.from({length: n}, (_, j) => { const [x, y] = cell(gx, gy, j); return baleSVG(x, y, 1, freshFrom != null && j >= freshFrom, `class="pb" data-j="${j}"`); }).join('');
+    const slots = Array.from({length: 10}, (_, j) => { const [x, y] = cell(gx, gy, j); return j < n ? '' : `<rect x="${x - 21}" y="${y - 14}" width="42" height="28" rx="5" fill="#FFFFFF" fill-opacity=".35" stroke="#8E5B2B" stroke-width="2" stroke-dasharray="5 4"/>`; }).join('');
+    const rope = tied ? `<rect x="${gx - 3}" y="${gy - 3}" width="${GW + 6}" height="${GH + 6}" rx="8" fill="none" stroke="#8E5B2B" stroke-width="5"/><line x1="${gx + GW / 2}" y1="${gy - 3}" x2="${gx + GW / 2}" y2="${gy + GH + 3}" stroke="#8E5B2B" stroke-width="5"/>
+      <path d="M${gx + GW / 2} ${gy - 3} q-16 -16 -26 -4 q10 10 26 4 q16 -16 26 -4 q-10 10 -26 4" fill="#A0663A" stroke="#6B4423" stroke-width="2"/>` : '';
+    return `<g ${attrs || ''}><rect x="${gx - 6}" y="${gy + GH}" width="${GW + 12}" height="10" rx="2" fill="#A47148"/><rect x="${gx}" y="${gy + GH + 10}" width="14" height="8" fill="#8B5E34"/><rect x="${gx + GW / 2 - 7}" y="${gy + GH + 10}" width="14" height="8" fill="#8B5E34"/><rect x="${gx + GW - 14}" y="${gy + GH + 10}" width="14" height="8" fill="#8B5E34"/>
+      ${slots}${bales}${rope}</g>`;
+  }
+  function truckSVG(col){            // the bed: pallet place + loose place, cab on the right
+    const [bx, by] = P.bed, fl = by + GH + 4, cx = bx + 16 + 2 * GW + P.gap;
+    return `<rect x="${bx}" y="${fl}" width="${cx - bx}" height="16" rx="4" fill="#8E5B2B"/><rect x="${bx}" y="${fl + 16}" width="${cx - bx + 110}" height="14" rx="5" fill="#4A5568"/>
+      <rect x="${bx}" y="${by + 6}" width="7" height="${GH}" rx="2" fill="#6B4423"/>
+      <path d="M${cx} ${fl + 16} L${cx} ${by - 4} Q${cx} ${by - 20} ${cx + 16} ${by - 20} L${cx + 70} ${by - 20} Q${cx + 80} ${by - 20} ${cx + 86} ${by - 10} L${cx + 108} ${by + 30} L${cx + 108} ${fl + 16} Z" fill="${col}" stroke="rgba(0,0,0,.3)" stroke-width="2"/>
+      <rect x="${cx + 34}" y="${by - 10}" width="46" height="36" rx="6" fill="#CFEAF8" stroke="rgba(0,0,0,.3)" stroke-width="2"/><circle cx="${cx + 104}" cy="${fl}" r="7" fill="#FFE36E"/>
+      ${[bx + 70, bx + 2 * GW - 20, cx + 70].map(x => `<circle cx="${x}" cy="${fl + 42}" r="24" fill="#2D3748"/><circle cx="${x}" cy="${fl + 42}" r="10" fill="#CBD5E0"/>`).join('')}`;
+  }
+  function trailerSVG(){             // farmer's tractor + trailer with as many empty places as he asked for
+    const [bx, by] = P.bed, fl = by + GH + 4, tx = bx + 16 + 2 * GW + P.gap, [lx, ly] = bedLoose();
+    const spots = Array.from({length: 10}, (_, j) => { const [x, y] = cell(lx, ly, j);
+      return j < st.cart ? baleSVG(x, y, 1) : j < st.target ? `<rect x="${x - 21}" y="${y - 14}" width="42" height="28" rx="5" fill="#FFFFFF" fill-opacity=".55" stroke="#E3051B" stroke-width="2.5" stroke-dasharray="5 4"/><circle cx="${x}" cy="${y}" r="5" fill="#E3051B"/>` : ''; }).join('');
+    return `<rect x="${lx - 8}" y="${fl}" width="${GW + 16}" height="16" rx="4" fill="#8E5B2B"/><rect x="${lx - 8}" y="${ly - 10}" width="8" height="${GH + 14}" fill="#6B4423"/><rect x="${lx + GW}" y="${ly - 10}" width="8" height="${GH + 14}" fill="#6B4423"/>
+      <circle cx="${lx + GW / 2}" cy="${fl + 34}" r="20" fill="#2D3748"/><circle cx="${lx + GW / 2}" cy="${fl + 34}" r="8" fill="#CBD5E0"/><rect x="${lx + GW + 8}" y="${fl + 6}" width="30" height="6" fill="#4A5568"/>
+      <g transform="translate(${tx + 20} ${fl + 52})"><circle cx="70" cy="-26" r="26" fill="#2D3748"/><circle cx="70" cy="-26" r="11" fill="#CBD5E0"/><circle cx="10" cy="-16" r="16" fill="#2D3748"/><circle cx="10" cy="-16" r="6" fill="#CBD5E0"/>
+        <path d="M-6 -30 L-6 -62 L40 -62 L40 -110 L84 -110 L92 -62 L100 -62 L100 -36 Z" fill="#E25F0B" stroke="#A3420A" stroke-width="2"/><rect x="46" y="-102" width="32" height="32" rx="4" fill="#CFEAF8"/><rect x="2" y="-80" width="8" height="22" fill="#4A5568"/>
+        <circle cx="60" cy="-128" r="12" fill="#F2C9A0"/><path d="M44 -132 h32 l-4 -10 h-24 z" fill="#E9C46A"/></g>${spots}`;
+  }
+  function drawScene(){
+    const z = document.getElementById('cz'); if (!z) return;
+    const p = st.pal; let s = barnSVG();
+    if (st.mode === 'ayni') {          // the neighbour's truck is already loaded: one tied pallet and a bales
+      const [px, py] = bedPal(), [lx, ly] = bedLoose();
+      s += `<g>${truckSVG('#1E9AD6')}${palletSVG(px, py, 10, true)}${Array.from({length: st.a}, (_, j) => { const [x, y] = cell(lx, ly, j); return baleSVG(x, y, 1); }).join('')}</g>`;
+    } else if (st.mode === 'ac') s += trailerSVG();
+    else {
+      const [lx, ly] = bedLoose();
+      const looseB = Array.from({length: st.load}, (_, j) => { const [x, y] = cell(lx, ly, j); return baleSVG(x, y, 1, st.mode === 'gec', st.mode === 'fis' ? 'class="tb" style="cursor:pointer"' : ''); }).join('');
+      const pairs = st.mode === 'esle' ? st.loaded.map(([a], i) => palletSVG(...(i ? bedLoose() : bedPal()), 10, true, false, a)).join('') : '';
+      s += `<g transform="translate(${st.tx} 0)" class="truck">${truckSVG('#2E9256')}${looseB}${pairs}
+        ${p && p.at === 'truck' ? palletSVG(...bedPal(), p.n, p.tied, false, st.mode === 'tamamla' || st.mode === 'gec' ? st.m : null) : ''}</g>`;
+    }
+    if (p && p.at === 'ground') s += palletSVG(...palGrid(), p.n, p.tied, false, null, `class="pal" style="cursor:pointer"`);
+    if (p && p.at === 'ground') s += `<rect class="pal" x="${P.pal[0] - 10}" y="${P.pal[1] - 20}" width="${GW + 20}" height="${GH + 46}" fill="transparent" style="cursor:pointer"/>`;
+    z.innerHTML = s;
+  }
+  function drawField(){
+    if (st.mode === 'esle') return drawHalf();
+    const f = document.getElementById('cf'); if (!f) return;
+    f.innerHTML = st.field.filter(b => !b.gone).map(b => baleSVG(b.x, b.y, 1, false, `class="bale" data-id="${b.id}" style="cursor:pointer"`) + `<rect class="bale" data-id="${b.id}" x="${b.x - 27}" y="${b.y - 22}" width="54" height="44" fill="transparent"/>`).join('');
+  }
+  function scene(){
+    return `<svg viewBox="0 0 ${VW} ${VH}" class="kuleSVG ciftSVG" role="img" aria-label="Çiftlik, saman balyaları ve kamyon">${sky(thm())}
+      <g transform="translate(${OX} ${OY})"><g id="cz"></g><g id="cf"></g><g id="cfx" style="pointer-events:none"></g></g><g id="kab"></g><g id="krev"></g></svg>`;
+  }
+  /* ---- moves ---- */
+  const clearHint = () => { clearTimeout(clearHint.t); const f = document.getElementById('fb'); if (f) { f.textContent = ''; f.className = 'feedback'; } };
+  const hint = t => { FB(t); clearTimeout(clearHint.t); clearHint.t = setTimeout(() => { if (alive) clearHint(); }, 4500); };
+  function hop(a, b, fresh, done){
+    st.busy = true; const fx = document.getElementById('cfx'); sPop();
+    tween(380, t => { const x = a[0] + (b[0] - a[0]) * t, y = a[1] + (b[1] - a[1]) * t - Math.sin(Math.PI * t) * 70; fx.innerHTML = baleSVG(x, y, 1, fresh); },
+      () => { fx.innerHTML = ''; tone(300 + Math.random() * 60, .06, 'triangle', .08); st.busy = false; done(); }, () => alive);
+  }
+  function tie(onDone){
+    st.busy = true; tone(520, .08, 'triangle', .1); tone(780, .1, 'triangle', .1, .12); tone(1040, .14, 'sine', .1, .26);
+    setTimeout(() => { if (!alive) return; st.pal.tied = true; drawScene(); st.busy = false; onDone && onDone(); }, 380);
+  }
+  function tractorToTruck(done){
+    st.busy = true; const fx = document.getElementById('cfx'), [ax, ay] = P.pal, [bx, by] = bedPal(), p = st.pal; p.at = 'moving'; drawScene();
+    tone(140, .5, 'sawtooth', .03);
+    tween(1500, t => { const e = ease(t), x = ax + (bx - ax) * e, y = ay + (by - ay) * e - Math.sin(Math.PI * e) * 90;
+      fx.innerHTML = palletSVG(x, y, 10, true) + `<g transform="translate(${x + GW + 22} ${y + GH + 18})"><circle cx="0" cy="0" r="14" fill="#2D3748"/><circle cx="40" cy="-4" r="18" fill="#2D3748"/><path d="M-14 -12 L-14 -34 L18 -34 L18 -64 L48 -64 L54 -30 L60 -30 L60 -14 Z" fill="#E25F0B"/><rect x="24" y="-58" width="20" height="20" rx="3" fill="#CFEAF8"/><rect x="-26" y="-50" width="12" height="44" fill="#9AA3B5"/></g>`;
+    }, () => { fx.innerHTML = ''; p.at = 'truck'; drawScene(); tone(240, .14, 'triangle', .12); st.busy = false; done(); }, () => alive);
+  }
+  function truckGo(done){
+    st.busy = true; tone(392, .22, 'square', .06); tone(392, .22, 'square', .06, .3);
+    tween(1700, t => { st.tx = (VW + 200) * t * t; drawScene(); }, done, () => alive);
+  }
+  const left = () => st.field.filter(b => !b.gone);
+  function tapBale(id){
+    const b = st.field.find(x => x.id === id); if (!b || b.gone) return;
+    const p = st.pal, from = [b.x, b.y];
+    if (st.mode === 'pack' || st.mode === 'ayni' || st.mode === 'fis') {
+      if (p.at === 'ground' && !p.tied) { const to = cell(...P.pal, p.n); b.gone = true; drawField();
+        return hop(from, to, false, () => { p.n++; drawScene(); if (p.n === 10) tie(() => afterTie()); }); }
+      if (st.mode === 'ayni') return hint('Palet doldu. Şimdi karşılaştır.');
+      if (p.at === 'ground') return hint('Önce paleti kamyona yükle: palete dokun.');
+      if (p.at === 'truck') { if (st.load >= 9) return hint('Kamyonun bu tarafına en çok 9 balya sığar.');
+        const [lx, ly] = bedLoose(), to = cell(lx, ly, st.load); b.gone = true; drawField();
+        return hop(from, to, false, () => { st.load++; drawScene(); if (!left().length && st.mode === 'pack') { setInstr('Hepsi yüklendi. Kamyon yola çıkıyor!'); setTimeout(() => truckGo(() => cardPack()), 700); } }); }
+    } else if (st.mode === 'tamamla') {
+      if (p.n >= 10) return;
+      const to = cell(...bedPal(), p.n); b.gone = true; drawField();
+      return hop(from, to, true, () => { p.n++; drawScene(); if (p.n === 10) tie(() => { setInstr('Palet doldu ve bağlandı. Kamyon yola çıkıyor!'); setTimeout(() => truckGo(() => cardTamamla()), 700); }); });
+    } else if (st.mode === 'gec') {
+      b.gone = true; drawField();
+      if (p.n < 10) return hop(from, cell(...bedPal(), p.n), true, () => { p.n++; drawScene(); if (p.n === 10) tie(() => setInstr('Palet doldu ve bağlandı! Kalan balyaları kamyonun boş yerine koy.')); });
+      return hop(from, cell(...bedLoose(), st.load), true, () => { st.load++; drawScene(); if (!left().length) { setInstr('Hepsi yüklendi. Kamyon yola çıkıyor!'); setTimeout(() => truckGo(() => cardGec()), 700); } });
+    } else if (st.mode === 'ac') {
+      if (st.cart >= st.target) return hint('Çiftçi bu kadar istedi. Römork doldu.');
+      const to = cell(...bedLoose(), st.cart); b.gone = true; drawField();
+      return hop(from, to, false, () => { st.cart++; drawScene(); checkAc(); });
+    }
+  }
+  function afterTie(){
+    if (st.mode === 'pack' || st.mode === 'fis') setInstr('Palette 10 balya oldu, palet bağlandı! Palete dokun, traktör kamyona yüklesin.');
+    else if (st.mode === 'ayni' && !st.asked) { st.asked = true; showAns(); setInstr('Şimdi karşılaştır: senin samanın komşunun kamyonundakiyle aynı mı?'); }
+  }
+  function tapPallet(){
+    const p = st.pal; if (!p) return;
+    if (st.mode === 'ac') {
+      if (!p.tied) { // untied pallet: take one bale from it
+        if (st.cart >= st.target) return hint('Çiftçi bu kadar istedi. Römork doldu.');
+        if (!p.n) return;
+        const from = cell(...P.pal, p.n - 1); p.n--; drawScene();
+        return hop(from, cell(...bedLoose(), st.cart), false, () => { st.cart++; drawScene(); checkAc(); });
+      }
+      if (left().length) return hint('Önce tarladaki balyaları ver. Yetmezse paleti açarsın.');
+      st.busy = true; tone(700, .1, 'triangle', .1); tone(500, .12, 'triangle', .1, .12);
+      return setTimeout(() => { if (!alive) return; p.tied = false; st.opened = true; drawScene(); st.busy = false; setInstr('Bağ çözüldü! Palette 10 balya var. Balyalara dokun, römorka koy.'); }, 380);
+    }
+    if (st.mode === 'pack' || st.mode === 'fis') {
+      if (!p.tied) return hint('Palet daha dolmadı. Tarladaki balyalara dokun.');
+      if (p.at === 'ground') return tractorToTruck(() => { if (st.mode === 'fis') setInstr('Palet kamyonda. Şimdi fişteki sayıya göre balya ekle, sonra Gönder düğmesine bas.'); else if (left().length) setInstr('Şimdi tarlada kalan balyaları da kamyona yükle.'); else truckGo(() => cardPack()); });
+    }
+    if (st.mode === 'ayni' && !p.tied) hint('Palet daha dolmadı. Balyalara dokun.');
+  }
+  function checkAc(){ if (st.cart === st.target) cardAc(); }
+  function showAns(){
+    const y = Math.min(150, OY + 120), d = Math.min(120, VW * .2);
+    document.getElementById('kab').innerHTML = [['ayni', '=', 'Aynı', '#2E9256', -d], ['farkli', '≠', 'Farklı', '#E25F0B', d]].map(([v, sym, lab, col, dx]) =>
+      `<g data-ans="${v}" style="cursor:pointer"><circle cx="${VW / 2 + dx}" cy="${y}" r="54" fill="${col}" stroke="#FFFFFF" stroke-width="5"/>
+        <text x="${VW / 2 + dx}" y="${y + 22}" text-anchor="middle" font-size="64" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">${sym}</text>
+        <rect x="${VW / 2 + dx - 50}" y="${y + 62}" width="100" height="34" rx="17" fill="#FFFFFF" opacity=".92"/>
+        <text x="${VW / 2 + dx}" y="${y + 86}" text-anchor="middle" font-size="22" fill="#1E2464" style="font-family:Lexend,sans-serif;font-weight:700">${lab}</text></g>`).join('');
+  }
+  function answer(v){
+    if ((v === 'ayni') === (st.a === st.b)) { document.getElementById('kab').innerHTML = ''; cardAyni(); }
+    else { sBad(); hint('Paletin dışında kalan balyalara bir daha bak.'); }
+  }
+  /* ---- answer cards: ten-frames filled with bales; a pallet frame has wood and a rope ---- */
+  function card(inner0, anim, end, say){
+    st.busy = true; st.go = false; sOk(); clearHint();
+    const g = document.getElementById('krev');
+    const shell = inner => { const sc2 = Math.min(VW / 840, VH / 600), tf = `translate(${VW / 2 - 500 * sc2} ${VH / 2 - 430 * sc2}) scale(${sc2})`;
+      g.innerHTML = `<rect width="${VW}" height="${VH}" fill="#FFFFFF" opacity=".82"/><g id="krevin" transform="${tf}"><rect x="110" y="150" width="780" height="560" rx="34" fill="#FFFFFF" stroke="#1E2464" stroke-width="5"/>${inner}</g>`; };
+    const finish = inner => { shell(inner); speak(say); afterSay(() => { if (!alive) return; st.go = true;
+      document.getElementById('krevin').insertAdjacentHTML('beforeend', `<g id="kgo" style="cursor:pointer"><rect x="390" y="628" width="220" height="66" rx="33" fill="#2E9256"/>
+        <text x="478" y="673" text-anchor="middle" font-size="34" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">Devam</text><path d="M560 644 L582 661 L560 678 Z" fill="#FFFFFF"/>
+        ${RM ? '' : '<animateTransform attributeName="transform" type="scale" additive="sum" values="1;1.04;1" dur="1.4s" repeatCount="indefinite"/>'}</g>`); }, 300); };
+    if (!anim) return finish(inner0 + end);
+    shell(anim(0)); setTimeout(() => tween(1300, t => shell(anim(ease(t))), () => finish(anim(1) + end), () => alive), 800);
+  }
+  const D = 50, KC = '#8E5B2B';
+  const ccell = (cx, cy, s, j) => [cx + (-2 + j % 5) * D * s, cy + (-.5 + Math.floor(j / 5)) * D * s];   // top row first, like a ten-frame
+  const fr = (cx, cy, s, style, op) => { const w = (5 * D + 28) * s, h = (2 * D + 28) * s;
+    return op <= 0 ? '' : `<g opacity="${op}"><rect x="${cx - w / 2}" y="${cy - h / 2}" width="${w}" height="${h}" rx="${12 * s}" fill="${style === 'pal' ? '#F3E3CF' : '#FFFFFF'}" stroke="${style === 'pal' ? '#A47148' : style === 'order' ? '#E3051B' : '#1E2464'}" stroke-width="${style === 'pal' ? 8 : 4}"/>
+      ${Array.from({length: 10}, (_, j) => { const [x, y] = ccell(cx, cy, s, j); return `<rect x="${x - 21 * s}" y="${y - 15 * s}" width="${42 * s}" height="${30 * s}" rx="5" fill="none" stroke="#D5D9E8" stroke-width="2"/>`; }).join('')}
+      <line x1="${cx + 2.5 * D * s}" y1="${cy - D * s}" x2="${cx + 2.5 * D * s}" y2="${cy + D * s}" stroke="#D5D9E8" stroke-width="2"/></g>`; };
+  const rope = (cx, cy, s, op) => op <= 0 ? '' : `<g opacity="${op}"><rect x="${cx - (5 * D + 40) * s / 2}" y="${cy - (2 * D + 40) * s / 2}" width="${(5 * D + 40) * s}" height="${(2 * D + 40) * s}" rx="${14 * s}" fill="none" stroke="${KC}" stroke-width="6"/>
+    <path d="M${cx} ${cy - (2 * D + 40) * s / 2} q-18 -18 -30 -4 q12 12 30 4 q18 -18 30 -4 q-12 12 -30 4" fill="#A0663A" stroke="#6B4423" stroke-width="2"/></g>`;
+  const num = (x, y, v, col, size) => `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" fill="${col}" stroke="#1E2464" stroke-width="${col === '#1E2464' ? 0 : 3}" paint-order="stroke" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${v}</text>`;
+  const line = parts => `<text x="500" y="600" text-anchor="middle" font-size="58" style="font-family:TTKB,Lexend,sans-serif;font-weight:700" fill="#1E2464">${parts.map(([v, c]) => c ? `<tspan fill="${c}" stroke="#1E2464" stroke-width="2" paint-order="stroke">${v}</tspan>` : v).join(' ')}</text>`;
+  const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  const LOOSE = '#2E86DE';
+  function cardPack(){
+    const r = st.load, T = 10 + r, s = .85, LX = 330, RX = 670, CY = 440;
+    const spots = shuffle(Array.from({length: 24}, (_, i) => [210 + (i % 6) * 116 + ((i * 37) % 30 - 15), 300 + Math.floor(i / 6) * 70 + ((i * 53) % 24 - 12)])).slice(0, T);
+    const bales = Array.from({length: T}, (_, i) => ({a: spots[i], b: i < 10 ? ccell(LX, CY, s, i) : ccell(RX, CY, s, i - 10)}));
+    card('', t => fr(LX, CY, s, 'pal', t) + fr(RX, CY, s, 'plain', t) + bales.map(o => { const [x, y] = lerp(o.a, o.b, t); return baleSVG(x, y, s * .95); }).join('') + rope(LX, CY, s, t > .8 ? (t - .8) * 5 : 0),
+      num(LX, 360, 10, '#A47148', 64) + num(RX, 360, r, LOOSE, 64) + num(500, 250, T, '#1E2464', 100) + line([['10', '#A47148'], ['+'], [r, LOOSE], ['='], [T]]),
+      `On balya bir palet oldu. ${r} balya da yanında gitti. Kamyonda ${T} balya var.`);
+  }
+  function cardTamamla(){
+    const m = st.m, n = 10 - m, s = 1.05, CY = 440, G2 = '#7CB518';
+    const bales = Array.from({length: 10}, (_, j) => ({f: j >= m, b: ccell(500, CY, s, j), a: j < m ? ccell(500, CY, s, j) : [560 + (j - m) * 44, 250]}));
+    card('', t => fr(500, CY, s, 'pal', 1) + bales.map(o => { const [x, y] = lerp(o.a, o.b, t); return baleSVG(x, y, s * .95, o.f); }).join('') + rope(500, CY, s, t > .8 ? (t - .8) * 5 : 0),
+      num(500, 320, 10, '#A47148', 96) + line([[m, '#D4A017'], ['+'], [n, G2], ['='], ['10', '#A47148']]),
+      `${m} ve ${n}, 10 eder. Palet doldu, kamyon yola çıktı!`);
+  }
+  function cardAyni(){
+    const s = .62, eq = st.a === st.b;
+    const dep = (cx, v, col) => fr(cx, 390, s, 'pal', 1) + rope(cx, 390, s, 1) + Array.from({length: 10}, (_, j) => { const [x, y] = ccell(cx, 390, s, j); return baleSVG(x, y, s * .95); }).join('')
+      + fr(cx, 500, s, 'plain', 1) + Array.from({length: v}, (_, j) => { const [x, y] = ccell(cx, 500, s, j); return baleSVG(x, y, s * .95); }).join('') + num(cx, 318, 10 + v, col, 64);
+    card(dep(290, st.a, '#1E9AD6') + dep(710, st.b, '#2E9256') + `<text x="500" y="485" text-anchor="middle" font-size="110" fill="#1E2464" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${eq ? '=' : '≠'}</text>`, null,
+      line([[10 + st.a, '#1E9AD6'], [eq ? '=' : '≠'], [10 + st.b, '#2E9256']]),
+      eq ? `Komşunun kamyonunda da, sende de ${10 + st.a} balya var. Aynı!` : `Komşunun kamyonunda ${10 + st.a}, sende ${10 + st.b} balya var. Farklı!`);
+  }
+  function cardAc(){
+    const s = .85, LX = 330, RX = 670, CY = 440, T = 10 + st.a, S = st.target;
+    const bales = Array.from({length: T}, (_, i) => ({a: i < 10 ? ccell(LX, CY, s, i) : ccell(RX, CY, s, i - 10), b: i < S ? ccell(LX, CY, s, i) : ccell(RX, CY, s, i - S)}));
+    card('', t => fr(LX, CY, s, 'pal', 1 - t) + fr(LX, CY, s, 'order', t) + fr(RX, CY, s, 'plain', 1) + rope(LX, CY, s, 1 - t * 1.6) + bales.map(o => { const [x, y] = lerp(o.a, o.b, t); return baleSVG(x, y, s * .95); }).join(''),
+      num(LX, 360, S, '#E3051B', 64) + num(RX, 360, T - S, '#1E2464', 64) + num(500, 250, T, '#1E2464', 100) + line([[T], ['='], [S, '#E3051B'], ['+'], [T - S]]),
+      `Paletin bağını çözünce ${T} balya oldu. ${S} tanesini çiftçiye verdik, ${T - S} balya kaldı.`);
+  }
+  /* ---- rounds ---- */
+  function fieldSpots(n){
+    const [x0, y0, x1, y1] = P.field, cw = 58, rh = 46, cols = Math.floor((x1 - x0) / cw), rows = Math.floor((y1 - y0) / rh);
+    return shuffle(Array.from({length: cols * rows}, (_, i) => i)).slice(0, n).map(i => [x0 + (i % cols) * cw + cw / 2 + rint(-6, 6), y0 + Math.floor(i / cols) * rh + rh / 2 + rint(-5, 5)]);
+  }
+  function setup(nField, opt){
+    layout();
+    Object.assign(st, {busy: false, go: false, pal: null, load: 0, cart: 0, target: 0, a: 0, b: 0, m: 0, q: 0, r: 0, T: 0, tx: 0, asked: false, opened: false, hps: [], sel: null, loaded: [], shown: false}, opt);
+    st.field = fieldSpots(nField).map(([x, y], i) => ({id: i, x, y, gone: false}));
+    sb.innerHTML = `${progBar(N, k)}<div class="kulewrap">${scene()}<div class="feedback" id="fb"></div></div>`;
+    drawScene(); drawField(); bind();
+    requestAnimationFrame(relayout);
+  }
+  function bind(){
+    sb.querySelector('.ciftSVG').onclick = e => {
+      if (e.target.closest('#kgo')) { if (st.go) { st.go = false; k++; play(); } return; }
+      if (st.busy) return;
+      const an = e.target.closest('[data-ans]'); if (an) return answer(an.dataset.ans);
+      const hp = e.target.closest('.hp'); if (hp) return tapHalf(+hp.dataset.id);
+      const nm = e.target.closest('[data-num]'); if (nm) { if (+nm.dataset.num === 10 + st.r) { document.getElementById('kab').innerHTML = ''; return cardGec2(); } sBad(); return hint('Bir daha düşün. İstersen kamyonu yeniden çağır.'); }
+      if (e.target.closest('[data-rep]')) return drive();
+      if (e.target.closest('#send')) return send();
+      if (e.target.closest('.tb')) return returnBale();
+      const b = e.target.closest('.bale'); if (b) return tapBale(+b.dataset.id);
+      if (e.target.closest('.pal')) return tapPallet();
+      if (e.target.closest('.truck') && st.mode === 'pack') hint(st.pal.tied ? 'Palete dokun, traktör yüklesin.' : 'Önce palete 10 balya diz.');
+    };
+  }
+  function play(){
+    if (k >= N) return levelDone();
+    if (LVL === 2) return playL2();
+    if (k < 3) {
+      const T = rint(11, 19);
+      setup(T, {mode: 'pack', pal: {at: 'ground', n: 0, tied: false}});
+      setInstr(k === 0 ? 'Çiftliğe hoş geldin! Kamyon samanları şehre götürecek. Balyalara dokun, palete dizilsinler. Palette 10 balya olunca palet bağlanır.' : 'Balyaları palete diz, sonra hepsini kamyona yükle.');
+    } else if (k < 6) {
+      const a = rint(1, 9), b = Math.random() < .5 ? a : Math.max(1, Math.min(9, a + (Math.random() < .5 ? -1 : 1) * rint(1, 2)));
+      setup(10 + b, {mode: 'ayni', a, b, pal: {at: 'ground', n: 0, tied: false}});
+      setInstr(k === 3 ? 'Komşunun kamyonu yüklendi: bir palet ve birkaç balya. Sen de balyalarını palete diz, sonra karşılaştır.' : 'Balyalarını palete diz, sonra komşunun kamyonuyla karşılaştır.');
+    } else if (k < 9) {
+      const m = rint(2, 8), extra = rint(1, 3);
+      setup(10 - m + extra, {mode: 'tamamla', m, pal: {at: 'truck', n: m, tied: false}});
+      setInstr(k === 6 ? 'Kamyondaki palet yarım kaldı. Balyalara dokun, palet dolsun. Palet dolunca bağlanır, kamyon yola çıkar.' : 'Kamyondaki paleti tam doldur.');
+    } else {
+      const a = rint(1, 5), s = rint(a + 1, 9);
+      setup(a, {mode: 'ac', a, target: s, pal: {at: 'ground', n: 10, tied: true}});
+      setInstr(k === 9 ? 'Çiftçi römorkuna saman istiyor. Römorktaki noktalı yerleri doldur. Balya yetmezse palete dokun, paletin bağı çözülür.' : 'Çiftçinin römorkunu doldur.');
+    }
+  }
+  /* ===== Seviye 2: Çiftlik Pazarı ===== */
+  const GOLD = '#D4A017', GREEN = '#7CB518';
+  function levelDone(){
+    LV.open('ciftlik', LVL + 1); addStar(); clearHint();
+    document.getElementById('krev').innerHTML = ''; document.getElementById('kab').innerHTML = '';
+    st.busy = true; setInstr(LVL === 1 ? 'Harika! Seviye 1 bitti.' : 'Harika! Çiftlik Pazarı da bitti.');
+    celebrate(sb.querySelector('.ciftSVG'), VW, VH, {cows: true, title: `Seviye ${LVL} tamam!`, say: LVL === 1 ? 'Harika! Bütün samanları taşıdın. İnekler de karnını doyurdu. Şimdi Seviye 2 seni bekliyor.' : 'Harika! Çiftlik Pazarı da bitti. İnekler çok mutlu.'},
+      LVL === 1 ? () => { LVL = 2; k = 0; play(); } : null, () => { sWin(); exitCard('ciftlik'); });
+  }
+  // small half-full pallets in the field (Eşleştir)
+  const HPS = () => TALL ? .62 : .62;
+  function drawHalf(){
+    const f = document.getElementById('cf'); if (!f) return;
+    const sc = HPS();
+    f.innerHTML = st.hps.filter(h => !h.gone).map(h => `<g class="hp" data-id="${h.id}" style="cursor:pointer"><g transform="translate(${h.x} ${h.y}) scale(${sc})">
+      ${st.sel === h.id ? `<rect x="-14" y="-16" width="${GW + 28}" height="${GH + 44}" rx="12" fill="#FFE36E" opacity=".7" stroke="#E25F0B" stroke-width="5"/>` : ''}${palletSVG(0, 0, h.n, false)}</g>
+      <rect x="${h.x - 8}" y="${h.y - 10}" width="${(GW + 16) * sc}" height="${(GH + 30) * sc}" fill="transparent"/></g>`).join('');
+  }
+  function halfSpots(){
+    const [x0, y0, x1, y1] = P.field, sc = HPS(), w = (GW + 30) * sc, h = (GH + 40) * sc;
+    const cx = [x0 + (x1 - x0) * .25 - w / 2, x0 + (x1 - x0) * .75 - w / 2], cy = [y0 + (y1 - y0) * .25 - h / 2 + 6, y0 + (y1 - y0) * .75 - h / 2 + 6];
+    return shuffle([[cx[0], cy[0]], [cx[1], cy[0]], [cx[0], cy[1]], [cx[1], cy[1]]]);
+  }
+  function tapHalf(id){
+    const h = st.hps.find(x => x.id === id); if (!h || h.gone) return;
+    if (st.sel == null) { st.sel = id; sPop(); return drawHalf(); }
+    if (st.sel === id) { st.sel = null; return drawHalf(); }
+    const a = st.hps.find(x => x.id === st.sel);
+    if (a.n + h.n !== 10) { sBad(); st.sel = null; drawHalf(); return hint('Bu iki palet birleşince 10 olmuyor. Başka bir palet dene.'); }
+    // h's bales slide into a: one full pallet, tied, then it goes onto the truck
+    st.busy = true; st.sel = null; const fx = document.getElementById('cfx'), sc = HPS(), keep = a.n;
+    h.gone = true; drawHalf(); tone(520, .1, 'triangle', .08);
+    tween(600, t => { const e = ease(t); fx.innerHTML = `<g transform="translate(${h.x + (a.x - h.x) * e} ${h.y + (a.y - h.y) * e}) scale(${sc})" opacity="${1 - e * .7}">${palletSVG(0, 0, h.n, false)}</g>`; }, () => {
+      fx.innerHTML = ''; a.n = 10; a.fresh = keep; drawHalf();
+      tone(520, .08, 'triangle', .1); tone(780, .1, 'triangle', .1, .12); tone(1040, .14, 'sine', .1, .26);
+      const spot = st.loaded.length === 0 ? bedPal() : bedLoose(); st.loaded.push([keep, 10 - keep]);
+      setTimeout(() => { if (!alive) return; a.gone = true; drawHalf();
+        tween(1100, t => { const e = ease(t), s2 = sc + (1 - sc) * e, x = a.x + (spot[0] - a.x) * e, y = a.y + (spot[1] - a.y) * e - Math.sin(Math.PI * e) * 80;
+          fx.innerHTML = `<g transform="translate(${x} ${y}) scale(${s2})">${palletSVG(0, 0, 10, true, false, keep)}</g>`; }, () => {
+          fx.innerHTML = ''; drawScene(); tone(240, .14, 'triangle', .12); st.busy = false;
+          if (st.loaded.length === 2) { setInstr('İki palet de doldu. Kamyon yola çıkıyor!'); setTimeout(() => truckGo(() => cardEsle()), 700); }
+          else setInstr('Bir palet doldu! Kalan iki yarım paleti de birleştir.'); }, () => alive); }, 450);
+    }, () => alive);
+  }
+  // number buttons (Kamyon geçiyor) and the send button (Sipariş fişi)
+  function showNums(){
+    const y = Math.min(160, OY + 130), r = st.r, T = 10 + r;
+    const opts = shuffle([T, r, T + (Math.random() < .5 || T >= 19 ? -1 : 1)]);
+    document.getElementById('kab').innerHTML = opts.map((v, i) => `<g data-num="${v}" style="cursor:pointer"><circle cx="${VW / 2 + (i - 1) * Math.min(130, VW * .24)}" cy="${y}" r="50" fill="#FFFFFF" stroke="#1E2464" stroke-width="5"/>
+      <text x="${VW / 2 + (i - 1) * Math.min(130, VW * .24)}" y="${y + 20}" text-anchor="middle" font-size="54" fill="#1E2464" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${v}</text></g>`).join('')
+      + `<g data-rep="1" style="cursor:pointer"><rect x="${VW / 2 - 110}" y="${y + 66}" width="220" height="44" rx="22" fill="#1E9AD6"/><text x="${VW / 2}" y="${y + 96}" text-anchor="middle" font-size="22" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">Kamyonu bir daha çağır</text></g>`;
+  }
+  function drive(){
+    st.busy = true; document.getElementById('kab').innerHTML = ''; const far = VW + 200; st.tx = -far; drawScene(); tone(140, .6, 'sawtooth', .03);
+    tween(1400, t => { st.tx = -far * (1 - ease(t)); drawScene(); }, () => {
+      setTimeout(() => { if (!alive) return; tone(392, .2, 'square', .05);
+        tween(1300, t => { st.tx = far * t * t; drawScene(); }, () => { st.busy = false; st.shown = true; showNums(); }, () => alive); }, 2600);
+    }, () => alive);
+  }
+  function fisSVG(){
+    const w = 128, x = VW - w - 18, y = 16;
+    return `<g><rect x="${x}" y="${y + 8}" width="${w}" height="150" rx="10" fill="#FFFFFF" stroke="#1E2464" stroke-width="4"/><rect x="${x + w / 2 - 26}" y="${y}" width="52" height="18" rx="5" fill="#9AA3B5"/>
+      <text x="${x + w / 2}" y="${y + 44}" text-anchor="middle" font-size="20" fill="#575E80" style="font-family:Lexend,sans-serif;font-weight:700">Sipariş</text>
+      <text x="${x + w / 2}" y="${y + 116}" text-anchor="middle" font-size="68" fill="#E3051B" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${st.T}</text>
+      <g id="send" style="cursor:pointer"><rect x="${x - 4}" y="${y + 168}" width="${w + 8}" height="50" rx="25" fill="#2E9256"/><text x="${x + w / 2}" y="${y + 201}" text-anchor="middle" font-size="24" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">Gönder</text></g></g>`;
+  }
+  function send(){
+    const p = st.pal;
+    if (p.at !== 'truck') return hint('Önce 10 balyalık paleti hazırla ve kamyona yükle.');
+    if (st.load !== st.T - 10) { sBad(); return hint('Kamyondakileri fişteki sayıyla karşılaştır.'); }
+    document.getElementById('kab').innerHTML = ''; setInstr('Sipariş tamam. Kamyon yola çıkıyor!'); truckGo(() => cardFis());
+  }
+  function returnBale(){
+    if (!st.load) return; const back = st.field.find(b => b.gone); if (!back) return;
+    const from = cell(...bedLoose(), st.load - 1); st.load--; drawScene();
+    hop(from, [back.x, back.y], false, () => { back.gone = false; drawField(); });
+  }
+  /* answer cards of Seviye 2 */
+  function cardGec(){
+    const m = st.m, q = st.q, add = 10 - m, rest = q - add, s = .8, LX = 330, RX = 670, CY = 400;
+    const inner = fr(LX, CY, s, 'pal', 1) + rope(LX, CY, s, 1) + Array.from({length: 10}, (_, j) => { const [x, y] = ccell(LX, CY, s, j); return baleSVG(x, y, s * .95, j >= m); }).join('')
+      + fr(RX, CY, s, 'plain', 1) + Array.from({length: rest}, (_, j) => { const [x, y] = ccell(RX, CY, s, j); return baleSVG(x, y, s * .95, true); }).join('')
+      + num(LX, 325, 10, '#A47148', 58) + num(RX, 325, rest, GREEN, 58) + num(500, 236, 10 + rest, '#1E2464', 86)
+      + `<text x="500" y="522" text-anchor="middle" font-size="46" style="font-family:TTKB,Lexend,sans-serif;font-weight:700" fill="#1E2464"><tspan fill="${GOLD}">${m}</tspan> + <tspan fill="${GREEN}">${q}</tspan> = <tspan fill="${GOLD}">${m}</tspan> + <tspan fill="${GREEN}">${add}</tspan> + <tspan fill="${GREEN}">${rest}</tspan></text>`
+      + `<text x="500" y="584" text-anchor="middle" font-size="46" style="font-family:TTKB,Lexend,sans-serif;font-weight:700" fill="#1E2464">= <tspan fill="#A47148">10</tspan> + <tspan fill="${GREEN}">${rest}</tspan> = ${10 + rest}</text>`;
+    card(inner, null, '', `${m} ve ${q}. Önce ${add} balya paleti doldurdu, ${rest} balya yanına gitti. 10 ve ${rest}, ${10 + rest} eder.`);
+  }
+  function cardEsle(){
+    const s = .8, [[a1, b1], [a2, b2]] = st.loaded;
+    const one = (cx, a) => fr(cx, 400, s, 'pal', 1) + rope(cx, 400, s, 1) + Array.from({length: 10}, (_, j) => { const [x, y] = ccell(cx, 400, s, j); return baleSVG(x, y, s * .95, j >= a); }).join('')
+      + num(cx, 322, 10, '#A47148', 58) + `<text x="${cx}" y="540" text-anchor="middle" font-size="50" style="font-family:TTKB,Lexend,sans-serif;font-weight:700" fill="#1E2464"><tspan fill="${GOLD}">${a}</tspan> + <tspan fill="${GREEN}">${10 - a}</tspan> = 10</text>`;
+    card(one(310, a1) + one(690, a2), null, '', `${a1} ve ${b1}, 10 eder. ${a2} ve ${b2}, 10 eder. İki palet de doldu!`);
+  }
+  function cardGec2(){
+    const r = st.r, T = 10 + r, s = .85, LX = 330, RX = 670, CY = 440;
+    const inner = fr(LX, CY, s, 'pal', 1) + rope(LX, CY, s, 1) + Array.from({length: 10}, (_, j) => { const [x, y] = ccell(LX, CY, s, j); return baleSVG(x, y, s * .95); }).join('')
+      + fr(RX, CY, s, 'plain', 1) + Array.from({length: r}, (_, j) => { const [x, y] = ccell(RX, CY, s, j); return baleSVG(x, y, s * .95); }).join('')
+      + num(LX, 360, 10, '#A47148', 64) + num(RX, 360, r, LOOSE, 64) + num(500, 250, T, '#1E2464', 100) + line([['10', '#A47148'], ['+'], [r, LOOSE], ['='], [T]]);
+    card(inner, null, '', `Kamyonda bir palet ve ${r} balya vardı. 10 ve ${r}, ${T} eder.`);
+  }
+  function cardFis(){
+    const r = st.T - 10, s = .85, LX = 330, RX = 670, CY = 440;
+    const inner = fr(LX, CY, s, 'pal', 1) + rope(LX, CY, s, 1) + Array.from({length: 10}, (_, j) => { const [x, y] = ccell(LX, CY, s, j); return baleSVG(x, y, s * .95); }).join('')
+      + fr(RX, CY, s, 'plain', 1) + Array.from({length: r}, (_, j) => { const [x, y] = ccell(RX, CY, s, j); return baleSVG(x, y, s * .95); }).join('')
+      + num(LX, 360, 10, '#A47148', 64) + num(RX, 360, r, LOOSE, 64) + num(500, 250, st.T, '#E3051B', 100) + line([[st.T, '#E3051B'], ['='], ['10', '#A47148'], ['+'], [r, LOOSE]]);
+    card(inner, null, '', `Fişte ${st.T} yazıyordu. Bir palet ve ${r} balya gönderdin. 10 ve ${r}, ${st.T} eder.`);
+  }
+  function playL2(){
+    if (k < 3) {
+      const m = rint(6, 9), q = rint(11 - m, Math.min(9, 19 - m));
+      setup(q, {mode: 'gec', m, q, pal: {at: 'truck', n: m, tied: false}});
+      setInstr(k === 0 ? 'Seviye 2: Çiftlik Pazarı! Kamyondaki palet neredeyse dolu. Balyalara dokun: önce palet dolar, sonra kalanlar yanına gider.' : 'Önce paleti doldur, kalan balyaları yanına koy.');
+    } else if (k < 6) {
+      let a, b; do { a = rint(2, 8); b = rint(2, 8); } while (a === b || a + b === 10);
+      setup(0, {mode: 'esle', sel: null, loaded: [], hps: []});
+      const sp = halfSpots(); st.hps = shuffle([a, 10 - a, b, 10 - b]).map((n, i) => ({id: i, n, x: sp[i][0], y: sp[i][1], gone: false}));
+      drawHalf();
+      setInstr(k === 3 ? 'Tarlada yarım paletler var. 10 eden iki paleti bul: önce birine, sonra ötekine dokun.' : '10 eden iki yarım paleti birleştir.');
+    } else if (k < 9) {
+      setup(0, {mode: 'gec2', r: rint(1, 9), pal: {at: 'truck', n: 10, tied: true}, shown: false});
+      st.load = st.r; st.tx = -(VW + 200); drawScene();
+      setInstr(k === 6 ? 'Dikkat! Bir kamyon geçecek. İyi bak: kamyonda kaç balya var?' : 'Kamyon geliyor. Kaç balya taşıyor?');
+      afterSay(() => { if (alive && st.mode === 'gec2' && !st.shown) drive(); }, 300);
+    } else {
+      const T = rint(11, 19);
+      setup(T + rint(1, 3), {mode: 'fis', T, pal: {at: 'ground', n: 0, tied: false}});
+      document.getElementById('kab').innerHTML = fisSVG();
+      setInstr(k === 9 ? 'Pazardan sipariş geldi! Fişteki sayı kadar balya gönder. Sonra Gönder düğmesine bas.' : 'Fişteki kadar balya hazırla ve gönder.');
+    }
+  }
+  function relayout(){
+    if (!alive || st.busy || st.go || !sb.querySelector('.ciftSVG')) return;
+    const old = [VW, VH, TALL]; layout();
+    if (old[2] === TALL && Math.abs(VW - old[0]) / old[0] < .03 && Math.abs(VH - old[1]) / old[1] < .03) return;
+    if (old[2] !== TALL) { const sp = fieldSpots(st.field.length); st.field.forEach((b, i) => { b.x = sp[i][0]; b.y = sp[i][1]; }); }
+    if (old[2] !== TALL && st.mode === 'esle') { const sp = halfSpots(); st.hps.forEach((h, i) => { h.x = sp[i][0]; h.y = sp[i][1]; }); }
+    sb.querySelector('.ciftSVG').outerHTML = scene(); drawScene(); drawField(); bind(); if (st.asked && st.mode === 'ayni') showAns();
+    if (st.mode === 'fis') document.getElementById('kab').innerHTML = fisSVG(); if (st.mode === 'gec2' && st.shown) showNums();
+  }
+  const onResize = () => { clearTimeout(onResize.t); onResize.t = setTimeout(relayout, 250); };
+  window.addEventListener('resize', onResize);
+  const pic = (n, tied, extra) => `<svg viewBox="-10 -46 260 130" width="210" height="105">${Array.from({length: n}, (_, j) => baleSVG(23 + (j % 5) * 46, 51 - Math.floor(j / 5) * 34, 1)).join('')}${tied ? '<rect x="-3" y="-3" width="236" height="74" rx="8" fill="none" stroke="#8E5B2B" stroke-width="5"/>' : ''}${extra || ''}</svg>`;
+  levelPick('ciftlik', [['Kamyonu Yükle', pic(10, true)], ['Çiftlik Pazarı', pic(8, false, '<text x="230" y="-6" text-anchor="end" font-size="34" fill="#E3051B" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">8 + 5</text>')]], l => { LVL = l; k = 0; play(); });
+  return { stop(){ alive = false; clearTimeout(tm); window.removeEventListener('resize', onResize); }, st };
 };
 
 /* ---------- Harf İzi ---------- */
@@ -2940,6 +3503,7 @@ showTab(['cocuk','veli'].includes(startTab) ? startTab : 'cocuk');
 drawKidRail(); drawKidStop(); drawLetterCards();
 document.querySelector('.tabloart').innerHTML = `<svg viewBox="0 0 200 70" style="width:150px;display:block">${CAR_DEFS}<rect width="200" height="70" rx="10" fill="#3C424F"/>${[0,1,2,3,4].map(i => `<line x1="${10+i*45}" y1="6" x2="${10+i*45}" y2="64" stroke="#fff" stroke-width="3"/>`).join('')}<g transform="translate(20 8) scale(.42)">${carSVG('#E3051B')}</g><g transform="translate(110 8) scale(.42)">${carSVG('#1E9AD6')}</g><text x="77" y="44" text-anchor="middle" font-size="22" fill="#fff" class="ptxt" style="fill:#fff">14</text></svg>`;
 document.querySelector('.kuleart').innerHTML = `<svg viewBox="0 0 200 92" style="width:150px;display:block"><line x1="4" y1="10" x2="196" y2="10" stroke="#F6B800" stroke-width="6"/><line x1="182" y1="10" x2="182" y2="88" stroke="#F6B800" stroke-width="6"/><line x1="96" y1="13" x2="96" y2="22" stroke="#2D3748" stroke-width="2"/><rect x="89" y="20" width="14" height="6" rx="2" fill="#E3051B"/><g transform="scale(.5)">${['#4D96FF','#4D96FF'].map((c,j) => cubeSVG(192, 62 + j*32, c, j === 0)).join('')}${['#F94144','#F94144','#F94144'].map((c,j) => cubeSVG(70, 146 - j*32, c, j === 2)).join('')}${['#43AA8B','#43AA8B','#F9C74F','#F9C74F','#F9C74F'].map((c,j) => cubeSVG(290, 146 - j*32, c, j === 4)).join('')}</g><rect x="0" y="88" width="200" height="4" fill="#E9B95A"/></svg>`;
+document.querySelector('.ciftlikart').innerHTML = `<svg viewBox="0 0 300 190" style="width:150px;display:block">${Array.from({length: 10}, (_, j) => baleSVG(26 + (j % 5) * 46, 84 - Math.floor(j / 5) * 34, 1)).join('')}<rect x="0" y="40" width="234" height="62" rx="8" fill="none" stroke="#8E5B2B" stroke-width="5"/><rect x="0" y="104" width="250" height="14" rx="4" fill="#8E5B2B"/><rect x="0" y="118" width="300" height="12" rx="4" fill="#4A5568"/><path d="M250 118 L250 50 Q250 36 264 36 L282 36 L298 70 L298 118 Z" fill="#2E9256"/><rect x="262" y="44" width="24" height="24" rx="4" fill="#CFEAF8"/>${[50, 200, 270].map(x => `<circle cx="${x}" cy="146" r="20" fill="#2D3748"/><circle cx="${x}" cy="146" r="8" fill="#CBD5E0"/>`).join('')}</svg>`;
 document.querySelector('.dogruart').innerHTML = `<svg viewBox="0 0 200 80" style="width:150px;display:block"><line x1="6" y1="56" x2="194" y2="56" stroke="#1E2464" stroke-width="4" stroke-linecap="round"/>${[0,1,2,3,4,5].map(i => `<line x1="${16+i*34}" y1="48" x2="${16+i*34}" y2="64" stroke="#1E2464" stroke-width="3"/>`).join('')}<path d="M50 50 Q67 10 84 50" stroke="#E3051B" stroke-width="3" fill="none" stroke-dasharray="5 4"/><g transform="translate(84 52) scale(.7)">${frogSVG()}</g></svg>`;
 document.querySelector('.agirart').innerHTML = ['#4CAF50','#8E5BC4','#F08A2B'].map(c => `<span style="width:40px;display:inline-block">${SACK(c)}</span>`).join('');
 document.querySelector('[data-game="tren"] .art').innerHTML = '<span style="display:flex;gap:4px;align-items:end"><i style="width:30px;height:26px;border:3px solid #1E2464;border-radius:6px;background:#F6D928;display:block"></i><i style="width:30px;height:26px;border:3px solid #1E2464;border-radius:6px;background:#FFFFFF;display:block"></i><span style="width:62px;display:block">' + TRAIN + '</span></span>';
