@@ -322,7 +322,11 @@ a.game{text-decoration:none}
 .clues .sk svg{width:100%;display:block}
 /* otopark + sayı doğrusu */
 .parkwrap,.linewrap,.kulewrap{width:100%;max-width:900px}
-.stage-body:has(.kulewrap),.kulewrap{max-width:1300px}
+.stage-body:has(.kulewrap),.kulewrap{max-width:none}
+.kulewrap{position:relative}
+.kulewrap #fb{position:absolute;left:50%;top:12%;transform:translateX(-50%);width:max-content;max-width:88%;background:rgba(255,255,255,.93);border-radius:16px;padding:6px 16px;box-shadow:0 3px 0 rgba(0,0,0,.08);pointer-events:none;min-height:0}
+.kulewrap #fb:empty{display:none}
+@media (max-height:520px){.stage-bar{padding-top:4px;padding-bottom:4px}.stage-bar h2{display:none}.instr{margin-top:4px}.instr p{font-size:15px}}
 .kulewrap svg{border:3px solid #1E2464}
 .parkwrap svg,.linewrap svg,.bldwrap svg,.kulewrap svg{width:100%;height:auto;display:block;border-radius:18px;box-shadow:0 6px 0 rgba(0,0,0,.08)}
 .bldwrap{width:min(100%,420px)}
@@ -801,7 +805,9 @@ function drawStars(){ document.getElementById('starCount').textContent = '★ ' 
 
 /* ---------- sound + speech ---------- */
 let SOUND = true, VOICE = null, AC = null;
-function loadVoice(){ try { const v = speechSynthesis.getVoices(); VOICE = v.find(x => /^tr/i.test(x.lang)) || null; } catch(e){} }
+// a calm male Turkish voice when the device has one (Windows: Tolga, Edge: Ahmet; Google voices on Android differ per phone)
+function loadVoice(){ try { const v = speechSynthesis.getVoices().filter(x => /^tr/i.test(x.lang));
+  VOICE = v.find(x => /tolga|ahmet|erkek|male(?!.*female)|tr-tr-x-(mfm|tmc|ama)/i.test(x.name + ' ' + x.voiceURI)) || v.find(x => x.localService) || v[0] || null; } catch(e){} }
 if ('speechSynthesis' in window) { loadVoice(); speechSynthesis.onvoiceschanged = loadVoice; }
 // calm voice: slower rate, each sentence spoken separately so there is a short pause between them
 function queueSay(t){
@@ -1108,8 +1114,13 @@ function setInstr(t){ LOCK = false; INSTR = t; document.getElementById('instr').
 // a correct answer locks the board; it opens again when the next question is drawn (double taps no longer skip rounds)
 document.getElementById('sb').addEventListener('click', e => { if (LOCK && !e.target.closest('[data-say]')) { e.stopPropagation(); e.preventDefault(); } }, true);
 new MutationObserver(() => { LOCK = false; }).observe(document.getElementById('sb'), {childList:true});
+// phones and tablets: a game opens in real full screen straight away (where the browser allows it) and leaves it on "Yola dön"
+let AUTOFS = false;
 function openGame(id, arg){
   GEN++;
+  try { const d = document, el = d.documentElement;
+    if (matchMedia('(pointer: coarse)').matches && !(d.fullscreenElement || d.webkitFullscreenElement) && (el.requestFullscreen || el.webkitRequestFullscreen)) {
+      const p = (el.requestFullscreen || el.webkitRequestFullscreen).call(el); AUTOFS = true; if (p && p.catch) p.catch(() => { AUTOFS = false; }); } } catch(e){}
   stage.hidden = false; document.body.style.overflow = 'hidden'; stage.scrollTop = 0;
   document.getElementById('stageTitle').textContent = GNAME[id];
   drawStars();
@@ -1119,6 +1130,8 @@ function openGame(id, arg){
 }
 function closeGame(){
   GEN++;
+  try { const d = document; if (AUTOFS && (d.fullscreenElement || d.webkitFullscreenElement)) (d.exitFullscreen || d.webkitExitFullscreen).call(d); } catch(e){}
+  AUTOFS = false;
   if (RUN && RUN.stop) RUN.stop(); RUN = null;
   try { speechSynthesis.cancel(); } catch(e){}
   stage.hidden = true; document.body.style.overflow = ''; sb.innerHTML = '';
@@ -1157,7 +1170,11 @@ function fitStage(){
   sb.style.zoom = 1;
   const hint = document.getElementById('fshint');
   const used = stage.querySelector('.stage-bar').offsetHeight + stage.querySelector('.instr').offsetHeight + (document.getElementById('novoice').hidden ? 0 : document.getElementById('novoice').offsetHeight) + (hint.hidden ? 0 : hint.offsetHeight) + 22;
-  const avail = stage.clientHeight - used, need = sb.scrollHeight;
+  const avail = stage.clientHeight - used;
+  const pic = sb.querySelector('.kulewrap');
+  if (pic) { pic.style.maxWidth = ''; const vb = pic.querySelector('svg').viewBox.baseVal, rest = sb.scrollHeight - pic.offsetHeight;
+    pic.style.maxWidth = Math.max(260, Math.floor((avail - rest - 4) * vb.width / vb.height)) + 'px'; }
+  const need = sb.scrollHeight;
   const MIN = .25, W = stage.clientWidth;
   const sc = Math.max(MIN, Math.min(isFS() ? 2.2 : 1, avail / need, W / sb.scrollWidth));
   if (sc !== 1) sb.style.zoom = sc.toFixed(3);
@@ -2391,12 +2408,32 @@ function cubeSVG(x, y, col, top, attrs){
     <rect x="${x-17}" y="${y+26}" width="34" height="5" rx="2" fill="#000000" opacity=".14"/></g>`;
 }
 GAMES.kule = function(){
-  const N = 13, S = 32, G = 4, GY = 740, REST = 70, CARRY = 398, HOOK = 24, MAX = 10, NC = 6;
-  const CX = i => 95 + i * 150;
+  const N = 13, S = 32, G = 4, REST = 70, HOOK = 24, MAX = 10, NC = 5, BY = 740;
+  // two layouts: wide (computer, smartboard, tablet on its side) and tall (phone, upright tablet) — the tall one has bigger cubes
+  let VW, VH, GY, MX, SP, CX, TALL;
+  // the picture takes the exact shape of the free screen area: extra height becomes sky, extra width becomes landscape
+  function freeArea(){
+    const bar = stage.querySelector('.stage-bar').offsetHeight + stage.querySelector('.instr').offsetHeight
+      + ['novoice', 'fshint'].reduce((s, id) => { const e = document.getElementById(id); return s + (e.hidden ? 0 : e.offsetHeight); }, 0);
+    const w = Math.max(280, sb.clientWidth ? sb.clientWidth - 32 : stage.clientWidth - 32);
+    return [w, Math.max(240, stage.clientHeight - bar - 22 - 64)];
+  }
+  function layout(){
+    const [aw, ah] = freeArea(), r = ah / aw;
+    TALL = r > .9;
+    if (TALL) { VW = 520; VH = Math.round(Math.min(1200, Math.max(600, VW * r))); }
+    else if (r < .62) { VH = 620; VW = Math.round(Math.min(2400, VH / r)); }
+    else { VW = 1000; VH = Math.round(Math.max(620, VW * r)); }
+    GY = VH - 40; MX = VW - 50;
+    SP = TALL ? 84 : Math.max(150, Math.min(200, (MX - 60) / 5));
+    const x0 = (MX - 40 - 4 * SP) / 2 + (TALL ? 22 : 30);
+    CX = i => x0 + i * SP;
+  }
+  layout();
   const H = n => n * S + (n > 5 ? G : 0);                         // a stack of n cubes, gap after the 5th
   const cubeTop = (base, j) => base - j * S - (j >= 5 ? G : 0) - S;  // top edge of cube j (0 = bottom)
   let k = 0, tm = null, alive = true;
-  const st = { cols: [], carry: null, hx: 520, hy: REST, busy: false, pads: [], target: 0, ghost: false, mode: '' };
+  const st = { cols: [], carry: null, hx: VW / 2, hy: REST, busy: false, pads: [], target: 0, ghost: false, mode: '' };
 
   // four scenes so the background changes with every part: city (Tanış), harbour + evening (Yuvaya kur), winter (Dengele)
   const TH = ['sehir','sehir','sehir','liman','liman','liman','aksam','aksam','aksam','kis','kis','kis','kis'];
@@ -2416,9 +2453,9 @@ GAMES.kule = function(){
         `<rect x="${x+14+q*26}" y="${600-h+18+r*40}" width="12" height="18" rx="2" fill="${lit ? ((r * 5 + q * 3 + b) % 4 ? lit : '#6B5F9A') : '#FFFFFF'}" opacity="${lit ? 1 : .75}"/>`).join('')).join('')}</g>`).join('');
     const sky = (stops) => `<linearGradient id="kSky" x1="0" y1="0" x2="0" y2="1">${stops.map(([o, c]) => `<stop offset="${o}" stop-color="${c}"/>`).join('')}</linearGradient>`;
     const ground = (a, b, edge, extra) => `<defs><linearGradient id="kGr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs>
-      <rect x="0" y="${GY}" width="1000" height="${780-GY}" fill="url(#kGr)"/><rect x="0" y="${GY}" width="1000" height="5" fill="${edge}"/>${extra || ''}`;
+      <rect x="0" y="${BY}" width="1000" height="${780-BY}" fill="url(#kGr)"/><rect x="0" y="${BY}" width="1000" height="5" fill="${edge}"/>${extra || ''}`;
     const pebbles = c => [[40,758,10],[230,766,7],[380,754,9],[520,770,6],[690,760,8],[820,770,10]].map(([x,y,r]) => `<ellipse cx="${x}" cy="${y}" rx="${r}" ry="${r*.55}" fill="${c}" opacity=".7"/>`).join('');
-    const cone = `<g transform="translate(24 ${GY})"><path d="M-14 0 L0 -40 L14 0 Z" fill="#FF7A1A"/><rect x="-8" y="-24" width="16" height="6" fill="#FFFFFF"/><rect x="-18" y="-3" width="36" height="7" rx="2" fill="#E25F0B"/></g>`;
+    const cone = `<g transform="translate(24 ${BY})"><path d="M-14 0 L0 -40 L14 0 Z" fill="#FF7A1A"/><rect x="-8" y="-24" width="16" height="6" fill="#FFFFFF"/><rect x="-18" y="-3" width="36" height="7" rx="2" fill="#E25F0B"/></g>`;
     const BG = {
       sehir: () => `<defs>${sky([[0,'#7CCBF5'],[.7,'#D9F1FF'],[1,'#F2FAFF']])}</defs><rect width="1000" height="780" fill="url(#kSky)"/>
         ${sun(96, 128, 42, '#FFD23F', '#FFC300')}${town()}
@@ -2430,9 +2467,9 @@ GAMES.kule = function(){
           <line x1="-6" y1="34" x2="-9" y2="46" stroke="#8E5B2B" stroke-width="2"/><line x1="6" y1="34" x2="9" y2="46" stroke="#8E5B2B" stroke-width="2"/>
           <rect x="-11" y="46" width="22" height="15" rx="3" fill="#B8642B"/></g>
         ${birds('#3A4A6B')}
-        <path d="M0 560 Q140 470 300 530 T600 520 T1000 500 L1000 ${GY} L0 ${GY} Z" fill="#A8DBA0"/>
+        <path d="M0 560 Q140 470 300 530 T600 520 T1000 500 L1000 ${BY} L0 ${BY} Z" fill="#A8DBA0"/>
         ${house(560, 470, 46, '#FF9E7A', '#C8453A')}${house(640, 486, 38, '#FFE08A', '#4D96FF')}${tree(500, 520, .9)}${tree(720, 500, .8)}${tree(180, 520, .9)}
-        <path d="M0 640 Q200 580 420 630 T820 610 T1000 620 L1000 ${GY} L0 ${GY} Z" fill="#7CC47F"/>
+        <path d="M0 640 Q200 580 420 630 T820 610 T1000 620 L1000 ${BY} L0 ${BY} Z" fill="#7CC47F"/>
         ${tree(60, 640, 1.1)}${tree(330, 640, .95)}${tree(860, 640, 1)}
         ${ground('#F6D27E', '#E9B95A', '#D9A447', pebbles('#C9963F'))}${cone}`,
       liman: () => {
@@ -2445,14 +2482,14 @@ GAMES.kule = function(){
         <path d="M0 515 Q70 490 160 505 Q220 512 260 548 L0 548 Z" fill="#7CC47F"/>
         <g><circle cx="110" cy="410" r="34" fill="#FFE36E" opacity=".35"/><path d="M${110-hw(430)} 430 L${110+hw(430)} 430 L${110+hw(548)} 548 L${110-hw(548)} 548 Z" fill="#FFFFFF"/>
           ${band(455, 478)}${band(502, 525)}<rect x="98" y="404" width="24" height="26" rx="3" fill="#FFD23F" stroke="#4A5568" stroke-width="2"/><path d="M93 405 L110 386 L127 405 Z" fill="#E3051B"/></g>
-        <rect x="0" y="548" width="1000" height="${GY-548}" fill="url(#kSea)"/>
+        <rect x="0" y="548" width="1000" height="${BY-548}" fill="url(#kSea)"/>
         ${[[60,590],[300,640],[180,690],[520,700],[760,665],[880,600],[640,610]].map(([x, y]) => `<path d="M${x} ${y} q12 -8 24 0 q12 8 24 0" stroke="#FFFFFF" stroke-width="3" fill="none" opacity=".55" stroke-linecap="round"/>`).join('')}
         <g transform="translate(420 600)">${anim('0 0;0 5;0 0', 5)}
           ${stacks.map((h, c) => Array.from({length: h}, (_, r) => `<rect x="${22 + c*44}" y="${-26 - r*26}" width="42" height="24" rx="2" fill="${KCOL[(c*3 + r*5) % KCOL.length]}" stroke="rgba(0,0,0,.25)" stroke-width="1.5"/>${[10,21,32].map(dx => `<line x1="${22 + c*44 + dx}" y1="${-23 - r*26}" x2="${22 + c*44 + dx}" y2="${-5 - r*26}" stroke="rgba(0,0,0,.18)" stroke-width="2"/>`).join('')}`).join('')).join('')}
           <rect x="336" y="-74" width="46" height="74" rx="4" fill="#FFFFFF" stroke="#B9BFE6" stroke-width="2"/>${[0,1,2].map(i => `<rect x="${342 + i*13}" y="-64" width="9" height="9" rx="1.5" fill="#1E9AD6"/>`).join('')}<rect x="356" y="-96" width="14" height="24" fill="#E3051B"/>
           <path d="M0 0 H404 L374 48 H22 Z" fill="#1E2464"/><path d="M10 30 H396 L388 40 H16 Z" fill="#E3051B"/></g>
         <g transform="translate(230 625)">${anim('0 0;0 4;0 0', 4, 1)}<path d="M-34 0 H34 L24 16 H-24 Z" fill="#FFFFFF" stroke="#4A5568" stroke-width="2"/><line x1="0" y1="0" x2="0" y2="-70" stroke="#4A5568" stroke-width="3"/><path d="M3 -66 L30 -8 H3 Z" fill="#F94144"/><path d="M-3 -58 L-26 -8 H-3 Z" fill="#FFFFFF" stroke="#B9BFE6" stroke-width="1.5"/></g>
-        ${ground('#D3D9E3', '#AEB6C4', '#7A8396', `<rect x="0" y="${GY+12}" width="1000" height="4" fill="#F6B800"/>${[170, 470, 770].map(x => `<rect x="${x-7}" y="${GY-14}" width="14" height="16" rx="3" fill="#2D3748"/><ellipse cx="${x}" cy="${GY-14}" rx="10" ry="4" fill="#4A5568"/>`).join('')}`)}${cone}`;
+        ${ground('#D3D9E3', '#AEB6C4', '#7A8396', `<rect x="0" y="${BY+12}" width="1000" height="4" fill="#F6B800"/>${[170, 470, 770].map(x => `<rect x="${x-7}" y="${BY-14}" width="14" height="16" rx="3" fill="#2D3748"/><ellipse cx="${x}" cy="${BY-14}" rx="10" ry="4" fill="#4A5568"/>`).join('')}`)}${cone}`;
       },
       aksam: () => `<defs>${sky([[0,'#3B2F6B'],[.42,'#9B4F96'],[.72,'#F2846B'],[1,'#FFC98B']])}<mask id="kMoon"><rect width="1000" height="780" fill="#FFFFFF"/><circle cx="836" cy="108" r="28" fill="#000000"/></mask></defs>
         <rect width="1000" height="780" fill="url(#kSky)"/>
@@ -2460,9 +2497,9 @@ GAMES.kule = function(){
         <circle cx="820" cy="120" r="32" fill="#FFF4C2" mask="url(#kMoon)"/>
         ${sun(300, 585, 80, '#FF7A3D')}${cloud(560, 260, .8, 40, '#F7B7C3')}${cloud(180, 300, .6, 30, '#F9C6CF')}
         ${town('#4B3F7A', '#FFD66B')}
-        <path d="M0 560 Q140 470 300 530 T600 520 T1000 500 L1000 ${GY} L0 ${GY} Z" fill="#5E8C5F"/>
+        <path d="M0 560 Q140 470 300 530 T600 520 T1000 500 L1000 ${BY} L0 ${BY} Z" fill="#5E8C5F"/>
         ${house(560, 470, 46, '#C9705A', '#7A2E2A', '#FFD66B')}${house(640, 486, 38, '#C9A65A', '#2E4E8E', '#FFD66B')}${tree(500, 520, .9, '#2F6B3A', '#3E7F48')}${tree(720, 500, .8, '#2F6B3A', '#3E7F48')}${tree(180, 520, .9, '#2F6B3A', '#3E7F48')}
-        <path d="M0 640 Q200 580 420 630 T820 610 T1000 620 L1000 ${GY} L0 ${GY} Z" fill="#4A7A50"/>
+        <path d="M0 640 Q200 580 420 630 T820 610 T1000 620 L1000 ${BY} L0 ${BY} Z" fill="#4A7A50"/>
         ${tree(60, 640, 1.1, '#285C33', '#336E3F')}${tree(330, 640, .95, '#285C33', '#336E3F')}${tree(860, 640, 1, '#285C33', '#336E3F')}
         ${ground('#E5A95E', '#C98C45', '#B57A35', pebbles('#A8722F'))}${cone}`,
       kis: () => {
@@ -2472,49 +2509,65 @@ GAMES.kule = function(){
         return `<defs>${sky([[0,'#A9CBE8'],[1,'#EEF5FB']])}</defs><rect width="1000" height="780" fill="url(#kSky)"/>
         ${sun(110, 130, 36, '#FFF3C4')}${cloud(380, 150, .9, 30, '#F4F7FB')}${cloud(700, 110, .75, 45, '#F4F7FB')}
         <path d="M0 610 L160 380 L300 560 L430 400 L600 590 L760 360 L1000 610 Z" fill="#9DB4CE"/>${cap(160, 380)}${cap(430, 400)}${cap(760, 360)}
-        <path d="M0 590 Q140 520 300 560 T600 550 T1000 540 L1000 ${GY} L0 ${GY} Z" fill="#EEF4FA"/>
+        <path d="M0 590 Q140 520 300 560 T600 550 T1000 540 L1000 ${BY} L0 ${BY} Z" fill="#EEF4FA"/>
         ${pine(180, 560, .9)}${pine(520, 556, .8)}${pine(730, 546, .9)}
         <g><rect x="588" y="575" width="62" height="44" fill="#B8642B"/><path d="M578 578 L619 540 L660 578 Z" fill="#FFFFFF" stroke="#DCE8F5" stroke-width="3"/><rect x="600" y="586" width="14" height="14" fill="#FFD66B"/><rect x="626" y="592" width="14" height="27" fill="#7A4A22"/><rect x="638" y="546" width="10" height="20" fill="#8E5B2B"/>
           <circle cx="643" cy="534" r="6" fill="#E8EDF3"/><circle cx="650" cy="520" r="8" fill="#E8EDF3" opacity=".8"/><circle cx="660" cy="503" r="10" fill="#E8EDF3" opacity=".6"/></g>
-        <path d="M0 650 Q200 600 420 640 T820 625 T1000 635 L1000 ${GY} L0 ${GY} Z" fill="#FFFFFF"/>
+        <path d="M0 650 Q200 600 420 640 T820 625 T1000 635 L1000 ${BY} L0 ${BY} Z" fill="#FFFFFF"/>
         ${pine(60, 650, 1.1)}${pine(330, 652, 1)}${pine(860, 640, 1.05)}
         ${ground('#FFFFFF', '#DCE8F5', '#C9DAEC', [[60,760,40],[300,770,60],[600,762,50],[820,772,40]].map(([x, y, r]) => `<ellipse cx="${x}" cy="${y}" rx="${r}" ry="6" fill="#C9DAEC" opacity=".6"/>`).join(''))}
-        <g transform="translate(30 ${GY})"><circle cx="0" cy="-15" r="16" fill="#FFFFFF" stroke="#C9DAEC" stroke-width="2"/><circle cx="0" cy="-40" r="11" fill="#FFFFFF" stroke="#C9DAEC" stroke-width="2"/><circle cx="-4" cy="-43" r="1.8" fill="#2D3748"/><circle cx="4" cy="-43" r="1.8" fill="#2D3748"/><path d="M0 -40 L9 -38 L0 -37 Z" fill="#FF7A1A"/><rect x="-11" y="-33" width="22" height="4" rx="2" fill="#E3051B"/></g>
+        <g transform="translate(30 ${BY})"><circle cx="0" cy="-15" r="16" fill="#FFFFFF" stroke="#C9DAEC" stroke-width="2"/><circle cx="0" cy="-40" r="11" fill="#FFFFFF" stroke="#C9DAEC" stroke-width="2"/><circle cx="-4" cy="-43" r="1.8" fill="#2D3748"/><circle cx="4" cy="-43" r="1.8" fill="#2D3748"/><path d="M0 -40 L9 -38 L0 -37 Z" fill="#FF7A1A"/><rect x="-11" y="-33" width="22" height="4" rx="2" fill="#E3051B"/></g>
         ${flakes}`;
       }
     };
     let mast = '', jib = '';
-    for (let y = 44; y < GY - 10; y += 34) mast += `<line x1="934" y1="${y}" x2="966" y2="${y+34}" stroke="#D99A00" stroke-width="3"/><line x1="934" y1="${y+34}" x2="966" y2="${y+34}" stroke="#D99A00" stroke-width="2"/>`;
-    for (let x = 10; x < 990; x += 30) jib += `<line x1="${x}" y1="44" x2="${x+15}" y2="26" stroke="#D99A00" stroke-width="2.5"/><line x1="${x+15}" y1="26" x2="${x+30}" y2="44" stroke="#D99A00" stroke-width="2.5"/>`;
-    return `<svg viewBox="0 0 1000 780" class="kuleSVG" role="img" aria-label="Vinçli inşaat alanında küp kuleleri">
-      ${BG[th]()}
-      <g><rect x="918" y="${GY-8}" width="64" height="22" rx="4" fill="#9AA3B5"/>
-        <line x1="934" y1="44" x2="934" y2="${GY-8}" stroke="#F6B800" stroke-width="6"/><line x1="966" y1="44" x2="966" y2="${GY-8}" stroke="#F6B800" stroke-width="6"/>${mast}
-        <line x1="950" y1="2" x2="934" y2="26" stroke="#F6B800" stroke-width="5"/><line x1="950" y1="2" x2="966" y2="26" stroke="#F6B800" stroke-width="5"/>
-        <line x1="950" y1="4" x2="420" y2="26" stroke="#4A5568" stroke-width="2"/><line x1="950" y1="4" x2="998" y2="26" stroke="#4A5568" stroke-width="2"/>
-        <line x1="6" y1="26" x2="998" y2="26" stroke="#F6B800" stroke-width="5"/><line x1="6" y1="44" x2="998" y2="44" stroke="#F6B800" stroke-width="6"/>${jib}
-        <rect x="968" y="44" width="30" height="40" rx="3" fill="#7A8396"/><line x1="968" y1="56" x2="998" y2="56" stroke="#5A6172" stroke-width="2"/><line x1="968" y1="70" x2="998" y2="70" stroke="#5A6172" stroke-width="2"/>
-        <rect x="896" y="44" width="38" height="36" rx="5" fill="#F6B800" stroke="#D99A00" stroke-width="2"/><rect x="902" y="50" width="26" height="16" rx="3" fill="#CFEAF8"/></g>
+    const L = MX - 16, R = MX + 16;
+    for (let y = 44; y < GY - 10; y += 34) mast += `<line x1="${L}" y1="${y}" x2="${R}" y2="${y+34}" stroke="#D99A00" stroke-width="3"/><line x1="${L}" y1="${y+34}" x2="${R}" y2="${y+34}" stroke="#D99A00" stroke-width="2"/>`;
+    for (let x = 10; x < VW - 10; x += 30) jib += `<line x1="${x}" y1="44" x2="${x+15}" y2="26" stroke="#D99A00" stroke-width="2.5"/><line x1="${x+15}" y1="26" x2="${x+30}" y2="44" stroke="#D99A00" stroke-width="2.5"/>`;
+    const LAND = {
+      sehir: `<path d="M0 560 Q140 470 300 530 T600 520 T1000 500 L1000 ${BY} L0 ${BY} Z" fill="#A8DBA0"/><path d="M0 640 Q200 580 420 630 T820 610 T1000 620 L1000 ${BY} L0 ${BY} Z" fill="#7CC47F"/>${tree(180, 520, .9)}${tree(330, 640, .95)}${tree(720, 500, .8)}`,
+      liman: `<rect x="0" y="548" width="1000" height="${BY-548}" fill="url(#kSea)"/>${[[180,600],[620,650],[860,690]].map(([x, y]) => `<path d="M${x} ${y} q12 -8 24 0 q12 8 24 0" stroke="#FFFFFF" stroke-width="3" fill="none" opacity=".55" stroke-linecap="round"/>`).join('')}`,
+      aksam: `<path d="M0 560 Q140 470 300 530 T600 520 T1000 500 L1000 ${BY} L0 ${BY} Z" fill="#5E8C5F"/><path d="M0 640 Q200 580 420 630 T820 610 T1000 620 L1000 ${BY} L0 ${BY} Z" fill="#4A7A50"/>${tree(330, 640, .95, '#285C33', '#336E3F')}${tree(720, 500, .8, '#2F6B3A', '#3E7F48')}`,
+      kis: `<path d="M0 610 L160 380 L300 560 L430 400 L600 590 L760 360 L1000 610 Z" fill="#9DB4CE"/><path d="M0 590 Q140 520 300 560 T600 550 T1000 540 L1000 ${BY} L0 ${BY} Z" fill="#EEF4FA"/><path d="M0 650 Q200 600 420 640 T820 625 T1000 635 L1000 ${BY} L0 ${BY} Z" fill="#FFFFFF"/>${pine(330, 652, 1)}${pine(730, 546, .9)}`
+    };
+    const sc = TALL ? VW / 1000 : VH / 780, ox = (VW - 1000 * sc) / 2, side = ox > 1;
+    const L1 = LAND[th], wide = side ? `<g transform="scale(-1 1)">${L1}</g><g transform="translate(2000 0) scale(-1 1)">${L1}</g><g transform="translate(-2000 0)">${L1}</g><g transform="translate(2000 0)">${L1}</g>` : '';
+    const top = GY - BY * sc;   // free sky above the picture on tall screens gets its own clouds (and stars in the evening)
+    const skyArt = top > 140 ? Array.from({length: Math.floor(top / 110)}, (_, i) => cloud(VW * (.22 + (i % 2) * .5) + (i * 37) % 60, 110 + i * 110, .6 + (i % 3) * .1, 30, th === 'aksam' ? '#F7B7C3' : th === 'kis' ? '#F4F7FB' : '#FFFFFF')).join('')
+      + (th === 'aksam' ? Array.from({length: 14}, (_, i) => `<circle cx="${(i * 97) % VW}" cy="${70 + (i * 53) % Math.max(60, top - 60)}" r="${i % 3 ? 2 : 3}" fill="#FFFFFF" opacity=".85"/>`).join('') : '') : '';
+    const back = `<rect width="${VW}" height="${VH}" fill="url(#kSky)"/>${skyArt}<rect x="0" y="${GY}" width="${VW}" height="${VH-GY}" fill="url(#kGr)"/>
+      <g transform="translate(${ox} ${GY - BY * sc}) scale(${sc})">${wide}${BG[th]().replace('<rect width="1000" height="780" fill="url(#kSky)"/>', '')}</g>`;
+    const cw = Math.min(30, VW - R - 2);
+    return `<svg viewBox="0 0 ${VW} ${VH}" class="kuleSVG" role="img" aria-label="Vinçli inşaat alanında küp kuleleri">
+      ${back}
+      <g><rect x="${MX-32}" y="${GY-8}" width="64" height="22" rx="4" fill="#9AA3B5"/>
+        <line x1="${L}" y1="44" x2="${L}" y2="${GY-8}" stroke="#F6B800" stroke-width="6"/><line x1="${R}" y1="44" x2="${R}" y2="${GY-8}" stroke="#F6B800" stroke-width="6"/>${mast}
+        <line x1="${MX}" y1="2" x2="${L}" y2="26" stroke="#F6B800" stroke-width="5"/><line x1="${MX}" y1="2" x2="${R}" y2="26" stroke="#F6B800" stroke-width="5"/>
+        <line x1="${MX}" y1="4" x2="${VW*.42}" y2="26" stroke="#4A5568" stroke-width="2"/><line x1="${MX}" y1="4" x2="${VW-2}" y2="26" stroke="#4A5568" stroke-width="2"/>
+        <line x1="6" y1="26" x2="${VW-2}" y2="26" stroke="#F6B800" stroke-width="5"/><line x1="6" y1="44" x2="${VW-2}" y2="44" stroke="#F6B800" stroke-width="6"/>${jib}
+        <rect x="${R+2}" y="44" width="${cw}" height="40" rx="3" fill="#7A8396"/><line x1="${R+2}" y1="56" x2="${R+2+cw}" y2="56" stroke="#5A6172" stroke-width="2"/><line x1="${R+2}" y1="70" x2="${R+2+cw}" y2="70" stroke="#5A6172" stroke-width="2"/>
+        <rect x="${L-38}" y="44" width="38" height="36" rx="5" fill="#F6B800" stroke="#D99A00" stroke-width="2"/><rect x="${L-32}" y="50" width="26" height="16" rx="3" fill="#CFEAF8"/></g>
       <g id="kpads"></g>
-      ${Array.from({length:NC}, (_,i) => `<rect class="hit" data-col="${i}" x="${CX(i)-72}" y="90" width="144" height="${GY-60}" fill="transparent"/>`).join('')}
+      ${Array.from({length:NC}, (_,i) => `<rect class="hit" data-col="${i}" x="${CX(i)-SP/2+3}" y="90" width="${SP-6}" height="${GY-60}" fill="transparent"/>`).join('')}
       <g id="ktow"></g><g id="kcrane" style="pointer-events:none"></g><g id="krev"></g>
     </svg>`;
   }
   function drawPads(){
     document.getElementById('kpads').innerHTML = st.pads.map(p => {
-      const x = CX(p), px = x - 56, top = GY - 178;
+      const x = CX(p), px = x - (TALL ? 30 : 56), top = GY - 178, fw = TALL ? 26 : 58, mw = Math.min(104, SP - 4), dg = (mw - 22) / 5;
       const ghost = st.ghost ? Array.from({length: st.target}, (_, j) => `<rect x="${x-18}" y="${cubeTop(GY, j)}" width="36" height="32" rx="3.5" fill="#FFFFFF" fill-opacity=".45" stroke="#1E2464" stroke-width="2.5" stroke-dasharray="7 5"/>`).join('') : '';
       const dots = st.mode === 'yuva' && !st.ghost;
       const mat = dots
-        ? `<rect x="${x-52}" y="${GY-1}" width="104" height="38" rx="6" fill="#FFFFFF" stroke="#E3051B" stroke-width="3"/>${Array.from({length: st.target}, (_, j) => `<circle cx="${x-34 + (j % 5) * 17}" cy="${GY + 10 + Math.floor(j / 5) * 16}" r="6" fill="#E3051B"/>`).join('')}`
-        : `<rect x="${x-50}" y="${GY-2}" width="100" height="16" rx="5" fill="#FFD23F" stroke="#D99A00" stroke-width="2"/>${[0,1,2,3].map(i => `<line x1="${x-38+i*24}" y1="${GY}" x2="${x-30+i*24}" y2="${GY+12}" stroke="#1E2464" stroke-width="5"/>`).join('')}`;
-      const flag = `<path d="M${px} ${top} L${px-58} ${top+16} L${px} ${top+32} Z" fill="#E3051B"/>`;
+        ? `<rect x="${x-mw/2}" y="${GY-1}" width="${mw}" height="38" rx="6" fill="#FFFFFF" stroke="#E3051B" stroke-width="3"/>${Array.from({length: st.target}, (_, j) => `<circle cx="${x - 2 * dg + (j % 5) * dg}" cy="${GY + 10 + Math.floor(j / 5) * 16}" r="${Math.min(6, dg * .42)}" fill="#E3051B"/>`).join('')}`
+        : `<rect x="${x-mw/2}" y="${GY-2}" width="${mw}" height="16" rx="5" fill="#FFD23F" stroke="#D99A00" stroke-width="2"/>${[0,1,2,3].map(i => `<line x1="${x - mw/2 + 10 + i * (mw - 28) / 3}" y1="${GY}" x2="${x - mw/2 + 18 + i * (mw - 28) / 3}" y2="${GY+12}" stroke="#1E2464" stroke-width="5"/>`).join('')}`;
+      const flag = `<path d="M${px} ${top} L${px-fw} ${top+16} L${px} ${top+32} Z" fill="#E3051B"/>`;
       return `${mat}
         <line x1="${px}" y1="${GY}" x2="${px}" y2="${top-4}" stroke="#4A5568" stroke-width="5" stroke-linecap="round"/><circle cx="${px}" cy="${top-6}" r="5" fill="#F6B800"/>${flag}${ghost}`;
     }).join('');
   }
   function drawTowers(){
-    document.getElementById('ktow').innerHTML = st.cols.map((c, i) => c.map((col, j) => cubeSVG(CX(i), cubeTop(GY, j), col, j === c.length - 1, `class="kc" data-c="${i}" data-i="${j}"`)).join('')).join('');
+    document.getElementById('ktow').innerHTML = st.cols.map((c, i) => c.map((col, j) => cubeSVG(CX(i), cubeTop(GY, j), col, j === c.length - 1, `class="kc" data-c="${i}" data-i="${j}"`)
+      + `<rect class="kc" data-c="${i}" data-i="${j}" x="${CX(i) - SP / 2 + 3}" y="${cubeTop(GY, j)}" width="${SP - 6}" height="${S}" fill="transparent"/>`).join('')).join('');
   }
   function drawCrane(){
     const x = st.hx, y = st.hy;
@@ -2525,13 +2578,14 @@ GAMES.kule = function(){
       ${carried}<rect x="${x-15}" y="${y}" width="30" height="13" rx="3" fill="#E3051B"/><rect x="${x-15}" y="${y+4}" width="30" height="3" fill="#FFFFFF" opacity=".7"/>
       <path d="M${x} ${y+13} v6 q0 9 -8 7" stroke="#2D3748" stroke-width="4" fill="none" stroke-linecap="round"/>`;
   }
+  const carryY = () => GY - H(Math.max(0, ...st.cols.map(c => c.length))) - 16;   // bottom of a carried load
   const moveX = (x, done) => { const x0 = st.hx; tone(180, .12, 'sine', .05); tween(260 + Math.abs(x - x0) * 1.2, t => { st.hx = x0 + (x - x0) * ease(t); drawCrane(); }, done, () => alive); };
   const moveY = (y, done) => { const y0 = st.hy; tween(220 + Math.abs(y - y0) * 1.3, t => { st.hy = y0 + (y - y0) * ease(t); drawCrane(); }, done, () => alive); };
   function pick(c, i){
     st.busy = true; const col = st.cols[c];
     moveX(CX(c), () => moveY(GY - H(col.length) - HOOK, () => {
       st.carry = col.splice(i); drawTowers(); drawCrane(); tone(330, .1, 'triangle', .1);
-      moveY(CARRY - H(st.carry.length) - HOOK, () => { st.busy = false; });
+      moveY(Math.max(52, carryY() - H(st.carry.length) - HOOK), () => { st.busy = false; });
     }));
   }
   function drop(c){
@@ -2551,7 +2605,7 @@ GAMES.kule = function(){
       const c = cube ? +cube.dataset.c : colEl ? +colEl.dataset.col : -1; if (c < 0) return;
       if (st.carry) return drop(c);
       if (cube) { sPop(); pick(c, +cube.dataset.i); }
-      else if (st.cols[c].length) FB('Vinç bir küpü tutsun. Küpün üstüne dokun.');
+      else if (st.cols[c].length) { sPop(); pick(c, 0); }
     };
   }
   const used = () => st.cols.map((c, i) => [i, c.length]).filter(([, n]) => n);
@@ -2578,17 +2632,18 @@ GAMES.kule = function(){
       kind === 'eq' ? `<tspan fill="${pc[0]}" stroke="#1E2464" stroke-width="2" paint-order="stroke">${pv[0]}</tspan> = <tspan fill="${pc[1]}" stroke="#1E2464" stroke-width="2" paint-order="stroke">${pv[1]}</tspan>`
       : pv.map((v, i) => `<tspan fill="${pc[i]}" stroke="#1E2464" stroke-width="2" paint-order="stroke">${v}</tspan>`).join(' + ') + ` = ${total}`}</text>`;
     const frame = (t, extra) => {          // t: 0 = parts apart, 1 = joined
-      g.innerHTML = `<rect width="1000" height="780" fill="#FFFFFF" opacity=".8"/>
+      const sc2 = Math.min(VW / 840, VH / 600), tf = `translate(${VW / 2 - 500 * sc2} ${VH / 2 - 430 * sc2}) scale(${sc2})`;
+      g.innerHTML = `<rect width="${VW}" height="${VH}" fill="#FFFFFF" opacity=".8"/><g id="krevin" transform="${tf}">
         <rect x="110" y="150" width="780" height="560" rx="34" fill="#FFFFFF" stroke="#1E2464" stroke-width="5"/>
         ${tiles.map((_, i) => tile(pcx(i), sc, 1 - t)).join('')}${n > 1 ? tile(500, SM, t) : ''}
         ${kind === 'eq' ? `<text x="500" y="${TY + 30}" text-anchor="middle" font-size="96" fill="#1E2464" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">=</text>` : ''}
         ${dots.map(d => { const x = d.a[0] + (d.b[0] - d.a[0]) * t, y = d.a[1] + (d.b[1] - d.a[1]) * t, r = 20 * (sc + (SM - sc) * t);
-          return `<circle cx="${x}" cy="${y}" r="${r}" fill="${d.c}" stroke="#1E2464" stroke-width="2.5"/>`; }).join('')}${extra || ''}`;
+          return `<circle cx="${x}" cy="${y}" r="${r}" fill="${d.c}" stroke="#1E2464" stroke-width="2.5"/>`; }).join('')}${extra || ''}</g>`;
     };
     const whole = () => num(500, TY - (D + 40) * SM - 10, total, '#1E2464', 120);
     const finish = extra => { frame(kind === 'split' || kind === 'eq' || n === 1 ? 0 : 1, extra);
       speak(say); afterSay(() => { if (!alive) return; st.go = true;
-        g.insertAdjacentHTML('beforeend', `<g id="kgo" style="cursor:pointer"><rect x="390" y="622" width="220" height="70" rx="35" fill="#2E9256"/>
+        document.getElementById('krevin').insertAdjacentHTML('beforeend', `<g id="kgo" style="cursor:pointer"><rect x="390" y="622" width="220" height="70" rx="35" fill="#2E9256"/>
           <text x="478" y="670" text-anchor="middle" font-size="36" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">Devam</text><path d="M560 640 L582 657 L560 674 Z" fill="#FFFFFF"/>
           ${RM ? '' : '<animateTransform attributeName="transform" type="scale" additive="sum" values="1;1.04;1" dur="1.4s" repeatCount="indefinite"/>'}</g>`); }, 300); };
     if (kind === 'eq' || n === 1) { frame(0); return finish((kind === 'eq' ? partNums() : whole()) + (kind === 'eq' ? sumLine() : '')); }
@@ -2621,9 +2676,11 @@ GAMES.kule = function(){
     const cols = shuffle(KCOL);
     st.cols = Array.from({length: NC}, () => []);
     towers.forEach(([s, n], i) => { st.cols[s] = Array(n).fill(cols[i % cols.length]); });
-    Object.assign(st, { pads: [], target: 0, ghost: false, mode: '' }, opt, { carry: null, hx: 520, hy: REST, busy: false, go: false });
-    sb.innerHTML = `${progBar(N, k)}<div class="kulewrap">${scene(TH[k])}</div><div class="feedback" id="fb"></div>`;
+    layout();
+    Object.assign(st, { pads: [], target: 0, ghost: false, mode: '' }, opt, { carry: null, hx: VW / 2, hy: REST, busy: false, go: false });
+    sb.innerHTML = `${progBar(N, k)}<div class="kulewrap">${scene(TH[k])}<div class="feedback" id="fb"></div></div>`;
     drawPads(); drawTowers(); drawCrane(); bind();
+    requestAnimationFrame(relayout);      // the instruction for this round is known now: fit once more
   }
   const slots = (n, avoid) => shuffle(Array.from({length: NC}, (_, i) => i).filter(i => !(avoid || []).includes(i))).slice(0, n);
   function parts(total, n, bad){ // random split of total into n parts, each 1..9, none in bad
@@ -2650,7 +2707,7 @@ GAMES.kule = function(){
       setup(slots(n).map((s, i) => [s, p[i]]), {mode: 'tek'});
       setInstr('Bütün küpleri tek bir kule yap.');
     } else if (k < 9) {
-      const ghost = k < 6, t = ghost ? rint(4, 8) : rint(5, 10), pad = rint(1, 5);
+      const ghost = k < 6, t = ghost ? rint(4, 8) : rint(5, 10), pad = rint(1, 4);
       const p = parts(t + rint(1, 3), ghost ? 2 : 3, [t]);
       setup(slots(p.length, [pad]).map((s, i) => [s, p[i]]), {mode: 'yuva', pads: [pad], target: t, ghost});
       setInstr(ghost ? (k === 3 ? 'Vinç limana geldi! Bayraklı yerde kesik çizgili bir kule var. Vinçle küp taşıyarak tam o boyda bir kule kur.' : 'Bayraklı yere kesik çizgili kule kadar küp koy.')
@@ -2659,16 +2716,25 @@ GAMES.kule = function(){
       const spare = k >= 11; let a, b, c = 0;
       for (let g = 0; g < 500; g++) {
         a = rint(1, 9); b = rint(1, 9); c = spare ? rint(1, 4) : 0;
-        if ((a + b + c) % 2 === 0 && (a + b + c) / 2 <= 10 && a !== b && Math.abs(a - b) >= 2 && (a + b + c) / 2 >= 3) break;
+        if ((a + b + c) % 2 === 0 && a + b + c <= 14 && a !== b && Math.abs(a - b) >= 2 && (a + b + c) / 2 >= 3) break;
       }
-      const [p1, p2] = shuffle([1, 2, 3, 4, 5]).slice(0, 2).sort((x, y) => x - y);
+      const [p1, p2] = shuffle([1, 2, 3, 4]).slice(0, 2).sort((x, y) => x - y);
       const tw = [[p1, a], [p2, b]]; if (spare) tw.push([slots(1, [p1, p2])[0], c]);
       setup(tw, {mode: 'denge', pads: [p1, p2]});
       setInstr(k === 9 ? 'Kar yağıyor! İki bayraklı yerdeki kuleler aynı boyda olsun. Vinçle küp taşıyarak eşitle.'
         : spare ? (k === 11 ? 'Yerde bir kule daha var! Bütün küpleri kullanarak iki bayraklı kuleyi eşit yap.' : 'Bütün küpleri kullan, iki bayraklı kule eşit olsun.') : 'İki bayraklı kuleyi eşitle.');
     }
   }
-  play(); return { stop(){ alive = false; clearTimeout(tm); }, st };
+  function relayout(){
+    if (!alive || st.busy || st.go || !sb.querySelector('.kulewrap')) return;   // never in the middle of a crane move or an answer card
+    const old = [VW, VH]; layout();
+    if (Math.abs(VW - old[0]) / old[0] < .03 && Math.abs(VH - old[1]) / old[1] < .03) return;
+    st.hx = VW / 2; st.hy = st.carry ? Math.max(52, carryY() - H(st.carry.length) - HOOK) : REST;
+    sb.querySelector('.kuleSVG').outerHTML = scene(TH[k]); drawPads(); drawTowers(); drawCrane(); bind();
+  }
+  const onResize = () => { clearTimeout(onResize.t); onResize.t = setTimeout(relayout, 250); };
+  window.addEventListener('resize', onResize);
+  play(); return { stop(){ alive = false; clearTimeout(tm); window.removeEventListener('resize', onResize); }, st };
 };
 
 /* ---------- Harf İzi ---------- */
