@@ -6,6 +6,9 @@
 <style>body{margin:0}</style>
 <title>Okuma Treni Oyunlar</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Okuma Treni">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap">
@@ -324,8 +327,10 @@ a.game{text-decoration:none}
 .clues .sk{width:28px;flex:none}
 .clues .sk svg{width:100%;display:block}
 /* otopark + sayı doğrusu */
-.parkwrap,.linewrap{width:100%;max-width:900px}
-.parkwrap svg,.linewrap svg,.bldwrap svg{width:100%;height:auto;display:block;border-radius:18px;box-shadow:0 6px 0 rgba(0,0,0,.08)}
+.parkwrap,.linewrap,.kulewrap{width:100%;max-width:900px}
+.stage-body:has(.kulewrap),.kulewrap{max-width:1300px}
+.kulewrap svg{border:3px solid #1E2464}
+.parkwrap svg,.linewrap svg,.bldwrap svg,.kulewrap svg{width:100%;height:auto;display:block;border-radius:18px;box-shadow:0 6px 0 rgba(0,0,0,.08)}
 .bldwrap{width:min(100%,420px)}
 .ptxt{font-family:var(--display);font-size:27px;fill:#1E2464}
 .plate.now rect{stroke:#E3051B;stroke-width:5}
@@ -430,6 +435,7 @@ footer .wrap{display:flex;flex-direction:column;gap:4px}
 .instr{display:flex;gap:12px;align-items:center;max-width:900px;margin:12px auto 0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-size:clamp(17px,2.6vw,21px);font-weight:500;width:100%}
 .stage-body{max-width:900px;width:100%;margin:0 auto;padding:14px max(16px,env(safe-area-inset-right,0px)) 18px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:16px;align-items:center}
 .novoice{max-width:900px;margin:8px auto 0;font-size:13px;color:var(--muted);padding-inline:16px}
+.stage.pfs .stage-bar h2,.stage.isfs #novoice{display:none}
 .cta{border:0;background:var(--red);color:#FFFFFF;font-weight:700;font-size:19px;padding:14px 28px;border-radius:999px}
 .cta.alt{background:var(--navy)}
 .feedback{font-size:20px;font-weight:600;min-height:30px;text-align:center}
@@ -642,6 +648,9 @@ footer .wrap{display:flex;flex-direction:column;gap:4px}
       </div>
       <h3 class="mathgroup">İşlemler ve paralar</h3>
       <div class="games five">
+        <button class="game g5" data-game="kule" data-mat="1.1.1 1.2.1 1.2.3"><span class="tag">Parça-bütün</span>
+          <div class="art kuleart"></div>
+          <div><h3>Küp Kuleleri</h3><p>Vinçle küpleri taşı, kuleler kur.</p></div></button>
         <button class="game g1" data-game="islem" data-mat="1.2.1 1.2.2"><span class="tag">Problem</span>
           <div class="art"><span style="font-size:34px">🌳🐦🐦</span></div>
           <div><h3>Ne Oldu?</h3><p>Hikâyeyi dinle, kaç tane kaldı bul.</p></div></button>
@@ -735,6 +744,7 @@ footer .wrap{display:flex;flex-direction:column;gap:4px}
   </div>
   <div class="instr"><p id="instr"></p></div>
   <p class="novoice" id="novoice" hidden>Bu cihazda Türkçe ses bulunamadı. Yönergeleri bir yetişkin okuyabilir.</p>
+  <p class="novoice" id="fshint" hidden>iPhone'da tarayıcı çubukları gizlenemiyor. Tam ekran için Safari'de Paylaş düğmesine, sonra "Ana Ekrana Ekle"ye dokunun; oyunlar oradan tam ekran açılır.</p>
   <div class="stage-body" id="sb"></div>
 </div>
 
@@ -812,6 +822,14 @@ function queueSay(t){
 function speak(t){ if (!('speechSynthesis' in window)) return; try { speechSynthesis.cancel(); queueSay(t); } catch(e){} }
 // sayAfter = automatic speech: wait in line, never cut the sentence being read
 function sayAfter(t){ if (!('speechSynthesis' in window)) return; try { queueSay(t); } catch(e){} }
+// afterSay = go to the next screen only when the robot has finished talking (at most 12 s); dropped if the game was closed or reopened
+let GEN = 0;
+function afterSay(fn, ms){
+  const g = GEN, t0 = Date.now();
+  const busy = () => { try { return speechSynthesis.speaking || speechSynthesis.pending; } catch(e){ return false; } };
+  const go = () => { if (g !== GEN) return; if (busy() && Date.now() - t0 < 12000) { setTimeout(go, 200); return; } fn(); };
+  return setTimeout(go, ms || 0);
+}
 function tone(f, d, type='sine', vol=.14, delay=0){
   try {
     AC = AC || new (window.AudioContext || window.webkitAudioContext)();
@@ -1083,7 +1101,7 @@ const STRATS = [
 ];
 const FILTERS = [['all','Hepsi'],['on','Ön değerlendirme'],['grup','Grup çalışması'],['yan','Yansıtma'],['oyun','Sitede oyunu var']];
 let FIL = 'all';
-const GNAME = {tablo:'Otopark',dogru:'Sayı Doğrusu',agir:'Hangisi Ağır?',sira:'Sıra Kimde?',ritim:'Ritmik Sayma',oruntu:'Örüntü',tahmin:'Tahmin Et',islem:'Ne Oldu?',terazi:'Terazi',ev:'Sayı Evleri',market:'Market',ikiz:'İkizini Bul',olc:'Ölç Bakalım',sekil:'Şekil Avı',veri:'Veri Dedektifi',ilk:'İlk Harf',kelime:'Kelime Kur',hafiza:'Harf Hafızası',iz:'Harf İzi',sepet:'Ses Sepeti',hece:'Hece Ustası',balon:'Harf Balonları',goster:'Sayıyı Göster',kac:'Kaç Tane?',tren:'Sayı Treni',cokaz:'Hangisi Çok?',yon:'Yön Bul'};
+const GNAME = {kule:'Küp Kuleleri',tablo:'Otopark',dogru:'Sayı Doğrusu',agir:'Hangisi Ağır?',sira:'Sıra Kimde?',ritim:'Ritmik Sayma',oruntu:'Örüntü',tahmin:'Tahmin Et',islem:'Ne Oldu?',terazi:'Terazi',ev:'Sayı Evleri',market:'Market',ikiz:'İkizini Bul',olc:'Ölç Bakalım',sekil:'Şekil Avı',veri:'Veri Dedektifi',ilk:'İlk Harf',kelime:'Kelime Kur',hafiza:'Harf Hafızası',iz:'Harf İzi',sepet:'Ses Sepeti',hece:'Hece Ustası',balon:'Harf Balonları',goster:'Sayıyı Göster',kac:'Kaç Tane?',tren:'Sayı Treni',cokaz:'Hangisi Çok?',yon:'Yön Bul'};
 function drawStrats(){
   document.getElementById('filters').innerHTML = FILTERS.map(([k,t]) => `<button data-f="${k}" aria-pressed="${k===FIL}">${t}</button>`).join('');
   const list = STRATS.filter(s => FIL==='all' || (FIL==='oyun' ? s.g : s.f.includes(FIL)));
@@ -1100,6 +1118,7 @@ function setInstr(t){ LOCK = false; INSTR = t; document.getElementById('instr').
 document.getElementById('sb').addEventListener('click', e => { if (LOCK && !e.target.closest('[data-say]')) { e.stopPropagation(); e.preventDefault(); } }, true);
 new MutationObserver(() => { LOCK = false; }).observe(document.getElementById('sb'), {childList:true});
 function openGame(id, arg){
+  GEN++;
   stage.hidden = false; document.body.style.overflow = 'hidden'; stage.scrollTop = 0;
   document.getElementById('stageTitle').textContent = GNAME[id];
   drawStars();
@@ -1108,28 +1127,57 @@ function openGame(id, arg){
   RUN = GAMES[id](arg); RUN.id = id;
 }
 function closeGame(){
+  GEN++;
   if (RUN && RUN.stop) RUN.stop(); RUN = null;
   try { speechSynthesis.cancel(); } catch(e){}
   stage.hidden = true; document.body.style.overflow = ''; sb.innerHTML = '';
 }
 document.getElementById('backBtn').onclick = closeGame;
 document.getElementById('sayBtn').onclick = () => speak(INSTR);
-/* full screen for the smartboard */
+/* full screen: real full screen where the browser allows it (computer, smartboard, Android, iPad);
+   on iPhone, which has no full screen for pages, the game fills the page and a one-time note explains "Ana Ekrana Ekle" */
+const isFS = () => !!(document.fullscreenElement || document.webkitFullscreenElement) || stage.classList.contains('pfs');
 (function(){
-  const b = document.getElementById('fsBtn');
-  if (!document.fullscreenEnabled) return;
+  const b = document.getElementById('fsBtn'), d = document, el = d.documentElement;
+  const real = !!(d.fullscreenEnabled || d.webkitFullscreenEnabled) && !!(el.requestFullscreen || el.webkitRequestFullscreen);
+  const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  if (!real && standalone) return;            // opened from the home screen: already full screen
   b.hidden = false;
-  b.onclick = () => { try { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(() => {}); } catch(e){} };
-  document.addEventListener('fullscreenchange', () => { b.querySelector('.t').textContent = document.fullscreenElement ? 'Küçült' : 'Tam ekran'; requestAnimationFrame(fitStage); });
+  const sync = () => { b.querySelector('.t').textContent = isFS() ? 'Küçült' : 'Tam ekran'; stage.classList.toggle('isfs', isFS()); requestAnimationFrame(fitStage); };
+  b.onclick = () => {
+    try {
+      if (real) {
+        if (d.fullscreenElement || d.webkitFullscreenElement) (d.exitFullscreen || d.webkitExitFullscreen).call(d);
+        else { const r = (el.requestFullscreen || el.webkitRequestFullscreen).call(el); if (r && r.catch) r.catch(() => {}); }
+      } else {
+        stage.classList.toggle('pfs'); sync();
+        let seen = false; try { seen = !!localStorage.getItem('ky_fshint'); localStorage.setItem('ky_fshint', '1'); } catch(e){}
+        const h = document.getElementById('fshint');
+        if (isFS() && !seen) { h.hidden = false; queueFit(); setTimeout(() => { h.hidden = true; queueFit(); }, 9000); }
+      }
+    } catch(e){}
+  };
+  d.addEventListener('fullscreenchange', sync); d.addEventListener('webkitfullscreenchange', sync);
 })();
-/* fit every game screen inside the visible area: shrink the content (never enlarge) so answers and buttons are never below the fold */
+/* fit every game screen inside the visible area: shrink the content so answers and buttons are never below the fold;
+   in full screen also enlarge it so the game fills the screen */
 function fitStage(){
   if (stage.hidden) return;
   sb.style.zoom = 1;
-  const used = stage.querySelector('.stage-bar').offsetHeight + stage.querySelector('.instr').offsetHeight + (document.getElementById('novoice').hidden ? 0 : document.getElementById('novoice').offsetHeight) + 22;
+  const hint = document.getElementById('fshint');
+  const used = stage.querySelector('.stage-bar').offsetHeight + stage.querySelector('.instr').offsetHeight + (document.getElementById('novoice').hidden ? 0 : document.getElementById('novoice').offsetHeight) + (hint.hidden ? 0 : hint.offsetHeight) + 22;
   const avail = stage.clientHeight - used, need = sb.scrollHeight;
-  const sc = Math.max(.42, Math.min(1, avail / need));
-  if (sc < 1) sb.style.zoom = sc.toFixed(3);
+  const MIN = .25, W = stage.clientWidth;
+  const sc = Math.max(MIN, Math.min(isFS() ? 2.2 : 1, avail / need, W / sb.scrollWidth));
+  if (sc !== 1) sb.style.zoom = sc.toFixed(3);
+  // content that grows when zoomed (a wide picture filling the freed width) or rows that cannot wrap need a second look
+  let z = sc;
+  for (let i = 0; i < 4; i++) {
+    const vh = sb.getBoundingClientRect().height, vw = sb.scrollWidth * z;
+    const f = Math.min(avail / vh, W / vw);
+    if (f >= .995 || z <= MIN) break;
+    z = Math.max(MIN, z * f * .99); sb.style.zoom = z.toFixed(3);
+  }
 }
 let fitQ = 0;
 const queueFit = () => { cancelAnimationFrame(fitQ); fitQ = requestAnimationFrame(fitStage); };
@@ -1147,6 +1195,7 @@ sb.addEventListener('click', e => { const s = e.target.closest('[data-say]'); if
 /* exit card */
 const EXIT = {
   tablo:['Sayıların tablodaki yerini bulabilirim.','Tabloda bir sayının karşısındakini bulabilirim.','Ritmik sayınca tabloda örüntü oluşur.'],
+  kule:['Küçük kuleler birleşince büyük kule olur.','Bir kuleyi farklı parçalara ayırabilirim.','İki kuleyi eşitlemek için küp taşıyabilirim.'],
   dogru:['Sayı doğrusunda ileri gidince sayı büyür.','Geri gidince sayı küçülür.','Zıplamaları sayarak nereye varacağımı bulabilirim.'],
   agir:['İpuçlarını zincir gibi bağlayabilirim.','En ağır ve en hafifi bulabilirim.','Bir cümlenin doğru mu yanlış mı olduğuna karar verebilirim.'],
   sira:['Sıra sayılarını kullanabilirim.','Nereden saymaya başladığım önemlidir.','Sondan da sayabilirim.'],
@@ -1340,7 +1389,7 @@ GAMES.hece = function(arg){
       const b = e.target.closest('.hc'); if (!b || got.length >= parts.length) return;
       got.push(b.dataset.t); used.push(b.dataset.i); sPop(); draw();
       if (got.length === parts.length) {
-        if (got.join('') === parts.join('')) { sOk(); document.getElementById('slots').classList.add('good'); FB(parts.join(' - '), true); k++; tm = setTimeout(play, 1700); }
+        if (got.join('') === parts.join('')) { sOk(); document.getElementById('slots').classList.add('good'); FB(parts.join(' - '), true); k++; tm = afterSay(play, 1700); }
         else { sBad(); shake(document.getElementById('slots')); FB(it.e ? 'Resme bir daha bak, heceleri yeniden oku.' : 'Kelimeyi bir daha oku.'); tm = setTimeout(() => { got = []; used = []; draw(); }, 900); }
       }
     };
@@ -1371,7 +1420,7 @@ GAMES.ilk = function(arg){
       const b = e.target.closest('button'); if (!b) return;
       if (b.dataset.l === it.L) {
         sOk(); b.classList.add('cur'); document.getElementById('c1').querySelector('.w').innerHTML = revealW(it.w, K);
-        FB('Doğru!', true); sayAfter(it.w); k++; tm = setTimeout(play, 1800);
+        FB('Doğru!', true); sayAfter(it.w); k++; tm = afterSay(play, 1800);
       } else { sBad(); shake(b); FB('Bir daha dinle.'); sayAfter(it.w); }
     };
   }
@@ -1411,7 +1460,7 @@ GAMES.kelime = function(arg){
       const b = e.target.closest('.ncard'); if (!b || got.length >= parts.length) return;
       got.push(b.dataset.t); used.push(b.dataset.i); sPop(); draw();
       if (got.length === parts.length) {
-        if (got.join('') === it.w) { sOk(); document.getElementById('slots').classList.add('good'); FB('Kelimeyi yazdın!', true); k++; tm = setTimeout(play, 1600); }
+        if (got.join('') === it.w) { sOk(); document.getElementById('slots').classList.add('good'); FB('Kelimeyi yazdın!', true); k++; tm = afterSay(play, 1600); }
         else { sBad(); shake(document.getElementById('slots')); FB('Bir daha dene.'); tm = setTimeout(() => { got = []; used = []; draw(); }, 800); }
       }
     };
@@ -1441,7 +1490,7 @@ GAMES.hafiza = function(arg){
       if (open.length === 2) {
         const [[b1,c1],[b2,c2]] = open; open = [];
         if (c1.L === c2.L) { b1.classList.add('ok'); b2.classList.add('ok'); sOk(); done++;
-          if (done === ls.length) { FB('Hepsini buldun!', true); level++; tm = setTimeout(board, 1300); } }
+          if (done === ls.length) { FB('Hepsini buldun!', true); level++; tm = afterSay(board, 1300); } }
         else { lock = true; tm = setTimeout(() => { [b1,b2].forEach(x => { x.classList.remove('up'); x.setAttribute('aria-label','Kapalı kart'); }); lock = false; }, 1000); }
       }
     };
@@ -1469,7 +1518,7 @@ GAMES.kac = function(){
     document.getElementById('reset').onclick = () => sb.querySelectorAll('.obj.m').forEach(o => o.classList.remove('m'));
     sb.querySelector('.cards').onclick = e => {
       const b = e.target.closest('.ncard'); if (!b) return;
-      if (+b.dataset.n === n) { sOk(); LOCK = true; document.getElementById('fb').className = 'feedback good'; document.getElementById('fb').textContent = `Evet, ${n} tane!`; speak(`Evet, ${n} tane!`); k++; tm = setTimeout(play, 1500); }
+      if (+b.dataset.n === n) { sOk(); LOCK = true; document.getElementById('fb').className = 'feedback good'; document.getElementById('fb').textContent = `Evet, ${n} tane!`; speak(`Evet, ${n} tane!`); k++; tm = afterSay(play, 1500); }
       else { sBad(); shake(b); document.getElementById('fb').textContent = 'Bir daha say.'; speak('Bir daha say.'); }
     };
   }
@@ -1494,7 +1543,7 @@ GAMES.cokaz = function(){
     setInstr(`Hangi tabakta daha ${ask}? Tabağa dokun. Eşitse Eşit düğmesine dokun.`);
     const right = eq ? 'eq' : ((ask === 'çok') === (a > b) ? 'a' : 'b');
     const answer = (v, el) => {
-      if (v === right) { sOk(); LOCK = true; if (el.classList.contains('tabak')) el.classList.add('right'); document.getElementById('fb').className = 'feedback good'; document.getElementById('fb').textContent = eq ? 'Evet, eşitler!' : 'Doğru!'; speak(eq ? 'Evet, eşitler!' : 'Doğru!'); k++; tm = setTimeout(play, 1400); }
+      if (v === right) { sOk(); LOCK = true; if (el.classList.contains('tabak')) el.classList.add('right'); document.getElementById('fb').className = 'feedback good'; document.getElementById('fb').textContent = eq ? 'Evet, eşitler!' : 'Doğru!'; speak(eq ? 'Evet, eşitler!' : 'Doğru!'); k++; tm = afterSay(play, 1400); }
       else { sBad(); shake(el); document.getElementById('fb').textContent = 'Bir daha bak.'; speak('Bir daha bak.'); }
     };
     sb.querySelectorAll('.tabak').forEach(t => t.onclick = () => answer(t.dataset.s, t));
@@ -1508,7 +1557,7 @@ GAMES.cokaz = function(){
     tm = setTimeout(() => { sb.querySelectorAll('.tabak').forEach(t => t.classList.add('hid')); }, 2600);
     sb.querySelectorAll('.tabak').forEach(t => t.onclick = () => {
       if (!t.classList.contains('hid')) return;
-      if ((t.dataset.s === 'a') === (a > b)) { sOk(); sb.querySelectorAll('.tabak').forEach(x => x.classList.remove('hid')); t.classList.add('right'); FB(`Evet! ${Math.max(a,b)} ve ${Math.min(a,b)} vardı.`, true); k++; tm = setTimeout(play, 2200); }
+      if ((t.dataset.s === 'a') === (a > b)) { sOk(); sb.querySelectorAll('.tabak').forEach(x => x.classList.remove('hid')); t.classList.add('right'); FB(`Evet! ${Math.max(a,b)} ve ${Math.min(a,b)} vardı.`, true); k++; tm = afterSay(play, 2200); }
       else { sBad(); sb.querySelectorAll('.tabak').forEach(x => x.classList.remove('hid')); FB('Bir daha bak, sonra karar ver.'); tm = setTimeout(() => sb.querySelectorAll('.tabak').forEach(x => x.classList.add('hid')), 2200); }
     });
   }
@@ -1570,7 +1619,7 @@ GAMES.yon = function(){
         if (L.r.some(([x,y]) => x === n[0] && y === n[1])) { running = 'x'; clear(); return fail('Taşa çarptı! Yolunu değiştir.'); }
         p = n; trail.push([...p]); draw(p, trail); tone(520 + i*30, .06, 'sine', .08);
         if (i === prog.length - 1) {
-          if (p[0] === L.t[0] && p[1] === L.t[1]) { sOk(); document.getElementById('fb').className = 'feedback good'; document.getElementById('fb').textContent = 'Çiçeğe ulaştı!'; speak('Çiçeğe ulaştı!'); k++; tm.push(setTimeout(play, 1600)); }
+          if (p[0] === L.t[0] && p[1] === L.t[1]) { sOk(); document.getElementById('fb').className = 'feedback good'; document.getElementById('fb').textContent = 'Çiçeğe ulaştı!'; speak('Çiçeğe ulaştı!'); k++; tm.push(afterSay(play, 1600)); }
           else fail('Çiçeğe ulaşamadı. Yolunu değiştir.');
         }
       }, 450 * (i+1))));
@@ -1598,7 +1647,7 @@ GAMES.sira = function(){
     const n = rint(5,7), row = shuffle(Object.keys(ANAD)).slice(0, n);
     const type = k < 4 ? k % 2 : rint(0,2), idx = rint(0, n-1);
     sb.innerHTML = `${progBar(N,k)}<div class="queue"><span class="door">🚪</span>${row.map((a,i) => `<button class="qa" data-i="${i}" aria-label="${ANAD[a]}">${a}</button>`).join('')}</div><div class="feedback" id="fb"></div><div id="qopts"></div>`;
-    const ok = () => { sOk(); k++; tm = setTimeout(play, 1400); };
+    const ok = () => { sOk(); k++; tm = afterSay(play, 1400); };
     if (type === 1) {
       const a = row[idx];
       const opts = shuffle([idx, ...shuffle([...Array(n).keys()].filter(i => i !== idx)).slice(0,2)]);
@@ -1677,7 +1726,7 @@ GAMES.oruntu = function(){
     setInstr(k === 0 ? 'Örüntüye bak. Soru işaretinin yerine ne gelmeli?' : k === 6 ? 'Şimdi sayılarla bir örüntü. Soru işaretinin yerine hangi sayı gelmeli?' : 'Soru işaretinin yerine ne gelmeli?');
     sb.querySelector('.pick').onclick = e => {
       const b = e.target.closest('button'); if (!b) return;
-      if (b.dataset.v === String(ans)) { sOk(); const q = sb.querySelector('.ptn .q'); q.textContent = ans; q.classList.remove('q'); FB('Örüntüyü buldun!', true); k++; tm = setTimeout(play, 1400); }
+      if (b.dataset.v === String(ans)) { sOk(); const q = sb.querySelector('.ptn .q'); q.textContent = ans; q.classList.remove('q'); FB('Örüntüyü buldun!', true); k++; tm = afterSay(play, 1400); }
       else { sBad(); shake(b); FB('Örüntünün tekrar eden kısmına bak.'); }
     };
   }
@@ -1692,7 +1741,7 @@ GAMES.oruntu = function(){
       <div class="ask">${opts.map(m => `<button class="optbtn ptnopt" data-m="${m}">${build(m, sd, 8)}</button>`).join('')}</div>`;
     setInstr('Şekil örüntüsüne bak. Aynı kurala sahip ses örüntüsü hangisi? Seçtiğini sesle de yapabilirsin!');
     sb.querySelector('.ask').onclick = e => { const b = e.target.closest('.ptnopt'); if (!b) return;
-      if (b.dataset.m === mot) { sOk(); b.classList.add('right'); FB('Kural aynı! Şimdi bu örüntüyü alkışla yap.', true); k++; tm = setTimeout(play, 2600); }
+      if (b.dataset.m === mot) { sOk(); b.classList.add('right'); FB('Kural aynı! Şimdi bu örüntüyü alkışla yap.', true); k++; tm = afterSay(play, 2600); }
       else { sBad(); b.classList.add('wrong'); FB('Şekillerin tekrar eden kısmına bak. Seslerde de aynısı olmalı.'); } };
   }
   play(); return { stop(){ clearTimeout(tm); } };
@@ -1723,7 +1772,7 @@ GAMES.tahmin = function(){
         document.getElementById('nb').onclick = null; cl.hidden = true;
         if (+b.dataset.n === n) { sOk(); b.classList.add('right'); FB(`Harika tahmin! Kavanozda ${n} tane var.`, true); }
         else { tone(400,.15,'sine',.1); FB(`İyi denemeydi. Kavanozda ${n} tane var. Hangi seçenek daha yakındı?`); }
-        k++; tm.push(setTimeout(play, 2600));
+        k++; tm.push(afterSay(play, 2600));
       };
     }, 3500));
   }
@@ -1738,7 +1787,7 @@ GAMES.tahmin = function(){
       const right = n > 4 ? 'kac' : 'dur'; document.getElementById('cl').hidden = true; document.getElementById('kd').hidden = true;
       if (b.dataset.v === right) { sOk(); FB(n > 4 ? `Doğru! Onlar ${n} taneydi, bizden çoktu.` : `Doğru! Onlar ${n} taneydi, bizden azdı.`, true); }
       else { tone(400,.15,'sine',.1); FB(`Onlar ${n} taneydi. Bizim 4 köpeğimize bir daha bak.`); }
-      k++; tm.push(setTimeout(play, 2600));
+      k++; tm.push(afterSay(play, 2600));
     });
   }
   play(); return { stop(){ tm.forEach(clearTimeout); } };
@@ -1774,7 +1823,7 @@ GAMES.islem = function(){
     tm.push(setTimeout(() => {
       document.getElementById('opts').innerHTML = numBtns(numOpts(res, 0, 20, 2));
       document.getElementById('nb').onclick = e => { const bt = e.target.closest('.ncard'); if (!bt) return;
-        if (+bt.dataset.n === res) { sOk(); FB(`Evet, ${res} ${s.ad}!`, true); k++; tm.push(setTimeout(play, 1600)); }
+        if (+bt.dataset.n === res) { sOk(); FB(`Evet, ${res} ${s.ad}!`, true); k++; tm.push(afterSay(play, 1600)); }
         else { sBad(); shake(bt); FB(mental ? 'Hikâyeyi bir daha düşün.' : 'Resme bir daha bak.'); } };
     }, mental ? 600 : 3200));
   }
@@ -1806,7 +1855,7 @@ GAMES.terazi = function(){
         sOk(); FB('Terazi dengede!', true);
         const L = b ? `${a} + ${b}` : `${a}`, R = c ? (d ? `${c} + ${d}` : `${c}`) : `${d}`;
         document.getElementById('sen').innerHTML = `<span class="kb">${L} = ${R}</span>`;
-        k++; tm = setTimeout(play, 2400);
+        k++; tm = afterSay(play, 2400);
       } else { sBad(); FB('Terazi henüz dengede değil.'); }
     };
     draw();
@@ -1833,7 +1882,7 @@ GAMES.ev = function(){
         sOk(); sb.querySelector('.qm').outerHTML = `<b>${val}</b>`; FB('Doğru!', true);
         document.getElementById('nb').remove();
         document.getElementById('fam').innerHTML = [`${p} + ${q} = ${T}`, `${q} + ${p} = ${T}`, `${T} − ${p} = ${q}`, `${T} − ${q} = ${p}`].map(x => `<span class="kb">${x}</span>`).join('');
-        k++; tm = setTimeout(play, 2600);
+        k++; tm = afterSay(play, 2600);
       } else { sBad(); shake(b); FB('Evin odalarına bir daha bak.'); } };
   }
   function extra(){
@@ -1849,7 +1898,7 @@ GAMES.ev = function(){
       sel.push(i); b.classList.add('on'); sPop();
       if (sel.length === 2) {
         const [x, y] = sel.map(j => vals[j]);
-        if (x + y === T) { sOk(); FB(`${x} ve ${y} birleşince ${T} oldu!`, true); k++; tm = setTimeout(play, 2000); }
+        if (x + y === T) { sOk(); FB(`${x} ve ${y} birleşince ${T} oldu!`, true); k++; tm = afterSay(play, 2000); }
         else { sBad(); FB(`${x} ve ${y} birleşince ${T} olmadı. Başka parçalar dene.`); setTimeout(() => { sel = []; sb.querySelectorAll('.piece.on').forEach(z => z.classList.remove('on')); }, 900); }
       } };
   }
@@ -1877,7 +1926,7 @@ GAMES.market = function(){
     document.getElementById('ctr').onclick = e => { const b = e.target.closest('.mon'); if (!b) return; paid.splice(+b.dataset.i, 1); tone(500,.06,'square',.05); draw(); };
     document.getElementById('pay').onclick = () => {
       const sum = paid.reduce((x,y) => x + y, 0);
-      if (sum === price) { sOk(); FB(`Tam ${price} lira ödedin. Afiyet olsun!`, true); k++; tm = setTimeout(play, 1800); }
+      if (sum === price) { sOk(); FB(`Tam ${price} lira ödedin. Afiyet olsun!`, true); k++; tm = afterSay(play, 1800); }
       else if (sum < price) { sBad(); FB('Para yetmedi. Biraz daha ekle.'); }
       else { sBad(); FB('Fazla verdin. Tam fiyatı vermeyi dene.'); }
     };
@@ -1922,7 +1971,7 @@ GAMES.ikiz = function(){
       <div class="opts4">${opts.map((o,i) => `<button class="sopt" data-i="${i}" aria-label="Seçenek ${i+1}">${svg(o, cols[i])}</button>`).join('')}</div>`;
     setInstr(k === 0 ? 'Lacivert şeklin ikizini bul. İkizi biraz dönmüş ya da başka renkte olabilir.' : 'Lacivert şeklin ikizi hangisi?');
     sb.querySelector('.opts4').onclick = e => { const b = e.target.closest('.sopt'); if (!b) return;
-      if (opts[+b.dataset.i].ok) { sOk(); b.classList.add('right'); FB('İkizini buldun!', true); k++; tm = setTimeout(play, 1500); }
+      if (opts[+b.dataset.i].ok) { sOk(); b.classList.add('right'); FB('İkizini buldun!', true); k++; tm = afterSay(play, 1500); }
       else { sBad(); shake(b); FB('Biçimine ve büyüklüğüne bir daha bak.'); } };
   }
   function extra(){
@@ -1938,7 +1987,7 @@ GAMES.ikiz = function(){
       <div class="row">${props.map(x => `<button class="cta alt" data-p="${x}">${x[0].toLocaleUpperCase('tr-TR') + x.slice(1)}</button>`).join('')}</div>`;
     setInstr('Bu iki şekil bir özelliğe göre eş. Hangi özelliğe göre: renk mi, büyüklük mü, biçim mi?');
     sb.querySelector('.row').onclick = e => { const b = e.target.closest('[data-p]'); if (!b) return;
-      if (b.dataset.p === p) { sOk(); FB(`Evet, ${p} bakımından eşler. Diğer özellikleri farklı.`, true); k++; tm = setTimeout(play, 2000); }
+      if (b.dataset.p === p) { sOk(); FB(`Evet, ${p} bakımından eşler. Diğer özellikleri farklı.`, true); k++; tm = afterSay(play, 2000); }
       else { sBad(); shake(b); FB(`İki şeklin ${b.dataset.p}ine bir daha bak.`.replace('büyüklükine','büyüklüğüne').replace('biçimine','biçimine').replace('renkine','rengine')); } };
   }
   play(); return { stop(){ clearTimeout(tm); } };
@@ -1968,7 +2017,7 @@ GAMES.olc = function(){
       document.getElementById('plus').onclick = () => { if (n < 12) { n++; sPop(); draw(); } };
       document.getElementById('minus').onclick = () => { if (n > 0) { n--; draw(); } };
       document.getElementById('done').onclick = () => {
-        if (n === L) { sOk(); const d = Math.abs(guess - L); FB(`${ad[0].toLocaleUpperCase('tr-TR') + ad.slice(1)} ${L} ${unit} uzunluğunda. ${d === 0 ? 'Tahminin tam tuttu!' : d <= 2 ? 'Tahminin çok yakındı!' : 'Tahminin ' + guess + ' idi.'}`, true); k++; tm = setTimeout(play, 2800); }
+        if (n === L) { sOk(); const d = Math.abs(guess - L); FB(`${ad[0].toLocaleUpperCase('tr-TR') + ad.slice(1)} ${L} ${unit} uzunluğunda. ${d === 0 ? 'Tahminin tam tuttu!' : d <= 2 ? 'Tahminin çok yakındı!' : 'Tahminin ' + guess + ' idi.'}`, true); k++; tm = afterSay(play, 2800); }
         else if (n < L) { sBad(); FB(`${unit === 'ataç' ? 'Ataçlar' : 'Küpler'} sona ulaşmadı.`); }
         else { sBad(); FB(`${unit === 'ataç' ? 'Ataçlar' : 'Küpler'} ucu geçti.`); }
       };
@@ -1985,7 +2034,7 @@ GAMES.olc = function(){
       <div class="feedback" id="fb"></div><div class="ask">${opts.map(([t,v]) => `<button class="optbtn" data-v="${v}">${t}</button>`).join('')}</div>`;
     setInstr(`Aynı ${ad}yı önce ataçla, sonra büyük küplerle ölçtük. ${L} ataç ama ${L/2} küp çıktı. Sence neden?`.replace('masayı','masayı').replace('kurdeleyı','kurdeleyi'));
     sb.querySelector('.ask').onclick = e => { const b = e.target.closest('.optbtn'); if (!b) return;
-      if (b.dataset.v === '1') { sOk(); b.classList.add('right'); FB('Evet! Birim uzadıkça sayı azalır. Bu yüzden ölçerken birimi de söyleriz: ' + L + ' ataç, ' + (L/2) + ' küp.', true); k++; tm = setTimeout(play, 3200); }
+      if (b.dataset.v === '1') { sOk(); b.classList.add('right'); FB('Evet! Birim uzadıkça sayı azalır. Bu yüzden ölçerken birimi de söyleriz: ' + L + ' ataç, ' + (L/2) + ' küp.', true); k++; tm = afterSay(play, 3200); }
       else { sBad(); b.classList.add('wrong'); FB('Ataçlara ve küplere bir daha bak. Hangisi daha uzun?'); } };
   }
   play(); return { stop(){ clearTimeout(tm); } };
@@ -2012,7 +2061,7 @@ GAMES.sekil = function(){
     sb.innerHTML = `${progBar(N,k)}<div class="field2"><svg viewBox="0 0 600 400" id="fs">${list.map((o,i) => shapeEl(o.ty, o.x, o.y, o.s, o.rot, o.col, i)).join('')}</svg></div><div class="feedback" id="fb"></div>`;
     setInstr(`Bütün ${tn} bul ve dokun.`);
     document.getElementById('fs').onclick = e => { const g = e.target.closest('g'); if (!g || g.classList.contains('got')) return;
-      if (list[+g.dataset.i].ty === tt) { g.classList.add('got'); sOk(); found++; if (found === nT) { FB('Hepsini buldun!', true); k++; tm = setTimeout(play, 1500); } }
+      if (list[+g.dataset.i].ty === tt) { g.classList.add('got'); sOk(); found++; if (found === nT) { FB('Hepsini buldun!', true); k++; tm = afterSay(play, 1500); } }
       else { sBad(); FB('Bu şeklin kenarlarına ve köşelerine bir daha bak.'); } };
   }
   play(); return { stop(){ clearTimeout(tm); } };
@@ -2054,7 +2103,7 @@ GAMES.veri = function(){
       document.getElementById('q1').outerHTML = numBtns(numOpts(ask.v, 0, 10, 2));
       setInstr(ask.t);
       document.getElementById('nb').onclick = e => { const b = e.target.closest('.ncard'); if (!b) return;
-        if (+b.dataset.n === ask.v) { sOk(); FB('Doğru!', true); r++; tm = setTimeout(round, 1600); } else { sBad(); shake(b); FB('Grafiğe bir daha bak.'); } };
+        if (+b.dataset.n === ask.v) { sOk(); FB('Doğru!', true); r++; tm = afterSay(round, 1600); } else { sBad(); shake(b); FB('Grafiğe bir daha bak.'); } };
     }
   }
   round(); return { stop(){ clearTimeout(tm); } };
@@ -2091,7 +2140,7 @@ GAMES.agir = function(){
       document.getElementById('qa').innerHTML = `<div class="row"><button class="cta" data-v="1">Doğru</button><button class="cta alt" data-v="0">Yanlış</button></div>`;
       setInstr(st + ' Doğru mu, yanlış mı?');
       document.getElementById('qa').onclick = e => { const bt = e.target.closest('[data-v]'); if (!bt) return;
-        if ((bt.dataset.v === '1') === truth) { sOk(); FB(truth ? 'Doğru! İpuçlarını zincir gibi bağladın.' : 'Evet, bu cümle yanlış!', true); k++; tm = setTimeout(play, 1800); }
+        if ((bt.dataset.v === '1') === truth) { sOk(); FB(truth ? 'Doğru! İpuçlarını zincir gibi bağladın.' : 'Evet, bu cümle yanlış!', true); k++; tm = afterSay(play, 1800); }
         else { sBad(); shake(bt); FB('İpuçlarını sırayla izle: hangisi hangisinden ağır?'); } };
     }
   }
@@ -2166,7 +2215,7 @@ GAMES.tablo = function(){
       setInstr(k === 0 ? `Otoparka hoş geldin! Arabayı ${n} numaralı park yerine park et. O yere dokun.` : `Şimdi arabayı ${n} numaralı yere park et.`);
       let busy = false;
       sb.querySelector('.parkSVG').onclick = e => { const h = e.target.closest('.hit'); if (!h || busy) return; const m = +h.dataset.n;
-        if (m === n) { busy = true; driveTo(n, () => { sOk(); FB('Harika park ettin!', true); k++; tm = setTimeout(play, 1500); }); }
+        if (m === n) { busy = true; driveTo(n, () => { sOk(); FB('Harika park ettin!', true); k++; tm = afterSay(play, 1500); }); }
         else if (cars[m]) { sBad(); flash(m); FB('Orası dolu. Numaralara bir daha bak.'); }
         else { sBad(); flash(m); FB(`Burası ${m} numara. ${n} numarayı bul.`); } };
     } else if (k < 6) {                            // missing numbers
@@ -2181,7 +2230,7 @@ GAMES.tablo = function(){
         document.getElementById('opts').innerHTML = numBtns(shuffle([n, ...shuffle(cand).slice(0, 2)]));
         document.getElementById('nb').onclick = e => { const b = e.target.closest('.ncard'); if (!b) return;
           if (+b.dataset.n === n) { sOk(); const p = sb.querySelector(`.plate[data-p="${n}"]`); p.classList.remove('blank','now'); p.querySelector('rect').setAttribute('fill','#FFFFFF'); p.querySelector('text').textContent = n; m++;
-            if (m < hide.length) ask(); else { document.getElementById('opts').innerHTML = ''; FB('Bütün numaraları buldun!', true); k++; tm = setTimeout(play, 1600); } }
+            if (m < hide.length) ask(); else { document.getElementById('opts').innerHTML = ''; FB('Bütün numaraları buldun!', true); k++; tm = afterSay(play, 1600); } }
           else { sBad(); shake(b); FB('Yanındaki ve karşısındaki numaralara bak.'); } };
       };
       ask();
@@ -2194,7 +2243,7 @@ GAMES.tablo = function(){
       sb.querySelector('.parkSVG').onclick = e => { const h = e.target.closest('.hit'); if (!h) return; const m = +h.dataset.n;
         if (m === t) { sOk(); FB(`Evet, burası ${t}!`, true);
           sb.querySelectorAll('.plate.blank').forEach(p => { const v = +p.dataset.p; p.classList.remove('blank'); p.querySelector('rect').setAttribute('fill','#FFFFFF'); p.querySelector('text').textContent = v; });
-          k++; tm = setTimeout(play, 2600); }
+          k++; tm = afterSay(play, 2600); }
         else { sBad(); flash(m); FB(`Kırmızı arabadan başlayarak say. ${t} nerede?`); } };
     } else {                                       // bouncing ball paints a pattern
       const step = k === 9 ? 2 : 5, last = k === 9 ? 12 : 20;
@@ -2209,7 +2258,7 @@ GAMES.tablo = function(){
           const bg = document.getElementById('ballg'), x0 = SX(from), y0 = SY(from), x1 = SX(m), y1 = SY(m);
           tween(600, t => { const x = x0 + (x1 - x0) * t, y = y0 + (y1 - y0) * t - Math.sin(Math.PI * t) * 120; bg.innerHTML = `<circle cx="${x}" cy="${y}" r="24" fill="url(#ballG)"/>`; }, () => {
             tone(700, .08); paint[m] = '#F6D928'; draw();
-            if (at + step > last) { FB('Boyadığın yerlere bak! Ne fark ettin?', true); k++; tm = setTimeout(play, 3200); }
+            if (at + step > last) { FB('Boyadığın yerlere bak! Ne fark ettin?', true); k++; tm = afterSay(play, 3200); }
           }, () => alive);
         } else { sBad(); flash(m); FB(`Top ${step === 2 ? 'ikişer' : 'beşer'} zıplıyor. Saymayı topun olduğu yerden başlat.`); } }; }
       draw();
@@ -2292,7 +2341,7 @@ GAMES.dogru = function(){
       sb.querySelector('.lineSVG').onclick = e => { const h = e.target.closest('.hit'); if (!h || busy) return; busy = true; const m = +h.dataset.i;
         document.getElementById('mark').innerHTML = `<circle cx="${X(m)}" cy="203" r="25" fill="none" stroke="#E3051B" stroke-width="4" stroke-dasharray="6 5"/>`;
         hopTo(a, t, () => {
-          if (m === t) { sOk(); FB(`Doğru! Kurbağa ${t} sayısına düştü.`, true); k++; tm = setTimeout(play, 1800); }
+          if (m === t) { sOk(); FB(`Doğru! Kurbağa ${t} sayısına düştü.`, true); k++; tm = afterSay(play, 1800); }
           else { sBad(); FB(`Kurbağa ${t} sayısına düştü. Zıplamaları sayarak bir daha dene.`); tm = setTimeout(() => { document.getElementById('frog').setAttribute('transform', `translate(${X(a)} 196)`); document.getElementById('mark').innerHTML = ''; busy = false; }, 2200); }
         }); };
     } else if (k < 8) {                            // lift goes up / down
@@ -2304,7 +2353,7 @@ GAMES.dogru = function(){
         document.getElementById('fmark').innerHTML = `<rect x="20" y="${Y(m) - FH}" width="430" height="${FH}" fill="none" stroke="#E3051B" stroke-width="4" stroke-dasharray="8 6" rx="4"/>`;
         const cab = document.getElementById('cab'); let cur = a; const dir = t > a ? 1 : -1;
         const step = () => { if (!alive) return; if (cur === t) { tone(988, .25, 'sine', .14);
-            if (m === t) { sOk(); FB(`Ding! Asansör ${t}. katta durdu.`, true); k++; tm = setTimeout(play, 1800); }
+            if (m === t) { sOk(); FB(`Ding! Asansör ${t}. katta durdu.`, true); k++; tm = afterSay(play, 1800); }
             else { sBad(); FB(`Asansör ${t}. katta durdu. Katları sayarak bir daha dene.`); tm = setTimeout(() => { cab.setAttribute('transform', `translate(152 ${Y(a) - FH + 3})`); document.getElementById('fmark').innerHTML = ''; busy = false; }, 2200); }
             return; }
           const f0 = cur; cur += dir; tween(330, tt => cab.setAttribute('transform', `translate(152 ${Y(f0) - FH + 3 - dir * FH * ease(tt)})`), () => { tone(420 + cur * 20, .05, 'sine', .07); step(); }, () => alive); };
@@ -2319,7 +2368,7 @@ GAMES.dogru = function(){
         document.getElementById('opts').innerHTML = numBtns(shuffle([n, n + 1, n - 1]));
         document.getElementById('nb').onclick = e => { const b = e.target.closest('.ncard'); if (!b) return;
           if (+b.dataset.n === n) { sOk(); const g = sb.querySelector(`.nl[data-i="${n}"]`); g.outerHTML = `<text x="${X(n)}" y="256" text-anchor="middle" class="ltxt">${n}</text>`; m++;
-            if (m < blanks.length) ask(); else { document.getElementById('opts').innerHTML = ''; FB('Sayı doğrusu tamamlandı!', true); k++; tm = setTimeout(play, 1600); } }
+            if (m < blanks.length) ask(); else { document.getElementById('opts').innerHTML = ''; FB('Sayı doğrusu tamamlandı!', true); k++; tm = afterSay(play, 1600); } }
           else { sBad(); shake(b); FB('Sarı yuvarlağın önündeki ve arkasındaki sayılara bak.'); } };
       };
       ask();
@@ -2333,12 +2382,302 @@ GAMES.dogru = function(){
         if (i === n) { sOk(); const f = document.getElementById('frog'), a = at; at = n;
           tween(700, t => f.setAttribute('transform', `translate(${X(a) + (X(n) - X(a)) * t} ${196 - Math.sin(Math.PI * t) * 90})`), () => {
             shown.add(n); draw(); m++;
-            if (m < targets.length) { FB(`Evet, ${n} burada!`, true); setTimeout(ask, 900); } else { FB('Hepsini buldun!', true); k++; tm = setTimeout(play, 1600); } }, () => alive); }
+            if (m < targets.length) { FB(`Evet, ${n} burada!`, true); setTimeout(ask, 900); } else { FB('Hepsini buldun!', true); k++; tm = afterSay(play, 1600); } }, () => alive); }
         else { sBad(); FB('Yazılı sayılardan başlayarak çentikleri say.'); } }; }
       draw(); ask();
     }
   }
   play(); return { stop(){ alive = false; clearTimeout(tm); } };
+};
+
+/* ---------- Küp Kuleleri: linking cubes moved by a tower crane (DragonBox-like part–whole play, no numerals) ---------- */
+const KCOL = ['#F94144','#F8961E','#F9C74F','#43AA8B','#4D96FF','#9B5DE5','#F15BB5','#00BBF9'];
+// one linking cube: x = centre, y = top edge (40 × 32); the top cube shows its knob
+function cubeSVG(x, y, col, top, attrs){
+  return `<g ${attrs || ''}>${top ? `<rect x="${x-8}" y="${y-7}" width="16" height="10" rx="2.5" fill="${col}" stroke="rgba(0,0,0,.3)" stroke-width="2"/>` : ''}
+    <rect x="${x-18}" y="${y}" width="36" height="32" rx="3.5" fill="${col}" stroke="rgba(0,0,0,.32)" stroke-width="2"/>
+    <rect x="${x-12}" y="${y+5}" width="24" height="20" rx="2" fill="#FFFFFF" fill-opacity=".12" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="2"/>
+    <rect x="${x-17}" y="${y+26}" width="34" height="5" rx="2" fill="#000000" opacity=".14"/></g>`;
+}
+GAMES.kule = function(){
+  const N = 13, S = 32, G = 4, GY = 740, REST = 70, CARRY = 398, HOOK = 24, MAX = 10, NC = 6;
+  const CX = i => 95 + i * 150;
+  const H = n => n * S + (n > 5 ? G : 0);                         // a stack of n cubes, gap after the 5th
+  const cubeTop = (base, j) => base - j * S - (j >= 5 ? G : 0) - S;  // top edge of cube j (0 = bottom)
+  let k = 0, tm = null, alive = true;
+  const st = { cols: [], carry: null, hx: 520, hy: REST, busy: false, pads: [], target: 0, ghost: false, mode: '' };
+
+  // four scenes so the background changes with every part: city (Tanış), harbour + evening (Yuvaya kur), winter (Dengele)
+  const TH = ['sehir','sehir','sehir','liman','liman','liman','aksam','aksam','aksam','kis','kis','kis','kis'];
+  function scene(th){
+    const anim = (vals, dur, begin) => RM ? '' : `<animateTransform attributeName="transform" type="translate" additive="sum" values="${vals}" dur="${dur}s" begin="${begin || 0}s" repeatCount="indefinite"/>`;
+    const cloud = (x, y, s, d, c) => `<g transform="translate(${x} ${y}) scale(${s})" fill="${c || '#FFFFFF'}">${anim(`0 0;${d} 0;0 0`, 40 + d)}
+      <ellipse cx="0" cy="0" rx="46" ry="22"/><ellipse cx="-36" cy="9" rx="30" ry="16"/><ellipse cx="38" cy="9" rx="32" ry="15"/><ellipse cx="6" cy="-15" rx="26" ry="19"/></g>`;
+    const tree = (x, y, s, a, b) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-4" y="-8" width="8" height="26" rx="3" fill="#8E5B2B"/><circle cx="0" cy="-26" r="22" fill="${a || '#3E9A44'}"/><circle cx="-13" cy="-14" r="14" fill="${b || '#52B85A'}"/><circle cx="13" cy="-16" r="15" fill="${b || '#52B85A'}"/></g>`;
+    const pine = (x, y, s) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-4" y="-6" width="8" height="16" fill="#7A4A22"/>
+      ${[[0, 34], [-22, 28], [-42, 22]].map(([ty, w]) => `<path d="M${-w} ${ty} L0 ${ty-30} L${w} ${ty} Z" fill="#2E7D5B"/><path d="M${-w*.45} ${ty-16} L0 ${ty-30} L${w*.45} ${ty-16} L${w*.2} ${ty-13} L0 ${ty-17} L${-w*.2} ${ty-12} Z" fill="#FFFFFF"/>`).join('')}</g>`;
+    const house = (x, y, w, c, r, win) => `<g><rect x="${x}" y="${y}" width="${w}" height="${w*.8}" fill="${c}"/><path d="M${x-6} ${y} L${x+w/2} ${y-w*.55} L${x+w+6} ${y} Z" fill="${r}"/><rect x="${x+w*.2}" y="${y+w*.2}" width="${w*.22}" height="${w*.22}" fill="${win || '#CFEAF8'}"/><rect x="${x+w*.58}" y="${y+w*.35}" width="${w*.24}" height="${w*.45}" fill="#8E5B2B"/></g>`;
+    const sun = (x, y, r, c, ray) => `<g><circle cx="${x}" cy="${y}" r="${r*1.5}" fill="${c}" opacity=".3"/><circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/>
+      ${ray ? Array.from({length:12}, (_,i) => { const a = i * Math.PI / 6; return `<line x1="${x + Math.cos(a)*r*1.3}" y1="${y + Math.sin(a)*r*1.3}" x2="${x + Math.cos(a)*r*1.68}" y2="${y + Math.sin(a)*r*1.68}" stroke="${ray}" stroke-width="5" stroke-linecap="round"/>`; }).join('') : ''}</g>`;
+    const birds = c => [[420,215,1],[452,200,.8],[480,222,.7]].map(([x, y, sc]) => `<path d="M${x-12*sc} ${y} q${6*sc} ${-8*sc} ${12*sc} 0 q${6*sc} ${-8*sc} ${12*sc} 0" stroke="${c}" stroke-width="3" fill="none" stroke-linecap="round"/>`).join('');
+    const town = (body, lit) => [[30,90,230,'#A0C4FF'],[130,70,300,'#FFD6A5'],[215,100,250,'#CDB4DB'],[330,80,330,'#B5E48C'],[425,110,270,'#FFB4A2'],[700,90,310,'#9BD9F0'],[800,80,260,'#FFD6A5'],[880,60,330,'#CDB4DB']].map(([x, w, h, c], b) =>
+      `<g opacity="${body ? 1 : .8}"><rect x="${x}" y="${600-h}" width="${w}" height="${h+140}" rx="4" fill="${body || c}"/>${Array.from({length: Math.floor((h-20)/40)}, (_, r) => Array.from({length: Math.floor((w-14)/26)}, (_, q) =>
+        `<rect x="${x+14+q*26}" y="${600-h+18+r*40}" width="12" height="18" rx="2" fill="${lit ? ((r * 5 + q * 3 + b) % 4 ? lit : '#6B5F9A') : '#FFFFFF'}" opacity="${lit ? 1 : .75}"/>`).join('')).join('')}</g>`).join('');
+    const sky = (stops) => `<linearGradient id="kSky" x1="0" y1="0" x2="0" y2="1">${stops.map(([o, c]) => `<stop offset="${o}" stop-color="${c}"/>`).join('')}</linearGradient>`;
+    const ground = (a, b, edge, extra) => `<defs><linearGradient id="kGr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs>
+      <rect x="0" y="${GY}" width="1000" height="${780-GY}" fill="url(#kGr)"/><rect x="0" y="${GY}" width="1000" height="5" fill="${edge}"/>${extra || ''}`;
+    const pebbles = c => [[40,758,10],[230,766,7],[380,754,9],[520,770,6],[690,760,8],[820,770,10]].map(([x,y,r]) => `<ellipse cx="${x}" cy="${y}" rx="${r}" ry="${r*.55}" fill="${c}" opacity=".7"/>`).join('');
+    const cone = `<g transform="translate(24 ${GY})"><path d="M-14 0 L0 -40 L14 0 Z" fill="#FF7A1A"/><rect x="-8" y="-24" width="16" height="6" fill="#FFFFFF"/><rect x="-18" y="-3" width="36" height="7" rx="2" fill="#E25F0B"/></g>`;
+    const BG = {
+      sehir: () => `<defs>${sky([[0,'#7CCBF5'],[.7,'#D9F1FF'],[1,'#F2FAFF']])}</defs><rect width="1000" height="780" fill="url(#kSky)"/>
+        ${sun(96, 128, 42, '#FFD23F', '#FFC300')}${town()}
+        ${cloud(300, 140, 1, 40)}${cloud(620, 100, .8, 60)}${cloud(800, 200, .65, 30)}
+        <g transform="translate(700 250)">${anim('0 0;0 -14;0 0', 6)}
+          <path d="M0 -58 C34 -58 46 -30 40 -8 C34 14 12 26 6 34 L-6 34 C-12 26 -34 14 -40 -8 C-46 -30 -34 -58 0 -58 Z" fill="#F94144"/>
+          <path d="M0 -58 C14 -58 18 -30 16 -8 C14 14 6 26 4 34 L-4 34 C-6 26 -14 14 -16 -8 C-18 -30 -14 -58 0 -58 Z" fill="#F9C74F"/>
+          <path d="M-40 -8 C-30 -2 30 -2 40 -8" stroke="#FFFFFF" stroke-width="3" fill="none" opacity=".7"/>
+          <line x1="-6" y1="34" x2="-9" y2="46" stroke="#8E5B2B" stroke-width="2"/><line x1="6" y1="34" x2="9" y2="46" stroke="#8E5B2B" stroke-width="2"/>
+          <rect x="-11" y="46" width="22" height="15" rx="3" fill="#B8642B"/></g>
+        ${birds('#3A4A6B')}
+        <path d="M0 560 Q140 470 300 530 T600 520 T1000 500 L1000 ${GY} L0 ${GY} Z" fill="#A8DBA0"/>
+        ${house(560, 470, 46, '#FF9E7A', '#C8453A')}${house(640, 486, 38, '#FFE08A', '#4D96FF')}${tree(500, 520, .9)}${tree(720, 500, .8)}${tree(180, 520, .9)}
+        <path d="M0 640 Q200 580 420 630 T820 610 T1000 620 L1000 ${GY} L0 ${GY} Z" fill="#7CC47F"/>
+        ${tree(60, 640, 1.1)}${tree(330, 640, .95)}${tree(860, 640, 1)}
+        ${ground('#F6D27E', '#E9B95A', '#D9A447', pebbles('#C9963F'))}${cone}`,
+      liman: () => {
+        const hw = y => 8 + (y - 430) / 130 * 7;
+        const band = (y1, y2) => `<path d="M${110-hw(y1)} ${y1} L${110+hw(y1)} ${y1} L${110+hw(y2)} ${y2} L${110-hw(y2)} ${y2} Z" fill="#E3051B"/>`;
+        const stacks = [3, 2, 3, 1, 2, 3, 2];
+        return `<defs>${sky([[0,'#7FD0FF'],[1,'#E6F7FF']])}<linearGradient id="kSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4DB6EA"/><stop offset="1" stop-color="#1F78B8"/></linearGradient></defs>
+        <rect width="1000" height="780" fill="url(#kSky)"/>
+        ${sun(96, 128, 42, '#FFD23F', '#FFC300')}${cloud(330, 150, .9, 40)}${cloud(650, 110, .75, 55)}${cloud(840, 230, .6, 30)}${birds('#4A5568')}
+        <path d="M0 515 Q70 490 160 505 Q220 512 260 548 L0 548 Z" fill="#7CC47F"/>
+        <g><circle cx="110" cy="410" r="34" fill="#FFE36E" opacity=".35"/><path d="M${110-hw(430)} 430 L${110+hw(430)} 430 L${110+hw(548)} 548 L${110-hw(548)} 548 Z" fill="#FFFFFF"/>
+          ${band(455, 478)}${band(502, 525)}<rect x="98" y="404" width="24" height="26" rx="3" fill="#FFD23F" stroke="#4A5568" stroke-width="2"/><path d="M93 405 L110 386 L127 405 Z" fill="#E3051B"/></g>
+        <rect x="0" y="548" width="1000" height="${GY-548}" fill="url(#kSea)"/>
+        ${[[60,590],[300,640],[180,690],[520,700],[760,665],[880,600],[640,610]].map(([x, y]) => `<path d="M${x} ${y} q12 -8 24 0 q12 8 24 0" stroke="#FFFFFF" stroke-width="3" fill="none" opacity=".55" stroke-linecap="round"/>`).join('')}
+        <g transform="translate(420 600)">${anim('0 0;0 5;0 0', 5)}
+          ${stacks.map((h, c) => Array.from({length: h}, (_, r) => `<rect x="${22 + c*44}" y="${-26 - r*26}" width="42" height="24" rx="2" fill="${KCOL[(c*3 + r*5) % KCOL.length]}" stroke="rgba(0,0,0,.25)" stroke-width="1.5"/>${[10,21,32].map(dx => `<line x1="${22 + c*44 + dx}" y1="${-23 - r*26}" x2="${22 + c*44 + dx}" y2="${-5 - r*26}" stroke="rgba(0,0,0,.18)" stroke-width="2"/>`).join('')}`).join('')).join('')}
+          <rect x="336" y="-74" width="46" height="74" rx="4" fill="#FFFFFF" stroke="#B9BFE6" stroke-width="2"/>${[0,1,2].map(i => `<rect x="${342 + i*13}" y="-64" width="9" height="9" rx="1.5" fill="#1E9AD6"/>`).join('')}<rect x="356" y="-96" width="14" height="24" fill="#E3051B"/>
+          <path d="M0 0 H404 L374 48 H22 Z" fill="#1E2464"/><path d="M10 30 H396 L388 40 H16 Z" fill="#E3051B"/></g>
+        <g transform="translate(230 625)">${anim('0 0;0 4;0 0', 4, 1)}<path d="M-34 0 H34 L24 16 H-24 Z" fill="#FFFFFF" stroke="#4A5568" stroke-width="2"/><line x1="0" y1="0" x2="0" y2="-70" stroke="#4A5568" stroke-width="3"/><path d="M3 -66 L30 -8 H3 Z" fill="#F94144"/><path d="M-3 -58 L-26 -8 H-3 Z" fill="#FFFFFF" stroke="#B9BFE6" stroke-width="1.5"/></g>
+        ${ground('#D3D9E3', '#AEB6C4', '#7A8396', `<rect x="0" y="${GY+12}" width="1000" height="4" fill="#F6B800"/>${[170, 470, 770].map(x => `<rect x="${x-7}" y="${GY-14}" width="14" height="16" rx="3" fill="#2D3748"/><ellipse cx="${x}" cy="${GY-14}" rx="10" ry="4" fill="#4A5568"/>`).join('')}`)}${cone}`;
+      },
+      aksam: () => `<defs>${sky([[0,'#3B2F6B'],[.42,'#9B4F96'],[.72,'#F2846B'],[1,'#FFC98B']])}<mask id="kMoon"><rect width="1000" height="780" fill="#FFFFFF"/><circle cx="836" cy="108" r="28" fill="#000000"/></mask></defs>
+        <rect width="1000" height="780" fill="url(#kSky)"/>
+        ${[[60,60],[180,40],[260,110],[400,70],[520,40],[600,130],[700,60],[930,170],[470,170],[150,190],[330,210]].map(([x, y], i) => `<circle cx="${x}" cy="${y}" r="${i % 3 ? 2 : 3}" fill="#FFFFFF" opacity=".85"/>`).join('')}
+        <circle cx="820" cy="120" r="32" fill="#FFF4C2" mask="url(#kMoon)"/>
+        ${sun(300, 585, 80, '#FF7A3D')}${cloud(560, 260, .8, 40, '#F7B7C3')}${cloud(180, 300, .6, 30, '#F9C6CF')}
+        ${town('#4B3F7A', '#FFD66B')}
+        <path d="M0 560 Q140 470 300 530 T600 520 T1000 500 L1000 ${GY} L0 ${GY} Z" fill="#5E8C5F"/>
+        ${house(560, 470, 46, '#C9705A', '#7A2E2A', '#FFD66B')}${house(640, 486, 38, '#C9A65A', '#2E4E8E', '#FFD66B')}${tree(500, 520, .9, '#2F6B3A', '#3E7F48')}${tree(720, 500, .8, '#2F6B3A', '#3E7F48')}${tree(180, 520, .9, '#2F6B3A', '#3E7F48')}
+        <path d="M0 640 Q200 580 420 630 T820 610 T1000 620 L1000 ${GY} L0 ${GY} Z" fill="#4A7A50"/>
+        ${tree(60, 640, 1.1, '#285C33', '#336E3F')}${tree(330, 640, .95, '#285C33', '#336E3F')}${tree(860, 640, 1, '#285C33', '#336E3F')}
+        ${ground('#E5A95E', '#C98C45', '#B57A35', pebbles('#A8722F'))}${cone}`,
+      kis: () => {
+        const cap = (px, py) => `<path d="M${px-40} ${py+55} L${px} ${py} L${px+40} ${py+55} L${px+20} ${py+44} L${px} ${py+58} L${px-20} ${py+45} Z" fill="#FFFFFF"/>`;
+        const flakes = Array.from({length: 40}, (_, i) => { const x = (i * 137) % 1000, y = (i * 89) % 640, r = 2 + i % 3;
+          return `<g>${anim(`0 -60;${(i % 2 ? 1 : -1) * 18} 120;0 300`, 7 + i % 6, -(i % 7))}<circle cx="${x}" cy="${y}" r="${r}" fill="#FFFFFF" opacity=".9"/></g>`; }).join('');
+        return `<defs>${sky([[0,'#A9CBE8'],[1,'#EEF5FB']])}</defs><rect width="1000" height="780" fill="url(#kSky)"/>
+        ${sun(110, 130, 36, '#FFF3C4')}${cloud(380, 150, .9, 30, '#F4F7FB')}${cloud(700, 110, .75, 45, '#F4F7FB')}
+        <path d="M0 610 L160 380 L300 560 L430 400 L600 590 L760 360 L1000 610 Z" fill="#9DB4CE"/>${cap(160, 380)}${cap(430, 400)}${cap(760, 360)}
+        <path d="M0 590 Q140 520 300 560 T600 550 T1000 540 L1000 ${GY} L0 ${GY} Z" fill="#EEF4FA"/>
+        ${pine(180, 560, .9)}${pine(520, 556, .8)}${pine(730, 546, .9)}
+        <g><rect x="588" y="575" width="62" height="44" fill="#B8642B"/><path d="M578 578 L619 540 L660 578 Z" fill="#FFFFFF" stroke="#DCE8F5" stroke-width="3"/><rect x="600" y="586" width="14" height="14" fill="#FFD66B"/><rect x="626" y="592" width="14" height="27" fill="#7A4A22"/><rect x="638" y="546" width="10" height="20" fill="#8E5B2B"/>
+          <circle cx="643" cy="534" r="6" fill="#E8EDF3"/><circle cx="650" cy="520" r="8" fill="#E8EDF3" opacity=".8"/><circle cx="660" cy="503" r="10" fill="#E8EDF3" opacity=".6"/></g>
+        <path d="M0 650 Q200 600 420 640 T820 625 T1000 635 L1000 ${GY} L0 ${GY} Z" fill="#FFFFFF"/>
+        ${pine(60, 650, 1.1)}${pine(330, 652, 1)}${pine(860, 640, 1.05)}
+        ${ground('#FFFFFF', '#DCE8F5', '#C9DAEC', [[60,760,40],[300,770,60],[600,762,50],[820,772,40]].map(([x, y, r]) => `<ellipse cx="${x}" cy="${y}" rx="${r}" ry="6" fill="#C9DAEC" opacity=".6"/>`).join(''))}
+        <g transform="translate(30 ${GY})"><circle cx="0" cy="-15" r="16" fill="#FFFFFF" stroke="#C9DAEC" stroke-width="2"/><circle cx="0" cy="-40" r="11" fill="#FFFFFF" stroke="#C9DAEC" stroke-width="2"/><circle cx="-4" cy="-43" r="1.8" fill="#2D3748"/><circle cx="4" cy="-43" r="1.8" fill="#2D3748"/><path d="M0 -40 L9 -38 L0 -37 Z" fill="#FF7A1A"/><rect x="-11" y="-33" width="22" height="4" rx="2" fill="#E3051B"/></g>
+        ${flakes}`;
+      }
+    };
+    let mast = '', jib = '';
+    for (let y = 44; y < GY - 10; y += 34) mast += `<line x1="934" y1="${y}" x2="966" y2="${y+34}" stroke="#D99A00" stroke-width="3"/><line x1="934" y1="${y+34}" x2="966" y2="${y+34}" stroke="#D99A00" stroke-width="2"/>`;
+    for (let x = 10; x < 990; x += 30) jib += `<line x1="${x}" y1="44" x2="${x+15}" y2="26" stroke="#D99A00" stroke-width="2.5"/><line x1="${x+15}" y1="26" x2="${x+30}" y2="44" stroke="#D99A00" stroke-width="2.5"/>`;
+    return `<svg viewBox="0 0 1000 780" class="kuleSVG" role="img" aria-label="Vinçli inşaat alanında küp kuleleri">
+      ${BG[th]()}
+      <g><rect x="918" y="${GY-8}" width="64" height="22" rx="4" fill="#9AA3B5"/>
+        <line x1="934" y1="44" x2="934" y2="${GY-8}" stroke="#F6B800" stroke-width="6"/><line x1="966" y1="44" x2="966" y2="${GY-8}" stroke="#F6B800" stroke-width="6"/>${mast}
+        <line x1="950" y1="2" x2="934" y2="26" stroke="#F6B800" stroke-width="5"/><line x1="950" y1="2" x2="966" y2="26" stroke="#F6B800" stroke-width="5"/>
+        <line x1="950" y1="4" x2="420" y2="26" stroke="#4A5568" stroke-width="2"/><line x1="950" y1="4" x2="998" y2="26" stroke="#4A5568" stroke-width="2"/>
+        <line x1="6" y1="26" x2="998" y2="26" stroke="#F6B800" stroke-width="5"/><line x1="6" y1="44" x2="998" y2="44" stroke="#F6B800" stroke-width="6"/>${jib}
+        <rect x="968" y="44" width="30" height="40" rx="3" fill="#7A8396"/><line x1="968" y1="56" x2="998" y2="56" stroke="#5A6172" stroke-width="2"/><line x1="968" y1="70" x2="998" y2="70" stroke="#5A6172" stroke-width="2"/>
+        <rect x="896" y="44" width="38" height="36" rx="5" fill="#F6B800" stroke="#D99A00" stroke-width="2"/><rect x="902" y="50" width="26" height="16" rx="3" fill="#CFEAF8"/></g>
+      <g id="kpads"></g>
+      ${Array.from({length:NC}, (_,i) => `<rect class="hit" data-col="${i}" x="${CX(i)-72}" y="90" width="144" height="${GY-60}" fill="transparent"/>`).join('')}
+      <g id="ktow"></g><g id="kcrane" style="pointer-events:none"></g><g id="krev"></g>
+    </svg>`;
+  }
+  function drawPads(){
+    document.getElementById('kpads').innerHTML = st.pads.map(p => {
+      const x = CX(p), px = x - 56, top = GY - 178;
+      const ghost = st.ghost ? Array.from({length: st.target}, (_, j) => `<rect x="${x-18}" y="${cubeTop(GY, j)}" width="36" height="32" rx="3.5" fill="#FFFFFF" fill-opacity=".45" stroke="#1E2464" stroke-width="2.5" stroke-dasharray="7 5"/>`).join('') : '';
+      const dots = st.mode === 'yuva' && !st.ghost;
+      const mat = dots
+        ? `<rect x="${x-52}" y="${GY-1}" width="104" height="38" rx="6" fill="#FFFFFF" stroke="#E3051B" stroke-width="3"/>${Array.from({length: st.target}, (_, j) => `<circle cx="${x-34 + (j % 5) * 17}" cy="${GY + 10 + Math.floor(j / 5) * 16}" r="6" fill="#E3051B"/>`).join('')}`
+        : `<rect x="${x-50}" y="${GY-2}" width="100" height="16" rx="5" fill="#FFD23F" stroke="#D99A00" stroke-width="2"/>${[0,1,2,3].map(i => `<line x1="${x-38+i*24}" y1="${GY}" x2="${x-30+i*24}" y2="${GY+12}" stroke="#1E2464" stroke-width="5"/>`).join('')}`;
+      const flag = `<path d="M${px} ${top} L${px-58} ${top+16} L${px} ${top+32} Z" fill="#E3051B"/>`;
+      return `${mat}
+        <line x1="${px}" y1="${GY}" x2="${px}" y2="${top-4}" stroke="#4A5568" stroke-width="5" stroke-linecap="round"/><circle cx="${px}" cy="${top-6}" r="5" fill="#F6B800"/>${flag}${ghost}`;
+    }).join('');
+  }
+  function drawTowers(){
+    document.getElementById('ktow').innerHTML = st.cols.map((c, i) => c.map((col, j) => cubeSVG(CX(i), cubeTop(GY, j), col, j === c.length - 1, `class="kc" data-c="${i}" data-i="${j}"`)).join('')).join('');
+  }
+  function drawCrane(){
+    const x = st.hx, y = st.hy;
+    let carried = '';
+    if (st.carry) { const base = y + HOOK + H(st.carry.length); carried = st.carry.map((col, j) => cubeSVG(x, cubeTop(base, j), col, j === st.carry.length - 1)).join(''); }
+    document.getElementById('kcrane').innerHTML = `<rect x="${x-20}" y="44" width="40" height="13" rx="3" fill="#4A5568"/><circle cx="${x-11}" cy="45" r="4.5" fill="#2D3748"/><circle cx="${x+11}" cy="45" r="4.5" fill="#2D3748"/>
+      <line x1="${x-5}" y1="57" x2="${x-5}" y2="${y}" stroke="#2D3748" stroke-width="2.2"/><line x1="${x+5}" y1="57" x2="${x+5}" y2="${y}" stroke="#2D3748" stroke-width="2.2"/>
+      ${carried}<rect x="${x-15}" y="${y}" width="30" height="13" rx="3" fill="#E3051B"/><rect x="${x-15}" y="${y+4}" width="30" height="3" fill="#FFFFFF" opacity=".7"/>
+      <path d="M${x} ${y+13} v6 q0 9 -8 7" stroke="#2D3748" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+  }
+  const moveX = (x, done) => { const x0 = st.hx; tone(180, .12, 'sine', .05); tween(260 + Math.abs(x - x0) * 1.2, t => { st.hx = x0 + (x - x0) * ease(t); drawCrane(); }, done, () => alive); };
+  const moveY = (y, done) => { const y0 = st.hy; tween(220 + Math.abs(y - y0) * 1.3, t => { st.hy = y0 + (y - y0) * ease(t); drawCrane(); }, done, () => alive); };
+  function pick(c, i){
+    st.busy = true; const col = st.cols[c];
+    moveX(CX(c), () => moveY(GY - H(col.length) - HOOK, () => {
+      st.carry = col.splice(i); drawTowers(); drawCrane(); tone(330, .1, 'triangle', .1);
+      moveY(CARRY - H(st.carry.length) - HOOK, () => { st.busy = false; });
+    }));
+  }
+  function drop(c){
+    const col = st.cols[c];
+    if (col.length + st.carry.length > MAX) { sBad(); FB('Bu kule çok yükselir, vinç o kadar yukarı koyamaz. Başka bir yere koy.'); return; }
+    st.busy = true;
+    moveX(CX(c), () => moveY(GY - H(col.length) - H(st.carry.length) - HOOK, () => {
+      col.push(...st.carry); st.carry = null; drawTowers(); drawCrane(); tone(240, .14, 'triangle', .12);
+      moveY(REST, () => { st.busy = false; check(c); });
+    }));
+  }
+  function bind(){
+    sb.querySelector('.kuleSVG').onclick = e => {
+      if (e.target.closest('#kgo')) { if (st.go) { st.go = false; k++; play(); } return; }
+      if (st.busy) return;
+      const cube = e.target.closest('.kc'), colEl = e.target.closest('[data-col]');
+      const c = cube ? +cube.dataset.c : colEl ? +colEl.dataset.col : -1; if (c < 0) return;
+      if (st.carry) return drop(c);
+      if (cube) { sPop(); pick(c, +cube.dataset.i); }
+      else if (st.cols[c].length) FB('Vinç bir küpü tutsun. Küpün üstüne dokun.');
+    };
+  }
+  const used = () => st.cols.map((c, i) => [i, c.length]).filter(([, n]) => n);
+  // runs of one colour in a tower, bottom to top: [{n, col}, ...]
+  const runs = c => c.reduce((r, col, j) => { if (j && c[j-1] === col) r[r.length-1].n++; else r.push({n: 1, col}); return r; }, []);
+  const sum = t => t.reduce((s, r) => s + r.n, 0);
+  /* answer card: the parts as big dot tiles (ten-frame rows of 5) with their numbers; the tiles slide together into one
+     ten-frame and the whole number appears above it. kind: join (parts → whole), split (whole → parts), eq (two equal tiles) */
+  function reveal(kind, tiles, say){
+    st.busy = true; st.go = false; sOk();
+    const g = document.getElementById('krev'), D = 56, TY = 400, n = tiles.length, sc = kind === 'eq' ? .86 : n > 3 ? .5 : n > 2 ? .66 : 1, SM = 1.3;
+    const tw = (5 * D + 28) * sc, gap = (kind === 'eq' ? 130 : 70) * sc, x0 = 500 - (n * tw + (n - 1) * gap) / 2;
+    const pcx = i => x0 + tw / 2 + i * (tw + gap);
+    const slot = (cx, s, j) => [cx + (-2 + j % 5) * D * s, TY + (-.5 + Math.floor(j / 5)) * D * s];
+    const tile = (cx, s, op) => `<rect x="${cx - (5 * D + 28) * s / 2}" y="${TY - (2 * D + 28) * s / 2}" width="${(5 * D + 28) * s}" height="${(2 * D + 28) * s}" rx="${16 * s}" fill="#FFFFFF" stroke="#1E2464" stroke-width="4" opacity="${op}"/>
+      ${Array.from({length: 10}, (_, j) => { const [x, y] = slot(cx, s, j); return `<circle cx="${x}" cy="${y}" r="${20 * s}" fill="none" stroke="#C9CEE3" stroke-width="2" opacity="${op}"/>`; }).join('')}
+      <line x1="${cx + 2.5 * D * s}" y1="${TY - D * s}" x2="${cx + 2.5 * D * s}" y2="${TY + D * s}" stroke="#C9CEE3" stroke-width="2" opacity="${op}"/>`;
+    const num = (x, y, v, col, size) => `<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" fill="${col}" stroke="#1E2464" stroke-width="${col === '#1E2464' ? 0 : 3}" paint-order="stroke" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${v}</text>`;
+    const dots = []; let m = 0;
+    tiles.forEach((t, i) => { let j = 0; t.forEach(r => { for (let q = 0; q < r.n; q++) dots.push({c: r.col, a: slot(pcx(i), sc, j++), b: slot(500, SM, m++)}); }); });
+    const total = dots.length, pv = tiles.map(sum), pc = tiles.map(t => t[0].col);
+    const partNums = () => tiles.map((t, i) => num(pcx(i), TY - (D + 40) * sc - 14, pv[i], pc[i], 92 * Math.max(sc, .8))).join('');
+    const sumLine = () => `<text x="500" y="590" text-anchor="middle" font-size="62" style="font-family:TTKB,Lexend,sans-serif;font-weight:700" fill="#1E2464">${
+      kind === 'eq' ? `<tspan fill="${pc[0]}" stroke="#1E2464" stroke-width="2" paint-order="stroke">${pv[0]}</tspan> = <tspan fill="${pc[1]}" stroke="#1E2464" stroke-width="2" paint-order="stroke">${pv[1]}</tspan>`
+      : pv.map((v, i) => `<tspan fill="${pc[i]}" stroke="#1E2464" stroke-width="2" paint-order="stroke">${v}</tspan>`).join(' + ') + ` = ${total}`}</text>`;
+    const frame = (t, extra) => {          // t: 0 = parts apart, 1 = joined
+      g.innerHTML = `<rect width="1000" height="780" fill="#FFFFFF" opacity=".8"/>
+        <rect x="110" y="150" width="780" height="560" rx="34" fill="#FFFFFF" stroke="#1E2464" stroke-width="5"/>
+        ${tiles.map((_, i) => tile(pcx(i), sc, 1 - t)).join('')}${n > 1 ? tile(500, SM, t) : ''}
+        ${kind === 'eq' ? `<text x="500" y="${TY + 30}" text-anchor="middle" font-size="96" fill="#1E2464" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">=</text>` : ''}
+        ${dots.map(d => { const x = d.a[0] + (d.b[0] - d.a[0]) * t, y = d.a[1] + (d.b[1] - d.a[1]) * t, r = 20 * (sc + (SM - sc) * t);
+          return `<circle cx="${x}" cy="${y}" r="${r}" fill="${d.c}" stroke="#1E2464" stroke-width="2.5"/>`; }).join('')}${extra || ''}`;
+    };
+    const whole = () => num(500, TY - (D + 40) * SM - 10, total, '#1E2464', 120);
+    const finish = extra => { frame(kind === 'split' || kind === 'eq' || n === 1 ? 0 : 1, extra);
+      speak(say); afterSay(() => { if (!alive) return; st.go = true;
+        g.insertAdjacentHTML('beforeend', `<g id="kgo" style="cursor:pointer"><rect x="390" y="622" width="220" height="70" rx="35" fill="#2E9256"/>
+          <text x="478" y="670" text-anchor="middle" font-size="36" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">Devam</text><path d="M560 640 L582 657 L560 674 Z" fill="#FFFFFF"/>
+          ${RM ? '' : '<animateTransform attributeName="transform" type="scale" additive="sum" values="1;1.04;1" dur="1.4s" repeatCount="indefinite"/>'}</g>`); }, 300); };
+    if (kind === 'eq' || n === 1) { frame(0); return finish((kind === 'eq' ? partNums() : whole()) + (kind === 'eq' ? sumLine() : '')); }
+    if (kind === 'join') { frame(0, partNums()); setTimeout(() => tween(1100, t => frame(ease(t)), () => finish(whole() + sumLine()), () => alive), 900); }
+    else { frame(1, whole()); setTimeout(() => tween(1100, t => frame(1 - ease(t)), () => finish(partNums() + sumLine()), () => alive), 900); }
+  }
+  function check(c){
+    const u = used();
+    if (st.mode === 'birlestir' || st.mode === 'tek') {
+      if (u.length === 1) { const r = runs(st.cols[u[0][0]]), v = r.map(x => x.n);
+        reveal('join', r.map(x => [x]), `${v.slice(0, -1).join(', ')} ve ${v[v.length-1]}, ${sum(r)} eder.`); }
+      else if (st.mode === 'birlestir') FB('Kuleyi öbür kulenin üstüne koy.');
+    } else if (st.mode === 'ayir') {
+      if (u.length === 2) { const [a, b] = u.map(([i]) => st.cols[i]), other = KCOL.find(x => x !== a[0] && x !== '#F9C74F');
+        reveal('split', [[{n: a.length, col: a[0]}], [{n: b.length, col: other}]], `${st.target}, ${a.length} ve ${b.length} oldu.`); }
+      else FB('Kule hâlâ tek parça. Ortadan bir küpe dokun, küpleri boş bir yere koy.');
+    } else if (st.mode === 'yuva') {
+      const pad = st.cols[st.pads[0]];
+      if (pad.length === st.target) { const r = runs(pad), v = r.map(x => x.n);
+        reveal('join', r.map(x => [x]), r.length > 1 ? `${v.slice(0, -1).join(', ')} ve ${v[v.length-1]}, ${st.target} eder.` : `Tam ${st.target} küp!`); }
+      else if (c === st.pads[0] && pad.length > st.target) FB('Kule fazla yüksek oldu. Fazla küpleri vinçle al.');
+    } else if (st.mode === 'denge') {
+      const A = st.cols[st.pads[0]], B = st.cols[st.pads[1]];
+      const out = st.cols.reduce((s, col, i) => s + (st.pads.includes(i) ? 0 : col.length), 0);
+      if (A.length === B.length && !out) reveal('eq', [runs(A), runs(B)], `${A.length} ve ${B.length}. İki kule eşit oldu!`);
+      else if (A.length === B.length) FB('Eşit oldu ama yerde küp kaldı. Onları da kullan.');
+    }
+  }
+  function setup(towers, opt){ // towers: [[slot, n], ...]
+    const cols = shuffle(KCOL);
+    st.cols = Array.from({length: NC}, () => []);
+    towers.forEach(([s, n], i) => { st.cols[s] = Array(n).fill(cols[i % cols.length]); });
+    Object.assign(st, { pads: [], target: 0, ghost: false, mode: '' }, opt, { carry: null, hx: 520, hy: REST, busy: false, go: false });
+    sb.innerHTML = `${progBar(N, k)}<div class="kulewrap">${scene(TH[k])}</div><div class="feedback" id="fb"></div>`;
+    drawPads(); drawTowers(); drawCrane(); bind();
+  }
+  const slots = (n, avoid) => shuffle(Array.from({length: NC}, (_, i) => i).filter(i => !(avoid || []).includes(i))).slice(0, n);
+  function parts(total, n, bad){ // random split of total into n parts, each 1..9, none in bad
+    for (let g = 0; g < 200; g++) {
+      const cuts = shuffle(Array.from({length: total - 1}, (_, i) => i + 1)).slice(0, n - 1).sort((a, b) => a - b);
+      const p = [...cuts, total].map((c, i, a) => c - (i ? a[i-1] : 0));
+      if (p.every(x => x >= 1 && x <= 9 && !(bad || []).includes(x))) return p;
+    }
+    return [total - n + 1, ...Array(n - 1).fill(1)];
+  }
+  function play(){
+    if (k >= N) { sWin(); addStar(); return exitCard('kule'); }
+    if (k === 0) {
+      const [s1, s2] = slots(2);
+      setup([[s1, rint(2, 4)], [s2, rint(2, 4)]], {mode: 'birlestir'});
+      setInstr('Burası bir inşaat alanı! Vinç küpleri taşıyor. Bir kulenin en alttaki küpüne dokun, vinç bütün kuleyi kaldırsın. Sonra öbür kuleye dokun.');
+    } else if (k === 1) {
+      const n = rint(6, 9);
+      setup([[rint(1, 3), n]], {mode: 'ayir', target: n});
+      setInstr('Şimdi bu kuleyi ikiye ayır. Ortadan bir küpe dokun, vinç o küpü ve üstündekileri kaldırır. Sonra boş bir yere dokun.');
+    } else if (k === 2) {
+      const n = rint(3, 4); let p;
+      do { p = Array.from({length: n}, () => rint(1, 3)); } while (p.reduce((a, b) => a + b) > 10);
+      setup(slots(n).map((s, i) => [s, p[i]]), {mode: 'tek'});
+      setInstr('Bütün küpleri tek bir kule yap.');
+    } else if (k < 9) {
+      const ghost = k < 6, t = ghost ? rint(4, 8) : rint(5, 10), pad = rint(1, 5);
+      const p = parts(t + rint(1, 3), ghost ? 2 : 3, [t]);
+      setup(slots(p.length, [pad]).map((s, i) => [s, p[i]]), {mode: 'yuva', pads: [pad], target: t, ghost});
+      setInstr(ghost ? (k === 3 ? 'Vinç limana geldi! Bayraklı yerde kesik çizgili bir kule var. Vinçle küp taşıyarak tam o boyda bir kule kur.' : 'Bayraklı yere kesik çizgili kule kadar küp koy.')
+        : (k === 6 ? 'Akşam oldu ve çizgi yok! Bayraklı yerin önündeki noktaları say. Bayraklı yere noktalar kadar küpten bir kule kur.' : 'Noktalar kadar küpten bir kule kur.'));
+    } else {
+      const spare = k >= 11; let a, b, c = 0;
+      for (let g = 0; g < 500; g++) {
+        a = rint(1, 9); b = rint(1, 9); c = spare ? rint(1, 4) : 0;
+        if ((a + b + c) % 2 === 0 && (a + b + c) / 2 <= 10 && a !== b && Math.abs(a - b) >= 2 && (a + b + c) / 2 >= 3) break;
+      }
+      const [p1, p2] = shuffle([1, 2, 3, 4, 5]).slice(0, 2).sort((x, y) => x - y);
+      const tw = [[p1, a], [p2, b]]; if (spare) tw.push([slots(1, [p1, p2])[0], c]);
+      setup(tw, {mode: 'denge', pads: [p1, p2]});
+      setInstr(k === 9 ? 'Kar yağıyor! İki bayraklı yerdeki kuleler aynı boyda olsun. Vinçle küp taşıyarak eşitle.'
+        : spare ? (k === 11 ? 'Yerde bir kule daha var! Bütün küpleri kullanarak iki bayraklı kuleyi eşit yap.' : 'Bütün küpleri kullan, iki bayraklı kule eşit olsun.') : 'İki bayraklı kuleyi eşitle.');
+    }
+  }
+  play(); return { stop(){ alive = false; clearTimeout(tm); }, st };
 };
 
 /* ---------- Harf İzi ---------- */
@@ -2395,7 +2734,7 @@ GAMES.iz = function(arg){
       const cov = letterPx ? covered/letterPx : 0, out = penPx ? outside/penPx : 1;
       const fb = document.getElementById('fb');
       if (!strokes || penPx < 10) { speak('Önce parmağınla harfi yaz.'); fb.textContent = 'Önce parmağınla harfi yaz.'; return; }
-      if (cov >= .55 && out <= .35) { sOk(); fb.className = 'feedback good'; fb.textContent = 'Çok güzel yazdın!'; speak('Çok güzel yazdın!'); k++; setTimeout(play, 1300); }
+      if (cov >= .55 && out <= .35) { sOk(); fb.className = 'feedback good'; fb.textContent = 'Çok güzel yazdın!'; speak('Çok güzel yazdın!'); k++; afterSay(play, 1300); }
       else if (out > .35) { sBad(); fb.textContent = 'Çizginin dışına çıktın. Sil ve bir daha dene.'; speak('Çizginin dışına çıktın. Sil ve bir daha dene.'); }
       else { sBad(); fb.textContent = 'Harfin her yerinden geçmedin. Biraz daha devam et.'; speak('Harfin her yerinden geçmedin. Biraz daha devam et.'); }
     };
@@ -2432,7 +2771,7 @@ GAMES.tren = function(){
           document.getElementById('fb').textContent = 'Tren hazır, yola çıkıyor!'; document.getElementById('fb').className = 'feedback good';
           sb.querySelector('.cards').innerHTML = ''; sWin(); addStar();
           setTimeout(() => document.getElementById('trn').classList.add('go'), 300);
-          round++; tm = setTimeout(play, 2100);
+          round++; tm = afterSay(play, 2100);
         }
       } else { sBad(); shake(c); document.getElementById('fb').textContent = 'Bu vagona uymadı. Bir daha bak.'; speak('Bu vagona uymadı. Bir daha bak.'); }
     };
@@ -2543,6 +2882,7 @@ if (!['cocuk','veli'].includes(startTab)) { try { startTab = localStorage.getIte
 showTab(['cocuk','veli'].includes(startTab) ? startTab : 'cocuk');
 drawKidRail(); drawKidStop(); drawLetterCards();
 document.querySelector('.tabloart').innerHTML = `<svg viewBox="0 0 200 70" style="width:150px;display:block">${CAR_DEFS}<rect width="200" height="70" rx="10" fill="#3C424F"/>${[0,1,2,3,4].map(i => `<line x1="${10+i*45}" y1="6" x2="${10+i*45}" y2="64" stroke="#fff" stroke-width="3"/>`).join('')}<g transform="translate(20 8) scale(.42)">${carSVG('#E3051B')}</g><g transform="translate(110 8) scale(.42)">${carSVG('#1E9AD6')}</g><text x="77" y="44" text-anchor="middle" font-size="22" fill="#fff" class="ptxt" style="fill:#fff">14</text></svg>`;
+document.querySelector('.kuleart').innerHTML = `<svg viewBox="0 0 200 92" style="width:150px;display:block"><line x1="4" y1="10" x2="196" y2="10" stroke="#F6B800" stroke-width="6"/><line x1="182" y1="10" x2="182" y2="88" stroke="#F6B800" stroke-width="6"/><line x1="96" y1="13" x2="96" y2="22" stroke="#2D3748" stroke-width="2"/><rect x="89" y="20" width="14" height="6" rx="2" fill="#E3051B"/><g transform="scale(.5)">${['#4D96FF','#4D96FF'].map((c,j) => cubeSVG(192, 62 + j*32, c, j === 0)).join('')}${['#F94144','#F94144','#F94144'].map((c,j) => cubeSVG(70, 146 - j*32, c, j === 2)).join('')}${['#43AA8B','#43AA8B','#F9C74F','#F9C74F','#F9C74F'].map((c,j) => cubeSVG(290, 146 - j*32, c, j === 4)).join('')}</g><rect x="0" y="88" width="200" height="4" fill="#E9B95A"/></svg>`;
 document.querySelector('.dogruart').innerHTML = `<svg viewBox="0 0 200 80" style="width:150px;display:block"><line x1="6" y1="56" x2="194" y2="56" stroke="#1E2464" stroke-width="4" stroke-linecap="round"/>${[0,1,2,3,4,5].map(i => `<line x1="${16+i*34}" y1="48" x2="${16+i*34}" y2="64" stroke="#1E2464" stroke-width="3"/>`).join('')}<path d="M50 50 Q67 10 84 50" stroke="#E3051B" stroke-width="3" fill="none" stroke-dasharray="5 4"/><g transform="translate(84 52) scale(.7)">${frogSVG()}</g></svg>`;
 document.querySelector('.agirart').innerHTML = ['#4CAF50','#8E5BC4','#F08A2B'].map(c => `<span style="width:40px;display:inline-block">${SACK(c)}</span>`).join('');
 document.querySelector('[data-game="tren"] .art').innerHTML = '<span style="display:flex;gap:4px;align-items:end"><i style="width:30px;height:26px;border:3px solid #1E2464;border-radius:6px;background:#F6D928;display:block"></i><i style="width:30px;height:26px;border:3px solid #1E2464;border-radius:6px;background:#FFFFFF;display:block"></i><span style="width:62px;display:block">' + TRAIN + '</span></span>';
