@@ -599,6 +599,9 @@ footer .wrap{display:flex;flex-direction:column;gap:4px}
         <a class="game g5 fastcard" id="fastCard" href="hizli-okuma.html"><span class="tag">Hızlı okuma</span>
           <div class="art"><span class="kb" style="font-size:36px">ta · ne</span></div>
           <div><h3>Hızlı Okuma</h3><p>Hecelerimiz ve kelimelerimiz tek tek gelsin, sen oku.</p></div></a>
+        <a class="game g2" id="akiciCard" href="akici-okuma.html"><span class="tag">Akıcı okuma</span>
+          <div class="art"><svg viewBox="0 0 120 80" width="120" height="80"><rect x="10" y="8" width="34" height="11" rx="5.5" fill="#1E2464" opacity="1"/><rect x="10" y="25" width="58" height="11" rx="5.5" fill="#1E2464" opacity="1"/><rect x="10" y="42" width="82" height="11" rx="5.5" fill="#F9C74F" opacity="1"/><rect x="10" y="59" width="106" height="11" rx="5.5" fill="#1E2464" opacity="0.35"/></svg></div>
+          <div><h3>Akıcı Okuma</h3><p>Satırlar uzadıkça sen de akıcı oku, yıldızları topla.</p></div></a>
         <button class="game g1" data-game="sepet"><span class="tag">Sınıflandırma</span>
           <div class="art">🧺<span class="kb" style="font-size:40px">Tt</span></div>
           <div><h3>Ses Sepeti</h3><p>Resmin adını dinle. İlk sesine göre doğru sepete at.</p></div></button>
@@ -665,6 +668,9 @@ footer .wrap{display:flex;flex-direction:column;gap:4px}
         <button class="game g6" data-game="ciftlik" data-mat="1.1.1"><span class="tag">Onluk-birlik</span>
           <div class="art ciftlikart"></div>
           <div><h3>Çiftlik Kamyonu</h3><p>10 balya bir palet olur. Kamyonu yükle.</p></div></button>
+        <button class="game g3" data-game="havuz" data-mat="1.2.1 1.2.2"><span class="tag">Artış-azalış</span>
+          <div class="art havuzart"></div>
+          <div><h3>Havuz</h3><p>Kovalar gelip gidiyor. Su çizginin neresinde?</p></div></button>
         <button class="game g1" data-game="islem" data-mat="1.2.1 1.2.2"><span class="tag">Problem</span>
           <div class="art"><span style="font-size:34px">🌳🐦🐦</span></div>
           <div><h3>Ne Oldu?</h3><p>Hikâyeyi dinle, kaç tane kaldı bul.</p></div></button>
@@ -928,6 +934,7 @@ function drawLetterCards(){
   set('balon', `<span class="mbal r">${l}</span><span class="mbal b">${L}</span><span class="mbal y">${l}</span>`);
   const tag = document.getElementById('trLetter'); if (tag) tag.textContent = L + l;
   const fc = document.getElementById('fastCard');
+  const ac = document.getElementById('akiciCard'); if (ac) ac.href = 'akici-okuma.html?harfler=' + encodeURIComponent(upTo(L).map(lower).join(''));
   if (fc) { fc.href = 'hizli-okuma.html?harfler=' + encodeURIComponent(upTo(L).map(lower).join('')); fc.querySelector('.art').innerHTML = `<span class="kb" style="font-size:34px">${sylFor(L, upTo(L)).slice(0,2).join(' · ')}</span>`; }
   drawParent();
 }
@@ -1117,7 +1124,7 @@ const STRATS = [
 ];
 const FILTERS = [['all','Hepsi'],['on','Ön değerlendirme'],['grup','Grup çalışması'],['yan','Yansıtma'],['oyun','Sitede oyunu var']];
 let FIL = 'all';
-const GNAME = {kule:'Küp Kuleleri',ciftlik:'Çiftlik Kamyonu',tablo:'Otopark',dogru:'Sayı Doğrusu',agir:'Hangisi Ağır?',sira:'Sıra Kimde?',ritim:'Ritmik Sayma',oruntu:'Örüntü',tahmin:'Tahmin Et',islem:'Ne Oldu?',terazi:'Terazi',ev:'Sayı Evleri',market:'Market',ikiz:'İkizini Bul',olc:'Ölç Bakalım',sekil:'Şekil Avı',veri:'Veri Dedektifi',ilk:'İlk Harf',kelime:'Kelime Kur',hafiza:'Harf Hafızası',iz:'Harf İzi',sepet:'Ses Sepeti',hece:'Hece Ustası',balon:'Harf Balonları',goster:'Sayıyı Göster',kac:'Kaç Tane?',tren:'Sayı Treni',cokaz:'Hangisi Çok?',yon:'Yön Bul'};
+const GNAME = {havuz:'Havuz',kule:'Küp Kuleleri',ciftlik:'Çiftlik Kamyonu',tablo:'Otopark',dogru:'Sayı Doğrusu',agir:'Hangisi Ağır?',sira:'Sıra Kimde?',ritim:'Ritmik Sayma',oruntu:'Örüntü',tahmin:'Tahmin Et',islem:'Ne Oldu?',terazi:'Terazi',ev:'Sayı Evleri',market:'Market',ikiz:'İkizini Bul',olc:'Ölç Bakalım',sekil:'Şekil Avı',veri:'Veri Dedektifi',ilk:'İlk Harf',kelime:'Kelime Kur',hafiza:'Harf Hafızası',iz:'Harf İzi',sepet:'Ses Sepeti',hece:'Hece Ustası',balon:'Harf Balonları',goster:'Sayıyı Göster',kac:'Kaç Tane?',tren:'Sayı Treni',cokaz:'Hangisi Çok?',yon:'Yön Bul'};
 function drawStrats(){
   document.getElementById('filters').innerHTML = FILTERS.map(([k,t]) => `<button data-f="${k}" aria-pressed="${k===FIL}">${t}</button>`).join('');
   const list = STRATS.filter(s => FIL==='all' || (FIL==='oyun' ? s.g : s.f.includes(FIL)));
@@ -1222,6 +1229,7 @@ sb.addEventListener('click', e => { const s = e.target.closest('[data-say]'); if
 /* exit card */
 const EXIT = {
   tablo:['Sayıların tablodaki yerini bulabilirim.','Tabloda bir sayının karşısındakini bulabilirim.','Ritmik sayınca tabloda örüntü oluşur.'],
+  havuz:['Gelen ve giden eşit olunca su aynı kalır.','Eşi olmayan kovalar suyun ne kadar değiştiğini gösterir.','Suyun başta ne kadar olduğunu bilmesem de gelen ve gideni karşılaştırarak bulabilirim.'],
   ciftlik:['10 balya bir araya gelince bir palet olur.','Bir palette 10 balya vardır.','Paletin bağı çözülünce 10 balya yeniden tek tek olur.'],
   kule:['Küçük kuleler birleşince büyük kule olur.','Bir kuleyi farklı parçalara ayırabilirim.','İki kuleyi eşitlemek için küp taşıyabilirim.'],
   dogru:['Sayı doğrusunda ileri gidince sayı büyür.','Geri gidince sayı küçülür.','Zıplamaları sayarak nereye varacağımı bulabilirim.'],
@@ -2476,7 +2484,7 @@ function celebrate(svg, W, H, o, onNext, onEnd){
     ban.innerHTML = `<rect x="${bx}" y="${by}" width="${bw}" height="${onNext ? 250 : 190}" rx="28" fill="#FFFFFF" stroke="#1E2464" stroke-width="5"/>
       <text x="${W / 2}" y="${by + 70}" text-anchor="middle" font-size="${Math.min(52, bw / 10)}" fill="#1E2464" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${o.title}</text>
       <text x="${W / 2}" y="${by + 118}" text-anchor="middle" font-size="40" fill="#F9C74F" stroke="#B5862B" stroke-width="1.5">★ ★ ★</text>
-      ${onNext ? `<g data-cel="next" style="cursor:pointer"><rect x="${W / 2 - 150}" y="${by + 140}" width="300" height="66" rx="33" fill="#2E9256"/><text x="${W / 2 - 12}" y="${by + 184}" text-anchor="middle" font-size="32" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">Seviye 2</text><path d="M${W / 2 + 80} ${by + 157} l22 16 l-22 16 z" fill="#FFFFFF"/></g>
+      ${onNext ? `<g data-cel="next" style="cursor:pointer"><rect x="${W / 2 - 150}" y="${by + 140}" width="300" height="66" rx="33" fill="#2E9256"/><text x="${W / 2 - 12}" y="${by + 184}" text-anchor="middle" font-size="32" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">${o.next || 'Seviye 2'}</text><path d="M${W / 2 + 80} ${by + 157} l22 16 l-22 16 z" fill="#FFFFFF"/></g>
         <g data-cel="end" style="cursor:pointer"><text x="${W / 2}" y="${by + 236}" text-anchor="middle" font-size="22" fill="#575E80" style="font-family:Lexend,sans-serif;font-weight:600;text-decoration:underline">Şimdilik bitir</text><rect x="${W / 2 - 80}" y="${by + 214}" width="160" height="32" fill="transparent"/></g>`
       : `<g data-cel="end" style="cursor:pointer"><rect x="${W / 2 - 120}" y="${by + 140}" width="240" height="60" rx="30" fill="#2E9256"/><text x="${W / 2}" y="${by + 180}" text-anchor="middle" font-size="30" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">Bitir</text></g>`}`;
     const h = e => { const b = e.target.closest('[data-cel]'); if (!b) return; e.stopPropagation(); alive = false; svg.removeEventListener('click', h, true); b.dataset.cel === 'next' ? onNext() : onEnd(); };
@@ -3309,6 +3317,253 @@ GAMES.ciftlik = function(){
   return { stop(){ alive = false; clearTimeout(tm); window.removeEventListener('resize', onResize); }, st };
 };
 
+/* ---------- Havuz: water comes in and goes out in buckets; the red start line never moves.
+   The child says whether the water ends above, below or on the line, and by how much — by pairing buckets, not by computing. ---------- */
+function pailSVG(x, y, s, col, attrs){
+  return `<g transform="translate(${x} ${y}) scale(${s})" ${attrs || ''}><path d="M-14 -12 q14 -22 28 0" stroke="#4A5568" stroke-width="3" fill="none"/>
+    <path d="M-16 -12 h32 l-5 28 h-22 z" fill="${col}" stroke="rgba(0,0,0,.3)" stroke-width="2"/><ellipse cx="0" cy="-12" rx="16" ry="5" fill="#7FD0FF" stroke="rgba(0,0,0,.25)" stroke-width="1.5"/>
+    <rect x="-12" y="-2" width="24" height="4" rx="2" fill="#FFFFFF" opacity=".45"/></g>`;
+}
+GAMES.havuz = function(){
+  const N = 6, U = 22, MAXU = 20, GREEN = '#2E9256', RED = '#E3051B';
+  let k = 0, tm = null, alive = true, LVL = 1, VW, VH, OX, OY, TALL, P;
+  const st = {busy: false, go: false, start: 0, level: 0, events: [], gel: 0, git: 0, paired: 0, phase: '', answerDir: '', hidden: false};
+  /* ---- layout: wide (1000 × 640) or tall (640 × 980); the picture fills the free area ---- */
+  function freeArea(){
+    const bar = stage.querySelector('.stage-bar').offsetHeight + stage.querySelector('.instr').offsetHeight
+      + ['novoice', 'fshint'].reduce((s, id) => { const e = document.getElementById(id); return s + (e.hidden ? 0 : e.offsetHeight); }, 0);
+    return [Math.max(280, (sb.clientWidth || stage.clientWidth) - 32), Math.max(240, stage.clientHeight - bar - 22 - 64)];
+  }
+  function layout(){
+    const [aw, ah] = freeArea(); TALL = ah / aw > .95;
+    P = TALL ? {W: 640, H: 1000, pool: [170, 470, 640], gel: [20, 690, 300], git: [330, 690, 300], hose: [90, 110], pump: [560, 110], ask: 70}
+             : {W: 1000, H: 640, pool: [330, 670, 610], gel: [30, 170, 270], git: [700, 170, 270], hose: [250, 96], pump: [760, 96], ask: 60};
+    const r = ah / aw;
+    if (r > P.H / P.W) { VW = P.W; VH = Math.round(P.W * r); OX = 0; OY = VH - P.H; } else { VH = P.H; VW = Math.round(P.H / r); OX = (VW - P.W) / 2; OY = 0; }
+  }
+  const lvY = n => P.pool[2] - n * U;                    // top of water with n buckets
+  const laneSpot = (lane, i) => { const [x, y, w] = P[lane], per = Math.floor(w / 46), cx = x + 23 + (i % per) * 46, cy = (TALL ? y + 30 : 600 - 20) - (TALL ? -Math.floor(i / per) * 48 : Math.floor(i / per) * 48); return [cx, cy]; };
+  /* ---- drawing ---- */
+  // every level has its own place: day garden → sunset beach → night with lanterns
+  function back(){
+    const g = OY + (TALL ? 660 : 610), cloud = (x, y, c, o) => `<g transform="translate(${x} ${y})" fill="${c}" opacity="${o}"><ellipse rx="40" ry="18"/><ellipse cx="-30" cy="8" rx="26" ry="14"/><ellipse cx="32" cy="8" rx="28" ry="13"/></g>`;
+    const hills = (c, h) => `<path d="M0 ${g - 40} ${Array.from({length: 9}, (_, i) => `Q ${VW * (i + .5) / 8} ${g - 40 - h * (i % 2 ? .6 : 1)} ${VW * (i + 1) / 8} ${g - 40}`).join(' ')} Z" fill="${c}"/>`;
+    const palm = (x, f) => `<g transform="translate(${x} ${g - 40}) scale(${f} 1)"><path d="M0 0 C 6 -50, 18 -100, 34 -150" stroke="#8A5A2B" stroke-width="12" fill="none" stroke-linecap="round"/>
+      ${[[-70, -10], [-40, -40], [10, -60], [60, -30], [80, 10]].map(([dx, dy]) => `<path d="M34 -150 Q ${34 + dx / 2} ${-180 + dy / 2} ${34 + dx} ${-150 + dy + 30}" stroke="#2F8F4E" stroke-width="10" fill="none" stroke-linecap="round"/>`).join('')}</g>`;
+    const defs = `<defs><linearGradient id="hWat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BC0EB"/><stop offset="1" stop-color="#1F78B8"/></linearGradient>
+      <pattern id="hTile" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#E8F6FD"/><path d="M0 0 H22 M0 0 V22" stroke="#BFE2F2" stroke-width="2"/></pattern>
+      <pattern id="hGap" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="12" height="12" fill="#FFE3E3"/><rect width="5" height="12" fill="#F7A8A8"/></pattern>
+      <linearGradient id="hSky" x1="0" y1="0" x2="0" y2="1">${[['#7FCBF5', '#E6F7FF'], ['#FF8A5B', '#FFE0A8'], ['#141B45', '#3B4A8A']][LVL - 1].map((c, n) => `<stop offset="${n}" stop-color="${c}"/>`).join('')}</linearGradient></defs>
+      <rect width="${VW}" height="${VH}" fill="url(#hSky)"/>`;
+    if (LVL === 2) return defs + `<circle cx="${VW * .22}" cy="${g - 70}" r="70" fill="#FFB347"/><circle cx="${VW * .22}" cy="${g - 70}" r="52" fill="#FFD166"/>
+      ${cloud(VW * .55, 70 + OY * .4, '#FFD3B5', .9)}${cloud(VW * .85, 120 + OY * .4, '#FFC9A8', .8)}
+      ${[[.4, 90], [.46, 100], [.7, 60]].map(([f, y]) => `<path d="M${VW * f - 12} ${y + OY * .4} q6 -8 12 0 q6 -8 12 0" stroke="#6B3A2E" stroke-width="3" fill="none"/>`).join('')}
+      <rect x="0" y="${g - 80}" width="${VW}" height="40" fill="#2F8FC4"/>${[.1, .3, .5, .7, .9].map(f => `<path d="M${VW * f - 20} ${g - 62} h40" stroke="#BFE7FA" stroke-width="3" stroke-linecap="round"/>`).join('')}
+      <rect x="0" y="${g - 40}" width="${VW}" height="${VH - g + 40}" fill="#F2D49B"/>${palm(14, 1)}${palm(VW - 14, -1)}
+      ${Array.from({length: 7}, (_, i) => `<circle cx="${VW * (i + .5) / 7}" cy="${g + 10 + (i % 2) * 14}" r="3" fill="#D9B577"/>`).join('')}`;
+    if (LVL === 3) return defs + Array.from({length: 40}, (_, i) => `<circle cx="${(i * 97 + 31) % VW}" cy="${(i * 53 + 17) % Math.max(120, g - 140)}" r="${i % 3 ? 1.6 : 2.6}" fill="#FFFFFF" opacity="${i % 2 ? .6 : .95}"/>`).join('')
+      + `<g transform="translate(${VW - 80} ${64})"><circle r="34" fill="#FFF3C4"/><circle cx="14" cy="-8" r="30" fill="#141B45"/></g>
+      ${hills('#26315E', 70)}<rect x="0" y="${g - 40}" width="${VW}" height="${VH - g + 40}" fill="#3F7A4C"/>
+      <path d="M0 22 ${Array.from({length: 6}, (_, i) => `Q ${VW * (i + .5) / 6} 52 ${VW * (i + 1) / 6} 22`).join(' ')}" stroke="#2D2D3A" stroke-width="2" fill="none"/>
+      ${Array.from({length: 18}, (_, i) => { const t = (i + .5) / 18, seg = t * 6 - Math.floor(t * 6); return `<circle cx="${VW * t}" cy="${22 + 30 * 4 * seg * (1 - seg) * .5 + 6}" r="7" fill="${['#F9C74F', '#F94144', '#43AA8B', '#4D96FF', '#F15BB5'][i % 5]}"/>`; }).join('')}
+      ${Array.from({length: 8}, (_, i) => `<circle cx="${(i * 131 + 40) % VW}" cy="${g - 10 + (i % 3) * 22}" r="3" fill="#E9FF8A" opacity=".85"/>`).join('')}`;
+    return defs + `<circle cx="${VW - 70}" cy="60" r="36" fill="#FFD23F"/>
+      ${[[.18, 60], [.5, 40], [.78, 90]].map(([f, y]) => cloud(VW * f, y + OY * .4, '#FFFFFF', 1)).join('')}
+      ${hills('#A8DBA0', 60)}<rect x="0" y="${g - 40}" width="${VW}" height="${VH - g + 40}" fill="#7CC47F"/>
+      ${Array.from({length: 10}, (_, i) => `<g transform="translate(${VW * (i + .5) / 10} ${g + 18 + (i % 2) * 20})">${[0, 72, 144, 216, 288].map(a => `<circle cx="${5 * Math.cos(a * Math.PI / 180)}" cy="${5 * Math.sin(a * Math.PI / 180)}" r="4" fill="${i % 3 ? '#FFFFFF' : '#F9C74F'}"/>`).join('')}<circle r="3" fill="#F8961E"/></g>`).join('')}`;
+  }
+  function poolSVG(){
+    const [x0, x1, fl] = P.pool, top = lvY(MAXU) - 6, lv = lvY(st.level), sl = lvY(st.start);
+    const ticks = Array.from({length: MAXU + 1}, (_, n) => `<line x1="${x0}" y1="${lvY(n)}" x2="${x0 + (n % 5 ? 14 : 26)}" y2="${lvY(n)}" stroke="#7FA7C2" stroke-width="${n % 5 ? 2 : 3.5}"/>`).join('');
+    const wave = RM ? '' : `<animateTransform attributeName="transform" type="translate" values="0 0;-20 0;0 0" dur="3s" repeatCount="indefinite"/>`;
+    let diff = '';
+    if (st.phase === 'reveal' && st.level !== st.start) {
+      const a = Math.min(lv, sl), b = Math.max(lv, sl), up = st.level > st.start;
+      diff = `<rect x="${x0 + 4}" y="${a}" width="${x1 - x0 - 8}" height="${b - a}" fill="${up ? 'rgba(46,146,86,.45)' : 'url(#hGap)'}" stroke="${up ? GREEN : RED}" stroke-width="3"/>`
+        + Array.from({length: Math.abs(st.level - st.start)}, (_, n) => `<line x1="${x0 + 30}" y1="${b - (n + 1) * U}" x2="${x1 - 30}" y2="${b - (n + 1) * U}" stroke="${up ? '#FFFFFF' : RED}" stroke-width="2" stroke-dasharray="6 6" opacity=".9"/>`).join('');
+    }
+    const cover = st.hidden ? `<g><rect x="${x0 - 14}" y="${top - 18}" width="${x1 - x0 + 28}" height="${fl - top + 22}" rx="10" fill="#8E5B2B"/>
+      ${Array.from({length: 6}, (_, i) => `<line x1="${x0 - 14}" y1="${top + i * (fl - top) / 6}" x2="${x1 + 14}" y2="${top + i * (fl - top) / 6 + 14}" stroke="#6B4423" stroke-width="3"/>`).join('')}
+      <text x="${(x0 + x1) / 2}" y="${(top + fl) / 2 + 40}" text-anchor="middle" font-size="120" fill="#F2C14E" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">?</text></g>` : '';
+    return `<g><rect x="${x0 - 20}" y="${fl}" width="${x1 - x0 + 40}" height="22" rx="6" fill="#D9DEE8"/>
+      <rect x="${x0}" y="${top}" width="${x1 - x0}" height="${fl - top}" fill="url(#hTile)" stroke="#5A8FB0" stroke-width="5"/>
+      <g clip-path="url(#hClip)"><rect x="${x0}" y="${lv}" width="${x1 - x0}" height="${fl - lv}" fill="url(#hWat)"/>
+        <g>${wave}<path d="M${x0 - 20} ${lv} q15 -7 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 v8 h-${x1 - x0 + 60} z" fill="#9BDCF5" opacity=".8"/></g></g>
+      <clipPath id="hClip"><rect x="${x0}" y="${top}" width="${x1 - x0}" height="${fl - top}"/></clipPath>
+      ${ticks}${diff}${cover}
+      <line x1="${x0 - 26}" y1="${sl}" x2="${x1 + 26}" y2="${sl}" stroke="${RED}" stroke-width="5" stroke-dasharray="14 8"/>
+      <line x1="${x1 + 26}" y1="${sl}" x2="${x1 + 26}" y2="${sl - 52}" stroke="#4A5568" stroke-width="4"/><path d="M${x1 + 26} ${sl - 52} l34 10 l-34 10 z" fill="${RED}"/></g>`;
+  }
+  function machines(){
+    const [hx, hy] = P.hose, [px, py] = P.pump, [x0, x1] = P.pool, top = lvY(MAXU);
+    return `<g><rect x="${hx - 6}" y="${hy}" width="12" height="${(TALL ? 660 : 610) - hy}" fill="#9AA3B5"/><path d="M${hx - 30} ${hy} h44 v18 h-14 v10 h-16 v-10 h-14 z" fill="#4A5568"/><circle cx="${hx - 8}" cy="${hy - 8}" r="10" fill="${GREEN}"/>
+        <path d="M${hx + 14} ${hy + 6} C ${hx + 70} ${hy}, ${x0 - 40} ${top - 60}, ${x0 + 30} ${top - 10}" stroke="${GREEN}" stroke-width="9" fill="none" stroke-linecap="round"/></g>
+      <g><rect x="${px - 34}" y="${py - 30}" width="68" height="56" rx="10" fill="#4A5568"/><circle cx="${px}" cy="${py - 2}" r="16" fill="#CBD5E0"/><path d="M${px - 8} ${py - 2} h16 M${px} ${py - 10} v16" stroke="${RED}" stroke-width="4"/>
+        <path d="M${px - 34} ${py} C ${px - 90} ${py + 10}, ${x1 + 40} ${top - 60}, ${x1 - 30} ${top + 20}" stroke="${RED}" stroke-width="9" fill="none" stroke-linecap="round"/></g>`;
+  }
+  function lanes(){
+    const head = (lane, col, sym) => { const [x, y, w] = P[lane]; const hy = TALL ? y - 16 : 470; return `<g><circle cx="${x + w / 2}" cy="${hy}" r="20" fill="${col}"/><text x="${x + w / 2}" y="${hy + 11}" text-anchor="middle" font-size="32" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">${sym}</text></g>`; };
+    const pails = (lane, n, col, gone) => Array.from({length: n}, (_, i) => { const [x, y] = laneSpot(lane, i); return i < gone ? '' : pailSVG(x, y, 1, col); }).join('');
+    return head('gel', GREEN, '+') + head('git', RED, '−') + pails('gel', st.gel, '#43AA8B', st.paired) + pails('git', st.git, '#F94144', st.paired);
+  }
+  function draw(){
+    const z = document.getElementById('hz'); if (!z) return;
+    z.innerHTML = machines() + poolSVG() + lanes();
+  }
+  function scene(){
+    return `<svg viewBox="0 0 ${VW} ${VH}" class="kuleSVG havuzSVG" role="img" aria-label="Havuz, gelen ve giden kovalar">${back()}<g transform="translate(${OX} ${OY})"><g id="hz"></g><g id="hfx" style="pointer-events:none"></g></g><g id="kab"></g><g id="krev"></g></svg>`;
+  }
+  /* ---- moves ---- */
+  const clearHint = () => { clearTimeout(clearHint.t); const f = document.getElementById('fb'); if (f) { f.textContent = ''; f.className = 'feedback'; } };
+  const hint = t => { FB(t); clearTimeout(clearHint.t); clearHint.t = setTimeout(() => { if (alive) clearHint(); }, 4500); };
+  function pour(sign, n, done){            // one bucket at a time: flies in (or out), the water moves one line
+    let j = 0; const fx = document.getElementById('hfx');
+    const one = () => { if (!alive) return; if (j >= n) { fx.innerHTML = ''; return done(); }
+      const [hx, hy] = sign > 0 ? P.hose : P.pump, [x0, x1] = P.pool, mid = (x0 + x1) / 2, lane = sign > 0 ? 'gel' : 'git', idx = (sign > 0 ? st.gel : st.git), to = laneSpot(lane, idx);
+      const from = sign > 0 ? [hx, hy + 40] : [mid, lvY(st.level) + 10], over = sign > 0 ? [mid, lvY(st.level) - 30] : [P.pump[0], P.pump[1] + 50];
+      tone(sign > 0 ? 520 : 300, .12, 'sine', .08);
+      tween(520, t => { const e = ease(t), x = from[0] + (over[0] - from[0]) * e, y = from[1] + (over[1] - from[1]) * e - Math.sin(Math.PI * e) * 60; fx.innerHTML = pailSVG(x, y, 1, sign > 0 ? '#43AA8B' : '#F94144'); }, () => {
+        const l0 = st.level; tween(320, t => { st.level = l0 + sign * t; draw(); }, () => { st.level = l0 + sign; if (sign > 0) st.gel++; else st.git++; draw(); j++; setTimeout(one, 160); }, () => alive);
+      }, () => alive); };
+    one();
+  }
+  function runEvents(i){
+    if (!alive) return;
+    if (i >= st.events.length) { st.busy = false; return ask(); }
+    const e = st.events[i];
+    setInstr(e > 0 ? `${e} kova su geldi.` : `${-e} kova su gitti.`);
+    afterSay(() => pour(Math.sign(e), Math.abs(e), () => setTimeout(() => runEvents(i + 1), 500)), 300);
+  }
+  function pairUp(done){                    // a green and a red bucket meet in the middle and disappear: they cancel out
+    st.busy = true; const k2 = Math.min(st.gel, st.git), fx = document.getElementById('hfx'); let j = st.paired;
+    const one = () => { if (!alive) return; if (j >= k2) { fx.innerHTML = ''; st.busy = false; return done && done(); }
+      const a = laneSpot('gel', j), b = laneSpot('git', j), m = [(a[0] + b[0]) / 2, Math.min(a[1], b[1]) - 60];
+      st.paired = j + 1; draw();
+      tween(650, t => { const e = ease(t); fx.innerHTML = pailSVG(a[0] + (m[0] - a[0]) * e, a[1] + (m[1] - a[1]) * e, 1, '#43AA8B') + pailSVG(b[0] + (m[0] - b[0]) * e, b[1] + (m[1] - b[1]) * e, 1, '#F94144')
+        + (t > .85 ? `<circle cx="${m[0]}" cy="${m[1]}" r="${30 * (t - .85) * 7}" fill="#FFFFFF" opacity="${1 - (t - .85) * 6}"/>` : ''); }, () => { tone(880, .07, 'square', .05); j++; setTimeout(one, 120); }, () => alive); };
+    one();
+  }
+  // answer buttons stand in a column next to the pool, around the red line: up is up, down is down
+  const col = () => [OX + (TALL ? 556 : 830), Math.max(OY + 120, Math.min(OY + lvY(st.start), OY + P.H - 230))];
+  const pairBtn = () => { const [x, y] = TALL ? [OX + 320, OY + 40] : [OX + 165, OY + 90];
+    return `<g data-pair="1" style="cursor:pointer"><rect x="${x - 100}" y="${y - 22}" width="200" height="44" rx="22" fill="#FFFFFF" stroke="#1E2464" stroke-width="3"/><text x="${x}" y="${y + 7}" text-anchor="middle" font-size="20" fill="#1E2464" style="font-family:Lexend,sans-serif;font-weight:700">🤝 Kovaları eşleştir</text></g>`; };
+  function ask(quiet){
+    st.phase = 'dir'; const [x, y] = col(), r = TALL ? 38 : 44, gap = TALL ? 104 : 112;
+    const html = [['ust', 'M0 14 L16 -8 L32 14', 'Üstünde', GREEN, -gap], ['ayni', 'M2 0 H30 M2 10 H30', 'Aynı', '#1E9AD6', 0], ['alt', 'M0 -8 L16 14 L32 -8', 'Altında', RED, gap]].map(([v, path, lab, c, dy]) =>
+      `<g data-dir="${v}" style="cursor:pointer"><circle cx="${x}" cy="${y + dy}" r="${r}" fill="${c}" stroke="#FFFFFF" stroke-width="5"/><path d="${path}" transform="translate(${x - 16} ${y + dy - 4})" stroke="#FFFFFF" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="${x - 44}" y="${y + dy + r - 4}" width="88" height="24" rx="12" fill="#FFFFFF" opacity=".95"/><text x="${x}" y="${y + dy + r + 13}" text-anchor="middle" font-size="16" fill="#1E2464" style="font-family:Lexend,sans-serif;font-weight:700">${lab}</text></g>`).join('')
+      + (st.paired < Math.min(st.gel, st.git) ? pairBtn() : '');
+    showAfter(html, quiet ? null : 'Su şimdi kırmızı çizginin üstünde mi, altında mı, yoksa aynı yerde mi?', 'dir');
+  }
+  // the question is spoken first; the buttons come only after the voice stops, so the child listens before tapping
+  function showAfter(html, say, ph){
+    const kab = document.getElementById('kab'), show = () => { if (!alive || st.phase !== ph) return; document.getElementById('kab').innerHTML = html; st.busy = false; };
+    if (!say) return show();
+    kab.innerHTML = ''; st.busy = true; setInstr(say); afterSay(show, 300);
+  }
+  function askHowMany(quiet){
+    st.phase = 'num'; const diff = Math.abs(st.level - st.start), [x, y] = col(), gap = TALL ? 100 : 108;
+    const opts = shuffle([...new Set([diff, diff + 1, Math.max(1, diff - 1), diff + 2])].filter(v => v >= 1)).slice(0, 3);
+    if (!opts.includes(diff)) opts[0] = diff;
+    const html = opts.sort((a, b) => a - b).map((v, i) => `<g data-num="${v}" style="cursor:pointer"><circle cx="${x}" cy="${y + (i - 1) * gap}" r="${TALL ? 38 : 42}" fill="#FFFFFF" stroke="#1E2464" stroke-width="5"/>
+      <text x="${x}" y="${y + (i - 1) * gap + 18}" text-anchor="middle" font-size="48" fill="#1E2464" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${v}</text></g>`).join('')
+      + (st.paired < Math.min(st.gel, st.git) ? pairBtn() : '');
+    showAfter(html, quiet ? null : st.level > st.start ? 'Evet, su çizginin üstünde! Kaç kova fazla?' : 'Evet, su çizginin altında! Kaç kova eksik?', 'num');
+  }
+  function answerDir(v){
+    const right = st.level > st.start ? 'ust' : st.level < st.start ? 'alt' : 'ayni';
+    if (v !== right) { sBad(); return hint('Bir daha düşün. Kovaları eşleştirirsen kolayca görürsün.'); }
+    sOk(); document.getElementById('kab').innerHTML = '';
+    if (right === 'ayni') return finish(); askHowMany();
+  }
+  function answerNum(v){
+    if (v !== Math.abs(st.level - st.start)) { sBad(); return hint('Eşi olmayan kovalara bak.'); }
+    document.getElementById('kab').innerHTML = ''; finish();
+  }
+  function finish(){
+    st.busy = true;
+    const go = () => { st.hidden = false; st.phase = 'reveal'; draw(); setTimeout(() => { if (alive) card(); }, 1300); };
+    if (st.paired < Math.min(st.gel, st.git)) pairUp(go); else go();
+  }
+  /* ---- answer card: the two rows of buckets, pairs joined, the unpaired ones lit up ---- */
+  function card(){
+    st.busy = true; st.go = false; sOk(); clearHint();
+    const g = document.getElementById('krev'), a = st.gel, b = st.git, net = a - b, n = Math.max(a, b), sp = Math.min(56, 600 / Math.max(n, 1)), x0 = 500 - (n - 1) * sp / 2;
+    const row = (cnt, y, col) => Array.from({length: cnt}, (_, i) => { const lone = i >= Math.min(a, b); return `<g opacity="${lone ? 1 : .35}">${pailSVG(x0 + i * sp, y, sp / 50, col)}</g>` + (lone ? `<circle cx="${x0 + i * sp}" cy="${y + 2}" r="${sp * .55}" fill="none" stroke="${col}" stroke-width="4"/>` : ''); }).join('');
+    const links = Array.from({length: Math.min(a, b)}, (_, i) => `<line x1="${x0 + i * sp}" y1="350" x2="${x0 + i * sp}" y2="420" stroke="#9AA3B5" stroke-width="4" stroke-dasharray="5 5"/>`).join('');
+    const big = net === 0 ? 'Aynı yerde!' : net > 0 ? `${net} kova fazla` : `${-net} kova eksik`, col = net === 0 ? '#1E9AD6' : net > 0 ? GREEN : RED;
+    const from = st.start, to = st.level;
+    const sc2 = Math.min(VW / 840, VH / 600), tf = `translate(${VW / 2 - 500 * sc2} ${VH / 2 - 430 * sc2}) scale(${sc2})`;
+    g.innerHTML = `<rect width="${VW}" height="${VH}" fill="#FFFFFF" opacity=".82"/><g id="krevin" transform="${tf}"><rect x="110" y="150" width="780" height="560" rx="34" fill="#FFFFFF" stroke="#1E2464" stroke-width="5"/>
+      <circle cx="170" cy="320" r="22" fill="${GREEN}"/><text x="170" y="332" text-anchor="middle" font-size="32" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">+</text>
+      <circle cx="170" cy="440" r="22" fill="${RED}"/><text x="170" y="452" text-anchor="middle" font-size="32" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">−</text>
+      ${row(a, 330, '#43AA8B')}${links}${row(b, 450, '#F94144')}
+      <text x="500" y="240" text-anchor="middle" font-size="44" fill="#1E2464" style="font-family:TTKB,Lexend,sans-serif;font-weight:700"><tspan fill="${GREEN}">${a} geldi</tspan>, <tspan fill="${RED}">${b} gitti</tspan></text>
+      <text x="500" y="560" text-anchor="middle" font-size="64" fill="${col}" stroke="#1E2464" stroke-width="1.5" paint-order="stroke" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${big}</text>
+      ${LVL < 3 ? `<text x="500" y="606" text-anchor="middle" font-size="34" fill="#575E80" style="font-family:TTKB,Lexend,sans-serif;font-weight:700">${from} → ${to}</text>` : ''}</g>`;
+    const say = net === 0 ? `${a} kova geldi, ${b} kova gitti. Su aynı yerde kaldı.` : `${a} kova geldi, ${b} kova gitti. Su, çizginin ${net > 0 ? 'üstünde' : 'altında'}. ${Math.abs(net)} kova ${net > 0 ? 'fazla' : 'eksik'}.`;
+    speak(say); afterSay(() => { if (!alive) return; st.go = true;
+      document.getElementById('krevin').insertAdjacentHTML('beforeend', `<g id="kgo" style="cursor:pointer"><rect x="390" y="628" width="220" height="66" rx="33" fill="#2E9256"/>
+        <text x="478" y="673" text-anchor="middle" font-size="34" fill="#FFFFFF" style="font-family:Lexend,sans-serif;font-weight:700">Devam</text><path d="M560 644 L582 661 L560 678 Z" fill="#FFFFFF"/>
+        ${RM ? '' : '<animateTransform attributeName="transform" type="scale" additive="sum" values="1;1.04;1" dur="1.4s" repeatCount="indefinite"/>'}</g>`); }, 300);
+  }
+  /* ---- rounds ---- */
+  function makeEvents(){
+    for (let g = 0; g < 500; g++) {
+      const S = rint(LVL === 3 ? 6 : 8, 13);
+      let ev;
+      if (LVL === 1) { const a = rint(1, 5), b = rint(1, 5); ev = Math.random() < .7 ? [a, -b] : [-b, a]; if (k === 2 || k === 5) ev = [a, -a]; }
+      else { const n = LVL === 2 ? 3 : rint(2, 3); ev = Array.from({length: n}, (_, i) => (i % 2 === (Math.random() < .5 ? 0 : 1) ? 1 : -1) * rint(1, 4)); if (ev.every(x => x > 0) || ev.every(x => x < 0)) continue; }
+      let lv = S, ok = true; ev.forEach(e => { lv += e; if (lv < 1 || lv > MAXU) ok = false; });
+      const gel = ev.filter(x => x > 0).reduce((s, x) => s + x, 0), git = -ev.filter(x => x < 0).reduce((s, x) => s + x, 0);
+      if (ok && gel <= 10 && git <= 10) return {S, ev};
+    }
+    return {S: 10, ev: [3, -4]};
+  }
+  function setup(){
+    layout();
+    const {S, ev} = makeEvents();
+    Object.assign(st, {busy: true, go: false, start: S, level: S, events: ev, gel: 0, git: 0, paired: 0, phase: 'run', hidden: LVL === 3});
+    sb.innerHTML = `${progBar(N, k)}<div class="kulewrap">${scene()}<div class="feedback" id="fb"></div></div>`;
+    draw(); bind();
+  }
+  function bind(){
+    sb.querySelector('.havuzSVG').onclick = e => {
+      if (e.target.closest('#kgo')) { if (st.go) { st.go = false; k++; play(); } return; }
+      if (st.busy) return;
+      if (e.target.closest('[data-pair]')) { const ph = st.phase; return pairUp(() => { if (ph === 'num') askHowMany(true); else ask(true); }); }
+      const d = e.target.closest('[data-dir]'); if (d) return answerDir(d.dataset.dir);
+      const nm = e.target.closest('[data-num]'); if (nm) return answerNum(+nm.dataset.num);
+    };
+  }
+  function levelDone(){
+    LV.open('havuz', LVL + 1); addStar(); clearHint(); document.getElementById('krev').innerHTML = ''; document.getElementById('kab').innerHTML = '';
+    st.busy = true; setInstr(`Harika! Seviye ${LVL} bitti.`);
+    celebrate(sb.querySelector('.havuzSVG'), VW, VH, {title: `Seviye ${LVL} tamam!`, next: `Seviye ${LVL + 1}`, say: LVL < 3 ? `Harika! Seviye ${LVL} bitti. Şimdi Seviye ${LVL + 1} seni bekliyor.` : 'Harika! Havuzun bütün sırlarını çözdün.'},
+      LVL < 3 ? () => { LVL++; k = 0; play(); } : null, () => { sWin(); exitCard('havuz'); });
+  }
+  function play(){
+    if (k >= N) return levelDone();
+    setup();
+    const intro = k > 0 ? '' : LVL === 1 ? 'Havuza iyi bak. Kırmızı çizgi suyun başta nerede olduğunu gösteriyor. ' : LVL === 2 ? 'Seviye 2: kovalar karışık gelip gidecek. ' : 'Seviye 3: havuzun üstü örtülü! Suyu göremiyorsun, sadece kovaları görüyorsun. ';
+    if (k === 0) { setInstr(intro + 'Şimdi kovalar gelip gidecek.'); afterSay(() => runEvents(0), 600); }
+    else setTimeout(() => runEvents(0), 700);
+  }
+  function relayout(){
+    if (!alive || st.busy || st.go || !sb.querySelector('.havuzSVG')) return;
+    const old = [VW, VH]; layout(); if (Math.abs(VW - old[0]) / old[0] < .03 && Math.abs(VH - old[1]) / old[1] < .03) return;
+    const kab = document.getElementById('kab').innerHTML;
+    sb.querySelector('.havuzSVG').outerHTML = scene(); draw(); bind(); if (st.phase === 'dir') ask(true); else if (st.phase === 'num') askHowMany(true); else document.getElementById('kab').innerHTML = kab;
+  }
+  const onResize = () => { clearTimeout(onResize.t); onResize.t = setTimeout(relayout, 250); };
+  window.addEventListener('resize', onResize);
+  levelPick('havuz', [['Havuzu izle', `<svg viewBox="0 0 120 80" width="140" height="94">${pailSVG(30, 40, 1, '#43AA8B')}${pailSVG(90, 40, 1, '#F94144')}<line x1="10" y1="66" x2="110" y2="66" stroke="${RED}" stroke-width="4" stroke-dasharray="8 5"/></svg>`],
+    ['Karışık kovalar', `<svg viewBox="0 0 120 80" width="140" height="94">${[20, 50, 80, 105].map((x, i) => pailSVG(x, 40, .8, i % 2 ? '#F94144' : '#43AA8B')).join('')}</svg>`],
+    ['Örtülü havuz', `<svg viewBox="0 0 120 80" width="140" height="94"><rect x="20" y="10" width="80" height="62" rx="8" fill="#8E5B2B"/><text x="60" y="60" text-anchor="middle" font-size="46" fill="#F2C14E" style="font-family:TTKB">?</text></svg>`]],
+    l => { LVL = l; k = 0; play(); });
+  return { stop(){ alive = false; clearTimeout(tm); window.removeEventListener('resize', onResize); }, st };
+};
+
 /* ---------- Harf İzi ---------- */
 GAMES.iz = function(arg){
   let list = [], k = 0;
@@ -3512,6 +3767,7 @@ showTab(['cocuk','veli'].includes(startTab) ? startTab : 'cocuk');
 drawKidRail(); drawKidStop(); drawLetterCards();
 document.querySelector('.tabloart').innerHTML = `<svg viewBox="0 0 200 70" style="width:150px;display:block">${CAR_DEFS}<rect width="200" height="70" rx="10" fill="#3C424F"/>${[0,1,2,3,4].map(i => `<line x1="${10+i*45}" y1="6" x2="${10+i*45}" y2="64" stroke="#fff" stroke-width="3"/>`).join('')}<g transform="translate(20 8) scale(.42)">${carSVG('#E3051B')}</g><g transform="translate(110 8) scale(.42)">${carSVG('#1E9AD6')}</g><text x="77" y="44" text-anchor="middle" font-size="22" fill="#fff" class="ptxt" style="fill:#fff">14</text></svg>`;
 document.querySelector('.kuleart').innerHTML = `<svg viewBox="0 0 200 92" style="width:150px;display:block"><line x1="4" y1="10" x2="196" y2="10" stroke="#F6B800" stroke-width="6"/><line x1="182" y1="10" x2="182" y2="88" stroke="#F6B800" stroke-width="6"/><line x1="96" y1="13" x2="96" y2="22" stroke="#2D3748" stroke-width="2"/><rect x="89" y="20" width="14" height="6" rx="2" fill="#E3051B"/><g transform="scale(.5)">${['#4D96FF','#4D96FF'].map((c,j) => cubeSVG(192, 62 + j*32, c, j === 0)).join('')}${['#F94144','#F94144','#F94144'].map((c,j) => cubeSVG(70, 146 - j*32, c, j === 2)).join('')}${['#43AA8B','#43AA8B','#F9C74F','#F9C74F','#F9C74F'].map((c,j) => cubeSVG(290, 146 - j*32, c, j === 4)).join('')}</g><rect x="0" y="88" width="200" height="4" fill="#E9B95A"/></svg>`;
+document.querySelector('.havuzart').innerHTML = `<svg viewBox="0 0 300 170" style="width:150px;display:block"><rect x="80" y="20" width="140" height="140" fill="#E8F6FD" stroke="#5A8FB0" stroke-width="6"/><rect x="83" y="78" width="134" height="79" fill="#3C9BCF"/><line x1="64" y1="96" x2="236" y2="96" stroke="#E3051B" stroke-width="6" stroke-dasharray="14 8"/>${pailSVG(36, 120, 1.3, '#43AA8B')}${pailSVG(264, 120, 1.3, '#F94144')}</svg>`;
 document.querySelector('.ciftlikart').innerHTML = `<svg viewBox="0 0 300 190" style="width:150px;display:block">${Array.from({length: 10}, (_, j) => baleSVG(26 + (j % 5) * 46, 84 - Math.floor(j / 5) * 34, 1)).join('')}<rect x="0" y="40" width="234" height="62" rx="8" fill="none" stroke="#8E5B2B" stroke-width="5"/><rect x="0" y="104" width="250" height="14" rx="4" fill="#8E5B2B"/><rect x="0" y="118" width="300" height="12" rx="4" fill="#4A5568"/><path d="M250 118 L250 50 Q250 36 264 36 L282 36 L298 70 L298 118 Z" fill="#2E9256"/><rect x="262" y="44" width="24" height="24" rx="4" fill="#CFEAF8"/>${[50, 200, 270].map(x => `<circle cx="${x}" cy="146" r="20" fill="#2D3748"/><circle cx="${x}" cy="146" r="8" fill="#CBD5E0"/>`).join('')}</svg>`;
 document.querySelector('.dogruart').innerHTML = `<svg viewBox="0 0 200 80" style="width:150px;display:block"><line x1="6" y1="56" x2="194" y2="56" stroke="#1E2464" stroke-width="4" stroke-linecap="round"/>${[0,1,2,3,4,5].map(i => `<line x1="${16+i*34}" y1="48" x2="${16+i*34}" y2="64" stroke="#1E2464" stroke-width="3"/>`).join('')}<path d="M50 50 Q67 10 84 50" stroke="#E3051B" stroke-width="3" fill="none" stroke-dasharray="5 4"/><g transform="translate(84 52) scale(.7)">${frogSVG()}</g></svg>`;
 document.querySelector('.agirart').innerHTML = ['#4CAF50','#8E5BC4','#F08A2B'].map(c => `<span style="width:40px;display:inline-block">${SACK(c)}</span>`).join('');
