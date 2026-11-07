@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Haftalık Takvim · Ladin Ormanı</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ortak.css">
+<style>
+.baslik{padding:24px 0 8px}
+.baslik h1{font-size:clamp(28px,5vw,40px);font-weight:900;color:var(--orman)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .baslik h1{color:#9fd4ad}}
+:root[data-theme="dark"] .baslik h1{color:#9fd4ad}
+.baslik p{margin:0;color:var(--yazi-2)}
+.arac{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.haftalar{display:flex;flex-direction:column;gap:12px}
+.hafta{padding:16px;scroll-margin-top:16px}
+.hafta.simdi{border:2px solid var(--gunes);box-shadow:0 0 0 4px rgba(242,185,75,.25),var(--golge)}
+.hafta-ust{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px}
+.hafta-ust h2{font-size:20px;margin:0}
+.hafta-ust .tarih{color:var(--yazi-2);font-weight:700}
+.dersler{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:760px){.dersler{grid-template-columns:1fr}}
+.ders{border-radius:12px;padding:12px;background:var(--sis);border-left:5px solid var(--yaprak)}
+.ders.mat{border-left-color:var(--ahsap-2)}
+.ders.hb{border-left-color:var(--gunes)}
+.ders h3{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--yazi-2);margin:0 0 4px}
+.ders .unite{font-weight:900;margin:0 0 4px}
+.ders .konu{margin:0 0 6px}
+.kodlar{display:flex;flex-wrap:wrap;gap:4px}
+.kod{font-size:12px;font-weight:800;background:var(--kart);border:1px solid var(--cizgi);border-radius:6px;padding:1px 6px;cursor:help}
+.harf{display:inline-block;min-width:26px;text-align:center;font-weight:900;background:var(--orman-2);color:#fff;border-radius:6px;padding:0 6px;margin-right:3px}
+.gunler{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.gun{font-size:13px;font-weight:700;background:var(--kum);border:1px solid var(--cizgi);border-radius:999px;padding:2px 10px}
+.tatil{background:var(--kum);text-align:center;padding:14px;border-radius:18px;border:2px dashed var(--ahsap-2);font-weight:900;color:var(--ahsap)}
+.tatil .gunler{justify-content:center}
+.tatil.simdi{border-style:solid}
+</style>
+</head>
+<body>
+<div class="serit"><div class="kap"><span id="serit-tarih"></span><span id="serit-hafta"></span></div></div>
+
+<header class="ust"><div class="kap">
+  <a class="logo" href="index.html">
+    <svg viewBox="0 0 34 40" aria-hidden="true"><path d="M17 2 26 13h-4l7 9h-5l7 10H3l7-10H5l7-9H8z" fill="#2e6b4a"/><path d="M17 2 26 13h-4l7 9h-5l7 10H17z" fill="#1f4d36"/><rect x="14.5" y="32" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>
+    Ladin Ormanı
+  </a>
+  <nav><a href="index.html">Ana sayfa</a><a href="1-sinif.html">1. Sınıf</a><a href="takvim.html" aria-current="page">Takvim</a></nav>
+</div></header>
+
+<main class="kap">
+  <div class="baslik"><h1>Haftalık takvim</h1><p>1. sınıf · 2026-2027 · MEB yıllık planlarına göre Türkçe, Matematik ve Hayat Bilgisi</p></div>
+  <div class="arac">
+    <a class="dugme" href="#simdi">Bu haftaya git</a>
+    <label class="dugme ikincil" style="cursor:pointer"><input type="checkbox" id="kodgoster" style="margin:0"> Öğrenme çıktısı kodlarını göster</label>
+  </div>
+  <div class="haftalar" id="haftalar"><div class="bos">Takvim yükleniyor…</div></div>
+</main>
+
+<footer class="alt"><div class="kap"><span>Ladin Ormanı</span><span>MEB Maarif Modeli'ne uygun materyaller</span></div></footer>
+
+<script src="ortak.js"></script>
+<script>
+(function(){
+  var L = LADIN.liste, kutu = document.getElementById("haftalar"), kg = document.getElementById("kodgoster");
+  function e(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function kodlar(c){ return kg.checked && L(c).length ? '<div class="kodlar">' + L(c).map(function(k){ return '<span class="kod" title="'+e(k.ad||"")+'">'+e(k.kod)+'</span>'; }).join("") + '</div>' : ""; }
+  function gunler(g){ return L(g).length ? '<div class="gunler">' + L(g).map(function(x){ return '<span class="gun">'+e(x)+'</span>'; }).join("") + '</div>' : ""; }
+  function ders(sinif, ad, x, harfli){
+    if (!x) return "";
+    var u = L(x.unite || x.tema).map(LADIN.baslik).join(" → ");
+    var h = harfli && L(x.harfler).length ? '<p class="konu">' + L(x.harfler).map(function(c){ return '<span class="harf">'+e(c)+'</span>'; }).join("") + '</p>' : "";
+    var k = L(x.konu).length ? '<p class="konu">' + e(L(x.konu).join(" · ")) + '</p>' : "";
+    return '<div class="ders '+sinif+'"><h3>'+ad+'</h3><p class="unite">'+e(u)+'</p>'+h+k+kodlar(x.ciktilar)+'</div>';
+  }
+  var TK = null;
+  function ciz(){
+    var bu = LADIN.buHafta(TK);
+    kutu.innerHTML = TK.haftalar.map(function(h){
+      var s = h === bu ? ' simdi" id="simdi' : '';
+      if (h.tatil) return '<div class="tatil'+s+'">'+e(h.etiket)+' · '+e(h.tarih)+gunler(h.belirli_gunler)+'</div>';
+      var d = h.dersler;
+      return '<article class="kart hafta'+s+'"><div class="hafta-ust"><h2>'+h.hafta+'. hafta</h2><span class="tarih">'+e(h.tarih)+'</span>'+(h===bu?'<span class="etiket">Bu hafta</span>':'')+'</div>'
+        + '<div class="dersler">' + ders("tr","Türkçe",d.turkce,true) + ders("mat","Matematik",d.matematik) + ders("hb","Hayat Bilgisi",d.hayat_bilgisi) + '</div>'
+        + gunler(h.belirli_gunler) + '</article>';
+    }).join("");
+  }
+  kg.checked = LADIN.oku("ladin_kodlar", false);
+  kg.addEventListener("change", function(){ LADIN.sakla("ladin_kodlar", kg.checked); if (TK) ciz(); });
+  LADIN.takvimYukle().then(function(tk){
+    TK = tk; ciz();
+    var s = document.getElementById("simdi"); if (s && !location.hash) s.scrollIntoView({block:"start"});
+  }).catch(function(){ kutu.innerHTML = '<div class="bos">Takvim yüklenemedi. Sayfayı bir sunucu üzerinden açın (GitHub Pages ya da yerel sunucu).</div>'; });
+})();
+</script>
+</body>
+</html>

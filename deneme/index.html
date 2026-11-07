@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ladin Ormanı</title>
+<meta name="description" content="1-4. sınıflar için Maarif Modeli'ne uygun çalışma kağıtları, yazılılar, ürün kağıtları ve eğitsel oyunlar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ortak.css">
+<style>
+.kahraman{background:linear-gradient(180deg,var(--sis),var(--zemin));padding:40px 0 24px;overflow:hidden;position:relative}
+.kahraman .kap{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center}
+.kahraman h1{font-size:clamp(32px,6vw,52px);font-weight:900;color:var(--orman);margin:0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .kahraman h1{color:#9fd4ad}}
+:root[data-theme="dark"] .kahraman h1{color:#9fd4ad}
+.kahraman p{font-size:clamp(17px,2.4vw,21px);color:var(--yazi-2);margin:.4em 0 0;max-width:34ch}
+.orman-cizim{width:100%;max-width:380px;justify-self:end}
+@media (max-width:640px){.kahraman .kap{grid-template-columns:1fr}.orman-cizim{max-width:260px;justify-self:center}}
+
+.siniflar{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.sinif-kart{display:flex;flex-direction:column;gap:6px;padding:20px;text-decoration:none;border-top:8px solid var(--yaprak);transition:transform .15s}
+.sinif-kart:hover{transform:translateY(-3px)}
+.sinif-kart .no{font-size:44px;font-weight:900;color:var(--orman-2);line-height:1}
+.sinif-kart .ad{font-size:20px;font-weight:900}
+.sinif-kart .ic{color:var(--yazi-2);font-size:14px}
+.sinif-kart .git{margin-top:8px;font-weight:800;color:var(--ahsap)}
+
+.haftalik{padding:18px}
+.haftalik-ust{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.seritler{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 10px;scroll-snap-type:x mandatory}
+.mat{flex:0 0 220px;scroll-snap-align:start;padding:14px;border-radius:14px;background:var(--kum);border:1px solid var(--cizgi);text-decoration:none}
+.mat b{display:block;margin:6px 0 2px}
+.mat small{color:var(--yazi-2)}
+
+.bulten{background:var(--ahsap);color:#fff8ee;border-radius:18px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center}
+.bulten h2{margin:0}
+.bulten p{margin:.3em 0 0;opacity:.9}
+.bulten form{display:flex;gap:8px;flex-wrap:wrap}
+.bulten input{flex:1 1 200px;min-height:44px;border-radius:999px;border:0;padding:0 16px;font:inherit}
+.bulten .dugme{background:var(--gunes);color:#3b2a10}
+.bulten .not{grid-column:1/-1;font-size:14px;min-height:1.2em;margin:0}
+@media (max-width:640px){.bulten{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="serit"><div class="kap"><span id="serit-tarih"></span><span id="serit-hafta"></span></div></div>
+
+<header class="ust"><div class="kap">
+  <a class="logo" href="index.html">
+    <svg viewBox="0 0 34 40" aria-hidden="true"><path d="M17 2 26 13h-4l7 9h-5l7 10H3l7-10H5l7-9H8z" fill="#2e6b4a"/><path d="M17 2 26 13h-4l7 9h-5l7 10H17z" fill="#1f4d36"/><rect x="14.5" y="32" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>
+    Ladin Ormanı
+  </a>
+  <nav><a href="index.html" aria-current="page">Ana sayfa</a><a href="1-sinif.html">1. Sınıf</a><a href="takvim.html">Takvim</a></nav>
+</div></header>
+
+<main>
+<section class="kahraman"><div class="kap">
+  <div>
+    <h1>Ladin Ormanı</h1>
+    <p>Her hafta bir adım: sınıfta ve evde kullanılacak çalışma kağıtları, yazılılar ve oyunlar.</p>
+  </div>
+  <svg class="orman-cizim" viewBox="0 0 380 220" aria-hidden="true">
+    <ellipse cx="190" cy="206" rx="185" ry="14" fill="#a9d39b" opacity=".6"/>
+    <circle cx="318" cy="46" r="22" fill="#f2b94b"/>
+    <g fill="#5fa476"><path d="M70 60 104 110H92l20 30H98l22 34H20l22-34H28l20-30H36z"/></g>
+    <g fill="#2e6b4a"><path d="M190 14 236 78H220l28 40H230l30 46H120l30-46H132l28-40H144z"/></g>
+    <g fill="#1f4d36"><path d="M190 14 236 78H220l28 40H230l30 46H190z"/></g>
+    <g fill="#5fa476"><path d="M300 76 330 120H320l18 28H326l18 30H256l18-30H262l18-28H270z"/></g>
+    <rect x="66" y="174" width="8" height="24" rx="2" fill="#8e5b2b"/>
+    <rect x="184" y="164" width="12" height="36" rx="2" fill="#8e5b2b"/>
+    <rect x="296" y="178" width="8" height="22" rx="2" fill="#8e5b2b"/>
+  </svg>
+</div></section>
+
+<section class="bolum"><div class="kap">
+  <h2>Sınıfını seç</h2>
+  <div class="siniflar">
+    <a class="kart sinif-kart" href="1-sinif.html">
+      <span class="no">1</span>
+      <span class="ad">1. Sınıf</span>
+      <span class="ic">Oyunlar, çalışma kağıtları, yazılılar, ürün kağıtları</span>
+      <span class="git">Ormana gir →</span>
+    </a>
+  </div>
+</div></section>
+
+<section class="bolum" style="padding-top:0"><div class="kap">
+  <div class="kart haftalik">
+    <div class="haftalik-ust">
+      <h2>Bu haftanın materyalleri</h2>
+      <span class="etiket" id="hafta-etiket"></span>
+    </div>
+    <div class="seritler" id="haftalik"></div>
+  </div>
+</div></section>
+
+<section class="bolum" style="padding-top:0"><div class="kap">
+  <div class="bulten">
+    <div>
+      <h2>Yeni paketlerden haberdar ol</h2>
+      <p>Yeni materyaller eklendiğinde e-posta ile haber verelim.</p>
+    </div>
+    <form id="bulten" novalidate>
+      <label for="eposta" style="position:absolute;left:-9999px">E-posta adresi</label>
+      <input id="eposta" type="email" placeholder="ornek@eposta.com" autocomplete="email">
+      <button class="dugme" type="submit">Haber ver</button>
+    </form>
+    <p class="not" id="bulten-not" aria-live="polite"></p>
+  </div>
+</div></section>
+</main>
+
+<footer class="alt"><div class="kap"><span>Ladin Ormanı</span><span>MEB Maarif Modeli'ne uygun materyaller</span></div></footer>
+
+<script src="ortak.js"></script>
+<script>
+(function(){
+  var kutu = document.getElementById("haftalik"), et = document.getElementById("hafta-etiket");
+  var TUR = {calisma:"Çalışma kağıdı", yazili:"Yazılı", urun:"Ürün kağıdı", oyun:"Oyun"};
+  Promise.all([LADIN.takvimYukle().catch(function(){return null;}), LADIN.materyalYukle()]).then(function(r){
+    var tk = r[0], mats = r[1] || [];
+    var h = tk ? LADIN.buHafta(tk) : null;
+    et.textContent = h ? (h.tatil ? h.etiket : h.hafta + ". hafta · " + h.tarih) : "";
+    var bu = h && !h.tatil ? mats.filter(function(m){ return m.hafta === h.hafta; }) : [];
+    if (h && h.tatil){ kutu.outerHTML = '<div class="bos">'+h.etiket+'. İyi dinlenmeler!</div>'; return; }
+    // Materyal yoksa bu haftanın 1. sınıf planını göster
+    var L = LADIN.liste, kartlar = bu.map(function(m){
+      return '<a class="mat" href="'+(m.dosya||"1-sinif.html")+'"><span class="etiket">'+(TUR[m.tur]||m.tur)+'</span><b>'+m.baslik+'</b><small>'+m.sinif+'. sınıf</small></a>';
+    });
+    if (!kartlar.length && h){
+      var d = h.dersler, P = [["Türkçe", d.turkce], ["Matematik", d.matematik], ["Hayat Bilgisi", d.hayat_bilgisi]];
+      kartlar = P.filter(function(p){ return p[1]; }).map(function(p){
+        var un = L(x.unite || x.tema).map(LADIN.baslik).join(" → ");
+        var ust = x.harfler && L(x.harfler).length ? "Harf: " + L(x.harfler).join(", ") : un;
+        var alt = L(x.konu).join(" · ") || un;
+        return '<a class="mat" href="takvim.html#simdi"><span class="etiket">1. sınıf · '+p[0]+'</span><b>'+ust+'</b><small>'+alt+'</small></a>';
+      });
+      kutu.insertAdjacentHTML("afterend", '<p style="margin:4px 0 0;color:var(--yazi-2);font-size:14px">Materyaller hazırlanıyor. Şimdilik bu haftanın planı görünüyor.</p>');
+    }
+    if (!kartlar.length){ kutu.outerHTML = '<div class="bos">Bu haftanın materyalleri hazırlanıyor.</div>'; return; }
+    kutu.innerHTML = kartlar.join("");
+  });
+  document.getElementById("bulten").addEventListener("submit", function(e){
+    e.preventDefault();
+    document.getElementById("bulten-not").textContent = "Bülten çok yakında açılıyor. Şimdilik bu sayfayı yer imlerine ekleyebilirsiniz.";
+  });
+})();
+</script>
+</body>
+</html>
