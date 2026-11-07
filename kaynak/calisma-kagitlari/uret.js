@@ -152,6 +152,24 @@ function yazKelime(kelimeler) {
   return etk(0, 'Kelimeleri noktaların üstünden yaz. Sonra kendin yaz.', `<div class="satirlar">
     ${kelimeler.map(k => S(k.map(x => [x, 'kelime']))).join('')}</div>`);
 }
+// Akıcı okuma: oyundaki merdivenler (akici.json, `node kaynak/calisma-kagitlari/akici-al.js` ile alınır).
+// Satırlar oyundaki gibi kısa → uzun → kısa sıralanır; harfin kendisi kırmızı.
+const AKICI = JSON.parse(fs.readFileSync(path.join(__dirname, 'akici.json'), 'utf8'));
+function akici(h) {
+  const H = B(h), d = AKICI[H];
+  const isaretle = s => [...s].map(c => c === h || c === H ? `<b>${c}</b>` : c).join('');
+  const enUzun = Math.max(...d.merdivenler.flat().map(s => s.length));
+  const satirSay = Math.max(...d.merdivenler.map(m => m.length * 2 - 1));
+  const boy = Math.min(10.5, 112 / (enUzun * 0.37), 96 / (satirSay * 1.32)).toFixed(1);   // mm
+  const merdiven = (satirlar, svg, no) => {
+    const tum = [...satirlar, ...satirlar.slice(0, -1).reverse()];
+    return `<div class="merdiven"><div class="m-sol"><svg viewBox="0 0 240 150">${svg}</svg>
+      <div class="m-yildiz"><span>1</span><span>2</span><span>3</span></div><small>Her okumada bir yıldız boya.</small></div>
+      <ol class="ttkb" style="font-size:${boy}mm">${tum.map(s => `<li>${isaretle(s)}</li>`).join('')}</ol></div>`;
+  };
+  return etk(0, 'Merdiveni yukarıdan aşağı satır satır oku. Her satırı bir öncekinden biraz daha akıcı okumaya çalış.',
+    d.merdivenler.map((m, i) => merdiven(m, d.resimler[i], i + 1)).join(''));
+}
 const numarala = parcalar => { let i = 0; return parcalar.join('').replace(/<h2 class="ttkb"><b>0<\/b>/g, () => `<h2 class="ttkb"><b>${++i}</b>`); };
 
 const HARF = {
@@ -167,7 +185,8 @@ const HARF = {
     harfAvi('n'),
     heceOku([['an', 'na', 'an', 'na'], ['na', 'an', 'ana', 'ana']]),
     birlestir([['a', 'n', 'an'], ['n', 'a', 'na'], ['a', 'na', 'ana']]),
-    yazKelime([['an', 'na', 'an'], ['ana', 'ana']])])],
+    yazKelime([['an', 'na', 'an'], ['ana', 'ana']])]),
+  numarala([akici('n')])],
   e: () => [numarala([
     sesiBul('e', ['elma', 'at', 'ev', 'eldiven', 'balik', 'etek']),
     sesYeri('e', [['ev', 0], ['elma', 0], ['kedi', 1], ['ordek', 1], ['nane', 2], ['lale', 2]]),
@@ -177,7 +196,8 @@ const HARF = {
     heceOku([['en', 'ne', 'an', 'na'], ['ne', 'en', 'na', 'an']]),
     birlestir([['a', 'ne', 'ane'], ['an', 'ne', 'anne'], ['na', 'ne', 'nane']].slice(1).concat([['e', 'n', 'en']])),
     heceOku([['ne', 'en', 'ana', 'anne', 'nane']], 'Kelimeleri oku. Okuduğun her kelimenin yıldızını boya.'),
-    yazKelime([['anne', 'nane'], ['ne', 'en', 'ana']])])],
+    yazKelime([['anne', 'nane'], ['ne', 'en', 'ana']])]),
+  numarala([akici('e')])],
   t: () => [numarala([
     sesiBul('t', ['top', 'tavuk', 'kedi', 'tencere', 'ordek', 'tilki']),
     sesYeri('t', [['top', 0], ['tavuk', 0], ['etek', 1], ['anahtar', 1], ['at', 2], ['armut', 2]]),
@@ -186,7 +206,8 @@ const HARF = {
     heceOku([['at', 'ta', 'et', 'te'], ['an', 'na', 'en', 'ne'], ['tat', 'tan', 'ten', 'net']]),
     eslestir([['at', 'at'], ['anne', 'anne'], ['et', 'et'], ['nane', 'nane']], 7),
     cumleOku(['Anne, nane at.', 'Ana, tane tane at.', 'Ata, nane at.']),
-    yazKelime([['at', 'et', 'ata'], ['tane', 'tat']])])],
+    yazKelime([['at', 'et', 'ata'], ['tane', 'tat']])]),
+  numarala([akici('t')])],
   i: () => [numarala([
     sesiBul('i', ['inek', 'limon', 'igne', 'incir', 'gunes', 'ilac']),
     sesYeri('i', [['inek', 0], ['ilac', 0], ['limon', 1], ['eldiven', 1], ['kedi', 2], ['ip', 0]]),
@@ -195,7 +216,8 @@ const HARF = {
     heceOku([['in', 'ni', 'it', 'ti'], ['nin', 'tin', 'ini', 'iti']]),
     eslestir([['nine', 'nine'], ['at', 'at'], ['nane', 'nane'], ['et', 'et']], 13),
     cumleOku(['Nine, ninni.', 'Nine ninni etti.', 'Anne inat etti.', 'Nine, nane at.']),
-    yazKelime([['nine', 'ninni'], ['it', 'tin', 'inat']])])],
+    yazKelime([['nine', 'ninni'], ['it', 'tin', 'inat']])]),
+  numarala([akici('i')])],
   l: () => [numarala([
     sesiBul('l', ['limon', 'inek', 'lale', 'leylek', 'top', 'lamba']),
     sesYeri('l', [['limon', 0], ['lokum', 0], ['elma', 1], ['kalem', 1], ['tel', 2], ['el', 2]]),
@@ -204,7 +226,8 @@ const HARF = {
     heceOku([['al', 'la', 'el', 'le', 'il', 'li'], ['lan', 'len', 'lal', 'ela', 'lale', 'elle']]),
     eslestir([['lale', 'lale'], ['el', 'el'], ['tel', 'tel']], 21),
     metin('Lale ile Nil', ['Lale ile Nil.', 'Nil, eline lale al.', 'Ali, nane al.', 'Anne ile nine el ele.']),
-    yazKelime([['lale', 'el', 'al'], ['Ali', 'ile', 'Nil']])])],
+    yazKelime([['lale', 'el', 'al'], ['Ali', 'ile', 'Nil']])]),
+  numarala([akici('l')])],
 };
 
 const CSS = `
@@ -266,6 +289,16 @@ img{width:100%;height:100%;object-fit:contain}
 .metin{border:.5mm solid #2e6b4a;border-radius:4mm;padding:4mm 7mm;background:#f6faf3}
 .metin h3{margin:0 0 2mm;text-align:center;font-size:9mm;font-weight:400;color:#1f4d36}
 .metin p{margin:0;font-size:7.8mm;line-height:1.4}
+.merdiven{display:grid;grid-template-columns:50mm 1fr;gap:6mm;align-items:center;border:.5mm solid #cfd8d1;border-radius:4mm;padding:4mm 5mm;margin-bottom:4mm}
+.m-sol{display:flex;flex-direction:column;align-items:center;gap:2mm}
+.m-sol svg{width:50mm;height:31mm;border-radius:3mm}
+.m-sol small{font:3.2mm Andika,sans-serif;color:#6b7a70;text-align:center}
+.m-yildiz{display:flex;gap:2.5mm}
+.m-yildiz span{width:9mm;height:9mm;display:grid;place-items:center;font:700 3.6mm Andika,sans-serif;color:#6b7a70;
+  clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);background:#cfd8d1;padding-top:1mm}
+.merdiven ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:flex-start;gap:.6mm}
+.merdiven li{line-height:1.28;padding:0 2mm;border-bottom:.3mm dashed #dbe6d4}
+.merdiven li b{color:#c0392b;font-weight:400}
 footer{margin-top:auto;display:flex;justify-content:space-between;font:3.2mm Andika,sans-serif;color:#6b7a70;border-top:.3mm solid #dbe6d4;padding-top:2mm}
 `;
 const OKLAR = `<svg width="0" height="0" style="position:absolute"><defs>

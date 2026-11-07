@@ -78,7 +78,7 @@
     <a class="kart sinif-kart" href="1-sinif.html">
       <span class="no">1</span>
       <span class="ad">1. Sınıf</span>
-      <span class="ic">Oyunlar, çalışma kağıtları, yazılılar, ürün kağıtları</span>
+      <span class="ic">Oyunlar, çalışma kağıtları, akıcı okuma</span>
       <span class="git">Ormana gir →</span>
     </a>
   </div>
@@ -130,6 +130,7 @@
     if (!kartlar.length && h){
       var d = h.dersler, P = [["Türkçe", d.turkce], ["Matematik", d.matematik], ["Hayat Bilgisi", d.hayat_bilgisi]];
       kartlar = P.filter(function(p){ return p[1]; }).map(function(p){
+        var x = p[1];
         var un = L(x.unite || x.tema).map(LADIN.baslik).join(" → ");
         var ust = x.harfler && L(x.harfler).length ? "Harf: " + L(x.harfler).join(", ") : un;
         var alt = L(x.konu).join(" · ") || un;

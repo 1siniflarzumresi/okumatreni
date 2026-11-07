@@ -19,7 +19,7 @@
   "unite": "Güzel Davranışlarımız",
   "hafta": 3,
   "harf": "N",
-  "baslik": "Nn sesi çalışma kağıdı (2 sayfa)",
+  "baslik": "Nn sesi çalışma kağıdı (3 sayfa, akıcı okuma dahil)",
   "dosya": "materyaller/1-sinif/turkce/n.pdf",
   "resim": "materyaller/1-sinif/turkce/n-onizleme.png"
  },
@@ -31,7 +31,7 @@
   "unite": "Güzel Davranışlarımız",
   "hafta": 4,
   "harf": "E",
-  "baslik": "Ee sesi çalışma kağıdı (2 sayfa)",
+  "baslik": "Ee sesi çalışma kağıdı (3 sayfa, akıcı okuma dahil)",
   "dosya": "materyaller/1-sinif/turkce/e.pdf",
   "resim": "materyaller/1-sinif/turkce/e-onizleme.png"
  },
@@ -43,7 +43,7 @@
   "unite": "Güzel Davranışlarımız",
   "hafta": 5,
   "harf": "T",
-  "baslik": "Tt sesi çalışma kağıdı (2 sayfa)",
+  "baslik": "Tt sesi çalışma kağıdı (3 sayfa, akıcı okuma dahil)",
   "dosya": "materyaller/1-sinif/turkce/t.pdf",
   "resim": "materyaller/1-sinif/turkce/t-onizleme.png"
  },
@@ -55,7 +55,7 @@
   "unite": "Mustafa Kemal'den Atatürk'e",
   "hafta": 6,
   "harf": "İ",
-  "baslik": "İi sesi çalışma kağıdı (2 sayfa)",
+  "baslik": "İi sesi çalışma kağıdı (3 sayfa, akıcı okuma dahil)",
   "dosya": "materyaller/1-sinif/turkce/i.pdf",
   "resim": "materyaller/1-sinif/turkce/i-onizleme.png"
  },
@@ -67,7 +67,7 @@
   "unite": "Mustafa Kemal'den Atatürk'e",
   "hafta": 7,
   "harf": "L",
-  "baslik": "Ll sesi çalışma kağıdı (2 sayfa)",
+  "baslik": "Ll sesi çalışma kağıdı (3 sayfa, akıcı okuma dahil)",
   "dosya": "materyaller/1-sinif/turkce/l.pdf",
   "resim": "materyaller/1-sinif/turkce/l-onizleme.png"
  },
@@ -76,11 +76,19 @@
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
-  "unite": "Mustafa Kemal'den Atatürk'e",
-  "hafta": 7,
-  "harf": "L",
-  "baslik": "A N E T İ L toplu paket (11 sayfa)",
+  "unite": null,
+  "hafta": null,
+  "harf": "A–L",
+  "baslik": "A N E T İ L toplu paket (16 sayfa)",
   "dosya": "materyaller/1-sinif/turkce/a-n-e-t-i-l.pdf",
-  "resim": "materyaller/1-sinif/turkce/a-onizleme.png"
+  "resim": "materyaller/1-sinif/turkce/a-onizleme.png",
+  "harfler": [
+   "A",
+   "N",
+   "E",
+   "T",
+   "İ",
+   "L"
+  ]
  }
 ]

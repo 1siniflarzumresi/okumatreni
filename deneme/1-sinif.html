@@ -69,8 +69,6 @@
   <div class="sekmeler" role="tablist" id="sekmeler">
     <button class="sekme" role="tab" data-tur="oyun">Oyunlar</button>
     <button class="sekme" role="tab" data-tur="calisma">Çalışma Kağıtları</button>
-    <button class="sekme" role="tab" data-tur="yazili">Yazılılar</button>
-    <button class="sekme" role="tab" data-tur="urun">Ürün Kağıtları</button>
   </div>
 
   <section id="panel-oyun" hidden>
@@ -104,10 +102,11 @@
   var HARFLER = ["A","N","E","T","İ","L","O","K","U","R","I","M","Ü","S","Ö","Y","D","Z","Ç","B","G","C","Ş","P","H","V","Ğ","F","J"];
   var ANAHTAR = "ladin_1_harf", AYAR = "ladin_1_ayar";
   var DERS = {turkce:"Türkçe", matematik:"Matematik", hayat_bilgisi:"Hayat Bilgisi"};
-  var TUR = {calisma:"Çalışma kağıdı", yazili:"Yazılı", urun:"Ürün kağıdı"};
+  var TUR = {calisma:"Çalışma kağıdı"};   // 1. sınıfta yazılı ve ürün kağıdı yok
 
   var secHarf = LADIN.oku(ANAHTAR, null);
   var ayar = LADIN.oku(AYAR, {tur:"calisma", ders:"", unite:"", hafta:null});
+  if (ayar.tur !== "oyun") ayar.tur = "calisma";
   var TAKVIM = null, MATS = [], mebHarf = [];
 
   // Harf yolu
@@ -120,7 +119,7 @@
     }).join("");
     var ipucu = mebHarf.length ? " MEB planında bu hafta: " + mebHarf.join(", ") + "." : "";
     document.getElementById("yol-not").textContent = (secHarf
-      ? "Seçili durak: " + secHarf + ". Harf çalışma kağıtları hafta seçiminden bağımsız olarak bu harfe kadar gösterilir."
+      ? "Seçili durak: " + secHarf + ". Bu harfin çalışma kağıtları gösterilir (hafta seçiminden bağımsız)."
       : "Sınıfınızın bulunduğu harfe dokunun. Seçiminiz bu cihazda saklanır.") + ipucu;
     dk.querySelectorAll(".durak").forEach(function(b){ if (mebHarf.indexOf(b.dataset.h) >= 0) b.classList.add("meb"); });
     var s = dk.querySelector(".secili"); if (s) s.scrollIntoView({block:"nearest", inline:"center"});
@@ -170,9 +169,10 @@
 
   // Türkçe harf materyalleri haftaya değil harf yoluna bağlı: hafta filtresi bunlara uygulanmaz.
   function harfli(m){ return m.ders === "turkce" && !!m.harf; }
+  // Seçili harfe tıklanınca yalnız o harfin kağıtları; toplu paket içindeki harflerden birinde görünür.
   function harfUygun(m){
-    if (m.ders !== "turkce" || !m.harf || !secHarf) return true;
-    return HARFLER.indexOf(m.harf) <= HARFLER.indexOf(secHarf);
+    if (!harfli(m) || !secHarf) return true;
+    return (m.harfler || [m.harf]).indexOf(secHarf) >= 0;
   }
   function listeCiz(){
     var kutu = document.getElementById("liste");
@@ -185,13 +185,14 @@
         harfUygun(m);
     });
     // Harf materyalleri: seçili harfinki önce, sonra geriye doğru
-    l.sort(function(a, b){ return (harfli(b) ? HARFLER.indexOf(b.harf) : -1) - (harfli(a) ? HARFLER.indexOf(a.harf) : -1); });
+    var sira = function(m){ return !harfli(m) ? -1 : (m.harf === secHarf ? 100 : (m.harfler ? 50 : 0) + HARFLER.indexOf(m.harf)); };
+    l.sort(function(a, b){ return sira(b) - sira(a); });
     if (!l.length){
       kutu.innerHTML = '<div class="bos" style="grid-column:1/-1">'+(MATS.length ? "Bu seçime uyan materyal yok. Filtreleri genişletin." : "Materyaller hazırlanıyor. Yakında burada olacak.")+'</div>';
       return;
     }
     kutu.innerHTML = l.map(function(m){
-      return '<a class="kart mkart" href="'+m.dosya+'"><span class="etiket">'+DERS[m.ders]+'</span><b>'+m.baslik+'</b><small>'+(m.hafta? m.hafta+'. hafta':'')+(m.unite? ' · '+m.unite:'')+(m.harf? ' · '+m.harf:'')+'</small></a>';
+      return '<a class="kart mkart" href="'+m.dosya+'"><span class="etiket">'+DERS[m.ders]+'</span><b>'+m.baslik+'</b><small>'+[m.hafta ? m.hafta+'. hafta' : '', m.unite, m.harf].filter(Boolean).join(' · ')+'</small></a>';
     }).join("");
   }
 
