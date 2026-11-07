@@ -160,7 +160,7 @@ const HARF = {
     sesYeri('a', [['at', 0], ['nar', 1], ['elma', 2], ['ayi', 0], ['balik', 1], ['nota', 2]]),
     harfYazma('a')])],
   n: () => [numarala([
-    sesiBul('n', ['nar', 'top', 'nota', 'nane', 'kedi', 'nine']),
+    sesiBul('n', ['nar', 'top', 'nal', 'nane', 'kedi', 'nine']),
     sesYeri('n', [['nota', 0], ['nar', 0], ['inek', 1], ['gunes', 1], ['limon', 2], ['eldiven', 2]]),
     harfYazma('n')]),
   numarala([
@@ -184,11 +184,11 @@ const HARF = {
     harfYazma('t')]),
   numarala([
     heceOku([['at', 'ta', 'et', 'te'], ['an', 'na', 'en', 'ne'], ['tat', 'tan', 'ten', 'net']]),
-    eslestir([['at', 'at'], ['et', 'et'], ['nane', 'nane']], 7),
+    eslestir([['at', 'at'], ['anne', 'anne'], ['et', 'et'], ['nane', 'nane']], 7),
     cumleOku(['Anne, nane at.', 'Ana, tane tane at.', 'Ata, nane at.']),
     yazKelime([['at', 'et', 'ata'], ['tane', 'tat']])])],
   i: () => [numarala([
-    sesiBul('i', ['inek', 'limon', 'igne', 'ilac', 'gunes', 'ip']),
+    sesiBul('i', ['inek', 'limon', 'igne', 'incir', 'gunes', 'ilac']),
     sesYeri('i', [['inek', 0], ['ilac', 0], ['limon', 1], ['eldiven', 1], ['kedi', 2], ['ip', 0]]),
     harfYazma('i')]),
   numarala([
@@ -198,11 +198,11 @@ const HARF = {
     yazKelime([['nine', 'ninni'], ['it', 'tin', 'inat']])])],
   l: () => [numarala([
     sesiBul('l', ['limon', 'inek', 'lale', 'leylek', 'top', 'lamba']),
-    sesYeri('l', [['limon', 0], ['lokum', 0], ['elma', 1], ['kalem', 1], ['balik', 1], ['el', 2]]),
+    sesYeri('l', [['limon', 0], ['lokum', 0], ['elma', 1], ['kalem', 1], ['tel', 2], ['el', 2]]),
     harfYazma('l')]),
   numarala([
     heceOku([['al', 'la', 'el', 'le', 'il', 'li'], ['lan', 'len', 'lal', 'ela', 'lale', 'elle']]),
-    eslestir([['lale', 'lale'], ['el', 'el'], ['nine', 'nine']], 21),
+    eslestir([['lale', 'lale'], ['el', 'el'], ['tel', 'tel']], 21),
     metin('Lale ile Nil', ['Lale ile Nil.', 'Nil, eline lale al.', 'Ali, nane al.', 'Anne ile nine el ele.']),
     yazKelime([['lale', 'el', 'al'], ['Ali', 'ile', 'Nil']])])],
 };
@@ -214,7 +214,7 @@ const CSS = `
 *{box-sizing:border-box}
 body{margin:0;color:#1f2a24;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .ttkb{font-family:TTKB,sans-serif}
-.sayfa{width:210mm;height:297mm;padding:10mm 12mm 8mm;display:flex;flex-direction:column;gap:4.5mm;page-break-after:always;overflow:hidden}
+.sayfa{width:210mm;height:297mm;padding:10mm 12mm 8mm;display:flex;flex-direction:column;gap:4mm;page-break-after:always;overflow:hidden}
 header{display:flex;justify-content:space-between;align-items:center;border-bottom:.6mm solid #2e6b4a;padding-bottom:3mm}
 .baslik{display:flex;align-items:center;gap:3mm}
 .ladin{width:9mm}
