@@ -66,3 +66,4 @@ Değişiklikten sonra: `python3 kaynak/derle.py` → `node kaynak/test/kontrol.j
 - Taslak `deneme/` klasöründe. Velilerin kullandığı kök klasör dosyalarına sorulmadan dokunulmaz.
 - İleride ücretsiz örnekler ve ücretli öğretmen üyeliği olacak. Çocuklar için hesap yok; öğretmen sınıf linkini paylaşır. Üyelik Supabase ile ve ancak ilgi görülürse kurulur.
 - Sayfada saat gösterilmez; tarih ve "Bu hafta" bilgisi gösterilir.
+- Yazı tipi site genelinde Andika (SIL, OFL lisanslı; ücretli sitede ve PDF'lerde serbest). Dosyalar `deneme/fontlar/` içinde, `ortak.css`'te tanımlı; Google Fonts kullanılmaz. Yalnız normal (400) ve kalın (700) var; 800/900 yazılan yerler kalın görünür.
