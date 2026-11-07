@@ -120,7 +120,7 @@
     }).join("");
     var ipucu = mebHarf.length ? " MEB planında bu hafta: " + mebHarf.join(", ") + "." : "";
     document.getElementById("yol-not").textContent = (secHarf
-      ? "Seçili durak: " + secHarf + ". Türkçe materyaller bu harfe kadar öğretilen harflere göre süzülür."
+      ? "Seçili durak: " + secHarf + ". Harf çalışma kağıtları hafta seçiminden bağımsız olarak bu harfe kadar gösterilir."
       : "Sınıfınızın bulunduğu harfe dokunun. Seçiminiz bu cihazda saklanır.") + ipucu;
     dk.querySelectorAll(".durak").forEach(function(b){ if (mebHarf.indexOf(b.dataset.h) >= 0) b.classList.add("meb"); });
     var s = dk.querySelector(".secili"); if (s) s.scrollIntoView({block:"nearest", inline:"center"});
@@ -168,6 +168,8 @@
   fU.addEventListener("change", function(){ ayar.unite = fU.value; kaydet(); listeCiz(); });
   fH.addEventListener("change", function(){ ayar.hafta = fH.value ? +fH.value : ""; kaydet(); listeCiz(); });
 
+  // Türkçe harf materyalleri haftaya değil harf yoluna bağlı: hafta filtresi bunlara uygulanmaz.
+  function harfli(m){ return m.ders === "turkce" && !!m.harf; }
   function harfUygun(m){
     if (m.ders !== "turkce" || !m.harf || !secHarf) return true;
     return HARFLER.indexOf(m.harf) <= HARFLER.indexOf(secHarf);
@@ -179,9 +181,11 @@
       return m.sinif === 1 && m.tur === ayar.tur &&
         (!ayar.ders || m.ders === ayar.ders) &&
         (!ayar.unite || m.unite === ayar.unite) &&
-        (ayar.hafta === "" || ayar.hafta == null || m.hafta === ayar.hafta) &&
+        (harfli(m) || ayar.hafta === "" || ayar.hafta == null || m.hafta === ayar.hafta) &&
         harfUygun(m);
     });
+    // Harf materyalleri: seçili harfinki önce, sonra geriye doğru
+    l.sort(function(a, b){ return (harfli(b) ? HARFLER.indexOf(b.harf) : -1) - (harfli(a) ? HARFLER.indexOf(a.harf) : -1); });
     if (!l.length){
       kutu.innerHTML = '<div class="bos" style="grid-column:1/-1">'+(MATS.length ? "Bu seçime uyan materyal yok. Filtreleri genişletin." : "Materyaller hazırlanıyor. Yakında burada olacak.")+'</div>';
       return;
