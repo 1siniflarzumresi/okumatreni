@@ -10,40 +10,59 @@ const GEN = JSON.parse(fs.readFileSync(path.join(__dirname, 'genislik.json'), 'u
 const YON = require('./yon.js');
 const CIKTI = path.join(KOK, 'deneme/materyaller/1-sinif/turkce');
 
-// ---------- yazma satırı (font birimi: 1000 = font boyu) ----------
-const UST = 728, ORTA = 446;            // TTKB büyük harf ve küçük harf yüksekliği
+// ---------- yazma satırı: gerçek defter gibi eşit aralıklı üç çizgi ----------
+// Font birimi: büyük harf boyu UST = 728. Kesikli çizgi tam ortada (364).
+// Büyük harf alt çizgiden üst çizgiye, küçük harf alt çizgiden kesikli çizgiye oturur.
+// TTKB'de küçük harf boyu 410 (büyüğün %56'sı); defterde yarısı olsun diye küçük harfler
+// 364/410 oranında küçültülür, kesikli çizginin üstü (l, t, i noktası) üst yarıya yayılır.
+const UST = 728, ORTA = 364, KX = 410, KO = ORTA / KX;
 const BOSLUK = 300;                      // harfler arası
+const kucuk = ch => ch === ch.toLocaleLowerCase('tr') && ch !== ch.toLocaleUpperCase('tr');
+function nokta(ch, x, y) {
+  x = +x; y = +y;
+  if (!kucuk(ch)) {                       // büyük harf: uçları çizgiye oturt
+    if (Math.abs(y - UST) <= 24) y = UST; if (Math.abs(y) <= 10) y = 0;
+    return [x, y];
+  }
+  if (Math.abs(y - KX) <= 8) y = KX; if (Math.abs(y) <= 10) y = 0; 
+  const yy = y <= KX ? y * KO : (y <= 712 ? ORTA + (y - KX) * (UST - ORTA) / (712 - KX) : UST + (y - 712));
+  return [Math.round(x * KO), Math.round(yy)];
+}
+const yolCevir = (ch, d) => d.replace(/(-?\d+(?:\.\d+)?) (-?\d+(?:\.\d+)?)/g, (_, x, y) => nokta(ch, x, y).join(' '));
+const genislik = ch => Math.round(GEN[ch].w * (kucuk(ch) ? KO : 1));
 function harfIz(ch, x, B, kip) {
-  const yollar = YON[ch]; let s = '';
+  const yollar = YON[ch].map(([d, n, o]) => d.startsWith('dot')
+    ? ['dot', n, o, nokta(ch, ...d.split(' ').slice(1))] : [yolCevir(ch, d), n, o]);
   const g = `translate(${x} ${B}) scale(1,-1)`;
+  const bas = d => d.match(/M(-?\d+) (-?\d+)/).slice(1).map(Number);
+  let s = '';
   if (kip === 'model') {
-    s += `<text x="${x}" y="${B}" class="ttkb" font-size="1000" fill="#d3e4d6">${ch}</text>`;
-    yollar.forEach(([d, n, o], i) => {
-      if (d.startsWith('dot')) { const [, dx, dy] = d.split(' ');
-        s += `<g transform="${g}"><circle cx="${dx}" cy="${dy}" r="38" fill="#c0392b"/></g>`; return; }
-      const m = d.match(/M(-?\d+) (-?\d+)/);
-      s += `<g transform="${g}"><path d="${d}" fill="none" stroke="${i ? '#c0392b' : '#1f6b45'}" stroke-width="34" stroke-linecap="round" marker-end="url(#ok${i ? 2 : 1})"/>
-        <circle cx="${m[1]}" cy="${m[2]}" r="44" fill="${i ? '#c0392b' : '#1f6b45'}"/>
-        <g transform="translate(${+m[1] + (o ? o[0] : -62)} ${+m[2] + (o ? o[1] : 58)}) scale(1,-1)"><circle r="72" fill="#fff" stroke="${i ? '#c0392b' : '#1f6b45'}" stroke-width="12"/><text y="26" text-anchor="middle" font-size="98" font-family="Andika,sans-serif" font-weight="700" fill="${i ? '#c0392b' : '#1f6b45'}">${n}</text></g></g>`;
+    yollar.forEach(([d, , , p]) => {      // açık yeşil kalın harf gövdesi
+      s += d === 'dot' ? `<g transform="${g}"><circle cx="${p[0]}" cy="${p[1]}" r="50" fill="#d3e4d6"/></g>`
+        : `<g transform="${g}"><path d="${d}" fill="none" stroke="#d3e4d6" stroke-width="96" stroke-linecap="round" stroke-linejoin="round"/></g>`; });
+    yollar.forEach(([d, n, o, p], i) => {
+      const r = i ? '#c0392b' : '#1f6b45';
+      const [sx, sy] = d === 'dot' ? p : bas(d);
+      if (d !== 'dot') s += `<g transform="${g}"><path d="${d}" fill="none" stroke="${r}" stroke-width="34" stroke-linecap="round" marker-end="url(#ok${i ? 2 : 1})"/></g>`;
+      s += `<g transform="${g}"><circle cx="${sx}" cy="${sy}" r="${d === 'dot' ? 40 : 44}" fill="${r}"/>
+        <g transform="translate(${sx + (o ? o[0] : -62)} ${sy + (o ? o[1] : 58)}) scale(1,-1)"><circle r="72" fill="#fff" stroke="${r}" stroke-width="12"/><text y="26" text-anchor="middle" font-size="98" font-family="Andika,sans-serif" font-weight="700" fill="${r}">${n}</text></g></g>`;
     });
   } else if (kip === 'iz') {
-    yollar.forEach(([d]) => {
-      if (d.startsWith('dot')) { const [, dx, dy] = d.split(' ');
-        s += `<g transform="${g}"><circle cx="${dx}" cy="${dy}" r="30" fill="#8a8f8b"/></g>`; return; }
-      s += `<g transform="${g}"><path d="${d}" fill="none" stroke="#8a8f8b" stroke-width="44" stroke-linecap="round" stroke-dasharray="0 92"/></g>`;
-    });
-    const m = yollar[0][0].match(/M(-?\d+) (-?\d+)/);
-    s += `<g transform="${g}"><circle cx="${m[1]}" cy="${m[2]}" r="40" fill="#1f6b45"/></g>`;
+    yollar.forEach(([d, , , p]) => {
+      s += d === 'dot' ? `<g transform="${g}"><circle cx="${p[0]}" cy="${p[1]}" r="30" fill="#8a8f8b"/></g>`
+        : `<g transform="${g}"><path class="iz" d="${d}" fill="none" stroke="#8a8f8b" stroke-width="44" stroke-linecap="round"/></g>`; });
+    const [sx, sy] = bas(yollar[0][0]);
+    s += `<g transform="${g}"><circle cx="${sx}" cy="${sy}" r="40" fill="#1f6b45"/></g>`;
   }
   return s;
 }
 // dizi: [['A','model'],['A','iz'],...]; kalan yer boş kalır
 function satir(dizi, genislikMm, capMm) {
   const birim = capMm / UST;                       // mm / font birimi
-  const W = genislikMm / birim, ustPay = 210, altPay = 70;
+  const W = genislikMm / birim, ustPay = 190, altPay = 70;
   const H = ustPay + UST + altPay, B = ustPay + UST;
-  let x = 40, ic = '';
-  for (const [ch, kip] of dizi) { ic += harfIz(ch, x, B, kip); x += GEN[ch].w + BOSLUK; }
+  let x = 60, ic = '';
+  for (const [ch, kip] of dizi) { ic += harfIz(ch, x, B, kip); x += genislik(ch) + BOSLUK; }
   return `<svg class="satir" viewBox="0 0 ${W} ${H}" style="width:${genislikMm}mm;height:${H * birim}mm">
     <line x1="0" x2="${W}" y1="${B - UST}" y2="${B - UST}" class="c-ust"/>
     <line x1="0" x2="${W}" y1="${B - ORTA}" y2="${B - ORTA}" class="c-orta"/>
@@ -145,7 +164,7 @@ const SAYFALAR = {};
   const b = await chromium.launch();
   for (const h of istenen) {
     const govdeler = HARF[h]();
-    const html = `<!doctype html><html lang="tr"><meta charset="utf-8"><style>${CSS}</style><body>${OKLAR}${govdeler.map((g, i) => sayfa({ harf: h, govde: g, no: i + 1, toplam: govdeler.length })).join('')}</body></html>`;
+    const html = `<!doctype html><html lang="tr"><meta charset="utf-8"><style>${CSS}</style><body>${OKLAR}<script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('path.iz').forEach(p=>{const n=Math.max(2,Math.round(p.getTotalLength()/88));p.setAttribute('pathLength',n);p.setAttribute('stroke-dasharray','0 1');}));</script>${govdeler.map((g, i) => sayfa({ harf: h, govde: g, no: i + 1, toplam: govdeler.length })).join('')}</body></html>`;
     SAYFALAR[h] = html;
     const p = await b.newPage({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 2 });
     await p.goto(`http://127.0.0.1:${port}/__sayfa/${encodeURIComponent(h)}`, { waitUntil: 'networkidle' });
