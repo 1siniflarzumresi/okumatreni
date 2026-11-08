@@ -172,10 +172,10 @@
 
   // Türkçe harf materyalleri haftaya değil harf yoluna bağlı: hafta filtresi bunlara uygulanmaz.
   function harfli(m){ return m.ders === "turkce" && !!m.harf; }
-  // Seçili harfe tıklanınca yalnız o harfin kağıtları; toplu paket içindeki harflerden birinde görünür.
+  // Seçili harfe tıklanınca yalnız o harfin kağıdı.
   function harfUygun(m){
     if (!harfli(m) || !secHarf) return true;
-    return (m.harfler || [m.harf]).indexOf(secHarf) >= 0;
+    return !m.harfler && m.harf === secHarf;   // toplu paketler yalnız harf seçili değilken görünür
   }
   function listeCiz(){
     var kutu = document.getElementById("liste");
