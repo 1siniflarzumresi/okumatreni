@@ -90,5 +90,58 @@
    "İ",
    "L"
   ]
+ },
+ {
+  "id": "tr-o",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "turkce",
+  "unite": "Mustafa Kemal'den Atatürk'e",
+  "hafta": 8,
+  "harf": "O",
+  "baslik": "Oo sesi çalışma kağıdı (3 sayfa, akıcı okuma dahil)",
+  "dosya": "materyaller/1-sinif/turkce/o.pdf",
+  "resim": "materyaller/1-sinif/turkce/o-onizleme.png"
+ },
+ {
+  "id": "tr-k",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "turkce",
+  "unite": "Mustafa Kemal'den Atatürk'e",
+  "hafta": 9,
+  "harf": "K",
+  "baslik": "Kk sesi çalışma kağıdı (3 sayfa, akıcı okuma dahil)",
+  "dosya": "materyaller/1-sinif/turkce/k.pdf",
+  "resim": "materyaller/1-sinif/turkce/k-onizleme.png"
+ },
+ {
+  "id": "tr-u",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "turkce",
+  "unite": "Mustafa Kemal'den Atatürk'e",
+  "hafta": 9,
+  "harf": "U",
+  "baslik": "Uu sesi çalışma kağıdı (3 sayfa, akıcı okuma dahil)",
+  "dosya": "materyaller/1-sinif/turkce/u.pdf",
+  "resim": "materyaller/1-sinif/turkce/u-onizleme.png"
+ },
+ {
+  "id": "tr-oku",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "turkce",
+  "unite": null,
+  "hafta": null,
+  "harf": "O–U",
+  "harfler": [
+   "O",
+   "K",
+   "U"
+  ],
+  "baslik": "O K U toplu paket (9 sayfa)",
+  "dosya": "materyaller/1-sinif/turkce/o-k-u.pdf",
+  "resim": "materyaller/1-sinif/turkce/o-onizleme.png"
  }
 ]

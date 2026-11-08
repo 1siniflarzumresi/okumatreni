@@ -8,7 +8,7 @@ const KOK = path.resolve(__dirname, '../..');
   await p.goto('file://' + path.join(KOK, 'akici-okuma.html'));
   const veri = await p.evaluate(() => {
     const out = {};
-    for (const L of ['N', 'E', 'T', 'İ', 'L']) {
+    for (const L of ['N', 'E', 'T', 'İ', 'L', 'O', 'K', 'U']) {
       show(L, 0);
       out[L] = { merdivenler: DATA[L].sets[0], resimler: [document.getElementById('P1').innerHTML, document.getElementById('P2').innerHTML] };
     }

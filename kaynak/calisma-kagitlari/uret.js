@@ -88,7 +88,8 @@ const etk = (no, yonerge, ic) => `<div class="etk"><h2 class="ttkb"><b>${no}</b>
 // ---------- harflere özel içerik ----------
 // Kural: çocuğun okuyacağı her harf/hece/kelime o ana kadar öğretilmiş harflerden (A N E T İ L sırası).
 // Yönergeleri öğretmen ya da bir büyüğü okur. Resim adları yazılmaz.
-const SIRA = ['a', 'n', 'e', 't', 'i', 'l'];
+const SIRA = ['a', 'n', 'e', 't', 'i', 'l', 'o', 'k', 'u', 'r', 'ı', 'm'];
+const GRUPLAR = [['a', 'n', 'e', 't', 'i', 'l'], ['o', 'k', 'u', 'r', 'ı', 'm']];   // Maarif ses grupları
 const B = h => h.toLocaleUpperCase('tr');
 function rastgele(tohum) { let x = tohum; return () => (x = (x * 16807) % 2147483647) / 2147483647; }
 const ses = h => `<span class="ses">${h}</span>`;
@@ -228,6 +229,36 @@ const HARF = {
     metin('Lale ile Nil', ['Lale ile Nil.', 'Nil, eline lale al.', 'Ali, nane al.', 'Anne ile nine el ele.']),
     yazKelime([['lale', 'el', 'al'], ['Ali', 'ile', 'Nil']])]),
   numarala([akici('l')])],
+  o: () => [numarala([
+    sesiBul('o', ['otobus', 'kedi', 'olta', 'oklava', 'balik', 'ocak']),
+    sesYeri('o', [['olta', 0], ['ocak', 0], ['top', 1], ['limon', 1], ['piyano', 2], ['radyo', 2]]),
+    harfYazma('o')]),
+  numarala([
+    heceOku([['ol', 'lo', 'ot', 'to', 'on', 'no'], ['ot', 'olta', 'nota', 'otel', 'oto', 'ona']]),
+    eslestir([['ot', 'ot'], ['olta', 'olta'], ['nota', 'nota'], ['tel', 'tel']], 31),
+    cumleOku(['Ali, olta al.', 'Anne, nota al.', 'Lale, ot al.']),
+    yazKelime([['ot', 'ol', 'on'], ['olta', 'nota']])]),
+  numarala([akici('o')])],
+  k: () => [numarala([
+    sesiBul('k', ['kitap', 'top', 'kaplumbaga', 'kurbaga', 'ordek', 'kus']),
+    sesYeri('k', [['kova', 0], ['kale', 0], ['tilki', 1], ['lokum', 1], ['inek', 2], ['tavuk', 2]]),
+    harfYazma('k')]),
+  numarala([
+    heceOku([['ak', 'ka', 'ek', 'ke', 'ik', 'ki'], ['ok', 'ko', 'kal', 'kol', 'kek', 'kin']]),
+    eslestir([['kale', 'kale'], ['kol', 'kol'], ['olta', 'olta'], ['nota', 'nota']], 37),
+    cumleOku(['Kaan, kek al.', 'Nil, kalk.', 'Ela ile Ali kol kola.']),
+    yazKelime([['kek', 'kol', 'ok'], ['kale', 'kalkan']])]),
+  numarala([akici('k')])],
+  u: () => [numarala([
+    sesiBul('u', ['ucak', 'kedi', 'ucurtma', 'un', 'top', 'ugur']),
+    sesYeri('u', [['un', 0], ['ucak', 0], ['kus', 1], ['tavuk', 1], ['lokum', 1], ['kulak', 1]]),
+    harfYazma('u')]),
+  numarala([
+    heceOku([['un', 'nu', 'ut', 'tu', 'uk', 'ku'], ['ul', 'lu', 'kut', 'kul', 'tut', 'kutu']]),
+    eslestir([['un', 'un'], ['kutu', 'kutu'], ['kulak', 'kulak'], ['kol', 'kol']], 41),
+    cumleOku(['Anne, unu al.', 'Tuna, kutu al.', 'Ali, onu tut.']),
+    yazKelime([['un', 'kutu'], ['kulak', 'tut']])]),
+  numarala([akici('u')])],
 };
 
 const CSS = `
@@ -337,13 +368,16 @@ const SAYFALAR = {};
     console.log(h, 'sayfa:', govdeler.length, 'fontlar:', fontlar.join(' '), 'taşan:', tasan);
     await p.close();
   }
-  if (!process.argv.slice(2).length) {          // altı harf tek dosyada
-    SAYFALAR.hepsi = SAYFALAR[istenen[0]].replace(/<\/body><\/html>$/, '') + istenen.slice(1).map(h => SAYFALAR[h].split('</script>').slice(1).join('</script>').replace(/<\/body><\/html>$/, '')).join('') + '</body></html>';
+  if (!process.argv.slice(2).length) for (const grup of GRUPLAR) {   // her ses grubu tek dosyada
+    const harfler = grup.filter(h => HARF[h]); if (harfler.length < 2) continue;
+    const ad = harfler.join('-');
+    SAYFALAR[ad] = SAYFALAR[harfler[0]].replace(/<\/body><\/html>$/, '') + harfler.slice(1).map(h => SAYFALAR[h].split('</script>').slice(1).join('</script>').replace(/<\/body><\/html>$/, '')).join('') + '</body></html>';
     const p = await b.newPage();
-    await p.goto(`http://127.0.0.1:${port}/__sayfa/hepsi`, { waitUntil: 'networkidle' });
+    await p.goto(`http://127.0.0.1:${port}/__sayfa/${ad}`, { waitUntil: 'networkidle' });
     await p.evaluate(() => document.fonts.ready);
-    await p.pdf({ path: path.join(CIKTI, 'a-n-e-t-i-l.pdf'), format: 'A4', printBackground: true, preferCSSPageSize: true });
-    console.log('toplu PDF sayfa:', await p.evaluate(() => document.querySelectorAll('.sayfa').length));
+    await p.pdf({ path: path.join(CIKTI, ad + '.pdf'), format: 'A4', printBackground: true, preferCSSPageSize: true });
+    console.log('toplu', ad + '.pdf', 'sayfa:', await p.evaluate(() => document.querySelectorAll('.sayfa').length));
+    await p.close();
   }
   await b.close(); srv.close();
 })();
