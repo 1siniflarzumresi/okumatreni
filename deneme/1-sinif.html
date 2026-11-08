@@ -180,7 +180,7 @@
     var l = MATS.filter(function(m){
       return m.sinif === 1 && m.tur === ayar.tur &&
         (!ayar.ders || m.ders === ayar.ders) &&
-        (!ayar.unite || m.unite === ayar.unite) &&
+        (harfli(m) || !ayar.unite || m.unite === ayar.unite) &&
         (harfli(m) || ayar.hafta === "" || ayar.hafta == null || m.hafta === ayar.hafta) &&
         harfUygun(m);
     });
