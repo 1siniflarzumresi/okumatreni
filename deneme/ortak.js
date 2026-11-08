@@ -22,11 +22,11 @@ var LADIN = (function(){
   var _takvim = null;
   function takvimYukle(){
     if (_takvim) return _takvim;
-    _takvim = fetch("veri/takvim.json").then(function(r){ if(!r.ok) throw 0; return r.json(); });
+    _takvim = fetch("veri/takvim.json?t=" + Date.now(), {cache: "no-store"}).then(function(r){ if(!r.ok) throw 0; return r.json(); });
     return _takvim;
   }
   function materyalYukle(){
-    return fetch("veri/materyaller.json").then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; });
+    return fetch("veri/materyaller.json?t=" + Date.now(), {cache: "no-store"}).then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; });
   }
 
   // Üst şerit: bugünün tarihi + bu hafta

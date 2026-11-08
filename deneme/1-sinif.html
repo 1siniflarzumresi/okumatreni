@@ -188,7 +188,10 @@
     var sira = function(m){ return !harfli(m) ? -1 : (m.harf === secHarf ? 100 : (m.harfler ? 50 : 0) + HARFLER.indexOf(m.harf)); };
     l.sort(function(a, b){ return sira(b) - sira(a); });
     if (!l.length){
-      kutu.innerHTML = '<div class="bos" style="grid-column:1/-1">'+(MATS.length ? "Bu seçime uyan materyal yok. Filtreleri genişletin." : "Materyaller hazırlanıyor. Yakında burada olacak.")+'</div>';
+      kutu.innerHTML = '<div class="bos" style="grid-column:1/-1">'+(MATS.length ? 'Bu seçime uyan materyal yok.<br><button class="dugme" id="temizle" style="margin-top:10px">Filtreleri temizle</button>' : "Materyaller hazırlanıyor. Yakında burada olacak.")+'</div>';
+      var tz = document.getElementById("temizle");
+      if (tz) tz.onclick = function(){ ayar.ders = ""; ayar.unite = ""; ayar.hafta = ""; secHarf = null; LADIN.sakla(ANAHTAR, null);
+        fD.value = ""; uniteDoldur(); fH.value = ""; kaydet(); yolCiz(); listeCiz(); };
       return;
     }
     kutu.innerHTML = l.map(function(m){
