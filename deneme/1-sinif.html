@@ -146,17 +146,19 @@
   // Filtreler
   var fD = document.getElementById("f-ders"), fU = document.getElementById("f-unite"), fH = document.getElementById("f-hafta");
   function kaydet(){ LADIN.sakla(AYAR, ayar); }
+  // Ünite adları takvimde BÜYÜK, kartlarda normal harfle: anahtar olarak büyük harfli, boşluksuz biçim kullanılır.
+  function uk(s){ return String(s || "").toLocaleUpperCase("tr").replace(/\s+/g, " ").trim(); }
   function uniteDoldur(){
     var set = {};
     var dersler = ayar.ders ? [ayar.ders] : Object.keys(DERS);
     (TAKVIM ? TAKVIM.haftalar : []).forEach(function(h){
       if (!h.dersler) return;
-      dersler.forEach(function(d){ var x = h.dersler[d]; if (x) LADIN.liste(x.unite || x.tema).forEach(function(u){ set[u] = 1; }); });
+      dersler.forEach(function(d){ var x = h.dersler[d]; if (x) LADIN.liste(x.unite || x.tema).forEach(function(u){ if (!set[uk(u)]) set[uk(u)] = LADIN.baslik(u); }); });
     });
-    MATS.forEach(function(m){ if (m.unite && (!ayar.ders || m.ders === ayar.ders)) set[m.unite] = 1; });
+    MATS.forEach(function(m){ if (m.unite && (!ayar.ders || m.ders === ayar.ders)) set[uk(m.unite)] = m.unite; });
     var ad = Object.keys(set);
-    fU.innerHTML = '<option value="">Tümü</option>' + ad.map(function(u){ return '<option>'+u+'</option>'; }).join("");
-    if (ad.indexOf(ayar.unite) < 0) ayar.unite = "";
+    fU.innerHTML = '<option value="">Tümü</option>' + ad.map(function(u){ return '<option value="'+u+'">'+set[u]+'</option>'; }).join("");
+    if (ad.indexOf(uk(ayar.unite)) < 0) ayar.unite = ""; else ayar.unite = uk(ayar.unite);
     fU.value = ayar.unite;
     fU.disabled = !ad.length;
   }
@@ -183,7 +185,7 @@
     var l = MATS.filter(function(m){
       return m.sinif === 1 && m.tur === ayar.tur &&
         (!ayar.ders || m.ders === ayar.ders) &&
-        (harfli(m) || !ayar.unite || m.unite === ayar.unite) &&
+        ((harfli(m) && secHarf) || !ayar.unite || uk(m.unite) === uk(ayar.unite)) &&
         (harfli(m) || ayar.hafta === "" || ayar.hafta == null || m.hafta === ayar.hafta) &&
         harfUygun(m);
     });
