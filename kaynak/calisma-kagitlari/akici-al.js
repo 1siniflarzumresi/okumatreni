@@ -1,5 +1,5 @@
 // Akıcı okuma merdivenlerini oyundan (akici-okuma.html, yalnız okunur) alır:
-// kaynak/calisma-kagitlari/akici.json  = { harf: { merdivenler: [[satırlar],[satırlar]], resimler: [svg, svg] } }
+// kaynak/calisma-kagitlari/akici.json  = { harf: { merdivenler: [[satırlar],[satırlar]], resimler: [svg, svg], hikaye?: [satırlar], hikayeResim?: svg } }
 // Kullanım: node kaynak/calisma-kagitlari/akici-al.js
 const { chromium } = require('playwright'); const fs = require('fs'), path = require('path');
 const KOK = path.resolve(__dirname, '../..');
@@ -8,9 +8,10 @@ const KOK = path.resolve(__dirname, '../..');
   await p.goto('file://' + path.join(KOK, 'akici-okuma.html'));
   const veri = await p.evaluate(() => {
     const out = {};
-    for (const L of ['N', 'E', 'T', 'İ', 'L', 'O', 'K', 'U']) {
+    for (const L of ['N', 'E', 'T', 'İ', 'L', 'O', 'K', 'U', 'R', 'I', 'M']) {
       show(L, 0);
       out[L] = { merdivenler: DATA[L].sets[0], resimler: [document.getElementById('P1').innerHTML, document.getElementById('P2').innerHTML] };
+      if (DATA[L].story) { show(L, DATA[L].sets.length); out[L].hikaye = DATA[L].story; out[L].hikayeResim = document.getElementById('P1').innerHTML; }
     }
     return out;
   });

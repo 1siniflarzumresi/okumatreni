@@ -161,7 +161,7 @@ function akici(h) {
   const isaretle = s => [...s].map(c => c === h || c === H ? `<b>${c}</b>` : c).join('');
   const enUzun = Math.max(...d.merdivenler.flat().map(s => s.length));
   const satirSay = Math.max(...d.merdivenler.map(m => m.length * 2 - 1));
-  const boy = Math.min(10.5, 112 / (enUzun * 0.37), 96 / (satirSay * 1.32)).toFixed(1);   // mm
+  const boy = Math.min(10.5, 112 / (enUzun * 0.37), 90 / (satirSay * 1.32)).toFixed(1);   // mm
   const merdiven = (satirlar, svg, no) => {
     const tum = [...satirlar, ...satirlar.slice(0, -1).reverse()];
     return `<div class="merdiven"><div class="m-sol"><svg viewBox="0 0 240 150">${svg}</svg>
@@ -170,6 +170,15 @@ function akici(h) {
   };
   return etk(0, 'Merdiveni yukarıdan aşağı satır satır oku. Her satırı bir öncekinden biraz daha akıcı okumaya çalış.',
     d.merdivenler.map((m, i) => merdiven(m, d.resimler[i], i + 1)).join(''));
+}
+// Hikâye (yalnız oyunda hikâyesi olan harfler: R, I, M) + hikâyenin resmini çizme kutusu
+function hikaye(h) {
+  const H = B(h), d = AKICI[H];
+  const isaretle = s => [...s].map(c => c === h || c === H ? `<b>${c}</b>` : c).join('');
+  return etk(0, 'Hikâyeyi oku. Sonra bir büyüğüne sesli oku.',
+    `<div class="hikaye"><svg viewBox="0 0 240 150">${d.hikayeResim}</svg>
+      <div class="ttkb">${d.hikaye.map(s => `<p>${isaretle(s)}</p>`).join('')}</div></div>`) +
+    `<div class="etk cizim-etk"><h2 class="ttkb"><b>0</b>Hikâyenin resmini çiz.</h2><div class="cizim"></div></div>`;
 }
 const numarala = parcalar => { let i = 0; return parcalar.join('').replace(/<h2 class="ttkb"><b>0<\/b>/g, () => `<h2 class="ttkb"><b>${++i}</b>`); };
 
@@ -259,6 +268,39 @@ const HARF = {
     cumleOku(['Anne, unu al.', 'Tuna, kutu al.', 'Ali, onu tut.']),
     yazKelime([['un', 'kutu'], ['kulak', 'tut']])]),
   numarala([akici('u')])],
+  r: () => [numarala([
+    sesiBul('r', ['radyo', 'kedi', 'roket', 'robot', 'top', 'recel']),
+    sesYeri('r', [['radyo', 0], ['roket', 0], ['armut', 1], ['ordek', 1], ['nar', 2], ['anahtar', 2]]),
+    harfYazma('r')]),
+  numarala([
+    heceOku([['ar', 'ra', 'er', 're', 'ir', 'ri'], ['or', 'ro', 'ur', 'ru', 'nar', 'kar']]),
+    eslestir([['nar', 'nar'], ['tarak', 'tarak'], ['kar', 'kar'], ['olta', 'olta']], 43),
+    cumleOku(['Rana, nar al.', 'Onur, olta at.', 'Eren, tarak al.']),
+    yazKelime([['nar', 'kar'], ['tarak', 'Onur']])]),
+  numarala([akici('r')]),
+  numarala([hikaye('r')])],
+  'ı': () => [numarala([
+    sesiBul('ı', ['istakoz', 'inek', 'ispanak', 'irmak', 'top', 'izgara']),
+    sesYeri('ı', [['istakoz', 0], ['ispanak', 0], ['balik', 1], ['kasik', 1], ['ari', 2], ['ayi', 2]]),
+    harfYazma('ı')]),
+  numarala([
+    heceOku([['ın', 'nı', 'ıl', 'lı', 'ık', 'kı'], ['ır', 'rı', 'ıt', 'tı', 'arı', 'kırk']]),
+    eslestir([['arı', 'ari'], ['nar', 'nar'], ['tarak', 'tarak'], ['kulak', 'kulak']], 47),
+    cumleOku(['Kırk arı.', 'Tarık, kırk nar al.', 'Kırık kutu.']),
+    yazKelime([['arı', 'kırk'], ['kırık', 'Tarık']])]),
+  numarala([akici('ı')]),
+  numarala([hikaye('ı')])],
+  m: () => [numarala([
+    sesiBul('m', ['mum', 'kedi', 'muz', 'makas', 'balik', 'maymun']),
+    sesYeri('m', [['muz', 0], ['makas', 0], ['limon', 1], ['elma', 1], ['kalem', 2], ['lokum', 2]]),
+    harfYazma('m')]),
+  numarala([
+    heceOku([['am', 'ma', 'em', 'me', 'im', 'mi'], ['om', 'mo', 'um', 'mu', 'mum', 'mama']]),
+    eslestir([['mum', 'mum'], ['limon', 'limon'], ['elma', 'elma'], ['armut', 'armut']], 53),
+    cumleOku(['Mert, mum al.', 'Emel, limon al.', 'Anne, elma ile armut al.']),
+    yazKelime([['mum', 'elma'], ['limon', 'kalem']])]),
+  numarala([akici('m')]),
+  numarala([hikaye('m')])],
 };
 
 const CSS = `
@@ -330,6 +372,12 @@ img{width:100%;height:100%;object-fit:contain}
 .merdiven ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:flex-start;gap:.6mm}
 .merdiven li{line-height:1.28;padding:0 2mm;border-bottom:.3mm dashed #dbe6d4}
 .merdiven li b{color:#c0392b;font-weight:400}
+.hikaye{border:.5mm solid #2e6b4a;border-radius:4mm;padding:5mm 7mm;background:#f6faf3;display:grid;grid-template-columns:62mm 1fr;gap:7mm;align-items:center}
+.hikaye svg{width:62mm;height:39mm;border-radius:3mm}
+.hikaye p{margin:0;font-size:8mm;line-height:1.45}
+.hikaye b,.merdiven li b{color:#c0392b;font-weight:400}
+.cizim-etk{flex:1;display:flex;flex-direction:column}
+.cizim{flex:1;border:.5mm dashed #9fb8a6;border-radius:4mm}
 footer{margin-top:auto;display:flex;justify-content:space-between;font:3.2mm Andika,sans-serif;color:#6b7a70;border-top:.3mm solid #dbe6d4;padding-top:2mm}
 `;
 const OKLAR = `<svg width="0" height="0" style="position:absolute"><defs>
