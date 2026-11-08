@@ -59,7 +59,9 @@ function harfIz(ch, x, B, kip, tekNokta) {
 // dizi: [['A','model'],['A','iz'],...]; kalan yer boş kalır
 function satir(dizi, genislikMm, capMm) {
   const birim = capMm / UST;                       // mm / font birimi
-  const W = genislikMm / birim, ustPay = 190, altPay = 70;
+  const harfler = dizi.flatMap(([c, k]) => k === 'kelime' ? [...c] : [c]);
+  const kuyruk = harfler.some(c => 'gjpyçşğÇŞ'.includes(c));     // aşağı uzanan harf: 4. çizgi
+  const W = genislikMm / birim, ustPay = 200, altPay = kuyruk ? ORTA + 60 : 70;
   const H = ustPay + UST + altPay, B = ustPay + UST;
   let x = dizi[0] && dizi[0][1] === 'model' ? 170 : 60, ic = '';
   for (const [ch, kip] of dizi) {
@@ -69,7 +71,7 @@ function satir(dizi, genislikMm, capMm) {
   return `<svg class="satir" viewBox="0 0 ${W} ${H}" style="width:${genislikMm}mm;height:${H * birim}mm">
     <line x1="0" x2="${W}" y1="${B - UST}" y2="${B - UST}" class="c-ust"/>
     <line x1="0" x2="${W}" y1="${B - ORTA}" y2="${B - ORTA}" class="c-orta"/>
-    <line x1="0" x2="${W}" y1="${B}" y2="${B}" class="c-alt"/>${ic}</svg>`;
+    <line x1="0" x2="${W}" y1="${B}" y2="${B}" class="c-alt"/>${kuyruk ? `<line x1="0" x2="${W}" y1="${B + ORTA}" y2="${B + ORTA}" class="c-kuyruk"/>` : ''}${ic}</svg>`;
 }
 
 // ---------- sayfa parçaları ----------
@@ -88,16 +90,26 @@ const etk = (no, yonerge, ic) => `<div class="etk"><h2 class="ttkb"><b>${no}</b>
 // ---------- harflere özel içerik ----------
 // Kural: çocuğun okuyacağı her harf/hece/kelime o ana kadar öğretilmiş harflerden (A N E T İ L sırası).
 // Yönergeleri öğretmen ya da bir büyüğü okur. Resim adları yazılmaz.
-const SIRA = ['a', 'n', 'e', 't', 'i', 'l', 'o', 'k', 'u', 'r', 'ı', 'm'];
-const GRUPLAR = [['a', 'n', 'e', 't', 'i', 'l'], ['o', 'k', 'u', 'r', 'ı', 'm']];   // Maarif ses grupları
+const SIRA = ['a', 'n', 'e', 't', 'i', 'l', 'o', 'k', 'u', 'r', 'ı', 'm', 'ü', 's', 'ö', 'y', 'd', 'z', 'ç', 'b', 'g', 'c', 'ş', 'p', 'h', 'v', 'ğ', 'f', 'j'];
+const GRUPLAR = [['a', 'n', 'e', 't', 'i', 'l'], ['o', 'k', 'u', 'r', 'ı', 'm'], ['ü', 's', 'ö', 'y', 'd', 'z'], ['ç', 'b', 'g', 'c', 'ş', 'p'], ['h', 'v', 'ğ', 'f', 'j']];   // Maarif ses grupları
 const B = h => h.toLocaleUpperCase('tr');
 function rastgele(tohum) { let x = tohum; return () => (x = (x * 16807) % 2147483647) / 2147483647; }
 const ses = h => `<span class="ses">${h}</span>`;
 const S = dizi => satir(dizi, 186, 16);
 const kucukS = (dizi, mm) => satir(dizi, mm, 9);
 
-function sesiBul(h, liste) {
-  return etk(0, `Resimlerin adını söyle. Adı ${ses(h)} sesiyle başlayanları daire içine al.`,
+// Denetleyici: çocuğun okuyacağı her hece/kelime/cümle/soru, o harfe kadar öğretilmiş harflerden olmalı.
+// Yönergeler (öğretmen okur) denetlenmez. Hata varsa üretim durur.
+let AKTIF = null; const HATALAR = [];
+function oku(s) {
+  if (!AKTIF) return s;
+  const izin = new Set(SIRA.slice(0, SIRA.indexOf(AKTIF) + 1));
+  const kotu = [...new Set([...String(s).toLocaleLowerCase('tr')].filter(c => /\p{L}/u.test(c) && !izin.has(c)))];
+  if (kotu.length) HATALAR.push(`${B(AKTIF)}: "${s}" → öğretilmemiş: ${kotu.join(' ')}`);
+  return s;
+}
+function sesiBul(h, liste, yonerge) {
+  return etk(0, yonerge || `Resimlerin adını söyle. Adı ${ses(h)} sesiyle başlayanları daire içine al.`,
     `<div class="resimler">${liste.map(r => `<div class="r">${resim(r)}</div>`).join('')}</div>`);
 }
 function sesYeri(h, liste) {        // liste[0] örnek: [resim, 0 baş | 1 orta | 2 son]
@@ -115,7 +127,7 @@ function harfYazma(h) {
     ${S(iz(H, 3))}
     ${S([[h, 'model'], ...iz(h, sigan(h, genislik(h) + BOSLUK))])}
     ${S(iz(h, 3))}
-    ${S([[H, 'iz'], [h, 'iz'], [H, 'iz'], [h, 'iz']])}</div>`);
+    ${'gjpyçşğ'.includes(h) ? '' : S([[H, 'iz'], [h, 'iz'], [H, 'iz'], [h, 'iz']])}</div>`);
 }
 function harfAvi(h, n = 32) {
   const bilinen = SIRA.slice(0, SIRA.indexOf(h) + 1), r = rastgele(h.charCodeAt(0) * 97 + 11);
@@ -127,7 +139,7 @@ function harfAvi(h, n = 32) {
 }
 function heceOku(satirlar, baslik) {  // [['an','na',...], ...]
   return etk(0, baslik || 'Heceleri oku. Okuduğun her hecenin yıldızını boya.',
-    `<div class="heceler">${satirlar.map(s => `<div style="--n:${Math.max(4, s.length)}">${s.map(x => `<span><b class="ttkb">${x}</b><i>☆</i></span>`).join('')}</div>`).join('')}</div>`);
+    `<div class="heceler">${satirlar.map(s => `<div style="--n:${Math.max(4, s.length)}">${s.map(x => `<span><b class="ttkb">${oku(x)}</b><i>☆</i></span>`).join('')}</div>`).join('')}</div>`);
 }
 function birlestir(liste) {           // [['a','n','an'], ...] -> a + n = noktalı an
   return etk(0, 'Sesleri birleştir, oku. Sonra noktaların üstünden yaz.',
@@ -138,20 +150,48 @@ function eslestir(liste, tohum) {     // [['at','at'], ...] kelime -> resim
   for (let i = res.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [res[i], res[j]] = [res[j], res[i]]; }
   if (res.every((x, i) => x === liste[i][1])) res.push(res.shift());
   return etk(0, 'Kelimeyi oku. Noktadan noktaya çizgi çekerek resmiyle birleştir.',
-    `<div class="esles"><div class="sol">${liste.map(([k]) => `<div><b class="ttkb">${k}</b><i></i></div>`).join('')}</div>
+    `<div class="esles"><div class="sol">${liste.map(([k]) => `<div><b class="ttkb">${oku(k)}</b><i></i></div>`).join('')}</div>
      <div class="sag">${res.map(x => `<div><i></i>${resim(x)}</div>`).join('')}</div></div>`);
 }
 function cumleOku(liste, baslik) {
   return etk(0, baslik || 'Cümleleri oku. Okuduğun her cümlenin yıldızını boya.',
-    `<div class="cumleler">${liste.map(c => `<div><span class="ttkb">${c}</span><i>☆</i></div>`).join('')}</div>`);
+    `<div class="cumleler">${liste.map(c => `<div><span class="ttkb">${oku(c)}</span><i>☆</i></div>`).join('')}</div>`);
 }
-function metin(baslik, satirlar) {
+function metin(baslik, satirlar, boy) {
   return etk(0, 'Metni oku. Sonra bir büyüğüne sesli oku.',
-    `<div class="metin"><h3 class="ttkb">${baslik}</h3>${satirlar.map(c => `<p class="ttkb">${c}</p>`).join('')}</div>`);
+    `<div class="metin"${boy ? ` style="--mb:${boy}mm"` : ''}><h3 class="ttkb">${oku(baslik)}</h3>${satirlar.map(c => `<p class="ttkb">${oku(c)}</p>`).join('')}</div>`);
 }
 function yazKelime(kelimeler) {
   return etk(0, 'Kelimeleri noktaların üstünden yaz. Sonra kendin yaz.', `<div class="satirlar">
-    ${kelimeler.map(k => S(k.map(x => [x, 'kelime']))).join('')}</div>`);
+    ${kelimeler.map(k => S(k.map(x => [oku(x), 'kelime']))).join('')}</div>`);
+}
+// --- 3. gruptan itibaren: okuduğunu anlama ve okuma etkinlikleri
+const resimCiz = y => `<div class="etk cizim-etk"><h2 class="ttkb"><b>0</b>${y || 'Metnin resmini çiz.'}</h2><div class="cizim"></div></div>`;
+function dogruYanlis(liste) {         // [['cümle', true], ...]  ✓ / ✗ kutusu
+  return etk(0, 'Metne göre doğru olan cümlenin yanındaki ✓ kutusunu, yanlış olanın ✗ kutusunu boya.',
+    `<div class="dy">${liste.map(([c]) => `<div><span class="ttkb">${oku(c)}</span><i>✓</i><i>✗</i></div>`).join('')}</div>`);
+}
+function secmeli(liste) {             // [['soru', ['a','b','c']], ...]
+  return etk(0, 'Soruyu oku. Doğru cevabın yanındaki daireyi boya.',
+    `<div class="secmeli">${liste.map(([s, sec], i) => `<div><p class="ttkb"><b>${i + 1}.</b> ${oku(s)}</p><div>${sec.map(x => `<span><i></i><span class="ttkb">${oku(x)}</span></span>`).join('')}</div></div>`).join('')}</div>`);
+}
+function acikUclu(liste, baslik) {    // ['soru', ...] -> altında yazma satırı
+  return etk(0, baslik || 'Soruları oku. Cevabını satıra yaz.',
+    `<div class="acik">${liste.map((s, i) => `<div><p class="ttkb"><b>${i + 1}.</b> ${oku(s)}</p>${satir([], 186, 8)}</div>`).join('')}</div>`);
+}
+function sirala(liste) {              // olayları karışık sırayla ver; çocuk 1-2-3 yazar
+  return etk(0, 'Olaylar karışmış. Metne göre sırala: kutulara 1, 2, 3 yaz.',
+    `<div class="sirala">${liste.map(c => `<div><i></i><span class="ttkb">${oku(c)}</span></div>`).join('')}</div>`);
+}
+function kelimeResim(liste, tohum) {  // [['kelime','dogru','yanlis1','yanlis2'], ...]
+  const r = rastgele(tohum);
+  return etk(0, 'Kelimeyi oku. Kelimenin resmini daire içine al.',
+    `<div class="kr">${liste.map(([k, ...res]) => { const s = res.slice(); for (let i = s.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [s[i], s[j]] = [s[j], s[i]]; }
+      return `<div><b class="ttkb">${oku(k)}</b>${s.map(x => `<span>${resim(x)}</span>`).join('')}</div>`; }).join('')}</div>`);
+}
+function cumleTamamla(liste) {        // [['Horoz sabah erken ___.', ['öter','uçar']], ...]
+  return etk(0, 'Cümleyi oku. Boşluğa uygun kelimeyi seç, daire içine al ve boşluğa yaz.',
+    `<div class="tamamla">${liste.map(([c, sec]) => `<div><p class="ttkb">${oku(c).replace('___', '<u></u>')}</p><div>${sec.map(x => `<span class="ttkb">${oku(x)}</span>`).join('')}</div></div>`).join('')}</div>`);
 }
 // Akıcı okuma: oyundaki merdivenler (akici.json, `node kaynak/calisma-kagitlari/akici-al.js` ile alınır).
 // Satırlar oyundaki gibi kısa → uzun → kısa sıralanır; harfin kendisi kırmızı.
@@ -301,6 +341,205 @@ const HARF = {
     yazKelime([['mum', 'elma'], ['limon', 'kalem']])]),
   numarala([akici('m')]),
   numarala([hikaye('m')])],
+  // ---------- 3. grup: Ü S Ö Y D Z — 3. sayfa okuma metni + doğru/yanlış ----------
+  'ü': () => [numarala([
+    sesiBul('ü', ['uzum', 'ucak', 'utu', 'un', 'ucgen', 'kedi']),
+    sesYeri('ü', [['ucgen', 0], ['gunes', 1], ['orumcek', 1], ['sut', 1], ['kurek', 1], ['kopru', 2]]),
+    harfYazma('ü')]),
+  numarala([
+    heceOku([['ün', 'nü', 'üt', 'tü', 'ük', 'kü'], ['ür', 'rü', 'üm', 'mü', 'ütü', 'kürek']]),
+    eslestir([['ütü', 'utu'], ['kürek', 'kurek'], ['kulak', 'kulak'], ['mum', 'mum']], 61),
+    cumleOku(['Annem ütü alır.', 'Ümit, kürek al.', 'Tülin, tülü ütüle.']),
+    yazKelime([['ütü', 'kürek'], ['ünlü', 'tüm']])]),
+  numarala([
+    metin('Ütü', ['Annem ütü alır.', 'Ütü mor renkli.', 'Annem tülü ütüler.', 'Tül ütülenir.', 'Ümit ile Ümran mutlu olur.']),
+    dogruYanlis([['Annem ütü alır.', true], ['Ümit tülü ütüler.', false], ['Ütü mor renkli.', true]]), resimCiz()])],
+  s: () => [numarala([
+    sesiBul('s', ['saat', 'top', 'simit', 'sincap', 'kedi', 'salyangoz']),
+    sesYeri('s', [['sincap', 0], ['saat', 0], ['masa', 1], ['istakoz', 1], ['ispanak', 1], ['otobus', 2]]),
+    harfYazma('s')]),
+  numarala([
+    heceOku([['as', 'sa', 'es', 'se', 'is', 'si'], ['os', 'so', 'us', 'su', 'ses', 'masa']]),
+    eslestir([['masa', 'masa'], ['simit', 'simit'], ['saat', 'saat'], ['süt', 'sut']], 67),
+    cumleOku(['Selin, simit al.', 'Mert, masa kur.', 'Sinan, süt al.']),
+    yazKelime([['ses', 'süt'], ['simit', 'masa']])]),
+  numarala([
+    metin('Simit', ['Selin simit alır.', 'Simit susamlı.', 'Selin süt ister.', 'Annesi Selin\'e süt alır.', 'Selin mutlu olur.']),
+    dogruYanlis([['Selin simit alır.', true], ['Simit susamlı.', true], ['Selin limon ister.', false]]), resimCiz()])],
+  'ö': () => [numarala([
+    sesiBul('ö', ['ordek', 'otobus', 'orumcek', 'odul', 'ok', 'ogretmen']),
+    sesYeri('ö', [['ordek', 0], ['odul', 0], ['kopru', 1], ['goz', 1], ['borek', 1], ['kopek', 1]]),
+    harfYazma('ö')]),
+  numarala([
+    heceOku([['ön', 'nö', 'öt', 'tö', 'ök', 'kö'], ['ör', 'rö', 'öm', 'mö', 'kök', 'ömür']]),
+    eslestir([['kömür', 'komur'], ['önlük', 'onluk'], ['ütü', 'utu'], ['simit', 'simit']], 71),
+    cumleOku(['Ömer, önlük al.', 'Ömer, öne otur.', 'Ömer ile Selin önlük alır.']),
+    yazKelime([['kök', 'ön'], ['önlük', 'kömür']])]),
+  numarala([
+    metin('Önlük', ['Ömer önlük alır.', 'Önlük mor renkli.', 'Selin: Önlük mor mu?', 'Ömer: Mor, mor!', 'Ömer önlük ile mutlu olur.']),
+    dogruYanlis([['Ömer önlük alır.', true], ['Önlük sarı.', false], ['Ömer mutlu olur.', true]]), resimCiz()])],
+  y: () => [numarala([
+    sesiBul('y', ['yumurta', 'kedi', 'yaprak', 'yildiz', 'top', 'yilan']),
+    sesYeri('y', [['yaprak', 0], ['yildiz', 0], ['ayi', 1], ['maymun', 1], ['leylek', 1], ['ay', 2]]),
+    harfYazma('y')]),
+  numarala([
+    heceOku([['ay', 'ya', 'ey', 'ye', 'iy', 'yi'], ['oy', 'yo', 'uy', 'yu', 'kaya', 'ayna']]),
+    eslestir([['yumurta', 'yumurta'], ['yılan', 'yilan'], ['ay', 'ay'], ['ayna', 'ayna']], 73),
+    cumleOku(['Yunus, ayna al.', 'Ayla, yumurta ye.', 'Yunus ile Ayla oyun oynar.']),
+    yazKelime([['ay', 'yay'], ['ayna', 'yumurta']])]),
+  numarala([
+    metin('Yumurta', ['Ayla yumurta alır.', 'Ayla yumurtayı kırar.', 'Annesi omlet ister.', 'Ayla ile annesi omlet yer.', 'Ayla: Omlet ne iyi!']),
+    dogruYanlis([['Ayla yumurta alır.', true], ['Ayla yumurtayı kırar.', true], ['Ayla ile annesi simit yer.', false]]), resimCiz()])],
+  d: () => [numarala([
+    sesiBul('d', ['davul', 'top', 'deve', 'domates', 'tavuk', 'dondurma']),
+    sesYeri('d', [['deve', 0], ['davul', 0], ['ordek', 1], ['kedi', 1], ['yildiz', 1], ['cadir', 1]]),
+    harfYazma('d')]),
+  numarala([
+    heceOku([['ad', 'da', 'ed', 'de', 'id', 'di'], ['od', 'do', 'ud', 'du', 'dede', 'oda']]),
+    eslestir([['kedi', 'kedi'], ['ördek', 'ordek'], ['domates', 'domates'], ['dondurma', 'dondurma']], 79),
+    cumleOku(['Doruk, dondurma al.', 'Dede, domates al.', 'Kedi ördek ile oynar.']),
+    yazKelime([['dede', 'oda'], ['kedi', 'ördek']])]),
+  numarala([
+    metin('Doruk ile Dedesi', ['Doruk ile dedesi markette.', 'Dedesi domates alır.', 'Doruk dondurma ister.', 'Dedesi dondurma da alır.', 'Doruk ile dedesi mutlu olur.']),
+    dogruYanlis([['Doruk ile dedesi markette.', true], ['Dedesi limon alır.', false], ['Doruk dondurma ister.', true]]), resimCiz()])],
+  z: () => [numarala([
+    sesiBul('z', ['zebra', 'saat', 'zil', 'zeytin', 'simit', 'zurafa']),
+    sesYeri('z', [['zebra', 0], ['zil', 0], ['kuzu', 1], ['kazak', 1], ['muz', 2], ['istakoz', 2]]),
+    harfYazma('z')]),
+  numarala([
+    heceOku([['az', 'za', 'ez', 'ze', 'iz', 'zi'], ['oz', 'zo', 'uz', 'zu', 'kuzu', 'üzüm']]),
+    eslestir([['üzüm', 'uzum'], ['kuzu', 'kuzu'], ['yıldız', 'yildiz'], ['zeytin', 'zeytin']], 83),
+    cumleOku(['Zerrin, üzüm ye.', 'Kuzu, otu yer.', 'Zil, zır zır öter.']),
+    yazKelime([['az', 'kuzu'], ['üzüm', 'yıldız']])]),
+  numarala([
+    metin('Kuzu', ['Kuzu otlakta.', 'Kuzu otları yer.', 'Zerrin kuzuya Duman adını takar.', 'Duman, Zerrin\'i izler.', 'Zerrin ile Duman mutlu.']),
+    dogruYanlis([['Kuzu otlakta.', true], ['Kuzunun adı Duman.', true], ['Kuzu kaya üstünde uyur.', false]]), resimCiz()])],
+  // ---------- 4. grup: Ç B G C Ş P — kelime-resim, okuma metni + çoktan seçmeli ----------
+  'ç': () => [numarala([
+    sesiBul('ç', ['cicek', 'ceket', 'canta', 'catal', 'top', 'cilek']),
+    harfYazma('ç')]),
+  numarala([
+    kelimeResim([['çiçek', 'cicek', 'kedi', 'top'], ['çanta', 'canta', 'kova', 'sepet'], ['çatal', 'catal', 'kasik', 'makas'], ['çilek', 'cilek', 'domates', 'visne']], 89),
+    cumleOku(['Çiçek, çay iç.', 'Nur, çatal ile domates yer.', 'Arda, çanta al.']),
+    yazKelime([['çay', 'çiçek'], ['çanta', 'çatal']])]),
+  numarala([
+    metin('Çiçekler', ['Çiçek ile annesi çimenlikte.', 'Çimenlikte çiçekler açar.', 'Çiçek, mor çiçekleri koklar.', 'Annesi çay ister.', 'Çiçek ile annesi çay içer.', 'Çiçek: Çiçekler ne çok!']),
+    secmeli([['Çiçek kim ile çimenlikte?', ['annesi', 'dedesi', 'kedisi']], ['Çiçek ne koklar?', ['çiçek', 'çay', 'çilek']], ['Çiçek ile annesi ne içer?', ['süt', 'çay', 'ayran']]]), resimCiz()])],
+  b: () => [numarala([
+    sesiBul('b', ['balon', 'palyaco', 'bebek', 'bulut', 'top', 'bardak']),
+    harfYazma('b')]),
+  numarala([
+    kelimeResim([['balık', 'balik', 'kedi', 'ordek'], ['balon', 'balon', 'yumurta', 'zil'], ['bebek', 'bebek', 'ogretmen', 'anne'], ['robot', 'robot', 'davul', 'kutu']], 97),
+    cumleOku(['Bora, balon al.', 'Bebek, mama ister.', 'Bulut bembeyaz.']),
+    yazKelime([['bal', 'balık'], ['bebek', 'bulut']])]),
+  numarala([
+    metin('Balon', ['Bora bir balon alır.', 'Balon kırmızı.', 'Bora balonu uçurur.', 'Balon bulutlara kadar uçar.', 'Bora: Balonum, dön!', 'Balon, Bora\'yı duymaz.']),
+    secmeli([['Bora ne alır?', ['balon', 'balık', 'bebek']], ['Balon ne renk?', ['mor', 'kırmızı', 'sarı']], ['Balon nereye uçar?', ['bulutlara', 'denize', 'okula']]]), resimCiz()])],
+  g: () => [numarala([
+    sesiBul('g', ['gemi', 'kedi', 'gozluk', 'gitar', 'kale', 'gunes']),
+    harfYazma('g')]),
+  numarala([
+    kelimeResim([['gemi', 'gemi', 'otobus', 'ucak'], ['gözlük', 'gozluk', 'ayna', 'saat'], ['gül', 'gul', 'lale', 'yaprak'], ['gitar', 'gitar', 'davul', 'zil']], 101),
+    cumleOku(['Gül, gemi ile gider.', 'Gökay gözlük takar.', 'Ege, gitar çal.']),
+    yazKelime([['göz', 'gül'], ['gemi', 'gitar']])]),
+  numarala([
+    metin('Gemi', ['Ege ile dedesi gemiye biner.', 'Gemi denizde ilerler.', 'Gökyüzünde martılar uçar.', 'Ege gözlük takar.', 'Dedesi Ege\'ye gemiyi gösterir.', 'Ege: Gemi ne büyük!']),
+    secmeli([['Ege kim ile gemiye biner?', ['annesi', 'dedesi', 'ablası']], ['Gökyüzünde ne uçar?', ['martılar', 'balonlar', 'arılar']], ['Ege ne takar?', ['kolye', 'gözlük', 'önlük']]]), resimCiz()])],
+  c: () => [numarala([
+    sesiBul('c', ['ceket', 'canta', 'civciv', 'cuzdan', 'cilek', 'cami']),
+    harfYazma('c')]),
+  numarala([
+    kelimeResim([['incir', 'incir', 'muz', 'limon'], ['cami', 'cami', 'kale', 'ev'], ['ceket', 'ceket', 'kazak', 'etek'], ['cüzdan', 'cuzdan', 'canta', 'kutu']], 103),
+    cumleOku(['Cem, ceket giy.', 'Ceren, incir ye.', 'Cüzdan, çantada.']),
+    yazKelime([['cam', 'gece'], ['ceket', 'incir']])]),
+  numarala([
+    metin('Cem\'in Ceketi', ['Cem ceketini giyer.', 'Ceket mor renkli.', 'Cem cebine cüzdanını koyar.', 'Cem ile Ceren okula giderler.', 'Yolda rüzgar eser.', 'Cem: Ceketim beni ısıtır.']),
+    secmeli([['Cem ne giyer?', ['ceket', 'kazak', 'önlük']], ['Ceket ne renk?', ['sarı', 'mor', 'kırmızı']], ['Cem cebine ne koyar?', ['cüzdan', 'incir', 'kalem']]]), resimCiz()])],
+  'ş': () => [numarala([
+    sesiBul('ş', ['semsiye', 'saat', 'seker', 'sise', 'simit', 'sapka']),
+    harfYazma('ş')]),
+  numarala([
+    kelimeResim([['şemsiye', 'semsiye', 'balon', 'mantar'], ['şeker', 'seker', 'cilek', 'kek'], ['şişe', 'sise', 'bardak', 'vazo'], ['güneş', 'gunes', 'ay', 'yildiz']], 107),
+    cumleOku(['Şule, şemsiye al.', 'Şişe, masada.', 'Güneş ışıl ışıl.']),
+    yazKelime([['şeker', 'şişe'], ['kuş', 'güneş']])]),
+  numarala([
+    metin('Şemsiye', ['Şule okula gider.', 'Birden şimşek çakar.', 'Gökyüzü kararır.', 'Şule şemsiyesini açar.', 'Şemsiye, Şule\'yi ıslanmaktan korur.', 'Şule: İyi ki şemsiye almışım!']),
+    secmeli([['Şule nereye gider?', ['okula', 'markete', 'çarşıya']], ['Gökyüzünde ne çakar?', ['şimşek', 'güneş', 'ay']], ['Şule ne açar?', ['çanta', 'şemsiye', 'kutu']]]), resimCiz()])],
+  p: () => [numarala([
+    sesiBul('p', ['papagan', 'balon', 'palyaco', 'patates', 'bebek', 'pencere']),
+    harfYazma('p')]),
+  numarala([
+    kelimeResim([['top', 'top', 'balon', 'davul'], ['kitap', 'kitap', 'gazete', 'kalem'], ['piyano', 'piyano', 'gitar', 'davul'], ['sepet', 'sepet', 'kova', 'canta']], 109),
+    cumleOku(['Pelin, top oyna.', 'Pınar, pasta ye.', 'Pınar, patates soy.']),
+    yazKelime([['top', 'ip'], ['kitap', 'sepet']])]),
+  numarala([
+    metin('Palyaço', ['Pazar günü sirke gideriz.', 'Sirkte bir palyaço çıkar.', 'Palyaçonun burnu kırmızı.', 'Palyaço top ile oynar.', 'Palyaço, Pelin\'e bir top atar.', 'Pelin ile ben çok gülürüz.']),
+    secmeli([['Pazar günü nereye gideriz?', ['sirke', 'okula', 'markete']], ['Palyaçonun burnu ne renk?', ['mor', 'kırmızı', 'sarı']], ['Palyaço Pelin\'e ne atar?', ['top', 'balon', 'şapka']]]), resimCiz()])],
+  // ---------- 5. grup: H V Ğ F J — cümle tamamlama, uzun metin, açık uçlu soru + sıralama ----------
+  h: () => [numarala([
+    sesiBul('h', ['horoz', 'kedi', 'havuc', 'hediye', 'top', 'helikopter']),
+    harfYazma('h')]),
+  numarala([
+    kelimeResim([['horoz', 'horoz', 'tavuk', 'civciv'], ['hediye', 'hediye', 'kutu', 'canta'], ['helikopter', 'helikopter', 'ucak', 'roket']], 113),
+    cumleTamamla([['Horoz sabah erken ___.', ['öter', 'uçar']], ['Hediye bir ___ içinde.', ['kutu', 'şişe']], ['Helikopter gökyüzünde ___.', ['uçar', 'yüzer']]]),
+    yazKelime([['hediye', 'horoz'], ['Hakan', 'hemen']])]),
+  numarala([
+    metin('Hediye', ['Bugün Hakan\'ın yaş günü.', 'Hakan sekiz yaşında.', 'Annesi Hakan\'a bir hediye alır.', 'Hediye büyük bir kutu içinde.', 'Hakan kutuyu heyecanla açar.', 'Kutudan bir helikopter çıkar.', 'Hakan helikopteri hemen uçurur.', 'Hakan: Teşekkür ederim anne!'], 6.6),
+    acikUclu(['Bugün kimin yaş günü?', 'Annesi Hakan\'a ne alır?', 'Kutudan ne çıkar?']),
+    sirala(['Hakan kutuyu açar.', 'Annesi hediye alır.', 'Hakan helikopteri uçurur.'])])],
+  v: () => [numarala([
+    sesiBul('v', ['vazo', 'balon', 'valiz', 'vapur', 'fil', 'visne']),
+    harfYazma('v')]),
+  numarala([
+    kelimeResim([['vazo', 'vazo', 'sise', 'fincan'], ['kova', 'kova', 'sepet', 'canta'], ['tavuk', 'tavuk', 'horoz', 'ordek']], 127),
+    cumleTamamla([['Vazoda ___ var.', ['çiçek', 'balık']], ['Vapur denizde ___.', ['ilerler', 'uçar']], ['Tavuk ___ yumurtlar.', ['kümeste', 'denizde']]]),
+    yazKelime([['ev', 'kova'], ['vazo', 'valiz']])]),
+  numarala([
+    metin('Vapur', ['Veli ile ailesi tatile gider.', 'Valizlerini hazırlarlar.', 'İskeleye gelirler.', 'Büyük bir vapura binerler.', 'Vapur, denizde yavaş yavaş ilerler.', 'Veli, martılara simit atar.', 'Martılar havada simidi yakalar.', 'Veli: Vapur ne güzel!'], 6.6),
+    acikUclu(['Veli kimle tatile gider?', 'Veli martılara ne atar?', 'Vapur nerede ilerler?']),
+    sirala(['Vapura binerler.', 'Valizlerini hazırlarlar.', 'Veli martılara simit atar.'])])],
+  'ğ': () => [numarala([
+    sesiBul('ğ', ['dag', 'kedi', 'agac', 'yagmur', 'top', 'yogurt'], `Resimlerin adını söyle. Adında ${ses('ğ')} olan resimleri daire içine al. (${ses('ğ')} hiçbir kelimenin başında olmaz.)`),
+    harfYazma('ğ')]),
+  numarala([
+    kelimeResim([['dağ', 'dag', 'kale', 'cami'], ['ağaç', 'agac', 'cicek', 'yaprak'], ['kurbağa', 'kurbaga', 'kaplumbaga', 'balik']], 131),
+    cumleTamamla([['Dağın üstünde ___ var.', ['kar', 'deniz']], ['Yağmur ___ yağar.', ['buluttan', 'topraktan']], ['Ağaçta ___ var.', ['yaprak', 'balık']]]),
+    yazKelime([['dağ', 'ağaç'], ['yağmur', 'doğa']])]),
+  numarala([
+    metin('Yağmur', ['Sabah gökyüzü bulutlu.', 'Birden yağmur yağar.', 'Ağaçların yaprakları ıslanır.', 'Dağların üstü bembeyaz olur.', 'Kuşlar ağaca saklanır.', 'Doğa yıkanır, temizlenir.', 'Yağmur dinince gökkuşağı çıkar.'], 6.8),
+    acikUclu(['Sabah gökyüzü nasıl?', 'Kuşlar nereye saklanır?', 'Yağmur dinince ne çıkar?']),
+    sirala(['Gökkuşağı çıkar.', 'Gökyüzü bulutlu.', 'Yağmur yağar.'])])],
+  f: () => [numarala([
+    sesiBul('f', ['fil', 'vazo', 'fare', 'fener', 'valiz', 'fincan']),
+    harfYazma('f')]),
+  numarala([
+    kelimeResim([['fil', 'fil', 'zurafa', 'deve'], ['fare', 'fare', 'kedi', 'sincap'], ['fener', 'fener', 'mum', 'lamba'], ['fincan', 'fincan', 'bardak', 'cay']], 137),
+    cumleTamamla([['Fil ___ bir hayvan.', ['büyük', 'minik']], ['Fare ___ sever.', ['peynir', 'taş']], ['Feneri ___ yakarız.', ['gece', 'öğlen']]]),
+    yazKelime([['fil', 'fare'], ['fener', 'fincan']])]),
+  numarala([
+    metin('Fil ile Fare', ['Ormanda büyük bir fil yaşar.', 'Filin adı Fındık.', 'Bir gün Fındık, minik bir fareyle tanışır.', 'Farenin adı Fıstık.', 'Fıstık, Fındık\'ın hortumuna tırmanır.', 'Fındık, Fıstık\'ı ağaçtaki elmalara ulaştırır.', 'İki arkadaş elmaları paylaşır.', 'O günden sonra hiç ayrılmazlar.'], 6.4),
+    acikUclu(['Filin adı ne?', 'Farenin adı ne?', 'İki arkadaş neyi paylaşır?']),
+    sirala(['Fıstık hortuma tırmanır.', 'Fındık ile Fıstık tanışır.', 'İki arkadaş elmaları paylaşır.'])])],
+  j: () => [numarala([
+    sesiBul('j', ['jole', 'kedi', 'garaj', 'plaj', 'top', 'jeton'], `Resimlerin adını söyle. Adında ${ses('j')} olan resimleri daire içine al.`),
+    harfYazma('j')]),
+  numarala([
+    kelimeResim([['jöle', 'jole', 'dondurma', 'yogurt'], ['garaj', 'garaj', 'ev', 'cami'], ['plaj', 'plaj', 'dag', 'agac']], 139),
+    cumleTamamla([['Arabayı ___ park ederiz.', ['garaja', 'denize']], ['Yazın ___ gideriz.', ['plaja', 'kayağa']], ['Annem bana bir ___ yolladı.', ['mesaj', 'plaj']]]),
+    yazKelime([['jöle', 'jeton'], ['garaj', 'plaj']])]),
+  numarala([
+    metin('Plajda Bir Gün', ['Yaz tatilinde ailecek plaja gittik.', 'Babam arabayı garaja park etti.', 'Ben kumdan bir kale yaptım.', 'Kardeşim Jale denizde yüzdü.', 'Annem bize soğuk jöle getirdi.', 'Jöle çok lezzetliydi.', 'Akşam güneş batarken eve döndük.', 'Bu güzel günü hiç unutmayacağım.'], 6.4),
+    acikUclu(['Aile nereye gitti?', 'Jale ne yaptı?', 'Annem ne getirdi?']),
+    sirala(['Eve döndük.', 'Plaja gittik.', 'Kumdan kale yaptım.'])])],
+};
+
+
+if (process.env.YON_ONIZLE) HARF._yon = () => {
+  const L = [...process.env.YON_ONIZLE], S2 = d => satir(d, 186, 13);
+  const sayfalar = [];
+  for (let i = 0; i < L.length; i += 6) sayfalar.push(L.slice(i, i + 6).map(h => { const H = B(h);
+    return S2([[H, 'model'], [H, 'iz'], [h, 'model'], [h, 'iz'], [h, 'iz']]); }).join(''));
+  return sayfalar;
 };
 
 const CSS = `
@@ -310,7 +549,7 @@ const CSS = `
 *{box-sizing:border-box}
 body{margin:0;color:#1f2a24;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .ttkb{font-family:TTKB,sans-serif}
-.sayfa{width:210mm;height:297mm;padding:10mm 12mm 8mm;display:flex;flex-direction:column;gap:4mm;page-break-after:always;overflow:hidden}
+.sayfa{width:210mm;height:297mm;padding:10mm 12mm 8mm;display:flex;flex-direction:column;gap:3.5mm;page-break-after:always;overflow:hidden}
 header{display:flex;justify-content:space-between;align-items:center;border-bottom:.6mm solid #2e6b4a;padding-bottom:3mm}
 .baslik{display:flex;align-items:center;gap:3mm}
 .ladin{width:9mm}
@@ -336,6 +575,7 @@ img{width:100%;height:100%;object-fit:contain}
 .satir{display:block}
 .c-ust{stroke:#6f9a7f;stroke-width:22}
 .c-alt{stroke:#c0392b;stroke-width:24}
+.c-kuyruk{stroke:#b9cbbf;stroke-width:14;stroke-dasharray:20 30}
 .c-orta{stroke:#86a891;stroke-width:16;stroke-dasharray:50 34}
 .balonlar{display:grid;grid-template-columns:repeat(12,1fr);gap:2mm 2.4mm}
 .balonlar span{aspect-ratio:1;border:.5mm solid #4a5a50;border-radius:50%;display:grid;place-items:center;font-size:7.5mm;line-height:1;padding-top:.6mm}
@@ -378,6 +618,31 @@ img{width:100%;height:100%;object-fit:contain}
 .hikaye b,.merdiven li b{color:#c0392b;font-weight:400}
 .cizim-etk{flex:1;display:flex;flex-direction:column}
 .cizim{flex:1;border:.5mm dashed #9fb8a6;border-radius:4mm}
+.metin p{font-size:var(--mb,7.8mm)!important}
+.dy{display:flex;flex-direction:column;gap:2mm}
+.dy div{display:flex;align-items:center;gap:4mm;border-bottom:.3mm dashed #cfd8d1;padding-bottom:1mm}
+.dy span{flex:1;font-size:7.2mm}
+.dy i{font-style:normal;width:10mm;height:10mm;border:.5mm solid #4a5a50;border-radius:2mm;display:grid;place-items:center;font:700 6mm Andika,sans-serif;color:#9aa59d}
+.secmeli{display:flex;flex-direction:column;gap:3mm}
+.secmeli p,.acik p,.tamamla p{margin:0 0 1.5mm;font-size:6.6mm}
+.secmeli p b,.acik p b{color:#2e6b4a;font-weight:400}
+.secmeli>div>div{display:flex;gap:8mm;padding-left:6mm}
+.secmeli>div>div>span{display:flex;align-items:center;gap:2mm;font-size:6.6mm}
+.secmeli i{width:5.5mm;height:5.5mm;border:.5mm solid #4a5a50;border-radius:50%}
+.acik{display:flex;flex-direction:column;gap:2mm}
+.sirala{display:flex;flex-direction:column;gap:2mm}
+.sirala div{display:flex;align-items:center;gap:4mm}
+.sirala i{width:10mm;height:10mm;border:.5mm solid #4a5a50;border-radius:2mm;flex:none}
+.sirala span{font-size:6.8mm}
+.kr{display:flex;flex-direction:column;gap:2mm}
+.kr>div{display:grid;grid-template-columns:44mm repeat(3,1fr);gap:4mm;align-items:center;border-bottom:.3mm dashed #cfd8d1;padding-bottom:1.5mm}
+.kr b{font-size:9mm;font-weight:400}
+.kr span{height:21mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:1.5mm;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.kr span img{width:auto;height:100%;max-width:100%;object-fit:contain}
+.tamamla{display:flex;flex-direction:column;gap:3mm}
+.tamamla u{display:inline-block;width:42mm;border-bottom:.5mm solid #4a5a50;margin:0 2mm}
+.tamamla>div>div{display:flex;gap:4mm;padding-left:6mm}
+.tamamla>div>div span{border:.4mm solid #4a5a50;border-radius:999px;padding:.5mm 4mm;font-size:6mm}
 footer{margin-top:auto;display:flex;justify-content:space-between;font:3.2mm Andika,sans-serif;color:#6b7a70;border-top:.3mm solid #dbe6d4;padding-top:2mm}
 `;
 const OKLAR = `<svg width="0" height="0" style="position:absolute"><defs>
@@ -399,10 +664,13 @@ const SAYFALAR = {};
 (async () => {
   const istenen = process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(HARF);
   fs.mkdirSync(CIKTI, { recursive: true });
+  if (process.env.SADECE_KONTROL) { for (const h of istenen) { AKTIF = h; HARF[h](); AKTIF = null; }
+    console.log(HATALAR.length ? HATALAR.join('\n') : 'denetim temiz: ' + istenen.join(' ')); process.exit(HATALAR.length ? 1 : 0); }
   const srv = await sunucu(), port = srv.address().port;
   const b = await chromium.launch();
   for (const h of istenen) {
-    const govdeler = HARF[h]();
+    AKTIF = h === '_yon' ? null : h; const govdeler = HARF[h](); AKTIF = null;
+    if (HATALAR.length) break;
     const html = `<!doctype html><html lang="tr"><meta charset="utf-8"><style>${CSS}</style><body>${OKLAR}<script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('path.iz').forEach(p=>{const n=Math.max(3,Math.round(p.getTotalLength()/80));p.setAttribute('pathLength',n);p.setAttribute('stroke-dasharray','0 1');const L=p.getTotalLength(),e=p.getPointAtLength(L),c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',e.x);c.setAttribute('cy',e.y);c.setAttribute('r',22);c.setAttribute('fill','#8a8f8b');p.after(c);}));</script>${govdeler.map((g, i) => sayfa({ harf: h, govde: g, no: i + 1, toplam: govdeler.length })).join('')}</body></html>`;
     SAYFALAR[h] = html;
     const p = await b.newPage({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 2 });
@@ -428,4 +696,5 @@ const SAYFALAR = {};
     await p.close();
   }
   await b.close(); srv.close();
+  if (HATALAR.length) { console.log('ÖĞRETİLMEMİŞ HARF:\n' + HATALAR.join('\n')); process.exit(1); }
 })();
