@@ -119,14 +119,14 @@
     }).join("");
     var ipucu = mebHarf.length ? " MEB planında bu hafta: " + mebHarf.join(", ") + "." : "";
     document.getElementById("yol-not").textContent = (secHarf
-      ? "Seçili durak: " + secHarf + ". Bu harfin çalışma kağıtları gösterilir (hafta seçiminden bağımsız)."
+      ? "Seçili durak: " + secHarf + ". Bu harfin çalışma kağıdı gösterilir. Bütün kağıtları ve toplu paketleri görmek için " + secHarf + " durağına yeniden dokunun."
       : "Sınıfınızın bulunduğu harfe dokunun. Seçiminiz bu cihazda saklanır.") + ipucu;
     dk.querySelectorAll(".durak").forEach(function(b){ if (mebHarf.indexOf(b.dataset.h) >= 0) b.classList.add("meb"); });
     var s = dk.querySelector(".secili"); if (s) s.scrollIntoView({block:"nearest", inline:"center"});
   }
   dk.addEventListener("click", function(e){
     var b = e.target.closest(".durak"); if (!b) return;
-    secHarf = b.dataset.h; LADIN.sakla(ANAHTAR, secHarf);
+    secHarf = secHarf === b.dataset.h ? null : b.dataset.h; LADIN.sakla(ANAHTAR, secHarf);   // seçili harfe yeniden dokunmak seçimi kaldırır
     // Harfe dokunmak "bu harfin kağıtlarını göster" demek: Türkçe dışı ders filtresi kalkar, Çalışma Kağıtları açılır.
     if (ayar.ders && ayar.ders !== "turkce") { ayar.ders = ""; fD.value = ""; uniteDoldur(); kaydet(); }
     yolCiz(); if (ayar.tur !== "calisma") sekmeSec("calisma"); else listeCiz();
