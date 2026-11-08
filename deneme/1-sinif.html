@@ -166,7 +166,7 @@
       .map(function(h){ return '<option value="'+h.hafta+'">'+h.hafta+'. hafta · '+h.tarih+'</option>'; }).join("");
     fH.value = ayar.hafta == null ? "" : String(ayar.hafta);
   }
-  fD.addEventListener("change", function(){ ayar.ders = fD.value; uniteDoldur(); kaydet(); listeCiz(); });
+  fD.addEventListener("change", function(){ ayar.ders = fD.value; ayar.unite = ""; ayar.hafta = ""; fH.value = ""; uniteDoldur(); kaydet(); listeCiz(); });   // ders değişince o dersin bütün kağıtları
   fU.addEventListener("change", function(){ ayar.unite = fU.value; kaydet(); listeCiz(); });
   fH.addEventListener("change", function(){ ayar.hafta = fH.value ? +fH.value : ""; kaydet(); listeCiz(); });
 
