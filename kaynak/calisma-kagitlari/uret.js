@@ -260,7 +260,7 @@ const HARF = {
   numarala([akici('k')])],
   u: () => [numarala([
     sesiBul('u', ['ucak', 'kedi', 'ucurtma', 'un', 'top', 'ugur']),
-    sesYeri('u', [['un', 0], ['ucak', 0], ['kus', 1], ['tavuk', 1], ['lokum', 1], ['kulak', 1]]),
+    sesYeri('u', [['un', 0], ['ucak', 0], ['kus', 1], ['tavuk', 1], ['lokum', 1], ['boru', 2]]),
     harfYazma('u')]),
   numarala([
     heceOku([['un', 'nu', 'ut', 'tu', 'uk', 'ku'], ['ul', 'lu', 'kut', 'kul', 'tut', 'kutu']]),

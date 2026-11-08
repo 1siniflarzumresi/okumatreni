@@ -128,20 +128,59 @@
   "resim": "materyaller/1-sinif/turkce/u-onizleme.png"
  },
  {
-  "id": "tr-oku",
+  "id": "tr-r",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "turkce",
+  "unite": "Çevremizdeki Yaşam",
+  "hafta": 10,
+  "harf": "R",
+  "baslik": "Rr sesi çalışma kağıdı (4 sayfa, akıcı okuma ve hikâye dahil)",
+  "dosya": "materyaller/1-sinif/turkce/r.pdf",
+  "resim": "materyaller/1-sinif/turkce/r-onizleme.png"
+ },
+ {
+  "id": "tr-ı",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "turkce",
+  "unite": "Çevremizdeki Yaşam",
+  "hafta": 10,
+  "harf": "I",
+  "baslik": "Iı sesi çalışma kağıdı (4 sayfa, akıcı okuma ve hikâye dahil)",
+  "dosya": "materyaller/1-sinif/turkce/ı.pdf",
+  "resim": "materyaller/1-sinif/turkce/ı-onizleme.png"
+ },
+ {
+  "id": "tr-m",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "turkce",
+  "unite": "Çevremizdeki Yaşam",
+  "hafta": 11,
+  "harf": "M",
+  "baslik": "Mm sesi çalışma kağıdı (4 sayfa, akıcı okuma ve hikâye dahil)",
+  "dosya": "materyaller/1-sinif/turkce/m.pdf",
+  "resim": "materyaller/1-sinif/turkce/m-onizleme.png"
+ },
+ {
+  "id": "tr-okurim",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": null,
   "hafta": null,
-  "harf": "O–U",
+  "harf": "O–M",
   "harfler": [
    "O",
    "K",
-   "U"
+   "U",
+   "R",
+   "I",
+   "M"
   ],
-  "baslik": "O K U toplu paket (9 sayfa)",
-  "dosya": "materyaller/1-sinif/turkce/o-k-u.pdf",
+  "baslik": "O K U R I M toplu paket (21 sayfa)",
+  "dosya": "materyaller/1-sinif/turkce/o-k-u-r-ı-m.pdf",
   "resim": "materyaller/1-sinif/turkce/o-onizleme.png"
  }
 ]
