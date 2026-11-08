@@ -126,7 +126,10 @@
   }
   dk.addEventListener("click", function(e){
     var b = e.target.closest(".durak"); if (!b) return;
-    secHarf = b.dataset.h; LADIN.sakla(ANAHTAR, secHarf); yolCiz(); listeCiz();
+    secHarf = b.dataset.h; LADIN.sakla(ANAHTAR, secHarf);
+    // Harfe dokunmak "bu harfin kağıtlarını göster" demek: Türkçe dışı ders filtresi kalkar, Çalışma Kağıtları açılır.
+    if (ayar.ders && ayar.ders !== "turkce") { ayar.ders = ""; fD.value = ""; uniteDoldur(); kaydet(); }
+    yolCiz(); if (ayar.tur !== "calisma") sekmeSec("calisma"); else listeCiz();
   });
 
   // Sekmeler
