@@ -367,8 +367,8 @@ const HARF = {
     metin('Simit', ['Selin simit alır.', 'Simit susamlı.', 'Selin süt ister.', 'Annesi Selin\'e süt alır.', 'Selin mutlu olur.']),
     dogruYanlis([['Selin simit alır.', true], ['Simit susamlı.', true], ['Selin limon ister.', false]]), resimCiz()])],
   'ö': () => [numarala([
-    sesiBul('ö', ['ordek', 'otobus', 'orumcek', 'odul', 'ok', 'ogretmen']),
-    sesYeri('ö', [['ordek', 0], ['odul', 0], ['kopru', 1], ['goz', 1], ['borek', 1], ['kopek', 1]]),
+    sesiBul('ö', ['ordek', 'otobus', 'orumcek', 'top', 'ok', 'ogretmen']),
+    sesYeri('ö', [['ordek', 0], ['ogretmen', 0], ['kopru', 1], ['goz', 1], ['borek', 1], ['kopek', 1]]),
     harfYazma('ö')]),
   numarala([
     heceOku([['ön', 'nö', 'öt', 'tö', 'ök', 'kö'], ['ör', 'rö', 'öm', 'mö', 'kök', 'ömür']]),
@@ -417,7 +417,7 @@ const HARF = {
   // ---------- 4. grup: Ç B G C Ş P — kelime-resim, okuma metni + çoktan seçmeli ----------
   'ç': () => [numarala([
     sesiBul('ç', ['cicek', 'ceket', 'canta', 'catal', 'top', 'cilek']),
-    harfYazma('ç')]),
+    harfYazma('ç'), harfAvi('ç', 36)]),
   numarala([
     kelimeResim([['çiçek', 'cicek', 'kedi', 'top'], ['çanta', 'canta', 'kova', 'sepet'], ['çatal', 'catal', 'kasik', 'makas'], ['çilek', 'cilek', 'domates', 'visne']], 89),
     cumleOku(['Çiçek, çay iç.', 'Nur, çatal ile domates yer.', 'Arda, çanta al.']),
@@ -427,7 +427,7 @@ const HARF = {
     secmeli([['Çiçek kim ile çimenlikte?', ['annesi', 'dedesi', 'kedisi']], ['Çiçek ne koklar?', ['çiçek', 'çay', 'çilek']], ['Çiçek ile annesi ne içer?', ['süt', 'çay', 'ayran']]]), resimCiz()])],
   b: () => [numarala([
     sesiBul('b', ['balon', 'palyaco', 'bebek', 'bulut', 'top', 'bardak']),
-    harfYazma('b')]),
+    harfYazma('b'), harfAvi('b', 36)]),
   numarala([
     kelimeResim([['balık', 'balik', 'kedi', 'ordek'], ['balon', 'balon', 'yumurta', 'zil'], ['bebek', 'bebek', 'ogretmen', 'anne'], ['robot', 'robot', 'davul', 'kutu']], 97),
     cumleOku(['Bora, balon al.', 'Bebek, mama ister.', 'Bulut bembeyaz.']),
@@ -437,7 +437,7 @@ const HARF = {
     secmeli([['Bora ne alır?', ['balon', 'balık', 'bebek']], ['Balon ne renk?', ['mor', 'kırmızı', 'sarı']], ['Balon nereye uçar?', ['bulutlara', 'denize', 'okula']]]), resimCiz()])],
   g: () => [numarala([
     sesiBul('g', ['gemi', 'kedi', 'gozluk', 'gitar', 'kale', 'gunes']),
-    harfYazma('g')]),
+    harfYazma('g'), harfAvi('g', 36)]),
   numarala([
     kelimeResim([['gemi', 'gemi', 'otobus', 'ucak'], ['gözlük', 'gozluk', 'ayna', 'saat'], ['gül', 'gul', 'lale', 'yaprak'], ['gitar', 'gitar', 'davul', 'zil']], 101),
     cumleOku(['Gül, gemi ile gider.', 'Gökay gözlük takar.', 'Ege, gitar çal.']),
@@ -447,7 +447,7 @@ const HARF = {
     secmeli([['Ege kim ile gemiye biner?', ['annesi', 'dedesi', 'ablası']], ['Gökyüzünde ne uçar?', ['martılar', 'balonlar', 'arılar']], ['Ege ne takar?', ['kolye', 'gözlük', 'önlük']]]), resimCiz()])],
   c: () => [numarala([
     sesiBul('c', ['ceket', 'canta', 'civciv', 'cuzdan', 'cilek', 'cami']),
-    harfYazma('c')]),
+    harfYazma('c'), harfAvi('c', 36)]),
   numarala([
     kelimeResim([['incir', 'incir', 'muz', 'limon'], ['cami', 'cami', 'kale', 'ev'], ['ceket', 'ceket', 'kazak', 'etek'], ['cüzdan', 'cuzdan', 'canta', 'kutu']], 103),
     cumleOku(['Cem, ceket giy.', 'Ceren, incir ye.', 'Cüzdan, çantada.']),
@@ -457,7 +457,7 @@ const HARF = {
     secmeli([['Cem ne giyer?', ['ceket', 'kazak', 'önlük']], ['Ceket ne renk?', ['sarı', 'mor', 'kırmızı']], ['Cem cebine ne koyar?', ['cüzdan', 'incir', 'kalem']]]), resimCiz()])],
   'ş': () => [numarala([
     sesiBul('ş', ['semsiye', 'saat', 'seker', 'sise', 'simit', 'sapka']),
-    harfYazma('ş')]),
+    harfYazma('ş'), harfAvi('ş', 36)]),
   numarala([
     kelimeResim([['şemsiye', 'semsiye', 'balon', 'mantar'], ['şeker', 'seker', 'cilek', 'kek'], ['şişe', 'sise', 'bardak', 'vazo'], ['güneş', 'gunes', 'ay', 'yildiz']], 107),
     cumleOku(['Şule, şemsiye al.', 'Şişe, masada.', 'Güneş ışıl ışıl.']),
@@ -467,7 +467,7 @@ const HARF = {
     secmeli([['Şule nereye gider?', ['okula', 'markete', 'çarşıya']], ['Gökyüzünde ne çakar?', ['şimşek', 'güneş', 'ay']], ['Şule ne açar?', ['çanta', 'şemsiye', 'kutu']]]), resimCiz()])],
   p: () => [numarala([
     sesiBul('p', ['papagan', 'balon', 'palyaco', 'patates', 'bebek', 'pencere']),
-    harfYazma('p')]),
+    harfYazma('p'), harfAvi('p', 36)]),
   numarala([
     kelimeResim([['top', 'top', 'balon', 'davul'], ['kitap', 'kitap', 'gazete', 'kalem'], ['piyano', 'piyano', 'gitar', 'davul'], ['sepet', 'sepet', 'kova', 'canta']], 109),
     cumleOku(['Pelin, top oyna.', 'Pınar, pasta ye.', 'Pınar, patates soy.']),
@@ -478,7 +478,7 @@ const HARF = {
   // ---------- 5. grup: H V Ğ F J — cümle tamamlama, uzun metin, açık uçlu soru + sıralama ----------
   h: () => [numarala([
     sesiBul('h', ['horoz', 'kedi', 'havuc', 'hediye', 'top', 'helikopter']),
-    harfYazma('h')]),
+    harfYazma('h'), harfAvi('h', 36)]),
   numarala([
     kelimeResim([['horoz', 'horoz', 'tavuk', 'civciv'], ['hediye', 'hediye', 'kutu', 'canta'], ['helikopter', 'helikopter', 'ucak', 'roket']], 113),
     cumleTamamla([['Horoz sabah erken ___.', ['öter', 'uçar']], ['Hediye bir ___ içinde.', ['kutu', 'şişe']], ['Helikopter gökyüzünde ___.', ['uçar', 'yüzer']]]),
@@ -489,7 +489,7 @@ const HARF = {
     sirala(['Hakan kutuyu açar.', 'Annesi hediye alır.', 'Hakan helikopteri uçurur.'])])],
   v: () => [numarala([
     sesiBul('v', ['vazo', 'balon', 'valiz', 'vapur', 'fil', 'visne']),
-    harfYazma('v')]),
+    harfYazma('v'), harfAvi('v', 36)]),
   numarala([
     kelimeResim([['vazo', 'vazo', 'sise', 'fincan'], ['kova', 'kova', 'sepet', 'canta'], ['tavuk', 'tavuk', 'horoz', 'ordek']], 127),
     cumleTamamla([['Vazoda ___ var.', ['çiçek', 'balık']], ['Vapur denizde ___.', ['ilerler', 'uçar']], ['Tavuk ___ yumurtlar.', ['kümeste', 'denizde']]]),
@@ -500,7 +500,7 @@ const HARF = {
     sirala(['Vapura binerler.', 'Valizlerini hazırlarlar.', 'Veli martılara simit atar.'])])],
   'ğ': () => [numarala([
     sesiBul('ğ', ['dag', 'kedi', 'agac', 'yagmur', 'top', 'yogurt'], `Resimlerin adını söyle. Adında ${ses('ğ')} olan resimleri daire içine al. (${ses('ğ')} hiçbir kelimenin başında olmaz.)`),
-    harfYazma('ğ')]),
+    harfYazma('ğ'), harfAvi('ğ', 36)]),
   numarala([
     kelimeResim([['dağ', 'dag', 'kale', 'cami'], ['ağaç', 'agac', 'cicek', 'yaprak'], ['kurbağa', 'kurbaga', 'kaplumbaga', 'balik']], 131),
     cumleTamamla([['Dağın üstünde ___ var.', ['kar', 'deniz']], ['Yağmur ___ yağar.', ['buluttan', 'topraktan']], ['Ağaçta ___ var.', ['yaprak', 'balık']]]),
@@ -511,7 +511,7 @@ const HARF = {
     sirala(['Gökkuşağı çıkar.', 'Gökyüzü bulutlu.', 'Yağmur yağar.'])])],
   f: () => [numarala([
     sesiBul('f', ['fil', 'vazo', 'fare', 'fener', 'valiz', 'fincan']),
-    harfYazma('f')]),
+    harfYazma('f'), harfAvi('f', 36)]),
   numarala([
     kelimeResim([['fil', 'fil', 'zurafa', 'deve'], ['fare', 'fare', 'kedi', 'sincap'], ['fener', 'fener', 'mum', 'lamba'], ['fincan', 'fincan', 'bardak', 'cay']], 137),
     cumleTamamla([['Fil ___ bir hayvan.', ['büyük', 'minik']], ['Fare ___ sever.', ['peynir', 'taş']], ['Feneri ___ yakarız.', ['gece', 'öğlen']]]),
@@ -522,7 +522,7 @@ const HARF = {
     sirala(['Fıstık hortuma tırmanır.', 'Fındık ile Fıstık tanışır.', 'İki arkadaş elmaları paylaşır.'])])],
   j: () => [numarala([
     sesiBul('j', ['jole', 'kedi', 'garaj', 'plaj', 'top', 'jeton'], `Resimlerin adını söyle. Adında ${ses('j')} olan resimleri daire içine al.`),
-    harfYazma('j')]),
+    harfYazma('j'), harfAvi('j', 36)]),
   numarala([
     kelimeResim([['jöle', 'jole', 'dondurma', 'yogurt'], ['garaj', 'garaj', 'ev', 'cami'], ['plaj', 'plaj', 'dag', 'agac']], 139),
     cumleTamamla([['Arabayı ___ park ederiz.', ['garaja', 'denize']], ['Yazın ___ gideriz.', ['plaja', 'kayağa']], ['Annem bana bir ___ yolladı.', ['mesaj', 'plaj']]]),
