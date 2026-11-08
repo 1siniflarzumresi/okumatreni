@@ -445,5 +445,104 @@
   "baslik": "H V Ğ F J toplu paket",
   "dosya": "materyaller/1-sinif/turkce/h-v-ğ-f-j.pdf",
   "resim": "materyaller/1-sinif/turkce/h-onizleme.png"
+ },
+ {
+  "id": "mat-rakamlar",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 5,
+  "baslik": "Rakamları yazalım (0-9)",
+  "dosya": "materyaller/1-sinif/matematik/rakamlar.pdf",
+  "resim": "materyaller/1-sinif/matematik/rakamlar-onizleme.png"
+ },
+ {
+  "id": "mat-sayma-10",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 5,
+  "baslik": "1-10 sayalım",
+  "dosya": "materyaller/1-sinif/matematik/sayma-10.pdf",
+  "resim": "materyaller/1-sinif/matematik/sayma-10-onizleme.png"
+ },
+ {
+  "id": "mat-sayma-20",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 6,
+  "baslik": "11-20 sayalım",
+  "dosya": "materyaller/1-sinif/matematik/sayma-20.pdf",
+  "resim": "materyaller/1-sinif/matematik/sayma-20-onizleme.png"
+ },
+ {
+  "id": "mat-sira",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 8,
+  "baslik": "Sıra bildiren sayılar",
+  "dosya": "materyaller/1-sinif/matematik/sira.pdf",
+  "resim": "materyaller/1-sinif/matematik/sira-onizleme.png"
+ },
+ {
+  "id": "mat-karsilastirma",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 10,
+  "baslik": "Çok mu? Az mı? Eşit mi?",
+  "dosya": "materyaller/1-sinif/matematik/karsilastirma.pdf",
+  "resim": "materyaller/1-sinif/matematik/karsilastirma-onizleme.png"
+ },
+ {
+  "id": "mat-ritmik",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 11,
+  "baslik": "Ritmik saymalar",
+  "dosya": "materyaller/1-sinif/matematik/ritmik.pdf",
+  "resim": "materyaller/1-sinif/matematik/ritmik-onizleme.png"
+ },
+ {
+  "id": "mat-oruntu",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 12,
+  "baslik": "Sayı ve şekil örüntüleri",
+  "dosya": "materyaller/1-sinif/matematik/oruntu.pdf",
+  "resim": "materyaller/1-sinif/matematik/oruntu-onizleme.png"
+ },
+ {
+  "id": "mat-tahmin",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 14,
+  "baslik": "Tahmin edelim",
+  "dosya": "materyaller/1-sinif/matematik/tahmin.pdf",
+  "resim": "materyaller/1-sinif/matematik/tahmin-onizleme.png"
+ },
+ {
+  "id": "mat-sn1",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": null,
+  "baslik": "Sayılar ve Nicelikler (1) toplu paket",
+  "dosya": "materyaller/1-sinif/matematik/sayilar-ve-nicelikler-1.pdf",
+  "resim": "materyaller/1-sinif/matematik/sayma-10-onizleme.png"
  }
 ]
