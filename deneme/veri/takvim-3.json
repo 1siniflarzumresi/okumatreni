@@ -1,0 +1,4524 @@
+{
+ "egitim_yili": "2026-2027",
+ "sinif": 3,
+ "kaynak": "MEB 3. sınıf Türkçe, Matematik, Hayat Bilgisi, Fen Bilimleri taslak yıllık planları (2026-2027)",
+ "uniteler": {
+  "turkce": [
+   {
+    "ad": "DEĞERLERİMİZLE YAŞIYORUZ",
+    "baslangic": "2026-09-21",
+    "bitis": "2026-10-16"
+   },
+   {
+    "ad": "ATATÜRK VE KAHRAMANLARIMIZ",
+    "baslangic": "2026-10-12",
+    "bitis": "2026-11-13"
+   },
+   {
+    "ad": "DOĞAYI TANIYORUZ",
+    "baslangic": "2026-11-23",
+    "bitis": "2026-12-18"
+   },
+   {
+    "ad": "BİLGİ HAZİNEMİZ",
+    "baslangic": "2026-12-14",
+    "bitis": "2027-01-15"
+   },
+   {
+    "ad": "YETENEKLERİMİZİ KULLANIYORUZ",
+    "baslangic": "2027-02-15",
+    "bitis": "2027-03-05"
+   },
+   {
+    "ad": "YETENEKLERİMİZİ KULLANIYORUZ. 6. TEMA: BİLİM YOLCULUĞU",
+    "baslangic": "2027-03-15",
+    "bitis": "2027-03-19"
+   },
+   {
+    "ad": "BİLİM YOLCULUĞU",
+    "baslangic": "2027-03-22",
+    "bitis": "2027-04-16"
+   },
+   {
+    "ad": "MİLLÎ KÜLTÜRÜMÜZ",
+    "baslangic": "2027-04-19",
+    "bitis": "2027-05-14"
+   },
+   {
+    "ad": "HAK VE SORUMLULUKLARIMIZ",
+    "baslangic": "2027-05-10",
+    "bitis": "2027-06-04"
+   }
+  ],
+  "matematik": [
+   {
+    "ad": "SAYILAR VE NİCELİKLER (1)",
+    "baslangic": "2026-09-14",
+    "bitis": "2026-10-23"
+   },
+   {
+    "ad": "SAYILAR VE NİCELİKLER (2)",
+    "baslangic": "2026-10-19",
+    "bitis": "2026-12-25"
+   },
+   {
+    "ad": "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE",
+    "baslangic": "2027-01-04",
+    "bitis": "2027-04-16"
+   },
+   {
+    "ad": "NESNELERİN GEOMETRİSİ (1)",
+    "baslangic": "2027-04-12",
+    "bitis": "2027-05-14"
+   },
+   {
+    "ad": "NESNELERİN GEOMETRİSİ (2)",
+    "baslangic": "2027-05-10",
+    "bitis": "2027-05-21"
+   },
+   {
+    "ad": "VERİYE DAYALI ARAŞTIRMA",
+    "baslangic": "2027-05-31",
+    "bitis": "2027-06-18"
+   }
+  ],
+  "hayat_bilgisi": [
+   {
+    "ad": "BEN VE OKULUM",
+    "baslangic": "2026-09-14",
+    "bitis": "2026-10-23"
+   },
+   {
+    "ad": "SAĞLIĞIM VE GÜVENLİĞİM",
+    "baslangic": "2026-10-26",
+    "bitis": "2026-12-18"
+   },
+   {
+    "ad": "AİLEM VE TOPLUM",
+    "baslangic": "2026-12-14",
+    "bitis": "2027-02-12"
+   },
+   {
+    "ad": "YAŞADIĞIM YER VE ÜLKEM",
+    "baslangic": "2027-02-08",
+    "bitis": "2027-04-02"
+   },
+   {
+    "ad": "DOĞA VE ÇEVRE",
+    "baslangic": "2027-04-05",
+    "bitis": "2027-05-14"
+   },
+   {
+    "ad": "BİLİM, TEKNOLOJİ VE SANAT",
+    "baslangic": "2027-05-17",
+    "bitis": "2027-06-18"
+   }
+  ],
+  "fen_bilimleri": [
+   {
+    "ad": "BİLİMSEL KEŞİF YOLCULUĞU",
+    "baslangic": "2026-09-14",
+    "bitis": "2026-10-02"
+   },
+   {
+    "ad": "CANLILAR DÜNYASINA YOLCULUK",
+    "baslangic": "2026-10-05",
+    "bitis": "2026-11-13"
+   },
+   {
+    "ad": "YER BİLİMCİLER İŞ BAŞINDA",
+    "baslangic": "2026-11-09",
+    "bitis": "2026-12-18"
+   },
+   {
+    "ad": "MADDEYİ TANIYALIM, KARIŞTIRIP AYIRALIM",
+    "baslangic": "2026-12-14",
+    "bitis": "2027-02-12"
+   },
+   {
+    "ad": "HAREKETİ KEŞFEDİYORUM",
+    "baslangic": "2027-02-08",
+    "bitis": "2027-03-19"
+   },
+   {
+    "ad": "YAŞAMIMIZI KOLAYLAŞTIRAN ELEKTRİK",
+    "baslangic": "2027-03-15",
+    "bitis": "2027-04-16"
+   },
+   {
+    "ad": "TOPRAĞI TANIYORUM, TARIMI KEŞFEDİYORUM",
+    "baslangic": "2027-04-12",
+    "bitis": "2027-05-14"
+   },
+   {
+    "ad": "CANLILARIN YAŞAM ALANLARINA YOLCULUK",
+    "baslangic": "2027-05-10",
+    "bitis": "2027-06-18"
+   }
+  ]
+ },
+ "haftalar": [
+  {
+   "hafta": 1,
+   "etiket": "1. Hafta",
+   "tarih": "14-18 Eylül",
+   "baslangic": "2026-09-14",
+   "bitis": "2026-09-18",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "HATIRLATMA HAFTASI"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.4",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Sayılar",
+      "Sayıları Çözümleme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.1",
+       "ad": "Niceliklerin büyüklüklerine karşılık gelen 1000’e kadar olan sayıların temsillerinden yararlanabilme"
+      },
+      {
+       "kod": "MAT.3.1.2",
+       "ad": "1000’e kadar olan sayıları çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BEN VE OKULUM"
+     ],
+     "konu": [
+      "Güçlü ve Gelişime Açık Alanlar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.1.1",
+       "ad": "Güçlü ve gelişime açık olduğu alanlara karar verebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "BİLİMSEL KEŞİF YOLCULUĞU"
+     ],
+     "konu": [
+      "Bilimsel Bilgiye Ulaşma Yolları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.1.1",
+       "ad": "Bilimsel bilgiye ulaşma yollarını sorgulayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "İlköğretim Haftası",
+    "OB1. Bilgi Okuryazarlığı"
+   ]
+  },
+  {
+   "hafta": 2,
+   "etiket": "2. Hafta",
+   "tarih": "21-25 Eylül",
+   "baslangic": "2026-09-21",
+   "bitis": "2026-09-25",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DEĞERLERİMİZLE YAŞIYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Sayıları Sıralama",
+      "Ritmik Sayma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.3",
+       "ad": "Sayıları sıralayabilme"
+      },
+      {
+       "kod": "MAT.3.1.4",
+       "ad": "Sayıları ileriye ve geriye doğru ritmik sayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BEN VE OKULUM"
+     ],
+     "konu": [
+      "Güçlü ve Gelişime Açık Alanlar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.1.1",
+       "ad": "Güçlü ve gelişime açık olduğu alanlara karar verebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "BİLİMSEL KEŞİF YOLCULUĞU"
+     ],
+     "konu": [
+      "Bilimsel Bilgiye Ulaşma Yolları",
+      "Bilim İnsanlarının Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.1.1",
+       "ad": "Bilimsel bilgiye ulaşma yollarını sorgulayabilme"
+      },
+      {
+       "kod": "FB.3.1.2",
+       "ad": "Bilim insanlarının özelliklerini genelleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "15 Temmuz Demokrasi ve Millî Birlik Günü",
+    "Zafer Bayramı",
+    "15 Temmuz Demokrasi ve Milli Birlik Günü"
+   ]
+  },
+  {
+   "hafta": 3,
+   "etiket": "3. Hafta",
+   "tarih": "28 Eyl-2 Eki",
+   "baslangic": "2026-09-28",
+   "bitis": "2026-10-02",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DEĞERLERİMİZLE YAŞIYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Ritmik Sayma",
+      "Tek ve Çift Sayılar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.4",
+       "ad": "Sayıları ileriye ve geriye doğru ritmik sayabilme"
+      },
+      {
+       "kod": "MAT.3.1.5",
+       "ad": "Sayıları tek-çift olarak sınıflandırabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BEN VE OKULUM"
+     ],
+     "konu": [
+      "Okuldaki Hak ve Sorumluluklar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.1.2",
+       "ad": "Okuldaki hak ve sorumluluklarına uygun davranabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "BİLİMSEL KEŞİF YOLCULUĞU"
+     ],
+     "konu": [
+      "Bilim İnsanlarının Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.1.2",
+       "ad": "Bilim insanlarının özelliklerini genelleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 4,
+   "etiket": "4. Hafta",
+   "tarih": "5-9 Ekim",
+   "baslangic": "2026-10-05",
+   "bitis": "2026-10-09",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DEĞERLERİMİZLE YAŞIYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Tek ve Çift Sayılar",
+      "Tek ve Çift Sayıların Toplamı",
+      "Sayı ve Şekil Örüntüleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.5",
+       "ad": "Sayıları tek-çift olarak sınıflandırabilme"
+      },
+      {
+       "kod": "MAT.3.1.6",
+       "ad": "Tek ve çift sayıların toplamlarının tek ya da çift olma durumu arasındaki ilişkiye yönelik tümevarımsal akıl yürütebilme"
+      },
+      {
+       "kod": "MAT.3.1.7",
+       "ad": "Sayı ve sayı temsiline dönüşen şekil örüntülerine dayalı çıkarım yapabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BEN VE OKULUM"
+     ],
+     "konu": [
+      "Okuldaki Hak ve Sorumluluklar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.1.2",
+       "ad": "Okuldaki hak ve sorumluluklarına uygun davranabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "CANLILAR DÜNYASINA YOLCULUK"
+     ],
+     "konu": [
+      "Canlıların Sınıflandırılması"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.2.1",
+       "ad": "Canlıları; mikroskopla görülebilen canlılar, mantarlar, bitkiler ve hayvanlar olarak sınıflandırabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Hayvanları Koruma Günü",
+    "OB1. Bilgi Okuryazarlığı",
+    "OB4. Görsel Okuryazarlık",
+    "OB9. Sanat Okuryazarlığı"
+   ]
+  },
+  {
+   "hafta": 5,
+   "etiket": "5. Hafta",
+   "tarih": "12-16 Ekim",
+   "baslangic": "2026-10-12",
+   "bitis": "2026-10-16",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DEĞERLERİMİZLE YAŞIYORUZ",
+      "ATATÜRK VE KAHRAMANLARIMIZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Sayı ve Şekil Örüntüleri",
+      "Nesne Sayısını Tahmin Etme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.7",
+       "ad": "Sayı ve sayı temsiline dönüşen şekil örüntülerine dayalı çıkarım yapabilme"
+      },
+      {
+       "kod": "MAT.3.1.8",
+       "ad": "Bir çokluktaki ilişkilerden yararlanarak 100’e kadar olan nesnelerin sayısını tahmin edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BEN VE OKULUM"
+     ],
+     "konu": [
+      "Çocuk Hakları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.1.3",
+       "ad": "Çocuk haklarını tanıtmak için fikirlerini eyleme dönüştürebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "CANLILAR DÜNYASINA YOLCULUK"
+     ],
+     "konu": [
+      "Canlıların Sınıflandırılması"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.2.1",
+       "ad": "Canlıları; mikroskopla görülebilen canlılar, mantarlar, bitkiler ve hayvanlar olarak sınıflandırabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 6,
+   "etiket": "6. Hafta",
+   "tarih": "19-23 Ekim",
+   "baslangic": "2026-10-19",
+   "bitis": "2026-10-23",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ATATÜRK VE KAHRAMANLARIMIZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)",
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Nesne Sayısını Tahmin Etme",
+      "Bütün, Yarım ve Çeyreğin Kesir Gösterimi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.8",
+       "ad": "Bir çokluktaki ilişkilerden yararlanarak 100’e kadar olan nesnelerin sayısını tahmin edebilme"
+      },
+      {
+       "kod": "MAT.3.1.9",
+       "ad": "Bütün, yarım ve çeyreğin kesirle gösterimi için modellerden yararlanabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BEN VE OKULUM"
+     ],
+     "konu": [
+      "Çocuk Hakları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.1.3",
+       "ad": "Çocuk haklarını tanıtmak için fikirlerini eyleme dönüştürebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "CANLILAR DÜNYASINA YOLCULUK"
+     ],
+     "konu": [
+      "Duyu Organlarının İşlevleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.2.2",
+       "ad": "Canlıların çevrelerini farklı yollarla algılamaları konusunda bilimsel çıkarım yapabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 7,
+   "etiket": "7. Hafta",
+   "tarih": "26-30 Ekim",
+   "baslangic": "2026-10-26",
+   "bitis": "2026-10-30",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ATATÜRK VE KAHRAMANLARIMIZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Bütün, Yarım ve Çeyreğin Kesir Gösterimi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.9",
+       "ad": "Bütün, yarım ve çeyreğin kesirle gösterimi için modellerden yararlanabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM"
+     ],
+     "konu": [
+      "Sağlığı Koruma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.2.1",
+       "ad": "Sağlığını korumaya yönelik davranışlarını düzenleyebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "CANLILAR DÜNYASINA YOLCULUK"
+     ],
+     "konu": [
+      "Duyu Organlarının İşlevleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.2.2",
+       "ad": "Canlıların çevrelerini farklı yollarla algılamaları konusunda bilimsel çıkarım yapabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Cumhuriyet Bayramı",
+    "OB1. Bilgi Okuryazarlığı",
+    "OB4. Görsel Okuryazarlık",
+    "OB9. Sanat Okuryazarlığı"
+   ]
+  },
+  {
+   "hafta": 8,
+   "etiket": "8. Hafta",
+   "tarih": "2-6 Kasım",
+   "baslangic": "2026-11-02",
+   "bitis": "2026-11-06",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ATATÜRK VE KAHRAMANLARIMIZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.10",
+       "ad": "Bir bütünü eş parçalar oluşturacak şekilde birim kesir olarak çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM"
+     ],
+     "konu": [
+      "Güvenliği Tehdit Eden Durumlar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.2.2",
+       "ad": "Güvenliğini tehdit eden bir durumla karşılaştığında yapılması gerekenleri sorgulayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "CANLILAR DÜNYASINA YOLCULUK"
+     ],
+     "konu": [
+      "Duyu Organlarının İşlevleri",
+      "Canlıların Yaşam Döngüleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.2.2",
+       "ad": "Canlıların çevrelerini farklı yollarla algılamaları konusunda bilimsel çıkarım yapabilme"
+      },
+      {
+       "kod": "FB.3.2.3",
+       "ad": "Canlıların yaşam döngülerini açıklamada tümevarımsal akıl yürütebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Kızılay Haftası"
+   ]
+  },
+  {
+   "hafta": 9,
+   "etiket": "9. Hafta",
+   "tarih": "9-13 Kasım",
+   "baslangic": "2026-11-09",
+   "bitis": "2026-11-13",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ATATÜRK VE KAHRAMANLARIMIZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Bir Bütünü Oluşturan Eş Parçalar",
+      "Bir Kesrin",
+      "Payı İle Paydası Arasındaki İlişki"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.10",
+       "ad": "Bir bütünü eş parçalar oluşturacak şekilde birim kesir olarak çözümleyebilme"
+      },
+      {
+       "kod": "MAT.3.1.11",
+       "ad": "Bir kesrin payı ile paydası arasındaki ilişkiyi çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM"
+     ],
+     "konu": [
+      "Güvenliği Tehdit Eden Durumlar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.2.2",
+       "ad": "Güvenliğini tehdit eden bir durumla karşılaştığında yapılması gerekenleri sorgulayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "CANLILAR DÜNYASINA YOLCULUK",
+      "YER BİLİMCİLER İŞ BAŞINDA"
+     ],
+     "konu": [
+      "Canlıların Yaşam Döngüleri",
+      "Kayaçlar, Madenler ve Mineraller"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.2.3",
+       "ad": "Canlıların yaşam döngülerini açıklamada tümevarımsal akıl yürütebilme"
+      },
+      {
+       "kod": "FB.3.3.1",
+       "ad": "Kayaçlar, madenler ve mineraller ile ilgili tümdengelimsel akıl yürütebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Atatürk Haftası",
+    "Afet Eğitimi Hazırlık Günü",
+    "Dünya Çocuk Hakları Günü",
+    "OB1. Bilgi Okuryazarlığı",
+    "OB4. Görsel Okuryazarlık",
+    "OB9. Sanat Okuryazarlığı"
+   ]
+  },
+  {
+   "hafta": null,
+   "etiket": "1. Dönem Ara Tatili",
+   "tarih": "16-20 Kasım 2026",
+   "baslangic": "2026-11-16",
+   "bitis": "2026-11-20",
+   "tatil": true,
+   "dersler": {},
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 10,
+   "etiket": "10. Hafta",
+   "tarih": "23-27 Kasım",
+   "baslangic": "2026-11-23",
+   "bitis": "2026-11-27",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DOĞAYI TANIYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.3.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.3.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Analog ve Dijital Saatlerde Zamanı Okuma ve Yazma",
+      "Zaman Ölçü Birimleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.12",
+       "ad": "Analog ve dijital saatlerde zamanı okuyabilme"
+      },
+      {
+       "kod": "MAT.3.1.13",
+       "ad": "Zaman ölçü birimlerini çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM"
+     ],
+     "konu": [
+      "Güvenliği Tehdit Eden Durumlar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.2.2",
+       "ad": "Güvenliğini tehdit eden bir durumla karşılaştığında yapılması gerekenleri sorgulayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "YER BİLİMCİLER İŞ BAŞINDA"
+     ],
+     "konu": [
+      "Kayaçlar, Madenler ve Mineraller"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.3.1",
+       "ad": "Kayaçlar, madenler ve mineraller ile ilgili tümdengelimsel akıl yürütebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Öğretmenler Günü",
+    "Dünya Çocuk Hakları Günü",
+    "OB4. Görsel Okuryazarlık"
+   ]
+  },
+  {
+   "hafta": 11,
+   "etiket": "11. Hafta",
+   "tarih": "30 Kas-4 Ara",
+   "baslangic": "2026-11-30",
+   "bitis": "2026-12-04",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DOĞAYI TANIYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Zaman Ölçü Birimleri",
+      "Olayların Oluş Sürelerini Tahmin Etme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.13",
+       "ad": "Zaman ölçü birimlerini çözümleyebilme"
+      },
+      {
+       "kod": "MAT.3.1.14",
+       "ad": "Olayların oluş sürelerini tahmin ederek yargıda bulunabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM"
+     ],
+     "konu": [
+      "Trafik Kuralları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.2.3",
+       "ad": "Trafik kurallarına uymanın önemine ilişkin özgün ürünler sentezleyebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "YER BİLİMCİLER İŞ BAŞINDA"
+     ],
+     "konu": [
+      "Kayaçlar, Madenler ve Mineraller",
+      "Fosil Oluşumu"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.3.1",
+       "ad": "Kayaçlar, madenler ve mineraller ile ilgili tümdengelimsel akıl yürütebilme"
+      },
+      {
+       "kod": "FB.3.3.2",
+       "ad": "Fosil oluşumu ile ilgili bilgileri sentezleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Dünya Engelliler Günü"
+   ]
+  },
+  {
+   "hafta": 12,
+   "etiket": "12. Hafta",
+   "tarih": "7-11 Aralık",
+   "baslangic": "2026-12-07",
+   "bitis": "2026-12-11",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DOĞAYI TANIYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.3.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.3.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Olayların Oluş Sürelerini Tahmin Etme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.14",
+       "ad": "Olayların oluş sürelerini tahmin ederek yargıda bulunabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM"
+     ],
+     "konu": [
+      "Trafik Kuralları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.2.3",
+       "ad": "Trafik kurallarına uymanın önemine ilişkin özgün ürünler sentezleyebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "YER BİLİMCİLER İŞ BAŞINDA"
+     ],
+     "konu": [
+      "Fosil Oluşumu"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.3.2",
+       "ad": "Fosil oluşumu ile ilgili bilgileri sentezleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "İnsan Hakları ve Demokrasi Haftası"
+   ]
+  },
+  {
+   "hafta": 13,
+   "etiket": "13. Hafta",
+   "tarih": "14-18 Aralık",
+   "baslangic": "2026-12-14",
+   "bitis": "2026-12-18",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DOĞAYI TANIYORUZ",
+      "BİLGİ HAZİNEMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.3.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.3.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Uzunluk ve Kütle Ölçü Birimleri",
+      "Madenî ve Kâğıt Paralar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.15",
+       "ad": "Uzunluk ve kütle birimleri arasındaki ilişkileri kullanarak bu birimleri kendi içerisinde çözümleyebilme"
+      },
+      {
+       "kod": "MAT.3.1.16",
+       "ad": "Madenî ve kâğıt paraları değerlerine göre ilişkilendirerek yorumlayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM",
+      "AİLEM VE TOPLUM"
+     ],
+     "konu": [
+      "Trafik Kuralları",
+      "Aile ve Toplum"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.2.3",
+       "ad": "Trafik kurallarına uymanın önemine ilişkin özgün ürünler sentezleyebilme"
+      },
+      {
+       "kod": "HB.3.3.1",
+       "ad": "Aile ve toplum arasındaki ilişkiyi çözümleyebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "YER BİLİMCİLER İŞ BAŞINDA",
+      "MADDEYİ TANIYALIM, KARIŞTIRIP AYIRALIM"
+     ],
+     "konu": [
+      "Fosil Oluşumu",
+      "Maddenin Katı, Sıvı ve Gaz Hâli"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.3.2",
+       "ad": "Fosil oluşumu ile ilgili bilgileri sentezleyebilme"
+      },
+      {
+       "kod": "FB.3.4.1",
+       "ad": "Çevresindeki maddeleri hâllerine göre sınıflandırabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Tutum, Yatırım ve Türk Malları Haftası",
+    "OB4. Görsel Okuryazarlık"
+   ]
+  },
+  {
+   "hafta": 14,
+   "etiket": "14. Hafta",
+   "tarih": "21-25 Aralık",
+   "baslangic": "2026-12-21",
+   "bitis": "2026-12-25",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLGİ HAZİNEMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.3.5",
+       "ad": "Yazma sürecini değerlendirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Madenî ve Kâğıt Paralar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.16",
+       "ad": "Madenî ve kâğıt paraları değerlerine göre ilişkilendirerek yorumlayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "AİLEM VE TOPLUM"
+     ],
+     "konu": [
+      "Aile ve Toplum"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.3.1",
+       "ad": "Aile ve toplum arasındaki ilişkiyi çözümleyebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "MADDEYİ TANIYALIM, KARIŞTIRIP AYIRALIM"
+     ],
+     "konu": [
+      "Maddenin Katı, Sıvı ve Gaz Hâli"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.4.1",
+       "ad": "Çevresindeki maddeleri hâllerine göre sınıflandırabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "OB8. Sürdürülebilirlik Okuryazarlığı"
+   ]
+  },
+  {
+   "hafta": 15,
+   "etiket": "15. Hafta",
+   "tarih": "28 Ara-1 Oca",
+   "baslangic": "2026-12-28",
+   "bitis": "2027-01-01",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLGİ HAZİNEMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.3.5",
+       "ad": "Yazma sürecini değerlendirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.1.16",
+       "ad": "Madenî ve kâğıt paraları değerlerine göre ilişkilendirerek yorumlayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "AİLEM VE TOPLUM"
+     ],
+     "konu": [
+      "Yardımlaşma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.3.2",
+       "ad": "Yardıma ihtiyacı olan bireylerin yaşamını kolaylaştırmak için fikirlerini eyleme dönüştürebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "MADDEYİ TANIYALIM, KARIŞTIRIP AYIRALIM"
+     ],
+     "konu": [
+      "Maddenin Katı, Sıvı ve Gaz Hâli"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.4.1",
+       "ad": "Çevresindeki maddeleri hâllerine göre sınıflandırabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "OB8. Sürdürülebilirlik Okuryazarlığı"
+   ]
+  },
+  {
+   "hafta": 16,
+   "etiket": "16. Hafta",
+   "tarih": "4-8 Ocak",
+   "baslangic": "2027-01-04",
+   "bitis": "2027-01-08",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLGİ HAZİNEMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Toplama ve Çıkarma İşlemlerinin Sonuçlarını",
+      "Tahmin Etme ve Zihinden İşlem"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.2.1",
+       "ad": "Toplama ve çıkarma işlemlerinin sonuçlarını tahminde bulunarak ve zihinden işlem yaparak muhakeme edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "AİLEM VE TOPLUM"
+     ],
+     "konu": [
+      "Yardımlaşma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.3.2",
+       "ad": "Yardıma ihtiyacı olan bireylerin yaşamını kolaylaştırmak için fikirlerini eyleme dönüştürebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "MADDEYİ TANIYALIM, KARIŞTIRIP AYIRALIM"
+     ],
+     "konu": [
+      "Maddenin Katı, Sıvı ve Gaz Hâli",
+      "Karışımlar ve Karışımların Ayrılması"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.4.1",
+       "ad": "Çevresindeki maddeleri hâllerine göre sınıflandırabilme"
+      },
+      {
+       "kod": "FB.3.4.2",
+       "ad": "Günlük yaşamda karşılaştığı karışımların ayrılmasında kullanılabilecek uygun yöntemleri kullanarak deney yapabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Enerji Tasarrufu Haftası"
+   ]
+  },
+  {
+   "hafta": 17,
+   "etiket": "17. Hafta",
+   "tarih": "11-15 Ocak",
+   "baslangic": "2027-01-11",
+   "bitis": "2027-01-15",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLGİ HAZİNEMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.3.5",
+       "ad": "Yazma sürecini değerlendirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Toplama ve Çıkarma İşlemlerinin Sonuçlarını",
+      "Tahmin Etme ve Zihinden İşlem"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.2.1",
+       "ad": "Toplama ve çıkarma işlemlerinin sonuçlarını tahminde bulunarak ve zihinden işlem yaparak muhakeme edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "AİLEM VE TOPLUM"
+     ],
+     "konu": [
+      "Yardımlaşma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.3.2",
+       "ad": "Yardıma ihtiyacı olan bireylerin yaşamını kolaylaştırmak için fikirlerini eyleme dönüştürebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "MADDEYİ TANIYALIM, KARIŞTIRIP AYIRALIM"
+     ],
+     "konu": [
+      "Karışımlar ve Karışımların Ayrılması",
+      "Atıkların Ayrıştırılması"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.4.2",
+       "ad": "Günlük yaşamda karşılaştığı karışımların ayrılmasında kullanılabilecek uygun yöntemleri kullanarak deney yapabilme"
+      },
+      {
+       "kod": "FB.3.4.3",
+       "ad": "Atıkların ayrıştırılmasına ilişkin problem çözebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Enerji Tasarrufu Haftası"
+   ]
+  },
+  {
+   "hafta": 18,
+   "etiket": "18. Hafta",
+   "tarih": "18-22 Ocak",
+   "baslangic": "2027-01-18",
+   "bitis": "2027-01-22",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "PEKİŞTİRME HAFTASI"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.3.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Toplama",
+      "ve Çıkarma İşlemlerini Çözümleme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.2.2",
+       "ad": "Toplama ve çıkarma işlemlerini çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "AİLEM VE TOPLUM"
+     ],
+     "konu": [
+      "Toplumsal Yaşamda Meslekler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.3.3",
+       "ad": "Mesleklerin toplumsal yaşamdaki önemini yorumlayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "MADDEYİ TANIYALIM, KARIŞTIRIP AYIRALIM"
+     ],
+     "konu": [
+      "Atıkların Ayrıştırılması"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.4.3",
+       "ad": "Atıkların ayrıştırılmasına ilişkin problem çözebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": null,
+   "etiket": "Yarıyıl Tatili",
+   "tarih": "25 Ocak - 5 Şubat 2027",
+   "baslangic": "2027-01-25",
+   "bitis": "2027-02-05",
+   "tatil": true,
+   "dersler": {},
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 19,
+   "etiket": "19. Hafta",
+   "tarih": "8-12 Şubat",
+   "baslangic": "2027-02-08",
+   "bitis": "2027-02-12",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "HATIRLATMA HAFTASI"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.3.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Çarpma ve Bölme İşlemlerinin Sonuçlarını",
+      "Tahmin Etme ve Zihinden İşlem"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.2.3",
+       "ad": "Çarpma ve bölme işlemlerinin sonuçlarını tahminde bulunarak ve zihinden işlem yaparak muhakeme edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "AİLEM VE TOPLUM",
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Toplumsal Yaşamda Meslekler",
+      "Tarihî Mekân ve Doğal Güzellikler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.3.3",
+       "ad": "Mesleklerin toplumsal yaşamdaki önemini yorumlayabilme"
+      },
+      {
+       "kod": "HB.3.4.1",
+       "ad": "Yakın çevresindeki tarihî mekân ve doğal güzelliklerin korunmasının önemini fark edebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "MADDEYİ TANIYALIM, KARIŞTIRIP AYIRALIM",
+      "HAREKETİ KEŞFEDİYORUM"
+     ],
+     "konu": [
+      "Atıkların Ayrıştırılması",
+      "Varlıkların Hareketleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.4.3",
+       "ad": "Atıkların ayrıştırılmasına ilişkin problem çözebilme"
+      },
+      {
+       "kod": "FB.3.5.1",
+       "ad": "Varlıkların hareket durumlarını gözleme dayalı tahmin edebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "OB8. Sürdürülebilirlik Okuryazarlığı"
+   ]
+  },
+  {
+   "hafta": 20,
+   "etiket": "20. Hafta",
+   "tarih": "15-19 Şubat",
+   "baslangic": "2027-02-15",
+   "bitis": "2027-02-19",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "YETENEKLERİMİZİ KULLANIYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Çarpma ve Bölme İşlemlerini Çözümleme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.2.4",
+       "ad": "Çarpma ve bölme işlemlerini çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Ülkemizin Yönetim Şekli"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.4.2",
+       "ad": "Ülkemizin yönetim şekli ile ilgili kaynaklardan bilgi toplayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "HAREKETİ KEŞFEDİYORUM"
+     ],
+     "konu": [
+      "Varlıkların Hareketleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.5.1",
+       "ad": "Varlıkların hareket durumlarını gözleme dayalı tahmin edebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "OB2. Dijital Okuryazarlık"
+   ]
+  },
+  {
+   "hafta": 21,
+   "etiket": "21. Hafta",
+   "tarih": "22-26 Şubat",
+   "baslangic": "2027-02-22",
+   "bitis": "2027-02-26",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "YETENEKLERİMİZİ KULLANIYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Dört İşlemi Yönergelere",
+      "Göre Yorumlama"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.2.5",
+       "ad": "Dört işlem gerektiren durumlar için verilen yönergeleri takip ederek yorumlayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Ülkemizin Yönetim Şekli"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.4.2",
+       "ad": "Ülkemizin yönetim şekli ile ilgili kaynaklardan bilgi toplayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "HAREKETİ KEŞFEDİYORUM"
+     ],
+     "konu": [
+      "Kuvvet ve Etkileri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.5.2",
+       "ad": "Kuvvetin varlıklar üzerindeki etkilerini bilimsel gözleme dayalı tahmin edebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 22,
+   "etiket": "22. Hafta",
+   "tarih": "1-5 Mart",
+   "baslangic": "2027-03-01",
+   "bitis": "2027-03-05",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "YETENEKLERİMİZİ KULLANIYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Dört İşlem Gerektiren Problemleri Çözme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.2.6",
+       "ad": "Dört işlem gerektiren günlük yaşam problemlerini çözebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Mustafa Kemal Atatürk’ün Başarıları ve Kişilik Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.4.3",
+       "ad": "Mustafa Kemal Atatürk’ün kişilik özelliklerini çözümleyebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "HAREKETİ KEŞFEDİYORUM"
+     ],
+     "konu": [
+      "Kuvvet ve Etkileri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.5.2",
+       "ad": "Kuvvetin varlıklar üzerindeki etkilerini bilimsel gözleme dayalı tahmin edebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Yeşilay Haftası",
+    "Bilim ve Teknoloji Haftası"
+   ]
+  },
+  {
+   "hafta": null,
+   "etiket": "2. Dönem Ara Tatili",
+   "tarih": "8-12 Mart 2027",
+   "baslangic": "2027-03-08",
+   "bitis": "2027-03-12",
+   "tatil": true,
+   "dersler": {},
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 23,
+   "etiket": "23. Hafta",
+   "tarih": "15-19 Mart",
+   "baslangic": "2027-03-15",
+   "bitis": "2027-03-19",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "YETENEKLERİMİZİ KULLANIYORUZ. 6. TEMA: BİLİM YOLCULUĞU"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Dört İşlem Gerektiren Problemleri Çözme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.2.6",
+       "ad": "Dört işlem gerektiren günlük yaşam problemlerini çözebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Mustafa Kemal Atatürk’ün Başarıları ve Kişilik Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.4.3",
+       "ad": "Mustafa Kemal Atatürk’ün kişilik özelliklerini çözümleyebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "HAREKETİ KEŞFEDİYORUM",
+      "YAŞAMIMIZI KOLAYLAŞTIRAN ELEKTRİK"
+     ],
+     "konu": [
+      "Kuvvet ve Etkileri",
+      "Elektrikli Araç Gereç"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.5.2",
+       "ad": "Kuvvetin varlıklar üzerindeki etkilerini bilimsel gözleme dayalı tahmin edebilme"
+      },
+      {
+       "kod": "FB.3.6.1",
+       "ad": "Bazı araç gerecin elektrikli olduğuna ilişkin bilimsel çıkarım yapabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "İstiklâl Marşı’nın Kabulü ve Mehmet Akif Ersoy’u Anma Günü",
+    "Şehitler Günü",
+    "İstiklâl Marşı'nın Kabulü ve Mehmet Akif Ersoy'u Anma Günü",
+    "İstiklâl Marşı’nın Kabulü ve Mehmet Âkif Ersoy’u Anma Günü",
+    "OB2. Dijital Okuryazarlık"
+   ]
+  },
+  {
+   "hafta": 24,
+   "etiket": "24. Hafta",
+   "tarih": "22-26 Mart",
+   "baslangic": "2027-03-22",
+   "bitis": "2027-03-26",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLİM YOLCULUĞU"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.3.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.D.3.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.3.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.2.6",
+       "ad": "Dört işlem gerektiren günlük yaşam problemlerini çözebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Millî Birlik ve Beraberlik"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.4.4",
+       "ad": "Millî birlik ve beraberliğimizin ülkemize katkılarını açıklayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "YAŞAMIMIZI KOLAYLAŞTIRAN ELEKTRİK"
+     ],
+     "konu": [
+      "Elektrikli Araç Gereç",
+      "Elektrikli Araç Gerecin Güvenli Kullanımı"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.6.1",
+       "ad": "Bazı araç gerecin elektrikli olduğuna ilişkin bilimsel çıkarım yapabilme"
+      },
+      {
+       "kod": "FB.3.6.2",
+       "ad": "Elektrikli araç gerecin güvenli kullanımı ile ilgili eleştirel düşünebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Orman Haftası",
+    "Dünya Su Günü",
+    "OB7. Veri Okuryazarlığı OB8. Sürdürülebilirlik Okuryazarlığı"
+   ]
+  },
+  {
+   "hafta": 25,
+   "etiket": "25. Hafta",
+   "tarih": "29 Mar-2 Nis",
+   "baslangic": "2027-03-29",
+   "bitis": "2027-04-02",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLİM YOLCULUĞU"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Dört İşlem Gerektiren Problemleri Çözme",
+      "Dört İşlem Gerektiren",
+      "Problemleri Yapılandırma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.2.6",
+       "ad": "Dört işlem gerektiren günlük yaşam problemlerini çözebilme"
+      },
+      {
+       "kod": "MAT.3.2.7",
+       "ad": "Dört işlem gerektiren problem durumlarını yapılandırabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Millî Birlik ve Beraberlik"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.4.4",
+       "ad": "Millî birlik ve beraberliğimizin ülkemize katkılarını açıklayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "YAŞAMIMIZI KOLAYLAŞTIRAN ELEKTRİK"
+     ],
+     "konu": [
+      "Elektrikli Araç Gerecin Güvenli Kullanımı"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.6.2",
+       "ad": "Elektrikli araç gerecin güvenli kullanımı ile ilgili eleştirel düşünebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Kütüphaneler Haftası",
+    "OB7. Veri Okuryazarlığı",
+    "OB8. Sürdürülebilirlik Okuryazarlığı"
+   ]
+  },
+  {
+   "hafta": 26,
+   "etiket": "26. Hafta",
+   "tarih": "5-9 Nisan",
+   "baslangic": "2027-04-05",
+   "bitis": "2027-04-09",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLİM YOLCULUĞU"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Dört İşlem Gerektiren",
+      "Problemleri Yapılandırma",
+      "Dört İşlemde Eşitlik"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.2.7",
+       "ad": "Dört işlem gerektiren problem durumlarını yapılandırabilme"
+      },
+      {
+       "kod": "MAT.3.2.8",
+       "ad": "Dört işlem bağlamında eşitliğin farklı anlamlarını yorumlayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "DOĞA VE ÇEVRE"
+     ],
+     "konu": [
+      "Doğadaki Varlıkların İnsan Yaşamındaki Önemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.5.1",
+       "ad": "Doğadaki varlıkların insan yaşamı için önemini yorumlayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "YAŞAMIMIZI KOLAYLAŞTIRAN ELEKTRİK"
+     ],
+     "konu": [
+      "Elektriğin Tasarruflu Kullanımı"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.6.3",
+       "ad": "Elektriği tasarruflu kullanma konusunda bilimsel veriye dayalı tahmin edebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 27,
+   "etiket": "27. Hafta",
+   "tarih": "12-16 Nisan",
+   "baslangic": "2027-04-12",
+   "bitis": "2027-04-16",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLİM YOLCULUĞU"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.3.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE",
+      "NESNELERİN GEOMETRİSİ (1)"
+     ],
+     "konu": [
+      "Dört İşlemde Eşitlik",
+      "Geometrik Cisimlerin Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.2.8",
+       "ad": "Dört işlem bağlamında eşitliğin farklı anlamlarını yorumlayabilme"
+      },
+      {
+       "kod": "MAT.3.3.1",
+       "ad": "Geometrik cisimlerin özelliklerini yorumlayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "DOĞA VE ÇEVRE"
+     ],
+     "konu": [
+      "Kroki ve Konum"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.5.2",
+       "ad": "Krokiyi kullanarak bulunduğu yerin konumunu algılayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "YAŞAMIMIZI KOLAYLAŞTIRAN ELEKTRİK",
+      "TOPRAĞI TANIYORUM, TARIMI KEŞFEDİYORUM"
+     ],
+     "konu": [
+      "Elektriğin Tasarruflu Kullanımı",
+      "Toprak Oluşumu ve Yapısı"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.6.3",
+       "ad": "Elektriği tasarruflu kullanma konusunda bilimsel veriye dayalı tahmin edebilme"
+      },
+      {
+       "kod": "FB.3.7.1",
+       "ad": "Toprak oluşumunu ve yapısını bilimsel olarak gözlemleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "OB7. Veri Okuryazarlığı OB8. Sürdürülebilirlik Okuryazarlığı"
+   ]
+  },
+  {
+   "hafta": 28,
+   "etiket": "28. Hafta",
+   "tarih": "19-23 Nisan",
+   "baslangic": "2027-04-19",
+   "bitis": "2027-04-23",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ KÜLTÜRÜMÜZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.3.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.D.3.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "NESNELERİN GEOMETRİSİ (1)"
+     ],
+     "konu": [
+      "Geometrik Cisimlerin Özellikleri",
+      "Geometrik Şekilleri Sınıflandırma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.3.1",
+       "ad": "Geometrik cisimlerin özelliklerini yorumlayabilme"
+      },
+      {
+       "kod": "MAT.3.3.2",
+       "ad": "Kenar sayılarına göre geometrik şekilleri sınıflandırabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "DOĞA VE ÇEVRE"
+     ],
+     "konu": [
+      "Afet Öncesi, Afet Anı ve Afet Sonrasında Yapılması Gerekenler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.5.3",
+       "ad": "Afetlere yönelik yapılması gerekenleri sınıflandırabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "TOPRAĞI TANIYORUM, TARIMI KEŞFEDİYORUM"
+     ],
+     "konu": [
+      "Toprak Oluşumu ve Yapısı"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.7.1",
+       "ad": "Toprak oluşumunu ve yapısını bilimsel olarak gözlemleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Ulusal Egemenlik ve Çocuk Bayramı",
+    "Ulusal Egemenlik Çocuk Bayramı"
+   ]
+  },
+  {
+   "hafta": 29,
+   "etiket": "29. Hafta",
+   "tarih": "26-30 Nisan",
+   "baslangic": "2027-04-26",
+   "bitis": "2027-04-30",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ KÜLTÜRÜMÜZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.3.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.D.3.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "NESNELERİN GEOMETRİSİ (1)"
+     ],
+     "konu": [
+      "Geometrik Şekilleri Sınıflandırma",
+      "Geometrik Şekiller",
+      "ve Cisimler Çizme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.3.2",
+       "ad": "Kenar sayılarına göre geometrik şekilleri sınıflandırabilme"
+      },
+      {
+       "kod": "MAT.3.3.3",
+       "ad": "Matematiksel araç ve teknolojileri kullanarak çeşitli geometrik şekilleri ve cisimleri çizebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "DOĞA VE ÇEVRE"
+     ],
+     "konu": [
+      "Afet Öncesi, Afet Anı ve Afet Sonrasında Yapılması Gerekenler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.5.3",
+       "ad": "Afetlere yönelik yapılması gerekenleri sınıflandırabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "TOPRAĞI TANIYORUM, TARIMI KEŞFEDİYORUM"
+     ],
+     "konu": [
+      "Toprak Oluşumu ve Yapısı",
+      "Bitki Yetiştirme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.7.1",
+       "ad": "Toprak oluşumunu ve yapısını bilimsel olarak gözlemleyebilme"
+      },
+      {
+       "kod": "FB.3.7.2",
+       "ad": "Bir bitkinin yetişmesi için gerekenleri genelleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Emek ve Dayanışma Günü"
+   ]
+  },
+  {
+   "hafta": 30,
+   "etiket": "30. Hafta",
+   "tarih": "3-7 Mayıs",
+   "baslangic": "2027-05-03",
+   "bitis": "2027-05-07",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ KÜLTÜRÜMÜZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "NESNELERİN GEOMETRİSİ (1)"
+     ],
+     "konu": [
+      "Geometrik Şekillerin Çevre Uzunluklarını Tahmin Etme",
+      "Sıvı Miktarını",
+      "Tahmin Etme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.3.4",
+       "ad": "Standart olmayan ve standart ölçme araçları ile geometrik şekillerin çevre uzunluğunu tahmin edebilme"
+      },
+      {
+       "kod": "MAT.3.3.5",
+       "ad": "Standart sıvı ölçü birimleri cinsinden sıvı miktarını tahmin edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "DOĞA VE ÇEVRE"
+     ],
+     "konu": [
+      "Çevresel Sürdürülebilirlik"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.5.4",
+       "ad": "Çevresel sürdürülebilirliğe yönelik kaynaklardan bilgi toplayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "TOPRAĞI TANIYORUM, TARIMI KEŞFEDİYORUM"
+     ],
+     "konu": [
+      "Bitki Yetiştirme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.7.2",
+       "ad": "Bir bitkinin yetişmesi için gerekenleri genelleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Trafik ve İlk Yardım Haftası",
+    "Anneler Günü"
+   ]
+  },
+  {
+   "hafta": 31,
+   "etiket": "31. Hafta",
+   "tarih": "10-14 Mayıs",
+   "baslangic": "2027-05-10",
+   "bitis": "2027-05-14",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ KÜLTÜRÜMÜZ",
+      "HAK VE SORUMLULUKLARIMIZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "NESNELERİN GEOMETRİSİ (1)",
+      "NESNELERİN GEOMETRİSİ (2)"
+     ],
+     "konu": [
+      "Sıvı Miktarını",
+      "Tahmin Etme",
+      "Simetri Doğrusu"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.3.5",
+       "ad": "Standart sıvı ölçü birimleri cinsinden sıvı miktarını tahmin edebilme"
+      },
+      {
+       "kod": "MAT.3.3.6",
+       "ad": "Birden fazla simetri doğrusu olan şekilleri çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "DOĞA VE ÇEVRE"
+     ],
+     "konu": [
+      "Çevresel Sürdürülebilirlik"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.5.4",
+       "ad": "Çevresel sürdürülebilirliğe yönelik kaynaklardan bilgi toplayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "TOPRAĞI TANIYORUM, TARIMI KEŞFEDİYORUM",
+      "CANLILARIN YAŞAM ALANLARINA YOLCULUK"
+     ],
+     "konu": [
+      "Bitki Yetiştirme",
+      "Yaşam Alanları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.7.2",
+       "ad": "Bir bitkinin yetişmesi için gerekenleri genelleyebilme"
+      },
+      {
+       "kod": "FB.3.8.1",
+       "ad": "Canlıların yaşam alanlarının özelliklerini belirlemeye yönelik kanıt kullanabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Anneler Günü"
+   ]
+  },
+  {
+   "hafta": 32,
+   "etiket": "32. Hafta",
+   "tarih": "19-21 Mayıs",
+   "baslangic": "2027-05-17",
+   "bitis": "2027-05-21",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "HAK VE SORUMLULUKLARIMIZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.3.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.D.3.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.3.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "NESNELERİN GEOMETRİSİ (2)"
+     ],
+     "konu": [
+      "Simetrik Şekli Tamamlama",
+      "Simetrik Şekil Oluşturma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.3.7",
+       "ad": "Bir parçası verilen simetrik şekli simetri doğrusuna göre yapılandırabilme"
+      },
+      {
+       "kod": "MAT.3.3.8",
+       "ad": "Yönerge ile yapılandırılan ve bir parçası verilen bir şekli tamamlayarak simetrisini oluşturmaya ilişkin kodlama stratejilerini kullanarak yargıda bulunabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE SANAT"
+     ],
+     "konu": [
+      "Bilimsel Gelişmelerin Günlük Yaşama Etkisi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.6.1",
+       "ad": "Bilimsel gelişmelerin günlük yaşama etkisini yorumlayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "CANLILARIN YAŞAM ALANLARINA YOLCULUK"
+     ],
+     "konu": [
+      "Yaşam Alanları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.8.1",
+       "ad": "Canlıların yaşam alanlarının özelliklerini belirlemeye yönelik kanıt kullanabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Atatürk'ü Anma ve Gençlik ve Spor Bayramı",
+    "Müzeler Haftası",
+    "OB7. Veri Okuryazarlığı"
+   ]
+  },
+  {
+   "hafta": 33,
+   "etiket": "33. Hafta",
+   "tarih": "24-28 Mayıs",
+   "baslangic": "2027-05-24",
+   "bitis": "2027-05-28",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "HAK VE SORUMLULUKLARIMIZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.3.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.3.8",
+       "ad": "Yönerge ile yapılandırılan ve bir parçası verilen bir şekli tamamlayarak simetrisini oluşturmaya ilişkin kodlama stratejilerini kullanarak yargıda bulunabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE SANAT"
+     ],
+     "konu": [
+      "Teknolojik Gelişmelerin Günlük Yaşama Etkisi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.6.2",
+       "ad": "Teknolojik gelişmelerin günlük yaşama etkisini çözümleyebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "CANLILARIN YAŞAM ALANLARINA YOLCULUK"
+     ],
+     "konu": [
+      "Yaşam Alanları",
+      "Canlı Çeşitliliği"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.8.1",
+       "ad": "Canlıların yaşam alanlarının özelliklerini belirlemeye yönelik kanıt kullanabilme"
+      },
+      {
+       "kod": "FB.3.8.2",
+       "ad": "Yaşam alanındaki canlı çeşitliliğini operasyonel olarak tanımlayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 34,
+   "etiket": "34. Hafta",
+   "tarih": "31 Mayıs-4 Haziran",
+   "baslangic": "2027-05-31",
+   "bitis": "2027-06-04",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "HAK VE SORUMLULUKLARIMIZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.3.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.3.4",
+       "ad": "Konuşma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.K.3.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "VERİYE DAYALI ARAŞTIRMA"
+     ],
+     "konu": [
+      "Veriyle Çalışma ve Veriye Dayalı Karar Verme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.4.1",
+       "ad": "Kategorik ve sayma ile elde edilen nicel veriye dayalı tek veri grubu ile çalışabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE SANAT"
+     ],
+     "konu": [
+      "Teknolojik Gelişmelerin Günlük Yaşama Etkisi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.6.2",
+       "ad": "Teknolojik gelişmelerin günlük yaşama etkisini çözümleyebilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "CANLILARIN YAŞAM ALANLARINA YOLCULUK"
+     ],
+     "konu": [
+      "Canlı Çeşitliliği"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.8.2",
+       "ad": "Yaşam alanındaki canlı çeşitliliğini operasyonel olarak tanımlayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Çevre ve İklim Değişikliği Haftası",
+    "OB7. Veri Okuryazarlığı"
+   ]
+  },
+  {
+   "hafta": 35,
+   "etiket": "35. Hafta",
+   "tarih": "7-11 Haziran",
+   "baslangic": "2027-06-07",
+   "bitis": "2027-06-11",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "OKUL TEMELLİ PLANLAMA"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.3.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.3.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.3.4",
+       "ad": "Yazma sürecine etki eden durumları gözden geçirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "VERİYE DAYALI ARAŞTIRMA"
+     ],
+     "konu": [
+      "Veriyle Çalışma ve Veriye Dayalı Karar Verme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.4.1",
+       "ad": "Kategorik ve sayma ile elde edilen nicel veriye dayalı tek veri grubu ile çalışabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE SANAT"
+     ],
+     "konu": [
+      "Sanatçıların Sanata Katkıları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.6.3",
+       "ad": "Sanatçıların sanata katkılarına yönelik kaynaklardan bilgi toplayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "CANLILARIN YAŞAM ALANLARINA YOLCULUK"
+     ],
+     "konu": [
+      "Canlı Çeşitliliği"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.8.2",
+       "ad": "Yaşam alanındaki canlı çeşitliliğini operasyonel olarak tanımlayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 36,
+   "etiket": "36. Hafta",
+   "tarih": "14-18 Haziran",
+   "baslangic": "2027-06-14",
+   "bitis": "2027-06-18",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "PEKİŞTİRME HAFTASI"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.3.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.3.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.3.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.3.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.K.3.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.3.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.3.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.3.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.3.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.3.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.3.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.3.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.3.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "VERİYE DAYALI ARAŞTIRMA"
+     ],
+     "konu": [
+      "Veriyle Çalışma ve Veriye Dayalı Karar Verme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.3.4.1",
+       "ad": "Kategorik ve sayma ile elde edilen nicel veriye dayalı tek veri grubu ile çalışabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE SANAT"
+     ],
+     "konu": [
+      "Sanatçıların Sanata Katkıları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.3.6.3",
+       "ad": "Sanatçıların sanata katkılarına yönelik kaynaklardan bilgi toplayabilme"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "CANLILARIN YAŞAM ALANLARINA YOLCULUK"
+     ],
+     "konu": [
+      "Yaşam Alanlarının Korunmasının Canlı Çeşitliliğine Etkisi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "FB.3.8.3",
+       "ad": "Yaşam alanlarının korunması için yapılacakları sorgulayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Çevre ve İklim Değişikliği Haftası"
+   ]
+  },
+  {
+   "hafta": 37,
+   "etiket": "37. Hafta",
+   "tarih": "21-25 Haziran",
+   "baslangic": "2027-06-21",
+   "bitis": "2027-06-25",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [],
+     "konu": [],
+     "ciktilar": []
+    },
+    "matematik": {
+     "unite": [],
+     "konu": [],
+     "ciktilar": []
+    },
+    "hayat_bilgisi": {
+     "unite": [],
+     "konu": [],
+     "ciktilar": []
+    },
+    "fen_bilimleri": {
+     "unite": [],
+     "konu": [
+      "SOSYAL ETKİNLİK"
+     ],
+     "ciktilar": []
+    }
+   },
+   "belirli_gunler": []
+  }
+ ]
+}

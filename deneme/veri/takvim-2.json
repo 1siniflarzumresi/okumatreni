@@ -1,0 +1,4032 @@
+{
+ "egitim_yili": "2026-2027",
+ "sinif": 2,
+ "kaynak": "MEB 2. sınıf Türkçe, Matematik, Hayat Bilgisi taslak yıllık planları (2026-2027)",
+ "uniteler": {
+  "turkce": [
+   {
+    "ad": "DEĞERLERİMİZLE VARIZ",
+    "baslangic": "2026-09-21",
+    "bitis": "2026-10-16"
+   },
+   {
+    "ad": "ATATÜRK VE ÇOCUK",
+    "baslangic": "2026-10-12",
+    "bitis": "2026-11-13"
+   },
+   {
+    "ad": "DOĞADA NELER OLUYOR?",
+    "baslangic": "2026-11-23",
+    "bitis": "2026-12-18"
+   },
+   {
+    "ad": "OKUMA SERÜVENİMİZ",
+    "baslangic": "2026-12-14",
+    "bitis": "2027-01-15"
+   },
+   {
+    "ad": "YETENEKLERİMİZİ TANIYORUZ",
+    "baslangic": "2027-02-15",
+    "bitis": "2027-03-19"
+   },
+   {
+    "ad": "MUCİT ÇOCUK",
+    "baslangic": "2027-03-15",
+    "bitis": "2027-04-16"
+   },
+   {
+    "ad": "KÜLTÜR HAZİNEMİZ",
+    "baslangic": "2027-04-19",
+    "bitis": "2027-05-14"
+   },
+   {
+    "ad": "HAKLARIMIZI BİLİYORUZ",
+    "baslangic": "2027-05-10",
+    "bitis": "2027-06-04"
+   }
+  ],
+  "matematik": [
+   {
+    "ad": "NESNELERİN GEOMETRİSİ (1)",
+    "baslangic": "2026-09-14",
+    "bitis": "2026-10-16"
+   },
+   {
+    "ad": "SAYILAR VE NİCELİKLER (1)",
+    "baslangic": "2026-10-19",
+    "bitis": "2026-12-25"
+   },
+   {
+    "ad": "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE",
+    "baslangic": "2026-12-21",
+    "bitis": "2027-04-09"
+   },
+   {
+    "ad": "SAYILAR VE NİCELİKLER (2)",
+    "baslangic": "2027-04-05",
+    "bitis": "2027-05-21"
+   },
+   {
+    "ad": "NESNELERİN GEOMETRİSİ (2)",
+    "baslangic": "2027-05-17",
+    "bitis": "2027-06-04"
+   },
+   {
+    "ad": "VERİYE DAYALI ARAŞTIRMA",
+    "baslangic": "2027-06-07",
+    "bitis": "2027-06-18"
+   }
+  ],
+  "hayat_bilgisi": [
+   {
+    "ad": "BEN VE OKULUM",
+    "baslangic": "2026-09-14",
+    "bitis": "2026-10-23"
+   },
+   {
+    "ad": "SAĞLIĞIM VE GÜVENLİĞİM",
+    "baslangic": "2026-10-26",
+    "bitis": "2026-12-18"
+   },
+   {
+    "ad": "AİLEM VE TOPLUM",
+    "baslangic": "2026-12-14",
+    "bitis": "2027-01-22"
+   },
+   {
+    "ad": "YAŞADIĞIM YER VE ÜLKEM",
+    "baslangic": "2027-01-18",
+    "bitis": "2027-04-02"
+   },
+   {
+    "ad": "DOĞA VE ÇEVRE",
+    "baslangic": "2027-04-05",
+    "bitis": "2027-05-14"
+   },
+   {
+    "ad": "BİLİM, TEKNOLOJİ VE SANAT",
+    "baslangic": "2027-05-17",
+    "bitis": "2027-06-18"
+   }
+  ]
+ },
+ "haftalar": [
+  {
+   "hafta": 1,
+   "etiket": "1. Hafta",
+   "tarih": "14-18 Eylül",
+   "baslangic": "2026-09-14",
+   "bitis": "2026-09-18",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "HATIRLATMA HAFTASI"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.1.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.1.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.1.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.1.4",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.1.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.1.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.1.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.1.4",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.1.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.1.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.1.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.1.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.1.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.1.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.1.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.1.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.1.4",
+       "ad": "Yazma sürecini değerlendirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "NESNELERİN GEOMETRİSİ (1)"
+     ],
+     "konu": [
+      "Geometrik Cisimler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.3.1",
+       "ad": "Günlük yaşamda kullanılan nesneleri biçimsel özelliklerine göre geometrik cisim olarak sınıflandırabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BEN VE OKULUM"
+     ],
+     "konu": [
+      "Zaman Yönetimi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.1.1",
+       "ad": "Planlı olmanın kişisel yaşama etkilerini fark edebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "İlköğretim Haftası"
+   ]
+  },
+  {
+   "hafta": 2,
+   "etiket": "2. Hafta",
+   "tarih": "21-25 Eylül",
+   "baslangic": "2026-09-21",
+   "bitis": "2026-09-25",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DEĞERLERİMİZLE VARIZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "NESNELERİN GEOMETRİSİ (1)"
+     ],
+     "konu": [
+      "Geometrik Cisim Modelleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.3.2",
+       "ad": "Geometrik cisim modellerini kullanarak yapılar sentezleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BEN VE OKULUM"
+     ],
+     "konu": [
+      "Zaman Yönetimi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.1.1",
+       "ad": "Planlı olmanın kişisel yaşama etkilerini fark edebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "15 Temmuz Demokrasi ve Millî Birlik Günü",
+    "Zafer Bayramı"
+   ]
+  },
+  {
+   "hafta": 3,
+   "etiket": "3. Hafta",
+   "tarih": "28 Eyl-2 Eki",
+   "baslangic": "2026-09-28",
+   "bitis": "2026-10-02",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DEĞERLERİMİZLE VARIZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "NESNELERİN GEOMETRİSİ (1)"
+     ],
+     "konu": [
+      "Geometrik Şekil Modelleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.3.3",
+       "ad": "Geometrik şekiller kullanarak modeller sentezleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BEN VE OKULUM"
+     ],
+     "konu": [
+      "İletişim Kuralları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.1.2",
+       "ad": "Öğretmen ve arkadaşlarıyla etkili iletişim kurabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 4,
+   "etiket": "4. Hafta",
+   "tarih": "5-9 Ekim",
+   "baslangic": "2026-10-05",
+   "bitis": "2026-10-09",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DEĞERLERİMİZLE VARIZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "NESNELERİN GEOMETRİSİ (1)"
+     ],
+     "konu": [
+      "Geometrik",
+      "Şekil ve Cisimlerin Biçimsel Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.3.4",
+       "ad": "Geometrik cisim ve şekillerin yön, konum veya büyüklükleri değiştiğinde bi çimsel özelliklerinin değişmediğini yorumlayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BEN VE OKULUM"
+     ],
+     "konu": [
+      "Arkadaşlık İlişkilerini Etkileyen Davranışlar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.1.3",
+       "ad": "Arkadaşlık ilişkilerini düzenleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Hayvanları Koruma Günü"
+   ]
+  },
+  {
+   "hafta": 5,
+   "etiket": "5. Hafta",
+   "tarih": "12-16 Ekim",
+   "baslangic": "2026-10-12",
+   "bitis": "2026-10-16",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DEĞERLERİMİZLE VARIZ",
+      "ATATÜRK VE ÇOCUK"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "NESNELERİN GEOMETRİSİ (1)"
+     ],
+     "konu": [
+      "Sıvı Miktarını Tahmin Etme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.3.5",
+       "ad": "Standart olmayan sıvı ölçme araçları ile sıvı miktarını tahmin edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BEN VE OKULUM"
+     ],
+     "konu": [
+      "Sınıf İçi Karar Alma Süreçleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.1.4",
+       "ad": "Sınıf içi karar alma süreçlerinde sosyal temas oluşturabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 6,
+   "etiket": "6. Hafta",
+   "tarih": "19-23 Ekim",
+   "baslangic": "2026-10-19",
+   "bitis": "2026-10-23",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ATATÜRK VE ÇOCUK"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Sayılar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.1",
+       "ad": "100’e kadar olan niceliklerin büyüklüklerini temsil etmede sayıların sembolik temsillerinden yararlanabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BEN VE OKULUM"
+     ],
+     "konu": [
+      "Sınıf İçi Karar Alma Süreçleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.1.4",
+       "ad": "Sınıf içi karar alma süreçlerinde sosyal temas oluşturabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Cumhuriyet Bayramı"
+   ]
+  },
+  {
+   "hafta": 7,
+   "etiket": "7. Hafta",
+   "tarih": "26-30 Ekim",
+   "baslangic": "2026-10-26",
+   "bitis": "2026-10-30",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ATATÜRK VE ÇOCUK"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Sayılar",
+      "Sayıları Çözümleme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.1",
+       "ad": "100’e kadar olan niceliklerin büyüklüklerini temsil etmede sayıların sembolik temsillerinden yararlanabilme"
+      },
+      {
+       "kod": "MAT.2.1.2",
+       "ad": "İki basamaklı sayıları çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM"
+     ],
+     "konu": [
+      "Sağlıklı Büyüme ve Gelişmeyi Etkileyen Alışkanlıklar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.2.1",
+       "ad": "Sağlıklı büyüme ve gelişme ile alışkanlıkları arasındaki ilişkiyi çözümleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Cumhuriyet Bayramı"
+   ]
+  },
+  {
+   "hafta": 8,
+   "etiket": "8. Hafta",
+   "tarih": "2-6 Kasım",
+   "baslangic": "2026-11-02",
+   "bitis": "2026-11-06",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ATATÜRK VE ÇOCUK"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Sayıları Çözümleme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.2",
+       "ad": "İki basamaklı sayıları çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM"
+     ],
+     "konu": [
+      "Sağlıklı Büyüme ve Gelişmeyi Etkileyen Alışkanlıklar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.2.1",
+       "ad": "Sağlıklı büyüme ve gelişme ile alışkanlıkları arasındaki ilişkiyi çözümleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Kızılay Haftası"
+   ]
+  },
+  {
+   "hafta": 9,
+   "etiket": "9. Hafta",
+   "tarih": "9-13 Kasım",
+   "baslangic": "2026-11-09",
+   "bitis": "2026-11-13",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ATATÜRK VE ÇOCUK"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Sayıları Sıralama"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.3",
+       "ad": "Sayıların sırasını belirleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM"
+     ],
+     "konu": [
+      "Çevrim İçi Ortamlarda Kişisel Güvenlik"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.2.2",
+       "ad": "Çevrim içi ortamlarda kişisel güvenliğini sağlayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Atatürk Haftası",
+    "Afet Eğitimi Hazırlık Günü",
+    "Dünya Çocuk Hakları Günü"
+   ]
+  },
+  {
+   "hafta": null,
+   "etiket": "1. Dönem Ara Tatili",
+   "tarih": "16-20 Kasım 2026",
+   "baslangic": "2026-11-16",
+   "bitis": "2026-11-20",
+   "tatil": true,
+   "dersler": {},
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 10,
+   "etiket": "10. Hafta",
+   "tarih": "23-27 Kasım",
+   "baslangic": "2026-11-23",
+   "bitis": "2026-11-27",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DOĞADA NELER OLUYOR?"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Sayıları Sıralama",
+      "Ritmik Sayma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.3",
+       "ad": "Sayıların sırasını belirleyebilme"
+      },
+      {
+       "kod": "MAT.2.1.4",
+       "ad": "İleriye ve geriye doğru ritmik sayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM"
+     ],
+     "konu": [
+      "Çevrim İçi Ortamlarda Kişisel Güvenlik"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.2.2",
+       "ad": "Çevrim içi ortamlarda kişisel güvenliğini sağlayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Öğretmenler Günü",
+    "Dünya Çocuk Hakları Günü"
+   ]
+  },
+  {
+   "hafta": 11,
+   "etiket": "11. Hafta",
+   "tarih": "30 Kas-4 Ara",
+   "baslangic": "2026-11-30",
+   "bitis": "2026-12-04",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DOĞADA NELER OLUYOR?"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Ritmik Sayma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.4",
+       "ad": "İleriye ve geriye doğru ritmik sayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM"
+     ],
+     "konu": [
+      "Trafik İşaret Levhaları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.2.3",
+       "ad": "Temel trafik işaret levhalarını tanıyabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Dünya Engelliler Günü"
+   ]
+  },
+  {
+   "hafta": 12,
+   "etiket": "12. Hafta",
+   "tarih": "7-11 Aralık",
+   "baslangic": "2026-12-07",
+   "bitis": "2026-12-11",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DOĞADA NELER OLUYOR?"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Sayı ve Şekil Örüntüleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.5",
+       "ad": "Sayı ve sayı temsiline dönüşen şekil örüntülerine dayalı çıkarım yapabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM"
+     ],
+     "konu": [
+      "Acil Durumlarda İletişim"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.2.4",
+       "ad": "Acil bir durumda yetkililerle etkili iletişim kurabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "İnsan Hakları ve Demokrasi Haftası"
+   ]
+  },
+  {
+   "hafta": 13,
+   "etiket": "13. Hafta",
+   "tarih": "14-18 Aralık",
+   "baslangic": "2026-12-14",
+   "bitis": "2026-12-18",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DOĞADA NELER OLUYOR?",
+      "OKUMA SERÜVENİMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.2.5",
+       "ad": "Yazma sürecini değerlendirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)"
+     ],
+     "konu": [
+      "Sayı ve Şekil Örüntüleri",
+      "Nesne Sayısını Tahmin Etme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.5",
+       "ad": "Sayı ve sayı temsiline dönüşen şekil örüntülerine dayalı çıkarım yapabilme"
+      },
+      {
+       "kod": "MAT.2.1.6",
+       "ad": "Bir çokluktaki ilişkilerden yararlanarak 50’ye kadar olan nesnelerin sayısını tahmin edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "SAĞLIĞIM VE GÜVENLİĞİM",
+      "AİLEM VE TOPLUM"
+     ],
+     "konu": [
+      "Acil Durumlarda İletişim",
+      "Ailenin Önemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.2.4",
+       "ad": "Acil bir durumda yetkililerle etkili iletişim kurabilme"
+      },
+      {
+       "kod": "HB.2.3.1",
+       "ad": "Ailenin önemini yorumlayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Tutum, Yatırım ve Türk Malları Haftası"
+   ]
+  },
+  {
+   "hafta": 14,
+   "etiket": "14. Hafta",
+   "tarih": "21-25 Aralık",
+   "baslangic": "2026-12-21",
+   "bitis": "2026-12-25",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "OKUMA SERÜVENİMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.2.5",
+       "ad": "Yazma sürecini değerlendirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (1)",
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Sayılar",
+      "Toplama ve Çıkarma İşlemleriyle İlgili Problemler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.6",
+       "ad": "Bir çokluktaki ilişkilerden yararlanarak 50’ye kadar olan nesnelerin sayısını tahmin edebilme"
+      },
+      {
+       "kod": "MAT.2.2.1",
+       "ad": "Toplama ve çıkarma işlemleri gerektiren günlük yaşam problemlerini çözebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "AİLEM VE TOPLUM"
+     ],
+     "konu": [
+      "Ailenin Önemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.3.1",
+       "ad": "Ailenin önemini yorumlayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 15,
+   "etiket": "15. Hafta",
+   "tarih": "28 Ara-1 Oca",
+   "baslangic": "2026-12-28",
+   "bitis": "2027-01-01",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "OKUMA SERÜVENİMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.2.5",
+       "ad": "Yazma sürecini değerlendirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Toplama ve Çıkarma İşlemleriyle İlgili Problemler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.2.1",
+       "ad": "Toplama ve çıkarma işlemleri gerektiren günlük yaşam problemlerini çözebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "AİLEM VE TOPLUM"
+     ],
+     "konu": [
+      "Nezaket ve Görgü Kuralları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.3.2",
+       "ad": "Toplumsal yaşamda nezaket ve görgü kurallarına uygun davranabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 16,
+   "etiket": "16. Hafta",
+   "tarih": "4-8 Ocak",
+   "baslangic": "2027-01-04",
+   "bitis": "2027-01-08",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "OKUMA SERÜVENİMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.2.5",
+       "ad": "Yazma sürecini değerlendirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Toplama ve Çıkarma İşlemleriyle İlgili Problemler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.2.1",
+       "ad": "Toplama ve çıkarma işlemleri gerektiren günlük yaşam problemlerini çözebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "AİLEM VE TOPLUM"
+     ],
+     "konu": [
+      "Görev ve Sorumluluklar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.3.3",
+       "ad": "Yakın çevresinde üzerine düşen görev ve sorumlulukları günlük yaşamına yansıtabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Enerji Tasarrufu Haftası"
+   ]
+  },
+  {
+   "hafta": 17,
+   "etiket": "17. Hafta",
+   "tarih": "11-15 Ocak",
+   "baslangic": "2027-01-11",
+   "bitis": "2027-01-15",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "OKUMA SERÜVENİMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.2.5",
+       "ad": "Yazma sürecini değerlendirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Toplama ve Çıkarma İşlemlerinin Sonuçlarını",
+      "Tahmin Etme ve Zihinden İşlem"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.2.2",
+       "ad": "Toplama ve çıkarma işlemlerinin sonuçlarını tahminde bulunarak ve zihinden işlem yaparak muhakeme edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "AİLEM VE TOPLUM"
+     ],
+     "konu": [
+      "Görev ve Sorumluluklar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.3.3",
+       "ad": "Yakın çevresinde üzerine düşen görev ve sorumlulukları günlük yaşamına yansıtabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Enerji Tasarrufu Haftası"
+   ]
+  },
+  {
+   "hafta": 18,
+   "etiket": "18. Hafta",
+   "tarih": "18-22 Ocak",
+   "baslangic": "2027-01-18",
+   "bitis": "2027-01-22",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "PEKİŞTİRME HAFTASI"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.2.5",
+       "ad": "Yazma sürecini değerlendirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Toplama ve Çıkarma İşlemlerinin Sonuçlarını",
+      "Tahmin Etme ve Zihinden İşlem"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.2.2",
+       "ad": "Toplama ve çıkarma işlemlerinin sonuçlarını tahminde bulunarak ve zihinden işlem yaparak muhakeme edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "AİLEM VE TOPLUM",
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Görev ve Sorumluluklar",
+      "Tarihî Mekânlar ve Doğal Güzellikler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.3.3",
+       "ad": "Yakın çevresinde üzerine düşen görev ve sorumlulukları günlük yaşamına yansıtabilme"
+      },
+      {
+       "kod": "HB.2.4.1",
+       "ad": "Yakın çevresinde bulunan tarihî mekân ve doğal güzellikleri belirleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": null,
+   "etiket": "Yarıyıl Tatili",
+   "tarih": "25 Ocak - 5 Şubat 2027",
+   "baslangic": "2027-01-25",
+   "bitis": "2027-02-05",
+   "tatil": true,
+   "dersler": {},
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 19,
+   "etiket": "19. Hafta",
+   "tarih": "8-12 Şubat",
+   "baslangic": "2027-02-08",
+   "bitis": "2027-02-12",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "HATIRLATMA HAFTASI"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.4",
+       "ad": "Dinleme/izleme sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.2.5",
+       "ad": "Yazma sürecini değerlendirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Toplama ve Çıkarma İşlemlerinin İlişkisi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.2.3",
+       "ad": "Toplama ve çıkarma işlemlerinin ilişkisini yorumlayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Yaşadığı Yerin Yönetim Birimleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.4.2",
+       "ad": "Yaşadığı yerin yönetim birimleri ile ilgili kaynaklardan bilgi toplayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 20,
+   "etiket": "20. Hafta",
+   "tarih": "15-19 Şubat",
+   "baslangic": "2027-02-15",
+   "bitis": "2027-02-19",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "YETENEKLERİMİZİ TANIYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.2.4",
+       "ad": "Yazma sürecine etki eden durumları gözden geçirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Toplama ve Çıkarma İşlemlerinin İlişkisi",
+      "Çarpma",
+      "ve Bölme İşlemleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.2.3",
+       "ad": "Toplama ve çıkarma işlemlerinin ilişkisini yorumlayabilme"
+      },
+      {
+       "kod": "MAT.2.2.4",
+       "ad": "Çarpma ve bölme işlemlerini toplama ve çıkarma işlemlerine dayalı olarak çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Yaşadığı Yerin Yönetim Birimleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.4.2",
+       "ad": "Yaşadığı yerin yönetim birimleri ile ilgili kaynaklardan bilgi toplayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 21,
+   "etiket": "21. Hafta",
+   "tarih": "22-26 Şubat",
+   "baslangic": "2027-02-22",
+   "bitis": "2027-02-26",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "YETENEKLERİMİZİ TANIYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.2.4",
+       "ad": "Yazma sürecine etki eden durumları gözden geçirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Çarpma",
+      "ve Bölme İşlemleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.2.4",
+       "ad": "Çarpma ve bölme işlemlerini toplama ve çıkarma işlemlerine dayalı olarak çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Mustafa Kemal Atatürk’ün Öğrencilik Hayatı"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.4.3",
+       "ad": "Mustafa Kemal Atatürk’ün öğrencilik hayatını ifade edebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 22,
+   "etiket": "22. Hafta",
+   "tarih": "1-5 Mart",
+   "baslangic": "2027-03-01",
+   "bitis": "2027-03-05",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "YETENEKLERİMİZİ TANIYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.2.4",
+       "ad": "Yazma sürecine etki eden durumları gözden geçirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Çarpma ve Bölme İşlemlerinin Sonuçlarını",
+      "Tahmin Etme ve Zihinden",
+      "İşlem"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.2.5",
+       "ad": "Çarpma ve bölme işlemlerinin sonuçlarını tahminde bulunarak ve zihinden işlem yaparak muhakeme edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Mustafa Kemal Atatürk’ün Öğrenim Hayatı",
+      "Millî Gün ve Bayramların Önemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.4.3",
+       "ad": "Mustafa Kemal Atatürk’ün öğrencilik hayatını ifade edebilme"
+      },
+      {
+       "kod": "HB.2.4.4",
+       "ad": "Millî gün ve bayramların önemini yorumlayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Yeşilay Haftası",
+    "Bilim ve Teknoloji Haftası"
+   ]
+  },
+  {
+   "hafta": null,
+   "etiket": "2. Dönem Ara Tatili",
+   "tarih": "8-12 Mart 2027",
+   "baslangic": "2027-03-08",
+   "bitis": "2027-03-12",
+   "tatil": true,
+   "dersler": {},
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 23,
+   "etiket": "23. Hafta",
+   "tarih": "15-19 Mart",
+   "baslangic": "2027-03-15",
+   "bitis": "2027-03-19",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "YETENEKLERİMİZİ TANIYORUZ",
+      "MUCİT ÇOCUK"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.4",
+       "ad": "Konuşma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.Y.2.4",
+       "ad": "Yazma sürecine etki eden durumları gözden geçirebilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Çarpma ve Bölme İşlemlerinin Sonuçlarını",
+      "Tahmin Etme ve Zihinden",
+      "İşlem"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.2.5",
+       "ad": "Çarpma ve bölme işlemlerinin sonuçlarını tahminde bulunarak ve zihinden işlem yaparak muhakeme edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Millî Gün ve Bayramların Önemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.4.4",
+       "ad": "Millî gün ve bayramların önemini yorumlayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "İstiklâl Marşı’nın Kabulü ve Mehmet Akif Ersoy’u Anma Günü",
+    "Şehitler Günü",
+    "İstiklâl Marşı'nın Kabulü ve Mehmet Akif Ersoy'u Anma Günü"
+   ]
+  },
+  {
+   "hafta": 24,
+   "etiket": "24. Hafta",
+   "tarih": "22-26 Mart",
+   "baslangic": "2027-03-22",
+   "bitis": "2027-03-26",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MUCİT ÇOCUK"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.4",
+       "ad": "Konuşma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Dört İşlemde Eşitlik"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.2.6",
+       "ad": "Dört işlem bağlamında eşitliğin farklı anlamlarını yorumlayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Dinî Gün ve Bayramların Önemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.4.5",
+       "ad": "Dinî gün ve bayramların önemini yorumlayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Orman Haftası",
+    "Dünya Su Günü"
+   ]
+  },
+  {
+   "hafta": 25,
+   "etiket": "25. Hafta",
+   "tarih": "29 Mar-2 Nis",
+   "baslangic": "2027-03-29",
+   "bitis": "2027-04-02",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MUCİT ÇOCUK"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.4",
+       "ad": "Konuşma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE"
+     ],
+     "konu": [
+      "Dört İşlemde Eşitlik"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.2.6",
+       "ad": "Dört işlem bağlamında eşitliğin farklı anlamlarını yorumlayabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "YAŞADIĞIM YER VE ÜLKEM"
+     ],
+     "konu": [
+      "Dinî Gün ve Bayramlar Önemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.4.5",
+       "ad": "Dinî gün ve bayramların önemini yorumlayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Kütüphaneler Haftası"
+   ]
+  },
+  {
+   "hafta": 26,
+   "etiket": "26. Hafta",
+   "tarih": "5-9 Nisan",
+   "baslangic": "2027-04-05",
+   "bitis": "2027-04-09",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MUCİT ÇOCUK"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.4",
+       "ad": "Konuşma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "İŞLEMLERDEN CEBİRSEL DÜŞÜNMEYE",
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Dört İşlemde Eşitlik",
+      "Kesirler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.2.6",
+       "ad": "Dört işlem bağlamında eşitliğin farklı anlamlarını yorumlayabilme"
+      },
+      {
+       "kod": "MAT.2.1.7",
+       "ad": "Bütün, yarım ve çeyrek arasındaki ilişkiyi çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "DOĞA VE ÇEVRE"
+     ],
+     "konu": [
+      "Hava Olayları ve Mevsimler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.5.1",
+       "ad": "Hava olayları ve mevsimler arasındaki ilişkiyi çözümleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 27,
+   "etiket": "27. Hafta",
+   "tarih": "12-16 Nisan",
+   "baslangic": "2027-04-12",
+   "bitis": "2027-04-16",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MUCİT ÇOCUK"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.4",
+       "ad": "Konuşma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Kesirler",
+      "Paralarımız"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.7",
+       "ad": "Bütün, yarım ve çeyrek arasındaki ilişkiyi çözümleyebilme"
+      },
+      {
+       "kod": "MAT.2.1.8",
+       "ad": "Paraları değerlerine göre ilişkilendirerek çözümleyebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "DOĞA VE ÇEVRE"
+     ],
+     "konu": [
+      "Doğadan Yararlanarak Yön Bulma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.5.2",
+       "ad": "Doğadan yararlanarak yönünü belirleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 28,
+   "etiket": "28. Hafta",
+   "tarih": "19-23 Nisan",
+   "baslangic": "2027-04-19",
+   "bitis": "2027-04-23",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "KÜLTÜR HAZİNEMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Paralarımız",
+      "Zaman Ölçme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.8",
+       "ad": "Paraları değerlerine göre ilişkilendirerek çözümleyebilme"
+      },
+      {
+       "kod": "MAT.2.1.9",
+       "ad": "Zaman ölçü birimlerini okuyabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "DOĞA VE ÇEVRE"
+     ],
+     "konu": [
+      "Afetlere Karşı Alınacak Önlemler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.5.3",
+       "ad": "Afetlere karşı alınması gereken önlemlere ilişkin bilgi toplayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Ulusal Egemenlik ve Çocuk Bayramı",
+    "Ulusal Egemenlik Çocuk Bayramı"
+   ]
+  },
+  {
+   "hafta": 29,
+   "etiket": "29. Hafta",
+   "tarih": "26-30 Nisan",
+   "baslangic": "2027-04-26",
+   "bitis": "2027-04-30",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "KÜLTÜR HAZİNEMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Zaman Ölçme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.9",
+       "ad": "Zaman ölçü birimlerini okuyabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "DOĞA VE ÇEVRE"
+     ],
+     "konu": [
+      "Afetlere Karşı Alınacak Önlemler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.5.3",
+       "ad": "Afetlere karşı alınması gereken önlemlere ilişkin bilgi toplayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Emek ve Dayanışma Günü"
+   ]
+  },
+  {
+   "hafta": 30,
+   "etiket": "30. Hafta",
+   "tarih": "3-7 Mayıs",
+   "baslangic": "2027-05-03",
+   "bitis": "2027-05-07",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "KÜLTÜR HAZİNEMİZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Uzunluk ve Kütle Ölçme Araç ve Birimleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.10",
+       "ad": "Standart uzunluk ve kütle ölçme araçlarının ve birimlerinin gerekliliğini yansıtabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "DOĞA VE ÇEVRE"
+     ],
+     "konu": [
+      "Doğal Kaynakları Tasarruflu Kullanma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.5.4",
+       "ad": "Doğal kaynakları tasarruflu kullanma davranışlarını günlük yaşamına yansıtabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Trafik ve İlk Yardım Haftası",
+    "Anneler Günü"
+   ]
+  },
+  {
+   "hafta": 31,
+   "etiket": "31. Hafta",
+   "tarih": "10-14 Mayıs",
+   "baslangic": "2027-05-10",
+   "bitis": "2027-05-14",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "KÜLTÜR HAZİNEMİZ",
+      "HAKLARIMIZI BİLİYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.2.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)"
+     ],
+     "konu": [
+      "Uzunluk",
+      "ve Kütle Ölçmede Tahmin"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.11",
+       "ad": "Standart uzunluk ve kütle ölçü birimleri cinsinden uzunlukları ve kütleleri tahmin edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "DOĞA VE ÇEVRE"
+     ],
+     "konu": [
+      "Doğal Kaynakları Tasarruflu Kullanma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.5.4",
+       "ad": "Doğal kaynakları tasarruflu kullanma davranışlarını günlük yaşamına yansıtabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Anneler Günü"
+   ]
+  },
+  {
+   "hafta": 32,
+   "etiket": "32. Hafta",
+   "tarih": "19-21 Mayıs",
+   "baslangic": "2027-05-17",
+   "bitis": "2027-05-21",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "HAKLARIMIZI BİLİYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.2.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE NİCELİKLER (2)",
+      "NESNELERİN GEOMETRİSİ (2)"
+     ],
+     "konu": [
+      "Uzunluk",
+      "ve Kütle Ölçmede Tahmin",
+      "Yer ve Yön Bulma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.1.11",
+       "ad": "Standart uzunluk ve kütle ölçü birimleri cinsinden uzunlukları ve kütleleri tahmin edebilme"
+      },
+      {
+       "kod": "MAT.2.3.6",
+       "ad": "Mesafe ve yönleri içerecek şekilde hedefe ulaşmak için uygun stratejilere karar verebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE SANAT"
+     ],
+     "konu": [
+      "Bilim İnsanlarının Bilime Katkıları"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.6.1",
+       "ad": "Bilim insanlarının bilime katkılarına yönelik kaynaklardan bilgi toplayabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Atatürk'ü Anma ve Gençlik ve Spor Bayramı",
+    "Müzeler Haftası"
+   ]
+  },
+  {
+   "hafta": 33,
+   "etiket": "33. Hafta",
+   "tarih": "24-28 Mayıs",
+   "baslangic": "2027-05-24",
+   "bitis": "2027-05-28",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "HAKLARIMIZI BİLİYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.2.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "NESNELERİN GEOMETRİSİ (2)"
+     ],
+     "konu": [
+      "Yer ve Yön Bulma",
+      "Simetri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.3.6",
+       "ad": "Mesafe ve yönleri içerecek şekilde hedefe ulaşmak için uygun stratejilere karar verebilme"
+      },
+      {
+       "kod": "MAT.2.3.7",
+       "ad": "Verilen şekiller arasından simetrik olanları ayırt edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE SANAT"
+     ],
+     "konu": [
+      "Bilim İnsanlarının Bilime Katkıları",
+      "Teknolojik Ürünlerin Değişim ve Sürekliliği"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.6.1",
+       "ad": "Bilim insanlarının bilime katkılarına yönelik kaynaklardan bilgi toplayabilme"
+      },
+      {
+       "kod": "HB.2.6.2",
+       "ad": "Teknolojik bir ürünün değişim ve sürekliliğine dair kanıta dayalı öngörüde bulunabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 34,
+   "etiket": "34. Hafta",
+   "tarih": "31 Mayıs-4 Haziran",
+   "baslangic": "2027-05-31",
+   "bitis": "2027-06-04",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "HAKLARIMIZI BİLİYORUZ"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.2.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "NESNELERİN GEOMETRİSİ (2)"
+     ],
+     "konu": [
+      "Simetri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.3.7",
+       "ad": "Verilen şekiller arasından simetrik olanları ayırt edebilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE SANAT"
+     ],
+     "konu": [
+      "Teknolojik Ürünlerin Değişim ve Sürekliliği"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.6.2",
+       "ad": "Teknolojik bir ürünün değişim ve sürekliliğine dair kanıta dayalı öngörüde bulunabilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 35,
+   "etiket": "35. Hafta",
+   "tarih": "7-11 Haziran",
+   "baslangic": "2027-06-07",
+   "bitis": "2027-06-11",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "OKUL TEMELLİ PLANLAMA"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.2.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "VERİYE DAYALI ARAŞTIRMA"
+     ],
+     "konu": [
+      "Veriyle Çalışma ve Veriye Dayalı Karar Verme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.4.1",
+       "ad": "Kategorik veriye dayalı en çok iki veri grubu ile çalışabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE SANAT"
+     ],
+     "konu": [
+      "Sanatın Günlük Yaşamdaki Yeri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.6.3",
+       "ad": "Sanatın günlük yaşamdaki yerini belirleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Çevre ve İklim Değişikliği Haftası"
+   ]
+  },
+  {
+   "hafta": 36,
+   "etiket": "36. Hafta",
+   "tarih": "14-18 Haziran",
+   "baslangic": "2027-06-14",
+   "bitis": "2027-06-18",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "PEKİŞTİRME HAFTASI"
+     ],
+     "konu": [],
+     "ciktilar": [
+      {
+       "kod": "T.D.2.1",
+       "ad": "Dinlemeyi/izlemeyi yönetebilme"
+      },
+      {
+       "kod": "T.D.2.2",
+       "ad": "Dinledikleri/izledikleri ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.D.2.3",
+       "ad": "Dinlediklerini/izlediklerini çözümleyebilme"
+      },
+      {
+       "kod": "T.D.2.5",
+       "ad": "Dinleme/izleme sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.K.2.1",
+       "ad": "Konuşmalarını yönetebilme"
+      },
+      {
+       "kod": "T.K.2.2",
+       "ad": "Konuşmalarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.K.2.3",
+       "ad": "Konuşma kurallarını uygulayabilme"
+      },
+      {
+       "kod": "T.K.2.5",
+       "ad": "Konuşma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.O.2.1",
+       "ad": "Okuma sürecini yönetebilme"
+      },
+      {
+       "kod": "T.O.2.2",
+       "ad": "Okudukları ile ilgili anlam oluşturabilme"
+      },
+      {
+       "kod": "T.O.2.3",
+       "ad": "Okuduklarını çözümleyebilme"
+      },
+      {
+       "kod": "T.O.2.4",
+       "ad": "Okuma sürecine etki eden durumları gözden geçirebilme"
+      },
+      {
+       "kod": "T.O.2.5",
+       "ad": "Okuma sürecini değerlendirebilme"
+      },
+      {
+       "kod": "T.Y.2.1",
+       "ad": "Yazılı anlatım becerilerini yönetebilme"
+      },
+      {
+       "kod": "T.Y.2.2",
+       "ad": "Yazılarında içerik oluşturabilme"
+      },
+      {
+       "kod": "T.Y.2.3",
+       "ad": "Yazma kurallarını uygulayabilme"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "VERİYE DAYALI ARAŞTIRMA"
+     ],
+     "konu": [
+      "Veriyle Çalışma ve Veriye Dayalı Karar Verme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "MAT.2.4.1",
+       "ad": "Kategorik veriye dayalı en çok iki veri grubu ile çalışabilme"
+      }
+     ]
+    },
+    "hayat_bilgisi": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE SANAT"
+     ],
+     "konu": [
+      "Sanatın Günlük Yaşamdaki Yeri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "HB.2.6.3",
+       "ad": "Sanatın günlük yaşamdaki yerini belirleyebilme"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": [
+    "Çevre ve İklim Değişikliği Haftası"
+   ]
+  },
+  {
+   "hafta": 37,
+   "etiket": "37. Hafta",
+   "tarih": "21-25 Haziran",
+   "baslangic": "2027-06-21",
+   "bitis": "2027-06-25",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [],
+     "konu": [],
+     "ciktilar": []
+    },
+    "matematik": {
+     "unite": [],
+     "konu": [],
+     "ciktilar": []
+    },
+    "hayat_bilgisi": {
+     "unite": [],
+     "konu": [],
+     "ciktilar": []
+    }
+   },
+   "belirli_gunler": []
+  }
+ ]
+}

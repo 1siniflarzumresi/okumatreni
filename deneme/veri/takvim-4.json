@@ -1,0 +1,3935 @@
+{
+ "egitim_yili": "2026-2027",
+ "sinif": 4,
+ "kaynak": "MEB 4. sınıf Türkçe, Matematik, Fen Bilimleri taslak yıllık planları (2026-2027)",
+ "uniteler": {
+  "turkce": [
+   {
+    "ad": "OKUMA KÜLTÜRÜ",
+    "baslangic": "2026-09-14",
+    "bitis": "2026-10-09"
+   },
+   {
+    "ad": "MİLLÎ MÜCADELE VE ATATÜRK",
+    "baslangic": "2026-10-12",
+    "bitis": "2026-11-13"
+   },
+   {
+    "ad": "ERDEMLER",
+    "baslangic": "2026-11-23",
+    "bitis": "2026-12-18"
+   },
+   {
+    "ad": "BİLİM VE TEKNOLOJİ",
+    "baslangic": "2026-12-21",
+    "bitis": "2027-01-22"
+   },
+   {
+    "ad": "DOĞA VE EVREN",
+    "baslangic": "2027-02-08",
+    "bitis": "2027-03-05"
+   },
+   {
+    "ad": "MİLLÎ KÜLTÜRÜMÜZ",
+    "baslangic": "2027-03-15",
+    "bitis": "2027-04-16"
+   },
+   {
+    "ad": "ÇOCUK DÜNYASI",
+    "baslangic": "2027-04-19",
+    "bitis": "2027-05-28"
+   },
+   {
+    "ad": "SAĞLIK VE SPOR",
+    "baslangic": "2027-05-31",
+    "bitis": "2027-06-18"
+   }
+  ],
+  "matematik": [
+   {
+    "ad": "SAYILAR VE İŞLEMLER",
+    "baslangic": "2026-09-14",
+    "bitis": "2027-02-19"
+   },
+   {
+    "ad": "ÖLÇME",
+    "baslangic": "2027-02-22",
+    "bitis": "2027-03-05"
+   },
+   {
+    "ad": "VERİ İŞLEME",
+    "baslangic": "2027-03-01",
+    "bitis": "2027-03-19"
+   },
+   {
+    "ad": "GEOMETRİ",
+    "baslangic": "2027-03-15",
+    "bitis": "2027-04-23"
+   }
+  ],
+  "fen_bilimleri": [
+   {
+    "ad": "Yer Kabuğu ve Dünya’mızın Hareketleri",
+    "baslangic": "2026-09-14",
+    "bitis": "2026-10-16"
+   },
+   {
+    "ad": "Besinlerimiz",
+    "baslangic": "2026-10-19",
+    "bitis": "2026-12-04"
+   },
+   {
+    "ad": "Kuvvetin Etkileri",
+    "baslangic": "2026-12-07",
+    "bitis": "2027-01-01"
+   },
+   {
+    "ad": "Maddenin Özellikleri",
+    "baslangic": "2027-01-04",
+    "bitis": "2027-03-05"
+   },
+   {
+    "ad": "Aydınlatma ve Ses Teknolojileri",
+    "baslangic": "2027-03-15",
+    "bitis": "2027-04-30"
+   },
+   {
+    "ad": "İnsan ve Çevre",
+    "baslangic": "2027-05-03",
+    "bitis": "2027-05-14"
+   },
+   {
+    "ad": "Basit Elektrik Devreleri",
+    "baslangic": "2027-05-17",
+    "bitis": "2027-05-28"
+   },
+   {
+    "ad": "FEN MÜHENDİSLİK VE GİRİŞİMCİLİK UYGULAMALARI",
+    "baslangic": "2027-05-31",
+    "bitis": "2027-06-18"
+   }
+  ]
+ },
+ "haftalar": [
+  {
+   "hafta": 1,
+   "etiket": "1. Hafta",
+   "tarih": "14-18 Eylül",
+   "baslangic": "2026-09-14",
+   "bitis": "2026-09-18",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "OKUMA KÜLTÜRÜ"
+     ],
+     "konu": [
+      "Türkçe Konuş"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.6",
+       "ad": "Konuşmalarında yabancı dillerden alınmış, dilimize henüz yerleşmemiş kelimelerin Türkçelerini kullanır"
+      },
+      {
+       "kod": "T.4.3.3",
+       "ad": "Şiir okur"
+      },
+      {
+       "kod": "T.4.3.2",
+       "ad": "Vurgu, tonlama ve telaffuza dikkat ederek okur"
+      },
+      {
+       "kod": "T.4.3.7",
+       "ad": "Kelimelerin zıt anlamlılarını bulur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.21",
+       "ad": "Okuduğu metnin içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.4.1",
+       "ad": "Şiir yazar"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.1.1",
+       "ad": "4, 5 ve 6 basamaklı doğal sayıları okur ve yazar"
+      },
+      {
+       "kod": "M.4.1.1.2",
+       "ad": "10 000’e kadar (10 000 dâhil) yüzer ve biner sayar"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Yer Kabuğu ve Dünya’mızın Hareketleri"
+     ],
+     "konu": [
+      "Yer Kabuğunun Yapısı"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.1.1.1",
+       "ad": "Yer kabuğunun kara tabakasının kayaçlardan oluştuğunu belirtir"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 2,
+   "etiket": "2. Hafta",
+   "tarih": "21-25 Eylül",
+   "baslangic": "2026-09-21",
+   "bitis": "2026-09-25",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "OKUMA KÜLTÜRÜ"
+     ],
+     "konu": [
+      "Evimizdeki Kütüphane"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.5",
+       "ad": "Farklı yazı karakterleri ile yazılmış yazıları okur"
+      },
+      {
+       "kod": "T.4.3.7",
+       "ad": "Kelimelerin zıt anlamlılarını bulur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.23",
+       "ad": "Metin türlerini ayırt eder"
+      },
+      {
+       "kod": "T.4.3.25",
+       "ad": "Yönergeleri kavrar"
+      },
+      {
+       "kod": "T.4.3.36",
+       "ad": "Bilgi kaynaklarının güvenilirliğini sorgular"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      },
+      {
+       "kod": "T.4.4.20",
+       "ad": "Harflerin yapısal özelliklerine uygun metin yazar"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.1.2",
+       "ad": "10 000’e kadar (10 000 dâhil) yüzer ve biner sayar"
+      },
+      {
+       "kod": "M.4.1.1.3",
+       "ad": "4, 5 ve 6 basamaklı doğal sayıların bölüklerini ve basamaklarını, basamaklarındaki rakamların basamak değerlerini belirler ve çözümler"
+      },
+      {
+       "kod": "M.4.1.1.4",
+       "ad": "Doğal sayıları en yakın onluğa veya yüzlüğe yuvarlar"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Yer Kabuğu ve Dünya’mızın Hareketleri"
+     ],
+     "konu": [
+      "Yer Kabuğunun Yapısı"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.1.1.2",
+       "ad": "Kayaçlarla madenleri ilişkilendirir ve kayaçların ham madde olarak önemini tartışır"
+      },
+      {
+       "kod": "F.4.1.1.3",
+       "ad": "Fosillerin oluşumunu açıklar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 3,
+   "etiket": "3. Hafta",
+   "tarih": "28 Eyl-2 Eki",
+   "baslangic": "2026-09-28",
+   "bitis": "2026-10-02",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "OKUMA KÜLTÜRÜ"
+     ],
+     "konu": [
+      "Dijital Tayfa: Yanlıs Haber Yagmuru (Izleme Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.1.1",
+       "ad": "Görselden/görsellerden hareketle dinleyeceği/izleyeceği metnin konusunu tahmin eder"
+      },
+      {
+       "kod": "T.4.1.4",
+       "ad": "Dinlediklerinde/izlediklerinde geçen, bilmediği kelimelerin anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.1.5",
+       "ad": "Dinlediklerinin/izlediklerinin konusunu belirler"
+      },
+      {
+       "kod": "T.4.1.6",
+       "ad": "Dinlediklerinin/izlediklerinin ana fikrini/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.1.7",
+       "ad": "Dinlediklerine/izlediklerine yönelik sorulara cevap verir"
+      },
+      {
+       "kod": "T.4.1.11",
+       "ad": "Dinlediklerinin/izlediklerinin içeriğini değerlendirir"
+      },
+      {
+       "kod": "T.4.1.12",
+       "ad": "Dinleme stratejilerini uygular"
+      },
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.8",
+       "ad": "Kelimelerin eş anlamlılarını bulur"
+      },
+      {
+       "kod": "T.4.3.32",
+       "ad": "Kısa ve basit dijital metinlerdeki mesajı kavrar"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.1.4",
+       "ad": "Doğal sayıları en yakın onluğa veya yüzlüğe yuvarlar"
+      },
+      {
+       "kod": "M.4.1.1.5",
+       "ad": "En çok altı basamaklı doğal sayıları büyük/küçük sembolü kullanarak sıralar"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Yer Kabuğu ve Dünya’mızın Hareketleri"
+     ],
+     "konu": [
+      "Dünya’mızın Hareketleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.1.2.1",
+       "ad": "Dünya’nın dönme ve dolanma hareketleri arasındaki farkı açıklar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 4,
+   "etiket": "4. Hafta",
+   "tarih": "5-9 Ekim",
+   "baslangic": "2026-10-05",
+   "bitis": "2026-10-09",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "OKUMA KÜLTÜRÜ"
+     ],
+     "konu": [
+      "Kitaplar Ne İşe Yarar?",
+      "Hikâyesi Olmayan Kitap",
+      "(Serbest Okuma Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.5",
+       "ad": "Sınıf içindeki tartışma ve konuşmalara katılır"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.5",
+       "ad": "Farklı yazı karakterleri ile yazılmış yazıları okur"
+      },
+      {
+       "kod": "T.4.3.7",
+       "ad": "Kelimelerin zıt anlamlılarını bulur"
+      },
+      {
+       "kod": "T.4.3.8",
+       "ad": "Kelimelerin eş anlamlılarını bulur"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.26",
+       "ad": "Metindeki gerçek ve hayalî ögeleri ayırt eder"
+      },
+      {
+       "kod": "T.4.3.29",
+       "ad": "Görsellerle okuduğu metnin içeriğini ilişkilendirir"
+      },
+      {
+       "kod": "T.4.3.20",
+       "ad": "Okuduğu metinlerdeki hikâye unsurlarını belirler"
+      },
+      {
+       "kod": "T.4.4.3",
+       "ad": "Hikâye edici metin yazar"
+      },
+      {
+       "kod": "T.4.4.7",
+       "ad": "Yazdıklarının içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.4.9",
+       "ad": "Formları yönergelerine uygun doldurur"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      },
+      {
+       "kod": "T.4.4.20",
+       "ad": "Harflerin yapısal özelliklerine uygun metin yazar"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılar",
+      "Doğal Sayılarla Toplama İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.1.6",
+       "ad": "Belli bir kurala göre artan veya azalan sayı örüntüleri oluşturur ve kuralını açıklar"
+      },
+      {
+       "kod": "M.4.1.2.1",
+       "ad": "En çok dört basamaklı doğal sayılarla toplama işlemini yapar"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Yer Kabuğu ve Dünya’mızın Hareketleri"
+     ],
+     "konu": [
+      "Dünya’mızın Hareketleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.1.2.2",
+       "ad": "Dünya’nın hareketleri sonucu gerçekleşen olayları açıklar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 5,
+   "etiket": "5. Hafta",
+   "tarih": "12-16 Ekim",
+   "baslangic": "2026-10-12",
+   "bitis": "2026-10-16",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ MÜCADELE VE ATATÜRK"
+     ],
+     "konu": [
+      "Gözüm Arkada Kalmayacak"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.9",
+       "ad": "Eş sesli kelimelerin anlamlarını ayırt eder"
+      },
+      {
+       "kod": "T.4.3.11",
+       "ad": "Deyim ve atasözlerinin metnin anlamına katkısını kavrar"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.15",
+       "ad": "Okuduklarını ana hatlarıyla anlatır"
+      },
+      {
+       "kod": "T.4.3.26",
+       "ad": "Metindeki gerçek ve hayalî ögeleri ayırt eder"
+      },
+      {
+       "kod": "T.4.3.29",
+       "ad": "Görsellerle okuduğu metnin içeriğini ilişkilendirir"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      },
+      {
+       "kod": "T.4.4.13",
+       "ad": "Yazılarında eş sesli kelimeleri anlamlarına uygun kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Toplama İşlemi",
+      "Doğal Sayılarla Çıkarma İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.2.1",
+       "ad": "En çok dört basamaklı doğal sayılarla toplama işlemini yapar"
+      },
+      {
+       "kod": "M.4.1.3.1",
+       "ad": "En çok dört basamaklı doğal sayılarla çıkarma işlemini yapar"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Yer Kabuğu ve Dünya’mızın Hareketleri"
+     ],
+     "konu": [
+      "Dünya’mızın Hareketleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.1.2.2",
+       "ad": "Dünya’nın hareketleri sonucu gerçekleşen olayları açıklar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 6,
+   "etiket": "6. Hafta",
+   "tarih": "19-23 Ekim",
+   "baslangic": "2026-10-19",
+   "bitis": "2026-10-23",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ MÜCADELE VE ATATÜRK"
+     ],
+     "konu": [
+      "Mehmet Âkif Ersoy"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.3.31",
+       "ad": "Metinler arasında karşılaştırma yapar"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      },
+      {
+       "kod": "T.4.4.20",
+       "ad": "Harflerin yapısal özelliklerine uygun metin yazar"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Çıkarma İşlemi",
+      "Doğal Sayılarla Toplama İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.3.2",
+       "ad": "Üç basamaklı doğal sayılardan 10’un katı olan iki basamaklı doğal sayıları ve 100’ün katı olan üç basamaklı doğal sayıları zihinden çıkarır"
+      },
+      {
+       "kod": "M.4.1.2.2",
+       "ad": "İki doğal sayının toplamını tahmin eder ve tahminini işlem sonucu ile karşılaştırır"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Besinlerimiz"
+     ],
+     "konu": [
+      "Besinler ve Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.2.1.1",
+       "ad": "Canlı yaşamı ve besin içerikleri arasındaki ilişkiyi açıklar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 7,
+   "etiket": "7. Hafta",
+   "tarih": "26-30 Ekim",
+   "baslangic": "2026-10-26",
+   "bitis": "2026-10-30",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ MÜCADELE VE ATATÜRK"
+     ],
+     "konu": [
+      "Hacı İbrahim Efendi: Mehmetçige Dikilen Botlar",
+      "(Dinleme Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.1.3",
+       "ad": "Dinlediği/izlediği metni ana hatlarıyla anlatır"
+      },
+      {
+       "kod": "T.4.1.4",
+       "ad": "Dinlediklerinde/izlediklerinde geçen, bilmediği kelimelerin anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.1.5",
+       "ad": "Dinlediklerinin/izlediklerinin konusunu belirler"
+      },
+      {
+       "kod": "T.4.1.6",
+       "ad": "Dinlediklerinin/izlediklerinin ana fikrini/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.1.7",
+       "ad": "Dinlediklerine/izlediklerine yönelik sorulara cevap verir"
+      },
+      {
+       "kod": "T.4.1.12",
+       "ad": "Dinleme stratejilerini uygular"
+      },
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.5",
+       "ad": "Sınıf içindeki tartışma ve konuşmalara katılır"
+      },
+      {
+       "kod": "T.4.3.10",
+       "ad": "Okuduğu metindeki gerçek, mecaz ve terim anlamlı sözcükleri belirler"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.4.9",
+       "ad": "Formları yönergelerine uygun doldurur"
+      },
+      {
+       "kod": "T.4.4.12",
+       "ad": "Yazdıklarını paylaşır"
+      },
+      {
+       "kod": "T.4.4.21",
+       "ad": "Yazma stratejilerini uygular"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Toplama İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.2.2",
+       "ad": "İki doğal sayının toplamını tahmin eder ve tahminini işlem sonucu ile karşılaştırır"
+      },
+      {
+       "kod": "M.4.1.2.3",
+       "ad": "En çok dört basamaklı doğal sayıları 100’ün katlarıyla zihinden toplar"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Besinlerimiz"
+     ],
+     "konu": [
+      "Besinler ve Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.2.1.1",
+       "ad": "Canlı yaşamı ve besin içerikleri arasındaki ilişkiyi açıklar"
+      },
+      {
+       "kod": "F.4.2.1.2",
+       "ad": "Su ve minerallerin bütün besinlerde bulunduğu çıkarımını yapar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 8,
+   "etiket": "8. Hafta",
+   "tarih": "2-6 Kasım",
+   "baslangic": "2026-11-02",
+   "bitis": "2026-11-06",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ MÜCADELE VE ATATÜRK"
+     ],
+     "konu": [
+      "Çanakkale"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.5",
+       "ad": "Sınıf içindeki tartışma ve konuşmalara katılır"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.2",
+       "ad": "Vurgu, tonlama ve telaffuza dikkat ederek okur"
+      },
+      {
+       "kod": "T.4.3.3",
+       "ad": "Şiir okur"
+      },
+      {
+       "kod": "T.4.3.9",
+       "ad": "Eş sesli kelimelerin anlamlarını ayırt eder"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.4.1",
+       "ad": "Şiir yazar"
+      },
+      {
+       "kod": "T.4.4.2",
+       "ad": "Bir işin işlem basamaklarına ilişkin yönergeler yazar"
+      },
+      {
+       "kod": "T.4.4.7",
+       "ad": "Yazdıklarının içeriğine uygun başlık belirler"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Toplama İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.2.3",
+       "ad": "En çok dört basamaklı doğal sayıları 100’ün katlarıyla zihinden toplar"
+      },
+      {
+       "kod": "M.4.1.2.4",
+       "ad": "Doğal sayılarla toplama işlemini gerektiren problemleri çözer"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Besinlerimiz"
+     ],
+     "konu": [
+      "Besinler ve Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.2.1.3",
+       "ad": "Sağlıklı bir yaşam için besinlerin tazeliğinin ve doğallığının önemini, araştırma verilerine dayalı olarak tartışır"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 9,
+   "etiket": "9. Hafta",
+   "tarih": "9-13 Kasım",
+   "baslangic": "2026-11-09",
+   "bitis": "2026-11-13",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ MÜCADELE VE ATATÜRK"
+     ],
+     "konu": [
+      "Çanakkale",
+      "Çanakkale Geçilmez Mustafa Kemal Yenilmez",
+      "(Serbest Okuma Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.5",
+       "ad": "Sınıf içindeki tartışma ve konuşmalara katılır"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.2",
+       "ad": "Vurgu, tonlama ve telaffuza dikkat ederek okur"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.4.2",
+       "ad": "Bir işin işlem basamaklarına ilişkin yönergeler yazar"
+      },
+      {
+       "kod": "T.4.4.15",
+       "ad": "İmza atar"
+      },
+      {
+       "kod": "T.4.4.13",
+       "ad": "Yazılarında eş sesli kelimeleri anlamlarına uygun kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Çıkarma İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.3.3",
+       "ad": "Doğal sayılarla yapılan çıkarma işleminin sonucunu tahmin eder, tahminini işlem sonucuyla karşılaştırır"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Besinlerimiz"
+     ],
+     "konu": [
+      "Besinler ve Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.2.1.3",
+       "ad": "Sağlıklı bir yaşam için besinlerin tazeliğinin ve doğallığının önemini, araştırma verilerine dayalı olarak tartışır"
+      },
+      {
+       "kod": "F.4.2.1.4",
+       "ad": "İnsan sağlığı ile dengeli beslenmeyi ilişkilendirir"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": null,
+   "etiket": "1. Dönem Ara Tatili",
+   "tarih": "16-20 Kasım 2026",
+   "baslangic": "2026-11-16",
+   "bitis": "2026-11-20",
+   "tatil": true,
+   "dersler": {},
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 10,
+   "etiket": "10. Hafta",
+   "tarih": "23-27 Kasım",
+   "baslangic": "2026-11-23",
+   "bitis": "2026-11-27",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ERDEMLER"
+     ],
+     "konu": [
+      "İyileştirici Güç:",
+      "Sevgi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.6",
+       "ad": "Okuma stratejilerini uygular"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.20",
+       "ad": "Okuduğu metinlerdeki hikâye unsurlarını belirler"
+      },
+      {
+       "kod": "T.4.3.21",
+       "ad": "Okuduğu metnin içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.3.26",
+       "ad": "Metindeki gerçek ve hayalî ögeleri ayırt eder"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Çıkarma İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.3.4",
+       "ad": "Doğal sayılarla toplama ve çıkarma işlemini gerektiren problemleri çözer"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Besinlerimiz"
+     ],
+     "konu": [
+      "Besinler ve Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.2.1.5",
+       "ad": "Alkol ve sigara kullanımının insan sağlığına olan olumsuz etkilerinin farkına varır"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 11,
+   "etiket": "11. Hafta",
+   "tarih": "30 Kas-4 Ara",
+   "baslangic": "2026-11-30",
+   "bitis": "2026-12-04",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ERDEMLER"
+     ],
+     "konu": [
+      "Maysa ile Bulut",
+      "(İzleme Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.1.4",
+       "ad": "Dinlediklerinde/izlediklerinde geçen, bilmediği kelimelerin anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.1.5",
+       "ad": "Dinlediklerinin/izlediklerinin konusunu belirler"
+      },
+      {
+       "kod": "T.4.1.6",
+       "ad": "Dinlediklerinin/izlediklerinin ana fikrini/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.1.7",
+       "ad": "Dinlediklerine/izlediklerine yönelik sorulara cevap verir"
+      },
+      {
+       "kod": "T.4.1.8",
+       "ad": "Dinlediklerine/izlediklerine farklı başlıklar önerir"
+      },
+      {
+       "kod": "T.4.1.10",
+       "ad": "Dinlediği/izlediği hikâye edici metinleri canlandırır"
+      },
+      {
+       "kod": "T.4.1.12",
+       "ad": "Dinleme stratejilerini uygular"
+      },
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.5",
+       "ad": "Sınıf içindeki tartışma ve konuşmalara katılır"
+      },
+      {
+       "kod": "T.4.3.34",
+       "ad": "Grafik, tablo ve çizelgelerle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.4.2",
+       "ad": "Bir işin işlem basamaklarına ilişkin yönergeler yazar"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      },
+      {
+       "kod": "T.4.4.19",
+       "ad": "Yazılarında kelimeleri gerçek, mecaz ve terim anlamları ile kullanır"
+      },
+      {
+       "kod": "T.4.4.12",
+       "ad": "Yazdıklarını paylaşır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Çarpma İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.4.1",
+       "ad": "Üç basamaklı doğal sayılarla iki basamaklı doğal sayıları çarpar"
+      },
+      {
+       "kod": "M.4.1.4.2",
+       "ad": "Üç doğal sayı ile yapılan çarpma işleminde sayıların birbirleriyle çarpılma sırasının değişmesinin, sonucu değiştirmediğini gösterir"
+      },
+      {
+       "kod": "M.4.1.4.3",
+       "ad": "En çok üç basamaklı doğal sayıları 10, 100 ve 1000’in en çok dokuz katı olan doğal sayılarla; en çok iki basamaklı doğal sayıları 5, 25 ve 50 ile kısa yoldan çarpar"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Besinlerimiz"
+     ],
+     "konu": [
+      "Besinler ve Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.2.1.6",
+       "ad": "Yakın çevresinde sigara kullanımını azaltmaya yönelik sorumluluk üstlenir"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 12,
+   "etiket": "12. Hafta",
+   "tarih": "7-11 Aralık",
+   "baslangic": "2026-12-07",
+   "bitis": "2026-12-11",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ERDEMLER"
+     ],
+     "konu": [
+      "Hasta Ziyareti"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.5",
+       "ad": "Sınıf içindeki tartışma ve konuşmalara katılır"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.11",
+       "ad": "Deyim ve atasözlerinin metnin anlamına katkısını kavrar"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.25",
+       "ad": "Yönergeleri kavrar"
+      },
+      {
+       "kod": "T.4.3.27",
+       "ad": "Okuduğu metindeki kahramanların özelliklerini karşılaştırır"
+      },
+      {
+       "kod": "T.4.4.3",
+       "ad": "Hikâye edici metin yazar"
+      },
+      {
+       "kod": "T.4.4.4",
+       "ad": "Bilgilendirici metin yazar"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      },
+      {
+       "kod": "T.4.4.12",
+       "ad": "Yazdıklarını paylaşır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Çarpma İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.4.3",
+       "ad": "En çok üç basamaklı doğal sayıları 10, 100 ve 1000’in en çok dokuz katı olan doğal sayılarla; en çok iki basamaklı doğal sayıları 5, 25 ve 50 ile kısa yoldan çarpar"
+      },
+      {
+       "kod": "M.4.1.4.4",
+       "ad": "En çok üç basamaklı doğal sayıları 10, 100 ve 1000 ile zihinden çarpar"
+      },
+      {
+       "kod": "M.4.1.4.5",
+       "ad": "En çok iki basamaklı bir doğal sayı ile bir basamaklı bir doğal sayının çarpımını tahmin eder ve tahminini işlem sonucu ile karşılaştırır"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Kuvvetin Etkileri"
+     ],
+     "konu": [
+      "Kuvvetin Cisimler Üzerindeki Etkileri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.3.1.1",
+       "ad": "Kuvvetin, cisimlere hareket kazandırmasına ve cisimlerin şekillerini değiştirmesine yönelik deneyler yapar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 13,
+   "etiket": "13. Hafta",
+   "tarih": "14-18 Aralık",
+   "baslangic": "2026-12-14",
+   "bitis": "2026-12-18",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ERDEMLER"
+     ],
+     "konu": [
+      "Çiftçi ve Oğulları",
+      "Iyi Dilekler Günü (Serbest Okuma Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.5",
+       "ad": "Sınıf içindeki tartışma ve konuşmalara katılır"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.2",
+       "ad": "Vurgu, tonlama ve telaffuza dikkat ederek okur"
+      },
+      {
+       "kod": "T.4.3.3",
+       "ad": "Şiir okur"
+      },
+      {
+       "kod": "T.4.3.8",
+       "ad": "Kelimelerin eş anlamlılarını bulur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Çarpma İşlemi",
+      "Doğal Sayılarla Bölme İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.4.5",
+       "ad": "En çok iki basamaklı bir doğal sayı ile bir basamaklı bir doğal sayının çarpımını tahmin eder ve tahminini işlem sonucu ile karşılaştırır"
+      },
+      {
+       "kod": "M.4.1.4.6",
+       "ad": "Doğal sayılarla çarpma işlemini gerektiren problemleri çözer"
+      },
+      {
+       "kod": "M.4.1.5.1",
+       "ad": "Üç basamaklı doğal sayıları en çok iki basamaklı doğal sayılara böler"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Kuvvetin Etkileri"
+     ],
+     "konu": [
+      "Kuvvetin Cisimler Üzerindeki Etkileri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.3.1.1",
+       "ad": "Kuvvetin, cisimlere hareket kazandırmasına ve cisimlerin şekillerini değiştirmesine yönelik deneyler yapar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 14,
+   "etiket": "14. Hafta",
+   "tarih": "21-25 Aralık",
+   "baslangic": "2026-12-21",
+   "bitis": "2026-12-25",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLİM VE TEKNOLOJİ"
+     ],
+     "konu": [
+      "Bilim Nedir?"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.5",
+       "ad": "Sınıf içindeki tartışma ve konuşmalara katılır"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.10",
+       "ad": "Okuduğu metindeki gerçek, mecaz ve terim anlamlı sözcükleri belirler"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.34",
+       "ad": "Grafik, tablo ve çizelgelerle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.4.8",
+       "ad": "Yazdıklarında yabancı dillerden alınmış, dilimize henüz yerleşmemiş kelimelerin Türkçelerini kullanır"
+      },
+      {
+       "kod": "T.4.4.18",
+       "ad": "Yazılarında bağlaçları kuralına uygun kullanır"
+      },
+      {
+       "kod": "T.4.4.19",
+       "ad": "Yazılarında kelimeleri gerçek, mecaz ve terim anlamları ile kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Bölme İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.5.1",
+       "ad": "Üç basamaklı doğal sayıları en çok iki basamaklı doğal sayılara böler"
+      },
+      {
+       "kod": "M.4.1.5.2",
+       "ad": "En çok dört basamaklı bir sayıyı bir basamaklı bir sayıya böler"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Kuvvetin Etkileri"
+     ],
+     "konu": [
+      "Mıknatısların Uyguladığı Kuvvet"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.3.2.1",
+       "ad": "Mıknatısı tanır ve kutupları olduğunu keşfeder"
+      },
+      {
+       "kod": "F.4.3.2.2",
+       "ad": "Mıknatısın etki ettiği maddeleri deney yaparak keşfeder"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 15,
+   "etiket": "15. Hafta",
+   "tarih": "28 Ara-1 Oca",
+   "baslangic": "2026-12-28",
+   "bitis": "2027-01-01",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLİM VE TEKNOLOJİ"
+     ],
+     "konu": [
+      "Olimpiyatların Arkasındaki Bilim"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.34",
+       "ad": "Grafik, tablo ve çizelgelerle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.37",
+       "ad": "Okuduğu metindeki olaylara ilişkin düşüncelerini ifade eder"
+      },
+      {
+       "kod": "T.4.4.18",
+       "ad": "Yazılarında bağlaçları kuralına uygun kullanır"
+      },
+      {
+       "kod": "T.4.4.9",
+       "ad": "Formları yönergelerine uygun doldurur"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Bölme İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.5.3",
+       "ad": "Son üç basamağı sıfır olan en çok beş basamaklı doğal sayıları 10, 100 ve 1000’e zihinden böler"
+      },
+      {
+       "kod": "M.4.1.5.4",
+       "ad": "Bir bölme işleminin sonucunu tahmin eder ve tahminini işlem sonucu ile karşılaştırır"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Kuvvetin Etkileri"
+     ],
+     "konu": [
+      "Mıknatısların Uyguladığı Kuvvet"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.3.2.3",
+       "ad": "Mıknatısların günlük yaşamdaki kullanım alanlarına örnekler verir"
+      },
+      {
+       "kod": "F.4.3.2.4",
+       "ad": "Mıknatısların yeni kullanım alanları konusunda fikirlerini açıklar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 16,
+   "etiket": "16. Hafta",
+   "tarih": "4-8 Ocak",
+   "baslangic": "2027-01-04",
+   "bitis": "2027-01-08",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLİM VE TEKNOLOJİ"
+     ],
+     "konu": [
+      "Hayata Varım",
+      "(Dinleme Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.1.1",
+       "ad": "Görselden/görsellerden hareketle dinleyeceği/izleyeceği metnin konusunu tahmin eder"
+      },
+      {
+       "kod": "T.4.1.4",
+       "ad": "Dinlediklerinde/izlediklerinde geçen, bilmediği kelimelerin anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.1.5",
+       "ad": "Dinlediklerinin/izlediklerinin konusunu belirler"
+      },
+      {
+       "kod": "T.4.1.6",
+       "ad": "Dinlediklerinin/izlediklerinin ana fikrini/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.1.7",
+       "ad": "Dinlediklerine/izlediklerine yönelik sorulara cevap verir"
+      },
+      {
+       "kod": "T.4.1.8",
+       "ad": "Dinlediklerine/izlediklerine farklı başlıklar önerir"
+      },
+      {
+       "kod": "T.4.1.9",
+       "ad": "Dinledikleriyle/izledikleriyle ilgili görüşlerini ifade eder"
+      },
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.22",
+       "ad": "Şekil, sembol ve işaretlerin anlamlarını kavrar"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.4.12",
+       "ad": "Yazdıklarını paylaşır"
+      },
+      {
+       "kod": "T.4.4.14",
+       "ad": "Yazdıklarını zenginleştirmek için çizim, grafik ve görseller kullanır"
+      },
+      {
+       "kod": "T.4.4.18",
+       "ad": "Yazılarında bağlaçları kuralına uygun kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Bölme İşlemi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.5.5",
+       "ad": "Çarpma ve bölme arasındaki ilişkiyi fark eder"
+      },
+      {
+       "kod": "M.4.1.5.6",
+       "ad": "Doğal sayılarla en az bir bölme işlemi gerektiren problemleri çözer"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Maddenin Özellikleri"
+     ],
+     "konu": [
+      "Maddeyi Niteleyen Özellikler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.4.1.1",
+       "ad": "Beş duyu organını kullanarak maddeyi niteleyen temel özellikleri açıklar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 17,
+   "etiket": "17. Hafta",
+   "tarih": "11-15 Ocak",
+   "baslangic": "2027-01-11",
+   "bitis": "2027-01-15",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLİM VE TEKNOLOJİ"
+     ],
+     "konu": [
+      "Otomobil Uçar Gider"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.11",
+       "ad": "Deyim ve atasözlerinin metnin anlamına katkısını kavrar"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.15",
+       "ad": "Okuduklarını ana hatlarıyla anlatır"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.26",
+       "ad": "Metindeki gerçek ve hayalî ögeleri ayırt eder"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Doğal Sayılarla Bölme İşlemi",
+      "Kesirler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.5.7",
+       "ad": "Aralarında eşitlik durumu olan iki matematiksel ifadeden birinde verilmeyen değeri belirler ve eşitliğin sağlandığını açıklar"
+      },
+      {
+       "kod": "M.4.1.5.8",
+       "ad": "Aralarında eşitlik durumu olmayan iki matematiksel ifadenin eşit olması için yapılması gereken işlemleri açıklar"
+      },
+      {
+       "kod": "M.4.1.6.1",
+       "ad": "Basit, bileşik ve tam sayılı kesri tanır ve modellerle gösterir"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Maddenin Özellikleri"
+     ],
+     "konu": [
+      "Maddenin Ölçülebilir Özellikleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.4.2.1",
+       "ad": "Farklı maddelerin kütle ve hacimlerini ölçerek karşılaştırır"
+      },
+      {
+       "kod": "F.4.4.2.2",
+       "ad": "Ölçülebilir özelliklerini kullanarak maddeyi tanımlar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 18,
+   "etiket": "18. Hafta",
+   "tarih": "18-22 Ocak",
+   "baslangic": "2027-01-18",
+   "bitis": "2027-01-22",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "BİLİM VE TEKNOLOJİ"
+     ],
+     "konu": [
+      "Otomobil Uçar Gider",
+      "Robotları Ustası, El Cezerî",
+      "(Serbest Okuma Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.5",
+       "ad": "Sınıf içindeki tartışma ve konuşmalara katılır"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.22",
+       "ad": "Şekil, sembol ve işaretlerin anlamlarını kavrar"
+      },
+      {
+       "kod": "T.4.3.25",
+       "ad": "Yönergeleri kavrar"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      },
+      {
+       "kod": "T.4.4.14",
+       "ad": "Yazdıklarını zenginleştirmek için çizim, grafik ve görseller kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Kesirler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.6.1",
+       "ad": "Basit, bileşik ve tam sayılı kesri tanır ve modellerle gösterir"
+      },
+      {
+       "kod": "M.4.1.6.2",
+       "ad": "Birim kesirleri karşılaştırır ve sıralar"
+      },
+      {
+       "kod": "M.4.1.6.3",
+       "ad": "Bir çokluğun belirtilen bir basit kesir kadarını belirler"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Maddenin Özellikleri"
+     ],
+     "konu": [
+      "Maddenin Hâlleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.4.3.1",
+       "ad": "Maddelerin hâllerine ait temel özellikleri karşılaştırır"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": null,
+   "etiket": "Yarıyıl Tatili",
+   "tarih": "25 Ocak - 5 Şubat 2027",
+   "baslangic": "2027-01-25",
+   "bitis": "2027-02-05",
+   "tatil": true,
+   "dersler": {},
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 19,
+   "etiket": "19. Hafta",
+   "tarih": "8-12 Şubat",
+   "baslangic": "2027-02-08",
+   "bitis": "2027-02-12",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DOĞA VE EVREN"
+     ],
+     "konu": [
+      "Alo! Kayın Ağacı mı?"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.4",
+       "ad": "Konuşma stratejilerini uygular"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.15",
+       "ad": "Okuduklarını ana hatlarıyla anlatır"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.21",
+       "ad": "Okuduğu metnin içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.4.5",
+       "ad": "Hayalî ögeler barındıran kısa metin yazar"
+      },
+      {
+       "kod": "T.4.4.7",
+       "ad": "Yazdıklarının içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.4.9",
+       "ad": "Formları yönergelerine uygun doldurur"
+      },
+      {
+       "kod": "T.4.4.12",
+       "ad": "Yazdıklarını paylaşır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Kesirler",
+      "Kesirlerle İşlemler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.6.3",
+       "ad": "Bir çokluğun belirtilen bir basit kesir kadarını belirler"
+      },
+      {
+       "kod": "M.4.1.6.4",
+       "ad": "Paydaları eşit olan en çok üç kesri karşılaştırır"
+      },
+      {
+       "kod": "M.4.1.7.1",
+       "ad": "Paydaları eşit kesirlerle toplama ve çıkarma işlemi yapar"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Maddenin Özellikleri"
+     ],
+     "konu": [
+      "Maddenin Hâlleri",
+      "Maddenin Isı Etkisiyle Değişimi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.4.3.2",
+       "ad": "Aynı maddenin farklı hâllerine örnekler verir"
+      },
+      {
+       "kod": "F.4.4.4.1",
+       "ad": "Maddelerin ısınıp soğumasına yönelik deneyler tasarlar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 20,
+   "etiket": "20. Hafta",
+   "tarih": "15-19 Şubat",
+   "baslangic": "2027-02-15",
+   "bitis": "2027-02-19",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DOĞA VE EVREN"
+     ],
+     "konu": [
+      "Güneş Nasıl Çalışır?"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.10",
+       "ad": "Okuduğu metindeki gerçek, mecaz ve terim anlamlı sözcükleri belirler"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.3.30",
+       "ad": "Metindeki renkli, altı çizili, koyu ifadelerin önemli noktaları vurguladığını kavrar"
+      },
+      {
+       "kod": "T.4.4.4",
+       "ad": "Bilgilendirici metin yazar"
+      },
+      {
+       "kod": "T.4.4.7",
+       "ad": "Yazdıklarının içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "SAYILAR VE İŞLEMLER"
+     ],
+     "konu": [
+      "Kesirlerle İşlemler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.1.7.1",
+       "ad": "Paydaları eşit kesirlerle toplama ve çıkarma işlemi yapar"
+      },
+      {
+       "kod": "M.4.1.7.2",
+       "ad": "Kesirlerle toplama ve çıkarma işlemlerini gerektiren problemleri çözer"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Maddenin Özellikleri"
+     ],
+     "konu": [
+      "Maddenin Isı Etkisiyle Değişimi"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.4.4.2",
+       "ad": "Maddelerin ısı etkisiyle hâl değiştirebileceğine yönelik deney tasarlar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 21,
+   "etiket": "21. Hafta",
+   "tarih": "22-26 Şubat",
+   "baslangic": "2027-02-22",
+   "bitis": "2027-02-26",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DOĞA VE EVREN"
+     ],
+     "konu": [
+      "Orman Dostları: Ağaçlandırma",
+      "(İzleme Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.1.1",
+       "ad": "Görselden/görsellerden hareketle dinleyeceği/izleyeceği metnin konusunu tahmin eder"
+      },
+      {
+       "kod": "T.4.1.3",
+       "ad": "Dinlediği/izlediği metni ana hatlarıyla anlatır"
+      },
+      {
+       "kod": "T.4.1.4",
+       "ad": "Dinlediklerinde/izlediklerinde geçen, bilmediği kelimelerin anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.1.5",
+       "ad": "Dinlediklerinin/izlediklerinin konusunu belirler"
+      },
+      {
+       "kod": "T.4.1.6",
+       "ad": "Dinlediklerinin/izlediklerinin ana fikrini/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.1.7",
+       "ad": "Dinlediklerine/izlediklerine yönelik sorulara cevap verir"
+      },
+      {
+       "kod": "T.4.1.13",
+       "ad": "Konuşmacının sözlü olmayan mesajlarını kavrar"
+      },
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.22",
+       "ad": "Şekil, sembol ve işaretlerin anlamlarını kavrar"
+      },
+      {
+       "kod": "T.4.3.25",
+       "ad": "Yönergeleri kavrar"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.4.2",
+       "ad": "Bir işin işlem basamaklarına ilişkin yönergeler yazar"
+      },
+      {
+       "kod": "T.4.4.4",
+       "ad": "Bilgilendirici metin yazar"
+      },
+      {
+       "kod": "T.4.4.7",
+       "ad": "Yazdıklarının içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.4.14",
+       "ad": "Yazdıklarını zenginleştirmek için çizim, grafik ve görseller kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "ÖLÇME"
+     ],
+     "konu": [
+      "Zaman Ölçme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.3.4.1",
+       "ad": "Zaman ölçme birimleri arasındaki ilişkiyi açıklar"
+      },
+      {
+       "kod": "M.4.3.4.2",
+       "ad": "Zaman ölçme birimlerinin kullanıldığı problemleri çözer"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Maddenin Özellikleri"
+     ],
+     "konu": [
+      "Saf Madde ve Karışım"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.4.5.1",
+       "ad": "Günlük yaşamında sıklıkla kullandığı maddeleri saf madde ve karışım şeklinde sınıflandırarak araların daki farkları açıklar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 22,
+   "etiket": "22. Hafta",
+   "tarih": "1-5 Mart",
+   "baslangic": "2027-03-01",
+   "bitis": "2027-03-05",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "DOĞA VE EVREN"
+     ],
+     "konu": [
+      "Gökyüzünde Bir Yarış",
+      "Nedir Bu Iklim Değisikliği?",
+      "(Serbest Okuma Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.4",
+       "ad": "Konuşma stratejilerini uygular"
+      },
+      {
+       "kod": "T.4.2.5",
+       "ad": "Sınıf içindeki tartışma ve konuşmalara katılır"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.2",
+       "ad": "Vurgu, tonlama ve telaffuza dikkat ederek okur"
+      },
+      {
+       "kod": "T.4.3.3",
+       "ad": "Şiir okur"
+      },
+      {
+       "kod": "T.4.3.10",
+       "ad": "Okuduğu metindeki gerçek, mecaz ve terim anlamlı sözcükleri belirler"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.21",
+       "ad": "Okuduğu metnin içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.4.1",
+       "ad": "Şiir yazar"
+      },
+      {
+       "kod": "T.4.4.7",
+       "ad": "Yazdıklarının içeriğine uygun başlık belirler"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "ÖLÇME",
+      "VERİ İŞLEME"
+     ],
+     "konu": [
+      "Zaman Ölçme",
+      "Veri Toplama ve Değerlendirme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.3.4.2",
+       "ad": "Zaman ölçme birimlerinin kullanıldığı problemleri çözer"
+      },
+      {
+       "kod": "M.4.4.1.1",
+       "ad": "Sütun grafiğini inceler, grafik üzerinde yorum ve tahminler yapar"
+      },
+      {
+       "kod": "M.4.4.1.2",
+       "ad": "Sütun grafiğini oluşturur"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Maddenin Özellikleri"
+     ],
+     "konu": [
+      "Saf Madde ve Karışım"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.4.5.2",
+       "ad": "Günlük yaşamda karşılaştığı karışımların ayrılmasında kullanılabilecek yöntemlerden uygun olanı seçer"
+      },
+      {
+       "kod": "F.4.4.5.3",
+       "ad": "Karışımların ayrılmasını, ülke ekonomisine katkısı ve kaynakların etkili kullanımı bakımından tartışır"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": null,
+   "etiket": "2. Dönem Ara Tatili",
+   "tarih": "8-12 Mart 2027",
+   "baslangic": "2027-03-08",
+   "bitis": "2027-03-12",
+   "tatil": true,
+   "dersler": {},
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 23,
+   "etiket": "23. Hafta",
+   "tarih": "15-19 Mart",
+   "baslangic": "2027-03-15",
+   "bitis": "2027-03-19",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ KÜLTÜRÜMÜZ"
+     ],
+     "konu": [
+      "Anadolu Bacıları (Anadolu Kadınlar Birliği)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.13",
+       "ad": "Görsellerle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.29",
+       "ad": "Görsellerle okuduğu metnin içeriğini ilişkilendirir"
+      },
+      {
+       "kod": "T.4.4.4",
+       "ad": "Bilgilendirici metin yazar"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "VERİ İŞLEME",
+      "GEOMETRİ"
+     ],
+     "konu": [
+      "Veri Toplama ve Değerlendirme",
+      "Geometrik Cisimler ve Şekiller"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.4.1.3",
+       "ad": "Elde ettiği veriyi sunmak amacıyla farklı gösterimler kullanır"
+      },
+      {
+       "kod": "M.4.4.1.4",
+       "ad": "Sütun grafiği, tablo ve diğer grafiklerle gösterilen bilgileri kullanarak günlük hayatla ilgili problemler çözer"
+      },
+      {
+       "kod": "M.4.2.1.1",
+       "ad": "Üçgen, kare ve dikdörtgenin kenarlarını ve köşelerini isimlendirir"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Aydınlatma ve Ses Teknolojileri"
+     ],
+     "konu": [
+      "Aydınlatma Teknolojileri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.5.1.1",
+       "ad": "Geçmişte ve günümüzde kullanılan aydınlatma araçlarını karşılaştırır"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 24,
+   "etiket": "24. Hafta",
+   "tarih": "22-26 Mart",
+   "baslangic": "2027-03-22",
+   "bitis": "2027-03-26",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ KÜLTÜRÜMÜZ"
+     ],
+     "konu": [
+      "Dünyanın İlk Alışveriş Merkezi: Kapalıçarşı"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.8",
+       "ad": "Kelimelerin eş anlamlılarını bulur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.15",
+       "ad": "Okuduklarını ana hatlarıyla anlatır"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.21",
+       "ad": "Okuduğu metnin içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.3.29",
+       "ad": "Görsellerle okuduğu metnin içeriğini ilişkilendirir"
+      },
+      {
+       "kod": "T.4.4.12",
+       "ad": "Yazdıklarını paylaşır"
+      },
+      {
+       "kod": "T.4.4.16",
+       "ad": "Kısaltmaları ve kısaltmalara gelen ekleri doğru yazar"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "GEOMETRİ"
+     ],
+     "konu": [
+      "Geometrik Cisimler ve Şekiller"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.2.1.1",
+       "ad": "Üçgen, kare ve dikdörtgenin kenarlarını ve köşelerini isimlendirir"
+      },
+      {
+       "kod": "M.4.2.1.2",
+       "ad": "Kare ve dikdörtgenin kenar özelliklerini belirler"
+      },
+      {
+       "kod": "M.4.2.1.3",
+       "ad": "Üçgenleri kenar uzunluklarına göre sınıflandırır"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Aydınlatma ve Ses Teknolojileri"
+     ],
+     "konu": [
+      "Aydınlatma Teknolojileri",
+      "Uygun Aydınlatma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.5.1.2",
+       "ad": "Gelecekte kullanılabilecek aydınlatma araçlarına yönelik tasarım yapar"
+      },
+      {
+       "kod": "F.4.5.2.1",
+       "ad": "Uygun aydınlatma hakkında araştırma yapar"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 25,
+   "etiket": "25. Hafta",
+   "tarih": "29 Mar-2 Nis",
+   "baslangic": "2027-03-29",
+   "bitis": "2027-04-02",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ KÜLTÜRÜMÜZ"
+     ],
+     "konu": [
+      "Zamane Kedisi Fıldır: Yatıya Misafir"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.24",
+       "ad": "Hikâye edici ve bilgilendirici metinleri oluşturan ögeleri tanır"
+      },
+      {
+       "kod": "T.4.3.26",
+       "ad": "Metindeki gerçek ve hayalî ögeleri ayırt eder"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.3.37",
+       "ad": "Okuduğu metindeki olaylara ilişkin düşüncelerini ifade eder"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      },
+      {
+       "kod": "T.4.4.20",
+       "ad": "Harflerin yapısal özelliklerine uygun metin yazar"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "GEOMETRİ"
+     ],
+     "konu": [
+      "Geometrik Cisimler ve Şekiller",
+      "Geometride Temel Kavramlar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.2.1.4",
+       "ad": "Açınımı verilen küpü oluşturur"
+      },
+      {
+       "kod": "M.4.2.1.5",
+       "ad": "İzometrik ya da kareli kâğıda eş küplerle çizilmiş olarak verilen modellere uygun basit yapılar oluşturur"
+      },
+      {
+       "kod": "M.4.2.3.1",
+       "ad": "Düzlemi tanır ve örneklendirir"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Aydınlatma ve Ses Teknolojileri"
+     ],
+     "konu": [
+      "Uygun Aydınlatma",
+      "Işık Kirliliği"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.5.2.2",
+       "ad": "Aydınlatma araçlarının tasarruflu kullanımının aile ve ülke ekonomisi bakımından önemini tartışır"
+      },
+      {
+       "kod": "F.4.5.3.1",
+       "ad": "Işık kirliliğinin nedenlerini sorgular"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 26,
+   "etiket": "26. Hafta",
+   "tarih": "5-9 Nisan",
+   "baslangic": "2027-04-05",
+   "bitis": "2027-04-09",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ KÜLTÜRÜMÜZ"
+     ],
+     "konu": [
+      "Geleneksel Türk Okçuluğu",
+      "(Izleme Metni)",
+      "Keloğlan’ın Fasulyesi (Serbest Okuma Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.1.1",
+       "ad": "Görselden/görsellerden hareketle dinleyeceği/izleyeceği metnin konusunu tahmin eder"
+      },
+      {
+       "kod": "T.4.1.4",
+       "ad": "Dinlediklerinde/izlediklerinde geçen, bilmediği kelimelerin anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.1.7",
+       "ad": "Dinlediklerine/izlediklerine yönelik sorulara cevap verir"
+      },
+      {
+       "kod": "T.4.1.12",
+       "ad": "Dinleme stratejilerini uygular"
+      },
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.4",
+       "ad": "Metinleri türün özelliklerine uygun biçimde okur"
+      },
+      {
+       "kod": "T.4.3.11",
+       "ad": "Deyim ve atasözlerinin metnin anlamına katkısını kavrar"
+      },
+      {
+       "kod": "T.4.3.22",
+       "ad": "Şekil, sembol ve işaretlerin anlamlarını kavrar"
+      },
+      {
+       "kod": "T.4.4.8",
+       "ad": "Yazdıklarında yabancı dillerden alınmış, dilimize henüz yerleşmemiş kelimelerin Türkçelerini kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "GEOMETRİ"
+     ],
+     "konu": [
+      "Geometride Temel Kavramlar"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.2.3.1",
+       "ad": "Düzlemi tanır ve örneklendirir"
+      },
+      {
+       "kod": "M.4.2.3.2",
+       "ad": "Açıyı oluşturan ışınları ve köşeyi belirler, açıyı isimlendirir ve sembolle gösterir"
+      },
+      {
+       "kod": "M.4.2.3.3",
+       "ad": "Açıları, standart olmayan birimlerle ölçer ve standart ölçme birimlerinin gerekliliğini açıklar"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Aydınlatma ve Ses Teknolojileri"
+     ],
+     "konu": [
+      "Işık Kirliliği"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.5.3.2",
+       "ad": "Işık kirliliğinin, doğal hayata ve gök cisimlerinin gözlenmesine olan olumsuz etkilerini açıklar"
+      },
+      {
+       "kod": "F.4.5.3.3",
+       "ad": "Işık kirliliğini azaltmaya yönelik çözümler üretir"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 27,
+   "etiket": "27. Hafta",
+   "tarih": "12-16 Nisan",
+   "baslangic": "2027-04-12",
+   "bitis": "2027-04-16",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "MİLLÎ KÜLTÜRÜMÜZ"
+     ],
+     "konu": [
+      "Geleneksel Türk Okçuluğu",
+      "(Izleme Metni)",
+      "Keloglan’ın Fasulyesi (Serbest Okuma Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.1.1",
+       "ad": "Görselden/görsellerden hareketle dinleyeceği/izleyeceği metnin konusunu tahmin eder"
+      },
+      {
+       "kod": "T.4.1.4",
+       "ad": "Dinlediklerinde/izlediklerinde geçen, bilmediği kelimelerin anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.1.7",
+       "ad": "Dinlediklerine/izlediklerine yönelik sorulara cevap verir"
+      },
+      {
+       "kod": "T.4.1.12",
+       "ad": "Dinleme stratejilerini uygular"
+      },
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.4",
+       "ad": "Metinleri türün özelliklerine uygun biçimde okur"
+      },
+      {
+       "kod": "T.4.3.11",
+       "ad": "Deyim ve atasözlerinin metnin anlamına katkısını kavrar"
+      },
+      {
+       "kod": "T.4.3.22",
+       "ad": "Şekil, sembol ve işaretlerin anlamlarını kavrar"
+      },
+      {
+       "kod": "T.4.4.8",
+       "ad": "Yazdıklarında yabancı dillerden alınmış, dilimize henüz yerleşmemiş kelimelerin Türkçelerini kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "GEOMETRİ"
+     ],
+     "konu": [
+      "Geometride Temel Kavramlar",
+      "Uzamsal İlişkiler"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.2.3.4",
+       "ad": "Açıları standart açı ölçme araçlarıyla ölçerek dar, dik, geniş ve doğru açı olarak belirler"
+      },
+      {
+       "kod": "M.4.2.3.5",
+       "ad": "Standart açı ölçme araçları kullanarak ölçüsü verilen açıyı oluşturur"
+      },
+      {
+       "kod": "M.4.2.2.1",
+       "ad": "Ayna simetrisini, geometrik şekiller ve modeller üzerinde açıklayarak simetri doğrusunu çizer"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Aydınlatma ve Ses Teknolojileri"
+     ],
+     "konu": [
+      "Işık Kirliliği",
+      "Geçmişten Günümüze Ses Teknolojileri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.5.3.3",
+       "ad": "Işık kirliliğini azaltmaya yönelik çözümler üretir"
+      },
+      {
+       "kod": "F.4.5.4.1",
+       "ad": "Geçmişte ve günümüzde kullanılan ses teknolojilerini karşılaştırır"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 28,
+   "etiket": "28. Hafta",
+   "tarih": "19-23 Nisan",
+   "baslangic": "2027-04-19",
+   "bitis": "2027-04-23",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ÇOCUK DÜNYASI"
+     ],
+     "konu": [
+      "Diyor ki:"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.14",
+       "ad": "Görsellerden ve başlıktan hareketle okuyacağı metnin konusunu tahmin eder"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.3.35",
+       "ad": "Bilgi kaynaklarını etkili bir şekilde kullanır"
+      },
+      {
+       "kod": "T.4.4.5",
+       "ad": "Hayalî ögeler barındıran kısa metin yazar"
+      },
+      {
+       "kod": "T.4.4.7",
+       "ad": "Yazdıklarının içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      },
+      {
+       "kod": "T.4.4.22",
+       "ad": "Pekiştirmeli sözcükleri doğru yazar"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "GEOMETRİ",
+      "ÖLÇME"
+     ],
+     "konu": [
+      "Uzamsal İlişkiler",
+      "Uzunluk Ölçme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.2.2.1",
+       "ad": "Ayna simetrisini, geometrik şekiller ve modeller üzerinde açıklayarak simetri doğrusunu çizer"
+      },
+      {
+       "kod": "M.4.2.2.2",
+       "ad": "Verilen şeklin doğruya göre simetriğini çizer"
+      },
+      {
+       "kod": "M.4.3.1.1",
+       "ad": "Standart uzunluk ölçme birimlerinden milimetrenin kullanım alanlarını belirtir"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Aydınlatma ve Ses Teknolojileri"
+     ],
+     "konu": [
+      "Geçmişten Günümüze Ses Teknolojileri",
+      "Ses Kirliliği"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.5.4.2",
+       "ad": "Şiddetli sese sahip teknolojik araçların olumlu ve olumsuz etkilerini araştırır"
+      },
+      {
+       "kod": "F.4.5.5.1",
+       "ad": "Ses kirliliğinin nedenlerini sorgular"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 29,
+   "etiket": "29. Hafta",
+   "tarih": "26-30 Nisan",
+   "baslangic": "2027-04-26",
+   "bitis": "2027-04-30",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ÇOCUK DÜNYASI"
+     ],
+     "konu": [
+      "Güzel Anıları Biriktirmek",
+      "(Dinleme Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.1.2",
+       "ad": "Dinlediklerinde/izlediklerinde geçen olayların gelişimi ve sonucu hakkında tahminde bulunur"
+      },
+      {
+       "kod": "T.4.1.4",
+       "ad": "Dinlediklerinde/izlediklerinde geçen, bilmediği kelimelerin anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.1.7",
+       "ad": "Dinlediklerine/izlediklerine yönelik sorulara cevap verir"
+      },
+      {
+       "kod": "T.4.1.11",
+       "ad": "Dinlediklerinin/izlediklerinin içeriğini değerlendirir"
+      },
+      {
+       "kod": "T.4.1.12",
+       "ad": "Dinleme stratejilerini uygular"
+      },
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.24",
+       "ad": "Hikâye edici ve bilgilendirici metinleri oluşturan ögeleri tanır"
+      },
+      {
+       "kod": "T.4.4.1",
+       "ad": "Şiir yazar"
+      },
+      {
+       "kod": "T.4.4.7",
+       "ad": "Yazdıklarının içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.4.9",
+       "ad": "Formları yönergelerine uygun doldurur"
+      },
+      {
+       "kod": "T.4.4.11",
+       "ad": "Yazdıklarını düzenler"
+      },
+      {
+       "kod": "T.4.4.14",
+       "ad": "Yazdıklarını zenginleştirmek için çizim, grafik ve görseller kullanır"
+      },
+      {
+       "kod": "T.4.4.22",
+       "ad": "Pekiştirmeli sözcükleri doğru yazar"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "ÖLÇME"
+     ],
+     "konu": [
+      "Uzunluk Ölçme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.3.1.1",
+       "ad": "Standart uzunluk ölçme birimlerinden milimetrenin kullanım alanlarını belirtir"
+      },
+      {
+       "kod": "M.4.3.1.2",
+       "ad": "Uzunluk ölçme birimleri arasındaki ilişkileri açıklar ve birbiri cinsinden yazar"
+      },
+      {
+       "kod": "M.4.3.1.3",
+       "ad": "Doğrudan ölçebileceği bir uzunluğu en uygun uzunluk ölçme birimiyle tahmin eder ve tahminini ölçme yaparak kontrol eder"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Aydınlatma ve Ses Teknolojileri"
+     ],
+     "konu": [
+      "Ses Kirliliği"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.5.5.2",
+       "ad": "Ses kirliliğinin insan sağlığı ve çevre üzerindeki olumsuz etkilerini açıklar"
+      },
+      {
+       "kod": "F.4.5.5.3",
+       "ad": "Ses kirliliğini azaltmaya yönelik çözümler üretir"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 30,
+   "etiket": "30. Hafta",
+   "tarih": "3-7 Mayıs",
+   "baslangic": "2027-05-03",
+   "bitis": "2027-05-07",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ÇOCUK DÜNYASI"
+     ],
+     "konu": [
+      "Arkadaşım 23 Nisan"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.4",
+       "ad": "Metinleri türün özelliklerine uygun biçimde okur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.30",
+       "ad": "Metindeki renkli, altı çizili, koyu ifadelerin önemli noktaları vurguladığını kavrar"
+      },
+      {
+       "kod": "T.4.3.33",
+       "ad": "Medya metinlerini değerlendirir"
+      },
+      {
+       "kod": "T.4.3.34",
+       "ad": "Grafik, tablo ve çizelgelerle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.4.4",
+       "ad": "Bilgilendirici metin yazar"
+      },
+      {
+       "kod": "T.4.4.7",
+       "ad": "Yazdıklarının içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.4.17",
+       "ad": "Sayıları doğru yazar"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "ÖLÇME"
+     ],
+     "konu": [
+      "Uzunluk Ölçme",
+      "Çevre Ölçme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.3.1.3",
+       "ad": "Doğrudan ölçebileceği bir uzunluğu en uygun uzunluk ölçme birimiyle tahmin eder ve tahminini ölçme yaparak kontrol eder"
+      },
+      {
+       "kod": "M.4.3.1.4",
+       "ad": "Uzunluk ölçme birimlerinin kullanıldığı en çok üç işlem gerektiren problemleri çözer"
+      },
+      {
+       "kod": "M.4.3.2.1",
+       "ad": "Kare ve dikdörtgenin çevre uzunlukları ile kenar uzunlukları arasındaki ilişkiyi açıklar"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "İnsan ve Çevre"
+     ],
+     "konu": [
+      "Bilinçli Tüketici"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.6.1.1",
+       "ad": "Kaynakların kullanımında tasarruflu davranmaya özen gösterir"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 31,
+   "etiket": "31. Hafta",
+   "tarih": "10-14 Mayıs",
+   "baslangic": "2027-05-10",
+   "bitis": "2027-05-14",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ÇOCUK DÜNYASI"
+     ],
+     "konu": [
+      "Beştaş ve İki Ceviz Bileti"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.5",
+       "ad": "Sınıf içindeki tartışma ve konuşmalara katılır"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "ÖLÇME"
+     ],
+     "konu": [
+      "Çevre Ölçme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.3.2.1",
+       "ad": "Kare ve dikdörtgenin çevre uzunlukları ile kenar uzunlukları arasındaki ilişkiyi açıklar"
+      },
+      {
+       "kod": "M.4.3.2.2",
+       "ad": "Aynı çevre uzunluğuna sahip farklı geometrik şekiller oluşturur"
+      },
+      {
+       "kod": "M.4.3.2.3",
+       "ad": "Şekillerin çevre uzunluklarını hesaplamayla ilgili problemleri çözer"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "İnsan ve Çevre"
+     ],
+     "konu": [
+      "Bilinçli Tüketici"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.6.1.2",
+       "ad": "Yaşam için gerekli olan kaynakların ve geri dönüşümün önemini fark eder"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 32,
+   "etiket": "32. Hafta",
+   "tarih": "19-21 Mayıs",
+   "baslangic": "2027-05-17",
+   "bitis": "2027-05-21",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ÇOCUK DÜNYASI"
+     ],
+     "konu": [
+      "Uçurtmalar Nasıl Uçar? (Serbest Okuma Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.3.34",
+       "ad": "Grafik, tablo ve çizelgelerle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.4.17",
+       "ad": "Sayıları doğru yazar"
+      },
+      {
+       "kod": "T.4.4.11",
+       "ad": "Yazdıklarını düzenler"
+      },
+      {
+       "kod": "T.4.4.20",
+       "ad": "Harflerin yapısal özelliklerine uygun metin yazar"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "ÖLÇME"
+     ],
+     "konu": [
+      "Alan Ölçme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.3.3.1",
+       "ad": "Şekillerin alanlarının, bu alanı kaplayan birimkarelerin sayısı olduğunu belirler"
+      },
+      {
+       "kod": "M.4.3.3.2",
+       "ad": "Kare ve dikdörtgenin alanını toplama ve çarpma işlemleri ile ilişkilendirir"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Basit Elektrik Devreleri"
+     ],
+     "konu": [
+      "Basit Elektrik Devreleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.7.1.1",
+       "ad": "Basit elektrik devresini oluşturan devre elemanlarını işlevleri ile tanır"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 33,
+   "etiket": "33. Hafta",
+   "tarih": "24-28 Mayıs",
+   "baslangic": "2027-05-24",
+   "bitis": "2027-05-28",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "ÇOCUK DÜNYASI"
+     ],
+     "konu": [
+      "Sağlığımı Korurum"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.1",
+       "ad": "Kelimeleri anlamlarına uygun kullanır"
+      },
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.2",
+       "ad": "Vurgu, tonlama ve telaffuza dikkat ederek okur"
+      },
+      {
+       "kod": "T.4.3.3",
+       "ad": "Şiir okur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.34",
+       "ad": "Grafik, tablo ve çizelgelerle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.4.4",
+       "ad": "Bilgilendirici metin yazar"
+      },
+      {
+       "kod": "T.4.4.7",
+       "ad": "Yazdıklarının içeriğine uygun başlık belirler"
+      },
+      {
+       "kod": "T.4.4.9",
+       "ad": "Formları yönergelerine uygun doldurur"
+      },
+      {
+       "kod": "T.4.4.10",
+       "ad": "Büyük harfleri ve noktalama işaretlerini uygun yerlerde kullanır"
+      },
+      {
+       "kod": "T.4.4.12",
+       "ad": "Yazdıklarını paylaşır"
+      },
+      {
+       "kod": "T.4.4.16",
+       "ad": "Kısaltmaları ve kısaltmalara gelen ekleri doğru yazar"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "ÖLÇME"
+     ],
+     "konu": [
+      "Tartma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.3.5.1",
+       "ad": "Yarım ve çeyrek kilogramı gram cinsinden ifade eder"
+      },
+      {
+       "kod": "M.4.3.5.2",
+       "ad": "Kilogram ve gramı kütle ölçerken birlikte kullanır"
+      },
+      {
+       "kod": "M.4.3.5.3",
+       "ad": "Ton ve miligramın kullanıldığı yerleri belirler"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "Basit Elektrik Devreleri"
+     ],
+     "konu": [
+      "Basit Elektrik Devreleri"
+     ],
+     "ciktilar": [
+      {
+       "kod": "F.4.7.1.2",
+       "ad": "Çalışan bir elektrik devresi kurar"
+      },
+      {
+       "kod": "F.4.7.1.3",
+       "ad": "Evde ve okuldaki elektrik düğmelerinin ve kabloların birer devre elemanı olduğunu bilir"
+      }
+     ]
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 34,
+   "etiket": "34. Hafta",
+   "tarih": "31 Mayıs-4 Haziran",
+   "baslangic": "2027-05-31",
+   "bitis": "2027-06-04",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "SAĞLIK VE SPOR"
+     ],
+     "konu": [
+      "Telaşa Kapılma, ilk Yardımı Hatırla!"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.10",
+       "ad": "Okuduğu metindeki gerçek, mecaz ve terim anlamlı sözcükleri belirler"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.19",
+       "ad": "Metinle ilgili sorular sorar"
+      },
+      {
+       "kod": "T.4.3.28",
+       "ad": "Okudukları ile ilgili çıkarımlar yapar"
+      },
+      {
+       "kod": "T.4.3.34",
+       "ad": "Grafik, tablo ve çizelgelerle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.4.2",
+       "ad": "Bir işin işlem basamaklarına ilişkin yönergeler yazar"
+      },
+      {
+       "kod": "T.4.4.6",
+       "ad": "Görselleri ilişkilendirerek bir olayı anlatır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "ÖLÇME"
+     ],
+     "konu": [
+      "Tartma"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.3.5.3",
+       "ad": "Ton ve miligramın kullanıldığı yerleri belirler"
+      },
+      {
+       "kod": "M.4.3.5.4",
+       "ad": "Ton-kilogram, kilogram-gram, gram-miligram arasındaki ilişkiyi açıklar ve birbirine dönüştürür"
+      },
+      {
+       "kod": "M.4.3.5.5",
+       "ad": "Ton, kilogram, gram ve miligram ile ilgili problemleri çözer"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "FEN MÜHENDİSLİK VE GİRİŞİMCİLİK UYGULAMALARI"
+     ],
+     "konu": [
+      "Yıl Sonu Bilim Şenliği",
+      "(Öğrencilerin yıl içerisinde ortaya çıkardıkları ürünü etkili bir şekilde sunmaları beklenir.)"
+     ],
+     "ciktilar": []
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 35,
+   "etiket": "35. Hafta",
+   "tarih": "7-11 Haziran",
+   "baslangic": "2027-06-07",
+   "bitis": "2027-06-11",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "SAĞLIK VE SPOR"
+     ],
+     "konu": [
+      "Çiğ Köfte Spor/Lahmacun Spor",
+      "(Dinleme Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.1.1",
+       "ad": "Görselden/görsellerden hareketle dinleyeceği/izleyeceği metnin konusunu tahmin eder"
+      },
+      {
+       "kod": "T.4.1.4",
+       "ad": "Dinlediklerinde/izlediklerinde geçen, bilmediği kelimelerin anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.1.5",
+       "ad": "Dinlediklerinin/izlediklerinin konusunu belirler"
+      },
+      {
+       "kod": "T.4.1.6",
+       "ad": "Dinlediklerinin/izlediklerinin ana fikrini/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.1.7",
+       "ad": "Dinlediklerine/izlediklerine yönelik sorulara cevap verir"
+      },
+      {
+       "kod": "T.4.1.9",
+       "ad": "Dinledikleriyle/izledikleriyle ilgili görüşlerini ifade eder"
+      },
+      {
+       "kod": "T.4.1.12",
+       "ad": "Dinleme stratejilerini uygular"
+      },
+      {
+       "kod": "T.4.2.1",
+       "ad": "Kelimeleri anlamlarına uygun kullanır"
+      },
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.2.3",
+       "ad": "Hazırlıklı konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.4.20",
+       "ad": "Harflerin yapısal özelliklerine uygun metin yazar"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "ÖLÇME"
+     ],
+     "konu": [
+      "Sıvı Ölçme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.3.6.1",
+       "ad": "Mililitrenin kullanıldığı yerleri açıklar"
+      },
+      {
+       "kod": "M.4.3.6.2",
+       "ad": "Litre ve mililitre arasındaki ilişkiyi açıklar ve birbirine dönüştürür"
+      },
+      {
+       "kod": "M.4.3.6.3",
+       "ad": "Litre ve mililitreyi miktar belirtmek için bir arada kullanır"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [],
+     "konu": [],
+     "ciktilar": []
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 36,
+   "etiket": "36. Hafta",
+   "tarih": "14-18 Haziran",
+   "baslangic": "2027-06-14",
+   "bitis": "2027-06-18",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [
+      "SAĞLIK VE SPOR"
+     ],
+     "konu": [
+      "Tahinci Dede",
+      "Haydi Doğa Yürüyüşüne! (Serbest Okuma Metni)"
+     ],
+     "ciktilar": [
+      {
+       "kod": "T.4.2.2",
+       "ad": "Hazırlıksız konuşmalar yapar"
+      },
+      {
+       "kod": "T.4.3.1",
+       "ad": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur"
+      },
+      {
+       "kod": "T.4.3.12",
+       "ad": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder"
+      },
+      {
+       "kod": "T.4.3.16",
+       "ad": "Okuduğu metnin konusunu belirler"
+      },
+      {
+       "kod": "T.4.3.17",
+       "ad": "Metnin ana fikri/ana duygusunu belirler"
+      },
+      {
+       "kod": "T.4.3.18",
+       "ad": "Okuduğu metinle ilgili soruları cevaplar"
+      },
+      {
+       "kod": "T.4.3.20",
+       "ad": "Okuduğu metinlerdeki hikâye unsurlarını belirler"
+      },
+      {
+       "kod": "T.4.3.25",
+       "ad": "Yönergeleri kavrar"
+      },
+      {
+       "kod": "T.4.3.30",
+       "ad": "Metindeki renkli, altı çizili, koyu ifadelerin önemli noktaları vurguladığını kavrar"
+      },
+      {
+       "kod": "T.4.3.33",
+       "ad": "Medya metinlerini değerlendirir"
+      },
+      {
+       "kod": "T.4.3.35",
+       "ad": "Bilgi kaynaklarını etkili bir şekilde kullanır"
+      }
+     ]
+    },
+    "matematik": {
+     "unite": [
+      "ÖLÇME"
+     ],
+     "konu": [
+      "Sıvı Ölçme"
+     ],
+     "ciktilar": [
+      {
+       "kod": "M.4.3.6.3",
+       "ad": "Litre ve mililitreyi miktar belirtmek için bir arada kullanır"
+      },
+      {
+       "kod": "M.4.3.6.4",
+       "ad": "Bir kaptaki sıvının miktarını, litre ve mililitre birimleriyle tahmin eder ve ölçme yaparak tahminini kontrol eder"
+      },
+      {
+       "kod": "M.4.3.6.5",
+       "ad": "Litre ve mililitre ile ilgili problemleri çözer"
+      }
+     ]
+    },
+    "fen_bilimleri": {
+     "unite": [
+      "FEN MÜHENDİSLİK VE GİRİŞİMCİLİK UYGULAMALARI"
+     ],
+     "konu": [
+      "Yıl Sonu Bilim Şenliği",
+      "(Öğrencilerin yıl içerisinde ortaya çıkardıkları ürünü etkili bir şekilde sunmaları beklenir.)"
+     ],
+     "ciktilar": []
+    }
+   },
+   "belirli_gunler": []
+  },
+  {
+   "hafta": 37,
+   "etiket": "37. Hafta",
+   "tarih": "21-25 Haziran",
+   "baslangic": "2027-06-21",
+   "bitis": "2027-06-25",
+   "tatil": false,
+   "dersler": {
+    "turkce": {
+     "tema": [],
+     "konu": [],
+     "ciktilar": []
+    },
+    "matematik": {
+     "unite": [],
+     "konu": [],
+     "ciktilar": []
+    },
+    "fen_bilimleri": {
+     "unite": [],
+     "konu": [],
+     "ciktilar": []
+    }
+   },
+   "belirli_gunler": []
+  }
+ ]
+}
