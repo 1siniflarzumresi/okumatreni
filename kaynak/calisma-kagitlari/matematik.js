@@ -123,7 +123,7 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
       return `<div class="tren">${satirSvg2(W, 86, ray(W, 66) + lokomotif(4, 6) + d.map(([a, b], i) => vagon(74 + i * 86, 6, dominoG(a, b, 8, 16, 30), RENK[i % RENK.length])).join(''), k)}<div class="tren-kutu" style="padding-left:${(74 + 38) * k - 8}mm;gap:${86 * k - 16}mm">${d.map(() => kutu).join('')}</div></div>`; }).join('')}</div>`);
   // kayıp yarı: bayraktaki sayıya tamamlanacak
   const kayipYari = (liste) => etk(0, 'Her vagonun bayrağında bir sayı var. Dominonun boş yarısına nokta çiz: dominodaki bütün noktalar bayraktaki sayı kadar olsun.',
-    `<div class="kayip">${liste.map(([a, hedef], i) => `<div>${satirSvg2(110, 96, `<line x1="18" x2="18" y1="2" y2="34" stroke="#1f2a24" stroke-width="2"/><path d="M18 2 h30 l-7 8 l7 8 h-30 Z" fill="#c0392b"/><text x="31" y="15" font-size="13" text-anchor="middle" fill="#fff" font-family="TTKB" font-weight="700">${hedef}</text>` + ray(110, 80) + vagon(10, 22, dominoG(a, null, 8, 16, 30), RENK[i % RENK.length]))}</div>`).join('')}</div>`);
+    `<div class="kayip">${liste.map(([a, hedef], i) => `<div>${satirSvg2(110, 96, `<line x1="18" x2="18" y1="2" y2="34" stroke="#1f2a24" stroke-width="2"/><path d="M18 2 h30 l-7 8 l7 8 h-30 Z" fill="#c0392b"/><text x="31" y="15" font-size="13" text-anchor="middle" fill="#fff" font-family="TTKB" font-weight="700">${hedef}</text>` + ray(110, 80) + vagon(10, 22, dominoG(a, null, 8, 16, 30), RENK[i % RENK.length]), .48)}</div>`).join('')}</div>`);
   const satirSvg2 = (W, H, ic, k = 0.27) => `<svg viewBox="0 0 ${W} ${H}" style="width:${W * k}mm;height:${H * k}mm;display:block;overflow:visible">${ic}</svg>`;
   // zar yolu: kesilmeden basılan masa oyunu
   const zarYolu = () => {
@@ -235,46 +235,154 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
   const balyaDenge = (liste) => etk(0, 'Terazi dengede. Hayvan kaç balya ağırlığında? Balyaları say, kutuya yaz.',
     `<div class="teraziler2">${liste.map(([ad, n]) => `<div>${terazi2(ad, { balya: n }, 0)}${kutu}</div>`).join('')}</div>`);
 
+  // =====================================================================
+  //  HAFTALIK KÂĞITLAR (MEB yıllık planı sırasıyla). Her hafta en az 2 dolu sayfa.
+  // =====================================================================
+  const IMGm = (ad, x, y, s, ek = '') => `<image href="/deneme/materyaller/resimler/${ad}.png" x="${x}" y="${y}" width="${s}" height="${s}" style="mix-blend-mode:multiply" ${ek}/>`;
+  const sahne = (W, H, ic, mm = 178) => `<svg viewBox="0 0 ${W} ${H}" style="width:${mm}mm;height:${mm * H / W}mm;display:block">${ic}</svg>`;
+  const kutuK = '<span class="yazkutu"></span>';
+  const gorev = (liste) => `<ol class="gorev">${liste.map(([ik, m]) => `<li><span class="gik">${ik}</span><span>${m}</span></li>`).join('')}</ol>`;
+  const agac = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-9" y="70" width="18" height="40" fill="#8e5b2b"/><path d="M0 -10 L45 40 H25 L58 80 H-58 L-25 40 H-45 Z" fill="#5fa476" stroke="#1f4d36" stroke-width="3"/></g>`;
+
+  // ---- 1-3. hafta: uzamsal ilişkiler, eş nesneler ----
+  const raf = (katlar) => { let s = `<rect x="10" y="10" width="580" height="420" rx="8" fill="#fbf6ee" stroke="#8e5b2b" stroke-width="6"/>`;
+    katlar.forEach((k, r) => { const y = 140 + r * 140; s += `<rect x="10" y="${y}" width="580" height="12" fill="#c48a4f"/>`;
+      k.forEach((ad, c) => s += IMGm(ad, 50 + c * 180, y - 118, 116)); });
+    return sahne(600, 440, s, 150); };
+  const sepetSahne = () => { const top = (x, y, d) => `<circle cx="${x}" cy="${y}" r="28" fill="#fff" stroke="#1f2a24" stroke-width="3"/><path d="M${x - 28} ${y} h56 ${d ? `M${x} ${y - 28} v56` : `M${x - 20} ${y - 20} l40 40`}" stroke="#1f2a24" stroke-width="2.4"/>`;
+    let s = [[220, 200, 1], [285, 190, 0], [350, 200, 1], [250, 150, 0], [318, 150, 1]].map(([x, y, d]) => top(x, y, d)).join('');
+    s += `<path d="M130 210 H470 L440 360 H160 Z" fill="#c48a4f" stroke="#8e5b2b" stroke-width="5"/>${Array.from({ length: 6 }, (_, i) => `<path d="M${175 + i * 50} 215 l-6 140" stroke="#8e5b2b" stroke-width="3"/>`).join('')}<path d="M140 260 H460 M150 310 H450" stroke="#8e5b2b" stroke-width="3"/><path d="M180 210 Q300 60 420 210" fill="none" stroke="#8e5b2b" stroke-width="8"/>`;
+    s += [[60, 330, 0], [540, 330, 1], [530, 120, 0], [70, 130, 1], [300, 395, 0]].map(([x, y, d]) => top(x, y, d)).join('') + '<line x1="0" x2="600" y1="428" y2="428" stroke="#5fa476" stroke-width="5"/>';
+    return sahne(600, 432, s, 125); };
+  const kutuSahne = (iceri, disari) => { let s = '';
+    s += `<path d="M180 150 L420 150 L470 110 L230 110 Z" fill="#e8d3b0" stroke="#8e5b2b" stroke-width="4"/>`;
+    iceri.forEach((ad, i) => s += IMGm(ad, 200 + i * 80, 70, 100));
+    s += `<rect x="180" y="150" width="240" height="160" fill="#d9b98a" stroke="#8e5b2b" stroke-width="4"/><path d="M420 150 L470 110 V270 L420 310 Z" fill="#c9a574" stroke="#8e5b2b" stroke-width="4"/>`;
+    disari.forEach(([ad, x, y]) => s += IMGm(ad, x, y, 100));
+    return sahne(600, 340, s, 120); };
+  const saklambac = (liste) => etk(0, 'Saklambaç oynuyoruz! Ağacın ARKASINDA saklanan hayvanları daire içine al. Ağacın ÖNÜNDE duranları boya.',
+    `<div class="sahneler3">${liste.map(([ad, arkada]) => { const hay = IMGm(ad, arkada ? 92 : 40, arkada ? 60 : 92, 100, arkada ? '' : '');
+      const hayOn = `<image href="/deneme/materyaller/resimler/${ad}.png" x="40" y="96" width="104" height="104"/>`;
+      return sahne(200, 220, arkada ? hay + agac(100, 60, 1.25) : agac(100, 60, 1.25) + hayOn, 52); }).join('')}</div>`);
+  const cizSahne = () => etk(0, 'Öğretmeninin söylediklerini resme çiz.',
+    gorev([['↑', 'Evin ÜSTÜNE bir güneş çiz.'], ['←', 'Ağacın SOLUNA bir çiçek çiz.'], ['↓', 'Masanın ALTINA bir top çiz.'], ['▣', 'Kutunun İÇİNE bir elma çiz.'], ['→', 'Evin SAĞINA bir kedi çiz.']]) +
+    sahne(600, 300, `<line x1="0" x2="600" y1="285" y2="285" stroke="#5fa476" stroke-width="6"/><g transform="translate(20 120)"><path d="M0 70 L80 0 L160 70 Z" fill="#f3c6c0" stroke="#1f2a24" stroke-width="3"/><rect x="15" y="70" width="130" height="95" fill="#fff" stroke="#1f2a24" stroke-width="3"/><rect x="65" y="110" width="30" height="55" fill="#c48a4f" stroke="#1f2a24" stroke-width="2"/></g>${agac(270, 150, .9)}<g transform="translate(340 200)"><rect x="0" y="0" width="110" height="12" fill="#c48a4f" stroke="#1f2a24" stroke-width="2"/><path d="M8 12 v72 M102 12 v72" stroke="#8e5b2b" stroke-width="8"/></g><g transform="translate(470 182)"><path d="M0 30 L28 8 H118 L90 30 Z" fill="#e8d3b0" stroke="#8e5b2b" stroke-width="3"/><rect x="0" y="30" width="90" height="70" fill="#d9b98a" stroke="#8e5b2b" stroke-width="3"/><path d="M90 30 L118 8 V78 L90 100 Z" fill="#c9a574" stroke="#8e5b2b" stroke-width="3"/></g>`, 178));
+  // sağa/sola bakan araba ve balık (kendi çizimimiz: yönü kesin)
+  const araba = (x, y, sag) => `<g transform="translate(${x} ${y}) ${sag ? '' : 'translate(80 0) scale(-1 1)'}"><path d="M4 30 h72 v-10 l-12 -4 l-10 -14 h-28 l-10 14 h-12 z" fill="#bcd7f0" stroke="#1f2a24" stroke-width="2.5"/><path d="M28 6 h22 l8 11 h-30 z" fill="#fff" stroke="#1f2a24" stroke-width="2"/><circle cx="20" cy="32" r="8" fill="#1f2a24"/><circle cx="62" cy="32" r="8" fill="#1f2a24"/><circle cx="73" cy="22" r="3" fill="#f2b94b"/></g>`;
+  const balikS = (x, y, sag) => `<g transform="translate(${x} ${y}) ${sag ? '' : 'translate(80 0) scale(-1 1)'}"><path d="M12 20 Q38 -4 66 20 Q38 44 12 20 Z" fill="#f2b94b" stroke="#1f2a24" stroke-width="2.5"/><path d="M14 20 L0 8 V32 Z" fill="#f2b94b" stroke="#1f2a24" stroke-width="2.5"/><circle cx="56" cy="17" r="3" fill="#1f2a24"/></g>`;
+  const sagaGiden = (satirlar) => etk(0, 'Yön oyunu! SAĞA giden arabaları ve balıkları daire içine al. SOLA gidenlerin altına bir çizgi çiz.',
+    `<div class="yonler">${satirlar.map(([tur, dizi]) => sahne(dizi.length * 96, 46, dizi.map((s, i) => (tur === 'a' ? araba : balikS)(8 + i * 96, 4, s)).join(''), 172)).join('')}</div>`);
+  const okBoya = (dizi) => etk(0, 'Okların yönüne bak. SAĞA bakan okları yeşile, SOLA bakan okları kırmızıya boya.',
+    `<div class="oklar">${dizi.map(s => `<svg viewBox="0 0 60 40"><path d="${s ? 'M4 14 h32 v-10 l20 16 l-20 16 v-10 h-32 z' : 'M56 14 h-32 v-10 l-20 16 l20 16 v-10 h32 z'}" fill="none" stroke="#1f2a24" stroke-width="2.5" stroke-linejoin="round"/></svg>`).join('')}</div>`);
+  const DESEN = {
+    cizgi: (id) => `<pattern id="${id}" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 5 h10" stroke="#1f2a24" stroke-width="2"/></pattern>`,
+    nokta: (id) => `<pattern id="${id}" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="2.4" fill="#1f2a24"/></pattern>`,
+    zikzak: (id) => `<pattern id="${id}" width="14" height="10" patternUnits="userSpaceOnUse"><path d="M0 8 l7 -6 l7 6" fill="none" stroke="#1f2a24" stroke-width="2"/></pattern>`,
+    kare: (id) => `<pattern id="${id}" width="12" height="12" patternUnits="userSpaceOnUse"><rect x="2" y="2" width="6" height="6" fill="#1f2a24"/></pattern>`,
+    dik: (id) => `<pattern id="${id}" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M5 0 v10" stroke="#1f2a24" stroke-width="2"/></pattern>`,
+  };
+  let desenNo = 0;
+  const corap = (x, y, desen) => { const id = 'd' + (++desenNo);
+    return `<defs>${DESEN[desen](id)}</defs><g transform="translate(${x} ${y})"><path d="M0 0 h34 v70 q0 10 10 14 l26 10 q12 6 6 18 q-6 10 -20 6 l-44 -16 q-12 -4 -12 -18 z" fill="url(#${id})" stroke="#1f2a24" stroke-width="3"/><rect x="0" y="0" width="34" height="12" fill="#fff" stroke="#1f2a24" stroke-width="3"/></g>`; };
+  const corapIpi = (dizi) => etk(0, 'Çamaşır ipindeki çorapların eşlerini bul. Eş çorapları aynı renge boya.',
+    sahne(dizi.length * 100 + 20, 170, `<path d="M0 22 Q${dizi.length * 50 + 10} 46 ${dizi.length * 100 + 20} 22" fill="none" stroke="#8e5b2b" stroke-width="3"/>` + dizi.map((d, i) => corap(20 + i * 100, 30, d) + `<rect x="${26 + i * 100}" y="20" width="10" height="22" rx="2" fill="#f2b94b" stroke="#1f2a24" stroke-width="2"/>`).join(''), 178));
+  const esiniBul = (satirlar) => etk(0, 'Çerçevedeki resme bak. Onunla EŞ olanı (aynı şekil, aynı büyüklük) bul, daire içine al.',
+    `<div class="esbul">${satirlar.map(([ad, digeri], k) => { const sec = [[ad, 1], [ad, .6], [ad, 1.35], [digeri, 1]]; const sira = [[0, 1, 2, 3], [1, 0, 3, 2], [2, 3, 0, 1], [3, 2, 1, 0]][k % 4].map(i => sec[i]);
+      return `<div><span class="model">${resim(ad)}</span>${sira.map(([a, o]) => `<span class="sec"><img src="/deneme/materyaller/resimler/${a}.png" style="width:${o * 100}%;height:${o * 100}%"></span>`).join('')}</div>`; }).join('')}</div>`);
+  const DOLGU = { b: 'none', d: '#9aa59d', c: 'url(#kc)', n: 'url(#kn)' };
+  const kuleKopya = (modeller) => etk(0, 'Örnek kuleye bak. Yanındaki boş kuleyi aynı desenle boya: düz, gri, çizgili ya da noktalı.',
+    `<div class="kopyalar">${modeller.map(m => sahne(240, 60 + m.length * 34, `<defs>${DESEN.cizgi('kc')}${DESEN.nokta('kn')}</defs>` + m.map((d, i) => `<rect x="30" y="${20 + (m.length - 1 - i) * 34}" width="60" height="32" fill="${DOLGU[d]}" stroke="#1f2a24" stroke-width="2.5"/><rect x="150" y="${20 + (m.length - 1 - i) * 34}" width="60" height="32" fill="none" stroke="#1f2a24" stroke-width="2.5"/>`).join('') + `<line x1="10" x2="230" y1="${22 + m.length * 34}" y2="${22 + m.length * 34}" stroke="#8e5b2b" stroke-width="4"/><path d="M105 ${30 + m.length * 15} h28 l-8 -6 m8 6 l-8 6" stroke="#2e6b4a" stroke-width="3" fill="none"/>`, 55)).join('')}</div>`);
+
+  // ---- 4-7. hafta: rakamlar tek tek ----
+  const rakamTanis = (d) => { const temsil = +d <= 6 ? zar(+d, 60) : satirSvg2(64, 34, dominoG(6, +d - 6, 2, 2, 30), .5);
+    return etk(0, `${d} rakamıyla tanış! Parmağınla okların üstünden git. Zardaki, çerçevedeki ve resimdeki ${d} tane şeyi say.`,
+      `<div class="tanis"><div class="buyuk-rakam">${satir([[d, 'model']], 48, 34)}</div><div class="temsil"><span class="t-zar">${temsil}</span>${onluk(+d, 46)}<span class="t-res">${Array.from({ length: +d }, () => resim(['elma', 'yildiz', 'cicek', 'balon', 'kus', 'balik', 'top', 'cilek', 'armut', 'ari'][+d])).join('') || '<em>hiç yok</em>'}</span></div></div>`); };
+  const rakamIz = (d) => etk(0, 'Yeşil noktadan başla, okları izle. Sonra boş satıra kendin yaz.',
+    `<div class="satirlar">${satir([[d, 'model'], ...Array(7).fill([d, 'iz'])], 178, 16)}${satir(Array(9).fill([d, 'iz']), 178, 16)}${satir([], 178, 16)}</div>`);
+  const rakamBoya = (d, ad, top) => etk(0, `${d} tane ${ad === 'balon' ? 'balon' : 'resim'} boya. Sonra kalanları say.`,
+    `<div class="boyadizi">${Array.from({ length: top }, () => `<span>${resim(ad)}</span>`).join('')}</div>`);
+  const rakamAvi = (d, bilinen, n = 24, tohum = 3) => { const r = R(tohum + +d); const h = Array.from({ length: n }, (_, i) => i % 3 === 0 ? d : bilinen[Math.floor(r() * bilinen.length)]);
+    return etk(0, `Balonlarda ${d} rakamını bul, boya.`, `<div class="balonlar r">${karistir(h, r).map(c => `<span class="ttkb">${c}</span>`).join('')}</div>`); };
+  const grupBul = (d, gruplar, tohum) => { const r = R(tohum);
+    return etk(0, `Hangi kutularda ${d} tane var? Daire içine al.`, `<div class="gruplar4">${gruplar.map(([ad, n]) => grup(ad, n, r)).join('')}</div>`); };
+  const rakamSayfasi = (d, bilinen, ad, tohum) => numarala([rakamTanis(d), rakamIz(d), rakamBoya(d, ad, 10),
+    grupBul(d, [[ad, +d], ['top', Math.max(0, +d - 1)], ['kus', +d], ['elma', +d + 1]].map(([a, n], i) => [a, n]).sort(() => R(tohum)() - .5), tohum), rakamAvi(d, bilinen, 24, tohum)]);
+
+  // ---- tren (hayvanlar vagonun içinde) ----
+  const vagonH = (x, y, ad, renk) => `<g transform="translate(${x} ${y})"><line x1="-8" y1="56" x2="0" y2="56" stroke="#1f2a24" stroke-width="3"/>${ad ? IMGm(ad, 6, -6, 64) : ''}<path d="M0 26 h76 v36 h-76 z" fill="${renk}" stroke="#1f2a24" stroke-width="2"/><circle cx="16" cy="66" r="7" fill="#1f2a24"/><circle cx="60" cy="66" r="7" fill="#1f2a24"/></g>`;
+  const hayvanTreni2 = (satirlar) => etk(0, 'Lokomotiften başlayarak vagonları say. Bayraktaki sıradaki vagonda hangi hayvan var? Onu daire içine al.',
+    `<div class="trenler">${satirlar.map(([sira, hay]) => { const W = 80 + hay.length * 86;
+      return `<div class="tren hsira"><b class="ttkb bayrak-sira">${sira}.</b>${sahne(W, 92, ray(W, 80) + `<g transform="translate(4 20)">${lokomotif(0, 0)}</g>` + hay.map((h, i) => vagonH(74 + i * 86, 12, h, RENK[i % RENK.length])).join(''), 150)}</div>`; }).join('')}</div>`);
+  const kuyruk = (hay) => etk(0, 'Hayvanlar dondurma kuyruğunda! Dükkâna en yakın olan 1. sırada. Öğretmeninin söylediklerini yap.',
+    gorev([['3.', '3. sıradaki hayvanı daire içine al.'], ['5.', '5. sıradaki hayvanı boya.'], ['1.', '1. sıradaki hayvanın altına bir çizgi çiz.'], ['son', 'En sondaki hayvanın üstüne bir yıldız çiz.']]) +
+    sahne(hay.length * 82 + 120, 150, `<g><rect x="4" y="20" width="96" height="110" fill="#f3c6c0" stroke="#1f2a24" stroke-width="3"/><path d="M0 20 h104 l-10 -18 h-84 z" fill="#c0392b"/><path d="M30 70 l14 40 l14 -40 z" fill="#f2d27a" stroke="#1f2a24" stroke-width="2"/><circle cx="44" cy="62" r="14" fill="#fff" stroke="#1f2a24" stroke-width="2"/></g>` + hay.map((h, i) => IMGm(h, 116 + i * 82, 54, 78)).join('') + `<line x1="0" x2="${hay.length * 82 + 120}" y1="134" y2="134" stroke="#8e5b2b" stroke-width="4"/>`, 178));
+  const merdiven = () => etk(0, 'Kurbağa merdiveni! En alttaki basamak 1. basamak. Öğretmeninin söylediklerini yap.',
+    gorev([['4.', '4. basamağa bir top çiz.'], ['7.', '7. basamağı boya.'], ['2.', '2. basamağa bir yıldız çiz.'], ['10.', 'En üstteki basamağa bir bayrak çiz.']]) +
+    sahne(620, 330, Array.from({ length: 10 }, (_, i) => `<rect x="${20 + i * 58}" y="${290 - (i + 1) * 28}" width="58" height="${(i + 1) * 28}" fill="#fff" stroke="#1f2a24" stroke-width="2.5"/>`).join('') + IMGm('kurbaga', -6, 196, 70) + `<line x1="0" x2="620" y1="291" y2="291" stroke="#5fa476" stroke-width="6"/>`, 178));
+
+  // ---- 10. hafta: birebir eşleme, fazla olan ----
+  const birebir2 = (liste) => etk(0, 'Her hayvanı bir yiyecekle çizgiyle eşle. Eşi kalmayanları daire içine al. Hangisi çok? Çok olan grubun yanındaki kutuya ✓ koy.',
+    `<div class="birebir2">${liste.map(([a, n, b, m]) => `<div><div class="s">${Array.from({ length: n }, () => `<span>${resim(a)}</span>`).join('')}${kutuK}</div><div class="s">${Array.from({ length: m }, () => `<span>${resim(b)}</span>`).join('')}${kutuK}</div></div>`).join('')}</div>`);
+
+  // ---- Zar Yolu (kullanılabilir masa oyunu) ----
+  const zarYoluPano = () => { const cols = 5, rows = 6, gx = 120, gy = 112, ox = 70, oy = 66, Rr = 40, N = cols * rows;
+    const nok = Array.from({ length: N }, (_, i) => { const r = Math.floor(i / cols), c = r % 2 ? cols - 1 - i % cols : i % cols; return [ox + c * gx, oy + (rows - 1 - r) * gy]; });
+    const OZEL = { 4: ['sincap', '→ 2'], 9: ['salyangoz', '← 1'], 14: ['kus', 'zar'], 19: ['kaplumbaga', '■'], 23: ['kanguru', '→ 3'], 26: ['kurbaga', '← 2'] };
+    let s = `<path d="${nok.map((p, i) => (i ? 'L' : 'M') + p.join(' ')).join(' ')}" fill="none" stroke="#cfe3d4" stroke-width="44" stroke-linejoin="round" stroke-linecap="round"/>`;
+    nok.forEach(([x, y], i) => { const o = OZEL[i];
+      s += `<circle cx="${x}" cy="${y}" r="${Rr}" fill="${o ? '#fff4d6' : '#fff'}" stroke="#2e6b4a" stroke-width="4"/>`;
+      if (o) s += IMGm(o[0], x - 30, y - 36, 58) + `<rect x="${x - 28}" y="${y + 16}" width="56" height="24" rx="12" fill="#c0392b"/>` + (o[1] === 'zar' ? `<rect x="${x - 9}" y="${y + 19}" width="18" height="18" rx="4" fill="#fff"/><circle cx="${x - 4}" cy="${y + 24}" r="2"/><circle cx="${x + 4}" cy="${y + 32}" r="2"/>` : o[1] === '■' ? `<rect x="${x - 8}" y="${y + 21}" width="5" height="14" fill="#fff"/><rect x="${x + 3}" y="${y + 21}" width="5" height="14" fill="#fff"/>` : `<text x="${x}" y="${y + 34}" font-size="17" text-anchor="middle" fill="#fff" font-family="Andika" font-weight="700">${o[1]}</text>`);
+      else if (i === N - 1) s += `<path transform="translate(${x - 22} ${y - 30})" d="M22 0 L36 20 H30 L41 35 H33 L44 52 H0 L11 35 H3 L14 20 H8 Z" fill="#2e6b4a"/><rect x="${x - 4}" y="${y + 22}" width="8" height="8" fill="#8e5b2b"/>`;
+      else s += `<text x="${x}" y="${y + 12}" font-size="34" text-anchor="middle" fill="#1f2a24" font-family="TTKB">${i + 1}</text>`; });
+    const [bx, by] = nok[0];
+    s += `<g transform="translate(${bx - 58} ${by + 30})"><rect width="76" height="30" rx="15" fill="#2e6b4a"/><text x="38" y="21" font-size="17" text-anchor="middle" fill="#fff" font-family="Andika" font-weight="700">BAŞLA</text></g>`;
+    return etk(0, 'Zar Yolu: 2-4 oyuncu. Kesip katladığınız zarı ve piyonları kullanın. Sırayla zar atın, noktaları sayın, o kadar ilerleyin. Ladin ağacına ilk varan kazanır.',
+      `<div class="zaryolu">${sahne(ox * 2 + (cols - 1) * gx, oy * 2 + (rows - 1) * gy, s, 168)}</div>`) +
+      `<div class="kurallar">${[['sincap', '2 ileri git'], ['salyangoz', '1 geri git'], ['kus', 'bir zar daha at'], ['kaplumbaga', 'bir tur bekle'], ['kanguru', '3 ileri zıpla'], ['kurbaga', '2 geri zıpla']].map(([a, m]) => `<span>${resim(a)}<b>${m}</b></span>`).join('')}</div>`; };
+  const kesKatla = () => { const k = 120; const yuz = (x, y, n) => `<rect x="${x}" y="${y}" width="${k}" height="${k}" fill="#fff" stroke="#1f2a24" stroke-width="3"/>` + noktalar(n, x, y, k);
+    const pos = [[1, 0, 1], [0, 1, 2], [1, 1, 3], [2, 1, 5], [3, 1, 4], [1, 2, 6]];
+    let s = pos.map(([c, r, n]) => yuz(20 + c * k, 20 + r * k, n)).join('');
+    const sekme = (x, y, yon) => { const d = { u: `M${x} ${y} l18 -26 h${k - 36} l18 26`, d: `M${x} ${y} l18 26 h${k - 36} l18 -26`, r: `M${x} ${y} l26 18 v${k - 36} l-26 18` }[yon]; return `<path d="${d}" fill="#eef6ea" stroke="#1f2a24" stroke-width="2" stroke-dasharray="6 4"/>`; };
+    s += sekme(20, 20 + k, 'u') + sekme(20, 20 + 2 * k, 'd') + sekme(20 + 2 * k, 20 + k, 'u') + sekme(20 + 2 * k, 20 + 2 * k, 'd') + sekme(20 + 3 * k, 20 + k, 'u') + sekme(20 + 3 * k, 20 + 2 * k, 'd') + sekme(20 + 4 * k, 20 + k, 'r');
+    const piyon = (x, ad, renk) => `<g transform="translate(${x} 0)"><rect x="0" y="0" width="110" height="250" rx="8" fill="#fff" stroke="#1f2a24" stroke-width="2" stroke-dasharray="8 5"/><line x1="0" x2="110" y1="125" y2="125" stroke="#9aa59d" stroke-width="2" stroke-dasharray="4 4"/><rect x="8" y="8" width="94" height="110" rx="10" fill="${renk}"/>${IMGm(ad, 14, 14, 82)}<rect x="8" y="132" width="94" height="110" rx="10" fill="${renk}"/><g transform="rotate(180 55 187)">${IMGm(ad, 14, 146, 82)}</g></g>`;
+    return etk(0, 'Kes, katla, oyna! Zarı kalın çizgilerden kes, kesik çizgilerden katla, sekmeleri yapıştır. Piyonları kes, ortadan katla; alt kısmı hafifçe açarak ayakta durmasını sağla.',
+      `<div class="keskatla">${sahne(20 + 5 * k + 40, 20 + 3 * k + 30, s, 120)}${sahne(4 * 130, 260, ['sincap', 'kanguru', 'kurbaga', 'kus'].map((a, i) => piyon(i * 130, a, RENK[i])).join(''), 120)}</div>`); };
+
   const MAT = {
-    'rakamlar': { unite: 1, baslik: 'rakam treni', konu: 'Rakamları yazalım', hafta: 5, sayfalar: () => [
-      numarala([rakamYaz(['0', '1', '2', '3', '4'])]),
-      numarala([rakamYaz(['5', '6', '7', '8', '9'])]),
+    'hafta-01': { unite: 1, hafta: 1, baslik: 'Ormanda Neresi?', konu: 'Uzamsal ilişkiler', sayfalar: () => [
+      numarala([etk(0, 'Oyuncak rafına bak. Öğretmeninin söylediklerini yap.', gorev([['↑', 'EN ÜST raftaki oyuncakları daire içine al.'], ['↓', 'EN ALT raftaki oyuncakları boya.'], ['↕', 'ORTA raftaki oyuncakların altına çizgi çiz.']]) + `<div class="ortala">${raf([['top', 'robot', 'balon'], ['kitap', 'kedi', 'saat'], ['araba', 'kova', 'ayi']])}</div>`),
+        etk(0, 'Sepete bak. Sepetin İÇİNDEKİ topları boya. DIŞINDAKİ topları daire içine al.', `<div class="ortala">${sepetSahne()}</div>`)]),
+      numarala([saklambac([['kedi', 1], ['sincap', 0], ['fil', 1], ['kopek', 0], ['zurafa', 1], ['kuzu', 0]]), cizSahne()]),
     ] },
-    'sayma-10': { unite: 1, baslik: 'domino treni', konu: 'Nesne sayısını belirleme', hafta: 5, sayfalar: () => [
-      numarala([dominoTren([[[2, 1], [3, 3], [5, 0], [4, 2]], [[1, 1], [6, 1], [2, 2], [3, 4]]]), kayipYari([[2, 5], [4, 6], [1, 3], [3, 7], [5, 8], [0, 4]])]),
-      numarala([zarYolu(), zarKaydi(20)]),
+    'hafta-02': { unite: 1, hafta: 2, baslik: 'Sağ mı Sol mu?', konu: 'Uzamsal ilişkiler · Eş nesneler', sayfalar: () => [
+      numarala([sagaGiden([['a', [1, 0, 0, 1, 1, 0]], ['b', [0, 1, 1, 0, 1, 0]], ['a', [0, 0, 1, 1, 0, 1]], ['b', [1, 1, 0, 0, 0, 1]], ['a', [0, 1, 0, 1, 1, 1]]]), okBoya([1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1]),
+        etk(0, 'Kutuya bak. Kutunun İÇİNDEKİ hayvanları boya. DIŞINDAKİLERİ daire içine al.', `<div class="ortala">${kutuSahne(['kedi', 'kopek'], [['tavuk', 30, 210], ['fare', 480, 220], ['kus', 470, 20]])}</div>`)]),
+      numarala([corapIpi(['cizgi', 'nokta', 'zikzak', 'nokta', 'kare', 'cizgi', 'dik', 'zikzak', 'kare', 'dik']), esiniBul([['elma', 'armut'], ['kedi', 'kopek'], ['top', 'balon'], ['ev', 'kale'], ['ari', 'kus'], ['limon', 'muz']])]),
     ] },
-    'sayma-20': { unite: 1, baslik: 'çiftlik kamyonu', konu: 'Nesne sayısını belirleme', hafta: 6, sayfalar: () => [
-      numarala([kamyonSay([13, 7, 16, 11])]),
-      numarala([kamyonYukle([12, 15, 18])]),
+    'hafta-03': { unite: 1, hafta: 3, baslik: 'Eşini Bul', konu: 'Eş nesneler', sayfalar: () => [
+      numarala([esiniBul([['yildiz', 'ay'], ['balik', 'kus'], ['saat', 'top'], ['kova', 'canta'], ['ucak', 'helikopter'], ['cicek', 'yaprak']]), kuleKopya([['b', 'd', 'b'], ['c', 'n', 'c', 'n'], ['d', 'd', 'b', 'c'], ['n', 'b', 'd']])]),
+      numarala([corapIpi(['zikzak', 'kare', 'cizgi', 'kare', 'nokta', 'zikzak', 'dik', 'cizgi', 'dik', 'nokta']), kuleKopya([['c', 'c', 'b', 'd', 'n'], ['n', 'd', 'n', 'd'], ['b', 'c', 'd', 'n', 'b']]), esiniBul([['zebra', 'at'], ['gitar', 'davul'], ['semsiye', 'sapka'], ['robot', 'roket']])]),
     ] },
-    'sira': { unite: 1, baslik: 'hayvan treni', konu: 'Sıra bildiren sayılar', hafta: 8, sayfalar: () => [
-      numarala([hayvanTreni([[3, ['kedi', 'ordek', 'fil', 'kus', 'balik']], [5, ['inek', 'tavuk', 'kopek', 'fare', 'zurafa']], [2, ['kaplumbaga', 'sincap', 'deve', 'kanguru', 'zebra']], [4, ['ari', 'kurbaga', 'kuzu', 'horoz', 'leylek']]]),
-        siraYaz(['kaplumbaga', 'kanguru', 'kedi', 'fil', 'fare'])]),
-    ] },
-    'karsilastirma': { unite: 1, baslik: 'küp kuleleri', konu: 'Çok mu? Az mı? Eşit mi?', hafta: 10, sayfalar: () => [
-      numarala([kuleKars([[5, 3], [4, 4], [2, 7], [6, 6], [8, 5], [3, 9]]), dominoKars([[[3, 2], [1, 1]], [[4, 0], [2, 2]], [[6, 1], [5, 3]], [[2, 1], [3, 3]], [[5, 5], [6, 3]], [[1, 0], [0, 2]]])]),
-      numarala([kuleEsitle([[6, 3], [7, 5], [5, 1], [8, 4], [4, 2], [9, 6]])]),
-    ] },
-    'ritmik': { unite: 1, baslik: 'kanguru zıplıyor', konu: 'Ritmik saymalar', hafta: 11, sayfalar: () => [
-      numarala([zipla([[0, 20, 2], [0, 50, 5], [0, 100, 10], [1, 21, 2]]), zarCifti([3, 5])]),
-    ] },
-    'oruntu': { unite: 1, baslik: 'boncuk kolye', konu: 'Sayı ve şekil örüntüleri', hafta: 12, sayfalar: () => [
-      numarala([boncuk([[['k', 's', 'k', 's', 'k', 's'], 3], [['y', 'y', 'm', 'y', 'y', 'm'], 3], [['k', 's', 'm', 'k', 's', 'm'], 3], [['b', 'k', 'k', 'b', 'k', 'k'], 3]]),
-        dominoOruntu([[[1, 0], [1, 1], [2, 1], [2, 2], [3, 2], [3, null]], [[0, 1], [0, 2], [0, 3], [0, 4], [0, null]]]),
-        oruntuSekil([[['d', 'k', 'd', 'k', 'd', 'k'], 2], [['u', 'u', 'y', 'u', 'u', 'y'], 3]])]),
-    ] },
-    'tahmin': { unite: 1, baslik: 'kavanoz tahmini', konu: 'Tahmin', hafta: 14, sayfalar: () => [
-      numarala([kavanozTahmin([7, 12, 16, 9, 19, 14], 7)]),
-    ] },
-    'uzunluk': { unite: 2, baslik: 'tırtıl yarışı', konu: 'Uzunluk ölçme', hafta: 16, sayfalar: () => [
-      numarala([tirtilYaris([[[5, '#a9d39b'], [8, '#f2b94b'], [6, '#f3c6c0']], [[9, '#bcd7f0'], [4, '#a9d39b'], [7, '#f2b94b']]]), uzSirala([[['kalem', 7], ['kalem', 4], ['kalem', 9]]])]),
-      numarala([dominoOlc([['kalem', 4], ['serit', 7], ['dal', 6], ['kalem', 9]]), tahminOlc([['kalem', 6], ['dal', 8], ['serit', 5]])]),
-    ] },
-    'tartma': { unite: 2, baslik: 'çiftlik terazisi', konu: 'Tartma', hafta: 18, sayfalar: () => [
-      numarala([teraziOku2([['tavuk', 'inek', 1], ['fil', 'kedi', -1], ['kuzu', 'kuzu', 0], ['fare', 'kopek', 1]]), agirHafif([['fil', 'fare'], ['yaprak', 'kalem'], ['kitap', 'balon'], ['inek', 'kedi'], ['tencere', 'kasik'], ['kus', 'kopek']])]),
-      numarala([balyaDenge([['kuzu', 3], ['kopek', 5], ['tavuk', 2], ['inek', 9]])]),
-    ] },
+    'hafta-04': { unite: 1, hafta: 4, baslik: 'Rakamlar 1, 2, 3', konu: 'Nesne sayısını belirleme', sayfalar: () => [
+      rakamSayfasi('1', ['1', '2', '3'], 'balon', 11), rakamSayfasi('2', ['1', '2', '3'], 'elma', 12), rakamSayfasi('3', ['1', '2', '3'], 'cicek', 13)] },
+    'hafta-05': { unite: 1, hafta: 5, baslik: 'Rakamlar 4, 5 · Domino Treni', konu: 'Nesne sayısını belirleme', sayfalar: () => [
+      rakamSayfasi('4', ['1', '2', '3', '4', '5'], 'yildiz', 14), rakamSayfasi('5', ['1', '2', '3', '4', '5'], 'balik', 15),
+      numarala([dominoTren([[[2, 1], [3, 1], [1, 0], [2, 2]], [[1, 1], [3, 2], [4, 0], [0, 5]], [[2, 3], [1, 3], [4, 1], [0, 3]]]), kayipYari([[2, 4], [1, 5], [3, 4], [0, 2], [4, 5], [1, 3]])])] },
+    'hafta-06': { unite: 1, hafta: 6, baslik: 'Rakamlar 6, 7 · Zar Yolu', konu: 'Nesne sayısını belirleme', sayfalar: () => [
+      rakamSayfasi('6', ['1', '2', '3', '4', '5', '6', '7'], 'cilek', 16), rakamSayfasi('7', ['1', '2', '3', '4', '5', '6', '7'], 'kus', 17),
+      numarala([zarYoluPano()]), numarala([kesKatla(), zarKaydi(20)])] },
+    'hafta-07': { unite: 1, hafta: 7, baslik: 'Rakamlar 8, 9, 0 · Çiftlik Kamyonu', konu: 'Nesne sayısını belirleme · Sıra bildiren sayılar', sayfalar: () => [
+      rakamSayfasi('8', ['3', '5', '6', '8', '9', '0'], 'armut', 18), rakamSayfasi('9', ['3', '5', '6', '8', '9', '0'], 'ari', 19), rakamSayfasi('0', ['3', '5', '6', '8', '9', '0'], 'top', 20),
+      numarala([kamyonSay([13, 7, 16, 11, 19])]), numarala([kamyonYukle([12, 15, 18, 20]), kamyonSay([14])])] },
+    'hafta-08': { unite: 1, hafta: 8, baslik: 'Hayvan Treni', konu: 'Sıra bildiren sayılar', sayfalar: () => [
+      numarala([hayvanTreni2([[3, ['kedi', 'ordek', 'fil', 'kus', 'balik']], [5, ['inek', 'tavuk', 'kopek', 'fare', 'zurafa']], [2, ['kaplumbaga', 'sincap', 'deve', 'kanguru', 'zebra']], [4, ['ari', 'kurbaga', 'kuzu', 'horoz', 'leylek']], [1, ['deve', 'kus', 'balik', 'kedi', 'inek']]]), siraYaz(['kaplumbaga', 'kanguru', 'kedi', 'fil', 'fare'])]),
+      numarala([kuyruk(['kedi', 'kopek', 'kuzu', 'tavuk', 'fil', 'kurbaga']), merdiven(), siraYaz(['zebra', 'ordek', 'sincap', 'kopek', 'kuzu'])])] },
+    'hafta-09': { unite: 1, hafta: 9, baslik: 'Sıra Bizde · Küp Kuleleri', konu: 'Sıra bildiren sayılar · Çok mu? Az mı? Eşit mi?', sayfalar: () => [
+      numarala([hayvanTreni2([[6, ['fare', 'kedi', 'kopek', 'kuzu', 'inek', 'fil']], [1, ['tavuk', 'ordek', 'kus', 'horoz', 'leylek', 'ari']], [4, ['zebra', 'zurafa', 'deve', 'kanguru', 'sincap', 'kaplumbaga']], [2, ['balik', 'kurbaga', 'ordek', 'kopek', 'kedi', 'kus']]]), kuyruk(['inek', 'kuzu', 'fare', 'zebra', 'tavuk', 'ari'])]),
+      numarala([kuleKars([[5, 3], [4, 4], [2, 7], [6, 6], [8, 5], [3, 9]]), dominoKars([[[3, 2], [1, 1]], [[4, 0], [2, 2]], [[6, 1], [5, 3]], [[2, 1], [3, 3]], [[5, 5], [6, 3]], [[1, 0], [0, 2]]]), kuleEsitle([[5, 2], [6, 4], [7, 3], [4, 1], [8, 6], [6, 6]])])] },
+    'hafta-10': { unite: 1, hafta: 10, baslik: 'Çok mu Az mı?', konu: 'Çok mu? Az mı? Eşit mi?', sayfalar: () => [
+      numarala([birebir2([['kedi', 4, 'balik', 6], ['kopek', 5, 'top', 3], ['tavuk', 3, 'yumurta', 3]]), dominoKars([[[2, 2], [4, 1]], [[3, 3], [5, 1]], [[6, 0], [2, 3]], [[1, 4], [4, 1]], [[5, 2], [3, 3]], [[0, 6], [6, 1]]])]),
+      numarala([kuleEsitle([[6, 3], [7, 5], [5, 1], [8, 4], [4, 2], [9, 6]]), kuleKars([[3, 5], [7, 7], [9, 4], [2, 6], [5, 5], [8, 3]]), birebir2([['ari', 5, 'cicek', 3]])])] },
   };
   const CSS = `
 .onluk{display:block}.onluk2{display:flex;gap:1.5mm}
@@ -365,6 +473,39 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
 .teraziler2>div{display:flex;flex-direction:column;align-items:center;gap:2mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:2mm}
 .terazi2{width:76mm;height:53mm}
 .rzar .zar{width:16mm;height:16mm;display:block}
+.gorev{margin:0 0 2.5mm;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1.5mm 6mm}
+.gorev li{display:flex;gap:2.5mm;align-items:center;font:4.4mm Andika,sans-serif}
+.gik{flex:none;min-width:9mm;height:9mm;padding:0 1.5mm;border-radius:999px;background:#2e6b4a;color:#fff;display:grid;place-items:center;font:700 4.4mm Andika,sans-serif}
+.ortala{display:flex;justify-content:center}
+.sahneler3{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;justify-items:center}
+.sahneler3>svg{border:.4mm solid #cfd8d1;border-radius:3mm;padding:1mm}
+.yonler{display:flex;flex-direction:column;gap:4mm}
+.oklar{display:grid;grid-template-columns:repeat(9,1fr);gap:3mm}
+.oklar svg{width:100%;height:auto}
+.esbul{display:flex;flex-direction:column;gap:2.5mm}
+.esbul>div{display:grid;grid-template-columns:30mm repeat(4,1fr);gap:4mm;align-items:center;border-bottom:.3mm dashed #cfd8d1;padding-bottom:2mm}
+.esbul .model{height:26mm;border:.8mm solid #2e6b4a;border-radius:3mm;padding:2mm;display:block}
+.esbul .sec{height:26mm;display:flex;align-items:center;justify-content:center}
+.esbul .sec img{object-fit:contain}
+.kopyalar{display:flex;flex-wrap:wrap;gap:4mm;justify-content:space-around;align-items:flex-end}
+.tanis{display:grid;grid-template-columns:52mm 1fr;gap:5mm;align-items:center;border:.6mm solid #2e6b4a;border-radius:4mm;padding:3mm 5mm;background:#f6faf3}
+.temsil{display:flex;flex-direction:column;gap:3mm;align-items:flex-start}
+.t-zar .zar{width:20mm;height:20mm;display:block}
+.t-res{display:flex;flex-wrap:wrap;gap:1.5mm}.t-res img{width:12mm;height:12mm}.t-res em{font:4.5mm Andika,sans-serif;color:#6b7a70}
+.boyadizi{display:grid;grid-template-columns:repeat(10,1fr);gap:2mm}
+.boyadizi span{aspect-ratio:1;border:.4mm solid #cfd8d1;border-radius:2mm;padding:1mm;display:block}
+.balonlar.r{grid-template-columns:repeat(12,1fr)}
+.gruplar4{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}
+.gruplar4 .grup{min-height:30mm}
+.hsira svg{flex:1}
+.birebir2{display:flex;flex-direction:column;gap:4mm}
+.birebir2>div{display:flex;flex-direction:column;gap:10mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:3mm 4mm}
+.birebir2 .s{display:flex;gap:4mm;align-items:center}
+.birebir2 .s span{width:18mm;height:18mm;display:block}
+.birebir2 .s .yazkutu{margin-left:auto;width:12mm;height:12mm}
+.kurallar{display:grid;grid-template-columns:repeat(3,1fr);gap:2mm 4mm;margin-top:2mm}
+.kurallar span{display:flex;align-items:center;gap:2mm;font:4.2mm Andika,sans-serif}.kurallar img{width:12mm;height:12mm}
+.keskatla{display:flex;flex-direction:column;gap:5mm;align-items:center}
 .olcum{display:flex;flex-direction:column;gap:3mm}
 .kars-uz{display:flex;flex-direction:column;gap:2mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:2.5mm 4mm}
 .olc-satir{display:flex;align-items:center;justify-content:space-between;gap:4mm;border-bottom:.3mm dashed #cfd8d1;padding-bottom:2mm}

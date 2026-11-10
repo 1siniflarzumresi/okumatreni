@@ -447,135 +447,124 @@
   "resim": "materyaller/1-sinif/turkce/25-h-onizleme.png"
  },
  {
-  "id": "mat-rakamlar",
+  "id": "mat-hafta-01",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Nesnelerin Geometrisi (1)",
+  "hafta": 1,
+  "baslik": "1. Hafta · Ormanda Neresi?",
+  "dosya": "materyaller/1-sinif/matematik/hafta-01.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-01-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-02",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Nesnelerin Geometrisi (1)",
+  "hafta": 2,
+  "baslik": "2. Hafta · Sağ mı Sol mu?",
+  "dosya": "materyaller/1-sinif/matematik/hafta-02.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-02-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-03",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Nesnelerin Geometrisi (1)",
+  "hafta": 3,
+  "baslik": "3. Hafta · Eşini Bul",
+  "dosya": "materyaller/1-sinif/matematik/hafta-03.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-03-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-04",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 4,
+  "baslik": "4. Hafta · Rakamlar 1, 2, 3",
+  "dosya": "materyaller/1-sinif/matematik/hafta-04.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-04-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-05",
   "sinif": 1,
   "tur": "calisma",
   "ders": "matematik",
   "unite": "Sayılar ve Nicelikler (1)",
   "hafta": 5,
-  "baslik": "Rakam treni (0-9)",
-  "dosya": "materyaller/1-sinif/matematik/rakamlar.pdf",
-  "resim": "materyaller/1-sinif/matematik/rakamlar-onizleme.png"
+  "baslik": "5. Hafta · Rakamlar 4, 5 · Domino Treni",
+  "dosya": "materyaller/1-sinif/matematik/hafta-05.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-05-onizleme.png"
  },
  {
-  "id": "mat-sayma-10",
-  "sinif": 1,
-  "tur": "calisma",
-  "ders": "matematik",
-  "unite": "Sayılar ve Nicelikler (1)",
-  "hafta": 5,
-  "baslik": "Domino treni ve Zar Yolu oyunu",
-  "dosya": "materyaller/1-sinif/matematik/sayma-10.pdf",
-  "resim": "materyaller/1-sinif/matematik/sayma-10-onizleme.png"
- },
- {
-  "id": "mat-sayma-20",
+  "id": "mat-hafta-06",
   "sinif": 1,
   "tur": "calisma",
   "ders": "matematik",
   "unite": "Sayılar ve Nicelikler (1)",
   "hafta": 6,
-  "baslik": "Çiftlik kamyonu (11-20)",
-  "dosya": "materyaller/1-sinif/matematik/sayma-20.pdf",
-  "resim": "materyaller/1-sinif/matematik/sayma-20-onizleme.png"
+  "baslik": "6. Hafta · Rakamlar 6, 7 · Zar Yolu",
+  "dosya": "materyaller/1-sinif/matematik/hafta-06.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-06-onizleme.png"
  },
  {
-  "id": "mat-sira",
+  "id": "mat-hafta-07",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 7,
+  "baslik": "7. Hafta · Rakamlar 8, 9, 0 · Çiftlik Kamyonu",
+  "dosya": "materyaller/1-sinif/matematik/hafta-07.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-07-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-08",
   "sinif": 1,
   "tur": "calisma",
   "ders": "matematik",
   "unite": "Sayılar ve Nicelikler (1)",
   "hafta": 8,
-  "baslik": "Hayvan treni (sıra sayıları)",
-  "dosya": "materyaller/1-sinif/matematik/sira.pdf",
-  "resim": "materyaller/1-sinif/matematik/sira-onizleme.png"
+  "baslik": "8. Hafta · Hayvan Treni",
+  "dosya": "materyaller/1-sinif/matematik/hafta-08.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-08-onizleme.png"
  },
  {
-  "id": "mat-karsilastirma",
+  "id": "mat-hafta-09",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 9,
+  "baslik": "9. Hafta · Sıra Bizde · Küp Kuleleri",
+  "dosya": "materyaller/1-sinif/matematik/hafta-09.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-09-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-10",
   "sinif": 1,
   "tur": "calisma",
   "ders": "matematik",
   "unite": "Sayılar ve Nicelikler (1)",
   "hafta": 10,
-  "baslik": "Küp kuleleri (çok, az, eşit)",
-  "dosya": "materyaller/1-sinif/matematik/karsilastirma.pdf",
-  "resim": "materyaller/1-sinif/matematik/karsilastirma-onizleme.png"
+  "baslik": "10. Hafta · Çok mu Az mı?",
+  "dosya": "materyaller/1-sinif/matematik/hafta-10.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-10-onizleme.png"
  },
  {
-  "id": "mat-ritmik",
+  "id": "mat-paket-1",
   "sinif": 1,
   "tur": "calisma",
   "ders": "matematik",
-  "unite": "Sayılar ve Nicelikler (1)",
-  "hafta": 11,
-  "baslik": "Kanguru zıplıyor (ritmik sayma)",
-  "dosya": "materyaller/1-sinif/matematik/ritmik.pdf",
-  "resim": "materyaller/1-sinif/matematik/ritmik-onizleme.png"
- },
- {
-  "id": "mat-oruntu",
-  "sinif": 1,
-  "tur": "calisma",
-  "ders": "matematik",
-  "unite": "Sayılar ve Nicelikler (1)",
-  "hafta": 12,
-  "baslik": "Boncuk kolye (örüntüler)",
-  "dosya": "materyaller/1-sinif/matematik/oruntu.pdf",
-  "resim": "materyaller/1-sinif/matematik/oruntu-onizleme.png"
- },
- {
-  "id": "mat-tahmin",
-  "sinif": 1,
-  "tur": "calisma",
-  "ders": "matematik",
-  "unite": "Sayılar ve Nicelikler (1)",
-  "hafta": 14,
-  "baslik": "Kavanoz tahmini",
-  "dosya": "materyaller/1-sinif/matematik/tahmin.pdf",
-  "resim": "materyaller/1-sinif/matematik/tahmin-onizleme.png"
- },
- {
-  "id": "mat-sn1",
-  "sinif": 1,
-  "tur": "calisma",
-  "ders": "matematik",
-  "unite": "Sayılar ve Nicelikler (1)",
+  "unite": null,
   "hafta": null,
-  "baslik": "Sayılar ve Nicelikler (1) toplu paket",
-  "dosya": "materyaller/1-sinif/matematik/sayilar-ve-nicelikler-1.pdf",
-  "resim": "materyaller/1-sinif/matematik/sayma-10-onizleme.png"
- },
- {
-  "id": "mat-uzunluk",
-  "sinif": 1,
-  "tur": "calisma",
-  "ders": "matematik",
-  "unite": "Sayılar ve Nicelikler (2)",
-  "hafta": 16,
-  "baslik": "Tırtıl yarışı (uzunluk ölçme)",
-  "dosya": "materyaller/1-sinif/matematik/uzunluk.pdf",
-  "resim": "materyaller/1-sinif/matematik/uzunluk-onizleme.png"
- },
- {
-  "id": "mat-tartma",
-  "sinif": 1,
-  "tur": "calisma",
-  "ders": "matematik",
-  "unite": "Sayılar ve Nicelikler (2)",
-  "hafta": 18,
-  "baslik": "Çiftlik terazisi (tartma)",
-  "dosya": "materyaller/1-sinif/matematik/tartma.pdf",
-  "resim": "materyaller/1-sinif/matematik/tartma-onizleme.png"
- },
- {
-  "id": "mat-sn2",
-  "sinif": 1,
-  "tur": "calisma",
-  "ders": "matematik",
-  "unite": "Sayılar ve Nicelikler (2)",
-  "hafta": null,
-  "baslik": "Sayılar ve Nicelikler (2) toplu paket",
-  "dosya": "materyaller/1-sinif/matematik/sayilar-ve-nicelikler-2.pdf",
-  "resim": "materyaller/1-sinif/matematik/uzunluk-onizleme.png"
+  "baslik": "Matematik 1-10. Hafta toplu paket",
+  "dosya": "materyaller/1-sinif/matematik/matematik-hafta-01-10.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-01-onizleme.png"
  }
 ]

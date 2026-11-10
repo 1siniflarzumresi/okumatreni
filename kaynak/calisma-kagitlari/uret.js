@@ -548,7 +548,7 @@ if (process.env.YON_ONIZLE) HARF._yon = () => {
   return sayfalar;
 };
 
-const { MAT, CSS: MAT_CSS } = require('./matematik.js')({ etk, satir, resim, rastgele, numarala });
+const { MAT, CSS: MAT_CSS } = require('./matematik.js')({ etk, satir, resim, rastgele, numarala, harfAvi: null });
 // Çıktı dosya adları yalnız ASCII: sıra numarası + harf (ı → 11-i, İ → 05-i), paketler grup-1-anetil…
 const ASCII = { 'ı': 'i', 'ü': 'u', 'ö': 'o', 'ç': 'c', 'ş': 's', 'ğ': 'g' };
 const dosyaAdi = h => SIRA.includes(h) ? String(SIRA.indexOf(h) + 1).padStart(2, '0') + '-' + (ASCII[h] || h) : h;
@@ -656,9 +656,13 @@ img{width:100%;height:100%;object-fit:contain}
 .tamamla>div>div{display:flex;gap:4mm;padding-left:6mm}
 .tamamla>div>div span{border:.4mm solid #4a5a50;border-radius:999px;padding:.5mm 4mm;font-size:6mm}
 ${MAT_CSS}
-.harf.mat{font-size:11mm;letter-spacing:.3mm;white-space:nowrap}
+.harf.mat{font-size:10.5mm;letter-spacing:.2mm}
+.sayfa:has(.harf.mat) header{flex-wrap:wrap;row-gap:2mm}
+.sayfa:has(.harf.mat) .baslik{flex:1 1 auto}
+.sayfa:has(.harf.mat) .ad{margin-left:auto}
 .sayfa:has(.harf.mat) .ad i{width:34mm}
 .sayfa:has(.harf.mat) .ad i.kisa{width:22mm}
+.govde{display:flex;flex-direction:column;gap:3.5mm}
 footer{margin-top:auto;display:flex;justify-content:space-between;font:3.2mm Andika,sans-serif;color:#6b7a70;border-top:.3mm solid #dbe6d4;padding-top:2mm}
 `;
 const OKLAR = `<svg width="0" height="0" style="position:absolute"><defs>
@@ -698,24 +702,28 @@ const SAYFALAR = {};
     AKTIF = h === '_yon' || MATMOD ? null : h; const govdeler = MATMOD ? MAT[h].sayfalar() : HARF[h](); AKTIF = null;
     const HEDEF = MATMOD ? CIKTI_MAT : CIKTI;
     if (HATALAR.length) break;
-    const html = `<!doctype html><html lang="tr"><meta charset="utf-8"><style>${CSS}</style><body>${OKLAR}<script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('path.iz').forEach(p=>{const n=Math.max(3,Math.round(p.getTotalLength()/80));p.setAttribute('pathLength',n);p.setAttribute('stroke-dasharray','0 1');const L=p.getTotalLength(),e=p.getPointAtLength(L),c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',e.x);c.setAttribute('cy',e.y);c.setAttribute('r',22);c.setAttribute('fill','#8a8f8b');p.after(c);}));</script>${govdeler.map((g, i) => sayfa({ harf: h, govde: g, no: i + 1, toplam: govdeler.length, mat: MATMOD ? MAT[h] : null })).join('')}</body></html>`;
+    const html = `<!doctype html><html lang="tr"><meta charset="utf-8"><style>${CSS}</style><body>${OKLAR}<script>addEventListener('load',()=>document.querySelectorAll('.sayfa').forEach(s=>{const f=s.querySelector('footer'),h=s.querySelector('header');if(!f||!h)return;const g=document.createElement('div');g.className='govde';[...s.children].filter(c=>c!==f&&c!==h).forEach(c=>g.appendChild(c));s.insertBefore(g,f);const cs=getComputedStyle(s),bos=s.getBoundingClientRect().bottom-parseFloat(cs.paddingBottom)-f.offsetHeight-h.getBoundingClientRect().bottom-70,ihtiyac=g.getBoundingClientRect().height;if(ihtiyac>bos){g.style.zoom=Math.max(.78,bos/ihtiyac);}}));</script><script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('path.iz').forEach(p=>{const n=Math.max(3,Math.round(p.getTotalLength()/80));p.setAttribute('pathLength',n);p.setAttribute('stroke-dasharray','0 1');const L=p.getTotalLength(),e=p.getPointAtLength(L),c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',e.x);c.setAttribute('cy',e.y);c.setAttribute('r',22);c.setAttribute('fill','#8a8f8b');p.after(c);}));</script>${govdeler.map((g, i) => sayfa({ harf: h, govde: g, no: i + 1, toplam: govdeler.length, mat: MATMOD ? MAT[h] : null })).join('')}</body></html>`;
     SAYFALAR[h] = html;
     const p = await b.newPage({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 2 });
     await p.goto(`http://127.0.0.1:${port}/__sayfa/${encodeURIComponent(h)}`, { waitUntil: 'networkidle' });
     await p.evaluate(() => document.fonts.ready);
     const fontlar = await p.evaluate(() => [...document.fonts].map(f => f.family + ':' + f.status));
+    await p.waitForTimeout(150);
     const tasan = await p.evaluate(() => [...document.querySelectorAll('.sayfa')].map((s, i) => s.scrollHeight > s.clientHeight + 1 ? (i + 1) + '. sayfa ' + Math.round((s.scrollHeight - s.clientHeight) / 3.78) + ' mm' : '').filter(Boolean).join(', ') || 'yok');
+    // Boşluk ölçümü: son etkinliğin altı ile altbilgi arasında 22 mm'den fazla boşluk kalan sayfalar
+    const bosluk = await p.evaluate(() => [...document.querySelectorAll('.sayfa')].map((s, i) => { const f = s.querySelector('footer'), e = s.querySelector('.govde') || [...s.children].filter(c => c.tagName !== 'FOOTER' && c.tagName !== 'HEADER').pop();
+      if (!f || !e) return ''; const mm = (f.getBoundingClientRect().top - e.getBoundingClientRect().bottom) / 3.78; return mm > 22 ? (i + 1) + '. sayfa ' + Math.round(mm) + ' mm' : ''; }).filter(Boolean).join(', '));
     const kirik = await p.evaluate(() => [...document.images].filter(i => !i.complete || !i.naturalWidth).map(i => i.getAttribute('src')));
     if (kirik.length) throw new Error(`${h}: yüklenemeyen resim: ${[...new Set(kirik)].join(', ')}`);
     if (!fontlar.some(f => f === 'TTKB:loaded')) throw new Error(`${h}: TTKB yazı tipi yüklenemedi (kaynak/fontlar/ttkb.ttf)`);
     await p.pdf({ path: path.join(HEDEF, `${MATMOD ? h : dosyaAdi(h)}.pdf`), format: 'A4', printBackground: true, preferCSSPageSize: true });
     await p.locator('.sayfa').first().screenshot({ path: path.join(HEDEF, `${MATMOD ? h : dosyaAdi(h)}-onizleme.png`) });
     if (process.env.HER_SAYFA) for (let i = 0; i < govdeler.length; i++) await p.locator('.sayfa').nth(i).screenshot({ path: path.join(process.env.HER_SAYFA, `${h}-${i + 1}.png`) });
-    console.log(h, 'sayfa:', govdeler.length, 'fontlar:', fontlar.join(' '), 'taşan:', tasan);
+    console.log(h, 'sayfa:', govdeler.length, 'fontlar:', fontlar.join(' '), 'taşan:', tasan, bosluk ? 'BOŞ: ' + bosluk : '');
     await p.close();
   }
   if (MATMOD && arg.includes('mat')) for (const no of [...new Set(Object.values(MAT).map(m => m.unite))]) {   // ünite paketleri
-    const ad = 'sayilar-ve-nicelikler-' + no, ks = Object.keys(MAT).filter(k => MAT[k].unite === no);
+    const ks = Object.keys(MAT).filter(k => MAT[k].unite === no), hs = ks.map(k => MAT[k].hafta), ad = `matematik-hafta-${String(Math.min(...hs)).padStart(2, '0')}-${String(Math.max(...hs)).padStart(2, '0')}`;
     if (ks.length < 2) continue;
     SAYFALAR[ad] = SAYFALAR[ks[0]].replace(/<\/body><\/html>$/, '') + ks.slice(1).map(h => SAYFALAR[h].split('</script>').slice(1).join('</script>').replace(/<\/body><\/html>$/, '')).join('') + '</body></html>';
     const p = await b.newPage();
