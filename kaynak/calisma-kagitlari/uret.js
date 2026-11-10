@@ -657,6 +657,8 @@ img{width:100%;height:100%;object-fit:contain}
 .tamamla>div>div span{border:.4mm solid #4a5a50;border-radius:999px;padding:.5mm 4mm;font-size:6mm}
 ${MAT_CSS}
 .harf.mat{font-size:11mm;letter-spacing:.3mm;white-space:nowrap}
+.sayfa:has(.harf.mat) .ad i{width:34mm}
+.sayfa:has(.harf.mat) .ad i.kisa{width:22mm}
 footer{margin-top:auto;display:flex;justify-content:space-between;font:3.2mm Andika,sans-serif;color:#6b7a70;border-top:.3mm solid #dbe6d4;padding-top:2mm}
 `;
 const OKLAR = `<svg width="0" height="0" style="position:absolute"><defs>

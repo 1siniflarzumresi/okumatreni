@@ -453,7 +453,7 @@
   "ders": "matematik",
   "unite": "Sayılar ve Nicelikler (1)",
   "hafta": 5,
-  "baslik": "Rakamları yazalım (0-9)",
+  "baslik": "Rakam treni (0-9)",
   "dosya": "materyaller/1-sinif/matematik/rakamlar.pdf",
   "resim": "materyaller/1-sinif/matematik/rakamlar-onizleme.png"
  },
@@ -464,7 +464,7 @@
   "ders": "matematik",
   "unite": "Sayılar ve Nicelikler (1)",
   "hafta": 5,
-  "baslik": "1-10 sayalım",
+  "baslik": "Domino treni ve Zar Yolu oyunu",
   "dosya": "materyaller/1-sinif/matematik/sayma-10.pdf",
   "resim": "materyaller/1-sinif/matematik/sayma-10-onizleme.png"
  },
@@ -475,7 +475,7 @@
   "ders": "matematik",
   "unite": "Sayılar ve Nicelikler (1)",
   "hafta": 6,
-  "baslik": "11-20 sayalım",
+  "baslik": "Çiftlik kamyonu (11-20)",
   "dosya": "materyaller/1-sinif/matematik/sayma-20.pdf",
   "resim": "materyaller/1-sinif/matematik/sayma-20-onizleme.png"
  },
@@ -486,7 +486,7 @@
   "ders": "matematik",
   "unite": "Sayılar ve Nicelikler (1)",
   "hafta": 8,
-  "baslik": "Sıra bildiren sayılar",
+  "baslik": "Hayvan treni (sıra sayıları)",
   "dosya": "materyaller/1-sinif/matematik/sira.pdf",
   "resim": "materyaller/1-sinif/matematik/sira-onizleme.png"
  },
@@ -497,7 +497,7 @@
   "ders": "matematik",
   "unite": "Sayılar ve Nicelikler (1)",
   "hafta": 10,
-  "baslik": "Çok mu? Az mı? Eşit mi?",
+  "baslik": "Küp kuleleri (çok, az, eşit)",
   "dosya": "materyaller/1-sinif/matematik/karsilastirma.pdf",
   "resim": "materyaller/1-sinif/matematik/karsilastirma-onizleme.png"
  },
@@ -508,7 +508,7 @@
   "ders": "matematik",
   "unite": "Sayılar ve Nicelikler (1)",
   "hafta": 11,
-  "baslik": "Ritmik saymalar",
+  "baslik": "Kanguru zıplıyor (ritmik sayma)",
   "dosya": "materyaller/1-sinif/matematik/ritmik.pdf",
   "resim": "materyaller/1-sinif/matematik/ritmik-onizleme.png"
  },
@@ -519,7 +519,7 @@
   "ders": "matematik",
   "unite": "Sayılar ve Nicelikler (1)",
   "hafta": 12,
-  "baslik": "Sayı ve şekil örüntüleri",
+  "baslik": "Boncuk kolye (örüntüler)",
   "dosya": "materyaller/1-sinif/matematik/oruntu.pdf",
   "resim": "materyaller/1-sinif/matematik/oruntu-onizleme.png"
  },
@@ -530,7 +530,7 @@
   "ders": "matematik",
   "unite": "Sayılar ve Nicelikler (1)",
   "hafta": 14,
-  "baslik": "Tahmin edelim",
+  "baslik": "Kavanoz tahmini",
   "dosya": "materyaller/1-sinif/matematik/tahmin.pdf",
   "resim": "materyaller/1-sinif/matematik/tahmin-onizleme.png"
  },
@@ -544,5 +544,38 @@
   "baslik": "Sayılar ve Nicelikler (1) toplu paket",
   "dosya": "materyaller/1-sinif/matematik/sayilar-ve-nicelikler-1.pdf",
   "resim": "materyaller/1-sinif/matematik/sayma-10-onizleme.png"
+ },
+ {
+  "id": "mat-uzunluk",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (2)",
+  "hafta": 16,
+  "baslik": "Tırtıl yarışı (uzunluk ölçme)",
+  "dosya": "materyaller/1-sinif/matematik/uzunluk.pdf",
+  "resim": "materyaller/1-sinif/matematik/uzunluk-onizleme.png"
+ },
+ {
+  "id": "mat-tartma",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (2)",
+  "hafta": 18,
+  "baslik": "Çiftlik terazisi (tartma)",
+  "dosya": "materyaller/1-sinif/matematik/tartma.pdf",
+  "resim": "materyaller/1-sinif/matematik/tartma-onizleme.png"
+ },
+ {
+  "id": "mat-sn2",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (2)",
+  "hafta": null,
+  "baslik": "Sayılar ve Nicelikler (2) toplu paket",
+  "dosya": "materyaller/1-sinif/matematik/sayilar-ve-nicelikler-2.pdf",
+  "resim": "materyaller/1-sinif/matematik/uzunluk-onizleme.png"
  }
 ]
