@@ -76,8 +76,8 @@ Değişiklikten sonra: `python3 kaynak/derle.py` → `node kaynak/test/kontrol.j
 
 ## Ladin Ormanı — sıradaki işler (devralan için)
 Kullanıcı her şeye onay verdi; onay sormadan yap, kısa yaz, kota hassas.
-1. Firebase kurulumu sürüyor (proje: `ladin-ormani`). Kullanıcı `firebaseConfig` değerlerini verince `deneme/firebase-ayar.js` içine yapıştır, `VERI_SORUMLUSU` ve `ILETISIM_EPOSTA` doldur, push et. Google ile giriş gerçek ortamda henüz sınanmadı.
-2. İçerik: Matematik sonraki üniteler (`matematik.js`; sıradaki "Sayılar ve Nicelikler (2)": uzunluk ölçme, tartma, 15-19. haftalar) ve Hayat Bilgisi kâğıtları (henüz hiç yok).
+1. Firebase kuruldu ve gerçek ortamda sınandı (Google girişi, e-posta kaydı, doğrulama, PDF). Eksik: `firebase-ayar.js` içinde `VERI_SORUMLUSU` ve `ILETISIM_EPOSTA` (kullanıcı ad/e-posta vermedi).
+2. MATEMATİK KÂĞIT ÇİZGİSİ (kullanıcı kararı): sıradan kâğıt istemiyor; Okuma Treni oyunları gibi oyunlu olsun: domino, zar, tren, masa oyunu (Zar Yolu), Çiftlik Kamyonu/Küp Kuleleri/Havuz temaları. Örnek `mat:domino-tren` (unite 0, sitede kartı yok) kullanıcı onayı bekliyor; onaylanırsa bütün matematik kâğıtları bu çizgiye çevrilecek. `uzunluk` ve `tartma` (unite 2) yazıldı ama sıradan bulundu, sitede yok; oyunlu hale getirilecek (ör. domino/küple ölç, çiftlik terazisinde saman balyası). Sonra: Matematik sonraki üniteler (`matematik.js`; sıradaki "Sayılar ve Nicelikler (2)": uzunluk ölçme, tartma, 15-19. haftalar) ve Hayat Bilgisi kâğıtları (henüz hiç yok).
 3. 2-4. sınıflar için ders ders "ders notları" (yazılı yerine). Henüz başlanmadı; önce sınıf kartı ve sayfa yapısı gerekir.
 4. Kök sayfalar (Okuma Treni): description, favicon, Open Graph eksik; `akici-okuma.html` 320 px'te 24 px taşıyor; birkaç düşük kontrast. Dokunma izni var ama veliler kullanıyor: küçük, güvenli değişiklik yap, `node kaynak/test/kontrol.js harf` çalıştır.
 5. Kart önizleme resimleri (`*-onizleme.png`, materyaller.json `resim` alanı) hazır ama kartlarda gösterilmiyor; istenirse `1-sinif.html` `listeCiz` içine `<img loading="lazy">` eklenir.

@@ -712,8 +712,9 @@ const SAYFALAR = {};
     console.log(h, 'sayfa:', govdeler.length, 'fontlar:', fontlar.join(' '), 'taşan:', tasan);
     await p.close();
   }
-  if (MATMOD && arg.includes('mat')) {          // ünite paketi
-    const ad = 'sayilar-ve-nicelikler-1', ks = Object.keys(MAT);
+  if (MATMOD && arg.includes('mat')) for (const no of [...new Set(Object.values(MAT).map(m => m.unite))]) {   // ünite paketleri
+    const ad = 'sayilar-ve-nicelikler-' + no, ks = Object.keys(MAT).filter(k => MAT[k].unite === no);
+    if (ks.length < 2) continue;
     SAYFALAR[ad] = SAYFALAR[ks[0]].replace(/<\/body><\/html>$/, '') + ks.slice(1).map(h => SAYFALAR[h].split('</script>').slice(1).join('</script>').replace(/<\/body><\/html>$/, '')).join('') + '</body></html>';
     const p = await b.newPage();
     await p.goto(`http://127.0.0.1:${port}/__sayfa/${ad}`, { waitUntil: 'networkidle' });
