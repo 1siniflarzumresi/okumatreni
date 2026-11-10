@@ -1,78 +1,78 @@
 [
  {
-  "id": "tr-a",
+  "id": "tr-01-a",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Güzel Davranışlarımız",
   "hafta": 2,
   "harf": "A",
-  "baslik": "Aa sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/a.pdf",
-  "resim": "materyaller/1-sinif/turkce/a-onizleme.png"
+  "baslik": "Aa sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/01-a.pdf",
+  "resim": "materyaller/1-sinif/turkce/01-a-onizleme.png"
  },
  {
-  "id": "tr-n",
+  "id": "tr-02-n",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Güzel Davranışlarımız",
   "hafta": 3,
   "harf": "N",
-  "baslik": "Nn sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/n.pdf",
-  "resim": "materyaller/1-sinif/turkce/n-onizleme.png"
+  "baslik": "Nn sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/02-n.pdf",
+  "resim": "materyaller/1-sinif/turkce/02-n-onizleme.png"
  },
  {
-  "id": "tr-e",
+  "id": "tr-03-e",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Güzel Davranışlarımız",
   "hafta": 4,
   "harf": "E",
-  "baslik": "Ee sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/e.pdf",
-  "resim": "materyaller/1-sinif/turkce/e-onizleme.png"
+  "baslik": "Ee sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/03-e.pdf",
+  "resim": "materyaller/1-sinif/turkce/03-e-onizleme.png"
  },
  {
-  "id": "tr-t",
+  "id": "tr-04-t",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Güzel Davranışlarımız",
   "hafta": 5,
   "harf": "T",
-  "baslik": "Tt sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/t.pdf",
-  "resim": "materyaller/1-sinif/turkce/t-onizleme.png"
+  "baslik": "Tt sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/04-t.pdf",
+  "resim": "materyaller/1-sinif/turkce/04-t-onizleme.png"
  },
  {
-  "id": "tr-i",
+  "id": "tr-05-i",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Mustafa Kemal'den Atatürk'e",
   "hafta": 6,
   "harf": "İ",
-  "baslik": "İi sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/i.pdf",
-  "resim": "materyaller/1-sinif/turkce/i-onizleme.png"
+  "baslik": "İi sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/05-i.pdf",
+  "resim": "materyaller/1-sinif/turkce/05-i-onizleme.png"
  },
  {
-  "id": "tr-l",
+  "id": "tr-06-l",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Mustafa Kemal'den Atatürk'e",
   "hafta": 7,
   "harf": "L",
-  "baslik": "Ll sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/l.pdf",
-  "resim": "materyaller/1-sinif/turkce/l-onizleme.png"
+  "baslik": "Ll sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/06-l.pdf",
+  "resim": "materyaller/1-sinif/turkce/06-l-onizleme.png"
  },
  {
-  "id": "tr-anetil",
+  "id": "tr-grup-1-anetil",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
@@ -80,8 +80,8 @@
   "hafta": null,
   "harf": "A–L",
   "baslik": "A N E T İ L toplu paket",
-  "dosya": "materyaller/1-sinif/turkce/a-n-e-t-i-l.pdf",
-  "resim": "materyaller/1-sinif/turkce/a-onizleme.png",
+  "dosya": "materyaller/1-sinif/turkce/grup-1-anetil.pdf",
+  "resim": "materyaller/1-sinif/turkce/01-a-onizleme.png",
   "harfler": [
    "A",
    "N",
@@ -92,79 +92,79 @@
   ]
  },
  {
-  "id": "tr-o",
+  "id": "tr-07-o",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Mustafa Kemal'den Atatürk'e",
   "hafta": 8,
   "harf": "O",
-  "baslik": "Oo sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/o.pdf",
-  "resim": "materyaller/1-sinif/turkce/o-onizleme.png"
+  "baslik": "Oo sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/07-o.pdf",
+  "resim": "materyaller/1-sinif/turkce/07-o-onizleme.png"
  },
  {
-  "id": "tr-k",
+  "id": "tr-08-k",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Mustafa Kemal'den Atatürk'e",
   "hafta": 9,
   "harf": "K",
-  "baslik": "Kk sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/k.pdf",
-  "resim": "materyaller/1-sinif/turkce/k-onizleme.png"
+  "baslik": "Kk sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/08-k.pdf",
+  "resim": "materyaller/1-sinif/turkce/08-k-onizleme.png"
  },
  {
-  "id": "tr-u",
+  "id": "tr-09-u",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Mustafa Kemal'den Atatürk'e",
   "hafta": 9,
   "harf": "U",
-  "baslik": "Uu sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/u.pdf",
-  "resim": "materyaller/1-sinif/turkce/u-onizleme.png"
+  "baslik": "Uu sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/09-u.pdf",
+  "resim": "materyaller/1-sinif/turkce/09-u-onizleme.png"
  },
  {
-  "id": "tr-r",
+  "id": "tr-10-r",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Çevremizdeki Yaşam",
   "hafta": 10,
   "harf": "R",
-  "baslik": "Rr sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/r.pdf",
-  "resim": "materyaller/1-sinif/turkce/r-onizleme.png"
+  "baslik": "Rr sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/10-r.pdf",
+  "resim": "materyaller/1-sinif/turkce/10-r-onizleme.png"
  },
  {
-  "id": "tr-ı",
+  "id": "tr-11-i",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Çevremizdeki Yaşam",
   "hafta": 10,
   "harf": "I",
-  "baslik": "Iı sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/ı.pdf",
-  "resim": "materyaller/1-sinif/turkce/ı-onizleme.png"
+  "baslik": "Iı sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/11-i.pdf",
+  "resim": "materyaller/1-sinif/turkce/11-i-onizleme.png"
  },
  {
-  "id": "tr-m",
+  "id": "tr-12-m",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Çevremizdeki Yaşam",
   "hafta": 11,
   "harf": "M",
-  "baslik": "Mm sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/m.pdf",
-  "resim": "materyaller/1-sinif/turkce/m-onizleme.png"
+  "baslik": "Mm sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/12-m.pdf",
+  "resim": "materyaller/1-sinif/turkce/12-m-onizleme.png"
  },
  {
-  "id": "tr-okurim",
+  "id": "tr-grup-2-okurim",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
@@ -180,215 +180,215 @@
    "M"
   ],
   "baslik": "O K U R I M toplu paket",
-  "dosya": "materyaller/1-sinif/turkce/o-k-u-r-ı-m.pdf",
-  "resim": "materyaller/1-sinif/turkce/o-onizleme.png"
+  "dosya": "materyaller/1-sinif/turkce/grup-2-okurim.pdf",
+  "resim": "materyaller/1-sinif/turkce/07-o-onizleme.png"
  },
  {
-  "id": "tr-ü",
+  "id": "tr-13-u",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Çevremizdeki Yaşam",
   "hafta": 12,
   "harf": "Ü",
-  "baslik": "Üü sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/ü.pdf",
-  "resim": "materyaller/1-sinif/turkce/ü-onizleme.png"
+  "baslik": "Üü sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/13-u.pdf",
+  "resim": "materyaller/1-sinif/turkce/13-u-onizleme.png"
  },
  {
-  "id": "tr-s",
+  "id": "tr-14-s",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Çevremizdeki Yaşam",
   "hafta": 12,
   "harf": "S",
-  "baslik": "Ss sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/s.pdf",
-  "resim": "materyaller/1-sinif/turkce/s-onizleme.png"
+  "baslik": "Ss sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/14-s.pdf",
+  "resim": "materyaller/1-sinif/turkce/14-s-onizleme.png"
  },
  {
-  "id": "tr-ö",
+  "id": "tr-15-o",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Çevremizdeki Yaşam",
   "hafta": 12,
   "harf": "Ö",
-  "baslik": "Öö sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/ö.pdf",
-  "resim": "materyaller/1-sinif/turkce/ö-onizleme.png"
+  "baslik": "Öö sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/15-o.pdf",
+  "resim": "materyaller/1-sinif/turkce/15-o-onizleme.png"
  },
  {
-  "id": "tr-y",
+  "id": "tr-16-y",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 13,
   "harf": "Y",
-  "baslik": "Yy sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/y.pdf",
-  "resim": "materyaller/1-sinif/turkce/y-onizleme.png"
+  "baslik": "Yy sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/16-y.pdf",
+  "resim": "materyaller/1-sinif/turkce/16-y-onizleme.png"
  },
  {
-  "id": "tr-d",
+  "id": "tr-17-d",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 13,
   "harf": "D",
-  "baslik": "Dd sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/d.pdf",
-  "resim": "materyaller/1-sinif/turkce/d-onizleme.png"
+  "baslik": "Dd sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/17-d.pdf",
+  "resim": "materyaller/1-sinif/turkce/17-d-onizleme.png"
  },
  {
-  "id": "tr-z",
+  "id": "tr-18-z",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 13,
   "harf": "Z",
-  "baslik": "Zz sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/z.pdf",
-  "resim": "materyaller/1-sinif/turkce/z-onizleme.png"
+  "baslik": "Zz sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/18-z.pdf",
+  "resim": "materyaller/1-sinif/turkce/18-z-onizleme.png"
  },
  {
-  "id": "tr-ç",
+  "id": "tr-19-c",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 14,
   "harf": "Ç",
-  "baslik": "Çç sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/ç.pdf",
-  "resim": "materyaller/1-sinif/turkce/ç-onizleme.png"
+  "baslik": "Çç sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/19-c.pdf",
+  "resim": "materyaller/1-sinif/turkce/19-c-onizleme.png"
  },
  {
-  "id": "tr-b",
+  "id": "tr-20-b",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 14,
   "harf": "B",
-  "baslik": "Bb sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/b.pdf",
-  "resim": "materyaller/1-sinif/turkce/b-onizleme.png"
+  "baslik": "Bb sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/20-b.pdf",
+  "resim": "materyaller/1-sinif/turkce/20-b-onizleme.png"
  },
  {
-  "id": "tr-g",
+  "id": "tr-21-g",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 14,
   "harf": "G",
-  "baslik": "Gg sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/g.pdf",
-  "resim": "materyaller/1-sinif/turkce/g-onizleme.png"
+  "baslik": "Gg sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/21-g.pdf",
+  "resim": "materyaller/1-sinif/turkce/21-g-onizleme.png"
  },
  {
-  "id": "tr-c",
+  "id": "tr-22-c",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 15,
   "harf": "C",
-  "baslik": "Cc sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/c.pdf",
-  "resim": "materyaller/1-sinif/turkce/c-onizleme.png"
+  "baslik": "Cc sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/22-c.pdf",
+  "resim": "materyaller/1-sinif/turkce/22-c-onizleme.png"
  },
  {
-  "id": "tr-ş",
+  "id": "tr-23-s",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 15,
   "harf": "Ş",
-  "baslik": "Şş sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/ş.pdf",
-  "resim": "materyaller/1-sinif/turkce/ş-onizleme.png"
+  "baslik": "Şş sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/23-s.pdf",
+  "resim": "materyaller/1-sinif/turkce/23-s-onizleme.png"
  },
  {
-  "id": "tr-p",
+  "id": "tr-24-p",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 16,
   "harf": "P",
-  "baslik": "Pp sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/p.pdf",
-  "resim": "materyaller/1-sinif/turkce/p-onizleme.png"
+  "baslik": "Pp sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/24-p.pdf",
+  "resim": "materyaller/1-sinif/turkce/24-p-onizleme.png"
  },
  {
-  "id": "tr-h",
+  "id": "tr-25-h",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 16,
   "harf": "H",
-  "baslik": "Hh sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/h.pdf",
-  "resim": "materyaller/1-sinif/turkce/h-onizleme.png"
+  "baslik": "Hh sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/25-h.pdf",
+  "resim": "materyaller/1-sinif/turkce/25-h-onizleme.png"
  },
  {
-  "id": "tr-v",
+  "id": "tr-26-v",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 17,
   "harf": "V",
-  "baslik": "Vv sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/v.pdf",
-  "resim": "materyaller/1-sinif/turkce/v-onizleme.png"
+  "baslik": "Vv sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/26-v.pdf",
+  "resim": "materyaller/1-sinif/turkce/26-v-onizleme.png"
  },
  {
-  "id": "tr-ğ",
+  "id": "tr-27-g",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 17,
   "harf": "Ğ",
-  "baslik": "Ğğ sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/ğ.pdf",
-  "resim": "materyaller/1-sinif/turkce/ğ-onizleme.png"
+  "baslik": "Ğğ sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/27-g.pdf",
+  "resim": "materyaller/1-sinif/turkce/27-g-onizleme.png"
  },
  {
-  "id": "tr-f",
+  "id": "tr-28-f",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 17,
   "harf": "F",
-  "baslik": "Ff sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/f.pdf",
-  "resim": "materyaller/1-sinif/turkce/f-onizleme.png"
+  "baslik": "Ff sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/28-f.pdf",
+  "resim": "materyaller/1-sinif/turkce/28-f-onizleme.png"
  },
  {
-  "id": "tr-j",
+  "id": "tr-29-j",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
   "unite": "Yol Arkadaşımız Kitaplar",
   "hafta": 17,
   "harf": "J",
-  "baslik": "Jj sesi çalışma kağıdı",
-  "dosya": "materyaller/1-sinif/turkce/j.pdf",
-  "resim": "materyaller/1-sinif/turkce/j-onizleme.png"
+  "baslik": "Jj sesi çalışma kâğıdı",
+  "dosya": "materyaller/1-sinif/turkce/29-j.pdf",
+  "resim": "materyaller/1-sinif/turkce/29-j-onizleme.png"
  },
  {
-  "id": "tr-usoydz",
+  "id": "tr-grup-3-usoydz",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
@@ -404,11 +404,11 @@
    "Z"
   ],
   "baslik": "Ü S Ö Y D Z toplu paket",
-  "dosya": "materyaller/1-sinif/turkce/ü-s-ö-y-d-z.pdf",
-  "resim": "materyaller/1-sinif/turkce/ü-onizleme.png"
+  "dosya": "materyaller/1-sinif/turkce/grup-3-usoydz.pdf",
+  "resim": "materyaller/1-sinif/turkce/13-u-onizleme.png"
  },
  {
-  "id": "tr-cbgcsp",
+  "id": "tr-grup-4-cbgcsp",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
@@ -424,11 +424,11 @@
    "P"
   ],
   "baslik": "Ç B G C Ş P toplu paket",
-  "dosya": "materyaller/1-sinif/turkce/ç-b-g-c-ş-p.pdf",
-  "resim": "materyaller/1-sinif/turkce/ç-onizleme.png"
+  "dosya": "materyaller/1-sinif/turkce/grup-4-cbgcsp.pdf",
+  "resim": "materyaller/1-sinif/turkce/19-c-onizleme.png"
  },
  {
-  "id": "tr-hvgfj",
+  "id": "tr-grup-5-hvgfj",
   "sinif": 1,
   "tur": "calisma",
   "ders": "turkce",
@@ -443,8 +443,8 @@
    "J"
   ],
   "baslik": "H V Ğ F J toplu paket",
-  "dosya": "materyaller/1-sinif/turkce/h-v-ğ-f-j.pdf",
-  "resim": "materyaller/1-sinif/turkce/h-onizleme.png"
+  "dosya": "materyaller/1-sinif/turkce/grup-5-hvgfj.pdf",
+  "resim": "materyaller/1-sinif/turkce/25-h-onizleme.png"
  },
  {
   "id": "mat-rakamlar",

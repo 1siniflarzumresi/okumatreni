@@ -549,6 +549,9 @@ if (process.env.YON_ONIZLE) HARF._yon = () => {
 };
 
 const { MAT, CSS: MAT_CSS } = require('./matematik.js')({ etk, satir, resim, rastgele, numarala });
+// Çıktı dosya adları yalnız ASCII: sıra numarası + harf (ı → 11-i, İ → 05-i), paketler grup-1-anetil…
+const ASCII = { 'ı': 'i', 'ü': 'u', 'ö': 'o', 'ç': 'c', 'ş': 's', 'ğ': 'g' };
+const dosyaAdi = h => SIRA.includes(h) ? String(SIRA.indexOf(h) + 1).padStart(2, '0') + '-' + (ASCII[h] || h) : h;
 const CIKTI_MAT = path.join(KOK, 'deneme/materyaller/1-sinif/matematik');
 
 const CSS = `
@@ -703,8 +706,8 @@ const SAYFALAR = {};
     const kirik = await p.evaluate(() => [...document.images].filter(i => !i.complete || !i.naturalWidth).map(i => i.getAttribute('src')));
     if (kirik.length) throw new Error(`${h}: yüklenemeyen resim: ${[...new Set(kirik)].join(', ')}`);
     if (!fontlar.some(f => f === 'TTKB:loaded')) throw new Error(`${h}: TTKB yazı tipi yüklenemedi (kaynak/fontlar/ttkb.ttf)`);
-    await p.pdf({ path: path.join(HEDEF, `${h}.pdf`), format: 'A4', printBackground: true, preferCSSPageSize: true });
-    await p.locator('.sayfa').first().screenshot({ path: path.join(HEDEF, `${h}-onizleme.png`) });
+    await p.pdf({ path: path.join(HEDEF, `${MATMOD ? h : dosyaAdi(h)}.pdf`), format: 'A4', printBackground: true, preferCSSPageSize: true });
+    await p.locator('.sayfa').first().screenshot({ path: path.join(HEDEF, `${MATMOD ? h : dosyaAdi(h)}-onizleme.png`) });
     if (process.env.HER_SAYFA) for (let i = 0; i < govdeler.length; i++) await p.locator('.sayfa').nth(i).screenshot({ path: path.join(process.env.HER_SAYFA, `${h}-${i + 1}.png`) });
     console.log(h, 'sayfa:', govdeler.length, 'fontlar:', fontlar.join(' '), 'taşan:', tasan);
     await p.close();
@@ -726,8 +729,9 @@ const SAYFALAR = {};
     const p = await b.newPage();
     await p.goto(`http://127.0.0.1:${port}/__sayfa/${ad}`, { waitUntil: 'networkidle' });
     await p.evaluate(() => document.fonts.ready);
-    await p.pdf({ path: path.join(CIKTI, ad + '.pdf'), format: 'A4', printBackground: true, preferCSSPageSize: true });
-    console.log('toplu', ad + '.pdf', 'sayfa:', await p.evaluate(() => document.querySelectorAll('.sayfa').length));
+    const paket = 'grup-' + (GRUPLAR.indexOf(grup) + 1) + '-' + harfler.map(x => ASCII[x] || x).join('');
+    await p.pdf({ path: path.join(CIKTI, paket + '.pdf'), format: 'A4', printBackground: true, preferCSSPageSize: true });
+    console.log('toplu', paket + '.pdf', 'sayfa:', await p.evaluate(() => document.querySelectorAll('.sayfa').length));
     await p.close();
   }
   } finally { await b.close(); srv.close(); }

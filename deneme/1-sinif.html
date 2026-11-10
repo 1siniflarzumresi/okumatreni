@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>1. Sınıf · Ladin Ormanı</title>
-<meta name="description" content="1. sınıf Türkçe ve Matematik çalışma kağıtları: harf yoluna, derse ve haftaya göre seçin, PDF olarak indirin.">
+<meta name="description" content="1. sınıf Türkçe ve Matematik çalışma kâğıtları: harf yoluna, derse ve haftaya göre seçin, PDF olarak indirin.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ladin Ormanı">
 <meta property="og:title" content="1. Sınıf · Ladin Ormanı">
-<meta property="og:description" content="1. sınıf Türkçe ve Matematik çalışma kağıtları: harf yoluna, derse ve haftaya göre seçin, PDF olarak indirin.">
+<meta property="og:description" content="1. sınıf Türkçe ve Matematik çalışma kâğıtları: harf yoluna, derse ve haftaya göre seçin, PDF olarak indirin.">
 <meta property="og:url" content="https://1siniflarzumresi.github.io/okumatreni/deneme/1-sinif.html">
 <meta property="og:image" content="https://1siniflarzumresi.github.io/okumatreni/deneme/paylasim.png">
 <meta property="og:locale" content="tr_TR">
@@ -79,7 +79,7 @@
 
   <div class="sekmeler" role="tablist" id="sekmeler">
     <button class="sekme" role="tab" data-tur="oyun">Oyunlar</button>
-    <button class="sekme" role="tab" data-tur="calisma">Çalışma Kağıtları</button>
+    <button class="sekme" role="tab" data-tur="calisma">Çalışma Kâğıtları</button>
   </div>
 
   <section id="panel-oyun" hidden>
@@ -101,7 +101,7 @@
       <label>Ünite / tema<select id="f-unite"><option value="">Tümü</option></select></label>
       <label>Hafta<select id="f-hafta"><option value="">Tüm haftalar</option></select></label>
     </div>
-    <p class="uye-not" data-uye-goster="cikis" hidden>Çalışma kağıtlarını indirmek için <a href="giris.html?donus=1-sinif.html">giriş yapın</a> ya da <a href="giris.html?sekme=kayit&amp;donus=1-sinif.html">ücretsiz kayıt olun</a>.</p>
+    <p class="uye-not" data-uye-goster="cikis" hidden>Çalışma kâğıtlarını indirmek için <a href="giris.html?donus=1-sinif.html">giriş yapın</a> ya da <a href="giris.html?sekme=kayit&amp;donus=1-sinif.html">ücretsiz kayıt olun</a>.</p>
     <div class="liste" id="liste"></div>
   </section>
 </main>
@@ -115,7 +115,7 @@
   var HARFLER = ["A","N","E","T","İ","L","O","K","U","R","I","M","Ü","S","Ö","Y","D","Z","Ç","B","G","C","Ş","P","H","V","Ğ","F","J"];
   var ANAHTAR = "ladin_1_harf", AYAR = "ladin_1_ayar";
   var DERS = {turkce:"Türkçe", matematik:"Matematik", hayat_bilgisi:"Hayat Bilgisi"};
-  var TUR = {calisma:"Çalışma kağıdı"};   // 1. sınıfta yazılı ve ürün kağıdı yok
+  var TUR = {calisma:"Çalışma kâğıdı"};   
 
   var secHarf = LADIN.oku(ANAHTAR, null);
   var ayar = LADIN.oku(AYAR, {tur:"calisma", ders:"", unite:"", hafta:null});
@@ -132,7 +132,7 @@
     }).join("");
     var ipucu = mebHarf.length ? " MEB planında bu hafta: " + mebHarf.join(", ") + "." : "";
     document.getElementById("yol-not").textContent = (secHarf
-      ? "Seçili durak: " + secHarf + ". Bu harfin çalışma kağıdı gösterilir. Bütün kağıtları ve toplu paketleri görmek için " + secHarf + " durağına yeniden dokunun."
+      ? "Seçili durak: " + secHarf + ". Bu harfin çalışma kâğıdı gösterilir. Bütün kâğıtları ve toplu paketleri görmek için " + secHarf + " durağına yeniden dokunun."
       : "Sınıfınızın bulunduğu harfe dokunun. Seçiminiz bu cihazda saklanır.") + ipucu;
     dk.querySelectorAll(".durak").forEach(function(b){ if (mebHarf.indexOf(b.dataset.h) >= 0) b.classList.add("meb"); });
     var s = dk.querySelector(".secili"); if (s) s.scrollIntoView({block:"nearest", inline:"center"});
@@ -140,7 +140,7 @@
   dk.addEventListener("click", function(e){
     var b = e.target.closest(".durak"); if (!b) return;
     secHarf = secHarf === b.dataset.h ? null : b.dataset.h; LADIN.sakla(ANAHTAR, secHarf);   // seçili harfe yeniden dokunmak seçimi kaldırır
-    // Harfe dokunmak "bu harfin kağıtlarını göster" demek: Türkçe dışı ders filtresi kalkar, Çalışma Kağıtları açılır.
+    // Harfe dokunmak "bu harfin kâğıtlarını göster" demek: Türkçe dışı ders filtresi kalkar, Çalışma Kâğıtları açılır.
     if (ayar.ders && ayar.ders !== "turkce") { ayar.ders = ""; fD.value = ""; uniteDoldur(); kaydet(); }
     yolCiz(); if (ayar.tur !== "calisma") sekmeSec("calisma"); else listeCiz();
   });
@@ -181,13 +181,13 @@
       .map(function(h){ return '<option value="'+h.hafta+'">'+h.hafta+'. hafta · '+h.tarih+'</option>'; }).join("");
     fH.value = ayar.hafta == null ? "" : String(ayar.hafta);
   }
-  fD.addEventListener("change", function(){ ayar.ders = fD.value; ayar.unite = ""; ayar.hafta = ""; fH.value = ""; uniteDoldur(); kaydet(); listeCiz(); });   // ders değişince o dersin bütün kağıtları
+  fD.addEventListener("change", function(){ ayar.ders = fD.value; ayar.unite = ""; ayar.hafta = ""; fH.value = ""; uniteDoldur(); kaydet(); listeCiz(); });   // ders değişince o dersin bütün kâğıtları
   fU.addEventListener("change", function(){ ayar.unite = fU.value; kaydet(); listeCiz(); });
   fH.addEventListener("change", function(){ ayar.hafta = fH.value ? +fH.value : ""; kaydet(); listeCiz(); });
 
   // Türkçe harf materyalleri haftaya değil harf yoluna bağlı: hafta filtresi bunlara uygulanmaz.
   function harfli(m){ return m.ders === "turkce" && !!m.harf; }
-  // Seçili harfe tıklanınca yalnız o harfin kağıdı.
+  // Seçili harfe tıklanınca yalnız o harfin kâğıdı.
   function harfUygun(m){
     if (!harfli(m) || !secHarf) return true;
     return !m.harfler && m.harf === secHarf;   // toplu paketler yalnız harf seçili değilken görünür

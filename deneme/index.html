@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ladin Ormanı</title>
-<meta name="description" content="1-4. sınıflar için Maarif Modeli'ne uygun çalışma kağıtları, yazılılar, ürün kağıtları ve eğitsel oyunlar.">
+<meta name="description" content="1-4. sınıflar için Maarif Modeli'ne uygun çalışma kâğıtları ve eğitsel oyunlar.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ladin Ormanı">
 <meta property="og:title" content="Ladin Ormanı">
-<meta property="og:description" content="1. sınıf için MEB Maarif Modeli'ne uygun çalışma kağıtları, haftalık takvim ve eğitsel oyunlar.">
+<meta property="og:description" content="1. sınıf için MEB Maarif Modeli'ne uygun çalışma kâğıtları, haftalık takvim ve eğitsel oyunlar.">
 <meta property="og:url" content="https://1siniflarzumresi.github.io/okumatreni/deneme/">
 <meta property="og:image" content="https://1siniflarzumresi.github.io/okumatreni/deneme/paylasim.png">
 <meta property="og:locale" content="tr_TR">
@@ -42,14 +42,6 @@
 .mat b{display:block;margin:6px 0 2px}
 .mat small{color:var(--yazi-2)}
 
-.bulten{background:var(--ahsap);color:#fff8ee;border-radius:18px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center}
-.bulten h2{margin:0}
-.bulten p{margin:.3em 0 0;opacity:.9}
-.bulten form{display:flex;gap:8px;flex-wrap:wrap}
-.bulten input{flex:1 1 200px;min-height:44px;border-radius:999px;border:0;padding:0 16px;font:inherit}
-.bulten .dugme{background:var(--gunes);color:#3b2a10}
-.bulten .not{grid-column:1/-1;font-size:14px;min-height:1.2em;margin:0}
-@media (max-width:640px){.bulten{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -67,7 +59,7 @@
 <section class="kahraman"><div class="kap">
   <div>
     <h1>Ladin Ormanı</h1>
-    <p>Her hafta bir adım: sınıfta ve evde kullanılacak çalışma kağıtları, yazılılar ve oyunlar.</p>
+    <p>Her hafta bir adım: sınıfta ve evde kullanılacak çalışma kâğıtları ve oyunlar.</p>
   </div>
   <svg class="orman-cizim" viewBox="0 0 380 220" aria-hidden="true">
     <ellipse cx="190" cy="206" rx="185" ry="14" fill="#a9d39b" opacity=".6"/>
@@ -88,7 +80,7 @@
     <a class="kart sinif-kart" href="1-sinif.html">
       <span class="no">1</span>
       <span class="ad">1. Sınıf</span>
-      <span class="ic">Oyunlar, çalışma kağıtları, akıcı okuma</span>
+      <span class="ic">Oyunlar, çalışma kâğıtları, akıcı okuma</span>
       <span class="git">Ormana gir →</span>
     </a>
   </div>
@@ -104,20 +96,6 @@
   </div>
 </div></section>
 
-<section class="bolum" style="padding-top:0"><div class="kap">
-  <div class="bulten">
-    <div>
-      <h2>Yeni paketlerden haberdar ol</h2>
-      <p>Yeni materyaller eklendiğinde e-posta ile haber verelim.</p>
-    </div>
-    <form id="bulten" novalidate>
-      <label for="eposta" style="position:absolute;left:-9999px">E-posta adresi</label>
-      <input id="eposta" type="email" placeholder="ornek@eposta.com" autocomplete="email">
-      <button class="dugme" type="submit">Haber ver</button>
-    </form>
-    <p class="not" id="bulten-not" aria-live="polite"></p>
-  </div>
-</div></section>
 </main>
 
 <footer class="alt"><div class="kap"><span>Ladin Ormanı</span><span>MEB Maarif Modeli'ne uygun materyaller</span><a href="kvkk.html">KVKK Aydınlatma Metni</a></div></footer>
@@ -127,7 +105,7 @@
 <script>
 (function(){
   var kutu = document.getElementById("haftalik"), et = document.getElementById("hafta-etiket");
-  var TUR = {calisma:"Çalışma kağıdı", yazili:"Yazılı", urun:"Ürün kağıdı", oyun:"Oyun"};
+  var TUR = {calisma:"Çalışma kâğıdı", oyun:"Oyun"};
   Promise.all([LADIN.takvimYukle().catch(function(){return null;}), LADIN.materyalYukle()]).then(function(r){
     var tk = r[0], mats = r[1] || [];
     var h = tk ? LADIN.buHafta(tk) : null;
@@ -151,10 +129,6 @@
     }
     if (!kartlar.length){ kutu.outerHTML = '<div class="bos">Bu haftanın materyalleri hazırlanıyor.</div>'; return; }
     kutu.innerHTML = kartlar.join("");
-  });
-  document.getElementById("bulten").addEventListener("submit", function(e){
-    e.preventDefault();
-    document.getElementById("bulten-not").textContent = "Bülten çok yakında açılıyor. Şimdilik bu sayfayı yer imlerine ekleyebilirsiniz.";
   });
 })();
 </script>

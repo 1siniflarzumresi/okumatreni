@@ -72,3 +72,15 @@ Değişiklikten sonra: `python3 kaynak/derle.py` → `node kaynak/test/kontrol.j
 - Kağıtlar ses grubuna göre ilerler: A-L tanıma/yazma/hece; O-M + akıcı okuma merdiveni (R I M'de hikâye); Ü-Z okuma metni + doğru/yanlış; Ç-P kelime-resim, metin + çoktan seçmeli; H-J cümle tamamlama, uzun metin, açık uçlu soru, olay sıralama. Üretici her metni denetler: çocuğun okuyacağı yazıda öğretilmemiş harf varsa durur (`SADECE_KONTROL=1 node kaynak/calisma-kagitlari/uret.js`).
 - Matematik kağıtları: `kaynak/calisma-kagitlari/matematik.js`, üretim `node kaynak/calisma-kagitlari/uret.js mat` (tek kağıt: `mat:sira`) → `deneme/materyaller/1-sinif/matematik/` ve ünite paketi. Çocuğun okuyacağı kelime yok (rakam, resim, şekil); bu ünitede + − = yok. Rakam yazma yönü `yon.js` (0-9, onay bekliyor). Sayma nesneleri Türkçe resim havuzundan.
 - Üyelik (Faz 2): Firebase Authentication + Firestore, CDN'den modüler SDK, derleme yok. Dosyalar: `deneme/firebase-ayar.js` (config; `apiKey` boşken üyelik kapalı, site eskisi gibi çalışır), `deneme/uyelik.js`, `giris.html`, `hesap.html`, `kvkk.html`; kurallar `kaynak/firebase/firestore.rules`. Roller: `ogrenci` (varsayılan; belgede `rol` alanı yoksa) ve `ogretmen` (yalnız Firebase konsolundan yazılır; istemci `rol` yazamaz). Öğretmen talebi ayrı alan: `ogretmenTalebi`. Toplanan veri: ad, e-posta. Giriş duvarı yalnız arayüz düzeyinde; PDF'ler depoda açık. Önceki "Supabase" ve "çocuklar için hesap yok" kararlarının yerini bu aldı (öğrenci hesabını veli açar).
+- Yazım: her yerde TDK yazımı ("kâğıt"). İlkokulda yazılı yok: sitede "yazılı" geçmez. Bülten kutusu kaldırıldı. `takvim-cikar.ps1` artık `kaynak/` içinde.
+
+## Ladin Ormanı — sıradaki işler (devralan için)
+Kullanıcı her şeye onay verdi; onay sormadan yap, kısa yaz, kota hassas.
+1. Firebase kurulumu sürüyor (proje: `ladin-ormani`). Kullanıcı `firebaseConfig` değerlerini verince `deneme/firebase-ayar.js` içine yapıştır, `VERI_SORUMLUSU` ve `ILETISIM_EPOSTA` doldur, push et. Google ile giriş gerçek ortamda henüz sınanmadı.
+2. İçerik: Matematik sonraki üniteler (`matematik.js`; sıradaki "Sayılar ve Nicelikler (2)": uzunluk ölçme, tartma, 15-19. haftalar) ve Hayat Bilgisi kâğıtları (henüz hiç yok).
+3. 2-4. sınıflar için ders ders "ders notları" (yazılı yerine). Henüz başlanmadı; önce sınıf kartı ve sayfa yapısı gerekir.
+4. Kök sayfalar (Okuma Treni): description, favicon, Open Graph eksik; `akici-okuma.html` 320 px'te 24 px taşıyor; birkaç düşük kontrast. Dokunma izni var ama veliler kullanıyor: küçük, güvenli değişiklik yap, `node kaynak/test/kontrol.js harf` çalıştır.
+5. Kart önizleme resimleri (`*-onizleme.png`, materyaller.json `resim` alanı) hazır ama kartlarda gösterilmiyor; istenirse `1-sinif.html` `listeCiz` içine `<img loading="lazy">` eklenir.
+6. Yazma yönleri (`yon.js`): A-L onaylı; O'dan J'ye harfler ve 0-9 rakamlar kullanıcı onayı bekliyor.
+7. PDF'ler depoda açık; gerçek koruma için Firebase Storage kararı kullanıcıda (ücretli paket kararıyla birlikte).
+8. TTKB yazı tipi lisansı belirsiz; ücretli içerikten önce netleşmeli.

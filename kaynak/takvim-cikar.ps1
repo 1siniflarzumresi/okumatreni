@@ -1,5 +1,5 @@
 ﻿# MEB yıllık planlarından (1. sınıf Türkçe, Matematik, Hayat Bilgisi) deneme/veri/takvim.json üretir.
-# Çalıştır (depo kökünden):  powershell -ExecutionPolicy Bypass -File deneme\araclar\takvim-cikar.ps1
+# Çalıştır (depo kökünden):  powershell -ExecutionPolicy Bypass -File kaynak\takvim-cikar.ps1
 param(
   [string]$Kaynak = "kaynak",
   [string]$Cikti  = "deneme\veri\takvim.json"
