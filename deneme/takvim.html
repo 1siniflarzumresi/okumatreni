@@ -4,6 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Haftalık Takvim · Ladin Ormanı</title>
+<meta name="description" content="1. sınıf 2026-2027 haftalık takvimi: MEB yıllık planlarına göre Türkçe, Matematik ve Hayat Bilgisi konuları.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ladin Ormanı">
+<meta property="og:title" content="Haftalık Takvim · Ladin Ormanı">
+<meta property="og:description" content="1. sınıf 2026-2027 haftalık takvimi: MEB yıllık planlarına göre Türkçe, Matematik ve Hayat Bilgisi konuları.">
+<meta property="og:url" content="https://1siniflarzumresi.github.io/okumatreni/deneme/takvim.html">
+<meta property="og:image" content="https://1siniflarzumresi.github.io/okumatreni/deneme/paylasim.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1f4d36">
 <link rel="preload" href="fontlar/andika-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="ortak.css">
 <style>
@@ -32,13 +43,13 @@
 .harf{display:inline-block;min-width:26px;text-align:center;font-weight:900;background:var(--orman-2);color:#fff;border-radius:6px;padding:0 6px;margin-right:3px}
 .gunler{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
 .gun{font-size:13px;font-weight:700;background:var(--kum);border:1px solid var(--cizgi);border-radius:999px;padding:2px 10px}
-.tatil{background:var(--kum);text-align:center;padding:14px;border-radius:18px;border:2px dashed var(--ahsap-2);font-weight:900;color:var(--ahsap)}
+.tatil{background:var(--kum);text-align:center;padding:14px;border-radius:18px;border:2px dashed var(--ahsap-2);font-weight:900;color:var(--vurgu-yazi)}
 .tatil .gunler{justify-content:center}
 .tatil.simdi{border-style:solid}
 </style>
 </head>
 <body>
-<div class="serit"><div class="kap"><span id="serit-tarih"></span><span id="serit-hafta"></span></div></div>
+<div class="serit" role="region" aria-label="Bugünün tarihi ve hafta"><div class="kap"><span id="serit-tarih"></span><span id="serit-hafta"></span></div></div>
 
 <header class="ust"><div class="kap">
   <a class="logo" href="index.html">
@@ -90,7 +101,7 @@
   LADIN.takvimYukle().then(function(tk){
     TK = tk; ciz();
     var s = document.getElementById("simdi"); if (s && !location.hash) s.scrollIntoView({block:"start"});
-  }).catch(function(){ kutu.innerHTML = '<div class="bos">Takvim yüklenemedi. Sayfayı bir sunucu üzerinden açın (GitHub Pages ya da yerel sunucu).</div>'; });
+  }).catch(function(){ kutu.innerHTML = '<div class="bos">Takvim yüklenemedi. İnternet bağlantınızı kontrol edip sayfayı yenileyin.</div>'; });
 })();
 </script>
 </body>

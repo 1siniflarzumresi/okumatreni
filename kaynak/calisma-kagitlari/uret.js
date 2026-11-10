@@ -677,12 +677,18 @@ const SAYFALAR = {};
   const arg = process.argv.slice(2);
   const MATMOD = arg.length && arg.every(a => a === 'mat' || a.startsWith('mat:'));
   const istenen = !arg.length ? Object.keys(HARF) : MATMOD ? (arg.includes('mat') ? Object.keys(MAT) : arg.map(a => a.slice(4))) : arg;
+  const bilinmeyen = istenen.filter(h => !(MATMOD ? MAT[h] : HARF[h]));
+  if (bilinmeyen.length) {
+    console.error('Bilinmeyen kağıt: ' + bilinmeyen.join(', ') + '\nTürkçe harfler: ' + Object.keys(HARF).join(' ') + '\nMatematik: ' + Object.keys(MAT).map(k => 'mat:' + k).join(' '));
+    process.exit(2);
+  }
   fs.mkdirSync(CIKTI_MAT, { recursive: true });
   fs.mkdirSync(CIKTI, { recursive: true });
   if (process.env.SADECE_KONTROL) { for (const h of istenen) { AKTIF = h; HARF[h](); AKTIF = null; }
     console.log(HATALAR.length ? HATALAR.join('\n') : 'denetim temiz: ' + istenen.join(' ')); process.exit(HATALAR.length ? 1 : 0); }
   const srv = await sunucu(), port = srv.address().port;
   const b = await chromium.launch();
+  try {
   for (const h of istenen) {
     AKTIF = h === '_yon' || MATMOD ? null : h; const govdeler = MATMOD ? MAT[h].sayfalar() : HARF[h](); AKTIF = null;
     const HEDEF = MATMOD ? CIKTI_MAT : CIKTI;
@@ -694,6 +700,9 @@ const SAYFALAR = {};
     await p.evaluate(() => document.fonts.ready);
     const fontlar = await p.evaluate(() => [...document.fonts].map(f => f.family + ':' + f.status));
     const tasan = await p.evaluate(() => [...document.querySelectorAll('.sayfa')].map((s, i) => s.scrollHeight > s.clientHeight + 1 ? (i + 1) + '. sayfa ' + Math.round((s.scrollHeight - s.clientHeight) / 3.78) + ' mm' : '').filter(Boolean).join(', ') || 'yok');
+    const kirik = await p.evaluate(() => [...document.images].filter(i => !i.complete || !i.naturalWidth).map(i => i.getAttribute('src')));
+    if (kirik.length) throw new Error(`${h}: yüklenemeyen resim: ${[...new Set(kirik)].join(', ')}`);
+    if (!fontlar.some(f => f === 'TTKB:loaded')) throw new Error(`${h}: TTKB yazı tipi yüklenemedi (kaynak/fontlar/ttkb.ttf)`);
     await p.pdf({ path: path.join(HEDEF, `${h}.pdf`), format: 'A4', printBackground: true, preferCSSPageSize: true });
     await p.locator('.sayfa').first().screenshot({ path: path.join(HEDEF, `${h}-onizleme.png`) });
     if (process.env.HER_SAYFA) for (let i = 0; i < govdeler.length; i++) await p.locator('.sayfa').nth(i).screenshot({ path: path.join(process.env.HER_SAYFA, `${h}-${i + 1}.png`) });
@@ -721,6 +730,6 @@ const SAYFALAR = {};
     console.log('toplu', ad + '.pdf', 'sayfa:', await p.evaluate(() => document.querySelectorAll('.sayfa').length));
     await p.close();
   }
-  await b.close(); srv.close();
+  } finally { await b.close(); srv.close(); }
   if (HATALAR.length) { console.log('ÖĞRETİLMEMİŞ HARF:\n' + HATALAR.join('\n')); process.exit(1); }
-})();
+})().catch(e => { console.error('ÜRETİM DURDU: ' + e.message); process.exit(1); });

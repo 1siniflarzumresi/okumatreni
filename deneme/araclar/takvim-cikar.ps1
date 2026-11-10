@@ -23,6 +23,7 @@ foreach ($k in @($DOSYA.Keys)) {
 function Duzelt([string]$s) {
   if ($null -eq $s) { return $s }
   $s = $s -replace 'Aralık\s+2027', 'Aralık 2026'
+  $s = $s -replace 'Yol Arkadaşım Kitaplar', 'Yol Arkadaşımız Kitaplar'   # plan özet tablosundaki tema adı; haftalık tabloda doğrusu yazıyor
   $s = $s -replace 'MAT\.\s+1\.', 'MAT.1.'          # "MAT. 1.3.3." → "MAT.1.3.3."
   $s = $s -replace 'Kıs Geldi', 'Kış Geldi' -replace 'En Degerli Hazine', 'En Değerli Hazine'   # plandaki metin adı yazım hataları
   $s = $s -replace '(?<=[A-Za-zÇĞİÖŞÜçğıöşü])\((?=\d)', ' ('   # "Bayramı(29 Ekim)" → "Bayramı (29 Ekim)"

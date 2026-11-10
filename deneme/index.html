@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ladin Ormanı</title>
 <meta name="description" content="1-4. sınıflar için Maarif Modeli'ne uygun çalışma kağıtları, yazılılar, ürün kağıtları ve eğitsel oyunlar.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ladin Ormanı">
+<meta property="og:title" content="Ladin Ormanı">
+<meta property="og:description" content="1. sınıf için MEB Maarif Modeli'ne uygun çalışma kağıtları, haftalık takvim ve eğitsel oyunlar.">
+<meta property="og:url" content="https://1siniflarzumresi.github.io/okumatreni/deneme/">
+<meta property="og:image" content="https://1siniflarzumresi.github.io/okumatreni/deneme/paylasim.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1f4d36">
 <link rel="preload" href="fontlar/andika-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="ortak.css">
 <style>
@@ -23,7 +33,7 @@
 .sinif-kart .no{font-size:44px;font-weight:900;color:var(--orman-2);line-height:1}
 .sinif-kart .ad{font-size:20px;font-weight:900}
 .sinif-kart .ic{color:var(--yazi-2);font-size:14px}
-.sinif-kart .git{margin-top:8px;font-weight:800;color:var(--ahsap)}
+.sinif-kart .git{margin-top:8px;font-weight:800;color:var(--vurgu-yazi)}
 
 .haftalik{padding:18px}
 .haftalik-ust{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px}
@@ -43,7 +53,7 @@
 </style>
 </head>
 <body>
-<div class="serit"><div class="kap"><span id="serit-tarih"></span><span id="serit-hafta"></span></div></div>
+<div class="serit" role="region" aria-label="Bugünün tarihi ve hafta"><div class="kap"><span id="serit-tarih"></span><span id="serit-hafta"></span></div></div>
 
 <header class="ust"><div class="kap">
   <a class="logo" href="index.html">
