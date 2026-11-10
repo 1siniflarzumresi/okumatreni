@@ -370,6 +370,104 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
   const hikayeGit = (liste) => etk(0, 'Ne oldu? Bazıları gitti; gidenlerin üstü çizili. Kaç tane kaldı? Say, kutuya yaz.',
     `<div class="hikayeler">${liste.map(([ad, a, b]) => `<div><span class="h-grup">${Array.from({ length: a }, (_, i) => `<span class="${i >= a - b ? 'giden' : ''}">${resim(ad)}</span>`).join('')}</span>${kutuK}</div>`).join('')}</div>`);
 
+
+  // =============== 20-36. hafta bileşenleri (domino dışı temalar) ===============
+  const kutuS = '<span class="yazkutu kucuk"></span>';
+  const islem = (op) => `<span class="islem ttkb">${kutuS}<b>${op}</b>${kutuS}<b>=</b>${kutuS}</span>`;
+  const yuz = (x, y, i) => { const ten = ['#f6c9a0', '#e8b088', '#c98a5e', '#f3d2b4'][i % 4], sac = ['#5a3a22', '#1f2a24', '#c0662b', '#e6b84a'][i % 4];
+    return `<g transform="translate(${x} ${y})"><circle r="11" fill="${ten}" stroke="#1f2a24" stroke-width="1.5"/><path d="M-11 -2 q0 -13 11 -13 q11 0 11 13 q-6 -7 -11 -7 q-5 0 -11 7z" fill="${sac}"/><circle cx="-4" cy="1" r="1.5"/><circle cx="4" cy="1" r="1.5"/><path d="M-4 5 q4 4 8 0" fill="none" stroke="#1f2a24" stroke-width="1.4"/></g>`; };
+  // otobüs: icerde kişi, durakta binen (yeşil ok) / inen (kırmızı ok)
+  const otobus = (icerde, binen, inen) => { let s = `<rect x="150" y="10" width="300" height="110" rx="18" fill="#ffd23f" stroke="#1f2a24" stroke-width="3"/><rect x="150" y="80" width="300" height="14" fill="#f4a100"/>`;
+    for (let i = 0; i < 6; i++) s += `<rect x="${168 + i * 46}" y="24" width="38" height="44" rx="6" fill="#d9f0ff" stroke="#1f2a24" stroke-width="2"/>`;
+    for (let i = 0; i < icerde; i++) s += yuz(187 + (i % 6) * 46, 52 - (i >= 6 ? 0 : 0), i);
+    s += [190, 410].map(x => `<circle cx="${x}" cy="124" r="16" fill="#1f2a24"/><circle cx="${x}" cy="124" r="6" fill="#cfd8d1"/>`).join('');
+    s += `<rect x="40" y="0" width="8" height="140" fill="#9aa59d"/><rect x="22" y="0" width="44" height="26" rx="4" fill="#3a86ff"/><text x="44" y="18" font-size="14" text-anchor="middle" fill="#fff" font-family="Andika" font-weight="700">DURAK</text>`;
+    for (let i = 0; i < binen; i++) s += yuz(82 + (i % 3) * 24, 100 - Math.floor(i / 3) * 26, i + 2);
+    if (binen) s += `<path d="M118 60 h22 m-8 -8 l8 8 l-8 8" fill="none" stroke="#12b886" stroke-width="4" stroke-linecap="round"/>`;
+    for (let i = 0; i < inen; i++) s += yuz(500 + (i % 3) * 24, 100 - Math.floor(i / 3) * 26, i + 1);
+    if (inen) s += `<path d="M458 60 h22 m-8 -8 l8 8 l-8 8" fill="none" stroke="#f2546b" stroke-width="4" stroke-linecap="round"/>`;
+    return sahne(580, 145, s, 138); };
+  const otobusSor = (liste) => etk(0, 'Otobüste kaç yolcu vardı? Durakta yeşil ok binenleri, kırmızı ok inenleri gösteriyor. Şimdi otobüste kaç yolcu var? Kutuya yaz, sonra işlem cümlesini tamamla.',
+    `<div class="hikayeler">${liste.map(([a, b, c]) => `<div>${otobus(a, b, c)}<span class="dikey">${kutuK}${islem(b ? '+' : '−')}</span></div>`).join('')}</div>`);
+  // kuş teli
+  const kusTeli = (liste) => etk(0, 'Teldeki kuşları say. Kuşlar kondu mu, uçtu mu? Şimdi telde kaç kuş var? Kutuya yaz, işlem cümlesini tamamla.',
+    `<div class="hikayeler">${liste.map(([a, b, tur]) => { const W = 520; let s = `<line x1="0" x2="${W}" y1="70" y2="70" stroke="#1f2a24" stroke-width="2.5"/><rect x="0" y="40" width="8" height="90" fill="#8e5b2b"/><rect x="${W - 8}" y="40" width="8" height="90" fill="#8e5b2b"/>`;
+      for (let i = 0; i < a; i++) s += IMGm('kus', 20 + i * 44, 30, 44);
+      for (let i = 0; i < b; i++) s += `<g transform="translate(${tur === 'kondu' ? 40 + i * 50 : 30 + (a - b + i) * 44} 0)">${IMGm('kus', 0, -2, 36)}</g>`;
+      s += tur === 'kondu' ? `<text x="${W - 12}" y="24" font-size="16" text-anchor="end" fill="#12b886" font-family="TTKB">kondu</text>` : `<text x="${W - 12}" y="24" font-size="16" text-anchor="end" fill="#f2546b" font-family="TTKB">uçtu</text>`;
+      if (tur !== 'kondu') for (let i = a - b; i < a; i++) s += `<path d="M${30 + i * 44} 70 l14 -32" stroke="#f2546b" stroke-width="2" stroke-dasharray="4 3"/>`;
+      return `<div>${sahne(W, 135, s, 138)}<span class="dikey">${kutuK}${islem(tur === 'kondu' ? '+' : '−')}</span></div>`; }).join('')}</div>`);
+  const resimIslem = (liste) => etk(0, 'Resme bak. İşlem cümlesindeki kutuları doldur.',
+    `<div class="rislem">${liste.map(([ad, a, b, op]) => `<div><span class="h-grup">${Array.from({ length: a }, (_, i) => `<span class="${op === '−' && i >= a - b ? 'giden' : ''}">${resim(ad)}</span>`).join('')}${op === '+' ? `<b class="arti">+</b>${Array.from({ length: b }, () => resim(ad)).join('')}` : ''}</span>${islem(op)}</div>`).join('')}</div>`);
+  const hepsiGitti = (liste) => etk(0, 'Hepsi gitti! Kaç tane vardı, kaç tane gitti, kaç tane kaldı? İşlem cümlesini tamamla.',
+    `<div class="rislem">${liste.map(([ad, a]) => `<div><span class="h-grup">${Array.from({ length: a }, () => `<span class="giden">${resim(ad)}</span>`).join('')}</span>${islem('−')}</div>`).join('')}</div>`);
+  const sifirTabak = (liste) => etk(0, 'Boş tabağa hiç meyve yok: 0. Tabaklardaki meyveleri birleştir. İşlem cümlesini tamamla.',
+    `<div class="rislem">${liste.map(([ad, a, sol]) => { const tab = n => `<span class="tabak">${Array.from({ length: n }, () => resim(ad)).join('')}</span>`;
+      return `<div><span class="h-grup">${sol ? tab(a) + '<b class="arti">+</b>' + tab(0) : tab(0) + '<b class="arti">+</b>' + tab(a)}</span>${islem('+')}</div>`; }).join('')}</div>`);
+  // kurbağa sayı doğrusu: bas'tan n zıplama ileri/geri
+  const kurbagaDogru = (liste) => etk(0, 'Kurbağa yıldızlı sayıdan başlıyor ve okların gösterdiği kadar zıplıyor. Nereye kondu? Kutuya yaz.',
+    `<div class="dogrular">${liste.map(([bas, n, yon]) => { const gx = 30; let s = `<line x1="10" x2="640" y1="70" y2="70" stroke="#1f2a24" stroke-width="2.5"/>`;
+      for (let v = 0; v <= 20; v++) { const x = 20 + v * gx; s += `<line x1="${x}" x2="${x}" y1="62" y2="78" stroke="#1f2a24" stroke-width="2"/><text x="${x}" y="98" font-size="15" text-anchor="middle" font-family="TTKB">${v}</text>`; }
+      const x0 = 20 + bas * gx; s += `<path transform="translate(${x0 - 9} 30)" d="M9 0 l2.6 6 6.4.5-4.9 4.2 1.5 6.3L9 13.6 3.4 17l1.5-6.3L0 6.5 6.4 6z" fill="#ffd23f" stroke="#1f2a24"/>`;
+      for (let i = 0; i < n; i++) { const a = x0 + (yon > 0 ? i : -i) * gx, b = a + yon * gx; s += `<path d="M${a} 58 Q${(a + b) / 2} 28 ${b} 58" fill="none" stroke="${yon > 0 ? '#12b886' : '#f2546b'}" stroke-width="2.5"/>`; }
+      s += IMGm('kurbaga', x0 - 22, 0, 40);
+      return `<div class="kd">${sahne(660, 106, s, 150)}${kutuK}</div>`; }).join('')}</div>`);
+  const tahminSec = (liste, baslik) => etk(0, baslik || 'Saymadan tahmin et: toplam yaklaşık kaç? Sana en yakın gelen sayıyı daire içine al.',
+    `<div class="rislem">${liste.map(([ad, a, b, op, sec]) => `<div><span class="h-grup">${Array.from({ length: a }, (_, i) => `<span class="${op === '−' && i >= a - b ? 'giden' : ''}">${resim(ad)}</span>`).join('')}${op === '+' ? `<b class="arti">+</b>${Array.from({ length: b }, () => resim(ad)).join('')}` : ''}</span><span class="secler">${sec.map(s => `<b class="ttkb">${s}</b>`).join('')}</span></div>`).join('')}</div>`);
+  // sayılı terazi
+  const kupYigin = (n, x, ty, renk) => Array.from({ length: n }, (_, i) => `<rect x="${x - 34 + (i % 4) * 17}" y="${ty - 17 - Math.floor(i / 4) * 17}" width="16" height="16" rx="2" fill="${renk}" stroke="#1f2a24" stroke-width="1.6"/>`).join('');
+  const teraziSayi = (liste) => etk(0, 'Terazi dengede olsun! Sol kefede kaç küp var? Sağ kefeye o kadar küp çiz, kutulara sayıları yaz.',
+    `<div class="teraziler2">${liste.map(([a, b]) => { const s = `<path d="M150 40 V160 M110 164 h80" stroke="#1f2a24" stroke-width="6" stroke-linecap="round"/><path d="M38 40 L262 40" stroke="#8e5b2b" stroke-width="7" stroke-linecap="round"/><circle cx="150" cy="40" r="7" fill="#1f2a24"/>` +
+      [38, 262].map(x => `<path d="M${x} 40 L${x - 40} 70 M${x} 40 L${x + 40} 70" stroke="#4a5a50" stroke-width="1.6"/><path d="M${x - 48} 70 Q${x} 88 ${x + 48} 70 Z" fill="#cfd8d1" stroke="#1f2a24" stroke-width="2"/>`).join('') + kupYigin(a, 30, 70, '#3a86ff') + kupYigin(b, 46, 70 - Math.ceil(a / 4) * 17, '#f2546b');
+      return `<div>${sahne(300, 170, s, 80)}<span class="islem ttkb">${kutuS}<b>+</b>${kutuS}<b>=</b>${kutuS}</span></div>`; }).join('')}</div>`);
+  const esitMi = (liste) => etk(0, 'İki taraf eşit mi? Eşitse ortadaki kutuya = yaz. Eşit değilse kutuyu boş bırak, kısa tarafa çizerek eşitle.',
+    `<div class="esitmi">${liste.map(([a, b]) => `<div>${grup('top', a, R(a * 7 + b))}${kutuK}${grup('top', b, R(b * 5 + a))}</div>`).join('')}</div>`);
+  const sayiEsit = (liste) => etk(0, 'Eşitliği tamamla. Kutuya hangi sayı gelirse iki taraf eşit olur? Gerekirse küp ya da parmak kullan.',
+    `<div class="sayiesit ttkb">${liste.map(s => `<div>${s.replace(/_/g, kutuS)}</div>`).join('')}</div>`);
+  // problem kartı: kısa hikâye + resim + işlem + cevap
+  const problem = (liste) => etk(0, 'Problemi oku. Resme bak, işlem cümlesini yaz, cevabı kutuya yaz.',
+    `<div class="problemler">${liste.map(([metin, ad]) => `<div><span class="p-res">${resim(ad)}</span><div><p class="ttkb">${metin}</p><span class="cevap ttkb">${islem('?').replace('<b>?</b>', '<span class="opk"></span>')}<span>Cevap:</span>${kutuK}</span></div></div>`).join('')}</div>`);
+  const problemCiz = (liste) => etk(0, 'Problemi oku. Kutuya resmini çiz, sonra işlem cümlesini ve cevabı yaz.',
+    `<div class="pciz">${liste.map(m => `<div><p class="ttkb">${m}</p><div class="cizim kucuk"></div><span class="cevap ttkb">${islem('?').replace('<b>?</b>', '<span class="opk"></span>')}<span>Cevap:</span>${kutuK}</span></div>`).join('')}</div>`);
+  const problemKur = (liste) => etk(0, 'Resme bak. Bu resim için bir problem söyle, öğretmenin ya da bir büyüğün yazsın. Sonra işlem cümlesini yaz.',
+    `<div class="pciz">${liste.map(([ad, a, b, op]) => `<div><span class="h-grup">${Array.from({ length: a }, (_, i) => `<span class="${op === '−' && i >= a - b ? 'giden' : ''}">${resim(ad)}</span>`).join('')}${op === '+' ? `<b class="arti">+</b>${Array.from({ length: b }, () => resim(ad)).join('')}` : ''}</span><div class="satirlar">${satir([], 178, 8)}${satir([], 178, 8)}</div>${islem(op)}</div>`).join('')}</div>`);
+  // paralar
+  const lira = (n, x, y) => n >= 5 ? `<g transform="translate(${x} ${y})"><rect width="92" height="46" rx="5" fill="${{ 5: '#c9b6f2', 10: '#f6b3c0', 20: '#a8e6c9', 50: '#ffd59e' }[n]}" stroke="#1f2a24" stroke-width="2"/><rect x="6" y="6" width="80" height="34" rx="3" fill="none" stroke="#1f2a24" stroke-width="1" opacity=".4"/><text x="64" y="32" font-size="22" text-anchor="middle" font-family="TTKB">${n}</text><text x="64" y="42" font-size="8" text-anchor="middle" font-family="Andika" font-weight="700">LİRA</text><circle cx="24" cy="23" r="12" fill="#fff" opacity=".7"/></g>`
+    : `<g transform="translate(${x + 23} ${y + 23})"><circle r="23" fill="#e9c46a" stroke="#1f2a24" stroke-width="2"/><circle r="15" fill="#d9d9d9" stroke="#1f2a24" stroke-width="1.2"/><text y="6" font-size="17" text-anchor="middle" font-family="TTKB">1</text><text y="-8" font-size="6" text-anchor="middle" font-family="Andika" font-weight="700">LİRA</text></g>`;
+  const kumbara = (liste) => etk(0, 'Kumbaradaki paraları say. Kaç lira var? Kutuya yaz.',
+    `<div class="paralar">${liste.map(p => { let x = 0, s = ''; p.forEach(n => { s += lira(n, x, n >= 5 ? 2 : 2); x += n >= 5 ? 100 : 54; }); return `<div>${sahne(Math.max(x, 100), 52, s, Math.min(140, Math.max(x, 100) * .42))}<span class="tl">${kutuK}<b class="ttkb">lira</b></span></div>`; }).join('')}</div>`);
+  const market = (liste) => etk(0, 'Markete gittik! Her ürünün fiyatı etiketinde yazıyor. Ürünü almak için gereken paraları daire içine al.',
+    `<div class="market">${liste.map(([ad, fiyat, paralar]) => { let x = 0, s = ''; paralar.forEach(n => { s += lira(n, x, 2); x += n >= 5 ? 100 : 54; });
+      return `<div><span class="urun">${resim(ad)}<b class="etiket-f ttkb">${fiyat} lira</b></span>${sahne(x, 52, s, Math.min(120, x * .4))}</div>`; }).join('')}</div>`);
+  const paraEsle = (liste) => etk(0, 'Hangi para hangisine eşit? Çizgiyle birleştir.',
+    `<div class="esles"><div class="sol">${liste.map(([a]) => `<div>${sahne(100, 52, lira(a, 4, 2), 42)}<i></i></div>`).join('')}</div><div class="sag">${karistir(liste.map(x => x[1]), R(91)).map(p => { let x = 0, s = ''; p.forEach(n => { s += lira(n, x, 2); x += n >= 5 ? 100 : 54; }); return `<div><i></i>${sahne(x, 52, s, Math.min(95, x * .4))}</div>`; }).join('')}</div></div>`);
+  // geometri
+  const SK = { kare: (x, y, s, r) => `<rect x="${x}" y="${y}" width="${s}" height="${s}" fill="${r}" stroke="#1f2a24" stroke-width="3"/>`,
+    dik: (x, y, w, h, r) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${r}" stroke="#1f2a24" stroke-width="3"/>`,
+    uc: (x, y, w, h, r) => `<path d="M${x} ${y + h} L${x + w / 2} ${y} L${x + w} ${y + h} Z" fill="${r}" stroke="#1f2a24" stroke-width="3" stroke-linejoin="round"/>`,
+    daire: (x, y, rr, r) => `<circle cx="${x}" cy="${y}" r="${rr}" fill="${r}" stroke="#1f2a24" stroke-width="3"/>` };
+  const B = '#fff';
+  const sekilResim = () => sahne(620, 300, SK.daire(560, 50, 34, B) + SK.uc(20, 60, 180, 90, B) + SK.dik(40, 150, 140, 130, B) + SK.kare(60, 170, 40, B) + SK.kare(120, 170, 40, B) + SK.dik(95, 220, 30, 60, B)
+    + SK.dik(260, 110, 110, 110, B) + SK.kare(285, 40, 60, B) + SK.daire(302, 70, 7, B) + SK.daire(328, 70, 7, B) + SK.dik(230, 120, 30, 70, B) + SK.dik(370, 120, 30, 70, B) + SK.dik(275, 220, 30, 60, B) + SK.dik(325, 220, 30, 60, B) + SK.uc(305, 14, 20, 26, B)
+    + SK.dik(470, 120, 60, 130, B) + SK.uc(470, 60, 60, 60, B) + SK.daire(500, 160, 16, B) + SK.uc(440, 220, 30, 60, B) + SK.uc(530, 220, 30, 60, B) + '<line x1="0" x2="620" y1="282" y2="282" stroke="#12b886" stroke-width="5"/>', 165);
+  const sekilAvi = () => etk(0, 'Şekil ormanı! Ev, robot ve roket şekillerden yapılmış. Kareleri maviye, üçgenleri kırmızıya, daireleri sarıya, dikdörtgenleri yeşile boya. Sonra her şekilden kaç tane olduğunu yaz.',
+    `<div class="ortala">${sekilResim()}</div><div class="sekilsay">${[['kare', '#3a86ff'], ['uc', '#f2546b'], ['daire', '#ffd23f'], ['dik', '#12b886']].map(([s, r]) => `<span>${sahne(60, 50, s === 'kare' ? SK.kare(10, 5, 40, r) : s === 'uc' ? SK.uc(5, 5, 50, 40, r) : s === 'daire' ? SK.daire(30, 25, 20, r) : SK.dik(3, 10, 54, 30, r), 16)}${kutuK}</span>`).join('')}</div>`);
+  const noktali = (sekiller) => etk(0, 'Noktalı kâğıt: soldaki şekli noktaları birleştirerek sağ tarafa aynen çiz.',
+    `<div class="noktali">${sekiller.map(d => { const g = (ox) => Array.from({ length: 36 }, (_, i) => `<circle cx="${ox + (i % 6) * 30}" cy="${15 + Math.floor(i / 6) * 30}" r="2.6" fill="#4a5a50"/>`).join('');
+      return sahne(400, 180, g(15) + `<path d="${d}" fill="#d9f0ff" stroke="#3a86ff" stroke-width="4" stroke-linejoin="round"/>` + g(225), 84); }).join('')}</div>`);
+  const sekilBul = (liste) => etk(0, 'Her satırda soldaki şekle benzeyen eşyaları daire içine al.',
+    `<div class="sekilbul">${liste.map(([s, esyalar]) => `<div><span class="model">${sahne(60, 50, s === 'kare' ? SK.kare(10, 5, 40, '#d9f0ff') : s === 'uc' ? SK.uc(5, 5, 50, 40, '#ffe0e5') : s === 'daire' ? SK.daire(30, 25, 22, '#fff3c4') : SK.dik(3, 10, 54, 30, '#d8f5e9'), 22)}</span>${esyalar.map(e => `<span class="sec">${resim(e)}</span>`).join('')}</div>`).join('')}</div>`);
+  const cisimEsle = (liste) => etk(0, 'Eşyaları benzedikleri cisimle çizgiyle birleştir: küp, küre, silindir, koni.',
+    `<div class="esles cisim"><div class="sol">${liste.map(([e]) => `<div>${resim(e)}<i></i></div>`).join('')}</div><div class="sag">${['kup', 'kure', 'silindir', 'koni'].map(c => `<div><i></i>${sahne(60, 60, { kup: '<path d="M10 22 L30 12 L52 22 L52 48 L30 58 L10 48 Z M10 22 L30 32 L52 22 M30 32 V58" fill="#d9f0ff" stroke="#1f2a24" stroke-width="2.5" stroke-linejoin="round"/>', kure: '<circle cx="30" cy="32" r="24" fill="#fff3c4" stroke="#1f2a24" stroke-width="2.5"/><ellipse cx="30" cy="32" rx="24" ry="7" fill="none" stroke="#1f2a24" stroke-width="1.5" stroke-dasharray="3 3"/>', silindir: '<path d="M12 14 V48 A18 7 0 0 0 48 48 V14" fill="#d8f5e9" stroke="#1f2a24" stroke-width="2.5"/><ellipse cx="30" cy="14" rx="18" ry="7" fill="#d8f5e9" stroke="#1f2a24" stroke-width="2.5"/>', koni: '<path d="M30 6 L50 50 A20 7 0 0 1 10 50 Z" fill="#ffe0e5" stroke="#1f2a24" stroke-width="2.5" stroke-linejoin="round"/>' }[c], 26)}<b class="ttkb cisim">${{ kup: 'küp', kure: 'küre', silindir: 'silindir', koni: 'koni' }[c]}</b></div>`).join('')}</div></div>`);
+  // veri
+  const cetele = (resimler, tohum) => { const r = R(tohum); const tum = karistir(resimler.flatMap(([a, n]) => Array(n).fill(a)), r);
+    return etk(0, 'Bahçedeki meyveleri say. Her meyve için tabloya bir çentik (|) çiz, sonra sayıyı yaz.',
+      `<div class="dagin veri">${tum.map((a, i) => `<span style="left:${(i % 7) * 13.5 + 2 + r() * 4}%;top:${Math.floor(i / 7) * 30 + 4 + r() * 8}%">${resim(a)}</span>`).join('')}</div><table class="olctab"><tr><th></th><th>Çentikler</th><th>Kaç tane?</th></tr>${resimler.map(([a]) => `<tr><td>${resim(a)}</td><td class="centik"></td><td>${kutuK}</td></tr>`).join('')}</table>`); };
+  const resimGrafigi = (liste, soru) => etk(0, 'Tablodaki sayılara göre grafiği boya: her kare bir oy. Sonra soruları cevapla.',
+    `<div class="grafik">${liste.map(([a, n]) => `<div><span class="g-kare">${Array.from({ length: 9 }, () => '<i></i>').join('')}</span>${resim(a)}<b class="ttkb">${n}</b></div>`).join('')}</div>${gorev(soru.map(s => ['?', s]))}`);
+  const anket = (secenek, soru) => etk(0, `Sınıf anketi: ${soru} Arkadaşlarına sor, her cevap için bir kareyi boya.`,
+    `<div class="grafik anket">${secenek.map(a => `<div><span class="g-kare uzun">${Array.from({ length: 12 }, () => '<i></i>').join('')}</span>${resim(a)}</div>`).join('')}</div>`);
+
   const MAT = {
     'hafta-01': { unite: 1, hafta: 1, baslik: 'Ormanda Neresi?', konu: 'Uzamsal ilişkiler', sayfalar: () => [
       numarala([etk(0, 'Oyuncak rafına bak. Öğretmeninin söylediklerini yap.', gorev([['↑', 'EN ÜST raftaki oyuncakları daire içine al.'], ['↓', 'EN ALT raftaki oyuncakları boya.'], ['↕', 'ORTA raftaki oyuncakların altına çizgi çiz.']]) + `<div class="ortala">${raf([['top', 'robot', 'balon'], ['kitap', 'kedi', 'saat'], ['araba', 'kova', 'ayi']])}</div>`),
@@ -439,6 +537,80 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
     'hafta-19': { unite: 3, hafta: 19, baslik: 'Ne Oldu?', konu: 'Tartma · Toplama ve çıkarma', sayfalar: () => [
       numarala([kupDenge([['elma', 3], ['top', 5], ['kitap', 7], ['armut', 2], ['ayakkabi', 6], ['cilek', 1]]), teraziOku([['elma', 'kedi', 1], ['fil', 'top', -1], ['balon', 'kitap', 1], ['fare', 'inek', 1], ['kuzu', 'yaprak', -1], ['kalem', 'kalem', 0]])]),
       numarala([hikayeGel([['civciv', 3, 2], ['balik', 4, 3], ['kus', 2, 5], ['elma', 5, 4]]), hikayeGit([['balon', 6, 2], ['ordek', 7, 3], ['kurbaga', 5, 4], ['cilek', 8, 5]])]),
+    ] },
+    'hafta-20': { unite: 3, hafta: 20, baslik: 'Otobüs Durağı', konu: 'Toplama ve çıkarma', sayfalar: () => [
+      numarala([otobusSor([[3, 2, 0], [4, 0, 2], [2, 3, 0], [5, 0, 1], [1, 4, 0]])]),
+      numarala([kusTeli([[4, 2, 'kondu'], [6, 3, 'uçtu'], [3, 4, 'kondu']]), resimIslem([['elma', 3, 2, '+'], ['balon', 6, 2, '−'], ['civciv', 4, 3, '+'], ['cilek', 7, 4, '−']])]),
+    ] },
+    'hafta-21': { unite: 3, hafta: 21, baslik: 'Hepsi Gitti!', konu: 'Birbirine eşit iki sayının farkı', sayfalar: () => [
+      numarala([hepsiGitti([['kus', 4], ['balon', 6], ['kurbaga', 3], ['cilek', 5], ['ari', 7]]), otobusSor([[5, 0, 5], [4, 0, 4]])]),
+      numarala([kusTeli([[5, 5, 'uçtu'], [3, 3, 'uçtu'], [6, 6, 'uçtu']]), resimIslem([['elma', 7, 7, '−'], ['top', 4, 2, '−'], ['civciv', 3, 3, '+'], ['balik', 8, 8, '−']])]),
+    ] },
+    'hafta-22': { unite: 3, hafta: 22, baslik: 'Sıfır ve Kurbağa', konu: 'Sıfırın etkisi · Toplama tahmini · Zihinden toplama', sayfalar: () => [
+      numarala([sifirTabak([['elma', 4, 1], ['cilek', 6, 0], ['armut', 3, 1], ['muz', 5, 0], ['limon', 7, 1], ['uzum', 2, 0]]), hepsiGitti([['balik', 5], ['yildiz', 8]])]),
+      numarala([kurbagaDogru([[3, 4, 1], [7, 5, 1], [10, 6, 1], [12, 3, 1], [5, 7, 1]]), tahminSec([['yildiz', 9, 8, '+', [5, 17, 30]], ['cicek', 12, 6, '+', [10, 18, 40]], ['ari', 7, 7, '+', [4, 14, 25]]])]),
+    ] },
+    'hafta-23': { unite: 3, hafta: 23, baslik: 'Balonlar Patladı', konu: 'Çıkarma işleminin sonucunu tahmin etme', sayfalar: () => [
+      numarala([tahminSec([['balon', 15, 4, '−', [2, 11, 19]], ['yildiz', 18, 9, '−', [9, 16, 25]], ['ari', 12, 10, '−', [2, 10, 20]]], 'Bazıları gitti; gidenlerin üstü çizili. Saymadan tahmin et: yaklaşık kaç tane kaldı? En yakın sayıyı daire içine al.'), kusTeli([[8, 3, 'uçtu']])]),
+      numarala([resimIslem([['balon', 9, 4, '−'], ['kus', 7, 5, '−'], ['elma', 10, 3, '−'], ['cilek', 8, 6, '−'], ['yildiz', 11, 5, '−'], ['top', 6, 1, '−']]), kurbagaDogru([[15, 4, -1], [9, 6, -1]])]),
+    ] },
+    'hafta-24': { unite: 3, hafta: 24, baslik: 'Geri Zıpla · Denge', konu: 'Zihinden çıkarma · Eşitlik kavramı', sayfalar: () => [
+      numarala([kurbagaDogru([[9, 3, -1], [14, 5, -1], [18, 6, -1], [11, 4, -1]]), otobusSor([[6, 0, 3], [5, 0, 4]])]),
+      numarala([teraziSayi([[3, 2], [4, 3], [5, 1], [2, 6], [4, 4], [6, 1]])]),
+    ] },
+    'hafta-25': { unite: 3, hafta: 25, baslik: 'Terazi Dengede mi?', konu: 'Eşitlik kavramı', sayfalar: () => [
+      numarala([esitMi([[4, 4], [3, 5], [6, 6], [2, 4], [5, 3], [7, 7]]), sayiEsit(['2 + 2 = 3 + _', '5 = _ + 1', '_ + 3 = 6', '4 + 4 = _'])]),
+      numarala([teraziSayi([[6, 2], [1, 5], [4, 4], [3, 3], [7, 2], [2, 5]])]),
+    ] },
+    'hafta-26': { unite: 3, hafta: 26, baslik: 'Eşitliği Tamamla', konu: 'Eşitlik kavramı', sayfalar: () => [
+      numarala([sayiEsit(['3 + 2 = _ + 1', '4 + _ = 3 + 3', '_ + 5 = 4 + 4', '6 + 1 = 2 + _', '2 + 2 = _ + 0', '5 + _ = 6 + 2']), esitMi([[5, 5], [4, 6], [8, 8], [3, 6]])]),
+      numarala([teraziSayi([[7, 1], [2, 2], [5, 4], [6, 3]]), sayiEsit(['7 = 3 + _', '9 = _ + 4', '_ = 5 + 5', '8 + 0 = _'])]),
+    ] },
+    'hafta-27': { unite: 3, hafta: 27, baslik: 'Problem Ormanı 1', konu: 'Eşitlik kavramı · Toplama ve çıkarma işlemlerini yorumlama', sayfalar: () => [
+      numarala([problem([['Ali bahçede 4 elma topladı. Ayşe 3 elma daha topladı. Toplam kaç elma oldu?', 'elma'], ['Ağaçta 7 kuş vardı. 2 kuş uçup gitti. Ağaçta kaç kuş kaldı?', 'kus'], ['Sepette 5 çilek var. Annem 4 çilek daha koydu. Sepette kaç çilek oldu?', 'cilek'], ['Tarlada 10 inek vardı. 3 inek ahıra girdi. Tarlada kaç inek kaldı?', 'inek']])]),
+      numarala([problem([['Havuzda 6 ördek yüzüyordu. 3 ördek daha geldi. Havuzda kaç ördek oldu?', 'ordek'], ['Elif 9 balon aldı. 4 balon patladı. Kaç balonu kaldı?', 'balon'], ['Kumbaramda 8 lira vardı. 2 lira harcadım. Kaç liram kaldı?', 'cuzdan'], ['Bahçede 6 kedi vardı. 5 kedi daha geldi. Bahçede kaç kedi oldu?', 'kedi']])]),
+      numarala([problemCiz(['Masada 3 kalem var. Can 5 kalem daha koydu. Masada kaç kalem oldu?', 'Bahçede 10 çiçek vardı. 4 çiçeği kopardık. Kaç çiçek kaldı?', 'Akvaryumda 4 balık vardı. Babam 4 balık daha aldı. Kaç balık oldu?'])]),
+    ] },
+    'hafta-28': { unite: 3, hafta: 28, baslik: 'Problem Ormanı 2', konu: 'Toplama ve çıkarma işlemlerini yorumlama', sayfalar: () => [
+      numarala([problem([['Otobüste 8 yolcu vardı. Durakta 3 yolcu indi. Otobüste kaç yolcu kaldı?', 'otobus'], ['Tavuk sabah 4 yumurta, öğlen 2 yumurta yumurtladı. Toplam kaç yumurta oldu?', 'yumurta'], ['Raftaki 12 kitaptan 5 tanesini okudum. Kaç kitap okumadım?', 'kitap'], ['Göldeki 9 kurbağadan 4 tanesi suya atladı. Kaç kurbağa kıyıda kaldı?', 'kurbaga']])]),
+      numarala([problem([['Mert 7 bilye kazandı, sonra 6 bilye daha kazandı. Kaç bilyesi oldu?', 'top'], ['Kafeste 9 kuş vardı. 9 kuş da uçtu. Kafeste kaç kuş kaldı?', 'kus'], ['Zeynep 11 simit aldı. Arkadaşlarına 5 tanesini verdi. Kaç simidi kaldı?', 'simit'], ['Kırmızı 7, mavi 8 balon var. Toplam kaç balon var?', 'balon']])]),
+      numarala([problemKur([['kedi', 4, 3, '+'], ['balik', 8, 3, '−'], ['elma', 6, 2, '+']])]),
+      numarala([problemCiz(['Tabakta 6 kurabiye vardı. 6 kurabiyeyi de yedik. Kaç kurabiye kaldı?', 'Tren 5 vagonluydu. 4 vagon daha eklendi. Tren kaç vagonlu oldu?', 'Okulda 14 öğrenci vardı. 6 öğrenci eve gitti. Okulda kaç öğrenci kaldı?'])]),
+    ] },
+    'hafta-29': { unite: 3, hafta: 29, baslik: 'Problem Ormanı 3', konu: 'Toplama ve çıkarma işlemlerini yorumlama', sayfalar: () => [
+      numarala([problem([['Leyleğin yuvasında 3 yavru vardı. 2 yavru daha çıktı. Yuvada kaç yavru oldu?', 'leylek'], ['Pazardan 15 mandalina aldık. 7 tanesini yedik. Kaç mandalina kaldı?', 'mandalina'], ['Sınıfta 9 kız, 8 erkek öğrenci var. Sınıfta kaç öğrenci var?', 'ogretmen'], ['Annem 12 yumurta aldı. Kek için 4 tanesini kullandı. Kaç yumurta kaldı?', 'yumurta']])]),
+      numarala([problem([['Fil 14 muz yedi. Maymun ondan 6 muz az yedi. Maymun kaç muz yedi?', 'maymun'], ['Kutuda 20 boya kalemi vardı. 10 tanesi kırıldı. Kaç kalem sağlam kaldı?', 'kalem'], ['Ayşe 6 yaşında. Ablası ondan 4 yaş büyük. Ablası kaç yaşında?', 'bebek'], ['Bahçeye 8 lale, 7 gül diktik. Kaç çiçek diktik?', 'lale']])]),
+      numarala([problemKur([['tavuk', 5, 4, '+'], ['cicek', 9, 4, '−'], ['kus', 7, 2, '−']])]),
+      numarala([problemCiz(['Ağaçta 8 elma vardı. Rüzgârda 3 elma düştü. Ağaçta kaç elma kaldı?', 'Kedi 2 balık yedi, sonra 5 balık daha yedi. Kedi kaç balık yedi?', 'Duvarda 13 resim vardı. 3 resmi kaldırdık. Kaç resim kaldı?'])]),
+    ] },
+    'hafta-30': { unite: 3, hafta: 30, baslik: 'Kumbaram', konu: 'Problemler · Paralarımız', sayfalar: () => [
+      numarala([problem([['Kumbaramda 5 lira vardı. Dedem 10 lira verdi. Kaç liram oldu?', 'cuzdan'], ['20 liram vardı. 5 liralık dondurma aldım. Kaç liram kaldı?', 'dondurma']]), kumbara([[1, 1, 1], [5, 1, 1], [10, 5], [10, 10, 1]])]),
+      numarala([kumbara([[5, 5, 1, 1], [20, 10], [10, 5, 1, 1, 1]]), paraEsle([[5, [1, 1, 1, 1, 1]], [10, [5, 5]], [20, [10, 10]], [50, [20, 20, 10]]])]),
+      numarala([problemCiz(['Simit 10 lira, ayran 5 lira. İkisini almak için kaç lira gerekir?', 'Cüzdanımda 20 lira var. 10 liralık kalem aldım. Kaç liram kaldı?', 'Dedem bana 5 lira, ninem 10 lira verdi. Kaç liram oldu?'])]),
+    ] },
+    'hafta-31': { unite: 4, hafta: 31, baslik: 'Market · Şekil Ormanı', konu: 'Paralarımız · Nesneler ve geometrik şekiller', sayfalar: () => [
+      numarala([market([['elma', 5, [1, 5, 1, 10]], ['simit', 10, [5, 10, 1, 5]], ['top', 20, [10, 5, 20, 1]], ['kitap', 15, [10, 1, 5, 20]], ['dondurma', 7, [5, 1, 10, 1, 1]], ['canta', 50, [20, 50, 10, 5]]])]),
+      numarala([sekilAvi(), noktali(['M45 45 H135 V135 H45 Z', 'M90 15 L165 135 H15 Z'])]),
+    ] },
+    'hafta-32': { unite: 4, hafta: 32, baslik: 'Noktalı Kâğıt', konu: 'Nesneler ve geometrik şekiller', sayfalar: () => [
+      numarala([sekilBul([['daire', ['saat', 'kitap', 'top', 'jeton', 'masa']], ['kare', ['pencere', 'top', 'kutu', 'gunes', 'kapi']], ['uc', ['ucgen', 'saat', 'cadir', 'top', 'zil']], ['dik', ['kapi', 'kitap', 'top', 'telefon', 'saat']]]), cisimEsle([['kutu'], ['top'], ['mum'], ['dondurma']])]),
+      numarala([noktali(['M45 45 H135 V135 H45 Z', 'M90 15 L165 135 H15 Z', 'M15 45 H165 V105 H15 Z', 'M45 15 H135 L165 75 L135 135 H45 L15 75 Z', 'M15 135 V45 L90 15 L165 45 V135 Z', 'M15 75 L90 15 L165 75 L90 135 Z']), sekilBul([['daire', ['gunes', 'kitap', 'saat', 'jeton', 'masa']], ['dik', ['telefon', 'top', 'kapi', 'kitap', 'gunes']]])]),
+    ] },
+    'hafta-33': { unite: 4, hafta: 33, baslik: 'Küp, Küre, Silindir', konu: 'Nesneler ve geometrik şekiller', sayfalar: () => [
+      numarala([cisimEsle([['kutu'], ['top'], ['mum'], ['dondurma']]), sekilBul([['daire', ['saat', 'uzum', 'gunes', 'kitap', 'jeton']], ['dik', ['kapi', 'top', 'telefon', 'pencere', 'saat']]]), noktali(['M45 45 H135 V135 H45 Z', 'M15 135 L90 15 L165 135 Z'])]),
+      numarala([sekilAvi(), cisimEsle([['kova'], ['saat'], ['kek'], ['lamba']])]),
+    ] },
+    'hafta-34': { unite: 5, hafta: 34, baslik: 'Çetele Tutalım', konu: 'Nesneler ve geometrik şekiller · Veri toplama', sayfalar: () => [
+      numarala([noktali(['M15 135 L90 15 L165 135 Z', 'M45 15 H135 V135 H45 Z', 'M15 15 H165 V75 H15 Z', 'M90 15 L165 75 L90 135 L15 75 Z']), sekilBul([['kare', ['pencere', 'top', 'kutu', 'saat', 'kapi']], ['uc', ['cadir', 'top', 'ucgen', 'kitap', 'saat']], ['daire', ['kitap', 'saat', 'jeton', 'kapi', 'gunes']]])]),
+      numarala([cetele([['elma', 5], ['armut', 3], ['cilek', 7], ['muz', 4]], 41)]),
+    ] },
+    'hafta-35': { unite: 5, hafta: 35, baslik: 'Resim Grafiği', konu: 'Veri toplama ve değerlendirme', sayfalar: () => [
+      numarala([resimGrafigi([['kedi', 6], ['kopek', 4], ['kus', 2], ['balik', 5]], ['En çok sevilen hayvan hangisi?', 'Kaç kişi kuşu seçti?', 'Kedi, köpekten kaç fazla?', 'Toplam kaç kişi oy verdi?'])]),
+      numarala([cetele([['top', 6], ['balon', 4], ['ucurtma', 3], ['robot', 5]], 47)]),
+    ] },
+    'hafta-36': { unite: 5, hafta: 36, baslik: 'Sınıf Anketi', konu: 'Veri toplama ve değerlendirme', sayfalar: () => [
+      numarala([anket(['elma', 'muz', 'cilek', 'uzum', 'mandalina'], 'Hangi meyveyi en çok seversin?')]),
+      numarala([resimGrafigi([['otobus', 7], ['araba', 5], ['ucak', 2], ['gemi', 3]], ['Sınıfta en çok hangi taşıtı seviyorlar?', 'En az hangisi seçilmiş?', 'Toplam kaç kişi oy verdi?'])]),
     ] },
     'hafta-10': { unite: 1, hafta: 10, baslik: 'Çok mu Az mı?', konu: 'Çok mu? Az mı? Eşit mi?', sayfalar: () => [
       numarala([birebir2([['kedi', 4, 'balik', 6], ['kopek', 5, 'top', 3], ['tavuk', 3, 'yumurta', 3]]), dominoKars([[[2, 2], [4, 1]], [[3, 3], [5, 1]], [[6, 0], [2, 3]], [[1, 4], [4, 1]], [[5, 2], [3, 3]], [[0, 6], [6, 1]]])]),
@@ -592,6 +764,55 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .hikayeler .yazkutu{margin-left:auto}
 .giden{position:relative;display:block;opacity:.55}
 .giden::after{content:"";position:absolute;inset:0;background:linear-gradient(45deg,transparent 46%,#c0392b 46%,#c0392b 54%,transparent 54%)}
+.yazkutu.kucuk{width:11mm;height:11mm}
+.islem{display:inline-flex;align-items:center;gap:1.5mm;font-size:8mm;color:#1d4e89}
+.islem b{font-weight:400;width:6mm;text-align:center}
+.opk{display:inline-block;width:8mm;height:8mm;border-radius:50%;border:.5mm solid #4a5a50;background:#fff}
+.dikey{display:flex;flex-direction:column;align-items:center;gap:2mm;margin-left:auto}
+.rislem{display:flex;flex-direction:column;gap:3mm}
+.rislem>div{display:flex;align-items:center;justify-content:space-between;gap:3mm;background:#fff;border-radius:3mm;padding:2.5mm 3mm}
+.arti{font:400 9mm TTKB,sans-serif;color:#12b886;margin:0 2mm}
+.tabak{display:inline-flex;gap:1mm;min-width:22mm;min-height:16mm;align-items:center;justify-content:center;padding:1mm 3mm;border-radius:999px;background:#f1f3f5;border:.5mm solid #cfd8d1}
+.tabak img{width:11mm;height:11mm}
+.kd{display:flex;align-items:center;gap:3mm}
+.secler{display:flex;gap:3mm}.secler b{font-size:9mm;font-weight:400;width:15mm;height:15mm;border:.5mm solid #4a5a50;border-radius:50%;display:grid;place-items:center;background:#fff}
+.esitmi{display:flex;flex-direction:column;gap:3mm}
+.esitmi>div{display:grid;grid-template-columns:1fr auto 1fr;gap:4mm;align-items:center}
+.sayiesit{display:grid;grid-template-columns:1fr 1fr;gap:4mm 8mm;font-size:10mm}
+.sayiesit>div{display:flex;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:2mm 4mm}
+.problemler{display:flex;flex-direction:column;gap:4mm}
+.problemler>div{display:grid;grid-template-columns:34mm 1fr;gap:4mm;align-items:center;background:#fff;border-radius:3mm;padding:3mm}
+.p-res img{width:32mm;height:32mm}
+.problemler p,.pciz p{margin:0 0 2.5mm;font-size:7mm;line-height:1.35}
+.cevap{display:flex;align-items:center;gap:3mm;font-size:6.5mm;flex-wrap:wrap}
+.pciz{display:flex;flex-direction:column;gap:4mm}
+.pciz>div{background:#fff;border-radius:3mm;padding:3mm;display:flex;flex-direction:column;gap:2mm}
+.cizim.kucuk{flex:none;height:52mm}
+.paralar{display:grid;grid-template-columns:1fr;gap:3mm}
+.paralar>div{display:flex;align-items:center;justify-content:space-between;gap:2mm;background:#fff;border-radius:3mm;padding:3mm}
+.tl{display:flex;align-items:center;gap:1.5mm;font-size:6mm}.tl b{font-weight:400}
+.market{display:grid;grid-template-columns:1fr;gap:3mm}
+.market>div{display:flex;align-items:center;justify-content:space-between;gap:3mm;background:#fff;border-radius:3mm;padding:2mm 4mm}
+.urun{display:flex;align-items:center;gap:3mm}.urun img{width:24mm;height:24mm}
+.etiket-f{font-size:7mm;font-weight:400;background:#ffd23f;border-radius:2mm;padding:1mm 3mm;color:#1f2a24}
+.sekilsay{display:flex;justify-content:space-around;margin-top:3mm}
+.sekilsay span{display:flex;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:2mm 3mm}
+.noktali{display:grid;grid-template-columns:1fr 1fr;gap:4mm;justify-items:center}
+.noktali>svg{background:#fff;border-radius:3mm;padding:2mm}
+.sekilbul{display:flex;flex-direction:column;gap:3mm}
+.sekilbul>div{display:grid;grid-template-columns:26mm repeat(5,1fr);gap:3mm;align-items:center;background:#fff;border-radius:3mm;padding:2mm 3mm}
+.sekilbul .sec img{width:22mm;height:22mm}
+.cisim{font-size:6mm;font-weight:400}
+.esles.cisim .sol div,.esles.cisim .sag div{height:30mm}
+.esles.cisim img{width:28mm;height:28mm}
+.dagin.veri{height:80mm;background:#fff}
+.olctab td.centik{min-width:60mm}
+.grafik{display:flex;justify-content:space-around;align-items:flex-end;gap:3mm;background:#fff;border-radius:3mm;padding:4mm}
+.grafik>div{display:flex;flex-direction:column;align-items:center;gap:2mm}
+.grafik img{width:24mm;height:24mm}.grafik b{font-size:8mm;font-weight:400}
+.g-kare{display:flex;flex-direction:column-reverse;gap:1mm}
+.g-kare i{width:26mm;height:12.5mm;border:.4mm solid #4a5a50;border-radius:1mm;background:#fff}
+.g-kare.uzun i{height:12.5mm}
 .olcum{display:flex;flex-direction:column;gap:3mm}
 .kars-uz{display:flex;flex-direction:column;gap:2mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:2.5mm 4mm}
 .olc-satir{display:flex;align-items:center;justify-content:space-between;gap:4mm;border-bottom:.3mm dashed #cfd8d1;padding-bottom:2mm}
