@@ -29,7 +29,11 @@ def seffaf(rgb):
 
 def kes(dosya, adlar, hedef):
     im = Image.open(dosya).convert('RGB'); gri = im.convert('L'); W, H = im.size
-    xs = [0] + cizgiler(gri, 'x') + [W]; ys = [0] + cizgiler(gri, 'y') + [H]
+    cx, cy = cizgiler(gri, 'x'), cizgiler(gri, 'y')
+    # 4×2 beklenir: fazla/eksik çizgi bulunursa eşit bölmeye düş (ör. kürek sapı sütun çizgisi sanılmasın)
+    if len(cx) != 3: cx = [round(W * k / 4) for k in (1, 2, 3)]
+    if len(cy) != 1: cy = [round(H / 2)]
+    xs = [0] + cx + [W]; ys = [0] + cy + [H]
     for k, ad in enumerate(adlar):
         c, r = k % 4, k // 4
         h = im.crop((xs[c] + 6, ys[r] + 6, xs[c + 1] - 6, ys[r + 1] - 6))
