@@ -169,6 +169,8 @@ $("tamamla").addEventListener("submit", ev => { ev.preventDefault();
   if (!ad) return bildir(B, "Adınızı yazın.", "hata");
   if (!onayVar("t", B)) return;
   calistir(B, () => U.kaydiTamamla({ ad, ogretmenTalebi: $("t-ogretmen").checked })); });
+// Onay kutusu işaretlenince eski "kutuları işaretleyin" uyarısı silinir.
+document.querySelectorAll(".onay input").forEach(k => k.addEventListener("change", () => { bildir($("bildirim"), ""); bildir($("t-bildirim"), ""); }));
 $("t-vazgec").onclick = () => calistir($("t-bildirim"), () => U.cikis());
 
 U.durumDegisince(d => {
