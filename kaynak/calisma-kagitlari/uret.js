@@ -82,10 +82,10 @@ const resimCizgi = ad => `<img src="/deneme/materyaller/resimler/${ad}.png" alt=
 const LADIN = `<svg viewBox="0 0 40 48" class="ladin"><path d="M20 2 L30 16 H25 L33 27 H27 L36 39 H4 L13 27 H7 L15 16 H10 Z" fill="#2e6b4a"/><rect x="17.5" y="39" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>`;
 function sayfa({ harf, govde, no, toplam, mat }) {
   if (mat) return `<section class="sayfa">
-  <header><div class="baslik">${LADIN}<div class="harf ttkb mat" style="font-size:${Math.min(10.5, 175 / mat.baslik.length).toFixed(1)}mm">${mat.baslik}</div></div>
+  <header><div class="baslik">${LADIN}<div class="harf ttkb mat" style="font-size:${Math.min(10.5, 160 / mat.baslik.length).toFixed(1)}mm">${mat.baslik}</div></div>
     <div class="ad ttkb"><span>Adım:</span><i></i><span>Tarih:</span><i class="kisa"></i></div></header>
   ${govde}
-  <footer><span>Ladin Ormanı · 1. Sınıf ${mat.ders || 'Matematik'} · ${mat.konu}</span><span>${toplam > 1 ? no + ' / ' + toplam : ''}</span></footer>
+  <footer><span>Ladin Ormanı · ${mat.sinif || 1}. Sınıf ${mat.ders || 'Matematik'} · ${mat.konu}</span><span>${toplam > 1 ? no + ' / ' + toplam : ''}</span></footer>
   </section>`;
   return `<section class="sayfa">
   <header><div class="baslik">${LADIN}<div class="harf ttkb">${harf.toLocaleUpperCase('tr')}${harf}</div></div>
@@ -555,8 +555,10 @@ const MATMODUL = require('./matematik.js')({ etk, satir, resim, resimCizgi, RY, 
 const { CSS: MAT_CSS } = MATMODUL;
 // Ders modülleri: 'mat' Matematik, 'hb' Hayat Bilgisi. Hayat Bilgisi, Matematik'in çizim araçlarını da kullanır.
 const HBMODUL = require('./hayat.js')({ etk, satir, resim, resimCizgi, RY, rastgele, numarala, M: MATMODUL.ARAC });
+const T2MODUL = require('./turkce2.js')({ etk, resim, numarala, M: MATMODUL.ARAC });
 const DERS = { mat: { K: MATMODUL.MAT, ad: 'Matematik', klasor: 'matematik', paket: 'matematik' },
-               hb: { K: HBMODUL.HB, ad: 'Hayat Bilgisi', klasor: 'hayat-bilgisi', paket: 'hayat-bilgisi' } };
+               hb: { K: HBMODUL.HB, ad: 'Hayat Bilgisi', klasor: 'hayat-bilgisi', paket: 'hayat-bilgisi' },
+               t2: { K: T2MODUL.T2, ad: 'Türkçe', klasor: 'turkce', paket: 'turkce', sinif: 2 } };
 const MAT = DERS.mat.K;
 // Çıktı dosya adları yalnız ASCII: sıra numarası + harf (ı → 11-i, İ → 05-i), paketler grup-1-anetil…
 const ASCII = { 'ı': 'i', 'ü': 'u', 'ö': 'o', 'ç': 'c', 'ş': 's', 'ğ': 'g' };
@@ -676,6 +678,7 @@ img{width:100%;height:100%;object-fit:contain}
 .tamamla>div>div span{border:.4mm solid #4a5a50;border-radius:999px;padding:.5mm 4mm;font-size:6mm}
 ${MAT_CSS}
 ${HBMODUL.CSS}
+${T2MODUL.CSS}
 .harf.mat{font-size:10.5mm;letter-spacing:.2mm}
 .sayfa:has(.harf.mat) .harf.mat{white-space:nowrap}
 .sayfa:has(.harf.mat) .baslik{flex:1 1 auto}
@@ -714,7 +717,7 @@ const SAYFALAR = {};
     console.error('Bilinmeyen kağıt: ' + bilinmeyen.join(', ') + '\nTürkçe harfler: ' + Object.keys(HARF).join(' ') + '\nMatematik: ' + Object.keys(MAT).map(k => 'mat:' + k).join(' '));
     process.exit(2);
   }
-  const CIKTI_D = D ? path.join(KOK, 'deneme/materyaller/1-sinif', D.klasor) : CIKTI_MAT;
+  const CIKTI_D = D ? path.join(KOK, `deneme/materyaller/${D.sinif || 1}-sinif`, D.klasor) : CIKTI_MAT;
   fs.mkdirSync(CIKTI_D, { recursive: true });
   fs.mkdirSync(CIKTI, { recursive: true });
   if (process.env.SADECE_KONTROL) { for (const h of istenen) { AKTIF = h; HARF[h](); AKTIF = null; }
@@ -726,7 +729,7 @@ const SAYFALAR = {};
     AKTIF = h === '_yon' || MATMOD ? null : h; const govdeler = MATMOD ? KAG[h].sayfalar() : HARF[h](); AKTIF = null;
     const HEDEF = MATMOD ? CIKTI_D : CIKTI;
     if (HATALAR.length) break;
-    const html = `<!doctype html><html lang="tr"><meta charset="utf-8"><style>${CSS}</style><body>${OKLAR}<script>addEventListener('load',()=>document.querySelectorAll('.sayfa').forEach(s=>{const f=s.querySelector('footer'),h=s.querySelector('header');if(!f||!h)return;const g=document.createElement('div');g.className='govde';[...s.children].filter(c=>c!==f&&c!==h).forEach(c=>g.appendChild(c));s.insertBefore(g,f);const bos=g.clientHeight,ihtiyac=g.scrollHeight;if(ihtiyac>bos+2){g.style.zoom=Math.max(.72,bos/ihtiyac);if(g.scrollHeight>g.clientHeight+2)g.style.zoom=Math.max(.72,parseFloat(g.style.zoom)*g.clientHeight/g.scrollHeight);}}));</script><script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('path.iz').forEach(p=>{const n=Math.max(3,Math.round(p.getTotalLength()/80));p.setAttribute('pathLength',n);p.setAttribute('stroke-dasharray','0 1');const L=p.getTotalLength(),e=p.getPointAtLength(L),c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',e.x);c.setAttribute('cy',e.y);c.setAttribute('r',22);c.setAttribute('fill','#8a8f8b');p.after(c);}));</script>${govdeler.map((g, i) => sayfa({ harf: h, govde: g, no: i + 1, toplam: govdeler.length, mat: MATMOD ? Object.assign({ ders: D.ad }, KAG[h]) : null })).join('')}</body></html>`;
+    const html = `<!doctype html><html lang="tr"><meta charset="utf-8"><style>${CSS}</style><body>${OKLAR}<script>addEventListener('load',()=>document.querySelectorAll('.sayfa').forEach(s=>{const f=s.querySelector('footer'),h=s.querySelector('header');if(!f||!h)return;const g=document.createElement('div');g.className='govde';[...s.children].filter(c=>c!==f&&c!==h).forEach(c=>g.appendChild(c));s.insertBefore(g,f);const bos=g.clientHeight,ihtiyac=g.scrollHeight;if(ihtiyac>bos+2){g.style.zoom=Math.max(.72,bos/ihtiyac);if(g.scrollHeight>g.clientHeight+2)g.style.zoom=Math.max(.72,parseFloat(g.style.zoom)*g.clientHeight/g.scrollHeight);}}));</script><script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('path.iz').forEach(p=>{const n=Math.max(3,Math.round(p.getTotalLength()/80));p.setAttribute('pathLength',n);p.setAttribute('stroke-dasharray','0 1');const L=p.getTotalLength(),e=p.getPointAtLength(L),c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',e.x);c.setAttribute('cy',e.y);c.setAttribute('r',22);c.setAttribute('fill','#8a8f8b');p.after(c);}));</script>${govdeler.map((g, i) => sayfa({ harf: h, govde: g, no: i + 1, toplam: govdeler.length, mat: MATMOD ? Object.assign({ ders: D.ad, sinif: D.sinif }, KAG[h]) : null })).join('')}</body></html>`;
     SAYFALAR[h] = html;
     const p = await b.newPage({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 2 });
     await p.goto(`http://127.0.0.1:${port}/__sayfa/${encodeURIComponent(h)}`, { waitUntil: 'networkidle' });
