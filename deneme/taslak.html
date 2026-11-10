@@ -76,9 +76,6 @@ h1 em{font-style:normal;color:var(--mavi)}
 .kagit b{font-size:17px}
 .kagit small{color:var(--soluk)}
 .kagit .indir{margin-top:auto;align-self:flex-start;margin-top:10px;background:var(--renk,var(--mavi));color:#fff;font-weight:700;border-radius:999px;padding:8px 16px;font-size:14px}
-.paket{background:var(--sari-a);border:2px dashed var(--sari);border-radius:18px;padding:16px 18px;display:flex;align-items:center;gap:14px;margin-top:18px}
-.paket b{flex:1}
-.paket a{background:var(--yazi);color:#fff;border-radius:999px;padding:8px 16px;font-weight:700;font-size:14px}
 
 footer{margin-top:56px;padding:28px 0;color:var(--soluk);font-size:14px;border-top:1px solid var(--cizgi)}
 footer .kap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -137,7 +134,6 @@ footer .kap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <section class="adim kilitli" id="a4">
     <div class="adim-bas"><span class="adim-no">4</span><h2 id="a4-baslik">Kâğıtlar</h2></div>
     <div class="kagitlar" id="kagitlar"></div>
-    <div id="paket"></div>
   </section>
 </main>
 
@@ -165,7 +161,7 @@ footer .kap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       var hs = MATS.filter(function(m){ return m.ders === "matematik" && m.hafta; }).map(function(m){ return m.hafta; });
       s.innerHTML = hs.map(function(h){ return '<button class="durak hafta'+(h === buHafta ? ' bu' : '')+'" data-s="'+h+'">'+h+'. hafta</button>'; }).join("");
     }
-    $("a4").classList.add("kilitli"); $("kagitlar").innerHTML = ""; $("paket").innerHTML = "";
+    $("a4").classList.add("kilitli"); $("kagitlar").innerHTML = "";
     $("a3").scrollIntoView({behavior:"smooth", block:"start"});
   }
 
@@ -177,8 +173,6 @@ footer .kap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     $("kagitlar").innerHTML = l.map(function(m){
       return '<article class="kagit"><div class="on"><img src="'+m.resim+'" alt="" loading="lazy"></div><div class="ic"><b>'+m.baslik.replace(/^\d+\. Hafta · /,"")+'</b><small>'+(m.unite||"")+'</small><a class="indir" href="'+m.dosya+'">PDF indir</a></div></article>';
     }).join("") || '<p>Bu seçim için kâğıt hazırlanıyor.</p>';
-    var p = MATS.filter(function(m){ return m.ders === ders && (m.harfler ? m.harfler.indexOf(v) >= 0 : /paket/.test(m.id) && m.ders === "matematik" && (function(){ var r = m.baslik.match(/(\d+)-(\d+)/); return r && +v >= +r[1] && +v <= +r[2]; })()); })[0];
-    $("paket").innerHTML = p ? '<div class="paket"><b>Hepsini birden ister misin? '+p.baslik+'</b><a href="'+p.dosya+'">Paketi indir</a></div>' : "";
     $("a4").classList.remove("kilitli");
     $("a4").scrollIntoView({behavior:"smooth", block:"start"});
   }
