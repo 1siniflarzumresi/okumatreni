@@ -4,131 +4,168 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ladin Ormanı</title>
-<meta name="description" content="1-4. sınıflar için Maarif Modeli'ne uygun çalışma kâğıtları ve eğitsel oyunlar.">
+<meta name="description" content="1. sınıf için MEB Maarif Modeli'ne uygun, oyun gibi çalışma kâğıtları: Türkçe ilk okuma yazma ve haftalık Matematik.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ladin Ormanı">
 <meta property="og:title" content="Ladin Ormanı">
-<meta property="og:description" content="1. sınıf için MEB Maarif Modeli'ne uygun çalışma kâğıtları, haftalık takvim ve eğitsel oyunlar.">
+<meta property="og:description" content="1. sınıf için MEB Maarif Modeli'ne uygun, oyun gibi çalışma kâğıtları: Türkçe ilk okuma yazma ve haftalık Matematik.">
 <meta property="og:url" content="https://1siniflarzumresi.github.io/okumatreni/deneme/">
 <meta property="og:image" content="https://1siniflarzumresi.github.io/okumatreni/deneme/paylasim.png">
 <meta property="og:locale" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#1f4d36">
+<meta name="theme-color" content="#3a86ff">
 <link rel="preload" href="fontlar/andika-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="ortak.css">
 <style>
-.kahraman{background:linear-gradient(180deg,var(--sis),var(--zemin));padding:40px 0 24px;overflow:hidden;position:relative}
-.kahraman .kap{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center}
-.kahraman h1{font-size:clamp(32px,6vw,52px);font-weight:900;color:var(--orman);margin:0}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .kahraman h1{color:#9fd4ad}}
-:root[data-theme="dark"] .kahraman h1{color:#9fd4ad}
-.kahraman p{font-size:clamp(17px,2.4vw,21px);color:var(--yazi-2);margin:.4em 0 0;max-width:34ch}
-.orman-cizim{width:100%;max-width:380px;justify-self:end}
-@media (max-width:640px){.kahraman .kap{grid-template-columns:1fr}.orman-cizim{max-width:260px;justify-self:center}}
+/* giriş bölümü */
+.kahraman{padding:56px 0 36px}
+.kahraman .kap{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.ufak{display:inline-block;font-size:13px;font-weight:700;color:var(--mavi);background:var(--mavi-a);padding:4px 12px;border-radius:999px}
+h1{font-size:clamp(32px,5vw,48px);line-height:1.12;margin:14px 0 12px;letter-spacing:-.5px}
+h1 em{font-style:normal;color:var(--mavi)}
+.kahraman p{font-size:18px;color:var(--soluk);margin:0 0 24px;max-width:34ch}
+.cizim{width:100%;max-width:380px;justify-self:end}
 
-.siniflar{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-.sinif-kart{display:flex;flex-direction:column;gap:6px;padding:20px;text-decoration:none;border-top:8px solid var(--yaprak);transition:transform .15s}
-.sinif-kart:hover{transform:translateY(-3px)}
-.sinif-kart .no{font-size:44px;font-weight:900;color:var(--orman-2);line-height:1}
-.sinif-kart .ad{font-size:20px;font-weight:900}
-.sinif-kart .ic{color:var(--yazi-2);font-size:14px}
-.sinif-kart .git{margin-top:8px;font-weight:800;color:var(--vurgu-yazi)}
+/* adımlar */
+.adim{padding:12px 0 8px}
+.adim-bas{display:flex;align-items:center;gap:12px;margin:0 0 16px}
+.adim-no{width:30px;height:30px;border-radius:50%;background:var(--mavi);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px;flex:none}
+.adim-bas h2{font-size:22px;margin:0}
+.adim-bas small{color:var(--soluk);font-size:14px}
+.kilitli{opacity:.35;pointer-events:none}
 
-.haftalik{padding:18px}
-.haftalik-ust{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-.seritler{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 10px;scroll-snap-type:x mandatory}
-.mat{flex:0 0 220px;scroll-snap-align:start;padding:14px;border-radius:14px;background:var(--kum);border:1px solid var(--cizgi);text-decoration:none}
-.mat b{display:block;margin:6px 0 2px}
-.mat small{color:var(--yazi-2)}
+/* seçim kartları */
+.secimler{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.secim{background:var(--kart);border:2px solid transparent;border-radius:18px;padding:18px;box-shadow:var(--golge);text-align:left;display:flex;flex-direction:column;gap:6px;transition:transform .15s,border-color .15s}
+.secim:hover{transform:translateY(-2px)}
+.secim[aria-pressed="true"]{border-color:var(--renk)}
+.secim .ik{width:44px;height:44px;border-radius:12px;background:var(--renk-a);color:var(--renk);display:grid;place-items:center;font-size:22px;font-weight:700}
+.secim b{font-size:18px}
+.secim span{color:var(--soluk);font-size:14px}
+.secim.yakinda{opacity:.5;cursor:default;box-shadow:none;border:2px dashed var(--cizgi)}
 
+/* harf / hafta şeridi */
+.durak-serit{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 12px;scrollbar-width:thin}
+.durak{flex:none;min-width:48px;height:48px;padding:0 10px;border-radius:14px;border:2px solid var(--cizgi);background:#fff;font-weight:700;font-size:18px;color:var(--soluk)}
+.durak.hafta{font-size:14px;min-width:64px}
+.durak.bu{border-color:var(--sari);background:var(--sari-a);color:var(--yazi)}
+.durak[aria-pressed="true"]{background:var(--renk);border-color:var(--renk);color:#fff}
+
+/* kâğıt kartları */
+.kagitlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.kagit{background:#fff;border-radius:18px;box-shadow:var(--golge);overflow:hidden;display:flex;flex-direction:column}
+.kagit .on{aspect-ratio:210/150;overflow:hidden;background:var(--mavi-a);border-bottom:1px solid var(--cizgi)}
+.kagit .on img{width:100%;display:block}
+.kagit .ic{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.kagit b{font-size:17px}
+.kagit small{color:var(--soluk)}
+.kagit .indir{margin-top:auto;align-self:flex-start;margin-top:10px;background:var(--renk,var(--mavi));color:#fff;font-weight:700;border-radius:999px;padding:8px 16px;font-size:14px}
+
+@media (max-width:700px){.kahraman{padding:28px 0 12px}.kahraman .kap{grid-template-columns:1fr}.cizim{display:none}.ust nav a.ikinci{display:none}}
 </style>
 </head>
 <body>
-<div class="serit" role="region" aria-label="Bugünün tarihi ve hafta"><div class="kap"><span id="serit-tarih"></span><span id="serit-hafta"></span></div></div>
-
 <header class="ust"><div class="kap">
-  <a class="logo" href="index.html">
-    <svg viewBox="0 0 34 40" aria-hidden="true"><path d="M17 2 26 13h-4l7 9h-5l7 10H3l7-10H5l7-9H8z" fill="#2e6b4a"/><path d="M17 2 26 13h-4l7 9h-5l7 10H17z" fill="#1f4d36"/><rect x="14.5" y="32" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>
-    Ladin Ormanı
-  </a>
-  <nav aria-label="Ana menü"><a href="index.html" aria-current="page">Ana sayfa</a><a href="1-sinif.html">1. Sınıf</a><a href="takvim.html">Takvim</a><span id="uye-alani"></span></nav>
+  <a class="logo" href="index.html"><svg viewBox="0 0 34 40" aria-hidden="true"><path d="M17 2 26 13h-4l7 9h-5l7 10H3l7-10H5l7-9H8z" fill="#2e8b57"/><rect x="14.5" y="32" width="5" height="7" rx="1" fill="#c48a4f"/></svg>Ladin Ormanı</a>
+  <nav aria-label="Ana menü"><a class="ikinci" href="takvim.html">Takvim</a><span id="uye-alani"></span></nav>
 </div></header>
 
-<main>
 <section class="kahraman"><div class="kap">
   <div>
-    <h1>Ladin Ormanı</h1>
-    <p>Her hafta bir adım: sınıfta ve evde kullanılacak çalışma kâğıtları ve oyunlar.</p>
+    <span class="ufak">1. sınıf · MEB Maarif Modeli</span>
+    <h1>Her hafta <em>oyun gibi</em> çalışma kâğıtları</h1>
+    <p>Sınıfını, dersini ve haftanı seç; o haftanın kâğıtlarını tek tıkla indir.</p>
   </div>
-  <svg class="orman-cizim" viewBox="0 0 380 220" aria-hidden="true">
-    <ellipse cx="190" cy="206" rx="185" ry="14" fill="#a9d39b" opacity=".6"/>
-    <circle cx="318" cy="46" r="22" fill="#f2b94b"/>
-    <g fill="#5fa476"><path d="M70 60 104 110H92l20 30H98l22 34H20l22-34H28l20-30H36z"/></g>
-    <g fill="#2e6b4a"><path d="M190 14 236 78H220l28 40H230l30 46H120l30-46H132l28-40H144z"/></g>
-    <g fill="#1f4d36"><path d="M190 14 236 78H220l28 40H230l30 46H190z"/></g>
-    <g fill="#5fa476"><path d="M300 76 330 120H320l18 28H326l18 30H256l18-30H262l18-28H270z"/></g>
-    <rect x="66" y="174" width="8" height="24" rx="2" fill="#8e5b2b"/>
-    <rect x="184" y="164" width="12" height="36" rx="2" fill="#8e5b2b"/>
-    <rect x="296" y="178" width="8" height="22" rx="2" fill="#8e5b2b"/>
+  <svg class="cizim" viewBox="0 0 380 240" aria-hidden="true">
+    <circle cx="310" cy="56" r="34" fill="#ffc93c"/><circle cx="310" cy="56" r="48" fill="#ffc93c" opacity=".2"/>
+    <ellipse cx="190" cy="226" rx="180" ry="12" fill="#e6faf2"/>
+    <path d="M90 70 120 116h-10l18 28h-12l20 32H46l20-32H54l18-28H62z" fill="#7bd3a8"/>
+    <path d="M190 20 236 84H220l28 40H230l30 50H120l30-50H132l28-40H144z" fill="#2e8b57"/>
+    <path d="M300 96 326 134h-9l16 26h-10l17 28H262l17-28h-10l16-26h-9z" fill="#7bd3a8"/>
+    <rect x="184" y="174" width="12" height="40" rx="3" fill="#c48a4f"/><rect x="86" y="176" width="8" height="36" rx="2" fill="#c48a4f"/><rect x="296" y="188" width="8" height="24" rx="2" fill="#c48a4f"/>
+    <rect x="30" y="150" width="58" height="72" rx="6" fill="#fff" stroke="#e3ecf5" stroke-width="3" transform="rotate(-8 59 186)"/>
+    <path d="M40 168h36M40 180h28M40 192h32" stroke="#3a86ff" stroke-width="4" stroke-linecap="round" transform="rotate(-8 59 186)"/>
   </svg>
 </div></section>
 
-<section class="bolum"><div class="kap">
-  <h2>Sınıfını seç</h2>
-  <div class="siniflar">
-    <a class="kart sinif-kart" href="1-sinif.html">
-      <span class="no">1</span>
-      <span class="ad">1. Sınıf</span>
-      <span class="ic">Oyunlar, çalışma kâğıtları, akıcı okuma</span>
-      <span class="git">Ormana gir →</span>
-    </a>
-  </div>
-</div></section>
-
-<section class="bolum" style="padding-top:0"><div class="kap">
-  <div class="kart haftalik">
-    <div class="haftalik-ust">
-      <h2>Bu haftanın materyalleri</h2>
-      <span class="etiket" id="hafta-etiket"></span>
+<main class="kap">
+  <section class="adim" id="a1">
+    <div class="adim-bas"><span class="adim-no">1</span><h2>Sınıfını seç</h2></div>
+    <div class="secimler">
+      <button class="secim" style="--renk:var(--mavi);--renk-a:var(--mavi-a)" data-sinif="1" aria-pressed="true"><span class="ik">1</span><b>1. Sınıf</b><span>Türkçe, Matematik</span></button>
+      <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">2</span><b>2. Sınıf</b><span>Yakında</span></div>
+      <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">3</span><b>3. Sınıf</b><span>Yakında</span></div>
+      <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">4</span><b>4. Sınıf</b><span>Yakında</span></div>
     </div>
-    <div class="seritler" id="haftalik"></div>
-  </div>
-</div></section>
+  </section>
 
+  <section class="adim" id="a2">
+    <div class="adim-bas"><span class="adim-no">2</span><h2>Dersini seç</h2></div>
+    <div class="secimler" id="dersler">
+      <button class="secim" style="--renk:var(--mercan);--renk-a:var(--mercan-a)" data-ders="turkce"><span class="ik">Aa</span><b>Türkçe</b><span>İlk okuma yazma · 29 harf</span></button>
+      <button class="secim" style="--renk:var(--mavi);--renk-a:var(--mavi-a)" data-ders="matematik"><span class="ik">12</span><b>Matematik</b><span>36 hafta · oyunlu kâğıtlar</span></button>
+      <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">🌿</span><b>Hayat Bilgisi</b><span>Yakında</span></div>
+    </div>
+  </section>
+
+  <section class="adim kilitli" id="a3">
+    <div class="adim-bas"><span class="adim-no">3</span><div><h2 id="a3-baslik">Harfini ya da haftanı seç</h2><small id="a3-not"></small></div></div>
+    <div class="durak-serit" id="serit"></div>
+  </section>
+
+  <section class="adim kilitli" id="a4">
+    <div class="adim-bas"><span class="adim-no">4</span><h2 id="a4-baslik">Kâğıtlar</h2></div>
+    <div class="kagitlar" id="kagitlar"></div>
+  </section>
 </main>
 
-<footer class="alt"><div class="kap"><span>Ladin Ormanı</span><span>MEB Maarif Modeli'ne uygun materyaller</span><a href="kvkk.html">KVKK Aydınlatma Metni</a></div></footer>
+
+<footer class="alt"><div class="kap"><span>Ladin Ormanı · MEB Maarif Modeli'ne uygun materyaller</span><a href="kvkk.html">KVKK Aydınlatma Metni</a></div></footer>
 
 <script src="ortak.js"></script>
 <script type="module" src="uyelik.js"></script>
 <script>
 (function(){
-  var kutu = document.getElementById("haftalik"), et = document.getElementById("hafta-etiket");
-  var TUR = {calisma:"Çalışma kâğıdı", oyun:"Oyun"};
-  Promise.all([LADIN.takvimYukle().catch(function(){return null;}), LADIN.materyalYukle()]).then(function(r){
-    var tk = r[0], mats = r[1] || [];
-    var h = tk ? LADIN.buHafta(tk) : null;
-    et.textContent = h ? (h.tatil ? h.etiket : h.hafta + ". hafta · " + h.tarih) : "";
-    var bu = h && !h.tatil ? mats.filter(function(m){ return m.hafta === h.hafta; }) : [];
-    if (h && h.tatil){ kutu.outerHTML = '<div class="bos">'+h.etiket+'. İyi dinlenmeler!</div>'; return; }
-    // Materyal yoksa bu haftanın 1. sınıf planını göster
-    var L = LADIN.liste, kartlar = bu.map(function(m){
-      return '<a class="mat" href="'+(m.dosya||"1-sinif.html")+'"><span class="etiket">'+(TUR[m.tur]||m.tur)+'</span><b>'+m.baslik+'</b><small>'+m.sinif+'. sınıf</small></a>';
-    });
-    if (!kartlar.length && h){
-      var d = h.dersler, P = [["Türkçe", d.turkce], ["Matematik", d.matematik], ["Hayat Bilgisi", d.hayat_bilgisi]];
-      kartlar = P.filter(function(p){ return p[1]; }).map(function(p){
-        var x = p[1];
-        var un = L(x.unite || x.tema).map(LADIN.baslik).join(" → ");
-        var ust = x.harfler && L(x.harfler).length ? "Harf: " + L(x.harfler).join(", ") : un;
-        var alt = L(x.konu).join(" · ") || un;
-        return '<a class="mat" href="takvim.html#simdi"><span class="etiket">1. sınıf · '+p[0]+'</span><b>'+ust+'</b><small>'+alt+'</small></a>';
-      });
-      kutu.insertAdjacentHTML("afterend", '<p style="margin:4px 0 0;color:var(--yazi-2);font-size:14px">Materyaller hazırlanıyor. Şimdilik bu haftanın planı görünüyor.</p>');
+  var HARF = ["A","N","E","T","İ","L","O","K","U","R","I","M","Ü","S","Ö","Y","D","Z","Ç","B","G","C","Ş","P","H","V","Ğ","F","J"];
+  var RENK = {turkce:["var(--mercan)","var(--mercan-a)"], matematik:["var(--mavi)","var(--mavi-a)"]};
+  var MATS = [], TK = null, ders = null, sec = null, buHafta = null;
+  var $ = function(id){ return document.getElementById(id); };
+
+  function dersSec(d){
+    ders = d; sec = null;
+    document.querySelectorAll("[data-ders]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.ders === d); });
+    document.body.style.setProperty("--renk", RENK[d][0]); document.body.style.setProperty("--renk-a", RENK[d][1]);
+    $("a3").classList.remove("kilitli");
+    var s = $("serit");
+    if (d === "turkce") {
+      $("a3-baslik").textContent = "Sınıfın hangi harfte?"; $("a3-not").textContent = "";
+      s.innerHTML = HARF.map(function(h){ return '<button class="durak" data-s="'+h+'">'+h+'</button>'; }).join("");
+    } else {
+      $("a3-baslik").textContent = "Hangi hafta?"; $("a3-not").textContent = buHafta ? "Sarı olan bu hafta." : "";
+      var hs = MATS.filter(function(m){ return m.ders === "matematik" && m.hafta; }).map(function(m){ return m.hafta; });
+      s.innerHTML = hs.map(function(h){ return '<button class="durak hafta'+(h === buHafta ? ' bu' : '')+'" data-s="'+h+'">'+h+'. hafta</button>'; }).join("");
     }
-    if (!kartlar.length){ kutu.outerHTML = '<div class="bos">Bu haftanın materyalleri hazırlanıyor.</div>'; return; }
-    kutu.innerHTML = kartlar.join("");
+    $("a4").classList.add("kilitli"); $("kagitlar").innerHTML = "";
+    $("a3").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+
+  function adimSec(v){
+    sec = v;
+    document.querySelectorAll(".durak").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.s === String(v)); });
+    var l = MATS.filter(function(m){ return m.ders === ders && !m.harfler && !/paket/.test(m.id) && (ders === "turkce" ? m.harf === v : String(m.hafta) === String(v)); });
+    $("a4-baslik").textContent = ders === "turkce" ? v + " harfinin kâğıtları" : v + ". haftanın kâğıtları";
+    $("kagitlar").innerHTML = l.map(function(m){
+      return '<article class="kagit"><div class="on"><img src="'+m.resim+'" alt="" loading="lazy"></div><div class="ic"><b>'+m.baslik.replace(/^\d+\. Hafta · /,"")+'</b><small>'+(m.unite||"")+'</small><a class="indir" href="'+m.dosya+'">PDF indir</a></div></article>';
+    }).join("") || '<p>Bu seçim için kâğıt hazırlanıyor.</p>';
+    $("a4").classList.remove("kilitli");
+    $("a4").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+
+  $("dersler").addEventListener("click", function(e){ var b = e.target.closest("[data-ders]"); if (b) dersSec(b.dataset.ders); });
+  $("serit").addEventListener("click", function(e){ var b = e.target.closest(".durak"); if (b) adimSec(ders === "turkce" ? b.dataset.s : +b.dataset.s); });
+  Promise.all([LADIN.takvimYukle().catch(function(){ return null; }), LADIN.materyalYukle()]).then(function(r){
+    TK = r[0]; MATS = r[1] || []; var h = TK ? LADIN.buHafta(TK) : null; buHafta = h && !h.tatil ? h.hafta : null;
   });
 })();
 </script>
