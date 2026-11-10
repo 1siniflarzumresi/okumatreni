@@ -21,7 +21,13 @@ def cizgiler(im, eksen):
 
 def seffaf(rgb):
     gri = rgb.convert('L'); W, H = gri.size
-    isaret = gri.point(lambda v: 255 if v > 236 else 0)
+    # zemin rengi: köşe pikseli (beyaz ya da açık düz renk). Ona yakın pikseller kenardan doldurularak şeffaf olur.
+    z = rgb.getpixel((2, 2)); px = rgb.load()
+    isaret = Image.new('L', (W, H), 0); ip = isaret.load()
+    for y in range(H):
+        for x in range(W):
+            r, g, b = px[x, y][:3]
+            if (abs(r - z[0]) + abs(g - z[1]) + abs(b - z[2]) < 40) or min(r, g, b) > 236: ip[x, y] = 255
     for x, y in [(x, 0) for x in range(0, W, 9)] + [(x, H - 1) for x in range(0, W, 9)] + [(0, y) for y in range(0, H, 9)] + [(W - 1, y) for y in range(0, H, 9)]:
         if isaret.getpixel((x, y)) == 255: ImageDraw.floodfill(isaret, (x, y), 128)
     alfa = isaret.point(lambda v: 0 if v == 128 else 255)

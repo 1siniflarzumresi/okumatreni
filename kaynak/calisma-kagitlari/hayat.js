@@ -85,7 +85,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
 
   // ---------- genel etkinlikler (resimler-hayat ile) ----------
   const ciz = (yonerge, mm = 110) => etk(0, yonerge, `<div class="kutu-ciz" style="height:${mm}mm"></div>`);
-  const daireIcine = (yonerge, liste, t) => etk(0, yonerge, `<div class="yiyecek">${karistir(liste, R(t)).map(a => `<span>${resim(a)}</span>`).join('')}</div>`);
+  const daireIcine = (yonerge, liste, t) => etk(0, yonerge, `<div class="yiyecek" style="grid-template-columns:repeat(${liste.length > 6 ? Math.ceil(liste.length / 2) : liste.length},1fr)">${karistir(liste, R(t)).map(a => `<span>${resim(a)}</span>`).join('')}</div>`);
   const esle = (yonerge, ciftler, t) => { const sag = karistir(ciftler.map(c => c[1]), R(t));
     return etk(0, yonerge, `<div class="esles hb"><div class="sol">${ciftler.map(([a]) => `<div>${resim(a)}<i></i></div>`).join('')}</div><div class="sag">${sag.map(b => `<div><i></i>${b.startsWith('<') ? b : resim(b)}</div>`).join('')}</div></div>`); };
   const sirala = (yonerge, liste) => etk(0, yonerge, `<div class="sirala-r">${liste.map(a => `<div>${resim(a)}${kutuK}</div>`).join('')}</div>`);
@@ -100,6 +100,19 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
     `<div class="ortala">${sahne(600, 430, '<path d="M300 420 V180" stroke="#8e5b2b" stroke-width="24"/><path d="M300 220 L160 120 M300 220 L440 120 M300 260 L150 260 M300 260 L450 260" stroke="#8e5b2b" stroke-width="12" stroke-linecap="round"/><circle cx="300" cy="110" r="120" fill="#7bd3a8" opacity=".35"/>' + [[95, 40], [385, 40], [35, 200], [445, 200], [235, 290]].map(([x, y]) => `<rect x="${x}" y="${y}" width="130" height="115" rx="12" fill="#fff" stroke="#2e8b57" stroke-width="4"/>`).join(''), 178)}</div>`);
   const nezaket = () => etk(0, 'Sihirli sözcükler! Öğretmenin okusun. Hangi durumda hangisini söylersin? Çizgiyle eşleştir.',
     `<div class="esles hb"><div class="sol">${['tesekkur', 'kapi-cal', 'aile-sofrasi', 'paylas'].map(a => `<div>${resim(a)}<i></i></div>`).join('')}</div><div class="sag">${['Lütfen', 'Teşekkür ederim', 'Afiyet olsun', 'Girebilir miyim?'].map(m => `<div><i></i><b class="ttkb">${m}</b></div>`).join('')}</div></div>`);
+
+
+  // ---------- ülkem, doğa, bilim ----------
+  const ayir = (yonerge, kutular, ogeler, t) => etk(0, yonerge,
+    `<div class="ayir"><div class="ayir-oge">${karistir(ogeler, R(t)).map(a => `<span>${resim(a)}</span>`).join('')}</div><div class="ayir-kutu">${kutular.map(([ad, renk]) => `<div style="border-color:${renk}"><b class="ttkb" style="color:${renk}">${ad}</b></div>`).join('')}</div></div>`);
+  const yuzerBatar = (liste) => etk(0, 'Suya atınca yüzer mi, batar mı? Önce tahmin et, sonra bir kapta dene. Doğru kutuyu boya.',
+    `<table class="cizelge yb"><tr><th></th><th class="ttkb">Tahminim</th><th class="ttkb">Denedim</th></tr>${liste.map(a => `<tr><td>${resim(a)}</td>${[0, 1].map(() => '<td><span class="ttkb yb-s">yüzer</span><span class="ttkb yb-s">batar</span></td>').join('')}</tr>`).join('')}</table>`);
+  const renkKaristir = () => etk(0, 'Renkleri karıştıralım! İki rengi boyayla karıştır, oluşan rengi boş daireye boya.',
+    `<div class="renkler">${[['#e63946', '#ffd23f'], ['#ffd23f', '#3a86ff'], ['#3a86ff', '#e63946']].map(([a, b]) => `<div><i style="background:${a}"></i><b>+</b><i style="background:${b}"></i><b>=</b><i></i></div>`).join('')}</div>`);
+  const buyutecle = () => etk(0, 'Büyüteçle bak! Bahçeden bir yaprak, bir taş ya da bir çiçek getir. Büyüteçle gördüğünü dairenin içine çiz.',
+    `<div class="ortala">${sahne(520, 300, '<circle cx="230" cy="140" r="130" fill="#fff" stroke="#8e5b2b" stroke-width="16"/><circle cx="230" cy="140" r="122" fill="none" stroke="#9fd3f5" stroke-width="4"/><path d="M325 235 L470 290" stroke="#8e5b2b" stroke-width="30" stroke-linecap="round"/>', 150)}</div>`);
+  const ATA = () => etk(0, 'Anıtkabir\'i tanıyalım. Resmi incele. Atatürk\'e bir teşekkür resmi çiz.',
+    `<div class="ata"><span>${resim('anitkabir')}</span><div class="kutu-ciz" style="height:70mm"></div></div>`);
 
   const HB = {
     'hafta-01': { unite: 1, hafta: 1, baslik: 'Haydi Tanışalım', konu: 'Haydi tanışalım', sayfalar: () => [
@@ -158,6 +171,62 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
       numarala([sirala('Sabah rutinim! Resimleri olacak sıraya göre 1, 2, 3, 4 diye numarala.', ['dis-fircala', 'uyu', 'okul-servisi', 'aile-sofrasi']), dy([['su-ic', 'Gün içinde su içmek'], ['cips', 'Her gün cips ve gazoz yemek'], ['ip-atla', 'Hareket etmek, oynamak']])]),
       numarala([cizelge('Temizlik çizelgem: yaptığın günün kutusunu boya.', ['dis-fircala', 'el-yika', 'dus', 'tirnak'])]),
     ] },
+    'hafta-21': { unite: 4, hafta: 21, baslik: 'Atatürk\'ü Tanıyalım', konu: 'Atatürk\'ü tanıyalım', sayfalar: () => [
+      numarala([ATA(), daireIcine('Atatürk\'ü anarken hangi resimler bize onu hatırlatır? Daire içine al.', ['anitkabir', 'cocuk-bayrami', 'okul', 'kitap', 'ip-atla', 'cips', 'gitar', 'seker-tabagi'], 21)]),
+      numarala([bayrakBoya(), ciz('29 Ekim Cumhuriyet Bayramı\'nda okulunu süsle: bayrakları ve süsleri çiz.', 80)]),
+    ] },
+    'hafta-22': { unite: 4, hafta: 22, baslik: 'Al Bayrağı, Koş Bayrama', konu: 'Atatürk\'ü tanıyalım · Al bayrağı, koş bayrama', sayfalar: () => [
+      numarala([esle('Hangi bayramda ne yaparız? Resimleri eşleştir.', [['cocuk-bayrami', 'okul'], ['el-op', 'seker-tabagi'], ['anitkabir', 'kitap']], 22), dogruBayrak()]),
+      numarala([dy([['cocuk-bayrami', '23 Nisan\'da gösteriye katılmak'], ['anitkabir', 'Anıtkabir\'i ziyaret etmek'], ['bagir', 'İstiklal Marşı okunurken konuşmak']]), ciz('23 Nisan Ulusal Egemenlik ve Çocuk Bayramı! Bayram coşkunu çiz.', 90)]),
+    ] },
+    'hafta-23': { unite: 4, hafta: 23, baslik: 'Bayram Coşkusu', konu: 'Al bayrağı, koş bayrama', sayfalar: () => [
+      numarala([duyguCiz(['cocuk-bayrami', 'anitkabir', 'seker-tabagi']), dy([['cocuk-bayrami', 'Törende arkadaşlarımla bayrak sallamak'], ['bagir', 'Saygı duruşunda konuşmak'], ['okul', 'Okulu bayram için süslemek']])]),
+      numarala([bayrakYap(), ciz('Bayramda ailenle neler yaptın? Çiz.', 70)]),
+    ] },
+    'hafta-24': { unite: 4, hafta: 24, baslik: 'El Öpenleriniz Çok Olsun', konu: 'El öpenleriniz çok olsun', sayfalar: () => [
+      numarala([daireIcine('Bayramlarda neler yaparız? Bayramla ilgili resimleri daire içine al.', ['el-op', 'seker-tabagi', 'aile-sofrasi', 'buyukanne', 'tesekkur', 'okul-servisi', 'duman', 'yangin-tupu'], 24), dy([['el-op', 'Büyüklerimizin elini öpmek'], ['tesekkur', 'Bayram harçlığına teşekkür etmek'], ['cips', 'Tüm şekerleri bir anda yemek']])]),
+      numarala([duyguCiz(['el-op', 'seker-tabagi', 'aile-sofrasi']), ciz('Bayramda ziyaret ettiğin bir büyüğünü çiz.', 100)]),
+    ] },
+    'hafta-25': { unite: 4, hafta: 25, baslik: 'Yaşadığım Yer', konu: 'El öpenleriniz çok olsun · Yaşadığım yer', sayfalar: () => [
+      numarala([daireIcine('Ülkemizde hepsi var! Senin yaşadığın yere benzeyen resmi daire içine al.', ['koy', 'sehir', 'deniz', 'tarla', 'dag', 'cami', 'kopru', 'okul'], 25), ciz('Yaşadığın yeri çiz: evin, sokağın, okulun.', 80)]),
+      numarala([esle('Nerede ne olur? Eşleştir.', [['tarla', 'inek'], ['deniz', 'balik'], ['sehir', 'otobus'], ['koy', 'tavuk']], 26)]),
+    ] },
+    'hafta-28': { unite: 5, hafta: 28, baslik: 'Afetleri Tanıyalım', konu: 'Afetleri tanıyalım', sayfalar: () => [
+      numarala([esle('Afet olunca ne yaparız? Afeti doğru davranışla eşleştir.', [['deprem', 'deprem'], ['orman-yangini', 'telefon-112'], ['sel', 'kaldirim']], 28), dy([['deprem', 'Depremde çök, kapan, tutun yapmak'], ['orman-yangini', 'Ormanda ateş yakmak'], ['sel', 'Sel suyunda oynamak']])]),
+      numarala([acilAdim(), ciz('Ailenle toplanma yerinizi çiz.', 70)]),
+    ] },
+    'hafta-29': { unite: 5, hafta: 29, baslik: 'Hazırlıklıyım', konu: 'Afetleri tanıyalım', sayfalar: () => [
+      numarala([daireIcine('Afet çantasına neler koyarız? Daire içine al.', ['su-ic', 'ilac', 'fener', 'ekmek', 'eldiven', 'gitar', 'top', 'tablet'], 29), dy([['yangin-tupu', 'Yangın tüpünün yerini bilmek'], ['telefon-112', '112\'yi şaka için aramak']])]),
+      numarala([esle('Hangi afette ne işimize yarar? Eşleştir.', [['orman-yangini', 'yangin-tupu'], ['deprem', 'fener'], ['sel', 'telefon-112']], 291), ciz('Evinde depremde güvenli bir yer bul ve çiz.', 90)]),
+    ] },
+    'hafta-30': { unite: 5, hafta: 30, baslik: 'Atma, Yazık Olur', konu: 'Atma yazık olur', sayfalar: () => [
+      numarala([ayir('Atıkları doğru kutuya çizgiyle götür: plastik maviye, kâğıt sarıya, cam yeşile.', [['plastik', '#3a86ff'], ['kâğıt', '#f4a100'], ['cam', '#12b886']], ['plastik-sise', 'kagit', 'cam-kavanoz', 'gazete', 'sise', 'kutu'], 30)]),
+      numarala([dy([['cop-at', 'Çöpü çöp kutusuna atmak'], ['geri-donusum', 'Atıkları ayırmak'], ['plastik-sise', 'Şişeyi yere atmak']]), ciz('Eski bir kutuyu ya da şişeyi yeni bir şeye dönüştür: tasarımını çiz.', 70)]),
+    ] },
+    'hafta-31': { unite: 5, hafta: 31, baslik: 'Dünyamızı Koruyalım', konu: 'Atma yazık olur', sayfalar: () => [
+      numarala([ayir('Hangisi hangi kutuya? Çizgiyle eşleştir.', [['plastik', '#3a86ff'], ['kâğıt', '#f4a100'], ['cam', '#12b886']], ['plastik-sise', 'kagit', 'cam-kavanoz', 'kitap', 'bardak', 'gazete'], 31), daireIcine('Dünyayı mutlu edenleri daire içine al.', ['geri-donusum', 'cicek-sula', 'cop-at', 'orman-yangini', 'plastik-sise', 'gokkusagi'], 32)]),
+      numarala([daireIcine('Hangileri geri dönüşür? Daire içine al.', ['plastik-sise', 'kagit', 'cam-kavanoz', 'gazete', 'elma', 'yaprak', 'sise', 'kutu'], 311), ciz('Dünya\'ya bir mektup resmi çiz: onu nasıl koruyacağını göster.', 100)]),
+    ] },
+    'hafta-32': { unite: 6, hafta: 32, baslik: 'Bilimin Peşindeyiz', konu: 'Bilimin peşindeyiz', sayfalar: () => [
+      numarala([buyutecle(), esle('Hangi araçla neye bakarız? Eşleştir.', [['buyutec', 'yaprak'], ['teleskop', 'yildiz'], ['mikroskop', 'el']], 33)]),
+      numarala([yuzerBatar(['kasik', 'yaprak', 'top', 'anahtar', 'elma'])]),
+    ] },
+    'hafta-33': { unite: 6, hafta: 33, baslik: 'Küçük Bilim İnsanı', konu: 'Bilimin peşindeyiz · Teknolojiyi keşfedelim', sayfalar: () => [
+      numarala([yuzerBatar(['kalem', 'mantar', 'jeton', 'balon'])]),
+      numarala([daireIcine('Bilim insanı hangi araçları kullanır? Daire içine al.', ['buyutec', 'teleskop', 'mikroskop', 'kitap', 'kalem', 'top', 'cips', 'gitar'], 331), ciz('Merak ettiğin bir soru var mı? Sorunu resimle anlat, öğretmenin yazsın.', 100)]),
+    ] },
+    'hafta-34': { unite: 6, hafta: 34, baslik: 'Teknolojiyi Keşfedelim', konu: 'Teknolojiyi keşfedelim', sayfalar: () => [
+      numarala([esle('Eskiden ve şimdi! Eski aracı bugünkü haliyle eşleştir.', [['radyo', 'tablet'], ['fener', 'lamba'], ['kitap', 'bilgisayar']], 34), dy([['tablet', 'Tableti kısa süre kullanmak'], ['bilgisayar', 'Gece geç saate kadar oyun oynamak']])]),
+      numarala([daireIcine('Hangileri teknoloji ürünüdür? Daire içine al.', ['bilgisayar', 'tablet', 'telefon-112', 'radyo', 'lamba', 'elma', 'yaprak', 'top'], 341), ciz('Geleceğin bir icadını tasarla! Neye yarayacağını çiz.', 100)]),
+    ] },
+    'hafta-35': { unite: 6, hafta: 35, baslik: 'Sanat Bize İyi Gelir', konu: 'Sanat bize iyi gelir', sayfalar: () => [
+      numarala([renkKaristir(), daireIcine('Sanat yaparken hangilerini kullanırız? Daire içine al.', ['palet', 'keman', 'kil', 'gitar', 'davul', 'piyano', 'tencere', 'telefon-112'], 35)]),
+      numarala([duyguCiz(['keman', 'gitar', 'davul']), ciz('Bir müzik dinle. Müzik sana ne hissettirdi? Renklerle çiz.', 110)]),
+    ] },
+    'hafta-36': { unite: 6, hafta: 36, baslik: 'Sergimiz', konu: 'Sanat bize iyi gelir', sayfalar: () => [
+      numarala([esle('Hangi sanatçı ne kullanır? Eşleştir.', [['palet', 'kalem'], ['keman', 'nota'], ['kil', 'cam-kavanoz']], 36), duyguCiz(['keman', 'palet', 'kil'])]),
+      numarala([dy([['palet', 'Arkadaşımın resmine saygı göstermek'], ['kil', 'Sergideki eserlere izinsiz dokunmak']]), ciz('Sınıf sergimiz için en güzel resmini çiz ve adını koy.', 110)]),
+    ] },
     'hafta-06': { unite: 1, hafta: 6, baslik: 'Ben Kimim?', konu: 'Nasıl görünüyor, neler hissediyorum?', sayfalar: () => [
       numarala([benKarti(), duyguTanit(), duyguCiz(['hediye', 'orumcek', 'yagmur'])]),
       numarala([duyguCiz(['balon', 'dondurma', 'kopek', 'yilan', 'kek', 'kar']), benzerFarkli()]),
@@ -214,7 +283,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
 .bf-k{border:.6mm solid;border-radius:999px;text-align:center;padding:1.5mm;font:5mm TTKB,sans-serif}
 .bf-k.yesil{border-color:#12b886;color:#0b7a59}.bf-k.turuncu{border-color:#f4a100;color:#a86a00}
 .yiyecek{display:grid;grid-template-columns:repeat(6,1fr);gap:3mm}
-.yiyecek span{aspect-ratio:1;background:#fff;border-radius:50%;padding:3mm;border:.5mm solid #cfd8d1;display:block}
+.yiyecek span{min-width:0;aspect-ratio:1;background:#fff;border-radius:50%;padding:3mm;border:.5mm solid #cfd8d1;display:block}
 .gunum{display:grid;grid-template-columns:repeat(5,1fr);gap:3mm}
 .gunum>div{display:flex;flex-direction:column;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:2.5mm}
 .gunum b{font-weight:400;font-size:6mm}.gunum img,.gunum svg{width:14mm;height:14mm}
@@ -231,6 +300,13 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
 .acil{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
 .acil>div{display:flex;flex-direction:column;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:3mm}
 .acil b{font-weight:400;font-size:7mm;color:#e63946}.acil img{width:42mm;height:42mm}
+.ayir{display:flex;flex-direction:column;gap:6mm}
+.ayir-oge{display:grid;grid-template-columns:repeat(6,1fr);gap:3mm}.ayir-oge span{background:#fff;border-radius:3mm;padding:2mm;display:flex;justify-content:center}.ayir-oge span{min-width:0}.ayir-oge img{width:100%;height:24mm;object-fit:contain}
+.ayir-kutu{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}.ayir-kutu>div{height:70mm;border:1.2mm solid;border-radius:4mm 4mm 10mm 10mm;background:#fff;display:flex;justify-content:center;padding-top:3mm}.ayir-kutu b{font-weight:400;font-size:8mm}
+.yb td{padding:2mm}.yb-s{display:inline-block;border:.5mm solid #4a5a50;border-radius:999px;padding:1mm 3mm;margin:0 1mm;font-size:5.5mm}
+.renkler{display:flex;flex-direction:column;gap:4mm}.renkler>div{display:flex;align-items:center;justify-content:center;gap:5mm;background:#fff;border-radius:3mm;padding:3mm}
+.renkler i{width:24mm;height:24mm;border-radius:50%;border:.6mm solid #1f2a24;display:block}.renkler b{font:400 10mm TTKB,sans-serif}
+.ata{display:grid;grid-template-columns:70mm 1fr;gap:5mm;align-items:center}.ata img{width:70mm;height:70mm}
 .kutu-ciz{width:100%;height:120mm;border:.5mm dashed #9fc6ef;border-radius:3mm}
 .lambalar{display:flex;align-items:center;justify-content:space-around;background:#fff;border-radius:3mm;padding:4mm}
 .lambalar svg{height:70mm;width:auto}
