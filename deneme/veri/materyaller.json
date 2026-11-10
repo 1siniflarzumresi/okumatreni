@@ -896,5 +896,93 @@
   "baslik": "Matematik 34-36. Hafta toplu paket",
   "dosya": "materyaller/1-sinif/matematik/matematik-hafta-34-36.pdf",
   "resim": "materyaller/1-sinif/matematik/hafta-34-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-06",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Ben ve Okulum",
+  "hafta": 6,
+  "baslik": "6. Hafta · Ben Kimim?",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-06.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-06-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-07",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Sağlığım ve Güvenliğim",
+  "hafta": 7,
+  "baslik": "7. Hafta · Sağlıklı Hayat",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-07.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-07-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-09",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Sağlığım ve Güvenliğim",
+  "hafta": 9,
+  "baslik": "9. Hafta · Trafik Işığı",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-09.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-09-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-10",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Sağlığım ve Güvenliğim",
+  "hafta": 10,
+  "baslik": "10. Hafta · Okul Yolunda",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-10.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-10-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-19",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Yaşadığım Yer ve Ülkem",
+  "hafta": 19,
+  "baslik": "19. Hafta · Bayrağım",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-19.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-19-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-20",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Yaşadığım Yer ve Ülkem",
+  "hafta": 20,
+  "baslik": "20. Hafta · İstiklâl Marşı",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-20.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-20-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-26",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Doğa ve Çevre",
+  "hafta": 26,
+  "baslik": "26. Hafta · Güneş, Dünya, Ay",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-26.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-26-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-27",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Doğa ve Çevre",
+  "hafta": 27,
+  "baslik": "27. Hafta · Gökyüzünde Neler Var?",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-27.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-27-onizleme.png"
  }
 ]

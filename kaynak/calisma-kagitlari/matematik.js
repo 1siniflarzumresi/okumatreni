@@ -827,5 +827,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .agir span{width:22mm;height:22mm;display:block}
 .ik{width:9mm;height:9mm;border-radius:50%;background:#2e6b4a;color:#fff;display:grid;place-items:center;font:700 6mm Andika,sans-serif}
 `;
-  return { MAT, CSS };
+  // Hayat Bilgisi modülünün kullandığı ortak çizim araçları
+  const ARAC = { R, karistir, sahne, IMGm, gorev, kutuK, grup, yuz, satirSvg2, agac, araba, boyut };
+  return { MAT, CSS, ARAC };
 };

@@ -68,7 +68,7 @@ h1 em{font-style:normal;color:var(--mavi)}
 <body>
 <header class="ust"><div class="kap">
   <a class="logo" href="index.html"><svg viewBox="0 0 34 40" aria-hidden="true"><path d="M17 2 26 13h-4l7 9h-5l7 10H3l7-10H5l7-9H8z" fill="#2e8b57"/><rect x="14.5" y="32" width="5" height="7" rx="1" fill="#c48a4f"/></svg>Ladin Ormanı</a>
-  <nav aria-label="Ana menü"><a class="ders-l" href="index.html#turkce">Türkçe</a><a class="ders-l" href="index.html#matematik">Matematik</a><a class="ders-l" href="../oyunlar.html">Oyunlar</a><a href="takvim.html">Takvim</a><span class="ayrac-m"></span></nav><span id="uye-alani"></span>
+  <nav aria-label="Ana menü"><a class="ders-l" href="index.html#turkce">Türkçe</a><a class="ders-l" href="index.html#matematik">Matematik</a><a class="ders-l" href="index.html#hayat_bilgisi">Hayat Bilgisi</a><a class="ders-l" href="../oyunlar.html">Oyunlar</a><a href="takvim.html">Takvim</a><span class="ayrac-m"></span></nav><span id="uye-alani"></span>
 </div></header>
 
 <section class="kahraman"><div class="kap">
@@ -93,7 +93,7 @@ h1 em{font-style:normal;color:var(--mavi)}
   <section class="adim" id="a1">
     <div class="adim-bas"><span class="adim-no">1</span><h2>Sınıfını seç</h2></div>
     <div class="secimler">
-      <button class="secim" style="--renk:var(--mavi);--renk-a:var(--mavi-a)" data-sinif="1" aria-pressed="true"><span class="ik">1</span><b>1. Sınıf</b><span>Türkçe, Matematik</span></button>
+      <button class="secim" style="--renk:var(--mavi);--renk-a:var(--mavi-a)" data-sinif="1" aria-pressed="true"><span class="ik">1</span><b>1. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi</span></button>
       <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">2</span><b>2. Sınıf</b><span>Yakında</span></div>
       <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">3</span><b>3. Sınıf</b><span>Yakında</span></div>
       <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">4</span><b>4. Sınıf</b><span>Yakında</span></div>
@@ -105,7 +105,7 @@ h1 em{font-style:normal;color:var(--mavi)}
     <div class="secimler" id="dersler">
       <button class="secim" style="--renk:var(--mercan);--renk-a:var(--mercan-a)" data-ders="turkce"><span class="ik">Aa</span><b>Türkçe</b><span>İlk okuma yazma · 29 harf</span></button>
       <button class="secim" style="--renk:var(--mavi);--renk-a:var(--mavi-a)" data-ders="matematik"><span class="ik">12</span><b>Matematik</b><span>36 hafta · oyunlu kâğıtlar</span></button>
-      <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">🌿</span><b>Hayat Bilgisi</b><span>Yakında</span></div>
+      <button class="secim" style="--renk:var(--yesil);--renk-a:var(--yesil-a)" data-ders="hayat_bilgisi"><span class="ik">🌿</span><b>Hayat Bilgisi</b><span>Haftalık · hazırlanıyor</span></button>
     </div>
   </section>
 
@@ -128,7 +128,7 @@ h1 em{font-style:normal;color:var(--mavi)}
 <script>
 (function(){
   var HARF = ["A","N","E","T","İ","L","O","K","U","R","I","M","Ü","S","Ö","Y","D","Z","Ç","B","G","C","Ş","P","H","V","Ğ","F","J"];
-  var RENK = {turkce:["var(--mercan)","var(--mercan-a)"], matematik:["var(--mavi)","var(--mavi-a)"]};
+  var RENK = {turkce:["var(--mercan)","var(--mercan-a)"], matematik:["var(--mavi)","var(--mavi-a)"], hayat_bilgisi:["var(--yesil)","var(--yesil-a)"]};
   var MATS = [], TK = null, ders = null, sec = null, buHafta = null;
   var $ = function(id){ return document.getElementById(id); };
 
@@ -143,7 +143,7 @@ h1 em{font-style:normal;color:var(--mavi)}
       s.innerHTML = HARF.map(function(h){ return '<button class="durak" data-s="'+h+'">'+h+'</button>'; }).join("");
     } else {
       $("a3-baslik").textContent = "Hangi hafta?"; $("a3-not").textContent = buHafta ? "Sarı olan bu hafta." : "";
-      var hs = MATS.filter(function(m){ return m.ders === "matematik" && m.hafta; }).map(function(m){ return m.hafta; });
+      var hs = MATS.filter(function(m){ return m.ders === d && m.hafta; }).map(function(m){ return m.hafta; });
       s.innerHTML = hs.map(function(h){ return '<button class="durak hafta'+(h === buHafta ? ' bu' : '')+'" data-s="'+h+'">'+h+'. hafta</button>'; }).join("");
     }
     $("a4").classList.add("kilitli"); $("kagitlar").innerHTML = "";
