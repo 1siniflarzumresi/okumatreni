@@ -63,7 +63,7 @@
     <svg viewBox="0 0 34 40" aria-hidden="true"><path d="M17 2 26 13h-4l7 9h-5l7 10H3l7-10H5l7-9H8z" fill="#2e6b4a"/><path d="M17 2 26 13h-4l7 9h-5l7 10H17z" fill="#1f4d36"/><rect x="14.5" y="32" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>
     Ladin Ormanı
   </a>
-  <nav><a href="index.html">Ana sayfa</a><a href="1-sinif.html" aria-current="page">1. Sınıf</a><a href="takvim.html">Takvim</a></nav>
+  <nav aria-label="Ana menü"><a href="index.html">Ana sayfa</a><a href="1-sinif.html" aria-current="page">1. Sınıf</a><a href="takvim.html">Takvim</a><span id="uye-alani"></span></nav>
 </div></header>
 
 <main class="kap">
@@ -101,13 +101,15 @@
       <label>Ünite / tema<select id="f-unite"><option value="">Tümü</option></select></label>
       <label>Hafta<select id="f-hafta"><option value="">Tüm haftalar</option></select></label>
     </div>
+    <p class="uye-not" data-uye-goster="cikis" hidden>Çalışma kağıtlarını indirmek için <a href="giris.html?donus=1-sinif.html">giriş yapın</a> ya da <a href="giris.html?sekme=kayit&amp;donus=1-sinif.html">ücretsiz kayıt olun</a>.</p>
     <div class="liste" id="liste"></div>
   </section>
 </main>
 
-<footer class="alt"><div class="kap"><span>Ladin Ormanı</span><span>MEB Maarif Modeli'ne uygun materyaller</span></div></footer>
+<footer class="alt"><div class="kap"><span>Ladin Ormanı</span><span>MEB Maarif Modeli'ne uygun materyaller</span><a href="kvkk.html">KVKK Aydınlatma Metni</a></div></footer>
 
 <script src="ortak.js"></script>
+<script type="module" src="uyelik.js"></script>
 <script>
 (function(){
   var HARFLER = ["A","N","E","T","İ","L","O","K","U","R","I","M","Ü","S","Ö","Y","D","Z","Ç","B","G","C","Ş","P","H","V","Ğ","F","J"];

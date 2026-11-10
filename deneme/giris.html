@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Giriş yap / Kayıt ol · Ladin Ormanı</title>
+<meta name="description" content="Ladin Ormanı çalışma kağıtlarını indirmek için giriş yapın ya da ücretsiz kayıt olun.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ladin Ormanı">
+<meta property="og:title" content="Giriş yap / Kayıt ol · Ladin Ormanı">
+<meta property="og:description" content="Ladin Ormanı çalışma kağıtlarını indirmek için giriş yapın ya da ücretsiz kayıt olun.">
+<meta property="og:url" content="https://1siniflarzumresi.github.io/okumatreni/deneme/giris.html">
+<meta property="og:image" content="https://1siniflarzumresi.github.io/okumatreni/deneme/paylasim.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#1f4d36">
+<link rel="preload" href="fontlar/andika-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="ortak.css">
+</head>
+<body>
+<div class="serit" role="region" aria-label="Bugünün tarihi ve hafta"><div class="kap"><span id="serit-tarih"></span><span id="serit-hafta"></span></div></div>
+
+<header class="ust"><div class="kap">
+  <a class="logo" href="index.html">
+    <svg viewBox="0 0 34 40" aria-hidden="true"><path d="M17 2 26 13h-4l7 9h-5l7 10H3l7-10H5l7-9H8z" fill="#2e6b4a"/><path d="M17 2 26 13h-4l7 9h-5l7 10H17z" fill="#1f4d36"/><rect x="14.5" y="32" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>
+    Ladin Ormanı
+  </a>
+  <nav aria-label="Ana menü"><a href="index.html">Ana sayfa</a><a href="1-sinif.html">1. Sınıf</a><a href="takvim.html">Takvim</a><span id="uye-alani"></span></nav>
+</div></header>
+
+<main class="dar">
+  <div class="kart form-kart">
+    <p id="yukleniyor">Yükleniyor…</p>
+
+    <div id="kapali" hidden>
+      <h1>Üyelik yakında</h1>
+      <p>Üyelik sistemi henüz açılmadı. Çalışma kağıtlarını şimdilik giriş yapmadan indirebilirsiniz.</p>
+      <a class="dugme" href="1-sinif.html">Çalışma kağıtlarına git</a>
+    </div>
+
+    <div id="formlar" hidden>
+      <h1 id="baslik">Giriş yap</h1>
+      <p id="neden" hidden>Çalışma kağıtlarını indirmek için giriş yapın. Hesabınız yoksa ücretsiz kayıt olabilirsiniz.</p>
+      <div class="form-sekme" role="tablist" aria-label="Giriş ya da kayıt">
+        <button type="button" role="tab" id="s-giris" aria-controls="p-giris" aria-selected="true">Giriş yap</button>
+        <button type="button" role="tab" id="s-kayit" aria-controls="p-kayit" aria-selected="false">Kayıt ol</button>
+      </div>
+      <div class="bildirim" id="bildirim" role="status" aria-live="polite"></div>
+
+      <form id="p-giris" aria-labelledby="s-giris" novalidate>
+        <label class="alan">E-posta<input id="g-eposta" type="email" autocomplete="email" inputmode="email"></label>
+        <label class="alan">Şifre<input id="g-sifre" type="password" autocomplete="current-password"></label>
+        <button class="dugme genis" type="submit">Giriş yap</button>
+        <p style="margin:8px 0 0;text-align:center"><button type="button" class="baglanti" id="unuttum">Şifremi unuttum</button></p>
+      </form>
+
+      <form id="p-sifirla" hidden novalidate>
+        <h2 style="margin-top:0">Şifre sıfırlama</h2>
+        <p>Kayıtlı e-posta adresinizi yazın; şifrenizi yenilemeniz için bir bağlantı gönderelim.</p>
+        <label class="alan">E-posta<input id="s-eposta" type="email" autocomplete="email" inputmode="email"></label>
+        <button class="dugme genis" type="submit">Sıfırlama bağlantısı gönder</button>
+        <p style="margin:8px 0 0;text-align:center"><button type="button" class="baglanti" id="geri">Girişe dön</button></p>
+      </form>
+
+      <form id="p-kayit" aria-labelledby="s-kayit" hidden novalidate>
+        <p class="veli-not"><b>Veliler için:</b> Öğrenci hesabını çocuğu adına velisi açar. Kayıtta velinin e-posta adresi kullanılmalıdır.</p>
+        <label class="alan">Ad<input id="k-ad" type="text" autocomplete="name" maxlength="60"></label>
+        <label class="alan">E-posta<input id="k-eposta" type="email" autocomplete="email" inputmode="email"></label>
+        <label class="alan">Şifre<input id="k-sifre" type="password" autocomplete="new-password" minlength="6"><small>En az 6 karakter.</small></label>
+      <label class="onay"><input type="checkbox" id="k-ogretmen"><span>Öğretmenim; öğretmen hesabı talep ediyorum. <small>(Talebiniz incelenir. Onaylanana kadar hesabınız öğrenci hesabı olarak açılır.)</small></span></label>
+      <label class="onay"><input type="checkbox" id="k-kvkk"><span><a href="kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>'ni okudum.</span></label>
+      <label class="onay"><input type="checkbox" id="k-riza"><span>Adımın ve e-posta adresimin üyelik için Google Firebase altyapısında (yurt dışındaki sunucularda) saklanmasına açık rıza veriyorum.</span></label>
+        <button class="dugme genis" type="submit">Kayıt ol</button>
+      </form>
+
+      <div id="google-kutu">
+        <div class="ayrac">ya da</div>
+        <button type="button" class="dugme google genis" id="google"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.2C12.4 13.7 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.6 24.5c0-1.6-.1-3.1-.4-4.5H24v9.1h12.7c-.6 3-2.2 5.5-4.7 7.2l7.6 5.9c4.4-4.1 7-10.1 7-17.7z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.2C1 16.5 0 20.1 0 24s1 7.5 2.6 10.8l7.9-6.2z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.3 0-11.6-4.2-13.5-10l-7.9 6.2C6.5 42.6 14.6 48 24 48z"/></svg><span id="google-yazi">Google ile giriş yap</span></button>
+        <p id="google-not" hidden style="font-size:13px;color:var(--yazi-2);margin:8px 0 0">Google ile kayıtta yalnız adınız ve e-posta adresiniz alınır. Yukarıdaki onay kutuları Google ile kayıt için de geçerlidir.</p>
+      </div>
+    </div>
+
+    <form id="tamamla" hidden novalidate>
+      <h1>Kaydı tamamla</h1>
+      <p>Google hesabınızla ilk kez giriş yaptınız. Hesabınızı açmak için aşağıdaki onayları verin.</p>
+      <div class="bildirim" id="t-bildirim" role="status" aria-live="polite"></div>
+      <p class="veli-not"><b>Veliler için:</b> Öğrenci hesabını çocuğu adına velisi açar. Kayıtta velinin e-posta adresi kullanılmalıdır.</p>
+      <label class="alan">Ad<input id="t-ad" type="text" autocomplete="name" maxlength="60"></label>
+      <p class="bilgi-satir" style="margin-bottom:12px"><span>E-posta</span><span id="t-eposta"></span></p>
+      <label class="onay"><input type="checkbox" id="t-ogretmen"><span>Öğretmenim; öğretmen hesabı talep ediyorum. <small>(Talebiniz incelenir. Onaylanana kadar hesabınız öğrenci hesabı olarak açılır.)</small></span></label>
+      <label class="onay"><input type="checkbox" id="t-kvkk"><span><a href="kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>'ni okudum.</span></label>
+      <label class="onay"><input type="checkbox" id="t-riza"><span>Adımın ve e-posta adresimin üyelik için Google Firebase altyapısında (yurt dışındaki sunucularda) saklanmasına açık rıza veriyorum.</span></label>
+      <button class="dugme genis" type="submit">Kaydı tamamla</button>
+      <p style="margin:8px 0 0;text-align:center"><button type="button" class="baglanti" id="t-vazgec">Vazgeç ve çıkış yap</button></p>
+    </form>
+  </div>
+</main>
+
+<footer class="alt"><div class="kap"><span>Ladin Ormanı</span><span>MEB Maarif Modeli'ne uygun materyaller</span><a href="kvkk.html">KVKK Aydınlatma Metni</a></div></footer>
+
+<script src="ortak.js"></script>
+<script type="module">
+import * as U from "./uyelik.js";
+import { DOGRULAMA_ZORUNLU } from "./firebase-ayar.js";
+const $ = id => document.getElementById(id);
+const P = new URLSearchParams(location.search);
+let sekme = P.get("sekme") === "kayit" ? "kayit" : "giris", mesgul = false, yonlendi = false;
+
+function bildir(el, metin, tur) { el.textContent = metin || ""; el.className = "bildirim" + (tur ? " " + tur : ""); }
+function mesgulYap(v) { mesgul = v; document.querySelectorAll("main button").forEach(b => (b.disabled = v)); }
+async function calistir(el, fn) {
+  if (mesgul) return; bildir(el, ""); mesgulYap(true);
+  try { await fn(); } catch (e) { console.error(e); bildir(el, U.hataMesaji(e), "hata"); } finally { mesgulYap(false); }
+}
+function sekmeSec(s) {
+  sekme = s; const kayit = s === "kayit";
+  $("s-giris").setAttribute("aria-selected", !kayit); $("s-kayit").setAttribute("aria-selected", kayit);
+  $("p-giris").hidden = kayit; $("p-kayit").hidden = !kayit; $("p-sifirla").hidden = true; $("google-kutu").hidden = false;
+  $("baslik").textContent = kayit ? "Kayıt ol" : "Giriş yap";
+  $("google-yazi").textContent = kayit ? "Google ile kayıt ol" : "Google ile giriş yap";
+  $("google-not").hidden = !kayit; bildir($("bildirim"), "");
+}
+function onayVar(on, el) {
+  if (!$(on + "-kvkk").checked || !$(on + "-riza").checked) { bildir(el, "Devam etmek için iki onay kutusunu da işaretleyin.", "hata"); return false; }
+  return true;
+}
+function goster(id) { ["yukleniyor", "kapali", "formlar", "tamamla"].forEach(x => ($(x).hidden = x !== id)); }
+function sonraki(d) {
+  const donus = U.donusAdresi();
+  return DOGRULAMA_ZORUNLU && !d.dogrulandi ? "hesap.html?dogrula=1&donus=" + encodeURIComponent(donus) : donus;
+}
+
+$("s-giris").onclick = () => sekmeSec("giris");
+$("s-kayit").onclick = () => sekmeSec("kayit");
+$("unuttum").onclick = () => { $("p-giris").hidden = true; $("p-sifirla").hidden = false; $("google-kutu").hidden = true; $("s-eposta").value = $("g-eposta").value; bildir($("bildirim"), ""); $("s-eposta").focus(); };
+$("geri").onclick = () => sekmeSec("giris");
+
+$("p-giris").addEventListener("submit", ev => { ev.preventDefault();
+  const e = $("g-eposta").value, s = $("g-sifre").value;
+  if (!e.trim() || !s) return bildir($("bildirim"), "E-posta adresinizi ve şifrenizi yazın.", "hata");
+  calistir($("bildirim"), () => U.girisYap(e, s)); });
+
+$("p-sifirla").addEventListener("submit", ev => { ev.preventDefault();
+  const e = $("s-eposta").value;
+  if (!e.trim()) return bildir($("bildirim"), "E-posta adresinizi yazın.", "hata");
+  calistir($("bildirim"), async () => { await U.sifreSifirla(e);
+    bildir($("bildirim"), "Bu adrese kayıtlı bir hesap varsa şifre sıfırlama bağlantısı gönderildi. Gelen kutunuzu ve spam klasörünü kontrol edin.", "tamam"); }); });
+
+$("p-kayit").addEventListener("submit", ev => { ev.preventDefault();
+  const ad = $("k-ad").value.trim(), e = $("k-eposta").value.trim(), s = $("k-sifre").value, B = $("bildirim");
+  if (!ad) return bildir(B, "Adınızı yazın.", "hata");
+  if (!e) return bildir(B, "E-posta adresinizi yazın.", "hata");
+  if (s.length < 6) return bildir(B, "Şifre en az 6 karakter olmalı.", "hata");
+  if (!onayVar("k", B)) return;
+  calistir(B, () => U.kayitOl({ ad, eposta: e, sifre: s, ogretmenTalebi: $("k-ogretmen").checked })); });
+
+$("google").onclick = () => {
+  const B = $("bildirim"), kayit = sekme === "kayit";
+  if (kayit && !onayVar("k", B)) return;
+  calistir(B, async () => {
+    const k = await U.googleIle();
+    // Kayıt sekmesinde onaylar zaten verildi: belge yoksa hemen oluşturulur. Giriş sekmesinde onay adımı gösterilir.
+    if (kayit && U.durum().asama === "eksik") await U.kaydiTamamla({ ad: $("k-ad").value.trim() || k.displayName, ogretmenTalebi: $("k-ogretmen").checked });
+  }); };
+
+$("tamamla").addEventListener("submit", ev => { ev.preventDefault();
+  const B = $("t-bildirim"), ad = $("t-ad").value.trim();
+  if (!ad) return bildir(B, "Adınızı yazın.", "hata");
+  if (!onayVar("t", B)) return;
+  calistir(B, () => U.kaydiTamamla({ ad, ogretmenTalebi: $("t-ogretmen").checked })); });
+$("t-vazgec").onclick = () => calistir($("t-bildirim"), () => U.cikis());
+
+U.durumDegisince(d => {
+  if (d.asama === "kapali") return goster("kapali");
+  if (d.asama === "yukleniyor") return goster("yukleniyor");
+  if (d.asama === "giris") { if (!yonlendi) { yonlendi = true; location.replace(sonraki(d)); } return; }
+  if (d.asama === "eksik") {
+    if (mesgul && sekme === "kayit") return;            // Google ile kayıt sürüyor; belge birazdan yazılacak
+    $("t-ad").value = $("t-ad").value || d.kullanici.displayName || ""; $("t-eposta").textContent = d.kullanici.email || "";
+    return goster("tamamla");
+  }
+  goster("formlar"); sekmeSec(sekme); $("neden").hidden = !P.get("donus");
+});
+</script>
+</body>
+</html>

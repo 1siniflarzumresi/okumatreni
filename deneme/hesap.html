@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hesabım · Ladin Ormanı</title>
+<meta name="description" content="Ladin Ormanı hesap bilgileriniz.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ladin Ormanı">
+<meta property="og:title" content="Hesabım · Ladin Ormanı">
+<meta property="og:description" content="Ladin Ormanı hesap bilgileriniz.">
+<meta property="og:url" content="https://1siniflarzumresi.github.io/okumatreni/deneme/hesap.html">
+<meta property="og:image" content="https://1siniflarzumresi.github.io/okumatreni/deneme/paylasim.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#1f4d36">
+<link rel="preload" href="fontlar/andika-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="ortak.css">
+</head>
+<body>
+<div class="serit" role="region" aria-label="Bugünün tarihi ve hafta"><div class="kap"><span id="serit-tarih"></span><span id="serit-hafta"></span></div></div>
+
+<header class="ust"><div class="kap">
+  <a class="logo" href="index.html">
+    <svg viewBox="0 0 34 40" aria-hidden="true"><path d="M17 2 26 13h-4l7 9h-5l7 10H3l7-10H5l7-9H8z" fill="#2e6b4a"/><path d="M17 2 26 13h-4l7 9h-5l7 10H17z" fill="#1f4d36"/><rect x="14.5" y="32" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>
+    Ladin Ormanı
+  </a>
+  <nav aria-label="Ana menü"><a href="index.html">Ana sayfa</a><a href="1-sinif.html">1. Sınıf</a><a href="takvim.html">Takvim</a><span id="uye-alani"></span></nav>
+</div></header>
+
+<main class="dar">
+  <div class="kart form-kart">
+    <h1>Hesabım</h1>
+    <p id="yukleniyor">Yükleniyor…</p>
+    <div class="bildirim" id="bildirim" role="status" aria-live="polite"></div>
+
+    <div id="icerik" hidden>
+      <div class="veli-not" id="dogrula" hidden>
+        <p style="margin:0 0 8px"><b>E-posta adresinizi doğrulayın.</b> <span id="dogrula-adres"></span> adresine bir doğrulama bağlantısı gönderdik. Bağlantıya tıkladıktan sonra aşağıdaki düğmeye basın. E-posta gelmediyse spam klasörüne bakın.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="dugme" id="dogruladim">Doğruladım</button>
+          <button type="button" class="dugme ikincil" id="yeniden">E-postayı yeniden gönder</button>
+        </div>
+      </div>
+      <p id="devam" hidden><a class="dugme genis" id="devam-link" href="1-sinif.html">Çalışma kağıtlarına dön →</a></p>
+
+      <form id="ad-form" novalidate>
+        <label class="alan">Ad<input id="ad" type="text" autocomplete="name" maxlength="60"></label>
+        <button class="dugme ikincil" type="submit">Adı kaydet</button>
+      </form>
+      <div style="margin:14px 0">
+        <p class="bilgi-satir"><span>E-posta</span><span id="eposta"></span></p>
+        <p class="bilgi-satir"><span>E-posta doğrulaması</span><span id="dogrulama"></span></p>
+        <p class="bilgi-satir"><span>Rol</span><span id="rol"></span></p>
+      </div>
+      <div id="talep-kutu">
+        <label class="onay"><input type="checkbox" id="talep"><span>Öğretmenim; öğretmen hesabı talep ediyorum.</span></label>
+        <p id="talep-durum" style="font-size:14px;color:var(--yazi-2)"></p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
+        <button type="button" class="dugme ikincil" data-uye-cikis>Çıkış yap</button>
+        <button type="button" class="dugme tehlike" id="sil">Hesabımı sil</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="alt"><div class="kap"><span>Ladin Ormanı</span><span>MEB Maarif Modeli'ne uygun materyaller</span><a href="kvkk.html">KVKK Aydınlatma Metni</a></div></footer>
+
+<script src="ortak.js"></script>
+<script type="module">
+import * as U from "./uyelik.js";
+const $ = id => document.getElementById(id);
+const P = new URLSearchParams(location.search);
+let mesgul = false, silindi = false;
+function bildir(metin, tur) { const el = $("bildirim"); el.textContent = metin || ""; el.className = "bildirim" + (tur ? " " + tur : ""); }
+async function calistir(fn) {
+  if (mesgul) return; mesgul = true; bildir(""); document.querySelectorAll("main button").forEach(b => (b.disabled = true));
+  try { await fn(); } catch (e) { console.error(e); bildir(U.hataMesaji(e), "hata"); }
+  finally { mesgul = false; document.querySelectorAll("main button").forEach(b => (b.disabled = false)); }
+}
+const donus = (() => { const d = P.get("donus") || ""; return /^[a-z0-9-]+\.html(?:[?#][^\s]*)?$/i.test(d) && !/^(giris|hesap)\.html/i.test(d) ? d : ""; })();
+
+$("ad-form").addEventListener("submit", ev => { ev.preventDefault();
+  const ad = $("ad").value.trim(); if (!ad) return bildir("Adınızı yazın.", "hata");
+  calistir(async () => { await U.bilgiGuncelle({ ad }); bildir("Adınız kaydedildi.", "tamam"); }); });
+$("talep").addEventListener("change", () => { const v = $("talep").checked;
+  calistir(async () => { await U.bilgiGuncelle({ ogretmenTalebi: v }); bildir(v ? "Öğretmen talebiniz alındı." : "Öğretmen talebiniz geri alındı.", "tamam"); }); });
+$("yeniden").onclick = () => calistir(async () => { await U.dogrulamaGonder(); bildir("Doğrulama e-postası yeniden gönderildi.", "tamam"); });
+$("dogruladim").onclick = () => calistir(async () => { const d = await U.yenile();
+  bildir(d.dogrulandi ? "E-posta adresiniz doğrulandı." : "Doğrulama henüz görünmüyor. E-postadaki bağlantıya tıkladıktan sonra yeniden deneyin.", d.dogrulandi ? "tamam" : "hata"); });
+$("sil").onclick = () => {
+  if (!confirm("Hesabınız ve kayıtlı bilgileriniz kalıcı olarak silinecek. Emin misiniz?")) return;
+  // "silindi" önce işaretlenir: silme sırasında oturum kapanınca sayfa giriş ekranına yönlenmesin.
+  calistir(async () => { silindi = true; try { await U.hesabiSil(); } catch (e) { silindi = false; throw e; } alert("Hesabınız silindi."); location.replace("index.html"); }); };
+
+U.durumDegisince(d => {
+  if (silindi) return;
+  if (d.asama === "kapali") { $("yukleniyor").hidden = true; return bildir("Üyelik henüz açılmadı."); }
+  if (d.asama === "yukleniyor") return;
+  if (d.asama === "cikis") return location.replace(U.girisAdresi());
+  if (d.asama === "eksik") return location.replace(U.girisAdresi("tamamla"));
+  $("yukleniyor").hidden = true; $("icerik").hidden = false;
+  if (document.activeElement !== $("ad")) $("ad").value = d.belge.ad || "";
+  $("eposta").textContent = d.kullanici.email || "";
+  $("dogrulama").textContent = d.dogrulandi ? "Doğrulandı" : "Bekliyor";
+  $("rol").textContent = U.ROLLER[d.rol];
+  $("dogrula").hidden = d.dogrulandi; $("dogrula-adres").textContent = d.kullanici.email || "";
+  $("devam").hidden = !(d.dogrulandi && donus); if (donus) $("devam-link").href = donus;
+  $("talep-kutu").hidden = d.rol === "ogretmen";
+  $("talep").checked = !!d.belge.ogretmenTalebi;
+  $("talep-durum").textContent = d.belge.ogretmenTalebi ? "Talebiniz alındı. Onaylandığında rolünüz burada “Öğretmen” olarak görünür." : "";
+});
+</script>
+</body>
+</html>

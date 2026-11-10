@@ -60,7 +60,7 @@
     <svg viewBox="0 0 34 40" aria-hidden="true"><path d="M17 2 26 13h-4l7 9h-5l7 10H3l7-10H5l7-9H8z" fill="#2e6b4a"/><path d="M17 2 26 13h-4l7 9h-5l7 10H17z" fill="#1f4d36"/><rect x="14.5" y="32" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>
     Ladin Ormanı
   </a>
-  <nav><a href="index.html" aria-current="page">Ana sayfa</a><a href="1-sinif.html">1. Sınıf</a><a href="takvim.html">Takvim</a></nav>
+  <nav aria-label="Ana menü"><a href="index.html" aria-current="page">Ana sayfa</a><a href="1-sinif.html">1. Sınıf</a><a href="takvim.html">Takvim</a><span id="uye-alani"></span></nav>
 </div></header>
 
 <main>
@@ -120,9 +120,10 @@
 </div></section>
 </main>
 
-<footer class="alt"><div class="kap"><span>Ladin Ormanı</span><span>MEB Maarif Modeli'ne uygun materyaller</span></div></footer>
+<footer class="alt"><div class="kap"><span>Ladin Ormanı</span><span>MEB Maarif Modeli'ne uygun materyaller</span><a href="kvkk.html">KVKK Aydınlatma Metni</a></div></footer>
 
 <script src="ortak.js"></script>
+<script type="module" src="uyelik.js"></script>
 <script>
 (function(){
   var kutu = document.getElementById("haftalik"), et = document.getElementById("hafta-etiket");
