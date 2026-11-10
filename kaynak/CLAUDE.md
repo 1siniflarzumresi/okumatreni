@@ -84,3 +84,4 @@ Kullanıcı her şeye onay verdi; onay sormadan yap, kısa yaz, kota hassas.
 6. Yazma yönleri (`yon.js`): A-L onaylı; O'dan J'ye harfler ve 0-9 rakamlar kullanıcı onayı bekliyor.
 7. PDF'ler depoda açık; gerçek koruma için Firebase Storage kararı kullanıcıda (ücretli paket kararıyla birlikte).
 8. TTKB yazı tipi lisansı belirsiz; ücretli içerikten önce netleşmeli.
+- Renk: kâğıtlar renkli (başlık bandı, her etkinlik açık renkli kart, renkli numara). Resimler şimdilik siyah-beyaz çizgi; renkli sürümleri için promptlar `kaynak/resim-promptlari/renkli.md` (21 ızgara, sıra `renkli-sira.json`). Renkliler gelince `deneme/materyaller/resimler-renkli/<ad>.png` olarak kaydet; `resim()` renkli olanı kullansın, "boya" yönergeli etkinlikler (rakamBoya, sesiBul vb.) çizgili sürümde kalsın.

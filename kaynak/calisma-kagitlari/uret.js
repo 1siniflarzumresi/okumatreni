@@ -79,7 +79,7 @@ const resim = ad => `<img src="/deneme/materyaller/resimler/${ad}.png" alt="">`;
 const LADIN = `<svg viewBox="0 0 40 48" class="ladin"><path d="M20 2 L30 16 H25 L33 27 H27 L36 39 H4 L13 27 H7 L15 16 H10 Z" fill="#2e6b4a"/><rect x="17.5" y="39" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>`;
 function sayfa({ harf, govde, no, toplam, mat }) {
   if (mat) return `<section class="sayfa">
-  <header><div class="baslik">${LADIN}<div class="harf ttkb mat">${mat.baslik}</div></div>
+  <header><div class="baslik">${LADIN}<div class="harf ttkb mat" style="font-size:${Math.min(10.5, 250 / mat.baslik.length).toFixed(1)}mm">${mat.baslik}</div></div>
     <div class="ad ttkb"><span>Adım:</span><i></i><span>Tarih:</span><i class="kisa"></i></div></header>
   ${govde}
   <footer><span>Ladin Ormanı · 1. Sınıf Matematik · ${mat.konu}</span><span>${toplam > 1 ? no + ' / ' + toplam : ''}</span></footer>
@@ -562,15 +562,23 @@ const CSS = `
 body{margin:0;color:#1f2a24;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .ttkb{font-family:TTKB,sans-serif}
 .sayfa{width:210mm;height:297mm;padding:10mm 12mm 8mm;display:flex;flex-direction:column;gap:3.5mm;page-break-after:always;overflow:hidden}
-header{display:flex;justify-content:space-between;align-items:center;border-bottom:.6mm solid #2e6b4a;padding-bottom:3mm}
+header{display:flex;justify-content:space-between;align-items:center;padding:2.5mm 5mm;border-radius:5mm;background:linear-gradient(100deg,#dff0d6 0%,#eef7e9 55%,#fff4d6 100%);border:.5mm solid #a9d39b;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;right:-6mm;bottom:-4mm;width:40mm;height:14mm;background:radial-gradient(circle at 20% 100%,#a9d39b 0 6mm,transparent 6.2mm),radial-gradient(circle at 60% 100%,#cfe3d4 0 8mm,transparent 8.2mm);opacity:.7;pointer-events:none}
 .baslik{display:flex;align-items:center;gap:3mm}
 .ladin{width:9mm}
 .harf{font-size:15mm;line-height:1;color:#1f4d36;letter-spacing:1mm}
 .ad{display:flex;align-items:flex-end;gap:2mm;font-size:5.2mm;color:#3d4a42}
-.ad i{display:inline-block;width:52mm;border-bottom:.35mm solid #7d877f;height:6mm}
+.ad{position:relative;z-index:1}
+.ad i{display:inline-block;width:52mm;height:8mm;background:#fff;border-radius:2mm;border:.35mm solid #a9d39b}
 .ad i.kisa{width:28mm}
 .etk h2{font-size:5.4mm;font-weight:700;margin:0 0 2.5mm;display:flex;gap:2.5mm;align-items:flex-start;line-height:1.3}
-.etk h2 b{flex:none;width:7mm;height:7mm;border-radius:50%;background:#2e6b4a;color:#fff;display:grid;place-items:center;font-size:4.6mm;margin-top:-.3mm}
+.etk h2 b{flex:none;width:7.5mm;height:7.5mm;border-radius:50%;background:var(--ec,#2e6b4a);color:#fff;display:grid;place-items:center;font-size:4.6mm;margin-top:-.3mm;box-shadow:0 0 0 1mm var(--eb,#e9f6ec)}
+.etk{background:var(--eb,#f3faef);border-radius:4.5mm;padding:3mm 4mm 3.5mm;border-left:2mm solid var(--ec,#2e6b4a)}
+.etk:nth-of-type(4n+1){--eb:#eef8ea;--ec:#2e8b57}
+.etk:nth-of-type(4n+2){--eb:#fff5e0;--ec:#e08a1e}
+.etk:nth-of-type(4n+3){--eb:#eaf3fc;--ec:#2a6fdb}
+.etk:nth-of-type(4n+4){--eb:#fcecf0;--ec:#c8457a}
+.etk .r,.etk .y,.etk .grup,.etk .kart-k,.etk .resimler .r,.etk .boyadizi span,.etk .esbul .sec,.etk .kuleler>*,.etk .dkars>div,.etk .kavanozlar>div,.etk .teraziler2>div,.etk .tren,.etk .kayip>div,.etk .sahneler3>svg,.etk .gruplar4 .grup,.etk .kamyonlar>div,.etk .heceler span,.etk .y{background:#fff}
 .ses{color:#c0392b;font-size:6.6mm}
 .resimler{display:grid;grid-template-columns:repeat(6,1fr);gap:3mm}
 .resimler .r{aspect-ratio:1;border:.4mm solid #cfd8d1;border-radius:4mm;padding:2.5mm;display:grid;place-items:center}
@@ -657,13 +665,13 @@ img{width:100%;height:100%;object-fit:contain}
 .tamamla>div>div span{border:.4mm solid #4a5a50;border-radius:999px;padding:.5mm 4mm;font-size:6mm}
 ${MAT_CSS}
 .harf.mat{font-size:10.5mm;letter-spacing:.2mm}
-.sayfa:has(.harf.mat) header{flex-wrap:wrap;row-gap:2mm}
+.sayfa:has(.harf.mat) .harf.mat{white-space:nowrap}
 .sayfa:has(.harf.mat) .baslik{flex:1 1 auto}
 .sayfa:has(.harf.mat) .ad{margin-left:auto}
 .sayfa:has(.harf.mat) .ad i{width:34mm}
 .sayfa:has(.harf.mat) .ad i.kisa{width:22mm}
 .govde{display:flex;flex-direction:column;gap:3.5mm}
-footer{margin-top:auto;display:flex;justify-content:space-between;font:3.2mm Andika,sans-serif;color:#6b7a70;border-top:.3mm solid #dbe6d4;padding-top:2mm}
+footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font:3.2mm Andika,sans-serif;color:#2e6b4a;padding:1.6mm 4mm;border-radius:999px;background:#eef7e9}
 `;
 const OKLAR = `<svg width="0" height="0" style="position:absolute"><defs>
 <marker id="ok1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="3.6" markerHeight="3.6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#1f6b45"/></marker>
