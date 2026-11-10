@@ -5,12 +5,12 @@
 //
 // apiKey boş kaldığı sürece üyelik kapalıdır: site eskisi gibi çalışır, indirmeler girişsiz açılır.
 export const FIREBASE_AYAR = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyBKJbk830NC5Z0W0ktfzuG4Oa5neK6bImU",
+  authDomain: "ladin-ormani.firebaseapp.com",
+  projectId: "ladin-ormani",
+  storageBucket: "ladin-ormani.firebasestorage.app",
+  messagingSenderId: "20449642545",
+  appId: "1:20449642545:web:46dfdbf782c4f51e786d10"
 };
 
 // true: e-posta/şifre ile kayıt olanlar e-postasını doğrulamadan indirme yapamaz. (Google ile girenler doğrulanmış sayılır.)
