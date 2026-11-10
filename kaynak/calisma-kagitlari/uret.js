@@ -674,7 +674,7 @@ ${MAT_CSS}
 .sayfa:has(.harf.mat) .ad{margin-left:auto}
 .sayfa:has(.harf.mat) .ad i{width:34mm}
 .sayfa:has(.harf.mat) .ad i.kisa{width:22mm}
-.govde{display:flex;flex-direction:column;gap:3.5mm}
+.govde{display:flex;flex-direction:column;gap:3.5mm;flex:1;min-height:0}
 footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font:3.2mm Andika,sans-serif;color:#2e6b4a;padding:1.6mm 4mm;border-radius:999px;background:#eef7e9}
 `;
 const OKLAR = `<svg width="0" height="0" style="position:absolute"><defs>
