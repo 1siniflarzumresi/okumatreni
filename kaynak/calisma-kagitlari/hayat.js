@@ -82,7 +82,82 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
   const gokyuzu = () => etk(0, 'Gece gökyüzünü çiz! Ay\'ı, yıldızları çiz. Gündüz gökyüzünü de yanındaki kutuya çiz.',
     `<div class="gokciz"><div class="g-gun"><b class="ttkb">Gündüz</b></div><div class="g-gece"><b class="ttkb">Gece</b></div></div>`);
 
+
+  // ---------- genel etkinlikler (resimler-hayat ile) ----------
+  const ciz = (yonerge, mm = 110) => etk(0, yonerge, `<div class="kutu-ciz" style="height:${mm}mm"></div>`);
+  const daireIcine = (yonerge, liste, t) => etk(0, yonerge, `<div class="yiyecek">${karistir(liste, R(t)).map(a => `<span>${resim(a)}</span>`).join('')}</div>`);
+  const esle = (yonerge, ciftler, t) => { const sag = karistir(ciftler.map(c => c[1]), R(t));
+    return etk(0, yonerge, `<div class="esles hb"><div class="sol">${ciftler.map(([a]) => `<div>${resim(a)}<i></i></div>`).join('')}</div><div class="sag">${sag.map(b => `<div><i></i>${b.startsWith('<') ? b : resim(b)}</div>`).join('')}</div></div>`); };
+  const sirala = (yonerge, liste) => etk(0, yonerge, `<div class="sirala-r">${liste.map(a => `<div>${resim(a)}${kutuK}</div>`).join('')}</div>`);
+  const GUN = ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'];
+  const cizelge = (yonerge, liste) => etk(0, yonerge, `<table class="cizelge"><tr><th></th>${GUN.map(g => `<th class="ttkb">${g}</th>`).join('')}</tr>${liste.map(a => `<tr><td>${resim(a)}</td>${GUN.map(() => '<td><i></i></td>').join('')}</tr>`).join('')}</table>`);
+  const dy = (liste) => dogruYanlisResim(liste);
+  const kisiselAlan = () => etk(0, 'Kişisel alanım! Kollarını iki yana aç ve dön; çevrendeki boşluk senin kişisel alanın. Çemberin içine kendini çiz.',
+    `<div class="ortala">${sahne(400, 260, '<ellipse cx="200" cy="135" rx="185" ry="115" fill="#eaf4ff" stroke="#3a86ff" stroke-width="5" stroke-dasharray="14 9"/><ellipse cx="200" cy="245" rx="70" ry="10" fill="#cfd8d1"/>', 140)}</div>`);
+  const acilAdim = () => etk(0, 'Deprem olunca: ÇÖK, KAPAN, TUTUN! Her adımı canlandır. Sonra resmi boya.',
+    `<div class="acil">${[['ÇÖK', 'deprem'], ['KAPAN', 'deprem'], ['TUTUN', 'deprem']].map(([m, a], i) => `<div><b class="ttkb">${i + 1}. ${m}</b>${resim(a)}</div>`).join('')}</div>`);
+  const aileAgaci = () => etk(0, 'Ailem! Evde seninle yaşayanları kutulara çiz. Büyükannelerini ve büyükbabalarını da üstteki dallara çiz.',
+    `<div class="ortala">${sahne(600, 430, '<path d="M300 420 V180" stroke="#8e5b2b" stroke-width="24"/><path d="M300 220 L160 120 M300 220 L440 120 M300 260 L150 260 M300 260 L450 260" stroke="#8e5b2b" stroke-width="12" stroke-linecap="round"/><circle cx="300" cy="110" r="120" fill="#7bd3a8" opacity=".35"/>' + [[95, 40], [385, 40], [35, 200], [445, 200], [235, 290]].map(([x, y]) => `<rect x="${x}" y="${y}" width="130" height="115" rx="12" fill="#fff" stroke="#2e8b57" stroke-width="4"/>`).join(''), 178)}</div>`);
+  const nezaket = () => etk(0, 'Sihirli sözcükler! Öğretmenin okusun. Hangi durumda hangisini söylersin? Çizgiyle eşleştir.',
+    `<div class="esles hb"><div class="sol">${['tesekkur', 'kapi-cal', 'aile-sofrasi', 'paylas'].map(a => `<div>${resim(a)}<i></i></div>`).join('')}</div><div class="sag">${['Lütfen', 'Teşekkür ederim', 'Afiyet olsun', 'Girebilir miyim?'].map(m => `<div><i></i><b class="ttkb">${m}</b></div>`).join('')}</div></div>`);
+
   const HB = {
+    'hafta-01': { unite: 1, hafta: 1, baslik: 'Haydi Tanışalım', konu: 'Haydi tanışalım', sayfalar: () => [
+      numarala([benKarti(), ciz('Sınıftaki yeni bir arkadaşını çiz. Adını öğretmenin yazsın.', 80)]),
+      numarala([daireIcine('Sınıfımızda neler var? Sınıfta olanları daire içine al.', ['masa', 'kitap', 'kalem', 'canta', 'saat', 'pencere', 'inek', 'gemi', 'deve', 'kutuphane', 'el-kaldir', 'zebra'], 1), ciz('Öğretmenini çiz.', 90)]),
+    ] },
+    'hafta-02': { unite: 1, hafta: 2, baslik: 'Okulumu Keşfediyorum', konu: 'Okulumu keşfediyorum', sayfalar: () => [
+      numarala([esle('Okulda nerede ne yaparız? Resimleri çizgiyle eşleştir.', [['kitap', 'kutuphane'], ['top', 'okul'], ['el-kaldir', 'masa'], ['su-ic', 'bardak']], 2), daireIcine('Okul çantanda neler olmalı? Daire içine al.', ['kalem', 'kitap', 'makas', 'canta', 'top', 'balik', 'tencere', 'kek', 'saat', 'su-ic', 'kasik', 'ayi'], 3)]),
+      numarala([ciz('Okulunun bahçesini çiz. En sevdiğin yeri boya.', 150)]),
+    ] },
+    'hafta-03': { unite: 1, hafta: 3, baslik: 'Okul Haritası', konu: 'Okulumu keşfediyorum', sayfalar: () => [
+      numarala([ciz('Okul haritası! Sınıfından tuvalete, kütüphaneye ve bahçeye giden yolu çiz. Öğretmeninle birlikte gezin.', 150)]),
+      numarala([dy([['kutuphane', 'Kütüphanede sessiz olmak'], ['cop-at', 'Çöpü çöp kutusuna atmak'], ['koridor-kos', 'Koridorda koşmak'], ['el-yika', 'Tuvaletten sonra elimi yıkamak']])]),
+    ] },
+    'hafta-04': { unite: 1, hafta: 4, baslik: 'Kurallar Her Yerde', konu: 'Kurallar her yerde', sayfalar: () => [
+      numarala([dy([['el-kaldir', 'Konuşmak için parmak kaldırmak'], ['sira-bekle', 'Sırada beklemek'], ['bagir', 'Sınıfta bağırmak'], ['paylas', 'Oyuncağı paylaşmak'], ['koridor-kos', 'Koridorda koşmak']])]),
+      numarala([ciz('Sınıfımızın bir kuralını resimle anlat. Kural kartını çiz.', 90), daireIcine('Kurallara uyan çocukları daire içine al.', ['el-kaldir', 'sira-bekle', 'cop-at', 'paylas', 'bagir', 'koridor-kos'], 4)]),
+    ] },
+    'hafta-05': { unite: 1, hafta: 5, baslik: 'Kural Kartları', konu: 'Kurallar her yerde', sayfalar: () => [
+      numarala([esle('Nerede hangi kural? Resimleri eşleştir.', [['kutuphane', 'el-kaldir'], ['yaya-gecidi', 'trafik-isigi'], ['aile-sofrasi', 'el-yika'], ['okul-servisi', 'emniyet-kemeri']], 5)]),
+      numarala([dy([['cop-at', 'Parkta çöpü yere atmak'], ['sira-bekle', 'Otobüse sırayla binmek'], ['paylas', 'Arkadaşına sıra vermek']]), ciz('Evdeki bir kuralını çiz.', 70)]),
+    ] },
+    'hafta-08': { unite: 2, hafta: 8, baslik: 'Kişisel Alanım', konu: 'Kişisel alanıma dikkat!', sayfalar: () => [
+      numarala([kisiselAlan(), dy([['yabanci', 'Tanımadığım birinin şekerini almamak'], ['paylas', 'Arkadaşıma sarılmadan önce izin istemek']])]),
+      numarala([daireIcine('Bir sorun olduğunda kimden yardım istersin? Güvendiğin kişileri daire içine al.', ['anne', 'ogretmen', 'buyukanne', 'polis', 'trafik-polisi', 'yabanci', 'aile', 'kopek'], 8), ciz('Seni mutlu eden bir anı çiz.', 70)]),
+    ] },
+    'hafta-11': { unite: 2, hafta: 11, baslik: 'Eyvah, Acil Durum!', konu: 'Eyvah, acil durum!', sayfalar: () => [
+      numarala([esle('Kim yardıma gelir? Durumu yardım edecek araçla eşleştir.', [['duman', 'itfaiye'], ['yabanci', 'polis'], ['deprem', 'ambulans']], 11), dy([['telefon-112', 'Acil durumda 112\'yi aramak'], ['duman', 'Duman görünce saklanmak'], ['yangin-tupu', 'Yangın tüpüne dokunup oynamak']])]),
+      numarala([acilAdim(), ciz('Acil durumda evinden nereye çıkarsın? Toplanma yerini çiz.', 70)]),
+    ] },
+    'hafta-12': { unite: 2, hafta: 12, baslik: 'Hazırım!', konu: 'Eyvah, acil durum!', sayfalar: () => [
+      numarala([daireIcine('Acil durumda yardım edenleri daire içine al.', ['ambulans', 'itfaiye', 'polis', 'yangin-tupu', 'telefon-112', 'top', 'kek', 'gitar'], 12), dy([['deprem', 'Depremde masanın altına girmek'], ['koridor-kos', 'Tatbikatta koşup itişmek']])]),
+      numarala([ciz('Acil durum çantasına ne koyarsın? Çantanın içine çiz.', 140)]),
+    ] },
+    'hafta-13': { unite: 2, hafta: 13, baslik: 'Bizim Ev', konu: 'Eyvah, acil durum! · Bizim ev', sayfalar: () => [
+      numarala([aileAgaci()]),
+      numarala([daireIcine('Evde ailemle neler yaparız? Seninle ilgili olanları daire içine al.', ['aile-sofrasi', 'sofra', 'yatak', 'cicek-sula', 'aile', 'buyukanne', 'paylas', 'uyu'], 13), ciz('Evini çiz.', 80)]),
+    ] },
+    'hafta-14': { unite: 3, hafta: 14, baslik: 'Sihirli Sözcükler', konu: 'Bizim ev · Nezaketli ve görgülüyüz', sayfalar: () => [
+      numarala([nezaket()]),
+      numarala([dy([['kapi-cal', 'Odaya girmeden kapıyı çalmak'], ['tesekkur', 'Hediye alınca teşekkür etmek'], ['bagir', 'Sofrada bağırmak'], ['aile-sofrasi', 'Sofrada herkesi beklemek']])]),
+    ] },
+    'hafta-15': { unite: 3, hafta: 15, baslik: 'Nezaketli ve Görgülüyüz', konu: 'Nezaketli ve görgülüyüz', sayfalar: () => [
+      numarala([dy([['tesekkur', 'Teşekkür etmek'], ['kapi-cal', 'Kapıyı çalmadan girmek'], ['buyukanne', 'Büyüklerimize yer vermek'], ['paylas', 'Sıra beklemeden almak']]), ciz('Birine yardım ettiğin bir anı çiz.', 60)]),
+      numarala([nezaket()]),
+    ] },
+    'hafta-16': { unite: 3, hafta: 16, baslik: 'Biz İyi Bir Takımız', konu: 'Biz iyi bir takımız', sayfalar: () => [
+      numarala([cizelge('Görev çizelgem! Her gün yaptığın görevin kutusunu boya.', ['sofra', 'yatak', 'cicek-sula', 'dis-fircala', 'cop-at'])]),
+      numarala([daireIcine('Evde hangi görevleri sen yapabilirsin? Daire içine al.', ['sofra', 'yatak', 'cicek-sula', 'cop-at', 'duman', 'yangin-tupu', 'el-yika', 'dis-fircala'], 16), ciz('Ailene yardım ettiğin bir anı çiz.', 70)]),
+    ] },
+    'hafta-17': { unite: 3, hafta: 17, baslik: 'Görevlerimiz', konu: 'Biz iyi bir takımız', sayfalar: () => [
+      numarala([esle('Kim hangi görevi yapıyor? Aile üyesini göreviyle eşleştir.', [['anne', 'sofra'], ['buyukanne', 'cicek-sula'], ['bebek', 'uyu'], ['aile', 'aile-sofrasi']], 17)]),
+      numarala([cizelge('Bu hafta görev çizelgem: yaptığın günün kutusunu boya.', ['yatak', 'sofra', 'dis-fircala', 'el-yika'])]),
+    ] },
+    'hafta-18': { unite: 3, hafta: 18, baslik: 'Sağlıklı Alışkanlıklar', konu: 'Biz iyi bir takımız · Yaşadığım yer', sayfalar: () => [
+      numarala([sirala('Sabah rutinim! Resimleri olacak sıraya göre 1, 2, 3, 4 diye numarala.', ['dis-fircala', 'uyu', 'okul-servisi', 'aile-sofrasi']), dy([['su-ic', 'Gün içinde su içmek'], ['cips', 'Her gün cips ve gazoz yemek'], ['ip-atla', 'Hareket etmek, oynamak']])]),
+      numarala([cizelge('Temizlik çizelgem: yaptığın günün kutusunu boya.', ['dis-fircala', 'el-yika', 'dus', 'tirnak'])]),
+    ] },
     'hafta-06': { unite: 1, hafta: 6, baslik: 'Ben Kimim?', konu: 'Nasıl görünüyor, neler hissediyorum?', sayfalar: () => [
       numarala([benKarti(), duyguTanit(), duyguCiz(['hediye', 'orumcek', 'yagmur'])]),
       numarala([duyguCiz(['balon', 'dondurma', 'kopek', 'yilan', 'kek', 'kar']), benzerFarkli()]),
@@ -90,6 +165,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
     'hafta-07': { unite: 2, hafta: 7, baslik: 'Sağlıklı Hayat', konu: 'Sağlıklı hayat ne güzel', sayfalar: () => [
       numarala([yiyecekSec(7), tabakCiz()]),
       numarala([gunumSaat()]),
+      numarala([dy([['dis-fircala', 'Dişlerimi fırçalamak'], ['el-yika', 'Yemekten önce el yıkamak'], ['cips', 'Akşam yemeği yerine cips yemek'], ['uyu', 'Erken yatmak']])]),
     ] },
     'hafta-09': { unite: 2, hafta: 9, baslik: 'Trafik Işığı', konu: 'Trafik kuralları iyi ki var', sayfalar: () => [
       numarala([lambaBoya(), lambaEsle()]),
@@ -142,6 +218,19 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
 .gunum{display:grid;grid-template-columns:repeat(5,1fr);gap:3mm}
 .gunum>div{display:flex;flex-direction:column;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:2.5mm}
 .gunum b{font-weight:400;font-size:6mm}.gunum img,.gunum svg{width:14mm;height:14mm}
+.esles.hb img{width:34mm!important;height:34mm!important;padding:0!important;border:0!important}
+.esles.hb .sol div,.esles.hb .sag div{height:40mm}
+.esles.hb .sag b{font-size:8mm}
+.sirala-r{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm}
+.sirala-r>div{display:flex;flex-direction:column;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:3mm}.sirala-r img{width:32mm;height:32mm}
+.cizelge{width:100%;border-collapse:separate;border-spacing:1.5mm;font-size:5.5mm}
+.cizelge th{font-weight:400;color:#1d4e89}
+.cizelge td{background:#fff;border-radius:2mm;text-align:center;padding:1.5mm}
+.cizelge td img{width:30mm;height:30mm}
+.cizelge td i{display:inline-block;width:14mm;height:14mm;border:.5mm solid #4a5a50;border-radius:50%}
+.acil{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
+.acil>div{display:flex;flex-direction:column;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:3mm}
+.acil b{font-weight:400;font-size:7mm;color:#e63946}.acil img{width:42mm;height:42mm}
 .kutu-ciz{width:100%;height:120mm;border:.5mm dashed #9fc6ef;border-radius:3mm}
 .lambalar{display:flex;align-items:center;justify-content:space-around;background:#fff;border-radius:3mm;padding:4mm}
 .lambalar svg{height:70mm;width:auto}

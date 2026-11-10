@@ -898,6 +898,61 @@
   "resim": "materyaller/1-sinif/matematik/hafta-34-onizleme.png"
  },
  {
+  "id": "hb-hafta-01",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Ben ve Okulum",
+  "hafta": 1,
+  "baslik": "1. Hafta · Haydi Tanışalım",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-01.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-01-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-02",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Ben ve Okulum",
+  "hafta": 2,
+  "baslik": "2. Hafta · Okulumu Keşfediyorum",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-02.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-02-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-03",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Ben ve Okulum",
+  "hafta": 3,
+  "baslik": "3. Hafta · Okul Haritası",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-03.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-03-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-04",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Ben ve Okulum",
+  "hafta": 4,
+  "baslik": "4. Hafta · Kurallar Her Yerde",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-04.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-04-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-05",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Ben ve Okulum",
+  "hafta": 5,
+  "baslik": "5. Hafta · Kural Kartları",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-05.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-05-onizleme.png"
+ },
+ {
   "id": "hb-hafta-06",
   "sinif": 1,
   "tur": "calisma",
@@ -920,6 +975,17 @@
   "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-07-onizleme.png"
  },
  {
+  "id": "hb-hafta-08",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Sağlığım ve Güvenliğim",
+  "hafta": 8,
+  "baslik": "8. Hafta · Kişisel Alanım",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-08.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-08-onizleme.png"
+ },
+ {
   "id": "hb-hafta-09",
   "sinif": 1,
   "tur": "calisma",
@@ -940,6 +1006,94 @@
   "baslik": "10. Hafta · Okul Yolunda",
   "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-10.pdf",
   "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-10-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-11",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Sağlığım ve Güvenliğim",
+  "hafta": 11,
+  "baslik": "11. Hafta · Eyvah, Acil Durum!",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-11.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-11-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-12",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Sağlığım ve Güvenliğim",
+  "hafta": 12,
+  "baslik": "12. Hafta · Hazırım!",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-12.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-12-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-13",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Ailem ve Toplum",
+  "hafta": 13,
+  "baslik": "13. Hafta · Bizim Ev",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-13.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-13-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-14",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Ailem ve Toplum",
+  "hafta": 14,
+  "baslik": "14. Hafta · Sihirli Sözcükler",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-14.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-14-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-15",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Ailem ve Toplum",
+  "hafta": 15,
+  "baslik": "15. Hafta · Nezaketli ve Görgülüyüz",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-15.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-15-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-16",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Ailem ve Toplum",
+  "hafta": 16,
+  "baslik": "16. Hafta · Biz İyi Bir Takımız",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-16.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-16-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-17",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Ailem ve Toplum",
+  "hafta": 17,
+  "baslik": "17. Hafta · Görevlerimiz",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-17.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-17-onizleme.png"
+ },
+ {
+  "id": "hb-hafta-18",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "hayat_bilgisi",
+  "unite": "Yaşadığım Yer ve Ülkem",
+  "hafta": 18,
+  "baslik": "18. Hafta · Sağlıklı Alışkanlıklar",
+  "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-18.pdf",
+  "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-18-onizleme.png"
  },
  {
   "id": "hb-hafta-19",

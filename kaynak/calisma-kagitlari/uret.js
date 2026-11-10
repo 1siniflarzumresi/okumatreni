@@ -76,7 +76,7 @@ function satir(dizi, genislikMm, capMm) {
 
 // ---------- sayfa parçaları ----------
 // Renkli sürümü varsa renkli resim; "boya" etkinliklerinde resimCizgi (çocuk boyar).
-const RY = ad => fs.existsSync(path.join(KOK, 'deneme/materyaller/resimler-renkli', ad + '.png')) ? `/deneme/materyaller/resimler-renkli/${ad}.png` : `/deneme/materyaller/resimler/${ad}.png`;
+const RY = ad => ['resimler-renkli', 'resimler-hayat', 'resimler'].map(k => `/deneme/materyaller/${k}/${ad}.png`).find(u => fs.existsSync(path.join(KOK, u))) || `/deneme/materyaller/resimler/${ad}.png`;
 const resim = ad => `<img src="${RY(ad)}" alt="">`;
 const resimCizgi = ad => `<img src="/deneme/materyaller/resimler/${ad}.png" alt="">`;
 const LADIN = `<svg viewBox="0 0 40 48" class="ladin"><path d="M20 2 L30 16 H25 L33 27 H27 L36 39 H4 L13 27 H7 L15 16 H10 Z" fill="#2e6b4a"/><rect x="17.5" y="39" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>`;
