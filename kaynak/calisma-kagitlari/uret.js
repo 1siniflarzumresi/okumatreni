@@ -75,7 +75,10 @@ function satir(dizi, genislikMm, capMm) {
 }
 
 // ---------- sayfa parçaları ----------
-const resim = ad => `<img src="/deneme/materyaller/resimler/${ad}.png" alt="">`;
+// Renkli sürümü varsa renkli resim; "boya" etkinliklerinde resimCizgi (çocuk boyar).
+const RY = ad => fs.existsSync(path.join(KOK, 'deneme/materyaller/resimler-renkli', ad + '.png')) ? `/deneme/materyaller/resimler-renkli/${ad}.png` : `/deneme/materyaller/resimler/${ad}.png`;
+const resim = ad => `<img src="${RY(ad)}" alt="">`;
+const resimCizgi = ad => `<img src="/deneme/materyaller/resimler/${ad}.png" alt="">`;
 const LADIN = `<svg viewBox="0 0 40 48" class="ladin"><path d="M20 2 L30 16 H25 L33 27 H27 L36 39 H4 L13 27 H7 L15 16 H10 Z" fill="#2e6b4a"/><rect x="17.5" y="39" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>`;
 function sayfa({ harf, govde, no, toplam, mat }) {
   if (mat) return `<section class="sayfa">
@@ -548,7 +551,7 @@ if (process.env.YON_ONIZLE) HARF._yon = () => {
   return sayfalar;
 };
 
-const { MAT, CSS: MAT_CSS } = require('./matematik.js')({ etk, satir, resim, rastgele, numarala, harfAvi: null });
+const { MAT, CSS: MAT_CSS } = require('./matematik.js')({ etk, satir, resim, resimCizgi, RY, rastgele, numarala });
 // Çıktı dosya adları yalnız ASCII: sıra numarası + harf (ı → 11-i, İ → 05-i), paketler grup-1-anetil…
 const ASCII = { 'ı': 'i', 'ü': 'u', 'ö': 'o', 'ç': 'c', 'ş': 's', 'ğ': 'g' };
 const dosyaAdi = h => SIRA.includes(h) ? String(SIRA.indexOf(h) + 1).padStart(2, '0') + '-' + (ASCII[h] || h) : h;

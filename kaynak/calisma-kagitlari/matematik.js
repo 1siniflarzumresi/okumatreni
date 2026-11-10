@@ -2,7 +2,7 @@
 // uret.js içinden yüklenir: require('./matematik.js')(araclar) → { anahtar: { baslik, konu, hafta, sayfalar() } }
 // Kural: çocuğun okuyacağı kelime yok; yalnız rakam, resim ve şekil. Yönergeleri öğretmen okur.
 // İşlem işareti (+ − =) bu ünitede kullanılmaz.
-module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
+module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => {
   const R = (t) => rastgele(t);
   const karistir = (a, r) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const NESNE = ['elma', 'top', 'balik', 'yildiz', 'cicek', 'kus', 'armut', 'cilek', 'ordek', 'mantar', 'yaprak', 'kalem', 'ari', 'yumurta', 'kedi', 'balon'];
@@ -93,7 +93,7 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
     const a = egim * 12 * Math.PI / 180, cx = 120, cy = 34, R = 92;
     const uc = s => [cx + s * R * Math.cos(a), cy + s * R * Math.sin(a)];
     const kefe = ([x, y], icerik) => { const ty = y + 44;
-      const ic = typeof icerik === 'string' ? `<image href="/deneme/materyaller/resimler/${icerik}.png" x="${x - 26}" y="${ty - 52}" width="52" height="52"/>`
+      const ic = typeof icerik === 'string' ? `<image href="${RY(icerik)}" x="${x - 26}" y="${ty - 52}" width="52" height="52"/>`
         : Array.from({ length: icerik.kup }, (_, i) => { const sira = Math.floor(i / 4), k = i % 4; return `<rect x="${x - 34 + k * 17}" y="${ty - 17 - sira * 17}" width="16" height="16" rx="2" fill="#f2b94b" stroke="#1f2a24" stroke-width="1.6"/>`; }).join('');
       return `<path d="M${x} ${y} L${x - 36} ${ty} M${x} ${y} L${x + 36} ${ty}" stroke="#4a5a50" stroke-width="1.6"/>${ic}<path d="M${x - 42} ${ty} Q${x} ${ty + 16} ${x + 42} ${ty} Z" fill="#cfd8d1" stroke="#1f2a24" stroke-width="2"/>`; };
     return `<svg class="terazi" viewBox="0 0 240 150"><path d="M${cx} ${cy} L${cx} 136 M${cx - 34} 140 h68" stroke="#1f2a24" stroke-width="5" stroke-linecap="round"/><path d="M${uc(-1).join(' ')} L${uc(1).join(' ')}" stroke="#8e5b2b" stroke-width="6" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="6" fill="#1f2a24"/>${kefe(uc(-1), sol)}${kefe(uc(1), sag)}</svg>`;
@@ -134,7 +134,7 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
     let s = `<path d="${yol}" fill="none" stroke="#cfe3d4" stroke-width="34" stroke-linejoin="round" stroke-linecap="round"/>`;
     nok.forEach(([x, y], i) => { const o = OZEL[i];
       s += `<circle cx="${x}" cy="${y}" r="${R}" fill="${o ? '#fff4d6' : '#fff'}" stroke="#2e6b4a" stroke-width="3"/>`;
-      if (o) s += `<image href="/deneme/materyaller/resimler/${o[0]}.png" x="${x - 22}" y="${y - 26}" width="44" height="44"/><rect x="${x - 22}" y="${y + 14}" width="44" height="20" rx="10" fill="#c0392b"/>` +
+      if (o) s += `<image href="${RY(o[0])}" x="${x - 22}" y="${y - 26}" width="44" height="44"/><rect x="${x - 22}" y="${y + 14}" width="44" height="20" rx="10" fill="#c0392b"/>` +
         (o[1] === 'zar' ? `<rect x="${x - 7}" y="${y + 17}" width="14" height="14" rx="3" fill="#fff"/><circle cx="${x - 3}" cy="${y + 21}" r="1.6"/><circle cx="${x + 3}" cy="${y + 27}" r="1.6"/>`
          : o[1] === '■' ? `<rect x="${x - 6}" y="${y + 19}" width="4" height="10" fill="#fff"/><rect x="${x + 2}" y="${y + 19}" width="4" height="10" fill="#fff"/>`
          : `<text x="${x}" y="${y + 29}" font-size="14" text-anchor="middle" fill="#fff" font-family="Andika" font-weight="700">${o[1]}</text>`);
@@ -149,7 +149,7 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
     `<div class="zarkayit">${Array.from({ length: n }, () => `<div>${zar(0, 40, true)}${kutu}</div>`).join('')}</div>`);
 
   // ---------- Ladin çizgisi: hikâyeli, oyunlu sahneler ----------
-  const IMG = (ad, x, y, s) => `<image href="/deneme/materyaller/resimler/${ad}.png" x="${x}" y="${y}" width="${s}" height="${s}"/>`;
+  const IMG = (ad, x, y, s) => `<image href="${RY(ad)}" x="${x}" y="${y}" width="${s}" height="${s}"/>`;
   const balya = (x, y, s = 22, bos) => bos ? `<rect x="${x + 1}" y="${y + 1}" width="${s - 2}" height="${s * .7 - 2}" rx="2" fill="none" stroke="#9aa59d" stroke-width="1.5" stroke-dasharray="3 2"/>`
     : `<g transform="translate(${x} ${y})"><rect x="1" y="1" width="${s - 2}" height="${s * .7 - 2}" rx="2" fill="#f2d27a" stroke="#8e5b2b" stroke-width="1.5"/><path d="M4 ${s * .2} h${s - 8} M4 ${s * .45} h${s - 8}" stroke="#d1a74a" stroke-width="1.2"/><path d="M${s * .3} 1 v${s * .7 - 2} M${s * .7} 1 v${s * .7 - 2}" stroke="#8e5b2b" stroke-width="1.6"/></g>`;
   // kamyon: n balya; 10'a ulaşınca 10'luk palet (iple bağlı, 5×2) + kalanlar. bos: boş yuva sayısı (çocuk boyar)
@@ -238,7 +238,7 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
   // =====================================================================
   //  HAFTALIK KÂĞITLAR (MEB yıllık planı sırasıyla). Her hafta en az 2 dolu sayfa.
   // =====================================================================
-  const IMGm = (ad, x, y, s, ek = '') => `<image href="/deneme/materyaller/resimler/${ad}.png" x="${x}" y="${y}" width="${s}" height="${s}" ${ek}/>`;
+  const IMGm = (ad, x, y, s, ek = '') => `<image href="${RY(ad)}" x="${x}" y="${y}" width="${s}" height="${s}" ${ek}/>`;
   const sahne = (W, H, ic, mm = 178) => `<svg viewBox="0 0 ${W} ${H}" style="width:${mm}mm;height:${mm * H / W}mm;display:block">${ic}</svg>`;
   const kutuK = '<span class="yazkutu"></span>';
   const IKON = { '↑': 'M12 19V5M5 12l7-7 7 7', '↓': 'M12 5v14M5 12l7 7 7-7', '←': 'M19 12H5M12 5l-7 7 7 7', '→': 'M5 12h14M12 5l7 7-7 7', '↕': 'M12 3v18M6 8l6-5 6 5M6 16l6 5 6-5', '▣': 'M5 5h14v14H5zM9 12h6' };
@@ -264,7 +264,7 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
     return sahne(600, 340, s, 120); };
   const saklambac = (liste) => etk(0, 'Saklambaç oynuyoruz! Ağacın ARKASINDA saklanan hayvanları daire içine al. Ağacın ÖNÜNDE duranları boya.',
     `<div class="sahneler3">${liste.map(([ad, arkada]) => { const hay = IMGm(ad, arkada ? 92 : 40, arkada ? 60 : 92, 100, arkada ? '' : '');
-      const hayOn = `<image href="/deneme/materyaller/resimler/${ad}.png" x="40" y="96" width="104" height="104"/>`;
+      const hayOn = `<image href="${RY(ad)}" x="40" y="96" width="104" height="104"/>`;
       return sahne(200, 220, arkada ? hay + agac(100, 60, 1.25) : agac(100, 60, 1.25) + hayOn, 52); }).join('')}</div>`);
   const cizSahne = () => etk(0, 'Öğretmeninin söylediklerini resme çiz.',
     gorev([['↑', 'Evin ÜSTÜNE bir güneş çiz.'], ['←', 'Ağacın SOLUNA bir çiçek çiz.'], ['↓', 'Masanın ALTINA bir top çiz.'], ['▣', 'Kutunun İÇİNE bir elma çiz.'], ['→', 'Evin SAĞINA bir kedi çiz.']]) +
@@ -290,7 +290,7 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
     sahne(dizi.length * 100 + 20, 170, `<path d="M0 22 Q${dizi.length * 50 + 10} 46 ${dizi.length * 100 + 20} 22" fill="none" stroke="#8e5b2b" stroke-width="3"/>` + dizi.map((d, i) => corap(20 + i * 100, 30, d) + `<rect x="${26 + i * 100}" y="20" width="10" height="22" rx="2" fill="#f2b94b" stroke="#1f2a24" stroke-width="2"/>`).join(''), 178));
   const esiniBul = (satirlar) => etk(0, 'Çerçevedeki resme bak. Onunla EŞ olanı (aynı şekil, aynı büyüklük) bul, daire içine al.',
     `<div class="esbul">${satirlar.map(([ad, digeri], k) => { const sec = [[ad, 1], [ad, .6], [ad, 1.35], [digeri, 1]]; const sira = [[0, 1, 2, 3], [1, 0, 3, 2], [2, 3, 0, 1], [3, 2, 1, 0]][k % 4].map(i => sec[i]);
-      return `<div><span class="model">${resim(ad)}</span>${sira.map(([a, o]) => `<span class="sec"><img src="/deneme/materyaller/resimler/${a}.png" style="width:${o * 100}%;height:${o * 100}%"></span>`).join('')}</div>`; }).join('')}</div>`);
+      return `<div><span class="model">${resim(ad)}</span>${sira.map(([a, o]) => `<span class="sec"><img src="${RY(a)}" style="width:${o * 100}%;height:${o * 100}%"></span>`).join('')}</div>`; }).join('')}</div>`);
   const DOLGU = { b: 'none', d: '#9aa59d', c: 'url(#kc)', n: 'url(#kn)' };
   const kuleKopya = (modeller) => etk(0, 'Örnek kuleye bak. Yanındaki boş kuleyi aynı desenle boya: düz, gri, çizgili ya da noktalı.',
     `<div class="kopyalar">${modeller.map(m => sahne(240, 60 + m.length * 34, `<defs>${DESEN.cizgi('kc')}${DESEN.nokta('kn')}</defs>` + m.map((d, i) => `<rect x="30" y="${20 + (m.length - 1 - i) * 34}" width="60" height="32" fill="${DOLGU[d]}" stroke="#1f2a24" stroke-width="2.5"/><rect x="150" y="${20 + (m.length - 1 - i) * 34}" width="60" height="32" fill="none" stroke="#1f2a24" stroke-width="2.5"/>`).join('') + `<line x1="10" x2="230" y1="${22 + m.length * 34}" y2="${22 + m.length * 34}" stroke="#8e5b2b" stroke-width="4"/><path d="M105 ${30 + m.length * 15} h28 l-8 -6 m8 6 l-8 6" stroke="#2e6b4a" stroke-width="3" fill="none"/>`, 55)).join('')}</div>`);
@@ -302,7 +302,7 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
   const rakamIz = (d) => etk(0, 'Yeşil noktadan başla, okları izle. Sonra boş satıra kendin yaz.',
     `<div class="satirlar">${satir([[d, 'model'], ...Array(7).fill([d, 'iz'])], 178, 16)}${satir(Array(9).fill([d, 'iz']), 178, 16)}${satir([], 178, 16)}</div>`);
   const rakamBoya = (d, ad, top) => etk(0, `${d} tane ${ad === 'balon' ? 'balon' : 'resim'} boya. Sonra kalanları say.`,
-    `<div class="boyadizi">${Array.from({ length: top }, () => `<span>${resim(ad)}</span>`).join('')}</div>`);
+    `<div class="boyadizi">${Array.from({ length: top }, () => `<span>${resimCizgi(ad)}</span>`).join('')}</div>`);
   const rakamAvi = (d, bilinen, n = 24, tohum = 3) => { const r = R(tohum + +d); const h = Array.from({ length: n }, (_, i) => i % 3 === 0 ? d : bilinen[Math.floor(r() * bilinen.length)]);
     return etk(0, `Balonlarda ${d} rakamını bul, boya.`, `<div class="balonlar r">${karistir(h, r).map(c => `<span class="ttkb">${c}</span>`).join('')}</div>`); };
   const grupBul = (d, gruplar, tohum) => { const r = R(tohum);
