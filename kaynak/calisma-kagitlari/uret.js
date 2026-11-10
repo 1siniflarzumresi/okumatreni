@@ -79,7 +79,7 @@ const resim = ad => `<img src="/deneme/materyaller/resimler/${ad}.png" alt="">`;
 const LADIN = `<svg viewBox="0 0 40 48" class="ladin"><path d="M20 2 L30 16 H25 L33 27 H27 L36 39 H4 L13 27 H7 L15 16 H10 Z" fill="#2e6b4a"/><rect x="17.5" y="39" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>`;
 function sayfa({ harf, govde, no, toplam, mat }) {
   if (mat) return `<section class="sayfa">
-  <header><div class="baslik">${LADIN}<div class="harf ttkb mat" style="font-size:${Math.min(10.5, 250 / mat.baslik.length).toFixed(1)}mm">${mat.baslik}</div></div>
+  <header><div class="baslik">${LADIN}<div class="harf ttkb mat" style="font-size:${Math.min(10.5, 175 / mat.baslik.length).toFixed(1)}mm">${mat.baslik}</div></div>
     <div class="ad ttkb"><span>Adım:</span><i></i><span>Tarih:</span><i class="kisa"></i></div></header>
   ${govde}
   <footer><span>Ladin Ormanı · 1. Sınıf Matematik · ${mat.konu}</span><span>${toplam > 1 ? no + ' / ' + toplam : ''}</span></footer>
@@ -556,7 +556,8 @@ const CIKTI_MAT = path.join(KOK, 'deneme/materyaller/1-sinif/matematik');
 
 const CSS = `
 @font-face{font-family:TTKB;src:url(/kaynak/fontlar/ttkb.ttf) format("truetype")}
-@font-face{font-family:Andika;font-weight:700;src:url(/deneme/fontlar/andika-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:Andika;font-weight:700;src:url(/deneme/fontlar/andika-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F}
+@font-face{font-family:Andika;font-weight:700;src:url(/deneme/fontlar/andika-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+2000-206F,U+2190-21FF}
 @page{size:A4;margin:0}
 *{box-sizing:border-box}
 body{margin:0;color:#1f2a24;-webkit-print-color-adjust:exact;print-color-adjust:exact}

@@ -238,10 +238,12 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
   // =====================================================================
   //  HAFTALIK KÂĞITLAR (MEB yıllık planı sırasıyla). Her hafta en az 2 dolu sayfa.
   // =====================================================================
-  const IMGm = (ad, x, y, s, ek = '') => `<image href="/deneme/materyaller/resimler/${ad}.png" x="${x}" y="${y}" width="${s}" height="${s}" style="mix-blend-mode:multiply" ${ek}/>`;
+  const IMGm = (ad, x, y, s, ek = '') => `<image href="/deneme/materyaller/resimler/${ad}.png" x="${x}" y="${y}" width="${s}" height="${s}" ${ek}/>`;
   const sahne = (W, H, ic, mm = 178) => `<svg viewBox="0 0 ${W} ${H}" style="width:${mm}mm;height:${mm * H / W}mm;display:block">${ic}</svg>`;
   const kutuK = '<span class="yazkutu"></span>';
-  const gorev = (liste) => `<ol class="gorev">${liste.map(([ik, m]) => `<li><span class="gik">${ik}</span><span>${m}</span></li>`).join('')}</ol>`;
+  const IKON = { '↑': 'M12 19V5M5 12l7-7 7 7', '↓': 'M12 5v14M5 12l7 7 7-7', '←': 'M19 12H5M12 5l-7 7 7 7', '→': 'M5 12h14M12 5l7 7-7 7', '↕': 'M12 3v18M6 8l6-5 6 5M6 16l6 5 6-5', '▣': 'M5 5h14v14H5zM9 12h6' };
+  const ikon = ik => IKON[ik] ? `<svg viewBox="0 0 24 24" width="5mm" height="5mm"><path d="${IKON[ik]}" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>` : `<span class="ttkb">${ik}</span>`;
+  const gorev = (liste) => `<ol class="gorev">${liste.map(([ik, m]) => `<li><span class="gik">${ikon(ik)}</span><span>${m}</span></li>`).join('')}</ol>`;
   const agac = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-9" y="70" width="18" height="40" fill="#8e5b2b"/><path d="M0 -10 L45 40 H25 L58 80 H-58 L-25 40 H-45 Z" fill="#5fa476" stroke="#1f4d36" stroke-width="3"/></g>`;
 
   // ---- 1-3. hafta: uzamsal ilişkiler, eş nesneler ----
@@ -474,8 +476,8 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
 .terazi2{width:76mm;height:53mm}
 .rzar .zar{width:16mm;height:16mm;display:block}
 .gorev{margin:0 0 2.5mm;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1.5mm 6mm}
-.gorev li{display:flex;gap:2.5mm;align-items:center;font:4.4mm Andika,sans-serif}
-.gik{flex:none;min-width:9mm;height:9mm;padding:0 1.5mm;border-radius:999px;background:#2e6b4a;color:#fff;display:grid;place-items:center;font:700 4.4mm Andika,sans-serif}
+.gorev li{display:flex;gap:2.5mm;align-items:center;font-family:TTKB,sans-serif;font-size:5mm;line-height:1.25}
+.gik{flex:none;min-width:9mm;height:9mm;padding:0 1.5mm;border-radius:999px;background:var(--ec,#2e6b4a);color:#fff;display:grid;place-items:center;font-family:TTKB,sans-serif;font-size:4.8mm}
 .ortala{display:flex;justify-content:center}
 .sahneler3{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;justify-items:center}
 .sahneler3>svg{border:.4mm solid #cfd8d1;border-radius:3mm;padding:1mm}
@@ -491,7 +493,7 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
 .tanis{display:grid;grid-template-columns:52mm 1fr;gap:5mm;align-items:center;border:.6mm solid #2e6b4a;border-radius:4mm;padding:3mm 5mm;background:#f6faf3}
 .temsil{display:flex;flex-direction:column;gap:3mm;align-items:flex-start}
 .t-zar .zar{width:20mm;height:20mm;display:block}
-.t-res{display:flex;flex-wrap:wrap;gap:1.5mm}.t-res img{width:12mm;height:12mm}.t-res em{font:4.5mm Andika,sans-serif;color:#6b7a70}
+.t-res{display:flex;flex-wrap:wrap;gap:1.5mm}.t-res img{width:12mm;height:12mm}.t-res em{font-family:TTKB,sans-serif;font-size:5mm;color:#6b7a70}
 .boyadizi{display:grid;grid-template-columns:repeat(10,1fr);gap:2mm}
 .boyadizi span{aspect-ratio:1;border:.4mm solid #cfd8d1;border-radius:2mm;padding:1mm;display:block}
 .balonlar.r{grid-template-columns:repeat(12,1fr)}
@@ -504,7 +506,7 @@ module.exports = ({ etk, satir, resim, rastgele, numarala }) => {
 .birebir2 .s span{width:18mm;height:18mm;display:block}
 .birebir2 .s .yazkutu{margin-left:auto;width:12mm;height:12mm}
 .kurallar{display:grid;grid-template-columns:repeat(3,1fr);gap:2mm 4mm;margin-top:2mm}
-.kurallar span{display:flex;align-items:center;gap:2mm;font:4.2mm Andika,sans-serif}.kurallar img{width:12mm;height:12mm}
+.kurallar span{display:flex;align-items:center;gap:2mm;font-family:TTKB,sans-serif;font-size:4.8mm}.kurallar img{width:12mm;height:12mm}
 .keskatla{display:flex;flex-direction:column;gap:5mm;align-items:center}
 .olcum{display:flex;flex-direction:column;gap:3mm}
 .kars-uz{display:flex;flex-direction:column;gap:2mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:2.5mm 4mm}
