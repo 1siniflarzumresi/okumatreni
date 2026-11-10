@@ -17,7 +17,7 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--zemin);color:var(--yazi);font:16px/1.55 "Andika",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 a{color:inherit}
 button{font:inherit;color:inherit}
-.kap{max-width:1040px;margin:0 auto;padding:0 20px}
+.kap{max-width:1600px;margin:0 auto;padding:0 clamp(16px,3vw,40px)}
 :focus-visible{outline:3px solid var(--sari);outline-offset:2px}
 
 /* Üst çubuk */
@@ -50,9 +50,9 @@ h2{font-size:22px}
 /* Üyelik: üst menü */
 #uye-alani{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}
 #uye-alani:empty{display:none}
-.ust nav a.uye-giris{background:var(--mavi);color:#fff}
-.ust nav a.uye-giris:hover{background:#2f74e0;color:#fff}
-.ust nav a.uye-ad{max-width:18ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;line-height:32px;color:var(--yazi)}
+.ust a.uye-giris{background:var(--mavi);color:#fff}
+.ust a.uye-giris:hover{background:#2f74e0;color:#fff}
+.ust a.uye-ad{max-width:18ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;line-height:32px;color:var(--yazi)}
 .uye-rol{font-size:11px;font-weight:800;background:var(--gunes);color:#3b2a10;border-radius:999px;padding:1px 8px;vertical-align:middle}
 .uye-cikis{border:1px solid var(--cizgi);background:var(--kart);color:var(--yazi-2);font:inherit;font-weight:700;border-radius:999px;padding:6px 12px;min-height:44px;cursor:pointer}
 .uye-cikis:hover{background:var(--sis);color:var(--yazi)}
@@ -93,10 +93,14 @@ h2{font-size:22px}
 .metin h2{font-size:19px;margin-top:1.4em}
 .alt a{color:inherit}
 .logo{white-space:nowrap}
-@media (max-width:600px){
-  .ust .kap{gap:8px;padding:0 14px}
-  .logo{font-size:18px}
-  .ust nav{flex-wrap:nowrap;gap:2px}
-  .ust nav a{padding:6px 10px;font-size:14px}
-  .ust nav a[href="index.html"]:not(.logo){display:none}
+.ust nav a.ders-l{color:var(--yazi)}
+.ust nav .ayrac-m{width:1px;height:22px;background:var(--cizgi);margin:0 6px}
+@media (max-width:760px){
+  .ust .kap{flex-wrap:wrap;gap:0 8px;padding-top:8px;padding-bottom:4px;min-height:0}
+  .logo{font-size:18px;height:44px}
+  .ust nav{order:3;width:100%;margin:0;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+  .ust nav a{padding:6px 12px;font-size:14px;flex:none}
+  .ust nav .ayrac-m{display:none}
+  #uye-alani{order:2;margin-left:auto}
 }
+.ust a.uye-giris,.ust a.uye-ad{text-decoration:none;font-weight:700;font-size:15px;padding:8px 16px;border-radius:999px;min-height:40px;display:inline-flex;align-items:center}

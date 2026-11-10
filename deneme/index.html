@@ -25,7 +25,7 @@
 h1{font-size:clamp(32px,5vw,48px);line-height:1.12;margin:14px 0 12px;letter-spacing:-.5px}
 h1 em{font-style:normal;color:var(--mavi)}
 .kahraman p{font-size:18px;color:var(--soluk);margin:0 0 24px;max-width:34ch}
-.cizim{width:100%;max-width:380px;justify-self:end}
+.cizim{width:100%;max-width:460px;justify-self:end}
 
 /* adımlar */
 .adim{padding:12px 0 8px}
@@ -36,7 +36,7 @@ h1 em{font-style:normal;color:var(--mavi)}
 .kilitli{opacity:.35;pointer-events:none}
 
 /* seçim kartları */
-.secimler{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.secimler{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
 .secim{background:var(--kart);border:2px solid transparent;border-radius:18px;padding:18px;box-shadow:var(--golge);text-align:left;display:flex;flex-direction:column;gap:6px;transition:transform .15s,border-color .15s}
 .secim:hover{transform:translateY(-2px)}
 .secim[aria-pressed="true"]{border-color:var(--renk)}
@@ -53,7 +53,7 @@ h1 em{font-style:normal;color:var(--mavi)}
 .durak[aria-pressed="true"]{background:var(--renk);border-color:var(--renk);color:#fff}
 
 /* kâğıt kartları */
-.kagitlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.kagitlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
 .kagit{background:#fff;border-radius:18px;box-shadow:var(--golge);overflow:hidden;display:flex;flex-direction:column}
 .kagit .on{aspect-ratio:210/150;overflow:hidden;background:var(--mavi-a);border-bottom:1px solid var(--cizgi)}
 .kagit .on img{width:100%;display:block}
@@ -62,13 +62,13 @@ h1 em{font-style:normal;color:var(--mavi)}
 .kagit small{color:var(--soluk)}
 .kagit .indir{margin-top:auto;align-self:flex-start;margin-top:10px;background:var(--renk,var(--mavi));color:#fff;font-weight:700;border-radius:999px;padding:8px 16px;font-size:14px}
 
-@media (max-width:700px){.kahraman{padding:28px 0 12px}.kahraman .kap{grid-template-columns:1fr}.cizim{display:none}.ust nav a.ikinci{display:none}}
+@media (max-width:700px){.kahraman{padding:28px 0 12px}.kahraman .kap{grid-template-columns:1fr}.cizim{display:none}}
 </style>
 </head>
 <body>
 <header class="ust"><div class="kap">
   <a class="logo" href="index.html"><svg viewBox="0 0 34 40" aria-hidden="true"><path d="M17 2 26 13h-4l7 9h-5l7 10H3l7-10H5l7-9H8z" fill="#2e8b57"/><rect x="14.5" y="32" width="5" height="7" rx="1" fill="#c48a4f"/></svg>Ladin Ormanı</a>
-  <nav aria-label="Ana menü"><a class="ikinci" href="takvim.html">Takvim</a><span id="uye-alani"></span></nav>
+  <nav aria-label="Ana menü"><a class="ders-l" href="index.html#turkce">Türkçe</a><a class="ders-l" href="index.html#matematik">Matematik</a><a class="ders-l" href="../oyunlar.html">Oyunlar</a><a href="takvim.html">Takvim</a><span class="ayrac-m"></span></nav><span id="uye-alani"></span>
 </div></header>
 
 <section class="kahraman"><div class="kap">
@@ -166,7 +166,11 @@ h1 em{font-style:normal;color:var(--mavi)}
   $("serit").addEventListener("click", function(e){ var b = e.target.closest(".durak"); if (b) adimSec(ders === "turkce" ? b.dataset.s : +b.dataset.s); });
   Promise.all([LADIN.takvimYukle().catch(function(){ return null; }), LADIN.materyalYukle()]).then(function(r){
     TK = r[0]; MATS = r[1] || []; var h = TK ? LADIN.buHafta(TK) : null; buHafta = h && !h.tatil ? h.hafta : null;
+    hashAc();
   });
+  // Menüden gelen ders: index.html#turkce / #matematik
+  function hashAc(){ var d = location.hash.slice(1); if (RENK[d] && MATS.length) dersSec(d); }
+  addEventListener("hashchange", hashAc);
 })();
 </script>
 </body>
