@@ -546,6 +546,105 @@
   "resim": "materyaller/1-sinif/matematik/hafta-09-onizleme.png"
  },
  {
+  "id": "mat-hafta-11",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 11,
+  "baslik": "11. Hafta · Kanguru Zıplıyor",
+  "dosya": "materyaller/1-sinif/matematik/hafta-11.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-11-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-12",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 12,
+  "baslik": "12. Hafta · Geri Sayım · Boncuklar",
+  "dosya": "materyaller/1-sinif/matematik/hafta-12.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-12-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-13",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 13,
+  "baslik": "13. Hafta · Örüntü Ormanı",
+  "dosya": "materyaller/1-sinif/matematik/hafta-13.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-13-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-14",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 14,
+  "baslik": "14. Hafta · Kavanoz Tahmini",
+  "dosya": "materyaller/1-sinif/matematik/hafta-14.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-14-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-15",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (1)",
+  "hafta": 15,
+  "baslik": "15. Hafta · Tırtıl Yarışı",
+  "dosya": "materyaller/1-sinif/matematik/hafta-15.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-15-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-16",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (2)",
+  "hafta": 16,
+  "baslik": "16. Hafta · Uzun mu Kısa mı?",
+  "dosya": "materyaller/1-sinif/matematik/hafta-16.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-16-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-17",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (2)",
+  "hafta": 17,
+  "baslik": "17. Hafta · Dominoyla Ölç",
+  "dosya": "materyaller/1-sinif/matematik/hafta-17.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-17-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-18",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (2)",
+  "hafta": 18,
+  "baslik": "18. Hafta · Çiftlik Terazisi",
+  "dosya": "materyaller/1-sinif/matematik/hafta-18.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-18-onizleme.png"
+ },
+ {
+  "id": "mat-hafta-19",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": "Sayılar ve Nicelikler (2)",
+  "hafta": 19,
+  "baslik": "19. Hafta · Ne Oldu?",
+  "dosya": "materyaller/1-sinif/matematik/hafta-19.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-19-onizleme.png"
+ },
+ {
   "id": "mat-hafta-10",
   "sinif": 1,
   "tur": "calisma",
@@ -557,14 +656,25 @@
   "resim": "materyaller/1-sinif/matematik/hafta-10-onizleme.png"
  },
  {
-  "id": "mat-paket-1",
+  "id": "mat-paket-01",
   "sinif": 1,
   "tur": "calisma",
   "ders": "matematik",
   "unite": null,
   "hafta": null,
-  "baslik": "Matematik 1-10. Hafta toplu paket",
-  "dosya": "materyaller/1-sinif/matematik/matematik-hafta-01-10.pdf",
+  "baslik": "Matematik 1-14. Hafta toplu paket",
+  "dosya": "materyaller/1-sinif/matematik/matematik-hafta-01-14.pdf",
   "resim": "materyaller/1-sinif/matematik/hafta-01-onizleme.png"
+ },
+ {
+  "id": "mat-paket-15",
+  "sinif": 1,
+  "tur": "calisma",
+  "ders": "matematik",
+  "unite": null,
+  "hafta": null,
+  "baslik": "Matematik 15-18. Hafta toplu paket",
+  "dosya": "materyaller/1-sinif/matematik/matematik-hafta-15-18.pdf",
+  "resim": "materyaller/1-sinif/matematik/hafta-15-onizleme.png"
  }
 ]

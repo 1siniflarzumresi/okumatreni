@@ -16,7 +16,8 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
     return n > 10 ? `<span class="onluk2">${tek(10)}${tek(n - 10)}</span>` : tek(n);
   };
   const kutu = '<span class="yazkutu"></span>';
-  const grup = (ad, n, r) => `<div class="grup">${Array.from({ length: n }, () => `<span style="transform:rotate(${Math.round((r() - .5) * 16)}deg)">${resim(ad)}</span>`).join('')}</div>`;
+  const boyut = n => n <= 2 ? 20 : n <= 4 ? 16 : n <= 6 ? 13.5 : n <= 9 ? 11.5 : n <= 12 ? 10 : 8.5;   // mm: az resim büyük, çok resim küçük
+  const grup = (ad, n, r) => `<div class="grup" style="--rb:${boyut(n)}mm">${Array.from({ length: n }, () => `<span style="transform:rotate(${Math.round((r() - .5) * 16)}deg)">${resim(ad)}</span>`).join('')}</div>`;
 
   // --- bileşenler ---
   const rakamYaz = (rakamlar) => etk(0, 'Rakam treninin her vagonunda bir rakam var. Zar ya da dominodaki noktaları say. Yeşil noktadan başla, okları izle, sonra rakamı kendin yaz.',
@@ -350,6 +351,25 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
     return etk(0, 'Kes, katla, oyna! Zarı kalın çizgilerden kes, kesik çizgilerden katla, sekmeleri yapıştır. Piyonları kes, ortadan katla; alt kısmı hafifçe açarak ayakta durmasını sağla.',
       `<div class="keskatla">${sahne(20 + 5 * k + 40, 20 + 3 * k + 30, s, 120)}${sahne(4 * 130, 260, ['sincap', 'kanguru', 'kurbaga', 'kus'].map((a, i) => piyon(i * 130, a, RENK[i])).join(''), 120)}</div>`); };
 
+
+  // ---- 11-19. hafta bileşenleri ----
+  const beserSay = (n) => etk(0, 'Her elde 5 parmak var. Elleri beşer beşer say: 5, 10, 15… Her elin altına o ana kadarki sayıyı yaz.',
+    `<div class="eller">${Array.from({ length: n }, () => `<div>${resim('el')}${kutuK}</div>`).join('')}</div>`);
+  const onarSay = (liste) => etk(0, 'Her kutuda 10 çilek var. Kutuları onar onar say. Toplam kaç çilek? Kutuya yaz.',
+    `<div class="onarlar">${liste.map(n => `<div><span class="kasalar">${Array.from({ length: n }, () => `<span class="kasa">${Array.from({ length: 10 }, () => `<img src="${RY('cilek')}">`).join('')}</span>`).join('')}</span>${kutuK}</div>`).join('')}</div>`);
+  const geriSay = (liste) => etk(0, 'Roket kalkıyor! Geriye doğru say. Boş kutulara gelen sayıları yaz.',
+    `<div class="geri">${liste.map(d => `<div>${resim('roket')}${d.map(x => x === null ? kutuK : `<b class="ttkb">${x}</b>`).join('<i>‹</i>')}</div>`).join('')}</div>`);
+  const oruntuOlustur = () => etk(0, 'Sıra sende! İki renk seç ve kendi boncuk örüntünü boya. Sonra yanındakine örüntünü anlat.',
+    `<div class="boncuklar">${[0, 1].map(() => sahne(10 * 46 + 30, 66, `<path d="M5 30 Q${(10 * 46 + 30) / 2} 52 ${10 * 46 + 25} 30" fill="none" stroke="#8e5b2b" stroke-width="2"/>` + Array.from({ length: 10 }, (_, i) => { const x = 26 + i * 46, y = 30 + Math.sin(Math.PI * (x / (10 * 46 + 30))) * 14; return `<circle cx="${x}" cy="${y}" r="18" fill="#fff" stroke="#1f2a24" stroke-width="2"/>`; }).join(''), 160)).join('')}</div>`);
+  const sekilOruntu2 = (diziler) => etk(0, 'Örüntüde eksik olan şekli bul. Boş kutuya çiz.',
+    `<div class="oruntu">${diziler.map(d => `<div>${d.map((s, i) => s === null ? '<span class="bosk">?</span>' : sekil(s, i % 2 === 0)).join('')}</div>`).join('')}</div>`);
+  const olcumTablosu = (liste, birim) => etk(0, `Sınıfta ölçelim! Nesneyi bul. Önce kaç ${birim} uzunluğunda olduğunu tahmin et, sonra ${birim}larla ölç.`,
+    `<table class="olctab"><tr><th>Nesne</th><th>Tahminim</th><th>Ölçtüm</th></tr>${liste.map(a => `<tr><td>${resim(a)}</td><td>${kutuK}</td><td>${kutuK}</td></tr>`).join('')}</table>`);
+  const hikayeGel = (liste) => etk(0, 'Ne oldu? Önce kaç tane vardı, kaç tane geldi? Şimdi kaç tane oldu? Say, kutuya yaz.',
+    `<div class="hikayeler">${liste.map(([ad, a, b]) => `<div><span class="h-grup">${Array.from({ length: a }, () => resim(ad)).join('')}</span><span class="h-ok">${sahne(60, 30, '<path d="M54 15 H8 M18 5 L6 15 L18 25" fill="none" stroke="#2e8b57" stroke-width="4" stroke-linecap="round"/>', 16)}</span><span class="h-grup gelen">${Array.from({ length: b }, () => resim(ad)).join('')}</span>${kutuK}</div>`).join('')}</div>`);
+  const hikayeGit = (liste) => etk(0, 'Ne oldu? Bazıları gitti; gidenlerin üstü çizili. Kaç tane kaldı? Say, kutuya yaz.',
+    `<div class="hikayeler">${liste.map(([ad, a, b]) => `<div><span class="h-grup">${Array.from({ length: a }, (_, i) => `<span class="${i >= a - b ? 'giden' : ''}">${resim(ad)}</span>`).join('')}</span>${kutuK}</div>`).join('')}</div>`);
+
   const MAT = {
     'hafta-01': { unite: 1, hafta: 1, baslik: 'Ormanda Neresi?', konu: 'Uzamsal ilişkiler', sayfalar: () => [
       numarala([etk(0, 'Oyuncak rafına bak. Öğretmeninin söylediklerini yap.', gorev([['↑', 'EN ÜST raftaki oyuncakları daire içine al.'], ['↓', 'EN ALT raftaki oyuncakları boya.'], ['↕', 'ORTA raftaki oyuncakların altına çizgi çiz.']]) + `<div class="ortala">${raf([['top', 'robot', 'balon'], ['kitap', 'kedi', 'saat'], ['araba', 'kova', 'ayi']])}</div>`),
@@ -382,6 +402,44 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
     'hafta-09': { unite: 1, hafta: 9, baslik: 'Sıra Bizde · Küp Kuleleri', konu: 'Sıra bildiren sayılar · Çok mu? Az mı? Eşit mi?', sayfalar: () => [
       numarala([hayvanTreni2([[6, ['fare', 'kedi', 'kopek', 'kuzu', 'inek', 'fil']], [1, ['tavuk', 'ordek', 'kus', 'horoz', 'leylek', 'ari']], [4, ['zebra', 'zurafa', 'deve', 'kanguru', 'sincap', 'kaplumbaga']], [2, ['balik', 'kurbaga', 'ordek', 'kopek', 'kedi', 'kus']]]), kuyruk(['inek', 'kuzu', 'fare', 'zebra', 'tavuk', 'ari'])]),
       numarala([kuleKars([[5, 3], [4, 4], [2, 7], [6, 6], [8, 5], [3, 9]]), dominoKars([[[3, 2], [1, 1]], [[4, 0], [2, 2]], [[6, 1], [5, 3]], [[2, 1], [3, 3]], [[5, 5], [6, 3]], [[1, 0], [0, 2]]]), kuleEsitle([[5, 2], [6, 4], [7, 3], [4, 1], [8, 6], [6, 6]])])] },
+    'hafta-11': { unite: 1, hafta: 11, baslik: 'Kanguru Zıplıyor', konu: 'Ritmik saymalar', sayfalar: () => [
+      numarala([zipla([[0, 20, 2], [0, 20, 2], [0, 50, 5]]), zarCifti([4, 6]), beserSay(6)]),
+      numarala([onarSay([2, 4, 3]), seritEksik([[2, 4, null, 8, null, 12, null], [10, 20, null, 40, null, 60, null], [5, 10, null, 20, null, null, 35]]), ritmikResim([['eldiven', 2, 5], ['corap', 2, 6]], 31), beserSay(4)]),
+    ] },
+    'hafta-12': { unite: 1, hafta: 12, baslik: 'Geri Sayım · Boncuklar', konu: 'Ritmik saymalar · Sayı ve şekil örüntüleri', sayfalar: () => [
+      numarala([geriSay([[10, 9, null, 7, null, 5, null, 3], [20, 18, null, 14, null, 10, null], [50, 45, null, 35, null, 25, null]]), zipla([[0, 100, 10], [1, 21, 2]]), beserSay(5)]),
+      numarala([boncuk([[['k', 's', 'k', 's', 'k', 's'], 3], [['y', 'y', 'm', 'y', 'y', 'm'], 3], [['k', 's', 'm', 'k', 's', 'm'], 3]]), oruntuResim([[['elma', 'armut', 'elma', 'armut', 'elma'], ['elma', 'armut', 'cilek']], [['kus', 'kus', 'balik', 'kus', 'kus'], ['kedi', 'balik', 'kus']], [['lale', 'gul', 'gul', 'lale', 'gul'], ['gul', 'lale', 'cicek']]]), oruntuOlustur()]),
+    ] },
+    'hafta-13': { unite: 1, hafta: 13, baslik: 'Örüntü Ormanı', konu: 'Sayı ve şekil örüntüleri', sayfalar: () => [
+      numarala([oruntuSekil([[['d', 'k', 'd', 'k', 'd', 'k'], 2], [['u', 'u', 'y', 'u', 'u', 'y'], 3], [['k', 'd', 'u', 'k', 'd', 'u'], 3]]), sekilOruntu2([['d', 'u', null, 'd', 'u', 'k'], ['y', 'y', 'k', null, 'y', 'k'], ['u', null, 'u', 'd', 'u', 'd']]),
+        oruntuResim([[['top', 'balon', 'yildiz', 'top', 'balon'], ['yildiz', 'top', 'balon']], [['kedi', 'kedi', 'kopek', 'kedi', 'kedi'], ['kedi', 'kopek', 'fare']], [['muz', 'elma', 'elma', 'muz', 'elma'], ['muz', 'elma', 'armut']], [['ari', 'ugur', 'ari', 'ugur', 'ari'], ['ari', 'ugur', 'kus']]])]),
+      numarala([dominoOruntu([[[1, 0], [1, 1], [2, 1], [2, 2], [3, 2], [3, null]], [[0, 1], [0, 2], [0, 3], [0, 4], [0, null]], [[6, 6], [5, 5], [4, 4], [3, 3], [2, null]]]),
+        seritEksik([[1, 2, 1, 2, null, null], [3, 3, 4, 3, 3, null], [1, 2, 3, 1, 2, null], [2, 4, 6, null, 10, null]]), oruntuOlustur()]),
+    ] },
+    'hafta-14': { unite: 1, hafta: 14, baslik: 'Kavanoz Tahmini', konu: 'Sayı ve şekil örüntüleri · Tahmin', sayfalar: () => [
+      numarala([kavanozTahmin([7, 12, 16, 9, 19, 14], 7), zarCifti([3, 5])]),
+      numarala([tahmin([['yildiz', 9], ['balon', 14], ['ari', 6], ['cicek', 17]], 8), boncuk([[['m', 'b', 'm', 'b', 'm', 'b'], 3], [['s', 's', 'k', 's', 's', 'k'], 3]])]),
+    ] },
+    'hafta-15': { unite: 2, hafta: 15, baslik: 'Tırtıl Yarışı', konu: 'Tahmin · Uzunluk ölçme', sayfalar: () => [
+      numarala([tahmin([['kus', 11], ['ugur', 8], ['mantar', 15], ['limon', 12]], 9), kavanozTahmin([13, 18, 10], 11)]),
+      numarala([tirtilYaris([[[5, '#a9d39b'], [8, '#f2b94b'], [6, '#f3c6c0']], [[9, '#bcd7f0'], [4, '#a9d39b'], [7, '#f2b94b']]]), uzunKisa([[['kalem', 5], ['kalem', 8]], [['serit', 9], ['serit', 6]], [['dal', 4], ['dal', 7], ['dal', 5]]])]),
+    ] },
+    'hafta-16': { unite: 2, hafta: 16, baslik: 'Uzun mu Kısa mı?', konu: 'Uzunluk ölçme', sayfalar: () => [
+      numarala([enKisa([[['kalem', 6], ['kalem', 3], ['kalem', 8]], [['serit', 7], ['serit', 9], ['serit', 5]], [['dal', 8], ['dal', 4], ['dal', 6]]]), uzSirala([[['kalem', 7], ['kalem', 4], ['kalem', 9]], [['dal', 5], ['dal', 9], ['dal', 3]]])]),
+      numarala([olc([['kalem', 4], ['serit', 7], ['dal', 6], ['kalem', 9]], 'atac'), olc([['serit', 5], ['kalem', 8]], 'kup'), tirtilYaris([[[6, '#f3c6c0'], [3, '#bcd7f0'], [8, '#a9d39b']]])]),
+    ] },
+    'hafta-17': { unite: 2, hafta: 17, baslik: 'Dominoyla Ölç', konu: 'Uzunluk ölçme', sayfalar: () => [
+      numarala([dominoOlc([['kalem', 4], ['serit', 7], ['dal', 6], ['kalem', 9]]), tahminOlc([['kalem', 6], ['dal', 8], ['serit', 5]]), uzSirala([[['serit', 8], ['serit', 3], ['serit', 6]]])]),
+      numarala([olcumTablosu(['kalem', 'kitap', 'masa', 'canta', 'kasik', 'makas'], 'silgi')]),
+    ] },
+    'hafta-18': { unite: 2, hafta: 18, baslik: 'Çiftlik Terazisi', konu: 'Tartma', sayfalar: () => [
+      numarala([teraziOku2([['tavuk', 'inek', 1], ['fil', 'kedi', -1], ['kuzu', 'kuzu', 0], ['fare', 'kopek', 1]]), agirHafif([['fil', 'fare'], ['yaprak', 'kalem'], ['kitap', 'balon'], ['inek', 'kedi'], ['tencere', 'kasik'], ['kus', 'kopek'], ['domates', 'ceviz'], ['kova', 'kasik'], ['tilki', 'ari']])]),
+      numarala([balyaDenge([['kuzu', 3], ['kopek', 5], ['tavuk', 2], ['inek', 9]]), agirHafif([['deve', 'kedi'], ['kitap', 'yaprak'], ['valiz', 'kalem']])]),
+    ] },
+    'hafta-19': { unite: 3, hafta: 19, baslik: 'Ne Oldu?', konu: 'Tartma · Toplama ve çıkarma', sayfalar: () => [
+      numarala([kupDenge([['elma', 3], ['top', 5], ['kitap', 7], ['armut', 2], ['ayakkabi', 6], ['cilek', 1]]), teraziOku([['elma', 'kedi', 1], ['fil', 'top', -1], ['balon', 'kitap', 1], ['fare', 'inek', 1], ['kuzu', 'yaprak', -1], ['kalem', 'kalem', 0]])]),
+      numarala([hikayeGel([['civciv', 3, 2], ['balik', 4, 3], ['kus', 2, 5], ['elma', 5, 4]]), hikayeGit([['balon', 6, 2], ['ordek', 7, 3], ['kurbaga', 5, 4], ['cilek', 8, 5]])]),
+    ] },
     'hafta-10': { unite: 1, hafta: 10, baslik: 'Çok mu Az mı?', konu: 'Çok mu? Az mı? Eşit mi?', sayfalar: () => [
       numarala([birebir2([['kedi', 4, 'balik', 6], ['kopek', 5, 'top', 3], ['tavuk', 3, 'yumurta', 3]]), dominoKars([[[2, 2], [4, 1]], [[3, 3], [5, 1]], [[6, 0], [2, 3]], [[1, 4], [4, 1]], [[5, 2], [3, 3]], [[0, 6], [6, 1]]])]),
       numarala([kuleEsitle([[6, 3], [7, 5], [5, 1], [8, 4], [4, 2], [9, 6]]), kuleKars([[3, 5], [7, 7], [9, 4], [2, 6], [5, 5], [8, 3]]), birebir2([['ari', 5, 'cicek', 3]])])] },
@@ -392,7 +450,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .rs{display:flex;align-items:center;gap:6mm}
 .yazkutu{display:inline-block;width:16mm;height:16mm;border:.6mm solid #4a5a50;border-radius:2.5mm;background:#fff;flex:none}
 .grup{display:flex;flex-wrap:wrap;gap:1mm;align-content:center;justify-content:center;border:.4mm solid #cfd8d1;border-radius:3mm;padding:2mm;min-height:24mm}
-.grup span{width:12mm;height:12mm;display:block}
+.grup span{width:var(--rb,12mm);height:var(--rb,12mm);display:block}
 .sayyaz{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
 .sayyaz>div{display:flex;flex-direction:column;align-items:center;gap:2mm}
 .sayyaz .grup{width:100%;min-height:40mm}
@@ -415,7 +473,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .bitis{width:3mm;align-self:stretch;background:repeating-linear-gradient(#1f2a24 0 3mm,#fff 3mm 6mm);border:.3mm solid #1f2a24}
 .kars{display:flex;flex-direction:column;gap:4mm}
 .kars>div{display:grid;grid-template-columns:1fr 1fr;gap:10mm}
-.kars .grup{min-height:33mm}.kars .grup span{width:13mm;height:13mm}
+.kars .grup{min-height:33mm}
 .kars .grup.bos{justify-content:flex-start}
 .birebir{display:flex;flex-direction:column;gap:5mm}
 .birebir>div{display:flex;flex-direction:column;gap:12mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:3mm}
@@ -426,7 +484,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .serit i{font-style:normal;font-size:8mm;color:#9fb8a6}
 .ritmik{display:flex;flex-direction:column;gap:3mm}
 .ritmik>div{display:flex;align-items:center;gap:5mm}
-.gruplar{display:flex;gap:3mm;flex:1}.gruplar .grup{min-height:20mm;padding:1.5mm}.gruplar .grup span{width:8mm;height:8mm}
+.gruplar{display:flex;gap:3mm;flex:1}.gruplar .grup{min-height:20mm;padding:1.5mm}.gruplar .grup span{width:8.5mm;height:8.5mm}
 .oruntu{display:flex;flex-direction:column;gap:3.5mm}
 .oruntu>div{display:flex;align-items:center;gap:3mm}
 .sekil{width:15mm;height:15mm}
@@ -437,7 +495,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .tahmin{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
 .tahmin>div{display:flex;flex-direction:column;gap:2mm;align-items:center}
 .dagin{position:relative;width:100%;height:88mm;border:.5mm solid #cfd8d1;border-radius:4mm;background:#fbfdf9}
-.dagin span{position:absolute;width:12mm;height:12mm}
+.dagin span{position:absolute;width:13mm;height:13mm}
 .tk{display:flex;align-items:center;gap:3mm}
 .trenler{display:flex;flex-direction:column;gap:2.5mm}
 .tren{border:.4mm solid #cfd8d1;border-radius:3mm;padding:2mm 3mm;overflow:hidden}
@@ -508,6 +566,32 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .kurallar{display:grid;grid-template-columns:repeat(3,1fr);gap:2mm 4mm;margin-top:2mm}
 .kurallar span{display:flex;align-items:center;gap:2mm;font-family:TTKB,sans-serif;font-size:4.8mm}.kurallar img{width:12mm;height:12mm}
 .keskatla{display:flex;flex-direction:column;gap:5mm;align-items:center}
+.eller{display:grid;grid-template-columns:repeat(6,1fr);gap:3mm}
+.eller>div{display:flex;flex-direction:column;align-items:center;gap:1.5mm;background:#fff;border-radius:3mm;padding:2mm}
+.eller img{width:20mm;height:20mm}
+.onarlar{display:flex;flex-direction:column;gap:3mm}
+.onarlar>div{display:flex;align-items:center;justify-content:space-between;gap:3mm}
+.kasalar{display:flex;gap:2mm}
+.kasa{display:grid;grid-template-columns:repeat(5,1fr);gap:.5mm;background:#c48a4f;border:.6mm solid #8e5b2b;border-radius:2mm;padding:1mm;width:30mm}
+.kasa img{width:5mm;height:5mm}
+.geri{display:flex;flex-direction:column;gap:3mm}
+.geri>div{display:flex;align-items:center;gap:2.2mm}
+.geri>div>img{width:14mm;height:14mm}
+.geri b{width:15mm;height:15mm;border:.6mm solid #2e6b4a;border-radius:2.5mm;display:grid;place-items:center;font-size:9mm;font-weight:400;background:#fff}
+.geri i{font-style:normal;font-size:7mm;color:#9fb8a6}
+.olctab{width:100%;border-collapse:separate;border-spacing:0 2.5mm;font-family:TTKB,sans-serif;font-size:6mm}
+.olctab th{color:#2e6b4a;font-weight:400;text-align:center}
+.olctab td{background:#fff;text-align:center;padding:2mm;border-radius:2mm}
+.olctab td img{width:24mm;height:24mm}
+.olctab .yazkutu{width:22mm;height:16mm}
+.hikayeler{display:flex;flex-direction:column;gap:3mm}
+.hikayeler>div{display:flex;align-items:center;gap:3mm;background:#fff;border-radius:3mm;padding:2.5mm 3mm}
+.h-grup{display:flex;gap:1.5mm;flex-wrap:wrap}
+.h-grup img{width:13mm;height:13mm}
+.h-grup.gelen{padding:1mm 2mm;border:.5mm dashed #2e8b57;border-radius:3mm}
+.hikayeler .yazkutu{margin-left:auto}
+.giden{position:relative;display:block;opacity:.55}
+.giden::after{content:"";position:absolute;inset:0;background:linear-gradient(45deg,transparent 46%,#c0392b 46%,#c0392b 54%,transparent 54%)}
 .olcum{display:flex;flex-direction:column;gap:3mm}
 .kars-uz{display:flex;flex-direction:column;gap:2mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:2.5mm 4mm}
 .olc-satir{display:flex;align-items:center;justify-content:space-between;gap:4mm;border-bottom:.3mm dashed #cfd8d1;padding-bottom:2mm}

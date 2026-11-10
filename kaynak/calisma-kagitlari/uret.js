@@ -566,22 +566,23 @@ const CSS = `
 body{margin:0;color:#1f2a24;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .ttkb{font-family:TTKB,sans-serif}
 .sayfa{width:210mm;height:297mm;padding:10mm 12mm 8mm;display:flex;flex-direction:column;gap:3.5mm;page-break-after:always;overflow:hidden}
-header{display:flex;justify-content:space-between;align-items:center;padding:2.5mm 5mm;border-radius:5mm;background:linear-gradient(100deg,#dff0d6 0%,#eef7e9 55%,#fff4d6 100%);border:.5mm solid #a9d39b;position:relative;overflow:hidden}
-header::after{content:"";position:absolute;right:-6mm;bottom:-4mm;width:40mm;height:14mm;background:radial-gradient(circle at 20% 100%,#a9d39b 0 6mm,transparent 6.2mm),radial-gradient(circle at 60% 100%,#cfe3d4 0 8mm,transparent 8.2mm);opacity:.7;pointer-events:none}
+header{display:flex;justify-content:space-between;align-items:center;padding:2.5mm 5mm;border-radius:5mm;background:linear-gradient(105deg,#d9f0ff 0%,#eaf7ff 45%,#fff3c4 100%);border:.5mm solid #9fd3f5;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;right:4mm;top:-5mm;width:14mm;height:14mm;border-radius:50%;background:#ffd23f;box-shadow:0 0 0 2.5mm rgba(255,210,63,.35);pointer-events:none}
 .baslik{display:flex;align-items:center;gap:3mm}
 .ladin{width:9mm}
-.harf{font-size:15mm;line-height:1;color:#1f4d36;letter-spacing:1mm}
+.harf{font-size:15mm;line-height:1;color:#1d4e89;letter-spacing:1mm}
 .ad{display:flex;align-items:flex-end;gap:2mm;font-size:5.2mm;color:#3d4a42}
 .ad{position:relative;z-index:1}
-.ad i{display:inline-block;width:52mm;height:8mm;background:#fff;border-radius:2mm;border:.35mm solid #a9d39b}
+.ad i{display:inline-block;width:52mm;height:8mm;background:#fff;border-radius:2mm;border:.35mm solid #9fd3f5}
 .ad i.kisa{width:28mm}
 .etk h2{font-size:5.4mm;font-weight:700;margin:0 0 2.5mm;display:flex;gap:2.5mm;align-items:flex-start;line-height:1.3}
-.etk h2 b{flex:none;width:7.5mm;height:7.5mm;border-radius:50%;background:var(--ec,#2e6b4a);color:#fff;display:grid;place-items:center;font-size:4.6mm;margin-top:-.3mm;box-shadow:0 0 0 1mm var(--eb,#e9f6ec)}
-.etk{background:var(--eb,#f3faef);border-radius:4.5mm;padding:3mm 4mm 3.5mm;border-left:2mm solid var(--ec,#2e6b4a)}
-.etk:nth-of-type(4n+1){--eb:#eef8ea;--ec:#2e8b57}
-.etk:nth-of-type(4n+2){--eb:#fff5e0;--ec:#e08a1e}
-.etk:nth-of-type(4n+3){--eb:#eaf3fc;--ec:#2a6fdb}
-.etk:nth-of-type(4n+4){--eb:#fcecf0;--ec:#c8457a}
+.etk h2 b{flex:none;width:7.5mm;height:7.5mm;border-radius:50%;background:var(--ec,#3a86ff);color:#fff;display:grid;place-items:center;font-size:4.6mm;margin-top:-.3mm;box-shadow:0 0 0 1mm #fff}
+.etk{background:var(--eb,#eef5ff);border-radius:4.5mm;padding:3mm 4mm 3.5mm;border:.5mm solid var(--el,#cfe0ff)}
+.etk:nth-of-type(5n+1){--eb:#eaf4ff;--el:#bcdcff;--ec:#3a86ff}
+.etk:nth-of-type(5n+2){--eb:#fff6dc;--el:#ffe08a;--ec:#f4a100}
+.etk:nth-of-type(5n+3){--eb:#e7faf2;--el:#a8ecd0;--ec:#12b886}
+.etk:nth-of-type(5n+4){--eb:#ffeef0;--el:#ffc2cb;--ec:#f2546b}
+.etk:nth-of-type(5n+5){--eb:#f4edff;--el:#d6c4ff;--ec:#8b5cf6}
 .etk .r,.etk .y,.etk .grup,.etk .kart-k,.etk .resimler .r,.etk .boyadizi span,.etk .esbul .sec,.etk .kuleler>*,.etk .dkars>div,.etk .kavanozlar>div,.etk .teraziler2>div,.etk .tren,.etk .kayip>div,.etk .sahneler3>svg,.etk .gruplar4 .grup,.etk .kamyonlar>div,.etk .heceler span,.etk .y{background:#fff}
 .ses{color:#c0392b;font-size:6.6mm}
 .resimler{display:grid;grid-template-columns:repeat(6,1fr);gap:3mm}
@@ -641,7 +642,7 @@ img{width:100%;height:100%;object-fit:contain}
 .hikaye p{margin:0;font-size:8mm;line-height:1.45}
 .hikaye b,.merdiven li b{color:#c0392b;font-weight:400}
 .cizim-etk{flex:1;display:flex;flex-direction:column}
-.cizim{flex:1;border:.5mm dashed #9fb8a6;border-radius:4mm}
+.cizim{flex:1;border:.5mm dashed #9fc6ef;border-radius:4mm;background:#fff}
 .metin p{font-size:var(--mb,7.8mm)!important}
 .dy{display:flex;flex-direction:column;gap:2mm}
 .dy div{display:flex;align-items:center;gap:4mm;border-bottom:.3mm dashed #cfd8d1;padding-bottom:1mm}
@@ -675,7 +676,7 @@ ${MAT_CSS}
 .sayfa:has(.harf.mat) .ad i{width:34mm}
 .sayfa:has(.harf.mat) .ad i.kisa{width:22mm}
 .govde{display:flex;flex-direction:column;gap:3.5mm;flex:1;min-height:0}
-footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font:3.2mm Andika,sans-serif;color:#2e6b4a;padding:1.6mm 4mm;border-radius:999px;background:#eef7e9}
+footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font:3.2mm Andika,sans-serif;color:#1d4e89;padding:1.6mm 4mm;border-radius:999px;background:linear-gradient(90deg,#eaf4ff,#fff6dc)}
 `;
 const OKLAR = `<svg width="0" height="0" style="position:absolute"><defs>
 <marker id="ok1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="3.6" markerHeight="3.6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#1f6b45"/></marker>
@@ -723,7 +724,7 @@ const SAYFALAR = {};
     await p.waitForTimeout(150);
     const tasan = await p.evaluate(() => [...document.querySelectorAll('.sayfa')].map((s, i) => s.scrollHeight > s.clientHeight + 1 ? (i + 1) + '. sayfa ' + Math.round((s.scrollHeight - s.clientHeight) / 3.78) + ' mm' : '').filter(Boolean).join(', ') || 'yok');
     // Boşluk ölçümü: son etkinliğin altı ile altbilgi arasında 22 mm'den fazla boşluk kalan sayfalar
-    const bosluk = await p.evaluate(() => [...document.querySelectorAll('.sayfa')].map((s, i) => { const f = s.querySelector('footer'), e = s.querySelector('.govde') || [...s.children].filter(c => c.tagName !== 'FOOTER' && c.tagName !== 'HEADER').pop();
+    const bosluk = await p.evaluate(() => [...document.querySelectorAll('.sayfa')].map((s, i) => { const f = s.querySelector('footer'), e = (s.querySelector('.govde') && s.querySelector('.govde').lastElementChild) || [...s.children].filter(c => c.tagName !== 'FOOTER' && c.tagName !== 'HEADER').pop();
       if (!f || !e) return ''; const mm = (f.getBoundingClientRect().top - e.getBoundingClientRect().bottom) / 3.78; return mm > 22 ? (i + 1) + '. sayfa ' + Math.round(mm) + ' mm' : ''; }).filter(Boolean).join(', '));
     const kirik = await p.evaluate(() => [...document.images].filter(i => !i.complete || !i.naturalWidth).map(i => i.getAttribute('src')));
     if (kirik.length) throw new Error(`${h}: yüklenemeyen resim: ${[...new Set(kirik)].join(', ')}`);
