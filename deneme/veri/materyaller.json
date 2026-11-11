@@ -1370,7 +1370,7 @@
     "sinif": 2,
     "tur": "calisma",
     "ders": "turkce",
-    "unite": "Hatırlatma Haftası",
+    "unite": "Hatırlatma ve Pekiştirme",
     "hafta": 1,
     "baslik": "1. Hafta · Kalemin Yaz Tatili",
     "dosya": "materyaller/2-sinif/turkce/hafta-01.pdf",
@@ -1629,7 +1629,7 @@
     "sinif": 2,
     "tur": "calisma",
     "ders": "turkce",
-    "unite": "Hatırlatma Haftası",
+    "unite": "Hatırlatma ve Pekiştirme",
     "hafta": 18,
     "baslik": "18. Hafta · Kardaki Ayak İzleri",
     "dosya": "materyaller/2-sinif/turkce/hafta-18.pdf",
@@ -1646,7 +1646,7 @@
     "sinif": 2,
     "tur": "calisma",
     "ders": "turkce",
-    "unite": "Hatırlatma Haftası",
+    "unite": "Hatırlatma ve Pekiştirme",
     "hafta": 19,
     "baslik": "19. Hafta · Cebimdeki Biletler",
     "dosya": "materyaller/2-sinif/turkce/hafta-19.pdf",
@@ -1888,7 +1888,7 @@
     "sinif": 2,
     "tur": "calisma",
     "ders": "turkce",
-    "unite": "Okul Temelli Planlama",
+    "unite": "Hatırlatma ve Pekiştirme",
     "hafta": 35,
     "baslik": "35. Hafta · Buzuldan Gelen Mektup",
     "dosya": "materyaller/2-sinif/turkce/hafta-35.pdf",
@@ -1904,7 +1904,7 @@
     "sinif": 2,
     "tur": "calisma",
     "ders": "turkce",
-    "unite": "Hatırlatma Haftası",
+    "unite": "Hatırlatma ve Pekiştirme",
     "hafta": 36,
     "baslik": "36. Hafta · Yıl Sonu Kutusu",
     "dosya": "materyaller/2-sinif/turkce/hafta-36.pdf",
@@ -3012,6 +3012,561 @@
     "konu": "Sanatın günlük yaşamdaki yeri",
     "konu_id": [
       "hb:sanat"
+    ]
+  },
+  {
+    "id": "t3-hafta-01",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Hatırlatma ve Pekiştirme",
+    "hafta": 1,
+    "baslik": "1. Hafta · Yeni Sınıf, Eski Dostlar",
+    "dosya": "materyaller/3-sinif/turkce/hafta-01.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-01-onizleme.png",
+    "konu": "Büyük harf, kısaltma, noktalama",
+    "konu_id": [
+      "dil:buyuk-harf",
+      "dil:kisaltma"
+    ]
+  },
+  {
+    "id": "t3-hafta-02",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Değerlerimizle Yaşıyoruz",
+    "hafta": 2,
+    "baslik": "2. Hafta · Sözünün Eri",
+    "dosya": "materyaller/3-sinif/turkce/hafta-02.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-02-onizleme.png",
+    "konu": "Ana fikir, iki nokta ve tırnak",
+    "konu_id": [
+      "dil:konu-anafikir",
+      "dil:iki-nokta"
+    ]
+  },
+  {
+    "id": "t3-hafta-03",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Değerlerimizle Yaşıyoruz",
+    "hafta": 3,
+    "baslik": "3. Hafta · Çitin İki Yanı",
+    "dosya": "materyaller/3-sinif/turkce/hafta-03.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-03-onizleme.png",
+    "konu": "Eş anlamlı sözcükler, ana duygu",
+    "konu_id": [
+      "dil:es",
+      "dil:konu-anafikir"
+    ]
+  },
+  {
+    "id": "t3-hafta-04",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Değerlerimizle Yaşıyoruz",
+    "hafta": 4,
+    "baslik": "4. Hafta · Sokağın Sessiz Sakinleri",
+    "dosya": "materyaller/3-sinif/turkce/hafta-04.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-04-onizleme.png",
+    "konu": "Neden-sonuç, olayları kendi ifadeleriyle yazma",
+    "konu_id": [
+      "dil:yazma-plani"
+    ]
+  },
+  {
+    "id": "t3-hafta-05",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Değerlerimizle Yaşıyoruz",
+    "hafta": 5,
+    "baslik": "5. Hafta · Ceviz Diken Dede",
+    "dosya": "materyaller/3-sinif/turkce/hafta-05.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-05-onizleme.png",
+    "konu": "Zıt anlamlı sözcükler",
+    "konu_id": [
+      "dil:zit"
+    ]
+  },
+  {
+    "id": "t3-hafta-06",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Atatürk ve Kahramanlarımız",
+    "hafta": 6,
+    "baslik": "6. Hafta · Cepheden Bir Mektup",
+    "dosya": "materyaller/3-sinif/turkce/hafta-06.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-06-onizleme.png",
+    "konu": "Kısaltmalara gelen ekler, eş ve zıt anlam",
+    "konu_id": [
+      "dil:kisaltma-ek",
+      "dil:es",
+      "dil:zit"
+    ]
+  },
+  {
+    "id": "t3-hafta-07",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Atatürk ve Kahramanlarımız",
+    "hafta": 7,
+    "baslik": "7. Hafta · Herkes Okula!",
+    "dosya": "materyaller/3-sinif/turkce/hafta-07.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-07-onizleme.png",
+    "konu": "Karşılaştırma, zıt anlam, imza",
+    "konu_id": [
+      "dil:karsilastirma",
+      "dil:zit"
+    ]
+  },
+  {
+    "id": "t3-hafta-08",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Atatürk ve Kahramanlarımız",
+    "hafta": 8,
+    "baslik": "8. Hafta · Karda Bir Fener",
+    "dosya": "materyaller/3-sinif/turkce/hafta-08.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-08-onizleme.png",
+    "konu": "Yazışmayı sürdürme, iletileri karşılaştırma",
+    "konu_id": [
+      "dil:mektup",
+      "dil:karsilastirma"
+    ]
+  },
+  {
+    "id": "t3-hafta-09",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Atatürk ve Kahramanlarımız",
+    "hafta": 9,
+    "baslik": "9. Hafta · Çankaya'da Bir Bahçe",
+    "dosya": "materyaller/3-sinif/turkce/hafta-09.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-09-onizleme.png",
+    "konu": "Sınıflandırma",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
+  },
+  {
+    "id": "t3-hafta-10",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Doğayı Tanıyoruz",
+    "hafta": 10,
+    "baslik": "10. Hafta · Leyleklerin Uzun Yolu",
+    "dosya": "materyaller/3-sinif/turkce/hafta-10.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-10-onizleme.png",
+    "konu": "Eş anlamlı sözcükleri kullanma, sınıflandırma",
+    "konu_id": [
+      "dil:es"
+    ]
+  },
+  {
+    "id": "t3-hafta-11",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Doğayı Tanıyoruz",
+    "hafta": 11,
+    "baslik": "11. Hafta · Arıların Dansı",
+    "dosya": "materyaller/3-sinif/turkce/hafta-11.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-11-onizleme.png",
+    "konu": "Ayrıntılı yönerge, yazma planı",
+    "konu_id": [
+      "dil:yonerge",
+      "dil:yazma-plani"
+    ]
+  },
+  {
+    "id": "t3-hafta-12",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Doğayı Tanıyoruz",
+    "hafta": 12,
+    "baslik": "12. Hafta · Dere Neden Kurudu?",
+    "dosya": "materyaller/3-sinif/turkce/hafta-12.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-12-onizleme.png",
+    "konu": "Ana fikir, okumayı değerlendirme",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
+  },
+  {
+    "id": "t3-hafta-13",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Doğayı Tanıyoruz",
+    "hafta": 13,
+    "baslik": "13. Hafta · Tilkinin İki Kürkü",
+    "dosya": "materyaller/3-sinif/turkce/hafta-13.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-13-onizleme.png",
+    "konu": "Görsel okuma (tablo), yazma planı",
+    "konu_id": [
+      "dil:yazma-plani"
+    ]
+  },
+  {
+    "id": "t3-hafta-14",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Bilgi Hazinemiz",
+    "hafta": 14,
+    "baslik": "14. Hafta · Ansiklopedideki Mektup",
+    "dosya": "materyaller/3-sinif/turkce/hafta-14.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-14-onizleme.png",
+    "konu": "Neden-sonuç, istek ve öneri yazma",
+    "konu_id": [
+      "dil:mektup"
+    ]
+  },
+  {
+    "id": "t3-hafta-15",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Bilgi Hazinemiz",
+    "hafta": 15,
+    "baslik": "15. Hafta · Sözlükte Bir Yolculuk",
+    "dosya": "materyaller/3-sinif/turkce/hafta-15.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-15-onizleme.png",
+    "konu": "Alfabetik sıra, sözlük kullanma",
+    "konu_id": [
+      "dil:alfabe"
+    ]
+  },
+  {
+    "id": "t3-hafta-16",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Bilgi Hazinemiz",
+    "hafta": 16,
+    "baslik": "16. Hafta · Enerji Avcıları",
+    "dosya": "materyaller/3-sinif/turkce/hafta-16.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-16-onizleme.png",
+    "konu": "Dilekçe yazma",
+    "konu_id": [
+      "dil:dilekce"
+    ]
+  },
+  {
+    "id": "t3-hafta-17",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Bilgi Hazinemiz",
+    "hafta": 17,
+    "baslik": "17. Hafta · Kütüphanede Bir Gece",
+    "dosya": "materyaller/3-sinif/turkce/hafta-17.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-17-onizleme.png",
+    "konu": "Yazışmayı başlatma, sürdürme, sonlandırma; hataları düzeltme",
+    "konu_id": [
+      "dil:mektup"
+    ]
+  },
+  {
+    "id": "t3-hafta-18",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Hatırlatma ve Pekiştirme",
+    "hafta": 18,
+    "baslik": "18. Hafta · Pati İzleri",
+    "dosya": "materyaller/3-sinif/turkce/hafta-18.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-18-onizleme.png",
+    "konu": "Eş-zıt anlam, kısaltma ekleri, büyük harf, yönerge",
+    "konu_id": [
+      "dil:es",
+      "dil:zit",
+      "dil:kisaltma-ek",
+      "dil:buyuk-harf"
+    ]
+  },
+  {
+    "id": "t3-hafta-19",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Hatırlatma ve Pekiştirme",
+    "hafta": 19,
+    "baslik": "19. Hafta · Karne ve Kitap",
+    "dosya": "materyaller/3-sinif/turkce/hafta-19.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-19-onizleme.png",
+    "konu": "Okuma amacı ve stratejisi, sınıflandırma",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
+  },
+  {
+    "id": "t3-hafta-20",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Yeteneklerimizi Kullanıyoruz",
+    "hafta": 20,
+    "baslik": "20. Hafta · Kaşıkçı Usta",
+    "dosya": "materyaller/3-sinif/turkce/hafta-20.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-20-onizleme.png",
+    "konu": "Çıkarım yapma",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
+  },
+  {
+    "id": "t3-hafta-21",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Yeteneklerimizi Kullanıyoruz",
+    "hafta": 21,
+    "baslik": "21. Hafta · Satranç Tahtasındaki Kız",
+    "dosya": "materyaller/3-sinif/turkce/hafta-21.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-21-onizleme.png",
+    "konu": "Benzetme ve örneklendirme, bilginin kaynağını yazma",
+    "konu_id": [
+      "dil:benzetme"
+    ]
+  },
+  {
+    "id": "t3-hafta-22",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Yeteneklerimizi Kullanıyoruz",
+    "hafta": 22,
+    "baslik": "22. Hafta · Rüzgârı Yakalayan Kız",
+    "dosya": "materyaller/3-sinif/turkce/hafta-22.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-22-onizleme.png",
+    "konu": "Açıklayıcı yazı, dijital sunum",
+    "konu_id": [
+      "dil:yazma-plani"
+    ]
+  },
+  {
+    "id": "t3-hafta-23",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Yeteneklerimizi Kullanıyoruz. 6. Tema: Bilim Yolculuğu",
+    "hafta": 23,
+    "baslik": "23. Hafta · Nusret'in Gece Yolculuğu",
+    "dosya": "materyaller/3-sinif/turkce/hafta-23.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-23-onizleme.png",
+    "konu": "Ön bilgilerle bağlantı kurma, olay sırası",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
+  },
+  {
+    "id": "t3-hafta-24",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Bilim Yolculuğu",
+    "hafta": 24,
+    "baslik": "24. Hafta · Uzaydan Gelen Cevap",
+    "dosya": "materyaller/3-sinif/turkce/hafta-24.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-24-onizleme.png",
+    "konu": "Deyim ve atasözü, gerçek ve mecaz anlam",
+    "konu_id": [
+      "dil:atasozu",
+      "dil:gercek-mecaz"
+    ]
+  },
+  {
+    "id": "t3-hafta-25",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Bilim Yolculuğu",
+    "hafta": 25,
+    "baslik": "25. Hafta · Saati Taşıyan Fil",
+    "dosya": "materyaller/3-sinif/turkce/hafta-25.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-25-onizleme.png",
+    "konu": "Farklı öneriler sunma, açıklayıcı metin",
+    "konu_id": [
+      "dil:yazma-plani"
+    ]
+  },
+  {
+    "id": "t3-hafta-26",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Bilim Yolculuğu",
+    "hafta": 26,
+    "baslik": "26. Hafta · Yıldızları Sayan Adam",
+    "dosya": "materyaller/3-sinif/turkce/hafta-26.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-26-onizleme.png",
+    "konu": "Gerçek ve mecaz anlam, okuma stratejisi",
+    "konu_id": [
+      "dil:gercek-mecaz"
+    ]
+  },
+  {
+    "id": "t3-hafta-27",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Bilim Yolculuğu",
+    "hafta": 27,
+    "baslik": "27. Hafta · Bir Damlanın Yolculuğu",
+    "dosya": "materyaller/3-sinif/turkce/hafta-27.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-27-onizleme.png",
+    "konu": "Veri okuma, okuma tercihi",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
+  },
+  {
+    "id": "t3-hafta-28",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Millî Kültürümüz",
+    "hafta": 28,
+    "baslik": "28. Hafta · Perdenin Ardındaki Gölgeler",
+    "dosya": "materyaller/3-sinif/turkce/hafta-28.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-28-onizleme.png",
+    "konu": "Görüş bildirme, görsellerle öyküleme",
+    "konu_id": [
+      "dil:karsilastirma"
+    ]
+  },
+  {
+    "id": "t3-hafta-29",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Millî Kültürümüz",
+    "hafta": 29,
+    "baslik": "29. Hafta · Suyun Üstündeki Lale",
+    "dosya": "materyaller/3-sinif/turkce/hafta-29.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-29-onizleme.png",
+    "konu": "Farklı öneriler sunma, emek",
+    "konu_id": [
+      "dil:atasozu"
+    ]
+  },
+  {
+    "id": "t3-hafta-30",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Millî Kültürümüz",
+    "hafta": 30,
+    "baslik": "30. Hafta · Tandırın Başında",
+    "dosya": "materyaller/3-sinif/turkce/hafta-30.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-30-onizleme.png",
+    "konu": "Okuma amacına göre okuma, yardımlaşma",
+    "konu_id": [
+      "dil:yonerge"
+    ]
+  },
+  {
+    "id": "t3-hafta-31",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Millî Kültürümüz",
+    "hafta": 31,
+    "baslik": "31. Hafta · Halay Halkası",
+    "dosya": "materyaller/3-sinif/turkce/hafta-31.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-31-onizleme.png",
+    "konu": "Görüşe katılıp katılmama, nedenlerini yazma",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
+  },
+  {
+    "id": "t3-hafta-32",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Hak ve Sorumluluklarımız",
+    "hafta": 32,
+    "baslik": "32. Hafta · Masmavi Testi",
+    "dosya": "materyaller/3-sinif/turkce/hafta-32.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-32-onizleme.png",
+    "konu": "Pekiştirmeli sözcükler, noktalamanın anlama etkisi",
+    "konu_id": [
+      "dil:pekistirme"
+    ]
+  },
+  {
+    "id": "t3-hafta-33",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Hak ve Sorumluluklarımız",
+    "hafta": 33,
+    "baslik": "33. Hafta · Çocuk Meclisi",
+    "dosya": "materyaller/3-sinif/turkce/hafta-33.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-33-onizleme.png",
+    "konu": "Ayrıntılı yönerge, çevrim içi okuma",
+    "konu_id": [
+      "dil:yonerge"
+    ]
+  },
+  {
+    "id": "t3-hafta-34",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Hak ve Sorumluluklarımız",
+    "hafta": 34,
+    "baslik": "34. Hafta · Kaplumbağanın Yolu",
+    "dosya": "materyaller/3-sinif/turkce/hafta-34.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-34-onizleme.png",
+    "konu": "Konu ve ana fikir, noktalama ve anlam",
+    "konu_id": [
+      "dil:konu-anafikir",
+      "dil:nokta"
+    ]
+  },
+  {
+    "id": "t3-hafta-35",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Hatırlatma ve Pekiştirme",
+    "hafta": 35,
+    "baslik": "35. Hafta · Okul Gazetemiz",
+    "dosya": "materyaller/3-sinif/turkce/hafta-35.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-35-onizleme.png",
+    "konu": "Haber yazma, yazma ortamı",
+    "konu_id": [
+      "dil:haber"
+    ]
+  },
+  {
+    "id": "t3-hafta-36",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Hatırlatma ve Pekiştirme",
+    "hafta": 36,
+    "baslik": "36. Hafta · Üçüncü Sınıfın Son Sayfası",
+    "dosya": "materyaller/3-sinif/turkce/hafta-36.pdf",
+    "resim": "materyaller/3-sinif/turkce/hafta-36-onizleme.png",
+    "konu": "Yılın tekrarı",
+    "konu_id": [
+      "dil:pekistirme",
+      "dil:gercek-mecaz",
+      "dil:kisaltma-ek"
     ]
   }
 ]

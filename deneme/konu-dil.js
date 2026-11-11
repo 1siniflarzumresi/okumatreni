@@ -128,6 +128,31 @@
      kural:["Yazmadan önce bir <b>plan</b> yaparız: Ne yazacağım? Kime yazıyorum? Hangi sırayla?","Yazının üç bölümü vardır: <b>giriş, gelişme, sonuç</b>.","Yazımıza uygun bir <b>başlık</b> koyarız, paragraf başlarında içeriden başlarız.","Yazdıktan sonra okur, hatalarımızı düzeltiriz."],
      dikkat:"<b>İpucu:</b> Planını üç kısa soruyla yap: Ne oldu? Nasıl oldu? Sonunda ne oldu?",
      dene:{s:"Yazının hangi bölümünde ne öğrendiğimizi yazarız?", c:["Giriş","Gelişme","Sonuç"], d:2, a:"Sonuç bölümü yazıyı bağlar."}}
+    ,{id:"kisaltma-ek", grup:"yazim", sinif:"3. sınıf", baslik:"Kısaltmalara Gelen Ekler",
+     ornek:'<p>TBMM<span class="isaret">’</span>ye (te-be-me-me-<b>ye</b>) · TDK<span class="isaret">’</span>nin (te-de-ka-<b>nın</b> değil <b>nin</b>) · MEB<span class="isaret">’</span>e · 5 km<span class="isaret">’</span>lik</p>',
+     kural:["Kısaltmalara gelen ekler <b>kesme işaretiyle</b> ayrılır.","Ek, kısaltmanın <b>okunuşuna</b> uyar: TBMM son harfi “me” okunur → TBMM'ye; TDK “ka” okunur → TDK'ye, TDK'nin.","MEB gibi tek sözcük gibi okunan kısaltmalarda ek, sözcüğün okunuşuna uyar: MEB'e, MEB'in."],
+     dikkat:"<b>İpucu:</b> Kısaltmayı sesli oku, sonra eki söylediğin gibi yaz.",
+     dene:{s:"Hangisi doğru yazılmıştır?", c:["TBMM'a","TBMM'ye","TBMMye"], d:1, a:"TBMM “te-be-me-me” okunur; ek “-ye” olur."}},
+    {id:"gercek-mecaz", grup:"sozcuk", sinif:"3. sınıf", baslik:"Gerçek ve Mecaz Anlam",
+     ornek:'<p>Kuşlar gökyüzünde <span class="vu">uçuyor</span>. → gerçek anlam</p><p>Bu haberle sevinçten <span class="vu">uçtum</span>. → mecaz anlam</p><p>Kar çok <span class="vu">soğuk</span>. · Bana <span class="vu">soğuk</span> davrandı.</p>',
+     kural:["Bir sözcüğün akla ilk gelen, herkesin bildiği anlamına <b>gerçek anlam</b> denir.","Sözcüğün gerçek anlamından uzaklaşarak benzetme yoluyla kazandığı yeni anlama <b>mecaz anlam</b> denir.","Mecaz anlam yazımızı daha renkli ve etkili yapar."],
+     dikkat:"<b>İpucu:</b> Cümleyi kafanda canlandır. Gerçekten öyle bir şey oluyorsa gerçek, olamıyorsa mecaz anlamdır.",
+     dene:{s:"Hangisinde altı çizili sözcük mecaz anlamdadır?", c:["Taş çok sert.","Babam bugün çok sert konuştu.","Masa sert bir tahtadan yapılmış."], d:1, a:"Konuşma elle dokunulacak kadar sert olamaz; burada “kırıcı” anlamındadır."}},
+    {id:"pekistirme", grup:"sozcuk", sinif:"3. sınıf", baslik:"Pekiştirmeli Sözcükler",
+     ornek:'<p>mavi → <span class="vu">mas</span>mavi · beyaz → <span class="vu">bem</span>beyaz · kara → <span class="vu">kap</span>kara · yeşil → <span class="vu">yem</span>yeşil · sarı → <span class="vu">sap</span>sarı · temiz → <span class="vu">ter</span>temiz</p>',
+     kural:["Bir sözcüğün anlamını güçlendirmek için başına bir hece getiririz. Bunlara <b>pekiştirmeli sözcükler</b> denir.","Pekiştirme hecesi sözcüğün ilk hecesinden yapılır ve <b>m, p, r, s</b> seslerinden biriyle biter.","Pekiştirmeli sözcükler <b>bitişik</b> yazılır."],
+     dikkat:"<b>Dikkat!</b> “Mas mavi”, “bem beyaz” yanlıştır. Doğrusu: <b>masmavi</b>, <b>bembeyaz</b>.",
+     dene:{s:"“Yeşil” sözcüğünün pekiştirmelisi hangisidir?", c:["yesyeşil","yemyeşil","yem yeşil"], d:1, a:"yemyeşil: bitişik ve “m” ile."}},
+    {id:"dilekce", grup:"yazi", sinif:"3. sınıf", baslik:"Dilekçe Yazma",
+     ornek:'<div class="mektup"><div style="text-align:right">12.01.2027 <span class="k">tarih</span></div><div style="text-align:center">OKUL MÜDÜRLÜĞÜNE <span class="k">kime</span></div><div>Okulumuzun çatısına güneş paneli konmasını istiyoruz. … Gereğini saygılarımızla arz ederiz. <span class="k">istek</span></div><div style="text-align:right">3-A Sınıfı · İmza <span class="k">ad, imza</span></div></div>',
+     kural:["Resmî bir kuruma isteğimizi, şikâyetimizi ya da önerimizi yazılı olarak bildirdiğimiz yazıya <b>dilekçe</b> denir.","Dilekçede sağ üste <b>tarih</b>, ortaya büyük harflerle <b>kurumun adı</b> yazılır.","İstek kısa, açık ve <b>saygılı</b> bir dille yazılır; “Gereğini arz ederim.” gibi bir sözle bitirilir.","En alta <b>ad soyad</b> ve <b>imza</b> konur."],
+     dikkat:"<b>Dikkat!</b> Dilekçe mektuptan farklıdır: “Sevgili” gibi samimi hitaplar kullanılmaz.",
+     dene:{s:"Dilekçede kurumun adı nereye yazılır?", c:["Sağ alt köşeye","Ortaya, büyük harflerle","Hiç yazılmaz"], d:1, a:"Kurumun adı ortaya büyük harflerle yazılır."}},
+    {id:"haber", grup:"yazi", sinif:"3. sınıf", baslik:"Haber Yazma: Altı Soru",
+     ornek:'<p><b>Okulumuz Artık Güneşle Çalışıyor!</b></p><p><span class="vu">Ne?</span> Güneş paneli kuruldu. <span class="vu">Nerede?</span> Okulun çatısına. <span class="vu">Ne zaman?</span> Mayıs ayında. <span class="vu">Kim?</span> Belediye. <span class="vu">Nasıl?</span> Öğrencilerin dilekçesiyle. <span class="vu">Neden?</span> Enerji tasarrufu için.</p>',
+     kural:["Haber, yaşanmış bir olayı okuyucuya <b>doğru ve kısa</b> biçimde anlatır.","İyi bir haber altı soruya cevap verir: <b>Ne, Kim, Nerede, Ne zaman, Nasıl, Neden?</b>","Habere dikkat çekici bir <b>başlık</b> konur. Haberde kendi duygularımızı değil, olayı anlatırız."],
+     dikkat:"<b>İpucu:</b> Haberi yazmadan önce altı sorunun cevabını bir kâğıda not al.",
+     dene:{s:"Hangisi bir haber cümlesidir?", c:["Bence en güzel okul bizim okul.","Okulumuzda dün bilim şenliği yapıldı.","Keşke yaz hiç bitmese."], d:1, a:"Haber, yaşanmış bir olayı anlatır."}}
   ];
 
   window.KONU = window.KONU || {};
