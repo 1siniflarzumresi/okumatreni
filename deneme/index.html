@@ -110,7 +110,7 @@ h1 em{font-style:normal;color:var(--mavi)}
     <div class="adim-bas"><span class="adim-no">1</span><h2>Sınıfını seç</h2></div>
     <div class="secimler" id="siniflar">
       <button class="secim" style="--renk:var(--mavi);--renk-a:var(--mavi-a)" data-sinif="1" aria-pressed="true"><span class="ik">1</span><b>1. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi</span></button>
-      <button class="secim" style="--renk:var(--mor,#8b5cf6);--renk-a:var(--mor-a,#f4edff)" data-sinif="2" aria-pressed="false"><span class="ik">2</span><b>2. Sınıf</b><span>Türkçe, Matematik</span></button>
+      <button class="secim" style="--renk:var(--mor,#8b5cf6);--renk-a:var(--mor-a,#f4edff)" data-sinif="2" aria-pressed="false"><span class="ik">2</span><b>2. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi</span></button>
       <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">3</span><b>3. Sınıf</b><span>Yakında</span></div>
       <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">4</span><b>4. Sınıf</b><span>Yakında</span></div>
     </div>
@@ -148,7 +148,7 @@ h1 em{font-style:normal;color:var(--mavi)}
   var MATS = [], TK = null, ders = null, sec = null, buHafta = null, sinif = 1;
   var DERS_AD = {
     1: {turkce:["Aa","Türkçe","İlk okuma yazma · 29 harf"], matematik:["12","Matematik","36 hafta · oyunlu kâğıtlar"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · keşif ve oyun"]},
-    2: {turkce:["Aa","Türkçe","Haftalık okuma metni · dil bilgisi · yazma"], matematik:["12","Matematik","36 hafta · oyunlu kâğıtlar ve konu anlatımı"], hayat_bilgisi:["🌿","Hayat Bilgisi","Hazırlanıyor"]}
+    2: {turkce:["Aa","Türkçe","Haftalık okuma metni · dil bilgisi · yazma"], matematik:["12","Matematik","36 hafta · oyunlu kâğıtlar ve konu anlatımı"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · karar anları, plan, keşif"]}
   };
   function harfli(){ return sinif === 1 && ders === "turkce"; }
   function dersleriCiz(){
