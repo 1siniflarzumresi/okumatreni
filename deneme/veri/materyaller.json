@@ -455,7 +455,8 @@
     "hafta": 1,
     "baslik": "1. Hafta · Ormanda Neresi?",
     "dosya": "materyaller/1-sinif/matematik/hafta-01.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-01-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-01-onizleme.png",
+    "konu": "Uzamsal ilişkiler"
   },
   {
     "id": "mat-hafta-02",
@@ -466,7 +467,8 @@
     "hafta": 2,
     "baslik": "2. Hafta · Sağ mı Sol mu?",
     "dosya": "materyaller/1-sinif/matematik/hafta-02.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-02-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-02-onizleme.png",
+    "konu": "Uzamsal ilişkiler · Eş nesneler"
   },
   {
     "id": "mat-hafta-03",
@@ -477,7 +479,8 @@
     "hafta": 3,
     "baslik": "3. Hafta · Eşini Bul",
     "dosya": "materyaller/1-sinif/matematik/hafta-03.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-03-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-03-onizleme.png",
+    "konu": "Eş nesneler"
   },
   {
     "id": "mat-hafta-04",
@@ -488,7 +491,8 @@
     "hafta": 4,
     "baslik": "4. Hafta · Rakamlar 1, 2, 3",
     "dosya": "materyaller/1-sinif/matematik/hafta-04.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-04-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-04-onizleme.png",
+    "konu": "Nesne sayısını belirleme"
   },
   {
     "id": "mat-hafta-05",
@@ -499,7 +503,8 @@
     "hafta": 5,
     "baslik": "5. Hafta · Rakamlar 4, 5 · Domino Treni",
     "dosya": "materyaller/1-sinif/matematik/hafta-05.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-05-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-05-onizleme.png",
+    "konu": "Nesne sayısını belirleme"
   },
   {
     "id": "mat-hafta-06",
@@ -510,7 +515,8 @@
     "hafta": 6,
     "baslik": "6. Hafta · Rakamlar 6, 7 · Zar Yolu",
     "dosya": "materyaller/1-sinif/matematik/hafta-06.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-06-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-06-onizleme.png",
+    "konu": "Nesne sayısını belirleme"
   },
   {
     "id": "mat-hafta-07",
@@ -521,7 +527,8 @@
     "hafta": 7,
     "baslik": "7. Hafta · Rakamlar 8, 9, 0 · Çiftlik Kamyonu",
     "dosya": "materyaller/1-sinif/matematik/hafta-07.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-07-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-07-onizleme.png",
+    "konu": "Nesne sayısını belirleme · Sıra bildiren sayılar"
   },
   {
     "id": "mat-hafta-08",
@@ -532,7 +539,8 @@
     "hafta": 8,
     "baslik": "8. Hafta · Hayvan Treni",
     "dosya": "materyaller/1-sinif/matematik/hafta-08.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-08-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-08-onizleme.png",
+    "konu": "Sıra bildiren sayılar"
   },
   {
     "id": "mat-hafta-09",
@@ -543,7 +551,8 @@
     "hafta": 9,
     "baslik": "9. Hafta · Sıra Bizde · Küp Kuleleri",
     "dosya": "materyaller/1-sinif/matematik/hafta-09.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-09-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-09-onizleme.png",
+    "konu": "Sıra bildiren sayılar · Çok mu? Az mı? Eşit mi?"
   },
   {
     "id": "mat-hafta-11",
@@ -554,7 +563,8 @@
     "hafta": 11,
     "baslik": "11. Hafta · Kanguru Zıplıyor",
     "dosya": "materyaller/1-sinif/matematik/hafta-11.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-11-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-11-onizleme.png",
+    "konu": "Ritmik saymalar"
   },
   {
     "id": "mat-hafta-12",
@@ -565,7 +575,8 @@
     "hafta": 12,
     "baslik": "12. Hafta · Geri Sayım · Boncuklar",
     "dosya": "materyaller/1-sinif/matematik/hafta-12.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-12-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-12-onizleme.png",
+    "konu": "Ritmik saymalar · Sayı ve şekil örüntüleri"
   },
   {
     "id": "mat-hafta-13",
@@ -576,7 +587,8 @@
     "hafta": 13,
     "baslik": "13. Hafta · Örüntü Ormanı",
     "dosya": "materyaller/1-sinif/matematik/hafta-13.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-13-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-13-onizleme.png",
+    "konu": "Sayı ve şekil örüntüleri"
   },
   {
     "id": "mat-hafta-14",
@@ -587,7 +599,8 @@
     "hafta": 14,
     "baslik": "14. Hafta · Kavanoz Tahmini",
     "dosya": "materyaller/1-sinif/matematik/hafta-14.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-14-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-14-onizleme.png",
+    "konu": "Sayı ve şekil örüntüleri · Tahmin"
   },
   {
     "id": "mat-hafta-15",
@@ -598,7 +611,8 @@
     "hafta": 15,
     "baslik": "15. Hafta · Tırtıl Yarışı",
     "dosya": "materyaller/1-sinif/matematik/hafta-15.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-15-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-15-onizleme.png",
+    "konu": "Tahmin · Uzunluk ölçme"
   },
   {
     "id": "mat-hafta-16",
@@ -609,7 +623,8 @@
     "hafta": 16,
     "baslik": "16. Hafta · Uzun mu Kısa mı?",
     "dosya": "materyaller/1-sinif/matematik/hafta-16.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-16-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-16-onizleme.png",
+    "konu": "Uzunluk ölçme"
   },
   {
     "id": "mat-hafta-17",
@@ -620,7 +635,8 @@
     "hafta": 17,
     "baslik": "17. Hafta · Dominoyla Ölç",
     "dosya": "materyaller/1-sinif/matematik/hafta-17.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-17-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-17-onizleme.png",
+    "konu": "Uzunluk ölçme"
   },
   {
     "id": "mat-hafta-18",
@@ -631,7 +647,8 @@
     "hafta": 18,
     "baslik": "18. Hafta · Çiftlik Terazisi",
     "dosya": "materyaller/1-sinif/matematik/hafta-18.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-18-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-18-onizleme.png",
+    "konu": "Tartma"
   },
   {
     "id": "mat-hafta-19",
@@ -642,7 +659,8 @@
     "hafta": 19,
     "baslik": "19. Hafta · Ne Oldu?",
     "dosya": "materyaller/1-sinif/matematik/hafta-19.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-19-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-19-onizleme.png",
+    "konu": "Tartma · Toplama ve çıkarma"
   },
   {
     "id": "mat-hafta-20",
@@ -653,7 +671,8 @@
     "hafta": 20,
     "baslik": "20. Hafta · Otobüs Durağı",
     "dosya": "materyaller/1-sinif/matematik/hafta-20.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-20-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-20-onizleme.png",
+    "konu": "Toplama ve çıkarma"
   },
   {
     "id": "mat-hafta-21",
@@ -664,7 +683,8 @@
     "hafta": 21,
     "baslik": "21. Hafta · Hepsi Gitti!",
     "dosya": "materyaller/1-sinif/matematik/hafta-21.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-21-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-21-onizleme.png",
+    "konu": "Birbirine eşit iki sayının farkı"
   },
   {
     "id": "mat-hafta-22",
@@ -675,7 +695,8 @@
     "hafta": 22,
     "baslik": "22. Hafta · Sıfır ve Kurbağa",
     "dosya": "materyaller/1-sinif/matematik/hafta-22.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-22-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-22-onizleme.png",
+    "konu": "Sıfırın etkisi · Toplama tahmini · Zihinden toplama"
   },
   {
     "id": "mat-hafta-23",
@@ -686,7 +707,8 @@
     "hafta": 23,
     "baslik": "23. Hafta · Balonlar Patladı",
     "dosya": "materyaller/1-sinif/matematik/hafta-23.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-23-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-23-onizleme.png",
+    "konu": "Çıkarma işleminin sonucunu tahmin etme"
   },
   {
     "id": "mat-hafta-24",
@@ -697,7 +719,8 @@
     "hafta": 24,
     "baslik": "24. Hafta · Geri Zıpla · Denge",
     "dosya": "materyaller/1-sinif/matematik/hafta-24.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-24-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-24-onizleme.png",
+    "konu": "Zihinden çıkarma · Eşitlik kavramı"
   },
   {
     "id": "mat-hafta-25",
@@ -708,7 +731,8 @@
     "hafta": 25,
     "baslik": "25. Hafta · Terazi Dengede mi?",
     "dosya": "materyaller/1-sinif/matematik/hafta-25.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-25-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-25-onizleme.png",
+    "konu": "Eşitlik kavramı"
   },
   {
     "id": "mat-hafta-26",
@@ -719,7 +743,8 @@
     "hafta": 26,
     "baslik": "26. Hafta · Eşitliği Tamamla",
     "dosya": "materyaller/1-sinif/matematik/hafta-26.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-26-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-26-onizleme.png",
+    "konu": "Eşitlik kavramı"
   },
   {
     "id": "mat-hafta-27",
@@ -730,7 +755,8 @@
     "hafta": 27,
     "baslik": "27. Hafta · Problem Ormanı 1",
     "dosya": "materyaller/1-sinif/matematik/hafta-27.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-27-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-27-onizleme.png",
+    "konu": "Eşitlik kavramı · Toplama ve çıkarma işlemlerini yorumlama"
   },
   {
     "id": "mat-hafta-28",
@@ -741,7 +767,8 @@
     "hafta": 28,
     "baslik": "28. Hafta · Problem Ormanı 2",
     "dosya": "materyaller/1-sinif/matematik/hafta-28.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-28-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-28-onizleme.png",
+    "konu": "Toplama ve çıkarma işlemlerini yorumlama"
   },
   {
     "id": "mat-hafta-29",
@@ -752,7 +779,8 @@
     "hafta": 29,
     "baslik": "29. Hafta · Problem Ormanı 3",
     "dosya": "materyaller/1-sinif/matematik/hafta-29.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-29-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-29-onizleme.png",
+    "konu": "Toplama ve çıkarma işlemlerini yorumlama"
   },
   {
     "id": "mat-hafta-30",
@@ -763,7 +791,8 @@
     "hafta": 30,
     "baslik": "30. Hafta · Kumbaram",
     "dosya": "materyaller/1-sinif/matematik/hafta-30.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-30-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-30-onizleme.png",
+    "konu": "Problemler · Paralarımız"
   },
   {
     "id": "mat-hafta-31",
@@ -774,7 +803,8 @@
     "hafta": 31,
     "baslik": "31. Hafta · Market · Şekil Ormanı",
     "dosya": "materyaller/1-sinif/matematik/hafta-31.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-31-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-31-onizleme.png",
+    "konu": "Paralarımız · Nesneler ve geometrik şekiller"
   },
   {
     "id": "mat-hafta-32",
@@ -785,7 +815,8 @@
     "hafta": 32,
     "baslik": "32. Hafta · Noktalı Kâğıt",
     "dosya": "materyaller/1-sinif/matematik/hafta-32.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-32-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-32-onizleme.png",
+    "konu": "Nesneler ve geometrik şekiller"
   },
   {
     "id": "mat-hafta-33",
@@ -796,7 +827,8 @@
     "hafta": 33,
     "baslik": "33. Hafta · Küp, Küre, Silindir",
     "dosya": "materyaller/1-sinif/matematik/hafta-33.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-33-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-33-onizleme.png",
+    "konu": "Nesneler ve geometrik şekiller"
   },
   {
     "id": "mat-hafta-34",
@@ -807,7 +839,8 @@
     "hafta": 34,
     "baslik": "34. Hafta · Çetele Tutalım",
     "dosya": "materyaller/1-sinif/matematik/hafta-34.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-34-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-34-onizleme.png",
+    "konu": "Nesneler ve geometrik şekiller · Veri toplama"
   },
   {
     "id": "mat-hafta-35",
@@ -818,7 +851,8 @@
     "hafta": 35,
     "baslik": "35. Hafta · Resim Grafiği",
     "dosya": "materyaller/1-sinif/matematik/hafta-35.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-35-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-35-onizleme.png",
+    "konu": "Veri toplama ve değerlendirme"
   },
   {
     "id": "mat-hafta-36",
@@ -829,7 +863,8 @@
     "hafta": 36,
     "baslik": "36. Hafta · Sınıf Anketi",
     "dosya": "materyaller/1-sinif/matematik/hafta-36.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-36-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-36-onizleme.png",
+    "konu": "Veri toplama ve değerlendirme"
   },
   {
     "id": "mat-hafta-10",
@@ -840,7 +875,8 @@
     "hafta": 10,
     "baslik": "10. Hafta · Çok mu Az mı?",
     "dosya": "materyaller/1-sinif/matematik/hafta-10.pdf",
-    "resim": "materyaller/1-sinif/matematik/hafta-10-onizleme.png"
+    "resim": "materyaller/1-sinif/matematik/hafta-10-onizleme.png",
+    "konu": "Çok mu? Az mı? Eşit mi?"
   },
   {
     "id": "mat-paket-01",
@@ -906,7 +942,8 @@
     "hafta": 1,
     "baslik": "1. Hafta · Haydi Tanışalım",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-01.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-01-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-01-onizleme.png",
+    "konu": "Haydi tanışalım"
   },
   {
     "id": "hb-hafta-02",
@@ -917,7 +954,8 @@
     "hafta": 2,
     "baslik": "2. Hafta · Okulumu Keşfediyorum",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-02.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-02-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-02-onizleme.png",
+    "konu": "Okulumu keşfediyorum"
   },
   {
     "id": "hb-hafta-03",
@@ -928,7 +966,8 @@
     "hafta": 3,
     "baslik": "3. Hafta · Okul Haritası",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-03.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-03-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-03-onizleme.png",
+    "konu": "Okulumu keşfediyorum"
   },
   {
     "id": "hb-hafta-04",
@@ -939,7 +978,8 @@
     "hafta": 4,
     "baslik": "4. Hafta · Kurallar Her Yerde",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-04.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-04-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-04-onizleme.png",
+    "konu": "Kurallar her yerde"
   },
   {
     "id": "hb-hafta-05",
@@ -950,7 +990,8 @@
     "hafta": 5,
     "baslik": "5. Hafta · Kural Kartları",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-05.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-05-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-05-onizleme.png",
+    "konu": "Kurallar her yerde"
   },
   {
     "id": "hb-hafta-06",
@@ -961,7 +1002,8 @@
     "hafta": 6,
     "baslik": "6. Hafta · Ben Kimim?",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-06.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-06-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-06-onizleme.png",
+    "konu": "Nasıl görünüyor, neler hissediyorum?"
   },
   {
     "id": "hb-hafta-07",
@@ -972,7 +1014,8 @@
     "hafta": 7,
     "baslik": "7. Hafta · Sağlıklı Hayat",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-07.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-07-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-07-onizleme.png",
+    "konu": "Sağlıklı hayat ne güzel"
   },
   {
     "id": "hb-hafta-08",
@@ -983,7 +1026,8 @@
     "hafta": 8,
     "baslik": "8. Hafta · Kişisel Alanım",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-08.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-08-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-08-onizleme.png",
+    "konu": "Kişisel alanıma dikkat!"
   },
   {
     "id": "hb-hafta-09",
@@ -994,7 +1038,8 @@
     "hafta": 9,
     "baslik": "9. Hafta · Trafik Işığı",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-09.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-09-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-09-onizleme.png",
+    "konu": "Trafik kuralları iyi ki var"
   },
   {
     "id": "hb-hafta-10",
@@ -1005,7 +1050,8 @@
     "hafta": 10,
     "baslik": "10. Hafta · Okul Yolunda",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-10.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-10-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-10-onizleme.png",
+    "konu": "Trafik kuralları iyi ki var"
   },
   {
     "id": "hb-hafta-11",
@@ -1016,7 +1062,8 @@
     "hafta": 11,
     "baslik": "11. Hafta · Eyvah, Acil Durum!",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-11.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-11-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-11-onizleme.png",
+    "konu": "Eyvah, acil durum!"
   },
   {
     "id": "hb-hafta-12",
@@ -1027,7 +1074,8 @@
     "hafta": 12,
     "baslik": "12. Hafta · Hazırım!",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-12.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-12-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-12-onizleme.png",
+    "konu": "Eyvah, acil durum!"
   },
   {
     "id": "hb-hafta-13",
@@ -1038,7 +1086,8 @@
     "hafta": 13,
     "baslik": "13. Hafta · Bizim Ev",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-13.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-13-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-13-onizleme.png",
+    "konu": "Eyvah, acil durum! · Bizim ev"
   },
   {
     "id": "hb-hafta-14",
@@ -1049,7 +1098,8 @@
     "hafta": 14,
     "baslik": "14. Hafta · Sihirli Sözcükler",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-14.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-14-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-14-onizleme.png",
+    "konu": "Bizim ev · Nezaketli ve görgülüyüz"
   },
   {
     "id": "hb-hafta-15",
@@ -1060,7 +1110,8 @@
     "hafta": 15,
     "baslik": "15. Hafta · Nezaketli ve Görgülüyüz",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-15.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-15-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-15-onizleme.png",
+    "konu": "Nezaketli ve görgülüyüz"
   },
   {
     "id": "hb-hafta-16",
@@ -1071,7 +1122,8 @@
     "hafta": 16,
     "baslik": "16. Hafta · Biz İyi Bir Takımız",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-16.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-16-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-16-onizleme.png",
+    "konu": "Biz iyi bir takımız"
   },
   {
     "id": "hb-hafta-17",
@@ -1082,7 +1134,8 @@
     "hafta": 17,
     "baslik": "17. Hafta · Görevlerimiz",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-17.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-17-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-17-onizleme.png",
+    "konu": "Biz iyi bir takımız"
   },
   {
     "id": "hb-hafta-18",
@@ -1093,7 +1146,8 @@
     "hafta": 18,
     "baslik": "18. Hafta · Sağlıklı Alışkanlıklar",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-18.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-18-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-18-onizleme.png",
+    "konu": "Biz iyi bir takımız · Yaşadığım yer"
   },
   {
     "id": "hb-hafta-19",
@@ -1104,7 +1158,8 @@
     "hafta": 19,
     "baslik": "19. Hafta · Bayrağım",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-19.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-19-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-19-onizleme.png",
+    "konu": "Bayrağım ve marşımla gururluyum"
   },
   {
     "id": "hb-hafta-20",
@@ -1115,7 +1170,8 @@
     "hafta": 20,
     "baslik": "20. Hafta · İstiklâl Marşı",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-20.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-20-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-20-onizleme.png",
+    "konu": "Bayrağım ve marşımla gururluyum"
   },
   {
     "id": "hb-hafta-21",
@@ -1126,7 +1182,8 @@
     "hafta": 21,
     "baslik": "21. Hafta · Atatürk'ü Tanıyalım",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-21.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-21-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-21-onizleme.png",
+    "konu": "Atatürk'ü tanıyalım"
   },
   {
     "id": "hb-hafta-22",
@@ -1137,7 +1194,8 @@
     "hafta": 22,
     "baslik": "22. Hafta · Al Bayrağı, Koş Bayrama",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-22.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-22-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-22-onizleme.png",
+    "konu": "Atatürk'ü tanıyalım · Al bayrağı, koş bayrama"
   },
   {
     "id": "hb-hafta-23",
@@ -1148,7 +1206,8 @@
     "hafta": 23,
     "baslik": "23. Hafta · Bayram Coşkusu",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-23.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-23-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-23-onizleme.png",
+    "konu": "Al bayrağı, koş bayrama"
   },
   {
     "id": "hb-hafta-24",
@@ -1159,7 +1218,8 @@
     "hafta": 24,
     "baslik": "24. Hafta · El Öpenleriniz Çok Olsun",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-24.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-24-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-24-onizleme.png",
+    "konu": "El öpenleriniz çok olsun"
   },
   {
     "id": "hb-hafta-25",
@@ -1170,7 +1230,8 @@
     "hafta": 25,
     "baslik": "25. Hafta · Yaşadığım Yer",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-25.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-25-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-25-onizleme.png",
+    "konu": "El öpenleriniz çok olsun · Yaşadığım yer"
   },
   {
     "id": "hb-hafta-26",
@@ -1181,7 +1242,8 @@
     "hafta": 26,
     "baslik": "26. Hafta · Güneş, Dünya, Ay",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-26.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-26-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-26-onizleme.png",
+    "konu": "Güneş, Dünya, Ay · Doğayla baş başa"
   },
   {
     "id": "hb-hafta-27",
@@ -1192,7 +1254,8 @@
     "hafta": 27,
     "baslik": "27. Hafta · Gökyüzünde Neler Var?",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-27.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-27-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-27-onizleme.png",
+    "konu": "Güneş, Dünya, Ay · Gökyüzünde neler var?"
   },
   {
     "id": "hb-hafta-28",
@@ -1203,7 +1266,8 @@
     "hafta": 28,
     "baslik": "28. Hafta · Afetleri Tanıyalım",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-28.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-28-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-28-onizleme.png",
+    "konu": "Afetleri tanıyalım"
   },
   {
     "id": "hb-hafta-29",
@@ -1214,7 +1278,8 @@
     "hafta": 29,
     "baslik": "29. Hafta · Hazırlıklıyım",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-29.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-29-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-29-onizleme.png",
+    "konu": "Afetleri tanıyalım"
   },
   {
     "id": "hb-hafta-30",
@@ -1225,7 +1290,8 @@
     "hafta": 30,
     "baslik": "30. Hafta · Atma, Yazık Olur",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-30.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-30-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-30-onizleme.png",
+    "konu": "Atma yazık olur"
   },
   {
     "id": "hb-hafta-31",
@@ -1236,7 +1302,8 @@
     "hafta": 31,
     "baslik": "31. Hafta · Dünyamızı Koruyalım",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-31.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-31-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-31-onizleme.png",
+    "konu": "Atma yazık olur"
   },
   {
     "id": "hb-hafta-32",
@@ -1247,7 +1314,8 @@
     "hafta": 32,
     "baslik": "32. Hafta · Bilimin Peşindeyiz",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-32.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-32-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-32-onizleme.png",
+    "konu": "Bilimin peşindeyiz"
   },
   {
     "id": "hb-hafta-33",
@@ -1258,7 +1326,8 @@
     "hafta": 33,
     "baslik": "33. Hafta · Küçük Bilim İnsanı",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-33.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-33-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-33-onizleme.png",
+    "konu": "Bilimin peşindeyiz · Teknolojiyi keşfedelim"
   },
   {
     "id": "hb-hafta-34",
@@ -1269,7 +1338,8 @@
     "hafta": 34,
     "baslik": "34. Hafta · Teknolojiyi Keşfedelim",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-34.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-34-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-34-onizleme.png",
+    "konu": "Teknolojiyi keşfedelim"
   },
   {
     "id": "hb-hafta-35",
@@ -1280,7 +1350,8 @@
     "hafta": 35,
     "baslik": "35. Hafta · Sanat Bize İyi Gelir",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-35.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-35-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-35-onizleme.png",
+    "konu": "Sanat bize iyi gelir"
   },
   {
     "id": "hb-hafta-36",
@@ -1291,7 +1362,8 @@
     "hafta": 36,
     "baslik": "36. Hafta · Sergimiz",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-36.pdf",
-    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-36-onizleme.png"
+    "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-36-onizleme.png",
+    "konu": "Sanat bize iyi gelir"
   },
   {
     "id": "t2-hafta-01",
@@ -1302,7 +1374,12 @@
     "hafta": 1,
     "baslik": "1. Hafta · Kalemin Yaz Tatili",
     "dosya": "materyaller/2-sinif/turkce/hafta-01.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-01-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-01-onizleme.png",
+    "konu": "Soru eki, hece",
+    "konu_id": [
+      "dil:soru-eki",
+      "dil:hece"
+    ]
   },
   {
     "id": "t2-hafta-02",
@@ -1313,7 +1390,12 @@
     "hafta": 2,
     "baslik": "2. Hafta · Kayıp Cüzdan",
     "dosya": "materyaller/2-sinif/turkce/hafta-02.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-02-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-02-onizleme.png",
+    "konu": "Nokta ve soru işareti",
+    "konu_id": [
+      "dil:nokta",
+      "dil:soru"
+    ]
   },
   {
     "id": "t2-hafta-03",
@@ -1324,7 +1406,12 @@
     "hafta": 3,
     "baslik": "3. Hafta · Ninemin Elma Ağacı",
     "dosya": "materyaller/2-sinif/turkce/hafta-03.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-03-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-03-onizleme.png",
+    "konu": "Ünlem ve virgül",
+    "konu_id": [
+      "dil:unlem",
+      "dil:virgul"
+    ]
   },
   {
     "id": "t2-hafta-04",
@@ -1335,7 +1422,11 @@
     "hafta": 4,
     "baslik": "4. Hafta · Pamuk'un Su Kabı",
     "dosya": "materyaller/2-sinif/turkce/hafta-04.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-04-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-04-onizleme.png",
+    "konu": "Kesme işareti",
+    "konu_id": [
+      "dil:kesme"
+    ]
   },
   {
     "id": "t2-hafta-05",
@@ -1346,7 +1437,12 @@
     "hafta": 5,
     "baslik": "5. Hafta · Dedemin Eski Saati",
     "dosya": "materyaller/2-sinif/turkce/hafta-05.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-05-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-05-onizleme.png",
+    "konu": "Zıt anlam, büyük harf",
+    "konu_id": [
+      "dil:zit",
+      "dil:buyuk-harf"
+    ]
   },
   {
     "id": "t2-hafta-06",
@@ -1357,7 +1453,11 @@
     "hafta": 6,
     "baslik": "6. Hafta · Selanikli Mustafa",
     "dosya": "materyaller/2-sinif/turkce/hafta-06.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-06-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-06-onizleme.png",
+    "konu": "Büyük harf (kişi ve yer adları)",
+    "konu_id": [
+      "dil:buyuk-harf"
+    ]
   },
   {
     "id": "t2-hafta-07",
@@ -1368,7 +1468,11 @@
     "hafta": 7,
     "baslik": "7. Hafta · Cumhuriyet Sabahı",
     "dosya": "materyaller/2-sinif/turkce/hafta-07.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-07-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-07-onizleme.png",
+    "konu": "Nokta (tarih, sıra sayıları)",
+    "konu_id": [
+      "dil:nokta"
+    ]
   },
   {
     "id": "t2-hafta-08",
@@ -1379,7 +1483,11 @@
     "hafta": 8,
     "baslik": "8. Hafta · Yardım Kolisi",
     "dosya": "materyaller/2-sinif/turkce/hafta-08.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-08-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-08-onizleme.png",
+    "konu": "Neden-sonuç (\"çünkü\"), büyük harf",
+    "konu_id": [
+      "dil:buyuk-harf"
+    ]
   },
   {
     "id": "t2-hafta-09",
@@ -1390,7 +1498,11 @@
     "hafta": 9,
     "baslik": "9. Hafta · Saat Dokuzu Beş Geçe",
     "dosya": "materyaller/2-sinif/turkce/hafta-09.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-09-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-09-onizleme.png",
+    "konu": "Zıt anlam, saat yazımı",
+    "konu_id": [
+      "dil:zit"
+    ]
   },
   {
     "id": "t2-hafta-10",
@@ -1401,7 +1513,11 @@
     "hafta": 10,
     "baslik": "10. Hafta · Unutkan Sincap",
     "dosya": "materyaller/2-sinif/turkce/hafta-10.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-10-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-10-onizleme.png",
+    "konu": "Benzetme (\"gibi\")",
+    "konu_id": [
+      "dil:benzetme"
+    ]
   },
   {
     "id": "t2-hafta-11",
@@ -1412,7 +1528,11 @@
     "hafta": 11,
     "baslik": "11. Hafta · Kulakla Gören Komşum",
     "dosya": "materyaller/2-sinif/turkce/hafta-11.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-11-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-11-onizleme.png",
+    "konu": "Sınıflandırma, soru eki",
+    "konu_id": [
+      "dil:soru-eki"
+    ]
   },
   {
     "id": "t2-hafta-12",
@@ -1423,7 +1543,11 @@
     "hafta": 12,
     "baslik": "12. Hafta · Karıncaların Köprüsü",
     "dosya": "materyaller/2-sinif/turkce/hafta-12.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-12-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-12-onizleme.png",
+    "konu": "Görüş bildirme, benzetme",
+    "konu_id": [
+      "dil:benzetme"
+    ]
   },
   {
     "id": "t2-hafta-13",
@@ -1434,7 +1558,11 @@
     "hafta": 13,
     "baslik": "13. Hafta · Dedemin Bahçe Defteri",
     "dosya": "materyaller/2-sinif/turkce/hafta-13.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-13-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-13-onizleme.png",
+    "konu": "Kısaltmalar (ölçü birimleri), tablo okuma",
+    "konu_id": [
+      "dil:kisaltma"
+    ]
   },
   {
     "id": "t2-hafta-14",
@@ -1445,7 +1573,11 @@
     "hafta": 14,
     "baslik": "14. Hafta · Kütüphanedeki Harita",
     "dosya": "materyaller/2-sinif/turkce/hafta-14.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-14-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-14-onizleme.png",
+    "konu": "Kısaltmalar (kurum adları)",
+    "konu_id": [
+      "dil:kisaltma"
+    ]
   },
   {
     "id": "t2-hafta-15",
@@ -1456,7 +1588,11 @@
     "hafta": 15,
     "baslik": "15. Hafta · Kitap Kurdu",
     "dosya": "materyaller/2-sinif/turkce/hafta-15.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-15-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-15-onizleme.png",
+    "konu": "Kısaltmalar (Dr., vb.), noktalama",
+    "konu_id": [
+      "dil:kisaltma"
+    ]
   },
   {
     "id": "t2-hafta-16",
@@ -1467,7 +1603,11 @@
     "hafta": 16,
     "baslik": "16. Hafta · Damla Dedektifleri",
     "dosya": "materyaller/2-sinif/turkce/hafta-16.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-16-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-16-onizleme.png",
+    "konu": "Kısaltmalar (L, dk., sa.)",
+    "konu_id": [
+      "dil:kisaltma"
+    ]
   },
   {
     "id": "t2-hafta-17",
@@ -1478,7 +1618,11 @@
     "hafta": 17,
     "baslik": "17. Hafta · Kitap Kulübü",
     "dosya": "materyaller/2-sinif/turkce/hafta-17.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-17-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-17-onizleme.png",
+    "konu": "Konu ve ana fikir, kitap tanıtma",
+    "konu_id": [
+      "dil:sozcuk-cumle"
+    ]
   },
   {
     "id": "t2-hafta-18",
@@ -1489,7 +1633,13 @@
     "hafta": 18,
     "baslik": "18. Hafta · Kardaki Ayak İzleri",
     "dosya": "materyaller/2-sinif/turkce/hafta-18.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-18-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-18-onizleme.png",
+    "konu": "Noktalama, büyük harf, zıt anlam, kısaltma",
+    "konu_id": [
+      "dil:nokta",
+      "dil:soru",
+      "dil:unlem"
+    ]
   },
   {
     "id": "t2-hafta-19",
@@ -1500,7 +1650,12 @@
     "hafta": 19,
     "baslik": "19. Hafta · Cebimdeki Biletler",
     "dosya": "materyaller/2-sinif/turkce/hafta-19.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-19-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-19-onizleme.png",
+    "konu": "Tarih ve saat yazımı, soru eki",
+    "konu_id": [
+      "dil:nokta",
+      "dil:soru-eki"
+    ]
   },
   {
     "id": "t2-hafta-20",
@@ -1511,7 +1666,11 @@
     "hafta": 20,
     "baslik": "20. Hafta · Herkesin Bir Yıldızı Var",
     "dosya": "materyaller/2-sinif/turkce/hafta-20.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-20-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-20-onizleme.png",
+    "konu": "İki nokta ve tırnak işareti",
+    "konu_id": [
+      "dil:iki-nokta"
+    ]
   },
   {
     "id": "t2-hafta-21",
@@ -1522,7 +1681,11 @@
     "hafta": 21,
     "baslik": "21. Hafta · Elif'in Mektubu",
     "dosya": "materyaller/2-sinif/turkce/hafta-21.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-21-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-21-onizleme.png",
+    "konu": "Mektup yazma (hitap, selamlama, kapanış)",
+    "konu_id": [
+      "dil:mektup"
+    ]
   },
   {
     "id": "t2-hafta-22",
@@ -1533,7 +1696,11 @@
     "hafta": 22,
     "baslik": "22. Hafta · Robot Pırıl",
     "dosya": "materyaller/2-sinif/turkce/hafta-22.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-22-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-22-onizleme.png",
+    "konu": "Anlık ileti yazma",
+    "konu_id": [
+      "dil:mektup"
+    ]
   },
   {
     "id": "t2-hafta-23",
@@ -1544,7 +1711,9 @@
     "hafta": 23,
     "baslik": "23. Hafta · Bir Şiirin Hikâyesi",
     "dosya": "materyaller/2-sinif/turkce/hafta-23.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-23-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-23-onizleme.png",
+    "konu": "Karşılaştırma (benzerlik ve farklılık)",
+    "konu_id": []
   },
   {
     "id": "t2-hafta-24",
@@ -1555,7 +1724,11 @@
     "hafta": 24,
     "baslik": "24. Hafta · Ters Şemsiye",
     "dosya": "materyaller/2-sinif/turkce/hafta-24.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-24-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-24-onizleme.png",
+    "konu": "Zıt anlam, çıkarım yapma",
+    "konu_id": [
+      "dil:zit"
+    ]
   },
   {
     "id": "t2-hafta-25",
@@ -1566,7 +1739,11 @@
     "hafta": 25,
     "baslik": "25. Hafta · Gezici Kütüphane",
     "dosya": "materyaller/2-sinif/turkce/hafta-25.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-25-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-25-onizleme.png",
+    "konu": "Karşılaştırma, zıt anlam",
+    "konu_id": [
+      "dil:zit"
+    ]
   },
   {
     "id": "t2-hafta-26",
@@ -1577,7 +1754,11 @@
     "hafta": 26,
     "baslik": "26. Hafta · Hezarfen'in Kanatları",
     "dosya": "materyaller/2-sinif/turkce/hafta-26.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-26-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-26-onizleme.png",
+    "konu": "Gerçek ve hayal, benzetme",
+    "konu_id": [
+      "dil:benzetme"
+    ]
   },
   {
     "id": "t2-hafta-27",
@@ -1588,7 +1769,9 @@
     "hafta": 27,
     "baslik": "27. Hafta · Kâğıt Uçak Yarışması",
     "dosya": "materyaller/2-sinif/turkce/hafta-27.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-27-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-27-onizleme.png",
+    "konu": "Yönerge yazma, zıt anlam",
+    "konu_id": []
   },
   {
     "id": "t2-hafta-28",
@@ -1599,7 +1782,11 @@
     "hafta": 28,
     "baslik": "28. Hafta · Dünya Çocukları Bizde",
     "dosya": "materyaller/2-sinif/turkce/hafta-28.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-28-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-28-onizleme.png",
+    "konu": "Görüş bildirme, iki nokta ve tırnak",
+    "konu_id": [
+      "dil:iki-nokta"
+    ]
   },
   {
     "id": "t2-hafta-29",
@@ -1610,7 +1797,9 @@
     "hafta": 29,
     "baslik": "29. Hafta · Ninemin Sandığı",
     "dosya": "materyaller/2-sinif/turkce/hafta-29.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-29-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-29-onizleme.png",
+    "konu": "Atasözü, sınıflandırma",
+    "konu_id": []
   },
   {
     "id": "t2-hafta-30",
@@ -1621,7 +1810,9 @@
     "hafta": 30,
     "baslik": "30. Hafta · Anneannemin Tarif Defteri",
     "dosya": "materyaller/2-sinif/turkce/hafta-30.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-30-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-30-onizleme.png",
+    "konu": "Yönerge (tarif) yazma, sıralama",
+    "konu_id": []
   },
   {
     "id": "t2-hafta-31",
@@ -1632,7 +1823,11 @@
     "hafta": 31,
     "baslik": "31. Hafta · Belediye Başkanına Mektup",
     "dosya": "materyaller/2-sinif/turkce/hafta-31.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-31-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-31-onizleme.png",
+    "konu": "İstek ve öneri mektubu",
+    "konu_id": [
+      "dil:mektup"
+    ]
   },
   {
     "id": "t2-hafta-32",
@@ -1643,7 +1838,11 @@
     "hafta": 32,
     "baslik": "32. Hafta · Gemi Müzesinde Bir Gün",
     "dosya": "materyaller/2-sinif/turkce/hafta-32.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-32-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-32-onizleme.png",
+    "konu": "Büyük harf (yer ve gemi adları), tarih",
+    "konu_id": [
+      "dil:buyuk-harf"
+    ]
   },
   {
     "id": "t2-hafta-33",
@@ -1654,7 +1853,9 @@
     "hafta": 33,
     "baslik": "33. Hafta · Sınıf Meclisi",
     "dosya": "materyaller/2-sinif/turkce/hafta-33.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-33-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-33-onizleme.png",
+    "konu": "Hak ve sorumluluk, yazma planı",
+    "konu_id": []
   },
   {
     "id": "t2-hafta-34",
@@ -1665,7 +1866,11 @@
     "hafta": 34,
     "baslik": "34. Hafta · Salıncak Sırası",
     "dosya": "materyaller/2-sinif/turkce/hafta-34.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-34-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-34-onizleme.png",
+    "konu": "Görüş bildirme, iki nokta ve tırnak",
+    "konu_id": [
+      "dil:iki-nokta"
+    ]
   },
   {
     "id": "t2-hafta-35",
@@ -1676,7 +1881,12 @@
     "hafta": 35,
     "baslik": "35. Hafta · Buzuldan Gelen Mektup",
     "dosya": "materyaller/2-sinif/turkce/hafta-35.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-35-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-35-onizleme.png",
+    "konu": "Mektup, zıt anlam",
+    "konu_id": [
+      "dil:mektup",
+      "dil:zit"
+    ]
   },
   {
     "id": "t2-hafta-36",
@@ -1687,7 +1897,13 @@
     "hafta": 36,
     "baslik": "36. Hafta · Yıl Sonu Kutusu",
     "dosya": "materyaller/2-sinif/turkce/hafta-36.pdf",
-    "resim": "materyaller/2-sinif/turkce/hafta-36-onizleme.png"
+    "resim": "materyaller/2-sinif/turkce/hafta-36-onizleme.png",
+    "konu": "Yılın tekrarı",
+    "konu_id": [
+      "dil:nokta",
+      "dil:buyuk-harf",
+      "dil:kesme"
+    ]
   },
   {
     "id": "m2-hafta-01",
@@ -1698,7 +1914,11 @@
     "hafta": 1,
     "baslik": "1. Hafta · Cisim Avcıları",
     "dosya": "materyaller/2-sinif/matematik/hafta-01.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-01-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-01-onizleme.png",
+    "konu": "Geometrik cisimler",
+    "konu_id": [
+      "mat:cisimler"
+    ]
   },
   {
     "id": "m2-hafta-02",
@@ -1709,7 +1929,12 @@
     "hafta": 2,
     "baslik": "2. Hafta · Cisim Kuleleri",
     "dosya": "materyaller/2-sinif/matematik/hafta-02.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-02-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-02-onizleme.png",
+    "konu": "Geometrik cisim modelleri",
+    "konu_id": [
+      "mat:cisimler",
+      "mat:modeller"
+    ]
   },
   {
     "id": "m2-hafta-03",
@@ -1720,7 +1945,11 @@
     "hafta": 3,
     "baslik": "3. Hafta · Şekil Resimleri",
     "dosya": "materyaller/2-sinif/matematik/hafta-03.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-03-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-03-onizleme.png",
+    "konu": "Geometrik şekil modelleri",
+    "konu_id": [
+      "mat:modeller"
+    ]
   },
   {
     "id": "m2-hafta-04",
@@ -1731,7 +1960,11 @@
     "hafta": 4,
     "baslik": "4. Hafta · Şekil Dedektifi",
     "dosya": "materyaller/2-sinif/matematik/hafta-04.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-04-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-04-onizleme.png",
+    "konu": "Şekil ve cisimlerin biçimsel özellikleri",
+    "konu_id": [
+      "mat:yon-buyukluk"
+    ]
   },
   {
     "id": "m2-hafta-05",
@@ -1742,7 +1975,11 @@
     "hafta": 5,
     "baslik": "5. Hafta · Sürahi Kaç Bardak?",
     "dosya": "materyaller/2-sinif/matematik/hafta-05.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-05-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-05-onizleme.png",
+    "konu": "Sıvı miktarını tahmin etme",
+    "konu_id": [
+      "mat:sivi"
+    ]
   },
   {
     "id": "m2-hafta-06",
@@ -1753,7 +1990,11 @@
     "hafta": 6,
     "baslik": "6. Hafta · Onluk Çubukları",
     "dosya": "materyaller/2-sinif/matematik/hafta-06.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-06-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-06-onizleme.png",
+    "konu": "100'e kadar sayılar",
+    "konu_id": [
+      "mat:sayilar100"
+    ]
   },
   {
     "id": "m2-hafta-07",
@@ -1764,7 +2005,12 @@
     "hafta": 7,
     "baslik": "7. Hafta · Sayıyı Parçala",
     "dosya": "materyaller/2-sinif/matematik/hafta-07.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-07-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-07-onizleme.png",
+    "konu": "Sayılar, çözümleme",
+    "konu_id": [
+      "mat:sayilar100",
+      "mat:cozumleme"
+    ]
   },
   {
     "id": "m2-hafta-08",
@@ -1775,7 +2021,11 @@
     "hafta": 8,
     "baslik": "8. Hafta · Basamak Avı",
     "dosya": "materyaller/2-sinif/matematik/hafta-08.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-08-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-08-onizleme.png",
+    "konu": "Sayıları çözümleme",
+    "konu_id": [
+      "mat:cozumleme"
+    ]
   },
   {
     "id": "m2-hafta-09",
@@ -1786,7 +2036,11 @@
     "hafta": 9,
     "baslik": "9. Hafta · Sayı Treni",
     "dosya": "materyaller/2-sinif/matematik/hafta-09.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-09-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-09-onizleme.png",
+    "konu": "Sayıları sıralama",
+    "konu_id": [
+      "mat:siralama"
+    ]
   },
   {
     "id": "m2-hafta-10",
@@ -1797,7 +2051,12 @@
     "hafta": 10,
     "baslik": "10. Hafta · Kurbağa Zıplıyor",
     "dosya": "materyaller/2-sinif/matematik/hafta-10.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-10-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-10-onizleme.png",
+    "konu": "Sayıları sıralama, ritmik sayma",
+    "konu_id": [
+      "mat:siralama",
+      "mat:ritmik"
+    ]
   },
   {
     "id": "m2-hafta-11",
@@ -1808,7 +2067,11 @@
     "hafta": 11,
     "baslik": "11. Hafta · Ritim Tutalım",
     "dosya": "materyaller/2-sinif/matematik/hafta-11.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-11-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-11-onizleme.png",
+    "konu": "Ritmik sayma",
+    "konu_id": [
+      "mat:ritmik"
+    ]
   },
   {
     "id": "m2-hafta-12",
@@ -1819,7 +2082,11 @@
     "hafta": 12,
     "baslik": "12. Hafta · Örüntü Ustası",
     "dosya": "materyaller/2-sinif/matematik/hafta-12.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-12-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-12-onizleme.png",
+    "konu": "Sayı ve şekil örüntüleri",
+    "konu_id": [
+      "mat:oruntu"
+    ]
   },
   {
     "id": "m2-hafta-13",
@@ -1830,7 +2097,12 @@
     "hafta": 13,
     "baslik": "13. Hafta · Tahmin Kavanozu",
     "dosya": "materyaller/2-sinif/matematik/hafta-13.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-13-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-13-onizleme.png",
+    "konu": "Örüntüler, nesne sayısını tahmin etme",
+    "konu_id": [
+      "mat:oruntu",
+      "mat:tahmin"
+    ]
   },
   {
     "id": "m2-hafta-14",
@@ -1841,7 +2113,11 @@
     "hafta": 14,
     "baslik": "14. Hafta · Problem Dedektifi",
     "dosya": "materyaller/2-sinif/matematik/hafta-14.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-14-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-14-onizleme.png",
+    "konu": "Toplama ve çıkarma problemleri",
+    "konu_id": [
+      "mat:problem"
+    ]
   },
   {
     "id": "m2-hafta-15",
@@ -1852,7 +2128,12 @@
     "hafta": 15,
     "baslik": "15. Hafta · Elde Avcısı",
     "dosya": "materyaller/2-sinif/matematik/hafta-15.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-15-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-15-onizleme.png",
+    "konu": "Toplama ve çıkarma problemleri",
+    "konu_id": [
+      "mat:toplama",
+      "mat:cikarma"
+    ]
   },
   {
     "id": "m2-hafta-16",
@@ -1863,7 +2144,11 @@
     "hafta": 16,
     "baslik": "16. Hafta · Ladin Market",
     "dosya": "materyaller/2-sinif/matematik/hafta-16.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-16-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-16-onizleme.png",
+    "konu": "Toplama ve çıkarma problemleri",
+    "konu_id": [
+      "mat:problem"
+    ]
   },
   {
     "id": "m2-hafta-17",
@@ -1874,7 +2159,11 @@
     "hafta": 17,
     "baslik": "17. Hafta · Zihin Yarışı",
     "dosya": "materyaller/2-sinif/matematik/hafta-17.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-17-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-17-onizleme.png",
+    "konu": "Tahmin etme ve zihinden işlem",
+    "konu_id": [
+      "mat:zihinden"
+    ]
   },
   {
     "id": "m2-hafta-18",
@@ -1885,7 +2174,11 @@
     "hafta": 18,
     "baslik": "18. Hafta · Hızlı Hesap",
     "dosya": "materyaller/2-sinif/matematik/hafta-18.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-18-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-18-onizleme.png",
+    "konu": "Tahmin etme ve zihinden işlem",
+    "konu_id": [
+      "mat:zihinden"
+    ]
   },
   {
     "id": "m2-hafta-19",
@@ -1896,7 +2189,11 @@
     "hafta": 19,
     "baslik": "19. Hafta · İşlem Ailesi",
     "dosya": "materyaller/2-sinif/matematik/hafta-19.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-19-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-19-onizleme.png",
+    "konu": "Toplama ve çıkarmanın ilişkisi",
+    "konu_id": [
+      "mat:iliski"
+    ]
   },
   {
     "id": "m2-hafta-20",
@@ -1907,7 +2204,12 @@
     "hafta": 20,
     "baslik": "20. Hafta · Gruplar Hâlinde",
     "dosya": "materyaller/2-sinif/matematik/hafta-20.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-20-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-20-onizleme.png",
+    "konu": "Toplama-çıkarma ilişkisi, çarpma",
+    "konu_id": [
+      "mat:iliski",
+      "mat:carpma"
+    ]
   },
   {
     "id": "m2-hafta-21",
@@ -1918,7 +2220,12 @@
     "hafta": 21,
     "baslik": "21. Hafta · Paylaşalım",
     "dosya": "materyaller/2-sinif/matematik/hafta-21.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-21-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-21-onizleme.png",
+    "konu": "Çarpma ve bölme",
+    "konu_id": [
+      "mat:carpma",
+      "mat:bolme"
+    ]
   },
   {
     "id": "m2-hafta-22",
@@ -1929,7 +2236,12 @@
     "hafta": 22,
     "baslik": "22. Hafta · Çarpım Ustası",
     "dosya": "materyaller/2-sinif/matematik/hafta-22.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-22-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-22-onizleme.png",
+    "konu": "Çarpma ve bölmede tahmin, zihinden işlem",
+    "konu_id": [
+      "mat:carpma",
+      "mat:bolme"
+    ]
   },
   {
     "id": "m2-hafta-23",
@@ -1940,7 +2252,11 @@
     "hafta": 23,
     "baslik": "23. Hafta · Paylaşım Problemleri",
     "dosya": "materyaller/2-sinif/matematik/hafta-23.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-23-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-23-onizleme.png",
+    "konu": "Çarpma ve bölmede tahmin, zihinden işlem",
+    "konu_id": [
+      "mat:bolme"
+    ]
   },
   {
     "id": "m2-hafta-24",
@@ -1951,7 +2267,11 @@
     "hafta": 24,
     "baslik": "24. Hafta · Teraziler Dengede",
     "dosya": "materyaller/2-sinif/matematik/hafta-24.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-24-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-24-onizleme.png",
+    "konu": "Dört işlemde eşitlik",
+    "konu_id": [
+      "mat:esitlik"
+    ]
   },
   {
     "id": "m2-hafta-25",
@@ -1962,7 +2282,11 @@
     "hafta": 25,
     "baslik": "25. Hafta · Denge Oyunu",
     "dosya": "materyaller/2-sinif/matematik/hafta-25.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-25-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-25-onizleme.png",
+    "konu": "Dört işlemde eşitlik",
+    "konu_id": [
+      "mat:esitlik"
+    ]
   },
   {
     "id": "m2-hafta-26",
@@ -1973,7 +2297,12 @@
     "hafta": 26,
     "baslik": "26. Hafta · Yarım ve Çeyrek",
     "dosya": "materyaller/2-sinif/matematik/hafta-26.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-26-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-26-onizleme.png",
+    "konu": "Eşitlik, kesirler",
+    "konu_id": [
+      "mat:esitlik",
+      "mat:kesir"
+    ]
   },
   {
     "id": "m2-hafta-27",
@@ -1984,7 +2313,12 @@
     "hafta": 27,
     "baslik": "27. Hafta · Kumbaram",
     "dosya": "materyaller/2-sinif/matematik/hafta-27.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-27-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-27-onizleme.png",
+    "konu": "Kesirler, paralarımız",
+    "konu_id": [
+      "mat:kesir",
+      "mat:para"
+    ]
   },
   {
     "id": "m2-hafta-28",
@@ -1995,7 +2329,12 @@
     "hafta": 28,
     "baslik": "28. Hafta · Saat Kaç?",
     "dosya": "materyaller/2-sinif/matematik/hafta-28.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-28-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-28-onizleme.png",
+    "konu": "Paralarımız, zaman ölçme",
+    "konu_id": [
+      "mat:para",
+      "mat:zaman"
+    ]
   },
   {
     "id": "m2-hafta-29",
@@ -2006,7 +2345,11 @@
     "hafta": 29,
     "baslik": "29. Hafta · Günüm Saat Saat",
     "dosya": "materyaller/2-sinif/matematik/hafta-29.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-29-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-29-onizleme.png",
+    "konu": "Zaman ölçme",
+    "konu_id": [
+      "mat:zaman"
+    ]
   },
   {
     "id": "m2-hafta-30",
@@ -2017,7 +2360,12 @@
     "hafta": 30,
     "baslik": "30. Hafta · Cetvel Ustası",
     "dosya": "materyaller/2-sinif/matematik/hafta-30.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-30-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-30-onizleme.png",
+    "konu": "Uzunluk ve kütle ölçme araç ve birimleri",
+    "konu_id": [
+      "mat:uzunluk",
+      "mat:kutle"
+    ]
   },
   {
     "id": "m2-hafta-31",
@@ -2028,7 +2376,12 @@
     "hafta": 31,
     "baslik": "31. Hafta · Tahmin Et, Ölç",
     "dosya": "materyaller/2-sinif/matematik/hafta-31.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-31-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-31-onizleme.png",
+    "konu": "Uzunluk ve kütle ölçmede tahmin",
+    "konu_id": [
+      "mat:uzunluk",
+      "mat:kutle"
+    ]
   },
   {
     "id": "m2-hafta-32",
@@ -2039,7 +2392,11 @@
     "hafta": 32,
     "baslik": "32. Hafta · Robotun Yolu",
     "dosya": "materyaller/2-sinif/matematik/hafta-32.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-32-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-32-onizleme.png",
+    "konu": "Ölçmede tahmin, yer ve yön bulma",
+    "konu_id": [
+      "mat:yon"
+    ]
   },
   {
     "id": "m2-hafta-33",
@@ -2050,7 +2407,12 @@
     "hafta": 33,
     "baslik": "33. Hafta · Ayna Ayna",
     "dosya": "materyaller/2-sinif/matematik/hafta-33.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-33-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-33-onizleme.png",
+    "konu": "Yer ve yön bulma, simetri",
+    "konu_id": [
+      "mat:yon",
+      "mat:simetri"
+    ]
   },
   {
     "id": "m2-hafta-34",
@@ -2061,7 +2423,11 @@
     "hafta": 34,
     "baslik": "34. Hafta · Simetri Ustası",
     "dosya": "materyaller/2-sinif/matematik/hafta-34.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-34-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-34-onizleme.png",
+    "konu": "Simetri",
+    "konu_id": [
+      "mat:simetri"
+    ]
   },
   {
     "id": "m2-hafta-35",
@@ -2072,7 +2438,11 @@
     "hafta": 35,
     "baslik": "35. Hafta · Sınıf Anketi",
     "dosya": "materyaller/2-sinif/matematik/hafta-35.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-35-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-35-onizleme.png",
+    "konu": "Veriyle çalışma",
+    "konu_id": [
+      "mat:veri"
+    ]
   },
   {
     "id": "m2-hafta-36",
@@ -2083,6 +2453,10 @@
     "hafta": 36,
     "baslik": "36. Hafta · Veri Kararı",
     "dosya": "materyaller/2-sinif/matematik/hafta-36.pdf",
-    "resim": "materyaller/2-sinif/matematik/hafta-36-onizleme.png"
+    "resim": "materyaller/2-sinif/matematik/hafta-36-onizleme.png",
+    "konu": "Veriye dayalı karar verme",
+    "konu_id": [
+      "mat:veri"
+    ]
   }
 ]
