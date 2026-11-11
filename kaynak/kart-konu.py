@@ -21,6 +21,10 @@ KD = {1: ['soru-eki', 'hece'], 2: ['nokta', 'soru'], 3: ['unlem', 'virgul'], 4: 
       10: ['benzetme'], 11: ['soru-eki'], 12: ['benzetme'], 13: ['kisaltma'], 14: ['kisaltma'], 15: ['kisaltma'], 16: ['kisaltma'], 17: ['sozcuk-cumle'], 18: ['nokta', 'soru', 'unlem'],
       19: ['nokta', 'soru-eki'], 20: ['iki-nokta'], 21: ['mektup'], 22: ['mektup'], 24: ['zit'], 25: ['zit'], 26: ['benzetme'], 28: ['iki-nokta'], 31: ['mektup'], 32: ['buyuk-harf'],
       34: ['iki-nokta'], 35: ['mektup', 'zit'], 36: ['nokta', 'buyuk-harf', 'kesme']}
+KH = {1: ['zaman'], 2: ['zaman'], 3: ['iletisim'], 4: ['arkadaslik'], 5: ['karar'], 6: ['karar'], 7: ['saglik'], 8: ['saglik'], 9: ['internet'], 10: ['internet'],
+      11: ['levhalar'], 12: ['acil'], 13: ['acil', 'aile'], 14: ['aile'], 15: ['nezaket'], 16: ['gorev'], 17: ['gorev'], 18: ['gorev', 'tarihi'], 19: ['yonetim'], 20: ['yonetim'],
+      21: ['ataturk'], 22: ['ataturk', 'milli'], 23: ['milli'], 24: ['dini'], 25: ['dini'], 26: ['hava'], 27: ['yon'], 28: ['afet'], 29: ['afet'], 30: ['tasarruf'], 31: ['tasarruf'],
+      32: ['bilim'], 33: ['bilim', 'teknoloji'], 34: ['teknoloji'], 35: ['sanat'], 36: ['sanat']}
 konular = {k: oku(v) for k, v in KAYNAK.items()}
 for m in L:
     s, d, h = m.get('sinif', 1), m.get('ders'), m.get('hafta')
@@ -29,5 +33,6 @@ for m in L:
     m['konu'] = ilk(k.split(' · ')[-1]) if (s, d) == (2, 'turkce') else ilk(k)
     if (s, d) == (2, 'matematik'): m['konu_id'] = ['mat:' + x for x in KM.get(h, [])]
     if (s, d) == (2, 'turkce'): m['konu_id'] = ['dil:' + x for x in KD.get(h, [])]
+    if (s, d) == (2, 'hayat_bilgisi'): m['konu_id'] = ['hb:' + x for x in KH.get(h, [])]
 json.dump(L, open(p, 'w'), ensure_ascii=False, indent=2); open(p, 'a').write('\n')
 print(sum(1 for m in L if m.get('konu')), 'karta konu eklendi')

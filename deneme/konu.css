@@ -42,3 +42,4 @@
 .mektup .k{font-size:12px;font-weight:700;color:var(--g);background:var(--ga);border-radius:6px;padding:1px 6px;margin-left:8px;vertical-align:middle}
 .yazdir{margin:6px 0 0}
 @media print{.konu{break-inside:avoid;box-shadow:none;border:1px solid #ccc}.geri{display:none}}
+.mk-kart .hk-img{width:100px;height:100px;object-fit:contain}

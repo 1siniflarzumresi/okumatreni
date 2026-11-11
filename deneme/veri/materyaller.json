@@ -2469,7 +2469,10 @@
     "baslik": "1. Hafta · Planlı Bir Gün",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-01.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-01-onizleme.png",
-    "konu": "Zaman yönetimi"
+    "konu": "Zaman yönetimi",
+    "konu_id": [
+      "hb:zaman"
+    ]
   },
   {
     "id": "h2-hafta-02",
@@ -2481,7 +2484,10 @@
     "baslik": "2. Hafta · Zamanım Bende",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-02.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-02-onizleme.png",
-    "konu": "Zaman yönetimi"
+    "konu": "Zaman yönetimi",
+    "konu_id": [
+      "hb:zaman"
+    ]
   },
   {
     "id": "h2-hafta-03",
@@ -2493,7 +2499,10 @@
     "baslik": "3. Hafta · Seni Dinliyorum",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-03.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-03-onizleme.png",
-    "konu": "İletişim kuralları"
+    "konu": "İletişim kuralları",
+    "konu_id": [
+      "hb:iletisim"
+    ]
   },
   {
     "id": "h2-hafta-04",
@@ -2505,7 +2514,10 @@
     "baslik": "4. Hafta · Arkadaşlık Köprüsü",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-04.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-04-onizleme.png",
-    "konu": "Arkadaşlık ilişkileri"
+    "konu": "Arkadaşlık ilişkileri",
+    "konu_id": [
+      "hb:arkadaslik"
+    ]
   },
   {
     "id": "h2-hafta-05",
@@ -2517,7 +2529,10 @@
     "baslik": "5. Hafta · Sınıf Meclisi",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-05.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-05-onizleme.png",
-    "konu": "Sınıf içi karar alma"
+    "konu": "Sınıf içi karar alma",
+    "konu_id": [
+      "hb:karar"
+    ]
   },
   {
     "id": "h2-hafta-06",
@@ -2529,7 +2544,10 @@
     "baslik": "6. Hafta · Herkesin Bir Fikri Var",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-06.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-06-onizleme.png",
-    "konu": "Sınıf içi karar alma"
+    "konu": "Sınıf içi karar alma",
+    "konu_id": [
+      "hb:karar"
+    ]
   },
   {
     "id": "h2-hafta-07",
@@ -2541,7 +2559,10 @@
     "baslik": "7. Hafta · Büyüyorum",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-07.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-07-onizleme.png",
-    "konu": "Sağlıklı büyüme ve gelişme"
+    "konu": "Sağlıklı büyüme ve gelişme",
+    "konu_id": [
+      "hb:saglik"
+    ]
   },
   {
     "id": "h2-hafta-08",
@@ -2553,7 +2574,10 @@
     "baslik": "8. Hafta · Sağlıklı Alışkanlıklar",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-08.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-08-onizleme.png",
-    "konu": "Sağlıklı büyüme ve gelişme"
+    "konu": "Sağlıklı büyüme ve gelişme",
+    "konu_id": [
+      "hb:saglik"
+    ]
   },
   {
     "id": "h2-hafta-09",
@@ -2565,7 +2589,10 @@
     "baslik": "9. Hafta · İnternette Güvendeyim",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-09.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-09-onizleme.png",
-    "konu": "Çevrim içi ortamlarda kişisel güvenlik"
+    "konu": "Çevrim içi ortamlarda kişisel güvenlik",
+    "konu_id": [
+      "hb:internet"
+    ]
   },
   {
     "id": "h2-hafta-10",
@@ -2577,7 +2604,10 @@
     "baslik": "10. Hafta · Ekran Dengesi",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-10.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-10-onizleme.png",
-    "konu": "Çevrim içi ortamlarda kişisel güvenlik"
+    "konu": "Çevrim içi ortamlarda kişisel güvenlik",
+    "konu_id": [
+      "hb:internet"
+    ]
   },
   {
     "id": "h2-hafta-11",
@@ -2589,7 +2619,10 @@
     "baslik": "11. Hafta · Levhalar Konuşuyor",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-11.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-11-onizleme.png",
-    "konu": "Trafik işaret levhaları"
+    "konu": "Trafik işaret levhaları",
+    "konu_id": [
+      "hb:levhalar"
+    ]
   },
   {
     "id": "h2-hafta-12",
@@ -2601,7 +2634,10 @@
     "baslik": "12. Hafta · Acil Durumda İletişim",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-12.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-12-onizleme.png",
-    "konu": "Acil durumlarda iletişim"
+    "konu": "Acil durumlarda iletişim",
+    "konu_id": [
+      "hb:acil"
+    ]
   },
   {
     "id": "h2-hafta-13",
@@ -2613,7 +2649,11 @@
     "baslik": "13. Hafta · Ailem Benim",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-13.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-13-onizleme.png",
-    "konu": "Acil durumlarda iletişim, ailenin önemi"
+    "konu": "Acil durumlarda iletişim, ailenin önemi",
+    "konu_id": [
+      "hb:acil",
+      "hb:aile"
+    ]
   },
   {
     "id": "h2-hafta-14",
@@ -2625,7 +2665,10 @@
     "baslik": "14. Hafta · Ailemin Önemi",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-14.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-14-onizleme.png",
-    "konu": "Ailenin önemi"
+    "konu": "Ailenin önemi",
+    "konu_id": [
+      "hb:aile"
+    ]
   },
   {
     "id": "h2-hafta-15",
@@ -2637,7 +2680,10 @@
     "baslik": "15. Hafta · Nezaket Ustası",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-15.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-15-onizleme.png",
-    "konu": "Nezaket ve görgü kuralları"
+    "konu": "Nezaket ve görgü kuralları",
+    "konu_id": [
+      "hb:nezaket"
+    ]
   },
   {
     "id": "h2-hafta-16",
@@ -2649,7 +2695,10 @@
     "baslik": "16. Hafta · Görevim Var",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-16.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-16-onizleme.png",
-    "konu": "Görev ve sorumluluklar"
+    "konu": "Görev ve sorumluluklar",
+    "konu_id": [
+      "hb:gorev"
+    ]
   },
   {
     "id": "h2-hafta-17",
@@ -2661,7 +2710,10 @@
     "baslik": "17. Hafta · Sorumluluk Sende",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-17.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-17-onizleme.png",
-    "konu": "Görev ve sorumluluklar"
+    "konu": "Görev ve sorumluluklar",
+    "konu_id": [
+      "hb:gorev"
+    ]
   },
   {
     "id": "h2-hafta-18",
@@ -2673,7 +2725,11 @@
     "baslik": "18. Hafta · Yakınımdaki Güzellikler",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-18.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-18-onizleme.png",
-    "konu": "Görev ve sorumluluklar, tarihî mekânlar ve doğal güzellikler"
+    "konu": "Görev ve sorumluluklar, tarihî mekânlar ve doğal güzellikler",
+    "konu_id": [
+      "hb:gorev",
+      "hb:tarihi"
+    ]
   },
   {
     "id": "h2-hafta-19",
@@ -2685,7 +2741,10 @@
     "baslik": "19. Hafta · Mahallemi Kim Yönetir?",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-19.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-19-onizleme.png",
-    "konu": "Yaşadığı yerin yönetim birimleri"
+    "konu": "Yaşadığı yerin yönetim birimleri",
+    "konu_id": [
+      "hb:yonetim"
+    ]
   },
   {
     "id": "h2-hafta-20",
@@ -2697,7 +2756,10 @@
     "baslik": "20. Hafta · Belediyeye Mektup",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-20.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-20-onizleme.png",
-    "konu": "Yaşadığı yerin yönetim birimleri"
+    "konu": "Yaşadığı yerin yönetim birimleri",
+    "konu_id": [
+      "hb:yonetim"
+    ]
   },
   {
     "id": "h2-hafta-21",
@@ -2709,7 +2771,10 @@
     "baslik": "21. Hafta · Öğrenci Mustafa",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-21.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-21-onizleme.png",
-    "konu": "Atatürk'ün öğrencilik hayatı"
+    "konu": "Atatürk'ün öğrencilik hayatı",
+    "konu_id": [
+      "hb:ataturk"
+    ]
   },
   {
     "id": "h2-hafta-22",
@@ -2721,7 +2786,11 @@
     "baslik": "22. Hafta · Bayramlarımız",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-22.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-22-onizleme.png",
-    "konu": "Atatürk'ün öğrenim hayatı, millî gün ve bayramlar"
+    "konu": "Atatürk'ün öğrenim hayatı, millî gün ve bayramlar",
+    "konu_id": [
+      "hb:ataturk",
+      "hb:milli"
+    ]
   },
   {
     "id": "h2-hafta-23",
@@ -2733,7 +2802,10 @@
     "baslik": "23. Hafta · Bayram Coşkusu",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-23.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-23-onizleme.png",
-    "konu": "Millî gün ve bayramların önemi"
+    "konu": "Millî gün ve bayramların önemi",
+    "konu_id": [
+      "hb:milli"
+    ]
   },
   {
     "id": "h2-hafta-24",
@@ -2745,7 +2817,10 @@
     "baslik": "24. Hafta · Ramazan Bayramı",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-24.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-24-onizleme.png",
-    "konu": "Dinî gün ve bayramlar"
+    "konu": "Dinî gün ve bayramlar",
+    "konu_id": [
+      "hb:dini"
+    ]
   },
   {
     "id": "h2-hafta-25",
@@ -2757,7 +2832,10 @@
     "baslik": "25. Hafta · Kurban Bayramı",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-25.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-25-onizleme.png",
-    "konu": "Dinî gün ve bayramlar"
+    "konu": "Dinî gün ve bayramlar",
+    "konu_id": [
+      "hb:dini"
+    ]
   },
   {
     "id": "h2-hafta-26",
@@ -2769,7 +2847,10 @@
     "baslik": "26. Hafta · Hava Nasıl?",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-26.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-26-onizleme.png",
-    "konu": "Hava olayları ve mevsimler"
+    "konu": "Hava olayları ve mevsimler",
+    "konu_id": [
+      "hb:hava"
+    ]
   },
   {
     "id": "h2-hafta-27",
@@ -2781,7 +2862,10 @@
     "baslik": "27. Hafta · Yönümü Buluyorum",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-27.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-27-onizleme.png",
-    "konu": "Doğadan yararlanarak yön bulma"
+    "konu": "Doğadan yararlanarak yön bulma",
+    "konu_id": [
+      "hb:yon"
+    ]
   },
   {
     "id": "h2-hafta-28",
@@ -2793,7 +2877,10 @@
     "baslik": "28. Hafta · Afetlere Hazırım",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-28.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-28-onizleme.png",
-    "konu": "Afetlere karşı alınacak önlemler"
+    "konu": "Afetlere karşı alınacak önlemler",
+    "konu_id": [
+      "hb:afet"
+    ]
   },
   {
     "id": "h2-hafta-29",
@@ -2805,7 +2892,10 @@
     "baslik": "29. Hafta · Hazırlıklı Aile",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-29.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-29-onizleme.png",
-    "konu": "Afetlere karşı alınacak önlemler"
+    "konu": "Afetlere karşı alınacak önlemler",
+    "konu_id": [
+      "hb:afet"
+    ]
   },
   {
     "id": "h2-hafta-30",
@@ -2817,7 +2907,10 @@
     "baslik": "30. Hafta · Damla Damla",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-30.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-30-onizleme.png",
-    "konu": "Doğal kaynakları tasarruflu kullanma"
+    "konu": "Doğal kaynakları tasarruflu kullanma",
+    "konu_id": [
+      "hb:tasarruf"
+    ]
   },
   {
     "id": "h2-hafta-31",
@@ -2829,7 +2922,10 @@
     "baslik": "31. Hafta · Tasarruf Kahramanı",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-31.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-31-onizleme.png",
-    "konu": "Doğal kaynakları tasarruflu kullanma"
+    "konu": "Doğal kaynakları tasarruflu kullanma",
+    "konu_id": [
+      "hb:tasarruf"
+    ]
   },
   {
     "id": "h2-hafta-32",
@@ -2841,7 +2937,10 @@
     "baslik": "32. Hafta · Bilim İnsanları",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-32.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-32-onizleme.png",
-    "konu": "Bilim insanlarının bilime katkıları"
+    "konu": "Bilim insanlarının bilime katkıları",
+    "konu_id": [
+      "hb:bilim"
+    ]
   },
   {
     "id": "h2-hafta-33",
@@ -2853,7 +2952,11 @@
     "baslik": "33. Hafta · Dünden Bugüne",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-33.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-33-onizleme.png",
-    "konu": "Bilim insanları, teknolojik ürünlerin değişimi"
+    "konu": "Bilim insanları, teknolojik ürünlerin değişimi",
+    "konu_id": [
+      "hb:bilim",
+      "hb:teknoloji"
+    ]
   },
   {
     "id": "h2-hafta-34",
@@ -2865,7 +2968,10 @@
     "baslik": "34. Hafta · Geleceğin Teknolojisi",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-34.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-34-onizleme.png",
-    "konu": "Teknolojik ürünlerin değişim ve sürekliliği"
+    "konu": "Teknolojik ürünlerin değişim ve sürekliliği",
+    "konu_id": [
+      "hb:teknoloji"
+    ]
   },
   {
     "id": "h2-hafta-35",
@@ -2877,7 +2983,10 @@
     "baslik": "35. Hafta · Sanat Her Yerde",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-35.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-35-onizleme.png",
-    "konu": "Sanatın günlük yaşamdaki yeri"
+    "konu": "Sanatın günlük yaşamdaki yeri",
+    "konu_id": [
+      "hb:sanat"
+    ]
   },
   {
     "id": "h2-hafta-36",
@@ -2889,6 +2998,9 @@
     "baslik": "36. Hafta · Sanat Şenliği",
     "dosya": "materyaller/2-sinif/hayat-bilgisi/hafta-36.pdf",
     "resim": "materyaller/2-sinif/hayat-bilgisi/hafta-36-onizleme.png",
-    "konu": "Sanatın günlük yaşamdaki yeri"
+    "konu": "Sanatın günlük yaşamdaki yeri",
+    "konu_id": [
+      "hb:sanat"
+    ]
   }
 ]
