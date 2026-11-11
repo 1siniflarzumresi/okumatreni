@@ -230,6 +230,109 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
         tablo('Okumamı değerlendiriyorum. Bu metni okurken neler yaptın?', ['Okurken', 'Evet / Hayır'], [['Başlığa ve resimlere bakıp tahmin yaptım.', ''], ['Bilmediğim sözcüğün anlamını cümleden çıkardım.', ''], ['Noktalama işaretlerine dikkat ettim.', ''], ['Takıldığım yeri yeniden okudum.', '']])]),
       numarala([yazma('Okulunda ya da evinde suyu korumak için bir kampanya başlatıyorsun. Kampanya afişinin metnini yaz.', ['Kampanyanın adı:', 'Neden gerekli?', 'Herkes ne yapmalı?'], 12)]),
     ] },
+    'hafta-13': { unite: 5, hafta: 13, baslik: 'Tilkinin İki Kürkü', konu: 'Doğayı tanıyoruz · Görsel okuma (tablo), yazma planı', sayfalar: () => [
+      metin({ baslik: 'Tilkinin İki Kürkü', resimler: ['kutup-tilkisi', 'yaz-tilkisi'], tahmin: 'Bir hayvan mevsime göre renk değiştirebilir mi?', paragraflar: [
+        'Dünyanın en soğuk yerlerinden birinde, kuzey kutbuna yakın karlı ovalarda küçük bir tilki yaşar: kutup tilkisi. Bu tilkinin bir sırrı vardır. Onun iki kürkü vardır; biri kış için, biri yaz için.',
+        'Kışın kutup tilkisinin kürkü bembeyazdır. Bu beyaz kürk onu karın içinde neredeyse görünmez yapar. Kürkü o kadar sık ve kalındır ki sıcaklık sıfırın çok altına düştüğünde bile üşümez. Kulakları küçük, bacakları kısa, kuyruğu ise kocaman ve kabarıktır. Uyurken kuyruğunu bir battaniye gibi burnunun üstüne örter.',
+        'Bahar gelip karlar erimeye başlayınca tilki yavaş yavaş tüy döker. Beyaz kürkün yerine kahverengi ve gri bir kürk çıkar. Artık kayaların, otların ve toprağın rengine benzer. Böylece yazın da kolayca saklanabilir.',
+        'Peki tilki rengini neden değiştirir? Çünkü hem avlanırken hem de kendisini avlamak isteyen hayvanlardan korunurken saklanması gerekir. Doğada çevresine benzeyerek gizlenmeye kamuflaj denir.',
+        'Kutup tilkisi kışın yiyecek bulmakta zorlanır. Bazen kutup ayılarını uzaktan izler ve ayının artıklarını yer. Yazın ise kuş yumurtası, küçük kemirgenler ve böceklerle beslenir. Yiyecek bol olduğunda bir kısmını karın altına saklar, kışın kullanır.',
+        'Bilim insanları, iklim ısındıkça karın daha geç yağıp daha erken eridiğini söylüyor. Bu durumda beyaz kürklü tilki, karsız toprakta kolayca fark edilebilir. Doğanın bu küçük ustasını korumak, iklimi korumaktan geçiyor.',
+      ] }),
+      numarala([tablo('Metne göre tabloyu doldur.', ['', 'Kışın', 'Yazın'], [['Kürkünün rengi', '', ''], ['Nerede saklanır?', '', ''], ['Ne yer?', '', '']]),
+        soru(['Kamuflaj ne demektir? Metinden bir örnek ver.', 'İklimin ısınması kutup tilkisini nasıl etkiler?'])]),
+      numarala([kiyas('Kutup tilkisi ile çölde yaşayan bir hayvanı (deve, çöl tilkisi) karşılaştır.', 'Kutup tilkisi', 'Çöl hayvanı'),
+        sozcuk([['Tilki karın içinde neredeyse <u>görünmez</u> olur.', ['zor fark edilir', 'çok parlak olur', 'kaybolur gider']], ['Yiyecek <u>bol</u> olduğunda saklar.', ['çok', 'az', 'soğuk']]])]),
+      numarala([yazma('Bir hayvanın "iki mevsimini" anlatan bilgilendirici bir yazı yaz. Önce plan yap.', ['Hangi hayvan, nerede yaşar?', 'Kışın ve yazın ne değişir?', 'Neden değişir?'], 12)]),
+    ] },
+    'hafta-14': { unite: 5, hafta: 14, baslik: 'Ansiklopedideki Mektup', konu: 'Bilgi hazinemiz · Neden-sonuç, istek ve öneri yazma', sayfalar: () => [
+      metin({ baslik: 'Ansiklopedideki Mektup', resimler: ['ansiklopedi', 'merakli-cocuk'], tahmin: 'Bir ansiklopediden mektup çıkarsa kimden olabilir?', paragraflar: [
+        'Okul kütüphanemizin en üst rafında kalın, eski bir ansiklopedi takımı durur. Yirmi cilttir. Kimse onlara pek dokunmaz çünkü bugün her şeyi internetten arayabiliyoruz.',
+        'Bir gün volkanları araştırmak için “V” harfiyle başlayan cildi indirdim. Sayfaları çevirirken arasından sararmış bir kâğıt düştü. Bir mektuptu bu. Tarihi 1987\'ydi.',
+        '“Sevgili okuyucu, bu ansiklopediyi açtıysan meraklı birisin demektir. Ben bu okulun eski öğrencilerinden Sema\'yım. Bu ciltleri babam kütüphaneye bağışladı. Ben de içlerine on mektup sakladım. Her mektupta sana bir soru soruyorum. Hepsini bulursan, kütüphaneci sana bir hediyemi verecek. İlk sorum: Dünyanın en yüksek yanardağı hangisidir?”',
+        'Hemen cevabı aramaya koyuldum. Ansiklopedide değil, internette aradım. Ama farklı siteler farklı cevaplar veriyordu! Kütüphaneci Okan Bey\'e sordum. Gülümsedi:',
+        '– Bilgiyi aldığın kaynağın güvenilir olması çok önemlidir. Ansiklopediler uzmanlar tarafından yazılır ve kontrol edilir. İnternette de güvenilir kaynakları seçmeyi öğrenmeliyiz.',
+        'Ansiklopediden cevabı buldum, sonra güvenilir bir bilim sitesinden kontrol ettim. Ertesi hafta arkadaşlarımla birlikte diğer ciltleri karıştırmaya başladık. Ansiklopedi rafı birden sınıfın en kalabalık yeri oldu.',
+        'Bir ay sonra onuncu mektubu bulduk. Okan Bey bize bir kutu verdi. İçinde bir not ve yepyeni bir ansiklopedi takımı vardı. Not şöyleydi: “Bilgi paylaşınca çoğalır. Şimdi sıra sizde: Siz de gelecekteki okuyuculara bir mektup bırakın. Sevgilerle, Sema.”',
+      ] }),
+      numarala([harita(), eslestir('Neden ve sonuç!', [['Mektupta merak uyandıran sorular vardı,', 'ansiklopedi rafı kalabalıklaştı.'], ['İnternetteki siteler farklı cevaplar verdi,', 'kaynağı kontrol etmek gerekti.'], ['Bütün mektuplar bulundu,', 'çocuklara hediye verildi.']], 141),
+        soru(['Okan Bey\'e göre ansiklopediler neden güvenilir kaynaktır?', 'Sema neden mektuplar saklamış olabilir?'])]),
+      numarala([fikir('Bu düşünceye katılıyor musun?', 'İnternet varken ansiklopediye gerek yoktur.'),
+        yazma('Okul müdürüne kütüphane için bir istek ve öneri mektubu yaz.', ['Hitap:', 'İsteğin ve önerin:', 'Kapanış ve ad soyad:'], 5)]),
+      numarala([yazma('Gelecekteki okuyuculara bir mektup yaz ve ona bir soru sor. Mektubunu bir kitabın arasına saklayabilirsin.', ['Hitap:', 'Kendini tanıt ve soruyu sor:', 'Kapanış:'], 12)]),
+    ] },
+    'hafta-15': { unite: 5, hafta: 15, baslik: 'Sözlükte Bir Yolculuk', konu: 'Bilgi hazinemiz · Alfabetik sıra, sözlük kullanma', sayfalar: () => [
+      metin({ baslik: 'Sözlükte Bir Yolculuk', resimler: ['sozluk-cocuk', 'kitaptan-sekiller'], tahmin: 'Sözlükte bir sözcük nasıl bulunur?', paragraflar: [
+        'Murat masal kitabını okurken bir sözcükte takıldı: “Kervan, uzun bir yolculuğun sonunda hana ulaştı.” “Han” ne demekti? Ağabeyi yanından geçerken sordu.',
+        '– Ağabey, han ne demek?',
+        '– Sözlüğe bak, dedi ağabeyi. Bulmak, söylemekten daha eğlenceli.',
+        'Murat raftaki kalın sözlüğü indirdi. Sayfaları rastgele çevirmeye başladı ama sözcük bir türlü çıkmıyordu. Ağabeyi gülümseyerek yanına oturdu.',
+        '– Sözlükte sözcükler alfabe sırasına göre dizilir. “Han” h ile başlıyor. Önce “H” bölümünü bul.',
+        'Murat \'H\' bölümünü buldu. Sonra ağabeyi ikinci harfe bakmasını söyledi. “Ha” ile başlayan sözcükler, “He” ile başlayanlardan önce gelirdi. Sayfaların üst köşesindeki kılavuz sözcükler de ona yol gösterdi. Birkaç saniye içinde aradığını buldu:',
+        '“han: Eskiden yolcuların ve kervanların konakladığı büyük yapı.”',
+        'Murat\'ın gözleri parladı. Ama sözlük onu bırakmadı. “Han”ın hemen yanında “hançer”, onun yanında “hangar” vardı. Merakla onları da okudu. Sonra “hangar”ın anlamında geçen “uçak” sözcüğüne baktı. Böyle böyle bir sözcükten diğerine atlayarak sözlükte uzun bir yolculuğa çıktı.',
+        'Akşam yemeğinde babasına sordu:',
+        '– Baba, biliyor musun, hangar uçakların evi demekmiş!',
+        'Babası şaşırdı:',
+        '– Bunu nereden öğrendin?',
+        '– Bir kervandan başladım, bir uçakta bitirdim, dedi Murat gülerek.',
+      ] }),
+      numarala([harita(), soru(['Murat sözcüğü önce neden bulamadı?', 'Ağabeyi ona hangi ipuçlarını verdi?', '"Bir kervandan başladım, bir uçakta bitirdim." sözü ne anlatıyor?'])]),
+      numarala([etk(0, 'Sözlük sırası! Sözcükleri alfabetik sıraya göre numaralandır.', `<div class="t3-sirala ttkb">${['hangar', 'han', 'hançer', 'kervan', 'harita', 'göl'].map(s => `<span><i></i>${s}</span>`).join('')}</div>`),
+        etk(0, 'Sözlükte bul! Bu sözcüklerin anlamlarını sözlükten bulup yaz.', `<div class="t3-sozluk ttkb">${['kervan', 'konaklamak', 'hangar'].map(s => `<div><b>${s}:</b>${cizgi(1)}</div>`).join('')}</div>`)]),
+      numarala([yazma('Sözlükte rastgele bir sayfa aç. Daha önce bilmediğin üç sözcük seç ve her biriyle birer cümle yaz.', ['1. sözcük ve cümlesi:', '2. sözcük ve cümlesi:', '3. sözcük ve cümlesi:'], 10)]),
+    ] },
+    'hafta-16': { unite: 5, hafta: 16, baslik: 'Enerji Avcıları', konu: 'Bilgi hazinemiz · Dilekçe yazma', sayfalar: () => [
+      metin({ baslik: 'Enerji Avcıları', resimler: ['enerji-avcilari', 'gunes-paneli'], tahmin: 'Enerji avcıları ne avlar? Tahmin et.', paragraflar: [
+        'Enerji Tasarrufu Haftası\'nda sınıfımız “Enerji Avcıları” kulübünü kurdu. Görevimiz okulda boşa harcanan enerjiyi bulmaktı. Her birimize bir kontrol listesi verildi.',
+        'İlk gün koridorlarda dolaştık. Pencerelerden bol ışık girdiği hâlde lambaların yandığını fark ettik. Spor salonunda kimse yokken bütün ışıklar açıktı. Öğretmenler odasında bir bilgisayar ekranı bütün gece açık kalmıştı. Kontrol listemiz kısa sürede doldu.',
+        'Bulduklarımızı bir tabloya döktük. Okulun bir aylık elektrik faturasını gördüğümüzde hepimiz şaşırdık. Öğretmenimiz Selin Hanım, enerjinin büyük kısmının fosil yakıtlardan, yani kömür ve petrolden üretildiğini anlattı. Bu yakıtlar havayı kirletiyor ve bir gün tükenecekti.',
+        '– Peki güneşten enerji üretemez miyiz? diye sordu Defne.',
+        '– Üretebiliriz, dedi Selin Hanım. Güneş panelleri güneş ışığını elektriğe çevirir. Güneş hiç tükenmeyen bir enerji kaynağıdır.',
+        'O gün bir fikir doğdu: Okulumuzun çatısına güneş paneli koydurmak! Ama bunu nasıl yapacaktık? Selin Hanım bize dilekçe yazmayı öğretti. Dilekçe, resmî bir kuruma isteğimizi saygılı ve düzenli bir şekilde yazmamızı sağlayan bir yazıydı.',
+        'Hep birlikte okul müdürümüze bir dilekçe yazdık. İçine enerji avımızın sonuçlarını, güneş panelinin faydalarını ve önerilerimizi ekledik. Sınıfın tamamı imzaladı.',
+        'Bir hafta sonra müdürümüz sınıfımıza geldi. Dilekçemizi belediyeye iletmişti. Belediye, okulumuzu güneş paneli projesine almıştı! O gün kendimizi gerçek avcılar gibi hissettik. Avladığımız şey, boşa giden enerjiydi.',
+      ] }),
+      numarala([harita(), dogruYanlis(['Spor salonunda kimse yokken ışıklar açıktı.', 'Fosil yakıtlar hiç tükenmez.', 'Güneş paneli güneş ışığını elektriğe çevirir.', 'Dilekçeyi yalnız Defne imzaladı.']),
+        soru(['Çocuklar okulda enerjinin boşa harcandığı hangi yerleri buldu?', 'Dilekçe ne işe yarar?'])]),
+      numarala([dilekce('Sen de okul müdürüne bir dilekçe yaz. Okulda değişmesini istediğin bir şeyi saygılı bir dille iste.', 'OKUL MÜDÜRLÜĞÜNE', 'Okulumuzla ilgili bir istek')]),
+      numarala([yazma('Evinde bir "enerji avı" yap. Bulduklarını ve önerilerini anlatan bir rapor yaz.', ['Nerede enerji boşa gidiyordu?', 'Ne öneriyorsun?', 'Ailen önerilerine ne dedi?'], 12)]),
+    ] },
+    'hafta-17': { unite: 5, hafta: 17, baslik: 'Kütüphanede Bir Gece', konu: 'Bilgi hazinemiz · Yazışmayı başlatma, sürdürme, sonlandırma; hataları düzeltme', sayfalar: () => [
+      metin({ baslik: 'Kütüphanede Bir Gece', resimler: ['gece-kutuphane', 'fener-okuma'], tahmin: 'Bir gece kütüphanede kalsan neler olurdu?', paragraflar: [
+        'Şehir kütüphanesi yılda bir kez “Kütüphanede Bir Gece” etkinliği düzenler. Bu yıl bizim sınıf seçildi! Uyku tulumlarımızı, fenerlerimizi ve en sevdiğimiz kitapları alıp akşam yedide kütüphanenin önünde toplandık.',
+        'Kütüphaneci Leyla Hanım bizi büyük salona aldı. Raflar tavana kadar uzanıyordu. Işıkları kıstığında salon bir anda gizemli bir mağaraya dönüştü. Sadece fenerlerimizin ışıkları kitapların sırtlarında dans ediyordu.',
+        'İlk etkinlik bir hazine avıydı. Leyla Hanım bize ipuçları verdi: “Ben bir masal kitabıyım ama içimde ejderha yok. Sırtım kırmızı, üçüncü raftayım.” Kitapları bulmak için katalog numaralarını okumayı öğrendik.',
+        'Sonra her birimiz uyku tulumuna girip fenerle kitap okuduk. Ben bir kâşif kitabı okudum. Gece yarısına doğru gözlerim kapanırken kitabın kahramanıyla birlikte buzlu dağlara tırmandığımı hayal ettim.',
+        'Sabah olunca Leyla Hanım bize bir sürpriz yaptı. Her birimize bir mektup arkadaşı verdi. Bunlar başka bir şehirdeki kütüphanede aynı geceyi yaşayan çocuklardı. Onlara bir ileti yazacaktık.',
+        'Ben, Van\'da yaşayan Aras\'a yazdım: “Merhaba Aras! Ben Deniz. Dün gece kütüphanede kaldık, sen de kaldın mı? En çok hangi kitabı sevdin?” Aras ertesi gün cevap verdi. O gece bir uzay kitabı okumuş. Şimdi her hafta birbirimize okuduğumuz kitapları yazıyoruz.',
+        'Eve dönerken annem sordu: “Kütüphanede bir gece nasıldı?” Ona şöyle dedim: “Bir gecede yüz dünya gezdim, bir de yeni bir arkadaş edindim.”',
+      ] }),
+      numarala([harita(), soru(['Kütüphane karanlıkta neye benzetiliyor?', 'Çocuklar hazine avında kitapları nasıl buldu?', 'Deniz\'in son sözü ne anlatıyor?'])]),
+      numarala([mesaj('Aras\'ın iletisine cevap ver. Yazışmayı sürdür ve uygun bir sözle sonlandır.', 'Merhaba Deniz! Ben de bir uzay kitabı okudum, çok sevdim. Sen kâşif kitabını bitirdin mi? Bana ne oldu anlatır mısın?'),
+        yeniden('Hata avcısı! Her cümlede bir yazım ya da noktalama hatası var. Bul ve düzelterek yaz.', ['dün gece kütüphanede kaldık.', 'Sen de kaldınmı?', 'Leyla hanım bize sürpriz yaptı']),
+        etk(0, 'Yazışmalarda hangi sözler nerede kullanılır? Doğru kutuya yaz: Merhaba, Görüşmek üzere, Nasılsın?, Sevgilerle, Bana da yazar mısın?', `<div class="t3-ucbolum ttkb">${['Başlatma', 'Sürdürme', 'Sonlandırma'].map(s => `<div><b>${s}</b>${cizgi(2)}</div>`).join('')}</div>`)]),
+      numarala([yazma('Başka bir şehirdeki bir çocuğa ilk iletini yaz. Kendini tanıt, ona okuduğun bir kitabı anlat ve bir soru sor.', ['Başlatma (selam):', 'Sürdürme (kendini ve kitabını anlat):', 'Sonlandırma:'], 12)]),
+    ] },
+    'hafta-18': { unite: 5, hafta: 18, baslik: 'Pati İzleri', konu: 'Pekiştirme haftası · Eş-zıt anlam, kısaltma ekleri, büyük harf, yönerge', sayfalar: () => [
+      metin({ baslik: 'Pati İzleri', resimler: ['pati-izleri', 'agactaki-kedi'], tahmin: 'Bu izler kimin olabilir? Nereye gidiyor olabilir?', paragraflar: [
+        'Sabah bahçeye çıktığımızda çamurun üzerinde küçük, yuvarlak izler vardı. Kardeşim Mina hemen eğildi:',
+        '– Bunlar Boncuk\'un pati izleri! Dün gece eve gelmedi.',
+        'Boncuk, sokağımızın en meraklı kedisiydi. Turuncu tüyleri ve beyaz patileriyle herkes onu tanırdı. Ama dün akşamdan beri ortalıkta yoktu.',
+        'İzleri takip etmeye karar verdik. İzler önce çiçek tarhının içinden geçti, sonra komşumuz Ayten Hanım\'ın çitinin altından süzüldü. Ayten Hanım pencereden seslendi:',
+        '– Dün gece bahçede bir miyavlama duydum ama karanlıktı, göremedim.',
+        'İzler parkın yanındaki büyük çınar ağacının dibinde bitiyordu. Başımızı kaldırdık. Boncuk en yüksek dallardan birinde, titreyerek bize bakıyordu! Belki bir köpekten kaçmış, ağaca tırmanmış ama inememişti.',
+        'Mina ağlamaya başladı. Ben sakin kalmaya çalıştım. Annemi aradım. Annem itfaiyeyi aramamızı söyledi. 112\'yi arayıp adresi ve durumu anlattım. Görevli abla çok kibardı, ekibin yola çıktığını söyledi.',
+        'On beş dakika sonra kırmızı itfaiye aracı parkın önüne geldi. İtfaiyeci Kerem Bey uzun bir merdiveni ağaca dayadı, yavaşça tırmandı ve Boncuk\'u kucağına aldı. Aşağı indiğinde Boncuk Mina\'nın kollarına atladı ve mırıldanmaya başladı.',
+        'O akşam Mina bir resim çizdi: Ağaç, merdiven, itfaiyeci ve Boncuk. Resmin altına kocaman harflerle yazdı: “TEŞEKKÜRLER KEREM BEY!” Ertesi gün resmi itfaiye istasyonuna götürdük. Şimdi resmimiz istasyonun duvarında asılı duruyor.',
+      ] }),
+      numarala([harita(), sirala(['Bahçede pati izleri bulundu.', 'Ayten Hanım miyavlama duyduğunu söyledi.', 'Boncuk ağaçta bulundu.', '112 arandı.', 'İtfaiyeci Boncuk\'u kurtardı.'], 181),
+        soru(['Anlatıcı neden sakin kalmaya çalıştı?', '112\'yi ararken hangi bilgileri verdi?'])]),
+      numarala([domino('Eş ve zıt anlam karışık! Her taşın yanına ister eş ister zıt anlamlısını yaz ve hangisi olduğunu belirt (E / Z).', ['yüksek', 'kibar', 'sakin', 'büyük', 'yavaş', 'cevap'], ['alçak', 'nazik', 'telaşlı', 'iri', 'hızlı', 'yanıt']),
+        yeniden('Büyük harf ve kısaltma eklerini düzelterek yeniden yaz.', ['mina ile ayten hanım boncuk\'u aradı.', 'İtfaiyeyi 112ye bildirdik.']),
+        yonergeYaz('Kaybolan bir evcil hayvanı bulmak için ayrıntılı bir yönerge yaz.', 4)]),
+      numarala([yazma('İtfaiyeci Kerem Bey\'e bir teşekkür mektubu yaz.', ['Hitap:', 'Ne için teşekkür ediyorsun?', 'Kapanış:'], 12)]),
+    ] },
   };
   const CSS = `
 .t3-sec{display:flex;flex-direction:column;gap:2mm}.t3-sec span{background:#fff;border:.5mm solid #9db4c8;border-radius:3mm;padding:2mm 3mm;font-size:5mm}
@@ -238,6 +341,9 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
 .t3-gm span{display:flex;align-items:center;gap:1.5mm;font-size:4.6mm}.t3-gm i{width:6mm;height:6mm;border:.5mm solid #4a5a50;border-radius:1.5mm}
 .t3-gm u{text-decoration-thickness:.5mm;text-underline-offset:1mm;color:#c2410c}
 .t3-imza{display:flex;flex-direction:column;gap:3mm;background:#fff;border-radius:3mm;padding:3mm}.t3-imza>div{display:grid;grid-template-columns:40mm 1fr;align-items:end;gap:2mm}.t3-imza span{font-size:5mm}.t3-imza i{height:22mm;border-bottom:.45mm dashed #9db4c8}
+.t3-sirala{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.t3-sirala span{display:flex;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:2mm 3mm;font-size:5.4mm}.t3-sirala i{width:9mm;height:9mm;border:.5mm solid #4a5a50;border-radius:50%}
+.t3-sozluk{display:flex;flex-direction:column;gap:2mm}.t3-sozluk>div{background:#fff;border-radius:3mm;padding:2mm 3mm}.t3-sozluk b{font-weight:400;font-size:5.2mm;color:#1d4e89}
+.t3-ucbolum{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.t3-ucbolum>div{background:#fff;border-radius:3mm;padding:2mm 3mm}.t3-ucbolum b{font-weight:400;font-size:5mm;color:#8b5cf6}
 .t3-dilekce{background:#fff;border-radius:3mm;padding:4mm 6mm;font-size:5mm}.t3-dilekce p{margin:0 0 2mm}.t3-sag{text-align:right}.t3-orta{text-align:center;text-transform:uppercase}.t3-konu{font-size:4.6mm;color:#5b6b7b}
 `;
   return { T3, CSS };
