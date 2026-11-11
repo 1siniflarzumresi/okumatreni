@@ -61,7 +61,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
   // ---------- haftalar ----------
   const T2 = {
     'hafta-01': { unite: 1, hafta: 1, baslik: 'Kalemin Yaz Tatili', konu: 'Hatırlatma haftası · Soru eki, hece', sayfalar: () => [
-      metin({ baslik: 'Kalemin Yaz Tatili', resimler: ['kalem', 'canta'], tahmin: 'Sence bu metinde kim tatil yapmış olabilir?', paragraflar: [
+      metin({ baslik: 'Kalemin Yaz Tatili', resimler: ['defter-yazan', 'kalem-canta'], tahmin: 'Sence bu metinde kim tatil yapmış olabilir?', paragraflar: [
         'Kırmızı kalem, bütün yaz boyunca çantanın en dibinde bekledi. Yanında bir silgi ile ucu kırık bir cetvel vardı.',
         '– Okullar ne zaman açılacak, biliyor musun? diye sordu silgi.',
         '– Bilmiyorum, dedi kalem. Ama çok özledim. Defterin bembeyaz sayfalarını, teneffüs zilini, Defne\'nin sıcak parmaklarını…',
@@ -80,7 +80,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Sen yazın neler yaptın? Önce aşağıdaki soruları kısaca cevapla, sonra yazını yaz. Başlık koymayı unutma.', ['Nereye gittin?', 'Kimlerle birlikteydin?', 'En çok neyi sevdin?'], 12)]),
     ] },
     'hafta-02': { unite: 2, hafta: 2, baslik: 'Kayıp Cüzdan', konu: 'Değerlerimizle varız · Nokta ve soru işareti', sayfalar: () => [
-      metin({ baslik: 'Kayıp Cüzdan', resimler: ['cuzdan', 'agac'], tahmin: 'Bir cüzdan bulsan ne yapardın?', paragraflar: [
+      metin({ baslik: 'Kayıp Cüzdan', resimler: ['cuzdan-iade', 'cuzdan-bank'], tahmin: 'Bir cüzdan bulsan ne yapardın?', paragraflar: [
         'Cumartesi sabahı Emir, babaannesiyle parka gitti. Güneş parlıyor, kuşlar ağaçtan ağaca uçuyordu. Emir salıncağa koşarken bankın altında kahverengi bir şey gördü. Eğilip aldı. Bu, içi para dolu bir cüzdandı!',
         'Emir\'in kalbi hızlı hızlı çarpmaya başladı. Bu parayla en sevdiği oyuncak arabayı alabilirdi. Sonra cüzdanın sahibini düşündü. Belki o da şu anda telaşla her yeri arıyordu.',
         'Hemen babaannesinin yanına koştu.',
@@ -98,7 +98,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Dürüst davrandığın bir anını anlat. Önce plan yap, sonra yaz.', ['Ne oldu?', 'Ne yaptın?', 'Sonra nasıl hissettin?'], 12)]),
     ] },
     'hafta-03': { unite: 2, hafta: 3, baslik: 'Ninemin Elma Ağacı', konu: 'Değerlerimizle varız · Ünlem ve virgül', sayfalar: () => [
-      metin({ baslik: 'Ninemin Elma Ağacı', resimler: ['elma', 'sepet'], tahmin: 'Sence elma ağacının başında neler olacak?', paragraflar: [
+      metin({ baslik: 'Ninemin Elma Ağacı', resimler: ['elma-paylas', 'elma-toplama'], tahmin: 'Sence elma ağacının başında neler olacak?', paragraflar: [
         'Ninemin bahçesinde yaşlı bir elma ağacı var. Her sonbahar dalları kıpkırmızı elmalarla dolar. Bu yıl elmalar o kadar çoktu ki dallar neredeyse yere değiyordu.',
         '– Bu kadar elmayı tek başıma nasıl toplarım? dedi ninem.',
         'Hemen sokaktaki arkadaşlarıma koştum. Zeynep, Can, Mert ve küçük Ela sepetlerini kapıp geldi. Kimimiz merdivene çıktı, kimimiz yere düşen elmaları topladı. Can\'ın sepeti öyle doldu ki kaldıramadı. Mert koşup sepetin öbür ucundan tuttu.',
@@ -117,7 +117,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Arkadaşlarınla birlikte yaptığın bir işi anlat. Önce plan yap, sonra yaz. En az bir ünlem cümlesi kullan.', ['Ne yaptınız?', 'Kim nasıl yardım etti?', 'İş bitince ne hissettiniz?'], 12)]),
     ] },
     'hafta-04': { unite: 2, hafta: 4, baslik: 'Pamuk\'un Su Kabı', konu: 'Değerlerimizle varız · Kesme işareti', sayfalar: () => [
-      metin({ baslik: 'Pamuk\'un Su Kabı', resimler: ['kedi', 'sut'], tahmin: 'Sence Pamuk kim olabilir?', paragraflar: [
+      metin({ baslik: 'Pamuk\'un Su Kabı', resimler: ['kedi-su', 'kedi-sepet'], tahmin: 'Sence Pamuk kim olabilir?', paragraflar: [
         'Ali\'nin doğum gününde kapı çaldı. Teyzesi elinde bir sepetle içeri girdi. Sepetin içinde bembeyaz bir kedi yavrusu vardı.',
         '– Adı Pamuk olsun! dedi Ali sevinçle.',
         'Annesi gülümsedi:',
@@ -135,7 +135,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Senin de bir sorumluluğun var mı? (Çiçek sulamak, oyuncak toplamak, kardeşine yardım…) Onu anlatan bir yazı yaz.', ['Sorumluluğun ne?', 'Bunu ne zaman, nasıl yapıyorsun?', 'Unutursan ne olur?'], 12)]),
     ] },
     'hafta-05': { unite: 2, hafta: 5, baslik: 'Dedemin Eski Saati', konu: 'Değerlerimizle varız · Zıt anlam, büyük harf', sayfalar: () => [
-      metin({ baslik: 'Dedemin Eski Saati', resimler: ['saat', 'gozluk'], tahmin: 'Eski bir saat sence neden değerli olabilir?', paragraflar: [
+      metin({ baslik: 'Dedemin Eski Saati', resimler: ['dede-torun-saat', 'cep-saati'], tahmin: 'Eski bir saat sence neden değerli olabilir?', paragraflar: [
         'Dedemin cebinde eski, yuvarlak bir saat vardır. Kapağı altın sarısı, camı biraz çiziktir. Dedem onu her sabah özenle kurar.',
         'Bir gün dayanamayıp sordum:',
         '– Dede, bu saat çok eski. Neden yenisini almıyorsun?',
@@ -152,7 +152,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Ailendeki bir büyüğünü (dede, nine, teyze…) anlatan bir yazı yaz. Ondan öğrendiğin bir şeyi de ekle.', ['Kimi anlatacaksın?', 'Nasıl biri? (iki özelliği)', 'Ondan ne öğrendin?'], 12)]),
     ] },
     'hafta-06': { unite: 3, hafta: 6, baslik: 'Selanikli Mustafa', konu: 'Atatürk ve çocuk · Büyük harf (kişi ve yer adları)', sayfalar: () => [
-      metin({ baslik: 'Selanikli Mustafa', resimler: ['kitap', 'okul'], tahmin: 'Sence Mustafa kim olabilir? Nerede yaşamış olabilir?', paragraflar: [
+      metin({ baslik: 'Selanikli Mustafa', resimler: ['eski-okul', 'selanik-ev'], tahmin: 'Sence Mustafa kim olabilir? Nerede yaşamış olabilir?', paragraflar: [
         'Yıl 1881. Selanik\'te, denize bakan üç katlı pembe bir evde bir bebek dünyaya geldi. Annesi Zübeyde Hanım ile babası Ali Rıza Efendi ona Mustafa adını verdi.',
         'Mustafa büyüdükçe çok meraklı bir çocuk oldu. Kuşların nereye uçtuğunu, gemilerin neden batmadığını sorar dururdu. Okula başlama zamanı geldiğinde evde tatlı bir tartışma çıktı. Annesi onun mahalledeki eski okula gitmesini istiyordu. Babası ise yeni yöntemlerle ders veren Şemsi Efendi Okulu\'nu seçmişti.',
         '– Oğlumuz yeni bilgileri öğrensin, dünyayı tanısın, diyordu babası.',
@@ -168,7 +168,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Mustafa çok meraklı bir çocuktu. Sen en çok neyi merak ediyorsun? Merakını anlatan bir yazı yaz.', ['Neyi merak ediyorsun?', 'Bunu nasıl öğrenebilirsin?', 'Öğrenince ne yapmak istersin?'], 12)]),
     ] },
     'hafta-07': { unite: 3, hafta: 7, baslik: 'Cumhuriyet Sabahı', konu: 'Atatürk ve çocuk · Nokta (tarih, sıra sayıları)', sayfalar: () => [
-      metin({ baslik: 'Cumhuriyet Sabahı', resimler: ['fener', 'balon'], tahmin: 'Resimlere bak. Sence çocuklar neye hazırlanıyor?', paragraflar: [
+      metin({ baslik: 'Cumhuriyet Sabahı', resimler: ['fener-alayi', 'bayrak-balkon'], tahmin: 'Resimlere bak. Sence çocuklar neye hazırlanıyor?', paragraflar: [
         '28 Ekim akşamı bizim sokakta kimse erken uyumadı. Babam balkona kocaman bir bayrak astı. Karşı komşumuz Hatice Teyze pencerelerine kırmızı beyaz balonlar bağladı. Ben de kardeşim Arda ile kâğıttan fenerler yaptık.',
         '– Bunlar ne için? diye sordu Arda. Daha beş yaşında olduğu için her şeyi merak ediyordu.',
         '– Yarın Cumhuriyet Bayramı, dedim. Atatürk, 29 Ekim 1923\'te Cumhuriyet\'i ilan etti. O günden beri ülkemizi kendi seçtiğimiz kişiler yönetiyor.',
@@ -185,7 +185,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Okulundaki ya da sokağındaki Cumhuriyet Bayramı kutlamasını anlat.', ['Nerede kutladınız?', 'Neler yaptınız?', 'En çok neyi sevdin?'], 12)]),
     ] },
     'hafta-08': { unite: 3, hafta: 8, baslik: 'Yardım Kolisi', konu: 'Atatürk ve çocuk · Neden-sonuç ("çünkü"), büyük harf', sayfalar: () => [
-      metin({ baslik: 'Yardım Kolisi', resimler: ['kutu', 'kazak'], tahmin: 'Bir koliye neler koyulur? Bu koli kime gidiyor olabilir?', paragraflar: [
+      metin({ baslik: 'Yardım Kolisi', resimler: ['karli-okul', 'yardim-kolisi'], tahmin: 'Bir koliye neler koyulur? Bu koli kime gidiyor olabilir?', paragraflar: [
         'Kızılay Haftası\'nda öğretmenimiz sınıfa büyük bir karton koli getirdi. Kolinin üstünde kırmızı bir hilal vardı.',
         '– Uzaktaki bir köyde kış çok sert geçiyor, dedi öğretmenimiz. Oradaki okulun çocukları için bir yardım kolisi hazırlayalım mı?',
         'Hepimiz ellerimizi kaldırdık. Ertesi gün koli dolmaya başladı. Ayşe yün bir atkı getirdi. Kerem hiç kullanmadığı boya kalemlerini koydu. Ben de en sevdiğim masal kitabını getirdim. Önce vermek istemedim çünkü o kitabı çok seviyordum. Sonra düşündüm: Bir kitap, rafta beklerken değil okunurken mutlu olurdu.',
@@ -201,7 +201,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Yardım kolisindeki çocuklara bir mektup yaz. Hitap ve kapanışı unutma.', ['Hitap: (Sevgili …)', 'Onlara ne anlatacaksın?', 'Nasıl bir dilekle bitireceksin?'], 12)]),
     ] },
     'hafta-09': { unite: 3, hafta: 9, baslik: 'Saat Dokuzu Beş Geçe', konu: 'Atatürk ve çocuk · Zıt anlam, saat yazımı', sayfalar: () => [
-      metin({ baslik: 'Saat Dokuzu Beş Geçe', resimler: ['saat', 'cicek'], tahmin: 'Başlıktaki saat sence neden önemli?', paragraflar: [
+      metin({ baslik: 'Saat Dokuzu Beş Geçe', resimler: ['karanfil', 'saygi-durusu'], tahmin: 'Başlıktaki saat sence neden önemli?', paragraflar: [
         '10 Kasım sabahı okul bahçesi her zamankinden sessizdi. Kimse koşmuyor, kimse bağırmıyordu. Bayrağımız direğin yarısında dalgalanıyordu.',
         'Saat dokuzu beş geçe sirenler çaldı. Bütün okul bir anda durdu. Yoldan geçen arabalar bile durmuştu. Ben de gözlerimi kapattım, ellerimi iki yanıma koydum. Sessizlik o kadar derindi ki rüzgârın yaprakları hışırdattığını duyabiliyordum.',
         'Sirenler susunca öğretmenimize sordum:',
@@ -219,7 +219,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Atatürk\'e bir mektup yaz. Ona ülkemizde bugün neler yaptığımızı anlat.', ['Hitap:', 'Ona neler anlatacaksın?', 'Kapanış cümlen:'], 12)]),
     ] },
     'hafta-10': { unite: 4, hafta: 10, baslik: 'Unutkan Sincap', konu: 'Doğada neler oluyor? · Benzetme ("gibi")', sayfalar: () => [
-      metin({ baslik: 'Unutkan Sincap', resimler: ['sincap', 'ceviz'], tahmin: 'Bir sincap neyi unutmuş olabilir?', paragraflar: [
+      metin({ baslik: 'Unutkan Sincap', resimler: ['fidan-orman', 'sincap-gomme'], tahmin: 'Bir sincap neyi unutmuş olabilir?', paragraflar: [
         'Sonbahar gelmişti. Ormandaki ağaçların yaprakları altın gibi sararmış, birer birer yere dökülüyordu. Kızıl kuyruklu sincap Fındık, kış hazırlığına başlamıştı.',
         'Bütün gün koşturup duruyordu. Bir palamut buluyor, toprağı eşeliyor, palamudu gömüyordu. Sonra bir ceviz buluyor, onu da başka bir yere saklıyordu.',
         '– Bu kadar çok şeyi nereye sakladığını nasıl hatırlayacaksın? diye sordu yaşlı baykuş.',
@@ -237,7 +237,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Kış için hazırlık yapan bir hayvanı anlatan kısa bir hikâye yaz. En az bir benzetme kullan.', ['Hangi hayvan?', 'Kışa nasıl hazırlanıyor?', 'Başına ne geliyor?'], 12)]),
     ] },
     'hafta-11': { unite: 4, hafta: 11, baslik: 'Kulakla Gören Komşum', konu: 'Doğada neler oluyor? · Sınıflandırma, soru eki', sayfalar: () => [
-      metin({ baslik: 'Kulakla Gören Komşum', resimler: ['kus', 'yaprak'], tahmin: 'Bir insan kulağıyla nasıl görebilir? Tahmin et.', paragraflar: [
+      metin({ baslik: 'Kulakla Gören Komşum', resimler: ['goz-kapali', 'baston-amca'], tahmin: 'Bir insan kulağıyla nasıl görebilir? Tahmin et.', paragraflar: [
         'Alt katımızda Selim Amca oturur. Selim Amca\'nın gözleri görmez. Elinde beyaz bir bastonla yürür, bastonunun ucuyla yoldaki taşları, basamakları bulur.',
         'Bir cumartesi sabahı onunla parka gittik. Bankta otururken birden elini kaldırdı:',
         '– Dinle! Bu bir serçe. Şu ise saksağan. Bak, ötüşleri ne kadar farklı.',
@@ -256,7 +256,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Gözlerini kapatıp bir dakika dinle. Duyduklarını, kokladıklarını, dokunduklarını anlatan bir yazı yaz.', ['Ne duydun?', 'Ne kokladın?', 'Neye dokundun, nasıldı?'], 12)]),
     ] },
     'hafta-12': { unite: 4, hafta: 12, baslik: 'Karıncaların Köprüsü', konu: 'Doğada neler oluyor? · Görüş bildirme, benzetme', sayfalar: () => [
-      metin({ baslik: 'Karıncaların Köprüsü', resimler: ['yaprak', 'yagmur'], tahmin: 'Karıncalar bir köprüyü nasıl kurmuş olabilir?', paragraflar: [
+      metin({ baslik: 'Karıncaların Köprüsü', resimler: ['karinca-tren', 'karinca-yaprak'], tahmin: 'Karıncalar bir köprüyü nasıl kurmuş olabilir?', paragraflar: [
         'Yağmurdan sonra bahçede küçük bir dere oluşmuştu. Dere, karınca yuvasıyla ekmek kırıntılarının arasından şırıl şırıl akıyordu.',
         'Karıncalar derenin kıyısında durdu. Su onlara bir ırmak kadar geniş görünüyordu. En önde duran küçük karınca Mini bağırdı:',
         '– Karşıya nasıl geçeceğiz? Yiyecekler orada kaldı!',
@@ -274,7 +274,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Arkadaşlarınla birlikte başardığın bir işi anlat. Tek başına yapsaydın ne olurdu?', ['Ne yaptınız?', 'Herkes ne yaptı?', 'Tek başına olsaydı ne olurdu?'], 12)]),
     ] },
     'hafta-13': { unite: 4, hafta: 13, baslik: 'Dedemin Bahçe Defteri', konu: 'Doğada neler oluyor? · Kısaltmalar (ölçü birimleri), tablo okuma', sayfalar: () => [
-      metin({ baslik: 'Dedemin Bahçe Defteri', resimler: ['domates', 'havuc'], tahmin: 'Bir bahçe defterine neler yazılır?', paragraflar: [
+      metin({ baslik: 'Dedemin Bahçe Defteri', resimler: ['fidan-olcum', 'bahce-defteri'], tahmin: 'Bir bahçe defterine neler yazılır?', paragraflar: [
         'Dedemin bahçe kapısının yanında, eski bir rafta yeşil kapaklı bir defter durur. Dedem buna “bahçe defteri” der. Bahçede ne olursa o deftere yazar.',
         'Bu sonbahar defteri bana verdi.',
         '– Artık bahçenin kâtibi sensin, dedi.',
@@ -292,7 +292,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Bir bitki ya da hayvanı bir hafta boyunca gözle ve bir "gözlem defteri" yaz. Ölçüleri kısaltmayla yaz.', ['Neyi gözleyeceksin?', 'Neyi ölçeceksin? (boy, ağırlık…)', 'Ne değişti?'], 12)]),
     ] },
     'hafta-14': { unite: 5, hafta: 14, baslik: 'Kütüphanedeki Harita', konu: 'Okuma serüvenimiz · Kısaltmalar (kurum adları)', sayfalar: () => [
-      metin({ baslik: 'Kütüphanedeki Harita', resimler: ['kitap', 'anahtar'], tahmin: 'Bir kütüphanede harita bulsan nereye götürür sence?', paragraflar: [
+      metin({ baslik: 'Kütüphanedeki Harita', resimler: ['kitap-sandigi', 'hazine-haritasi'], tahmin: 'Bir kütüphanede harita bulsan nereye götürür sence?', paragraflar: [
         'Bir gün okul kütüphanesinde eski bir masal kitabını açtığımda içinden katlanmış sarı bir kâğıt düştü. Bir haritaydı bu! Üstünde kırmızı kalemle şöyle yazıyordu: “Hazineyi bulmak için 3. raftan başla.”',
         'Hemen arkadaşım Deniz\'i çağırdım. 3. rafta bir sözlük vardı. Sözlüğün kapağında “TDK” yazıyordu.',
         '– TDK ne demek? diye sordu Deniz.',
@@ -311,7 +311,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Okuduğun en sevdiğin kitabı bir arkadaşına tanıtan bir yazı yaz.', ['Kitabın adı ve yazarı:', 'Kitapta neler oluyor?', 'Neden okumalı?'], 12)]),
     ] },
     'hafta-15': { unite: 5, hafta: 15, baslik: 'Kitap Kurdu', konu: 'Okuma serüvenimiz · Kısaltmalar (Dr., vb.), noktalama', sayfalar: () => [
-      metin({ baslik: 'Kitap Kurdu', resimler: ['kitap', 'gozluk'], tahmin: '"Kitap kurdu" ne demek olabilir? Gerçek bir kurt mu?', paragraflar: [
+      metin({ baslik: 'Kitap Kurdu', resimler: ['kemirilmis-kitap', 'kitap-kurdu'], tahmin: '"Kitap kurdu" ne demek olabilir? Gerçek bir kurt mu?', paragraflar: [
         'Şehir kütüphanesinin en alt rafında, kalın bir ansiklopedinin içinde Mürekkep adında küçük bir kurt yaşardı. Mürekkep kitapları çok severdi. Ama okumayı değil, yemeyi!',
         'Bir gece masal kitabının köşesini kemirirken bir ses duydu:',
         '– Hey, benim prensesimi yiyorsun!',
@@ -329,7 +329,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Bir kitabın kahramanı olsaydın hangi kitapta olmak isterdin? Orada neler yapardın?', ['Hangi kitap?', 'Kim olurdun?', 'Neler yapardın?'], 12)]),
     ] },
     'hafta-16': { unite: 5, hafta: 16, baslik: 'Damla Dedektifleri', konu: 'Okuma serüvenimiz · Kısaltmalar (L, dk., sa.)', sayfalar: () => [
-      metin({ baslik: 'Damla Dedektifleri', resimler: ['kova', 'lamba'], tahmin: 'Damlaların peşine düşen dedektifler neyi araştırıyor olabilir?', paragraflar: [
+      metin({ baslik: 'Damla Dedektifleri', resimler: ['dedektif-cocuk', 'damlayan-musluk'], tahmin: 'Damlaların peşine düşen dedektifler neyi araştırıyor olabilir?', paragraflar: [
         'Enerji Tasarrufu Haftası\'nda öğretmenimiz bize bir görev verdi:',
         '– Bu hafta hepiniz birer dedektifsiniz. Evinizde boşa giden suyu ve elektriği bulacaksınız.',
         'Eve gelir gelmez işe koyuldum. Önce mutfaktaki musluğu inceledim. Musluk tıp tıp damlıyordu. Altına bir kova koydum. Bir saat sonra kovada yarım litre su birikmişti! Defterime yazdım: “1 sa. → 0,5 L su”.',
@@ -348,7 +348,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Sen de evinde bir gün "enerji dedektifi" ol. Bulduklarını anlatan bir rapor yaz.', ['Nerede boşa harcanan su ya da elektrik buldun?', 'Ne kadar? (kısaltma kullan)', 'Ne öneriyorsun?'], 12)]),
     ] },
     'hafta-17': { unite: 5, hafta: 17, baslik: 'Kitap Kulübü', konu: 'Okuma serüvenimiz · Konu ve ana fikir, kitap tanıtma', sayfalar: () => [
-      metin({ baslik: 'Kitap Kulübü', resimler: ['kitap', 'kalem'], tahmin: 'Bir kitap kulübünde neler yapılır?', paragraflar: [
+      metin({ baslik: 'Kitap Kulübü', resimler: ['deniz-feneri', 'kitap-kulubu'], tahmin: 'Bir kitap kulübünde neler yapılır?', paragraflar: [
         'Sınıfımızda her cuma kitap kulübü toplanır. Sıralarımızı yuvarlak yapar, ortaya bir minder koyarız. Mindere oturan kişi o hafta okuduğu kitabı anlatır.',
         'Bu cuma sıra Efe\'deydi. Efe çok heyecanlıydı çünkü kitabını kendisi seçmişti. Kitabın adı “Fırtınadaki Martı”ydı.',
         '– Bu kitap, fırtınada yolunu kaybeden bir martıyı anlatıyor, dedi Efe. Martı önce çok korkuyor. Sonra deniz fenerinin ışığını görüp onu takip ediyor ve yuvasını buluyor.',
@@ -368,7 +368,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Okuduğun bir kitabı kitap kulübünde anlatacaksın. Konuşmanı önceden yaz.', ['Kitap neyi anlatıyor? (konu)', 'Yazar ne demek istiyor? (ana fikir)', 'Neden okumalılar?'], 12)]),
     ] },
     'hafta-18': { unite: 5, hafta: 18, baslik: 'Kardaki Ayak İzleri', konu: 'Pekiştirme haftası · Noktalama, büyük harf, zıt anlam, kısaltma', sayfalar: () => [
-      metin({ baslik: 'Kardaki Ayak İzleri', resimler: ['kar', 'kus'], tahmin: 'Karda kimin ayak izleri olabilir?', paragraflar: [
+      metin({ baslik: 'Kardaki Ayak İzleri', resimler: ['serce-kutu', 'kar-izleri'], tahmin: 'Karda kimin ayak izleri olabilir?', paragraflar: [
         'Sabah perdeyi açınca gözlerime inanamadım. Bütün bahçe bembeyazdı! Gece boyunca 20 cm kar yağmıştı.',
         '– Anne, kar yağmış! diye bağırdım.',
         'Hemen kalın montumu, atkımı ve eldivenlerimi giydim. Bahçeye çıktığımda kar ayaklarımın altında gıcır gıcır ötüyordu. Birden kapının önünde küçük izler gördüm. İzler çatal gibiydi ve çitin altına doğru gidiyordu.',
@@ -386,7 +386,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Karlı bir günde yaşadığın ya da hayal ettiğin bir olayı anlat. En az bir soru ve bir ünlem cümlesi kullan.', ['Ne oldu?', 'Kimler vardı?', 'Nasıl bitti?'], 12)]),
     ] },
     'hafta-19': { unite: 5, hafta: 19, baslik: 'Cebimdeki Biletler', konu: 'Hatırlatma haftası · Tarih ve saat yazımı, soru eki', sayfalar: () => [
-      metin({ baslik: 'Cebimdeki Biletler', resimler: ['otobus', 'valiz'], tahmin: 'Biletler bize neyi hatırlatabilir?', paragraflar: [
+      metin({ baslik: 'Cebimdeki Biletler', resimler: ['teleferik', 'biletler'], tahmin: 'Biletler bize neyi hatırlatabilir?', paragraflar: [
         'Yarıyıl tatilinden sonra okula döndüğüm ilk gün montumun cebinden üç bilet çıktı. Her biri tatilimden küçük bir anıydı.',
         'İlk bilet bir otobüs biletiydi. Üstünde “27.01.2027 – Saat: 09.30” yazıyordu. O sabah annem, babam ve ben Bursa\'daki dedemlere gitmiştik. Yol boyunca karlı dağları saymıştım.',
         'İkinci bilet bir müze biletiydi. Bursa\'da Oyuncak Müzesi\'ne gitmiştik. Müzede yüz yıl önceki çocukların tahta arabalarını, bez bebeklerini gördüm. Dedem bir topacı gösterdi:',
@@ -404,7 +404,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Tatilini bir eşyayla anlatan bir yazı yaz. (bilet, fotoğraf, taş, oyuncak…)', ['Eşyan ne?', 'Sana neyi hatırlatıyor?', 'O gün neler oldu?'], 12)]),
     ] },
     'hafta-20': { unite: 6, hafta: 20, baslik: 'Herkesin Bir Yıldızı Var', konu: 'Yeteneklerimizi tanıyoruz · İki nokta ve tırnak işareti', sayfalar: () => [
-      metin({ baslik: 'Herkesin Bir Yıldızı Var', resimler: ['yildiz', 'gitar'], tahmin: 'Sence her insanın bir yeteneği var mıdır?', paragraflar: [
+      metin({ baslik: 'Herkesin Bir Yıldızı Var', resimler: ['saksi-cocuk', 'yetenek-sahne'], tahmin: 'Sence her insanın bir yeteneği var mıdır?', paragraflar: [
         'Öğretmenimiz panoya kocaman bir afiş astı: “Yetenek Günü – Cuma”.',
         'Sınıf bir anda karıştı. Elif keman çalacaktı, Kaan sihirbazlık yapacaktı, Ada da baş aşağı durabiliyordu. Ben ise sessizce sırama gömüldüm. Benim hiçbir yeteneğim yoktu.',
         'Teneffüste öğretmenimin yanına gittim. Ona şöyle dedim: “Ben hiçbir şeyde iyi değilim.”',
@@ -423,7 +423,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Sınıfındaki bir arkadaşının yeteneğini anlatan bir yazı yaz. Onun söylediği bir sözü tırnak içinde aktar.', ['Arkadaşının adı ve yeteneği:', 'Bu yeteneği nasıl fark ettin?', 'Onun bir sözü: “…”'], 12)]),
     ] },
     'hafta-21': { unite: 6, hafta: 21, baslik: 'Elif\'in Mektubu', konu: 'Yeteneklerimizi tanıyoruz · Mektup yazma (hitap, selamlama, kapanış)', sayfalar: () => [
-      metin({ baslik: 'Elif\'in Mektubu', resimler: ['piyano', 'nota'], tahmin: 'Elif kime ve neden mektup yazmış olabilir?', paragraflar: [
+      metin({ baslik: 'Elif\'in Mektubu', resimler: ['mektup-zarf', 'keman-cocuk'], tahmin: 'Elif kime ve neden mektup yazmış olabilir?', paragraflar: [
         '15.02.2027',
         'Sevgili Babaanneciğim,',
         'Nasılsın? Kedin Tarçın iyi mi? Ben seni ve senin bahçendeki dut ağacını çok özledim.',
@@ -440,7 +440,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Sana bir şey öğreten birine teşekkür mektubu yaz. Tarih, hitap, selamlama, asıl konu ve kapanışı unutma.', ['Kime yazacaksın? (hitap)', 'Sana ne öğretti?', 'Nasıl bir kapanış yapacaksın?'], 12)]),
     ] },
     'hafta-22': { unite: 6, hafta: 22, baslik: 'Robot Pırıl', konu: 'Yeteneklerimizi tanıyoruz · Anlık ileti yazma', sayfalar: () => [
-      metin({ baslik: 'Robot Pırıl', resimler: ['robot', 'telefon'], tahmin: 'Bir robot ne işe yarayabilir?', paragraflar: [
+      metin({ baslik: 'Robot Pırıl', resimler: ['robot-takim', 'kutu-robot'], tahmin: 'Bir robot ne işe yarayabilir?', paragraflar: [
         'Bilim ve Teknoloji Haftası\'nda sınıfça bir proje yarışmasına katıldık. Bizim grubun fikri Defne\'den geldi:',
         '– Dedem ilaçlarını içmeyi hep unutuyor. Ona hatırlatan bir robot yapalım!',
         'Hemen işe koyulduk. Eski bir ayakkabı kutusu robotun gövdesi oldu. Gözleri için iki şişe kapağı, kolları için de pipet kullandık. Öğretmenimiz robotun içine küçük bir saat ve zil yerleştirmemize yardım etti. Saat dokuzu gösterince zil çalıyor, robotun kapağı açılıyor ve içinden bir not çıkıyordu: “İlaç zamanı!”',
@@ -459,7 +459,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Sen bir robot icat etseydin ne işe yarardı? Robotunu anlatan bir yazı yaz.', ['Robotunun adı:', 'Neye yardım eder?', 'Nasıl çalışır?'], 12)]),
     ] },
     'hafta-23': { unite: 6, hafta: 23, baslik: 'Bir Şiirin Hikâyesi', konu: 'Yeteneklerimizi tanıyoruz · Karşılaştırma (benzerlik ve farklılık)', sayfalar: () => [
-      metin({ baslik: 'Bir Şiirin Hikâyesi', resimler: ['kalem', 'kitap'], tahmin: 'Her sabah okulda hangi şiiri hep birlikte okuruz?', paragraflar: [
+      metin({ baslik: 'Bir Şiirin Hikâyesi', resimler: ['bayrak-toren', 'tuy-kalem'], tahmin: 'Her sabah okulda hangi şiiri hep birlikte okuruz?', paragraflar: [
         'Her pazartesi sabahı okul bahçesinde hep bir ağızdan İstiklal Marşı\'nı okuruz. Peki bu şiirin nasıl yazıldığını biliyor musunuz?',
         'Yıl 1921\'di. Ülkemiz zor bir savaşın içindeydi. Ankara\'daki Meclis, milletimize güç verecek bir marş yazılması için bir yarışma açtı. Yüzlerce şiir geldi ama hiçbiri yeterince güzel bulunmadı.',
         'O sırada Ankara\'da Mehmet Akif adında bir şair vardı. Yarışmaya katılmak istemiyordu çünkü kazanana para ödülü verilecekti. Akif, vatanı için yazacağı bir şiirden para almayı doğru bulmuyordu. Arkadaşları onu çok ikna etmeye çalıştı. Sonunda kabul etti.',
@@ -478,7 +478,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Vatanımızı ya da bayrağımızı anlatan dört dizelik kısa bir şiir yaz. Şiirine bir de ad koy.', ['Şiirinin konusu:', 'Kullanacağın güzel sözcükler:', 'Şiirinin adı:'], 10)]),
     ] },
     'hafta-24': { unite: 7, hafta: 24, baslik: 'Ters Şemsiye', konu: 'Mucit çocuk · Zıt anlam, çıkarım yapma', sayfalar: () => [
-      metin({ baslik: 'Ters Şemsiye', resimler: ['semsiye', 'yagmur'], tahmin: 'Bir şemsiye ters tutulursa ne olur?', paragraflar: [
+      metin({ baslik: 'Ters Şemsiye', resimler: ['domates-bahce', 'ters-semsiye'], tahmin: 'Bir şemsiye ters tutulursa ne olur?', paragraflar: [
         'Okulumuzun arka bahçesinde küçük bir sebze bahçemiz var. Ama bu bahar çok kurak geçti. Domates fideleri boyunlarını bükmüş, maydanozlar sararmıştı. Hortumla sulamak için de su faturası çok yüksek geliyordu.',
         'Bir öğleden sonra ani bir yağmur başladı. Herkes şemsiyesinin altına sığındı. Ben de koşarken rüzgâr şemsiyemi ters çevirdi. Şemsiye bir anda kocaman bir kâseye döndü ve içi suyla dolmaya başladı!',
         'Durup baktım. Kafamda bir ampul yandı.',
@@ -495,7 +495,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Evde ya da okulda çözülmesi gereken bir sorun düşün. Onu çözen bir icat tasarla ve anlat.', ['Sorun ne?', 'İcadın nasıl çalışır?', 'Kimin işine yarar?'], 12)]),
     ] },
     'hafta-25': { unite: 7, hafta: 25, baslik: 'Gezici Kütüphane', konu: 'Mucit çocuk · Karşılaştırma, zıt anlam', sayfalar: () => [
-      metin({ baslik: 'Gezici Kütüphane', resimler: ['otobus', 'kitap'], tahmin: 'Bir otobüs kütüphane olabilir mi?', paragraflar: [
+      metin({ baslik: 'Gezici Kütüphane', resimler: ['dag-koyu', 'gezici-kutuphane'], tahmin: 'Bir otobüs kütüphane olabilir mi?', paragraflar: [
         'Kuzenim Yusuf dağların arasında, küçük bir köyde yaşıyor. Köyünde bir kütüphane yok. En yakın kütüphane, otobüsle bir saat uzaklıktaki ilçede.',
         'Kütüphaneler Haftası\'nda Yusuf\'tan bir mesaj geldi: “Bugün köyümüze bir kütüphane geldi! Hem de tekerlekli!”',
         'Gezici kütüphane, içi raflarla dolu kocaman bir otobüstü. Her ay bir köye uğruyordu. Çocuklar sırayla içeri giriyor, istedikleri kitabı seçiyor, bir ay sonra getirip yenisini alıyordu.',
@@ -511,7 +511,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Gezici kütüphaneyi kullanan çocuklara bir kitap öner. Onlara kısa bir mektup yaz.', ['Hitap:', 'Önerdiğin kitap ve nedeni:', 'Kapanış:'], 12)]),
     ] },
     'hafta-26': { unite: 7, hafta: 26, baslik: 'Hezarfen\'in Kanatları', konu: 'Mucit çocuk · Gerçek ve hayal, benzetme', sayfalar: () => [
-      metin({ baslik: 'Hezarfen\'in Kanatları', resimler: ['kus', 'kopru'], tahmin: 'İnsanlar uçmayı ilk kez nasıl denemiş olabilir?', paragraflar: [
+      metin({ baslik: 'Hezarfen\'in Kanatları', resimler: ['kus-cizen', 'hezarfen'], tahmin: 'İnsanlar uçmayı ilk kez nasıl denemiş olabilir?', paragraflar: [
         'Çok eskiden, uçakların henüz icat edilmediği zamanlarda İstanbul\'da Ahmet Çelebi adında meraklı bir adam yaşardı. Halk ona “Hezarfen” derdi. Hezarfen, “bin bilgili” demekti.',
         'Hezarfen saatlerce kuşları izlerdi. Kanatlarını nasıl açtıklarını, rüzgârı nasıl yakaladıklarını defterine çizerdi. Bir gün kendi kendine sordu: “Kuşlar uçabiliyorsa insan neden uçamasın?”',
         'Tahtadan ve kumaştan kocaman kanatlar yaptı. Önce küçük tepelerden atlayarak denedi. Kimi zaman düştü, kimi zaman dizlerini yaraladı ama vazgeçmedi.',
@@ -526,7 +526,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Sen de uçabilseydin nereye uçardın? Yukarıdan neler görürdün? Hayal gücünü kullanarak yaz.', ['Nereye uçardın?', 'Yukarıdan neler görürdün?', 'Nasıl hissederdin?'], 12)]),
     ] },
     'hafta-27': { unite: 7, hafta: 27, baslik: 'Kâğıt Uçak Yarışması', konu: 'Mucit çocuk · Yönerge yazma, zıt anlam', sayfalar: () => [
-      metin({ baslik: 'Kâğıt Uçak Yarışması', resimler: ['ucak', 'kagit'], tahmin: 'Bir kâğıt uçağı en uzağa ne uçurur?', paragraflar: [
+      metin({ baslik: 'Kâğıt Uçak Yarışması', resimler: ['ucak-katlama', 'kagit-ucak'], tahmin: 'Bir kâğıt uçağı en uzağa ne uçurur?', paragraflar: [
         'Beden eğitimi dersinde öğretmenimiz bir yarışma düzenledi: En uzağa uçan kâğıt uçak kazanacaktı!',
         'Herkes hemen bir kâğıt kaptı. Arda uçağını çok hızlı katladı. Kanatları eğri büğrü oldu. Fırlattı ama uçak iki adım ötede burnunun üstüne düştü.',
         'Selin ise acele etmedi. Önce kâğıdı tam ortasından ikiye katladı ve açtı. Sonra üst köşeleri ortadaki çizgiye doğru katladı. Ardından kenarları bir kez daha içe katlayıp uçağın burnunu sivriltti. En son da kanatları iki yana açtı ve hepsini sıkıca bastırdı.',
@@ -545,7 +545,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Bir yarışmaya katıldığın günü anlat. Kazanmak mı daha önemli, öğrenmek mi? Düşünceni de yaz.', ['Hangi yarışma?', 'Neler oldu?', 'Ne öğrendin?'], 12)]),
     ] },
     'hafta-28': { unite: 8, hafta: 28, baslik: 'Dünya Çocukları Bizde', konu: 'Kültür hazinemiz · Görüş bildirme, iki nokta ve tırnak', sayfalar: () => [
-      metin({ baslik: 'Dünya Çocukları Bizde', resimler: ['ucak', 'hediye'], tahmin: '23 Nisan\'da evine başka ülkeden bir çocuk gelse ne yapardın?', paragraflar: [
+      metin({ baslik: 'Dünya Çocukları Bizde', resimler: ['cocuklar-halka', 'turna'], tahmin: '23 Nisan\'da evine başka ülkeden bir çocuk gelse ne yapardın?', paragraflar: [
         'Bu yıl 23 Nisan\'da evimizde bir misafirimiz vardı: Japonya\'dan gelen Hana. Hana, şehrimizdeki çocuk şenliğine katılmak için gelmişti ve bir hafta bizde kalacaktı.',
         'İlk akşam biraz çekingendik. Hana Türkçe bilmiyordu, ben de Japonca. Ama annem sofraya mercimek çorbası koyunca Hana kaşığını aldı, tadına baktı ve parmağını kaldırdı. Hepimiz güldük. Bazen anlaşmak için ortak bir dil gerekmiyordu.',
         'Ertesi gün Hana bana kâğıttan turna yapmayı öğretti. Kâğıdı katladıkça katladı, sonunda avucunda kanatlı bir kuş belirdi. Ben de ona hamur açıp gözleme yapmayı gösterdim. Unlu ellerimizle birbirimize baktık ve kahkahalarla güldük.',
@@ -561,7 +561,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Başka bir ülkeden gelen bir çocuğu evinde ağırlasan ona neler gösterir, neler öğretirdin?', ['Ona hangi yemeği tattırırdın?', 'Hangi oyunu öğretirdin?', 'Nereyi gezdirirdin?'], 12)]),
     ] },
     'hafta-29': { unite: 8, hafta: 29, baslik: 'Ninemin Sandığı', konu: 'Kültür hazinemiz · Atasözü, sınıflandırma', sayfalar: () => [
-      metin({ baslik: 'Ninemin Sandığı', resimler: ['nine', 'kutu'], tahmin: 'Eski bir sandıkta neler saklanır?', paragraflar: [
+      metin({ baslik: 'Ninemin Sandığı', resimler: ['oya', 'ceyiz-sandigi'], tahmin: 'Eski bir sandıkta neler saklanır?', paragraflar: [
         'Ninemin yatak odasında, köşede ceviz ağacından yapılmış eski bir sandık durur. Sandığın kapağında oymalı çiçekler vardır. Ninem onu açtığında içeriden lavanta kokusu yayılır.',
         'Bir gün ninem beni yanına çağırdı. Sandığı açtı ve içindekileri tek tek çıkardı. Önce renkli bir kilim çıktı. Ninem onu kendi annesiyle birlikte dokumuştu. Kilimin üstündeki her şeklin bir anlamı vardı. Koç boynuzu güç, el ele tutuşan şekiller birlik demekti.',
         'Sonra kenarları oyalı bir yazma çıktı. Oyalar o kadar inceydi ki minik çiçeklerin yaprakları bile görünüyordu.',
@@ -580,7 +580,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Ailende saklanan eski bir eşyayı anlat. Bilmiyorsan bir büyüğüne sor.', ['Eşya ne?', 'Kime aitti, nereden geldi?', 'Senin için anlamı ne?'], 12)]),
     ] },
     'hafta-30': { unite: 8, hafta: 30, baslik: 'Anneannemin Tarif Defteri', konu: 'Kültür hazinemiz · Yönerge (tarif) yazma, sıralama', sayfalar: () => [
-      metin({ baslik: 'Anneannemin Tarif Defteri', resimler: ['tencere', 'un'], tahmin: 'Bir tarif defterinde neler yazar?', paragraflar: [
+      metin({ baslik: 'Anneannemin Tarif Defteri', resimler: ['baba-mutfak', 'irmik-helva'], tahmin: 'Bir tarif defterinde neler yazar?', paragraflar: [
         'Anneler Günü\'ne bir hafta kala babamla gizli bir plan yaptık: Anneme, onun çocukluğundan bir tat hazırlayacaktık.',
         'Babam dolaptan sararmış sayfalı, eski bir defter çıkardı. Anneannemin tarif defteriydi bu. Sayfaların arasında kurumuş bir defne yaprağı, kenarlarında da un lekeleri vardı. En çok kullanılan sayfa hemen açıldı: “İrmik Helvası”.',
         'Tarifi birlikte okuduk:',
@@ -598,7 +598,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Annene ya da sana bakan bir büyüğüne Anneler Günü için bir tebrik kartı yaz.', ['Hitap:', 'Ona neden teşekkür ediyorsun?', 'Dileğin ve kapanış:'], 12)]),
     ] },
     'hafta-31': { unite: 9, hafta: 31, baslik: 'Belediye Başkanına Mektup', konu: 'Haklarımızı biliyoruz · İstek ve öneri mektubu', sayfalar: () => [
-      metin({ baslik: 'Belediye Başkanına Mektup', resimler: ['top', 'agac'], tahmin: 'Çocuklar belediye başkanından ne isteyebilir?', paragraflar: [
+      metin({ baslik: 'Belediye Başkanına Mektup', resimler: ['park-acilis', 'cop-arsa'], tahmin: 'Çocuklar belediye başkanından ne isteyebilir?', paragraflar: [
         'Mahallemizdeki boş arsa yıllardır çöp ve dikenle doluydu. Biz top oynayacak bir yer bulamıyor, sokakta oynarken arabalardan korkuyorduk.',
         'Bir gün sınıfta öğretmenimiz çocuk haklarını anlattı. “Her çocuğun oyun oynama ve güvende olma hakkı vardır.” dedi. Elimi kaldırdım:',
         '– Ama bizim mahallede oynayacak güvenli bir yer yok.',
@@ -616,7 +616,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Okul müdürüne ya da belediye başkanına bir istek ve öneri mektubu yaz. Saygılı bir hitap ve kapanış kullan.', ['Hitap:', 'İsteğin ve nedeni:', 'Önerin ve kapanış:'], 12)]),
     ] },
     'hafta-32': { unite: 9, hafta: 32, baslik: 'Gemi Müzesinde Bir Gün', konu: 'Haklarımızı biliyoruz · Büyük harf (yer ve gemi adları), tarih', sayfalar: () => [
-      metin({ baslik: 'Gemi Müzesinde Bir Gün', resimler: ['gemi', 'kopru'], tahmin: 'Bir gemi neden müze olur?', paragraflar: [
+      metin({ baslik: 'Gemi Müzesinde Bir Gün', resimler: ['pusula', 'buharli-gemi'], tahmin: 'Bir gemi neden müze olur?', paragraflar: [
         'Müzeler Haftası\'nda ailemle Samsun\'a gittik. Limanın yanında kocaman bir gemi duruyordu. Babam gemiyi gösterdi:',
         '– İşte Bandırma Vapuru! Atatürk, 19 Mayıs 1919\'da bu gemiyle Samsun\'a çıkmıştı.',
         'Gemi aslında bir müzeydi. İlk eski geminin aynısı yapılmış, içine o günleri anlatan eşyalar konmuştu. Güverteye çıkınca rüzgâr yüzüme vurdu. Dar merdivenlerden aşağı indik. Bir kamarada küçük bir masa, bir harita ve bir pusula vardı.',
@@ -637,7 +637,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Gezdiğin ya da gezmek istediğin bir müzeyi anlatan bir yazı yaz.', ['Hangi müze, nerede?', 'Orada neler gördün / görmek istersin?', 'Seni en çok ne etkiledi?'], 12)]),
     ] },
     'hafta-33': { unite: 9, hafta: 33, baslik: 'Sınıf Meclisi', konu: 'Haklarımızı biliyoruz · Hak ve sorumluluk, yazma planı', sayfalar: () => [
-      metin({ baslik: 'Sınıf Meclisi', resimler: ['zil', 'kalem'], tahmin: 'Bir sınıfta meclis olur mu? Ne işe yarar?', paragraflar: [
+      metin({ baslik: 'Sınıf Meclisi', resimler: ['kural-panosu', 'oylama'], tahmin: 'Bir sınıfta meclis olur mu? Ne işe yarar?', paragraflar: [
         'Bir sabah sınıfımızda bir tartışma çıktı. Teneffüste top hep aynı çocuklardaydı. Bazıları sıra beklemiyor, kitaplık her gün dağınık kalıyordu. Herkes birbirini suçluyordu.',
         'Öğretmenimiz bir öneri getirdi:',
         '– Haydi bir sınıf meclisi kuralım. Sorunlarımızı birlikte konuşup kurallarımızı birlikte koyalım.',
@@ -654,7 +654,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Sınıf meclisine bir öneri yazısı hazırla. Önce yazma planını doldur, sonra yaz.', ['Sorun ne?', 'Önerin ne?', 'Önerin neden işe yarar?'], 12)]),
     ] },
     'hafta-34': { unite: 9, hafta: 34, baslik: 'Salıncak Sırası', konu: 'Haklarımızı biliyoruz · Görüş bildirme, iki nokta ve tırnak', sayfalar: () => [
-      metin({ baslik: 'Salıncak Sırası', resimler: ['saat', 'top'], tahmin: 'Parkta herkes aynı salıncağa binmek isterse ne olur?', paragraflar: [
+      metin({ baslik: 'Salıncak Sırası', resimler: ['kum-saati', 'salincak-kuyruk'], tahmin: 'Parkta herkes aynı salıncağa binmek isterse ne olur?', paragraflar: [
         'Parkta tek bir salıncak vardı ve önünde uzun bir kuyruk oluşmuştu. Salıncakta ise Berk sallanıyordu. Hem de çok uzun zamandır.',
         'Kuyruktaki küçük Duru sıkılıp ağlamaya başladı. Ece, Berk\'e seslendi:',
         '– Berk, biraz da biz binelim mi?',
@@ -673,7 +673,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Paylaşmak zorunda kaldığın bir şeyi (oyuncak, bilgisayar, top…) anlat. Sorunu nasıl çözdünüz?', ['Ne paylaşılacaktı?', 'Sorun neydi?', 'Nasıl çözdünüz?'], 12)]),
     ] },
     'hafta-35': { unite: 10, hafta: 35, baslik: 'Buzuldan Gelen Mektup', konu: 'Okul temelli planlama · Mektup, zıt anlam', sayfalar: () => [
-      metin({ baslik: 'Buzuldan Gelen Mektup', resimler: ['kar', 'gunes'], tahmin: 'Bir buzul mektup yazsaydı ne yazardı?', paragraflar: [
+      metin({ baslik: 'Buzuldan Gelen Mektup', resimler: ['bisiklet-okul', 'buzul-ayi'], tahmin: 'Bir buzul mektup yazsaydı ne yazardı?', paragraflar: [
         'Çevre ve İklim Değişikliği Haftası\'nda öğretmenimiz sınıfa bir zarf getirdi. Zarfın üstünde şöyle yazıyordu: “Kuzey Kutbu\'ndan, Buzul Bey\'den”. Öğretmenimiz mektubu okudu:',
         '“Sevgili çocuklar, ben dünyanın en kuzeyinde yaşayan yaşlı bir buzulum. Binlerce yıldır buradayım. Eskiden çok büyüktüm. Kutup ayıları sırtımda gezer, foklar kenarlarımda dinlenirdi.',
         'Ama son yıllarda dünya ısınıyor. Fabrikaların bacalarından, arabaların egzozlarından çıkan dumanlar havayı bir battaniye gibi sarıyor. Güneşin sıcaklığı dışarı çıkamıyor. Ben de her yaz biraz daha eriyorum. Kutup ayısı dostlarım avlanacak buz bulamıyor.',
@@ -690,7 +690,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([yazma('Buzul Bey\'e bir cevap mektubu yaz. Ona bir söz ver.', ['Hitap:', 'Ona ne söz veriyorsun?', 'Kapanış:'], 12)]),
     ] },
     'hafta-36': { unite: 10, hafta: 36, baslik: 'Yıl Sonu Kutusu', konu: 'Pekiştirme haftası · Yılın tekrarı', sayfalar: () => [
-      metin({ baslik: 'Yıl Sonu Kutusu', resimler: ['kutu', 'kalem'], tahmin: 'Bir yılı bir kutuya sığdırabilir misin?', paragraflar: [
+      metin({ baslik: 'Yıl Sonu Kutusu', resimler: ['sinif-kutusu', 'ani-kutusu'], tahmin: 'Bir yılı bir kutuya sığdırabilir misin?', paragraflar: [
         'Okulun son haftasında öğretmenimiz her birimize boş bir ayakkabı kutusu verdi.',
         '– Bu yılı bu kutuya sığdırın, dedi. İçine size bu yılı hatırlatan beş şey koyun.',
         'Eve gidip odamı dolaştım. Önce eylülde okula başladığım günkü kırmızı kalemi buldum. Ucu iyice kısalmıştı. Kutuya koydum.',
