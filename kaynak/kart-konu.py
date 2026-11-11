@@ -18,8 +18,8 @@ KM = {1: ['cisimler'], 2: ['cisimler', 'modeller'], 3: ['modeller'], 4: ['yon-bu
       26: ['esitlik', 'kesir'], 27: ['kesir', 'para'], 28: ['para', 'zaman'], 29: ['zaman'], 30: ['uzunluk', 'kutle'], 31: ['uzunluk', 'kutle'], 32: ['yon'], 33: ['yon', 'simetri'],
       34: ['simetri'], 35: ['veri'], 36: ['veri']}
 KD = {1: ['soru-eki', 'hece'], 2: ['nokta', 'soru'], 3: ['unlem', 'virgul'], 4: ['kesme'], 5: ['zit', 'buyuk-harf'], 6: ['buyuk-harf'], 7: ['nokta'], 8: ['buyuk-harf'], 9: ['zit'],
-      10: ['benzetme'], 11: ['soru-eki'], 12: ['benzetme'], 13: ['kisaltma'], 14: ['kisaltma'], 15: ['kisaltma'], 16: ['kisaltma'], 17: ['sozcuk-cumle'], 18: ['nokta', 'soru', 'unlem'],
-      19: ['nokta', 'soru-eki'], 20: ['iki-nokta'], 21: ['mektup'], 22: ['mektup'], 24: ['zit'], 25: ['zit'], 26: ['benzetme'], 28: ['iki-nokta'], 31: ['mektup'], 32: ['buyuk-harf'],
+      10: ['benzetme'], 11: ['soru-eki'], 12: ['benzetme'], 13: ['kisaltma'], 14: ['kisaltma'], 15: ['kisaltma'], 16: ['kisaltma'], 17: ['konu-anafikir'], 18: ['nokta', 'soru', 'unlem'],
+      19: ['nokta', 'soru-eki'], 20: ['iki-nokta'], 21: ['mektup'], 22: ['mektup'], 23: ['karsilastirma'], 27: ['yonerge'], 29: ['atasozu'], 30: ['yonerge'], 33: ['yazma-plani'], 24: ['zit'], 25: ['karsilastirma', 'zit'], 26: ['benzetme'], 28: ['iki-nokta'], 31: ['mektup'], 32: ['buyuk-harf'],
       34: ['iki-nokta'], 35: ['mektup', 'zit'], 36: ['nokta', 'buyuk-harf', 'kesme']}
 KH = {1: ['zaman'], 2: ['zaman'], 3: ['iletisim'], 4: ['arkadaslik'], 5: ['karar'], 6: ['karar'], 7: ['saglik'], 8: ['saglik'], 9: ['internet'], 10: ['internet'],
       11: ['levhalar'], 12: ['acil'], 13: ['acil', 'aile'], 14: ['aile'], 15: ['nezaket'], 16: ['gorev'], 17: ['gorev'], 18: ['gorev', 'tarihi'], 19: ['yonetim'], 20: ['yonetim'],

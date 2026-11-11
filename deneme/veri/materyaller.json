@@ -1621,7 +1621,7 @@
     "resim": "materyaller/2-sinif/turkce/hafta-17-onizleme.png",
     "konu": "Konu ve ana fikir, kitap tanıtma",
     "konu_id": [
-      "dil:sozcuk-cumle"
+      "dil:konu-anafikir"
     ]
   },
   {
@@ -1713,7 +1713,9 @@
     "dosya": "materyaller/2-sinif/turkce/hafta-23.pdf",
     "resim": "materyaller/2-sinif/turkce/hafta-23-onizleme.png",
     "konu": "Karşılaştırma (benzerlik ve farklılık)",
-    "konu_id": []
+    "konu_id": [
+      "dil:karsilastirma"
+    ]
   },
   {
     "id": "t2-hafta-24",
@@ -1742,6 +1744,7 @@
     "resim": "materyaller/2-sinif/turkce/hafta-25-onizleme.png",
     "konu": "Karşılaştırma, zıt anlam",
     "konu_id": [
+      "dil:karsilastirma",
       "dil:zit"
     ]
   },
@@ -1771,7 +1774,9 @@
     "dosya": "materyaller/2-sinif/turkce/hafta-27.pdf",
     "resim": "materyaller/2-sinif/turkce/hafta-27-onizleme.png",
     "konu": "Yönerge yazma, zıt anlam",
-    "konu_id": []
+    "konu_id": [
+      "dil:yonerge"
+    ]
   },
   {
     "id": "t2-hafta-28",
@@ -1799,7 +1804,9 @@
     "dosya": "materyaller/2-sinif/turkce/hafta-29.pdf",
     "resim": "materyaller/2-sinif/turkce/hafta-29-onizleme.png",
     "konu": "Atasözü, sınıflandırma",
-    "konu_id": []
+    "konu_id": [
+      "dil:atasozu"
+    ]
   },
   {
     "id": "t2-hafta-30",
@@ -1812,7 +1819,9 @@
     "dosya": "materyaller/2-sinif/turkce/hafta-30.pdf",
     "resim": "materyaller/2-sinif/turkce/hafta-30-onizleme.png",
     "konu": "Yönerge (tarif) yazma, sıralama",
-    "konu_id": []
+    "konu_id": [
+      "dil:yonerge"
+    ]
   },
   {
     "id": "t2-hafta-31",
@@ -1855,7 +1864,9 @@
     "dosya": "materyaller/2-sinif/turkce/hafta-33.pdf",
     "resim": "materyaller/2-sinif/turkce/hafta-33-onizleme.png",
     "konu": "Hak ve sorumluluk, yazma planı",
-    "konu_id": []
+    "konu_id": [
+      "dil:yazma-plani"
+    ]
   },
   {
     "id": "t2-hafta-34",

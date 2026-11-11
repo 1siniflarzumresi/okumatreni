@@ -5,7 +5,7 @@
     sozcuk:{ad:"Sözcükler", g:"#12b886", ga:"#e6faf2"},
     cumle: {ad:"Cümle ve Noktalama", g:"#3a86ff", ga:"#eaf3ff"},
     yazim: {ad:"Yazım Kuralları", g:"#8b5cf6", ga:"#f3edff"},
-    yazi:  {ad:"Yazı Türleri", g:"#e08a00", ga:"#fff6dc"}
+    yazi:  {ad:"Okuma ve Yazma", g:"#e08a00", ga:"#fff6dc"}
   };
   var UNLU = "aeıioöuüAEIİOÖUÜ";
   function renkli(s){ return s.split("").map(function(c){ return UNLU.indexOf(c) > -1 ? '<span class="u">'+c+'</span>' : c; }).join(""); }
@@ -103,6 +103,31 @@
      kural:["Mektup <b>tarih</b> ile başlar; tarih sağ üste yazılır.","Sonra kime yazdığımızı belirten <b>hitap</b> gelir: Sevgili Annem, Değerli Öğretmenim,","<b>Selamlama</b> ve hal hatır sormadan sonra <b>asıl konu</b> anlatılır.","Mektup güzel bir dilekle <b>kapanır</b>, en altta <b>adımızı</b> yazarız. Kısa iletilerde de selamla başlayıp uygun bir sözle bitiririz."],
      dikkat:"<b>Dikkat!</b> Hitaptan sonra virgül konur ve mektuba yeni satırdan devam edilir.",
      dene:{s:"Mektubun hitap bölümü hangisidir?", c:["Sevgili Teyzeciğim,","Sevgilerimle, Can","Bugün kar yağdı."], d:0, a:"Hitap, kime yazdığımızı gösteren ilk satırdır."}}
+    ,{id:"konu-anafikir", grup:"yazi", sinif:"2. sınıf", baslik:"Konu ve Ana Fikir",
+     ornek:'<p><b>Metin:</b> Martı fırtınada yolunu kaybetti. Deniz fenerinin ışığını görünce yuvasını buldu.</p><p><span class="vu">Konu</span> Fırtınada yolunu kaybeden martı.</p><p><span class="vu">Ana fikir</span> Zor zamanlarda bize yol gösteren biri mutlaka vardır.</p>',
+     kural:["<b>Konu</b>, metnin neyi anlattığıdır. “Bu metin ne hakkında?” sorusunun cevabıdır.","<b>Ana fikir</b>, yazarın bize vermek istediği mesajdır. “Yazar bize ne söylemek istiyor?” sorusunun cevabıdır.","Ana fikir çoğu zaman metinde açıkça yazmaz; olaylardan biz çıkarırız."],
+     dikkat:"<b>İpucu:</b> Konu kısa bir söz öbeğidir (“kayıp cüzdan”). Ana fikir ise bir cümledir (“Dürüst olmak insanı mutlu eder.”).",
+     dene:{s:"“Karıncalar birlikte çalışıp yaprağı taşıdı.” metninin ana fikri hangisidir?", c:["Karıncalar","Birlikte çalışınca zor işler kolaylaşır.","Yaprak yeşildir."], d:1, a:"Ana fikir, metnin bize verdiği mesajdır."}},
+    {id:"karsilastirma", grup:"yazi", sinif:"2. sınıf", baslik:"Karşılaştırma: Benzerlik ve Farklılık",
+     ornek:'<div class="mk-dizi"><span class="mk-kart" style="min-width:120px"><b>Şehir kütüphanesi</b>büyük, sessiz</span><span class="mk-kart" style="min-width:120px"><b>İkisinde de</b>kitap var, ödünç alınır</span><span class="mk-kart" style="min-width:120px"><b>Gezici kütüphane</b>küçük, tekerlekli</span></div>',
+     kural:["İki şeyi karşılaştırırken önce <b>benzer</b> yönlerini, sonra <b>farklı</b> yönlerini buluruz.","Benzerlikleri anlatırken <b>“ikisi de, hem … hem …”</b>, farklılıkları anlatırken <b>“ama, oysa, -den daha”</b> sözcüklerini kullanırız.","Üç bölmeli bir şema (iki yan ve ortak bölüm) karşılaştırmayı kolaylaştırır."],
+     dikkat:"<b>İpucu:</b> Karşılaştırma yazarken her cümlede iki şeyi birlikte söyle: “Kedi miyavlar ama köpek havlar.”",
+     dene:{s:"Hangisi bir benzerlik cümlesidir?", c:["Kedi küçüktür ama inek büyüktür.","Kedi de köpek de evcil hayvandır.","Köpek havlar."], d:1, a:"“De … de” iki şeyin ortak yönünü anlatır."}},
+    {id:"yonerge", grup:"yazi", sinif:"2. sınıf", baslik:"Yönerge ve Tarif Yazma",
+     ornek:'<p><b>Kâğıt uçak nasıl yapılır?</b></p><p>1. <span class="vu">Önce</span> kâğıdı ortadan katla.</p><p>2. <span class="vu">Sonra</span> üst köşeleri ortaya katla.</p><p>3. <span class="vu">Ardından</span> kenarları içe katla.</p><p>4. <span class="vu">En son</span> kanatları aç.</p>',
+     kural:["Bir işin nasıl yapılacağını adım adım anlatan yazıya <b>yönerge</b> denir. Yemek yapmayı anlatan yönergeye <b>tarif</b> denir.","Adımlar <b>sırayla</b> yazılır ve numaralandırılır.","<b>Önce, sonra, ardından, en son</b> gibi sıra sözcükleri kullanılır.","Her adım kısa ve açık bir cümledir: “Kâğıdı katla.”"],
+     dikkat:"<b>Dikkat!</b> Bir adımı atlarsan okuyan kişi işi yapamaz. Yazdıktan sonra yönergeni bir arkadaşına uygulat.",
+     dene:{s:"Hangisi bir yönerge cümlesidir?", c:["Bugün hava güzel.","Suyu bardağa dök.","Kedim çok tatlı."], d:1, a:"Yönerge cümlesi bir işi yaptırır."}},
+    {id:"atasozu", grup:"sozcuk", sinif:"2-3. sınıf", baslik:"Atasözleri ve Deyimler",
+     ornek:'<p><span class="vu">Damlaya damlaya göl olur.</span> → Küçük birikimler zamanla büyür.</p><p><span class="vu">Emek olmadan yemek olmaz.</span> → Çalışmadan kazanılmaz.</p><p><span class="vu">Gözden düşmek</span> (deyim) → Değerini kaybetmek.</p>',
+     kural:["<b>Atasözü</b>, atalarımızın deneyimlerinden çıkan, öğüt veren kısa ve kalıplaşmış sözlerdir.","<b>Deyim</b>, bir durumu renkli ve etkili anlatan kalıplaşmış söz öbekleridir: “kulak vermek”, “ağzı kulaklarına varmak”.","Atasözlerinin ve deyimlerin sözcükleri değiştirilmez."],
+     dikkat:"<b>İpucu:</b> Atasözü genellikle bir öğüt verir ve tam bir cümledir. Deyim ise çoğunlukla bir eylem anlatır.",
+     dene:{s:"“Acele işe şeytan karışır.” ne anlatır?", c:["Acele yapılan iş bozuk olur.","Hızlı olan kazanır.","Şeytan çalışkandır."], d:0, a:"Bu atasözü bize dikkatli olmayı öğütler."}},
+    {id:"yazma-plani", grup:"yazi", sinif:"2. sınıf", baslik:"Yazma Planı: Giriş, Gelişme, Sonuç",
+     ornek:'<p><span class="vu">Giriş</span> Ne anlatacağımı söylerim: “Geçen hafta sınıfça bir meclis kurduk.”</p><p><span class="vu">Gelişme</span> Olayları sırayla anlatırım.</p><p><span class="vu">Sonuç</span> Ne öğrendiğimi ya da ne hissettiğimi yazarım.</p>',
+     kural:["Yazmadan önce bir <b>plan</b> yaparız: Ne yazacağım? Kime yazıyorum? Hangi sırayla?","Yazının üç bölümü vardır: <b>giriş, gelişme, sonuç</b>.","Yazımıza uygun bir <b>başlık</b> koyarız, paragraf başlarında içeriden başlarız.","Yazdıktan sonra okur, hatalarımızı düzeltiriz."],
+     dikkat:"<b>İpucu:</b> Planını üç kısa soruyla yap: Ne oldu? Nasıl oldu? Sonunda ne oldu?",
+     dene:{s:"Yazının hangi bölümünde ne öğrendiğimizi yazarız?", c:["Giriş","Gelişme","Sonuç"], d:2, a:"Sonuç bölümü yazıyı bağlar."}}
   ];
 
   window.KONU = window.KONU || {};
