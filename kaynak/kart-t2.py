@@ -4,7 +4,7 @@ p = 'deneme/veri/materyaller.json'
 L = json.load(open(p))
 T = json.load(open('deneme/veri/takvim-2.json'))
 def bas(s):
-    return ' '.join(w if w.lower() in ('ve', 'ile') else w[:1] + w[1:].replace('I', 'ı').replace('İ', 'i').lower() for w in s.split())
+    return ' '.join(w.lower() if w.lower() in ('ve', 'ile') else w[:1] + w[1:].replace('I', 'ı').replace('İ', 'i').lower() for w in s.split())
 tema = {w['hafta']: next((bas(x) for x in w['dersler'].get('turkce', {}).get('tema', []) if 'HAFTASI' not in x), 'Hatırlatma Haftası')
         for w in T['haftalar'] if isinstance(w['hafta'], int)}
 t = open('kaynak/calisma-kagitlari/turkce2.js').read()

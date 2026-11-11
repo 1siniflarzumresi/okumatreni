@@ -725,7 +725,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .t-zar .zar{width:20mm;height:20mm;display:block}
 .t-res{display:flex;flex-wrap:wrap;gap:1.5mm}.t-res img{width:12mm;height:12mm}.t-res em{font-family:TTKB,sans-serif;font-size:5mm;color:#6b7a70}
 .boyadizi{display:grid;grid-template-columns:repeat(10,1fr);gap:2mm}
-.boyadizi span{aspect-ratio:1;border:.4mm solid #cfd8d1;border-radius:2mm;padding:1mm;display:block}
+.boyadizi span{min-width:0;aspect-ratio:1;border:.4mm solid #cfd8d1;border-radius:2mm;padding:1mm;display:block}
 .balonlar.r{grid-template-columns:repeat(12,1fr)}
 .gruplar4{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}
 .gruplar4 .grup{min-height:30mm}

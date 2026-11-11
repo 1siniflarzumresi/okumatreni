@@ -54,7 +54,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
   const lambaBoya = () => etk(0, 'Trafik ışığını doğru renklere boya: en üst kırmızı, ortası sarı, en alt yeşil. Sonra her ışığın yanındaki anlamı söyle.',
     `<div class="lambalar"><div>${lamba([], 230)}</div><div class="anlam">${[['#e63946', 'Kırmızı: DUR'], ['#ffb703', 'Sarı: HAZIRLAN'], ['#2a9d8f', 'Yeşil: GEÇ']].map(([r, m]) => `<p class="ttkb"><i style="background:${r}"></i>${m}</p>`).join('')}</div></div>`);
   const lambaEsle = () => etk(0, 'Yayalar için ışık hangisi? Işık yanınca ne yapmalısın? Çizgiyle eşleştir.',
-    `<div class="esles"><div class="sol">${[['#e63946'], ['#2a9d8f']].map(([r], i) => `<div>${lamba(i ? ['#fff', '#fff', r] : [r, '#fff', '#fff'], 120)}<i></i></div>`).join('')}</div><div class="sag">${[['bekle', 'Kaldırımda bekle'], ['gec', 'Bak, sonra karşıya geç']].map(([k, m]) => `<div><i></i><b class="ttkb">${m}</b></div>`).join('')}</div></div>`);
+    `<div class="esles lmb"><div class="sol">${[['#e63946'], ['#2a9d8f']].map(([r], i) => `<div>${lamba(i ? ['#fff', '#fff', r] : [r, '#fff', '#fff'], 120)}<i></i></div>`).join('')}</div><div class="sag">${[['bekle', 'Kaldırımda bekle'], ['gec', 'Bak, sonra karşıya geç']].map(([k, m]) => `<div><i></i><b class="ttkb">${m}</b></div>`).join('')}</div></div>`);
   const yolSahne = () => { let s = `<rect width="640" height="300" fill="#e7faf2"/><rect y="110" width="640" height="110" fill="#6c757d"/><rect y="98" width="640" height="12" fill="#ced4da"/><rect y="220" width="640" height="12" fill="#ced4da"/>`;
     for (let i = 0; i < 8; i++) s += `<rect x="${270 + 0}" y="${116 + i * 13}" width="100" height="8" fill="#fff"/>`;
     for (let i = 0; i < 10; i++) s += `<rect x="${20 + i * 64}" y="162" width="34" height="6" fill="#ffd23f"/>`;
@@ -312,9 +312,9 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
 .lambalar svg{height:70mm;width:auto}
 .anlam p{display:flex;align-items:center;gap:3mm;font-size:8mm;margin:0 0 4mm}
 .anlam i{width:9mm;height:9mm;border-radius:50%;display:block}
-.esles .sag b{font-size:8mm;font-weight:400}
-.esles .sol svg{height:48mm;width:auto}
-.esles .sol div,.esles .sag div{height:52mm}
+.esles.lmb .sag b{font-size:8mm;font-weight:400}
+.esles.lmb .sol svg{height:48mm;width:auto}
+.esles.lmb .sol div,.esles.lmb .sag div{height:52mm}
 .dyr{display:flex;flex-direction:column;gap:3mm}
 .dyr>div{display:grid;grid-template-columns:30mm 1fr 18mm 18mm;gap:4mm;align-items:center;background:#fff;border-radius:3mm;padding:3mm}
 .dyr img{width:28mm;height:28mm}.dyr p{margin:0;font-size:7mm}.dyr svg{width:16mm;height:16mm}
