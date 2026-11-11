@@ -449,6 +449,113 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
         eslestir('Deyim ve atasözlerini anlamlarıyla eşleştir.', [['Damlaya damlaya göl olur.', 'çok sevinmek'], ['Ağzı kulaklarına varmak', 'küçük birikimler büyür'], ['Gözünü kırpmadan bakmak', 'çok dikkatle bakmak']], 241)]),
       numarala([yazma('Bir bilim insanına ya da astronota bir mektup yaz. Ona merak ettiğin soruları sor. En az bir deyim kullan.', ['Hitap:', 'Kendini tanıt ve sorularını sor:', 'Kapanış:'], 12)]),
     ] },
+    'hafta-25': { unite: 7, hafta: 25, baslik: 'Saati Taşıyan Fil', konu: 'Bilim yolculuğu · Farklı öneriler sunma, açıklayıcı metin', sayfalar: () => [
+      metin({ baslik: 'Saati Taşıyan Fil', resimler: ['fil-saati', 'cark-model'], tahmin: 'Bir fil saat taşıyabilir mi? Bu saat nasıl çalışıyor olabilir?', paragraflar: [
+        'Kütüphaneler Haftası\'nda kütüphanede eski bir kitabın kopyasını gördük. Kitap yaklaşık sekiz yüz yıl önce yazılmıştı ve içi rengârenk makine çizimleriyle doluydu. Yazarı, Cizre\'de yaşamış büyük bir mucitti: El-Cezerî.',
+        'Kütüphaneci bize kitabın en ünlü sayfasını açtı. Sayfada sırtında süslü bir kule taşıyan bir fil vardı. Bu, El-Cezerî\'nin icat ettiği “fil saati”ydi.',
+        'Fil saati nasıl çalışıyordu? Filin karnında içi su dolu bir kap vardı. Bu kabın içinde de dibinde küçük bir delik olan bir tas yüzüyordu. Delikten yavaş yavaş su giren tas, tam yarım saatte dolup batıyordu. Tas battığında bağlı olduğu ipler bir düzeneği çekiyordu. Kulenin tepesindeki bir top, bir yılanın ağzına düşüyor; yılan eğiliyor, bir figür davul çalıyordu. Böylece herkes yarım saatin geçtiğini anlıyordu. Sonra tas kendiliğinden yukarı çıkıyor ve her şey yeniden başlıyordu.',
+        'El-Cezerî sadece saat yapmamıştı. Su pompaları, kendi kendine çalışan çeşmeler, el yıkamaya yarayan su dökücüler gibi pek çok makine tasarlamıştı. Bazı bilim insanları onu, kendi kendine çalışan makinelerin, yani robotların ilk öncülerinden biri olarak görür.',
+        'Öğretmenimiz bize bir soru sordu:',
+        '– El-Cezerî bugün yaşasaydı ne icat ederdi sizce?',
+        'Herkes bir şey söyledi. Biri “Su tasarrufu yapan bir musluk.” dedi, biri “Ödev yapan bir robot!” Hepimiz güldük. Ben de “Ağaç diken bir makine.” dedim.',
+        'Eve dönünce kâğıttan dişliler kesip birbirine taktım. Biri dönünce öteki de dönüyordu. Küçük bir makine yapmıştım. Belki de bütün büyük icatlar böyle küçük bir merakla başlıyordu.',
+      ] }),
+      numarala([harita(), sirala(['Tasın dibindeki delikten su girer.', 'Tas yarım saatte dolar ve batar.', 'İpler düzeneği çeker.', 'Top yılanın ağzına düşer.', 'Figür davul çalar.'], 251).replace('Olayları oluş sırasına göre numaralandır.', 'Fil saati nasıl çalışır? Adımları sıraya koy.'),
+        soru(['Fil saati yarım saatin geçtiğini nasıl haber veriyordu?', 'El-Cezerî\'ye neden robotların öncülerinden biri deniyor?'])]),
+      numarala([etk(0, 'Farklı öneriler sun! El-Cezerî bugün yaşasaydı ne icat ederdi? Üç farklı öneri yaz ve her birinin neye yarayacağını açıkla.', `<div class="t3-ucbolum ttkb">${['1. öneri', '2. öneri', '3. öneri'].map(s => `<div><b>${s}</b>${cizgi(4)}</div>`).join('')}</div>`),
+        sozcuk([['El-Cezerî bir <u>düzenek</u> tasarladı.', ['birlikte çalışan parçalardan oluşan alet', 'resim', 'kitap']], ['O, robotların <u>öncülerinden</u> biridir.', ['ilk yapanlardan, yol açanlardan', 'sonuncularından', 'düşmanlarından']]])]),
+      numarala([yazma('Kendi icadını tasarla! Adını koy, nasıl çalıştığını ve neye yaradığını açıklayan bir yazı yaz.', ['İcadımın adı:', 'Nasıl çalışır?', 'Kimin işine yarar?'], 12)]),
+    ] },
+    'hafta-26': { unite: 7, hafta: 26, baslik: 'Yıldızları Sayan Adam', konu: 'Bilim yolculuğu · Gerçek ve mecaz anlam, okuma stratejisi', sayfalar: () => [
+      metin({ baslik: 'Yıldızları Sayan Adam', resimler: ['eski-gozlemevi', 'teleskoplu-cocuk'], tahmin: 'Eskiden insanlar yıldızları nasıl inceliyordu?', paragraflar: [
+        'Yaklaşık altı yüz yıl önce, Semerkant şehrinde büyük bir gözlemevi vardı. Bu gözlemevini bilim âşığı bir hükümdar olan Uluğ Bey yaptırmıştı. Gözlemevinde yıldızların, gezegenlerin, Güneş\'in ve Ay\'ın hareketlerini inceleyen bilginler çalışırdı.',
+        'Bu bilginlerden biri, genç ve meraklı bir öğrenciydi: Ali Kuşçu. Adının bir hikâyesi vardı. Babası Uluğ Bey\'in doğancısıydı, yani avcı kuşlarına bakardı. Kuşçu adı buradan geliyordu. Ama Ali\'nin gözü kuşlarda değil, yıldızlardaydı.',
+        'Ali Kuşçu her gece gözlemevinin kulesine çıkar, saatlerce gökyüzünü izlerdi. O zamanlar teleskop yoktu. Bilginler yıldızları büyük taş ve bakır aletlerle ölçerdi. Ali Kuşçu ve arkadaşları binlerce yıldızın yerini tek tek ölçüp bir kitaba yazdılar. Bu yıldız kataloğu, yüzyıllar boyunca bilim insanlarının kullandığı bir hazine oldu.',
+        'Ali Kuşçu ayrıca matematik ve astronomi kitapları yazdı. Yıllar sonra İstanbul\'a geldi ve burada ders verdi. Öğrencilerine şöyle derdi:',
+        '– Gökyüzü büyük bir kitaptır. Onu okumak için önce sabırla bakmayı öğrenmelisiniz.',
+        'Bugün Ay\'da bir kraterin adı Ali Kuşçu\'dur. Gökyüzünü okuyan adamın adı, artık gökyüzünde yazılıdır.',
+        'Geçen yaz dedemle köyde, ışıkların az olduğu bir tepede yıldızlara baktık. Dedem bana Büyük Ayı\'yı gösterdi. Ben de ona Ali Kuşçu\'yu anlattım. Dedem gülümsedi:',
+        '– Demek sen de yıldızları saymaya başladın.',
+      ] }),
+      numarala([harita(), dogruYanlis(['Gözlemevini Uluğ Bey yaptırdı.', 'Ali Kuşçu yıldızları teleskopla inceledi.', 'Ali Kuşçu ve arkadaşları bir yıldız kataloğu hazırladı.', 'Ay\'daki bir kratere Ali Kuşçu\'nun adı verildi.']),
+        soru(['Ali Kuşçu\'nun "Gökyüzü büyük bir kitaptır." sözü ne anlatıyor?'])]),
+      numarala([gercekMecaz(['Ali\'nin <u>gözü</u> yıldızlardaydı.', 'Astronom <u>gözünü</u> alete dayadı.', 'Gökyüzü büyük bir <u>kitaptır</u>.', 'Kütüphaneden bir <u>kitap</u> aldım.', 'Bu haber bana <u>soğuk</u> geldi.', 'Gece hava çok <u>soğuktu</u>.']),
+        tablo('Bu metni nasıl okudum? Okuma stratejini değerlendir.', ['Strateji', 'Kullandım mı?'], [['Önce başlık ve resimlere bakıp tahmin yaptım.', ''], ['Bilmediğim sözcükleri not aldım.', ''], ['Önemli bilgilerin altını çizdim.', '']])]),
+      numarala([yazma('Bir gece gökyüzünü gözle. Gördüklerini bir bilim insanı gibi not al ve anlatan bir yazı yaz.', ['Ne zaman, nereden baktın?', 'Neler gördün? (Ay, yıldız, gezegen…)', 'Neyi merak ettin?'], 12)]),
+    ] },
+    'hafta-27': { unite: 7, hafta: 27, baslik: 'Bir Damlanın Yolculuğu', konu: 'Bilim yolculuğu · Veri okuma, okuma tercihi', sayfalar: () => [
+      metin({ baslik: 'Bir Damlanın Yolculuğu', resimler: ['su-dongusu', 'yagmur-olcer'], tahmin: 'Bir su damlası nerelere yolculuk yapar?', paragraflar: [
+        'Merhaba! Ben bir su damlasıyım. Adım Damla. Bugün sana bitmeyen yolculuğumu anlatacağım.',
+        'Uzun zaman önce koca bir okyanusun içindeydim. Bir gün güneş beni öyle ısıttı ki hafifledim, hafifledim ve görünmez bir buhar olarak havaya yükseldim. Buna buharlaşma denir.',
+        'Yükseldikçe hava soğudu. Benim gibi milyonlarca buhar taneciği bir araya geldi ve minik damlacıklara dönüştük. Birlikte bembeyaz bir bulut olduk. Buna da yoğuşma denir.',
+        'Rüzgâr bulutumuzu dağlara doğru sürükledi. Damlacıklar birleştikçe ağırlaştık. Sonunda bulut bizi taşıyamadı ve yağmur olarak yere düştük. Dağın tepesinde hava çok soğuksa kar olarak da düşebiliriz. Buna yağış denir.',
+        'Ben bir dağın yamacına düştüm. Toprağın içine sızdım, bir ağacın köklerine uğradım. Sonra bir derede arkadaşlarımla buluştum. Dere bir nehre, nehir de denize aktı. Ve ben yine okyanustaydım!',
+        'Bu yolculuğa su döngüsü denir. Bu döngü milyonlarca yıldır sürüyor. Belki şu an içtiğin suyun içinde, bir zamanlar bir dinozorun içtiği damlalar vardır!',
+        'Ama dikkat! Dünyadaki suyun çok büyük bir kısmı tuzludur. İçebileceğimiz tatlı su ise çok azdır. Bu yüzden her damla değerlidir.',
+        'Okulumuzda bir yağmur ölçer kurduk. Her hafta ne kadar yağmur yağdığını ölçüp bir tabloya yazıyoruz. Geçen ay en çok yağmur ikinci hafta yağdı. Belki o yağmurda ben de vardım. Kim bilir?',
+      ] }),
+      numarala([harita('Metni incele.'), etk(0, 'Su döngüsünün aşamalarını sırayla yaz ve açıkla.', `<div class="t3-sozluk ttkb">${['1. Buharlaşma:', '2. Yoğuşma:', '3. Yağış:', '4. Toplanma (dere, nehir, deniz):'].map(s => `<div><b>${s}</b>${cizgi(1)}</div>`).join('')}</div>`)]),
+      numarala([etk(0, 'Okulun yağmur ölçeri! Tabloyu oku ve soruları cevapla.', `<table class="h2-tablo ttkb" style="width:100%"><tr><th>Hafta</th><th>1. hafta</th><th>2. hafta</th><th>3. hafta</th><th>4. hafta</th></tr><tr><td>Yağmur (mm)</td><td>12</td><td>30</td><td>8</td><td>18</td></tr></table><div class="t2-soru">${['En çok yağmur hangi hafta yağdı?', 'En az yağmur hangi hafta yağdı?', 'Dördüncü hafta, üçüncü haftadan kaç milimetre fazla yağmur yağdı?'].map(s => `<div><p class="ttkb">${s}</p>${cizgi(1)}</div>`).join('')}</div>`),
+        fikir('Bu düşünceye katılıyor musun?', 'Su döngüsü olduğu için suyu istediğimiz kadar harcayabiliriz.')]),
+      numarala([yazma('Sen bir kar tanesi olsaydın yolculuğun nasıl olurdu? Bilgileri kullanarak hayal gücüyle bir hikâye yaz.', ['Nerede doğdun?', 'Nerelere gittin?', 'Yolculuğun nasıl bitti?'], 12)]),
+    ] },
+    'hafta-28': { unite: 8, hafta: 28, baslik: 'Perdenin Ardındaki Gölgeler', konu: 'Millî kültürümüz · Görüş bildirme, görsellerle öyküleme', sayfalar: () => [
+      metin({ baslik: 'Perdenin Ardındaki Gölgeler', resimler: ['golge-oyunu', 'bayram-gecidi'], tahmin: 'Perdenin arkasında gölgeler nasıl oynar?', paragraflar: [
+        '23 Nisan için okulumuzda bir kültür şenliği düzenlendi. Her sınıf bir geleneğimizi tanıtacaktı. Bizim sınıfa gölge oyunu düştü: Karagöz ile Hacivat.',
+        'Öğretmenimiz bize bir gölge oyunu ustası davet etti. Usta Mehmet Bey elinde bir bavulla geldi. Bavulu açtığında içinden rengârenk, düz figürler çıktı. Figürler deve derisinden yapılmıştı ve ışığa tutunca camdan gibi parlıyorlardı.',
+        '– Bu Karagöz, dedi Usta, siyah sakallı figürü göstererek. Saf, dobra ve biraz da sabırsızdır. Bu da Hacivat. Kibar konuşur, bilgiçlik taslar. İkisi hiç anlaşamaz ama birbirlerinden de vazgeçemezler.',
+        'Usta bize perdeyi kurdu. Beyaz bir bez, arkasında bir lamba… Figürleri ince sopalarla perdeye bastırınca gölgeleri canlandı. Karagöz zıpladı, Hacivat eğilip selam verdi. Usta iki karakterin sesini de kendisi çıkarıyordu!',
+        '– Hacivat: Ah, Karagöz\'üm, nerelerdesin, seni çok özledim!',
+        '– Karagöz: Ben de seni özledim ama borcunu hâlâ ödemedin!',
+        'Bütün sınıf kahkahalarla güldü. Usta, Karagöz ile Hacivat\'ın yüzyıllardır insanları hem güldürdüğünü hem düşündürdüğünü anlattı. Oyunlardaki karışıklıklar hep bir yanlış anlamadan çıkardı ve sonunda herkes ders çıkarırdı.',
+        'Şenlik günü biz de kendi gölge oyunumuzu oynadık. Kartondan figürler kesmiş, perdeyi bir çarşaftan yapmıştık. Konumuz 23 Nisan\'dı: Karagöz bayram için okulu süslemek istiyor, Hacivat ise ona nasıl süsleneceğini anlatmaya çalışıyordu. Seyirciler çok eğlendi.',
+        'Oyun bittiğinde perdeyi kaldırdık. Arkasında heyecandan yanakları kızarmış beş çocuk vardı. Gölgeler yine gelenekti, oyuncular ise yeniydi.',
+      ] }),
+      numarala([harita(), kiyas('Karagöz ile Hacivat\'ı karşılaştır.', 'Karagöz', 'Hacivat'),
+        soru(['Son cümledeki "Gölgeler yine gelenekti, oyuncular ise yeniydi." ne anlatıyor?'])]),
+      numarala([fikir('Bu düşünceye katılıyor musun?', 'Gölge oyunu eskide kaldı, bugün kimse izlemez.'),
+        etk(0, 'Katılmadığın bir görüşe öneri yaz: Bir arkadaşın "Geleneksel oyunlar sıkıcıdır." diyor. Ona kibarca karşı çık ve bir öneride bulun.', cizgi(4))]),
+      numarala([etk(0, 'Görsellerle öykü! Kendi gölge oyununu dört karede çiz, her karenin altına bir konuşma yaz.', `<div class="t3-dortkare">${[1, 2, 3, 4].map(i => `<div><span>${i}</span><i></i>${cizgi(2)}</div>`).join('')}</div>`)]),
+    ] },
+    'hafta-29': { unite: 8, hafta: 29, baslik: 'Suyun Üstündeki Lale', konu: 'Millî kültürümüz · Farklı öneriler sunma, emek', sayfalar: () => [
+      metin({ baslik: 'Suyun Üstündeki Lale', resimler: ['ebru-usta', 'ebru-lale'], tahmin: 'Su üstüne resim yapılabilir mi? Tahmin et.', paragraflar: [
+        'Emek ve Dayanışma Günü\'nde sınıfça bir ebru atölyesini ziyaret ettik. Atölye eski bir taş binanın içindeydi. İçeride mis gibi bir kitre kokusu vardı. Ortada uzun bir tekne, teknenin içinde koyu ve kıvamlı bir su duruyordu.',
+        'Ebru ustası Nesrin Hanım bizi gülümseyerek karşıladı.',
+        '– Ebru, su üstüne resim yapma sanatıdır, dedi. Bu suya kitre denen bir bitkinin özünü karıştırdık. Böylece su koyulaşır ve boyalar batmadan üstünde yüzer.',
+        'Nesrin Hanım ince bir fırçayı boyaya batırdı. Sonra fırçaya hafifçe vurarak boyayı suyun üstüne serpti. Kırmızı, mavi, sarı benekler suyun yüzeyine yayıldı. Sonra ince bir iğneyle boyaların arasında dolaşmaya başladı. İğnenin değdiği yerde renkler kıvrıldı, birbirine sarıldı. Birkaç dakika içinde suyun üstünde kocaman bir lale açtı!',
+        'Hepimiz nefesimizi tutmuştuk. Nesrin Hanım teknenin üstüne beyaz bir kâğıt yavaşça bıraktı. Birkaç saniye bekledi. Sonra kâğıdı bir kenarından tutup kaldırdı. Lale artık kâğıdın üstündeydi!',
+        '– Usta, bunu öğrenmek ne kadar sürdü? diye sordu Emir.',
+        '– Ustamın yanında on yıl çalıştım, dedi Nesrin Hanım. İlk yıl sadece boya ezdim, fırça yaptım. Ustam, “Önce emeğe saygıyı öğren.” derdi.',
+        'Sonra her birimize kendi ebrumuzu yapma fırsatı verdi. Benim boyalarım dağıldı, lalem bir yağmur bulutuna benzedi. Ama Nesrin Hanım güldü:',
+        '– Ebruda iki eser asla aynı olmaz. Seninki de dünyada tek.',
+        'Okula dönünce ebrumu sınıf panosuna astık. Altına şunu yazdım: “Suyun üstündeki bulut. Emeği: Ben ve Nesrin Hanım.”',
+      ] }),
+      numarala([harita(), sirala(['Suya kitre karıştırılır.', 'Boyalar suyun üstüne serpilir.', 'İğneyle desen oluşturulur.', 'Kâğıt suyun üstüne bırakılır.', 'Kâğıt kaldırılır.'], 291).replace('Olayları oluş sırasına göre numaralandır.', 'Ebru nasıl yapılır? Adımları sıraya koy.'),
+        soru(['Ustanın "Önce emeğe saygıyı öğren." sözü ne anlatıyor?', 'Neden iki ebru asla aynı olmaz?'])]),
+      numarala([etk(0, 'Farklı öneriler! Ebru sanatını daha çok çocuğa sevdirmek için üç farklı öneri yaz.', `<div class="t3-ucbolum ttkb">${['1. öneri', '2. öneri', '3. öneri'].map(s => `<div><b>${s}</b>${cizgi(4)}</div>`).join('')}</div>`),
+        eslestir('Atasözlerini anlamlarıyla eşleştir.', [['Emek olmadan yemek olmaz.', 'Sabırla çalışan sonunda başarır.'], ['Sabrın sonu selamettir.', 'Çalışmadan kazanılmaz.'], ['Bir elin nesi var, iki elin sesi var.', 'Birlikte çalışmak işi kolaylaştırır.']], 292)]),
+      numarala([yazma('Bir el sanatını (çini, ebru, kilim, oya, ahşap oyma…) araştır ve tanıtan bir yazı yaz. Bilginin kaynağını da yaz.', ['Sanatın adı ve nasıl yapıldığı:', 'Neden değerli?', 'Kaynağım:'], 12)]),
+    ] },
+    'hafta-30': { unite: 8, hafta: 30, baslik: 'Tandırın Başında', konu: 'Millî kültürümüz · Okuma amacına göre okuma, yardımlaşma', sayfalar: () => [
+      metin({ baslik: 'Tandırın Başında', resimler: ['yufka-imece', 'tandir'], tahmin: 'İmece ne demek olabilir?', paragraflar: [
+        'Anneler Günü haftasında annemle anneannemin köyüne gittik. Köyde o gün büyük bir hazırlık vardı: Kış için yufka açılacaktı. Anneannem bu işe “imece” dedi. İmece, köydekilerin bir işi el birliğiyle, sırayla yapmasıydı.',
+        'Sabah erkenden Gülsüm Teyze\'nin avlusunda toplandık. Avlunun köşesinde topraktan yapılmış, içinde ateşin yandığı bir tandır vardı. Kadınlar yere minderler serdi, ortaya yuvarlak tahtalar koydu.',
+        'Herkesin bir görevi vardı. Gülsüm Teyze hamuru yoğurdu. Hamur o kadar büyüktü ki iki kişi ancak çevirebiliyordu. Annem ve teyzelerim hamurdan bezeler kopardı. Anneannem uzun bir oklavayla bezeleri incecik açtı. Açılan yufkalar öyle inceydi ki arkasından eli görünüyordu. Sonra yufkalar sac üzerinde ya da tandırda pişirildi.',
+        'Benim görevim pişen yufkaları üst üste dizmekti. Bir de tandırın başındaki büyüklere su taşıyordum. Bir ara ben de oklavayı denedim. Yufkam bir harita gibi delik deşik oldu. Herkes güldü ama anneannem beni övdü:',
+        '– İlk yufkam da böyleydi kızım. El alışır.',
+        'Öğleye doğru kadınlar türküler söylemeye başladı. Bir yandan hamur açıyor, bir yandan şakalaşıyorlardı. Yorgunluk sanki uçup gitmişti.',
+        'Akşam olduğunda yüzlerce yufka hazırdı. Yufkalar köydeki her eve eşit paylaştırıldı. Hiç yufkası olmayan yaşlı Rıza Dede\'ye de bir tepsi götürüldü.',
+        'Eve dönerken anneme sordum:',
+        '– Herkes kendi yufkasını neden kendisi açmıyor?',
+        'Annem gülümsedi:',
+        '– Tek başına açsan bir hafta sürer. Birlikte açınca bir gün. Hem bir günde yalnız yufka değil, dostluk da pişer.',
+      ] }),
+      numarala([harita(), tablo('İmecede kim ne yaptı? Metne göre doldur.', ['Kim?', 'Görevi'], [['Gülsüm Teyze', ''], ['Anneanne', ''], ['Anlatıcı', ''], ['Bütün köy', '']]),
+        soru(['Annenin "Bir günde dostluk da pişer." sözü ne anlatıyor?'])]),
+      numarala([tablo('Okuma amacım! Aşağıdaki metinleri hangi amaçla ve nasıl okursun?', ['Metin', 'Amacım', 'Nasıl okurum?'], [['Bir yufka tarifi', 'Yapmayı öğrenmek', ''], ['Bir masal', '', 'Baştan sona, keyifle'], ['Bir otobüs saati tablosu', '', '']]),
+        sozcuk([['Hamurdan <u>bezeler</u> koparıldı.', ['yuvarlak hamur parçaları', 'tahta parçaları', 'kaplar']], ['Bu işi <u>el birliğiyle</u> yaptık.', ['birlikte, yardımlaşarak', 'tek elle', 'eldivenle']]])]),
+      numarala([yazma('Annene ya da sana bakan bir büyüğüne birlikte yaptığınız bir işi hatırlatan bir Anneler Günü mektubu yaz.', ['Hitap:', 'Birlikte ne yapmıştınız, nasıl hissettin?', 'Dilek ve kapanış:'], 12)]),
+    ] },
   };
   const CSS = `
 .t3-sec{display:flex;flex-direction:column;gap:2mm}.t3-sec span{background:#fff;border:.5mm solid #9db4c8;border-radius:3mm;padding:2mm 3mm;font-size:5mm}
@@ -460,6 +567,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
 .t3-sirala{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.t3-sirala span{display:flex;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:2mm 3mm;font-size:5.4mm}.t3-sirala i{width:9mm;height:9mm;border:.5mm solid #4a5a50;border-radius:50%}
 .t3-sozluk{display:flex;flex-direction:column;gap:2mm}.t3-sozluk>div{background:#fff;border-radius:3mm;padding:2mm 3mm}.t3-sozluk b{font-weight:400;font-size:5.2mm;color:#1d4e89}
 .t3-ucbolum{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.t3-ucbolum>div{background:#fff;border-radius:3mm;padding:2mm 3mm}.t3-ucbolum b{font-weight:400;font-size:5mm;color:#8b5cf6}
+.t3-dortkare{display:grid;grid-template-columns:1fr 1fr;gap:4mm;flex:1}.t3-dortkare>div{background:#fff;border-radius:3mm;padding:2mm 3mm;display:flex;flex-direction:column;gap:1mm;position:relative}.t3-dortkare span{position:absolute;top:2mm;left:3mm;font-size:5mm;color:#8b5cf6}.t3-dortkare i{flex:1;min-height:44mm;border:.5mm dashed #9db4c8;border-radius:2mm}
 .t3-dilekce{background:#fff;border-radius:3mm;padding:4mm 6mm;font-size:5mm}.t3-dilekce p{margin:0 0 2mm}.t3-sag{text-align:right}.t3-orta{text-align:center;text-transform:uppercase}.t3-konu{font-size:4.6mm;color:#5b6b7b}
 `;
   return { T3, CSS };
