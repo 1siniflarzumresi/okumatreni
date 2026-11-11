@@ -767,5 +767,5 @@ module.exports = ({ etk, resim, numarala, M }) => {
 .t2-yaz{background:#fff;border-radius:3mm;padding:3mm 5mm 4mm;margin-top:3mm;flex:1;display:flex;flex-direction:column}.t2-yaz .t2-cizgi{flex:1;justify-content:space-evenly}
 .t2-bas{display:flex;align-items:flex-end;gap:3mm;font-size:5.2mm;color:#1d4e89}.t2-bas i{flex:1;max-width:110mm;border-bottom:.5mm solid #1d4e89;height:8mm}
 `;
-  return { T2, CSS };
+  return { T2, CSS, A: { metin, harita, sirala, dogruYanlis, sozcuk, soru, tren, dogruYazim, hece, yeniden, domino, yazma, eslestir, bosluk, kimlik, siniflandir, tablo, fikir, mesaj, kiyas, yonergeYaz, cizgi } };
 };
