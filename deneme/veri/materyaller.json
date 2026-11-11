@@ -1292,5 +1292,60 @@
     "baslik": "36. Hafta · Sergimiz",
     "dosya": "materyaller/1-sinif/hayat-bilgisi/hafta-36.pdf",
     "resim": "materyaller/1-sinif/hayat-bilgisi/hafta-36-onizleme.png"
+  },
+  {
+    "id": "t2-hafta-01",
+    "sinif": 2,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Hatırlatma Haftası",
+    "hafta": 1,
+    "baslik": "1. Hafta · Kalemin Yaz Tatili",
+    "dosya": "materyaller/2-sinif/turkce/hafta-01.pdf",
+    "resim": "materyaller/2-sinif/turkce/hafta-01-onizleme.png"
+  },
+  {
+    "id": "t2-hafta-02",
+    "sinif": 2,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Değerlerimizle Varız",
+    "hafta": 2,
+    "baslik": "2. Hafta · Kayıp Cüzdan",
+    "dosya": "materyaller/2-sinif/turkce/hafta-02.pdf",
+    "resim": "materyaller/2-sinif/turkce/hafta-02-onizleme.png"
+  },
+  {
+    "id": "t2-hafta-03",
+    "sinif": 2,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Değerlerimizle Varız",
+    "hafta": 3,
+    "baslik": "3. Hafta · Ninemin Elma Ağacı",
+    "dosya": "materyaller/2-sinif/turkce/hafta-03.pdf",
+    "resim": "materyaller/2-sinif/turkce/hafta-03-onizleme.png"
+  },
+  {
+    "id": "t2-hafta-04",
+    "sinif": 2,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Değerlerimizle Varız",
+    "hafta": 4,
+    "baslik": "4. Hafta · Pamuk'un Su Kabı",
+    "dosya": "materyaller/2-sinif/turkce/hafta-04.pdf",
+    "resim": "materyaller/2-sinif/turkce/hafta-04-onizleme.png"
+  },
+  {
+    "id": "t2-hafta-05",
+    "sinif": 2,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Değerlerimizle Varız",
+    "hafta": 5,
+    "baslik": "5. Hafta · Dedemin Eski Saati",
+    "dosya": "materyaller/2-sinif/turkce/hafta-05.pdf",
+    "resim": "materyaller/2-sinif/turkce/hafta-05-onizleme.png"
   }
 ]

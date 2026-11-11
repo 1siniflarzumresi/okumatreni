@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ladin Ormanı</title>
-<meta name="description" content="1. sınıf için MEB Maarif Modeli'ne uygun, oyun gibi çalışma kâğıtları: Türkçe ilk okuma yazma ve haftalık Matematik.">
+<meta name="description" content="1. ve 2. sınıf için MEB Maarif Modeli'ne uygun, oyun gibi çalışma kâğıtları: Türkçe, Matematik, Hayat Bilgisi.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ladin Ormanı">
 <meta property="og:title" content="Ladin Ormanı">
-<meta property="og:description" content="1. sınıf için MEB Maarif Modeli'ne uygun, oyun gibi çalışma kâğıtları: Türkçe ilk okuma yazma ve haftalık Matematik.">
+<meta property="og:description" content="1. ve 2. sınıf için MEB Maarif Modeli'ne uygun, oyun gibi çalışma kâğıtları: Türkçe, Matematik, Hayat Bilgisi.">
 <meta property="og:url" content="https://1siniflarzumresi.github.io/okumatreni/deneme/">
 <meta property="og:image" content="https://1siniflarzumresi.github.io/okumatreni/deneme/paylasim.png">
 <meta property="og:locale" content="tr_TR">
@@ -73,7 +73,7 @@ h1 em{font-style:normal;color:var(--mavi)}
 
 <section class="kahraman"><div class="kap">
   <div>
-    <span class="ufak">1. sınıf · MEB Maarif Modeli</span>
+    <span class="ufak">1. ve 2. sınıf · MEB Maarif Modeli</span>
     <h1>Her hafta <em>oyun gibi</em> çalışma kâğıtları</h1>
     <p>Sınıfını, dersini ve haftanı seç; o haftanın kâğıtlarını tek tıkla indir.</p>
   </div>
@@ -92,9 +92,9 @@ h1 em{font-style:normal;color:var(--mavi)}
 <main class="kap">
   <section class="adim" id="a1">
     <div class="adim-bas"><span class="adim-no">1</span><h2>Sınıfını seç</h2></div>
-    <div class="secimler">
+    <div class="secimler" id="siniflar">
       <button class="secim" style="--renk:var(--mavi);--renk-a:var(--mavi-a)" data-sinif="1" aria-pressed="true"><span class="ik">1</span><b>1. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi</span></button>
-      <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">2</span><b>2. Sınıf</b><span>Yakında</span></div>
+      <button class="secim" style="--renk:var(--mor,#8b5cf6);--renk-a:var(--mor-a,#f4edff)" data-sinif="2" aria-pressed="false"><span class="ik">2</span><b>2. Sınıf</b><span>Türkçe · haftalık metin ve dil bilgisi</span></button>
       <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">3</span><b>3. Sınıf</b><span>Yakında</span></div>
       <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">4</span><b>4. Sınıf</b><span>Yakında</span></div>
     </div>
@@ -102,11 +102,7 @@ h1 em{font-style:normal;color:var(--mavi)}
 
   <section class="adim" id="a2">
     <div class="adim-bas"><span class="adim-no">2</span><h2>Dersini seç</h2></div>
-    <div class="secimler" id="dersler">
-      <button class="secim" style="--renk:var(--mercan);--renk-a:var(--mercan-a)" data-ders="turkce"><span class="ik">Aa</span><b>Türkçe</b><span>İlk okuma yazma · 29 harf</span></button>
-      <button class="secim" style="--renk:var(--mavi);--renk-a:var(--mavi-a)" data-ders="matematik"><span class="ik">12</span><b>Matematik</b><span>36 hafta · oyunlu kâğıtlar</span></button>
-      <button class="secim" style="--renk:var(--yesil);--renk-a:var(--yesil-a)" data-ders="hayat_bilgisi"><span class="ik">🌿</span><b>Hayat Bilgisi</b><span>Haftalık · hazırlanıyor</span></button>
-    </div>
+    <div class="secimler" id="dersler"></div>
   </section>
 
   <section class="adim kilitli" id="a3">
@@ -129,7 +125,26 @@ h1 em{font-style:normal;color:var(--mavi)}
 (function(){
   var HARF = ["A","N","E","T","İ","L","O","K","U","R","I","M","Ü","S","Ö","Y","D","Z","Ç","B","G","C","Ş","P","H","V","Ğ","F","J"];
   var RENK = {turkce:["var(--mercan)","var(--mercan-a)"], matematik:["var(--mavi)","var(--mavi-a)"], hayat_bilgisi:["var(--yesil)","var(--yesil-a)"]};
-  var MATS = [], TK = null, ders = null, sec = null, buHafta = null;
+  var MATS = [], TK = null, ders = null, sec = null, buHafta = null, sinif = 1;
+  var DERS_AD = {
+    1: {turkce:["Aa","Türkçe","İlk okuma yazma · 29 harf"], matematik:["12","Matematik","36 hafta · oyunlu kâğıtlar"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · keşif ve oyun"]},
+    2: {turkce:["Aa","Türkçe","Haftalık okuma metni · dil bilgisi · yazma"], matematik:["12","Matematik","Hazırlanıyor"], hayat_bilgisi:["🌿","Hayat Bilgisi","Hazırlanıyor"]}
+  };
+  function harfli(){ return sinif === 1 && ders === "turkce"; }
+  function dersleriCiz(){
+    var A = DERS_AD[sinif];
+    $("dersler").innerHTML = Object.keys(A).map(function(d){
+      var var_ = MATS.some(function(m){ return (m.sinif || 1) === sinif && m.ders === d; });
+      return var_ ? '<button class="secim" style="--renk:'+RENK[d][0]+';--renk-a:'+RENK[d][1]+'" data-ders="'+d+'"><span class="ik">'+A[d][0]+'</span><b>'+A[d][1]+'</b><span>'+A[d][2]+'</span></button>'
+                  : '<div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">'+A[d][0]+'</span><b>'+A[d][1]+'</b><span>Hazırlanıyor</span></div>';
+    }).join("");
+  }
+  function sinifSec(s){
+    sinif = s; ders = null;
+    document.querySelectorAll("[data-sinif]").forEach(function(b){ b.setAttribute("aria-pressed", +b.dataset.sinif === s); });
+    dersleriCiz();
+    ["a3","a4"].forEach(function(i){ $(i).classList.add("kilitli"); }); $("serit").innerHTML = ""; $("kagitlar").innerHTML = "";
+  }
   var $ = function(id){ return document.getElementById(id); };
 
   function dersSec(d){
@@ -138,12 +153,12 @@ h1 em{font-style:normal;color:var(--mavi)}
     document.body.style.setProperty("--renk", RENK[d][0]); document.body.style.setProperty("--renk-a", RENK[d][1]);
     $("a3").classList.remove("kilitli");
     var s = $("serit");
-    if (d === "turkce") {
+    if (harfli()) {
       $("a3-baslik").textContent = "Sınıfın hangi harfte?"; $("a3-not").textContent = "";
       s.innerHTML = HARF.map(function(h){ return '<button class="durak" data-s="'+h+'">'+h+'</button>'; }).join("");
     } else {
       $("a3-baslik").textContent = "Hangi hafta?"; $("a3-not").textContent = buHafta ? "Sarı olan bu hafta." : "";
-      var hs = MATS.filter(function(m){ return m.ders === d && m.hafta; }).map(function(m){ return m.hafta; });
+      var hs = MATS.filter(function(m){ return (m.sinif || 1) === sinif && m.ders === d && m.hafta; }).map(function(m){ return m.hafta; });
       s.innerHTML = hs.map(function(h){ return '<button class="durak hafta'+(h === buHafta ? ' bu' : '')+'" data-s="'+h+'">'+h+'. hafta</button>'; }).join("");
     }
     $("a4").classList.add("kilitli"); $("kagitlar").innerHTML = "";
@@ -153,8 +168,8 @@ h1 em{font-style:normal;color:var(--mavi)}
   function adimSec(v){
     sec = v;
     document.querySelectorAll(".durak").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.s === String(v)); });
-    var l = MATS.filter(function(m){ return m.ders === ders && !m.harfler && !/paket/.test(m.id) && (ders === "turkce" ? m.harf === v : String(m.hafta) === String(v)); });
-    $("a4-baslik").textContent = ders === "turkce" ? v + " harfinin kâğıtları" : v + ". haftanın kâğıtları";
+    var l = MATS.filter(function(m){ return (m.sinif || 1) === sinif && m.ders === ders && !m.harfler && !/paket/.test(m.id) && (harfli() ? m.harf === v : String(m.hafta) === String(v)); });
+    $("a4-baslik").textContent = harfli() ? v + " harfinin kâğıtları" : v + ". haftanın kâğıtları";
     $("kagitlar").innerHTML = l.map(function(m){
       return '<article class="kagit"><div class="on"><img src="'+m.resim+'" alt="" loading="lazy"></div><div class="ic"><b>'+m.baslik.replace(/^\d+\. Hafta · /,"")+'</b><small>'+(m.unite||"")+'</small><a class="indir" href="'+m.dosya+'">PDF indir</a></div></article>';
     }).join("") || '<p>Bu seçim için kâğıt hazırlanıyor.</p>';
@@ -163,13 +178,14 @@ h1 em{font-style:normal;color:var(--mavi)}
   }
 
   $("dersler").addEventListener("click", function(e){ var b = e.target.closest("[data-ders]"); if (b) dersSec(b.dataset.ders); });
-  $("serit").addEventListener("click", function(e){ var b = e.target.closest(".durak"); if (b) adimSec(ders === "turkce" ? b.dataset.s : +b.dataset.s); });
+  $("serit").addEventListener("click", function(e){ var b = e.target.closest(".durak"); if (b) adimSec(harfli() ? b.dataset.s : +b.dataset.s); });
+  $("siniflar").addEventListener("click", function(e){ var b = e.target.closest("[data-sinif]"); if (b) sinifSec(+b.dataset.sinif); });
   Promise.all([LADIN.takvimYukle().catch(function(){ return null; }), LADIN.materyalYukle()]).then(function(r){
     TK = r[0]; MATS = r[1] || []; var h = TK ? LADIN.buHafta(TK) : null; buHafta = h && !h.tatil ? h.hafta : null;
-    hashAc();
+    dersleriCiz(); hashAc();
   });
   // Menüden gelen ders: index.html#turkce / #matematik
-  function hashAc(){ var d = location.hash.slice(1); if (RENK[d] && MATS.length) dersSec(d); }
+  function hashAc(){ var d = location.hash.slice(1); if (RENK[d] && MATS.length) { if (sinif !== 1) sinifSec(1); dersSec(d); } }
   addEventListener("hashchange", hashAc);
 })();
 </script>
