@@ -647,7 +647,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
         'Bir ay sonra sınıfımız değişti. Kimse topu kapmıyor, kitaplık hep düzenli. Nehir başkanlığı bıraktığında hepimizi şöyle uyardı: “Haklarımızı isterken sorumluluklarımızı unutmayalım!”',
       ] }),
       numarala([harita(), soru(['Sınıf meclisi neden kuruldu?', 'Kurallar nasıl seçildi?', 'Nehir\'in son sözünü kendi cümlelerinle açıkla.']),
-        sozcuk([['Aday olanlar kısa konuşmalar yaptı.  <u>Aday</u>:', ['seçilmek isteyen kişi', 'oy sayan kişi', 'izleyici']], ['<u>Çoğunluğun</u> kabul ettiği kurallar yazıldı.', ['sınıfın büyük bölümünün', 'yalnız öğretmenin', 'hiç kimsenin']]])]),
+        sozcuk([['<u>Aday</u> olanlar kısa konuşmalar yaptı.', ['seçilmek isteyen kişi', 'oy sayan kişi', 'izleyici']], ['<u>Çoğunluğun</u> kabul ettiği kurallar yazıldı.', ['sınıfın büyük bölümünün', 'yalnız öğretmenin', 'hiç kimsenin']]])]),
       numarala([siniflandir('Hak mı, sorumluluk mu? Sözcükleri doğru kutuya yaz.', [['Hak', '#3a86ff'], ['Sorumluluk', '#f2546b'], ['İkisi de', '#8b5cf6']], ['oyun oynamak', 'sırayı beklemek', 'eğitim almak', 'eşyaları toplamak', 'fikrini söylemek', 'başkasını dinlemek', 'sağlıklı beslenmek']),
         fikir('Bu düşünceye katılıyor musun?', 'Sınıf kurallarını öğrenciler birlikte koymalıdır.'),
         soru(['Sınıfınızda hangi kural olsun isterdin? Neden?'])]),
