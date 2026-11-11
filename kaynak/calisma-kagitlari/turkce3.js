@@ -127,6 +127,109 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
         eslestir('Eş anlamlılarını eşleştir.', [['vatan', 'yürek'], ['kalp', 'yurt'], ['cesur', 'yanıt'], ['cevap', 'yiğit']], 62)]),
       numarala([yazma('Çanakkale\'de savaşan bir askere bir mektup yaz. Ona bugünkü Türkiye\'yi anlat.', ['Hitap:', 'Ona neler anlatacaksın?', 'Nasıl bir dilekle bitireceksin?'], 12)]),
     ] },
+    'hafta-07': { unite: 3, hafta: 7, baslik: 'Herkes Okula!', konu: 'Atatürk ve kahramanlarımız · Karşılaştırma, zıt anlam, imza', sayfalar: () => [
+      metin({ baslik: 'Herkes Okula!', resimler: ['millet-mektebi', 'harf-bloklari'], tahmin: 'Büyükler de okula gider mi? Ne öğrenmiş olabilirler?', paragraflar: [
+        'Cumhuriyet Bayramı\'na bir hafta kala öğretmenimiz bir ödev verdi: “Ailenizdeki en yaşlı kişiye Cumhuriyet\'in ilk yıllarını sorun.”',
+        'Ben de büyük ninem Hatice Nine\'ye sordum. Hatice Nine doksan yaşındaydı ama hafızası pırıl pırıldı. Gözlüğünü taktı, anlatmaya başladı:',
+        '– Ben küçükken annem okuma yazma bilmezdi. Köyümüzde okuyabilen ancak birkaç kişi vardı. Hem eskiden kullanılan harfler öğrenmesi zor harflerdi.',
+        '– Peki sonra ne oldu nine?',
+        '– 1928 yılında Atatürk yeni harfleri getirdi. Bugün senin defterine yazdığın harfleri. Ardından her yerde “Millet Mektepleri” açıldı. Büyükler de akşamları okula gitmeye başladı. Annem kırk yaşındaydı. Gündüz tarlada çalışır, akşam elinde gaz lambasıyla okula giderdi.',
+        'Hatice Nine durdu, gülümsedi:',
+        '– Annemin ilk okuduğu kelime benim adımdı. Kara tahtaya “Hatice” yazmış, sonra sevinçten ağlamış. Eve gelince bana sarıldı, “Artık mektuplarını kendim okuyacağım.” dedi.',
+        'Atatürk o yıllarda bir kara tahtanın başına geçip halka yeni harfleri kendisi öğretmiş. Bu yüzden ona “Başöğretmen” denirmiş.',
+        'O akşam Hatice Nine benden bir şey istedi. Bir kâğıda adını ve soyadını yazdım, o da altına titrek eliyle imzasını attı. İmzasında küçük bir ay ile bir yıldız vardı.',
+        '– Bunu bana annem öğretti, dedi. Her imzam ona bir teşekkürdür.',
+      ] }),
+      numarala([harita(), dogruYanlis(['Yeni harfler 1928 yılında kabul edildi.', 'Millet Mekteplerine yalnız çocuklar gidiyordu.', 'Hatice Nine\'nin annesi okumayı kırk yaşında öğrendi.', 'Atatürk\'e "Başöğretmen" denirdi.']),
+        soru(['Hatice Nine\'nin annesi neden sevinçten ağladı?', 'İmzasındaki ay ve yıldız sence neyi anlatıyor?'])]),
+      numarala([kiyas('Eskiden ve bugün okumayı öğrenmeyi karşılaştır.', 'Eskiden', 'Bugün'),
+        domino('Zıt anlam dominosu! Metindeki sözcüklerin zıttını yaz.', ['yaşlı', 'zor', 'gündüz', 'ilk', 'sevinç', 'kara'], ['akşam', 'ak', 'genç', 'kolay', 'üzüntü', 'son']),
+        etk(0, 'İmzanı tasarla! Adını ve soyadını yaz, altına sana özgü bir imza at.', `<div class="t3-imza"><div><span class="ttkb">Adım soyadım:</span>${cizgi(1)}</div><div><span class="ttkb">İmzam:</span><i></i></div></div>`)]),
+      numarala([yazma('Ailendeki en yaşlı kişiyle bir söyleşi yap. Ona çocukluğunu sor ve öğrendiklerini yaz.', ['Kimle konuştun?', 'Çocukken okul nasıldı?', 'Seni en çok şaşırtan ne oldu?'], 12)]),
+    ] },
+    'hafta-08': { unite: 3, hafta: 8, baslik: 'Karda Bir Fener', konu: 'Atatürk ve kahramanlarımız · Yazışmayı sürdürme, iletileri karşılaştırma', sayfalar: () => [
+      metin({ baslik: 'Karda Bir Fener', resimler: ['nene-hatun', 'kizilay-kamyon'], tahmin: 'Karlı bir gecede elinde fenerle yürüyen bu kadın kim olabilir?', paragraflar: [
+        'Erzurum\'da kışlar çok sert geçer. 1877 yılının kasım ayında da kar dizleri aşıyordu. Şehir, uzun ve zorlu bir savaşın ortasındaydı.',
+        'Bir gece düşman askerleri şehre yakın Aziziye Tabyası\'nı ele geçirdi. Tabya, şehri koruyan büyük bir kaleydi. Haber şehre yayılınca çan sesleri, davul sesleri birbirine karıştı. Uykudan uyanan halk, ellerinde ne varsa alıp sokağa döküldü.',
+        'Kalabalığın arasında genç bir kadın vardı: Nene Hatun. Daha birkaç gün önce kardeşini savaşta kaybetmişti. Evde üç aylık bebeği uyuyordu. Bebeğini öptü, komşusuna emanet etti. Eline bir fener, beline kardeşinin kılıcını aldı ve karlı yokuşu tırmanan kalabalığa katıldı.',
+        'Kadınlı erkekli, gençli yaşlı herkes tabyaya koştu. Kadınlar askerlere cephane ve su taşıdı, yaralıları sardı. Sabaha karşı tabya geri alındı. Erzurum kurtulmuştu.',
+        'Nene Hatun o geceden sonra bir kahraman olarak anıldı. Uzun bir ömür yaşadı. Yaşlandığında çocuklar etrafına toplanır, ona o geceyi sorardı. O da hep aynı şeyi söylerdi:',
+        '– Ben yalnız değildim. Herkes bir şey taşıdı: kimi fener, kimi su, kimi umut.',
+        'Bugün Erzurum\'da Nene Hatun\'un adı bir caddede, bir okulda ve insanların kalbinde yaşıyor. Kızılay Haftası\'nda öğretmenimiz bize onu anlattığında anladım: Yardımlaşma bazen bir fener taşımak kadar küçük, bir şehri kurtarmak kadar büyüktür.',
+      ] }),
+      numarala([harita(), sirala(['Düşman Aziziye Tabyası\'nı ele geçirdi.', 'Nene Hatun bebeğini komşusuna emanet etti.', 'Halk tabyaya koştu.', 'Tabya geri alındı.', 'Nene Hatun yaşlanınca çocuklara anlattı.'], 81),
+        soru(['Nene Hatun "Ben yalnız değildim." derken ne anlatmak istiyor?', 'Kızılay ile Nene Hatun\'un hikâyesi arasında nasıl bir bağ var?'])]),
+      numarala([kiyas('Nene Hatun\'un o geceki yardımı ile bugün Kızılay\'ın yaptığı yardımları karşılaştır.', 'Nene Hatun', 'Kızılay'),
+        mesaj('Bir arkadaşın Nene Hatun\'u merak edip sana yazdı. Yazışmayı sürdür: Cevap ver ve ona bir soru sor.', 'Merhaba! Öğretmen bugün Nene Hatun\'dan bahsetti ama ben kaçırdım. O kimdi, ne yapmıştı?')]),
+      numarala([yazma('Zor bir durumda birlikte çalışarak başarılan bir işi anlat (ailede, sınıfta, mahallede).', ['Ne oldu?', 'Kim ne taşıdı, ne yaptı?', 'Sonunda ne oldu?'], 12)]),
+    ] },
+    'hafta-09': { unite: 3, hafta: 9, baslik: 'Çankaya\'da Bir Bahçe', konu: 'Atatürk ve kahramanlarımız · Sınıflandırma', sayfalar: () => [
+      metin({ baslik: 'Çankaya\'da Bir Bahçe', resimler: ['cicek-buketi', 'eski-calisma-masasi'], tahmin: 'Atatürk çocuklarla nasıl vakit geçirirdi? Tahmin et.', paragraflar: [
+        'Atatürk çocukları çok severdi. Onlarla konuşmak, sorularını dinlemek, onları güldürmek ona büyük mutluluk verirdi. Hayatında birkaç çocuğu evlat edindi. Bunlardan en küçüğü Ülkü\'ydü.',
+        'Ülkü, Atatürk\'ün yanına geldiğinde çok küçüktü. Ankara\'da, Çankaya Köşkü\'nün bahçesinde koşup oynardı. Atatürk yorucu bir günün ardından bahçeye çıktığında Ülkü hemen yanına koşar, elinden tutar, ona topladığı çiçekleri verirdi. Atatürk o çiçekleri çalışma masasındaki bir bardağa koyardı.',
+        'Çalışma odası kitaplarla doluydu. Atatürk çok kitap okurdu. Tarih, dil, matematik, coğrafya… Okuduğu kitapların kenarlarına notlar alır, önemli yerlerin altını çizerdi. Kitaplığında binlerce kitap vardı.',
+        'Bir gün Ülkü masaya tırmanıp bir kitabı açmaya çalıştı. Kitap ağırdı, düştü. Ülkü korkuyla Atatürk\'e baktı. Atatürk kitabı yerden aldı, Ülkü\'yü kucağına oturttu ve kitaptaki resimleri birlikte incelediler.',
+        '– Kitaplar düşerse kaldırırız, dedi Atatürk. Ama hiç açılmazsa içindekiler sonsuza kadar karanlıkta kalır.',
+        'Atatürk, 23 Nisan\'ı dünya çocuklarına armağan etti. Bugün her 23 Nisan\'da farklı ülkelerden çocuklar Türkiye\'ye gelir, bayramı birlikte kutlar. Onun çocuklara verdiği değerin en güzel göstergesi, belki de budur.',
+        'Atatürk 10 Kasım 1938\'de aramızdan ayrıldı. Biz onu her yıl saygıyla anıyoruz. Ama onu en iyi, onun gibi kitap okuyarak ve merak ederek anabiliriz.',
+      ] }),
+      numarala([harita(), dogruYanlis(['Ülkü, Atatürk\'ün evlat edindiği çocuklardandı.', 'Atatürk kitaplarına hiç not almazdı.', 'Atatürk 23 Nisan\'ı dünya çocuklarına armağan etti.', 'Ülkü kitabı düşürünce Atatürk ona kızdı.']),
+        soru(['Atatürk\'ün "Hiç açılmazsa içindekiler karanlıkta kalır." sözü ne anlatıyor?'])]),
+      numarala([siniflandir('Metindeki sözcükleri sınıflandır: kişi mi, yer mi, nesne mi?', [['Kişiler', '#3a86ff'], ['Yerler', '#12b886'], ['Nesneler', '#f2546b']], ['Ülkü', 'Ankara', 'kitap', 'Atatürk', 'Çankaya Köşkü', 'bardak', 'çiçek', 'bahçe', 'öğretmen']),
+        tablo('Atatürk hakkında öğrendiklerini sınıflandırarak yaz.', ['Sevdiği şeyler', 'Yaptığı işler'], [['', ''], ['', ''], ['', '']])]),
+      numarala([yazma('Atatürk\'e bir mektup yaz. Ona okuduğun en güzel kitabı anlat.', ['Hitap:', 'Hangi kitap, ne anlatıyor?', 'Kapanış:'], 12)]),
+    ] },
+    'hafta-10': { unite: 4, hafta: 10, baslik: 'Leyleklerin Uzun Yolu', konu: 'Doğayı tanıyoruz · Eş anlamlı sözcükleri kullanma, sınıflandırma', sayfalar: () => [
+      metin({ baslik: 'Leyleklerin Uzun Yolu', resimler: ['leylekler', 'leylek-yuva'], tahmin: 'Leylekler kışın nereye gider? Tahmin et.', paragraflar: [
+        'Dedemin köyünde, eski değirmenin bacasının tepesinde kocaman bir leylek yuvası vardır. Yuva, dallardan, otlardan ve çamurdan yapılmıştır. Dedem bu yuvanın, kendisi çocukken de orada olduğunu söyler.',
+        'Her yıl mart ayının sonunda leylekler gökyüzünde belirir. Önce bir tane gelir, yuvayı onarır. Birkaç gün sonra eşi gelir. Gagalarını takırdatarak birbirlerini selamlarlar. Köyde herkes bilir: Leylekler geldiyse bahar da gelmiştir.',
+        'Yazın yuvada iki üç yavru büyür. Anne ve baba leylek bütün gün tarlalarda, dere kenarlarında yiyecek arar. Kurbağa, böcek, küçük balık yakalar ve yavrularına getirir. Yavrular önce yuvanın kenarında kanat çırparak uçmayı dener. Sonra bir gün cesaretlerini toplar ve havalanırlar.',
+        'Ağustos sona ererken köyün üstünde yüzlerce leylek toplanır. Gökyüzünde daireler çizer, sıcak hava akımlarına binerek yükselirler. Sonra hep birlikte güneye, Afrika\'ya doğru uzun bir yolculuğa çıkarlar. Bu yolculuk binlerce kilometre sürer.',
+        'Leylekler yollarını nasıl bulur? Bilim insanları onların güneşi, dağları, nehirleri ve denizleri işaret olarak kullandığını düşünüyor. En şaşırtıcısı da şu: Leylekler baharda yine aynı yuvaya döner.',
+        'Geçen bahar dedem bana bir dürbün verdi. Değirmenin yanında saatlerce bekledim. Sonunda gökyüzünde bir nokta belirdi. Nokta büyüdü, büyüdü… Bembeyaz kanatlarını açan bir leylek, bacadaki yuvaya süzülerek kondu. Dedem gülümsedi:',
+        '– Hoş geldin, eski dost.',
+      ] }),
+      numarala([harita(), dogruYanlis(['Leylek yuvası dallardan, otlardan ve çamurdan yapılır.', 'Leylekler kışı köyde geçirir.', 'Leylekler baharda aynı yuvaya döner.', 'Leylekler yolculukta güneşi işaret olarak kullanabilir.']),
+        sozcuk([['Leylekler <u>sıcak hava akımlarına</u> binerek yükselir.', ['yukarı doğru çıkan ılık hava', 'yağmur bulutları', 'deniz dalgaları']], ['Yavrular <u>cesaretlerini toplar</u> ve havalanır.', ['korkularını yener', 'tüylerini toplar', 'uyur']]])]),
+      numarala([yeniden('Altı çizili sözcüğün yerine eş anlamlısını yazarak cümleyi yeniden yaz.', ['Leylekler <u>uzun</u> bir <u>yolculuğa</u> çıkar. (sefer)', 'Dedem bana bir <u>armağan</u> verdi.', 'Leylek <u>yanıt</u> verir gibi gagasını takırdattı.']),
+        siniflandir('Leyleğin besinlerini ve yuvasının malzemelerini ayır.', [['Besin', '#f4a100'], ['Yuva malzemesi', '#8e5b2b']], ['kurbağa', 'dal', 'böcek', 'ot', 'balık', 'çamur'])]),
+      numarala([yazma('Göç eden bir hayvanı araştır (kırlangıç, turna, somon…). Onun yolculuğunu anlatan bilgilendirici bir yazı yaz.', ['Hangi hayvan?', 'Nereden nereye göç eder?', 'Yolunu nasıl bulur?'], 12)]),
+    ] },
+    'hafta-11': { unite: 4, hafta: 11, baslik: 'Arıların Dansı', konu: 'Doğayı tanıyoruz · Ayrıntılı yönerge, yazma planı', sayfalar: () => [
+      metin({ baslik: 'Arıların Dansı', resimler: ['ari-dans', 'ari-kovan'], tahmin: 'Arılar birbirleriyle nasıl anlaşır? Tahmin et.', paragraflar: [
+        'Teyzem arıcıdır. Yazın onun yanına gittiğimde bana bir arıcı şapkası verdi. Şapkanın önünde ince bir tül vardı. Kovanların yanına yavaşça yaklaştık. Teyzem kapaklardan birini açtı ve altın renkli bir petek çıkardı.',
+        '– Dikkatle bak, dedi. Şu arı dans ediyor.',
+        'Gerçekten de bir arı peteğin üstünde garip bir şekilde dönüyordu. Önce düz bir çizgide kıpır kıpır ilerliyor, sonra sağa dönüp başlangıç noktasına geliyor, sonra yine düz çizgide ilerleyip bu kez sola dönüyordu. Sanki sekiz rakamı çiziyordu.',
+        '– Bu, “sallanma dansı”, dedi teyzem. Bu arı çiçek dolu bir yer bulmuş. Dansıyla arkadaşlarına çiçeklerin yönünü ve uzaklığını anlatıyor. Çizgi ne kadar uzunsa çiçekler o kadar uzaktadır.',
+        'Arkadaşları dans eden arının etrafına toplanmıştı. Antenleriyle ona dokunuyor, üzerindeki çiçek kokusunu alıyorlardı. Birkaç dakika sonra hepsi aynı yöne uçtu.',
+        'Teyzem bana bir kovanda binlerce arı olduğunu anlattı. Kraliçe arı yumurta yumurtlar. İşçi arılar petek örer, bal yapar, yavrulara bakar, kovanı korur. Hepsinin bir görevi vardır.',
+        '– Bir kaşık bal için yüzlerce arı bütün yaz çalışır, dedi teyzem.',
+        'O akşam kahvaltılık balı kavanoza koyarken onu hiç olmadığı kadar değerli buldum. Kavanozun içinde sanki yüzlerce küçük dans vardı.',
+      ] }),
+      numarala([harita(), soru(['Sallanma dansında çizginin uzunluğu neyi gösterir?', 'İşçi arıların görevleri nelerdir?', 'Son cümle ne anlatıyor?']),
+        sozcuk([['Arılar <u>petek örer</u>.', ['balmumundan altıgen gözler yapar', 'çiçek toplar', 'uyur']]])]),
+      numarala([yonergeYaz('Ayrıntılı yönerge! Arıcıların kovanı nasıl açtığını teyzenin anlatımından yola çıkarak adım adım yaz. Her adımda neye dikkat edileceğini de ekle.', 5),
+        etk(0, 'Metnin devamını sen yaz: Ertesi gün teyzenle birlikte bal hasadına çıktınız. Neler oldu?', cizgi(5))]),
+      numarala([yazma('"Arılar neden önemlidir?" konulu bilgilendirici bir yazı yaz. Önce yazma planını doldur.', ['Giriş: Arılar kimdir?', 'Gelişme: Ne iş yaparlar? Bize ve doğaya faydaları?', 'Sonuç: Arıları nasıl koruyabiliriz?'], 12)]),
+    ] },
+    'hafta-12': { unite: 4, hafta: 12, baslik: 'Dere Neden Kurudu?', konu: 'Doğayı tanıyoruz · Ana fikir, okumayı değerlendirme', sayfalar: () => [
+      metin({ baslik: 'Dere Neden Kurudu?', resimler: ['kuru-nehir', 'akan-dere'], tahmin: 'Bir dere neden kurur? Tahmin et.', paragraflar: [
+        'Köyümüzün kenarından küçük bir dere akardı. Yazın ayaklarımızı serin suyuna sokar, taşların arasında küçük balıkları izlerdik. Bu yaz köye gittiğimizde dere yoktu. Yerinde çatlak çatlak bir toprak, birkaç kuru saz ve bir balık iskeleti vardı.',
+        'Çok üzüldüm. Dedeme sordum:',
+        '– Dere nereye gitti dede?',
+        'Dedem derin bir nefes aldı:',
+        '– Bu yıl çok az kar yağdı, yağmur da yağmadı. Bir de herkes tarlasını dereden çektiği suyla sulamaya başladı. Kimi suyu gereğinden fazla kullandı. Dere yorgun düştü.',
+        'O gün kuzenim Elif ile bir karar verdik. Köyün muhtarına gidip derenin kurumasını anlattık. Muhtar köylüleri camide topladı. Bir su uzmanı davet edildi. Uzman, damla sulama denen bir yöntemi anlattı. Bu yöntemde su, bitkinin köküne damla damla verilir; böylece çok daha az su harcanır.',
+        'Köylüler önce tereddüt etti ama sonra birkaç tarlada denediler. Sonbaharda bu tarlaların ürünü diğerlerinden azalmamıştı ama çok daha az su kullanılmıştı. Ertesi yıl neredeyse bütün köy damla sulamaya geçti.',
+        'Kışın bol kar yağdı. Bahar geldiğinde dedem bir video gönderdi: Dere yeniden akıyordu! Suyun şırıltısını telefondan bile duyabiliyordum.',
+        'Yazın köye gittiğimde ilk iş dereye koştum. Ayaklarımı suya soktum. Küçük bir balık parmaklarımın arasından süzülüp geçti. Sanki bana teşekkür ediyordu.',
+      ] }),
+      numarala([harita(), anaFikir(['Yazın köyde dereye girmek eğlencelidir.', 'Doğal kaynakları dikkatli kullanırsak onları koruyabiliriz.', 'Damla sulama zor bir yöntemdir.']),
+        sirala(['Dere kurudu.', 'Çocuklar muhtara gitti.', 'Bir su uzmanı damla sulamayı anlattı.', 'Köylüler damla sulamaya geçti.', 'Dere yeniden aktı.'], 121)]),
+      numarala([eslestir('Neden ve sonuç!', [['Az kar ve yağmur yağdı,', 'su tasarruf edildi.'], ['Damla sulama kullanıldı,', 'dere kurudu.'], ['Kışın bol kar yağdı,', 'dere yeniden aktı.']], 122),
+        tablo('Okumamı değerlendiriyorum. Bu metni okurken neler yaptın?', ['Okurken', 'Evet / Hayır'], [['Başlığa ve resimlere bakıp tahmin yaptım.', ''], ['Bilmediğim sözcüğün anlamını cümleden çıkardım.', ''], ['Noktalama işaretlerine dikkat ettim.', ''], ['Takıldığım yeri yeniden okudum.', '']])]),
+      numarala([yazma('Okulunda ya da evinde suyu korumak için bir kampanya başlatıyorsun. Kampanya afişinin metnini yaz.', ['Kampanyanın adı:', 'Neden gerekli?', 'Herkes ne yapmalı?'], 12)]),
+    ] },
   };
   const CSS = `
 .t3-sec{display:flex;flex-direction:column;gap:2mm}.t3-sec span{background:#fff;border:.5mm solid #9db4c8;border-radius:3mm;padding:2mm 3mm;font-size:5mm}
@@ -134,6 +237,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
 .t3-gm{display:flex;flex-direction:column;gap:2.5mm}.t3-gm>div{display:flex;align-items:center;gap:4mm;background:#fff;border-radius:3mm;padding:2mm 3mm}.t3-gm p{margin:0;flex:1;font-size:5mm}
 .t3-gm span{display:flex;align-items:center;gap:1.5mm;font-size:4.6mm}.t3-gm i{width:6mm;height:6mm;border:.5mm solid #4a5a50;border-radius:1.5mm}
 .t3-gm u{text-decoration-thickness:.5mm;text-underline-offset:1mm;color:#c2410c}
+.t3-imza{display:flex;flex-direction:column;gap:3mm;background:#fff;border-radius:3mm;padding:3mm}.t3-imza>div{display:grid;grid-template-columns:40mm 1fr;align-items:end;gap:2mm}.t3-imza span{font-size:5mm}.t3-imza i{height:22mm;border-bottom:.45mm dashed #9db4c8}
 .t3-dilekce{background:#fff;border-radius:3mm;padding:4mm 6mm;font-size:5mm}.t3-dilekce p{margin:0 0 2mm}.t3-sag{text-align:right}.t3-orta{text-align:center;text-transform:uppercase}.t3-konu{font-size:4.6mm;color:#5b6b7b}
 `;
   return { T3, CSS };
