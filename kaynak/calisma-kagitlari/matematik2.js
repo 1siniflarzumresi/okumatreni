@@ -331,5 +331,5 @@ module.exports = ({ etk, resim, RY, rastgele, numarala }) => {
 .m2-yuz{border-collapse:collapse;margin:auto;font-size:5.4mm}.m2-yuz td{width:15.5mm;height:12mm;border:.45mm solid #9db4c8;text-align:center;background:#fff}.m2-yuz td.b{background:#fff6dc}
 .m2-bos2{min-height:70mm;flex:1;background:#fff;border:.4mm dashed #9db4c8;border-radius:3mm}
 `;
-  return { M2, CSS };
+  return { M2, CSS, A: { R, karistir, tam, S, kutu, T, onlukSvg, CISIM, CAD, cisim, SEKIL, saatSvg, kesirSvg, para, terazi, cetvelSvg, cisimTablo, sekilModel, sekilCiz, dondur, karsilastir, trenSirala, komsu, kurbaga, oruntuSayi, oruntuSekil, buyuyen, tahmin, dikey, problem, problemKur, market, yuvarla, zihin, aile, eksik, carpGrup, carpCiz, paylas, grupla, carpimTablosuMini, teraziler, esitMi, kesirBoya, esitParca, paraSay, paraUstu, saatOku, saatCiz, gunum, zamanBirim, cetvelOlc, birimSec, agirHafif, kroki, simetriTamamla, simetriBul, harfSimetri, cetele, grafikBoya, anket, yuzluk, bilmece, hizliIslem } };
 };

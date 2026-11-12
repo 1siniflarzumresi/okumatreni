@@ -3568,5 +3568,560 @@
       "dil:gercek-mecaz",
       "dil:kisaltma-ek"
     ]
+  },
+  {
+    "id": "m3-hafta-01",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (1)",
+    "hafta": 1,
+    "baslik": "1. Hafta · Yüzlük Bloklar",
+    "dosya": "materyaller/3-sinif/matematik/hafta-01.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-01-onizleme.png",
+    "konu": "Sayılar, sayıları çözümleme",
+    "konu_id": [
+      "mat:sayilar1000"
+    ]
+  },
+  {
+    "id": "m3-hafta-02",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (1)",
+    "hafta": 2,
+    "baslik": "2. Hafta · Sayı Merdiveni",
+    "dosya": "materyaller/3-sinif/matematik/hafta-02.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-02-onizleme.png",
+    "konu": "Sayıları sıralama, ritmik sayma",
+    "konu_id": [
+      "mat:sayilar1000",
+      "mat:ritmik"
+    ]
+  },
+  {
+    "id": "m3-hafta-03",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (1)",
+    "hafta": 3,
+    "baslik": "3. Hafta · Tek mi Çift mi?",
+    "dosya": "materyaller/3-sinif/matematik/hafta-03.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-03-onizleme.png",
+    "konu": "Ritmik sayma, tek ve çift sayılar",
+    "konu_id": [
+      "mat:ritmik",
+      "mat:tek-cift"
+    ]
+  },
+  {
+    "id": "m3-hafta-04",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (1)",
+    "hafta": 4,
+    "baslik": "4. Hafta · Kural Avcısı",
+    "dosya": "materyaller/3-sinif/matematik/hafta-04.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-04-onizleme.png",
+    "konu": "Tek-çift sayıların toplamı, örüntüler",
+    "konu_id": [
+      "mat:tek-cift",
+      "mat:oruntu"
+    ]
+  },
+  {
+    "id": "m3-hafta-05",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (1)",
+    "hafta": 5,
+    "baslik": "5. Hafta · Büyüyen Örüntüler",
+    "dosya": "materyaller/3-sinif/matematik/hafta-05.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-05-onizleme.png",
+    "konu": "Sayı ve şekil örüntüleri, tahmin",
+    "konu_id": [
+      "mat:oruntu",
+      "mat:tahmin"
+    ]
+  },
+  {
+    "id": "m3-hafta-06",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (1)",
+    "hafta": 6,
+    "baslik": "6. Hafta · Yarım ve Çeyrek",
+    "dosya": "materyaller/3-sinif/matematik/hafta-06.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-06-onizleme.png",
+    "konu": "Nesne sayısını tahmin, bütün-yarım-çeyrek",
+    "konu_id": [
+      "mat:tahmin",
+      "mat:kesir-gosterim"
+    ]
+  },
+  {
+    "id": "m3-hafta-07",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (2)",
+    "hafta": 7,
+    "baslik": "7. Hafta · Kesirle Yaz",
+    "dosya": "materyaller/3-sinif/matematik/hafta-07.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-07-onizleme.png",
+    "konu": "Bütün, yarım ve çeyreğin kesir gösterimi",
+    "konu_id": [
+      "mat:kesir-gosterim"
+    ]
+  },
+  {
+    "id": "m3-hafta-08",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Hatırlatma ve Pekiştirme",
+    "hafta": 8,
+    "baslik": "8. Hafta · Eş Parçalar",
+    "dosya": "materyaller/3-sinif/matematik/hafta-08.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-08-onizleme.png",
+    "konu": "Bütünü eş parçalara ayırma, birim kesir",
+    "konu_id": [
+      "mat:kesir-gosterim"
+    ]
+  },
+  {
+    "id": "m3-hafta-09",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (2)",
+    "hafta": 9,
+    "baslik": "9. Hafta · Pay ve Payda",
+    "dosya": "materyaller/3-sinif/matematik/hafta-09.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-09-onizleme.png",
+    "konu": "Birim kesir, pay ile payda ilişkisi",
+    "konu_id": [
+      "mat:kesir-gosterim"
+    ]
+  },
+  {
+    "id": "m3-hafta-10",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (2)",
+    "hafta": 10,
+    "baslik": "10. Hafta · Dijital Saat",
+    "dosya": "materyaller/3-sinif/matematik/hafta-10.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-10-onizleme.png",
+    "konu": "Analog ve dijital saat, zaman ölçü birimleri",
+    "konu_id": [
+      "mat:saat-dijital"
+    ]
+  },
+  {
+    "id": "m3-hafta-11",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (2)",
+    "hafta": 11,
+    "baslik": "11. Hafta · Ne Kadar Sürer?",
+    "dosya": "materyaller/3-sinif/matematik/hafta-11.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-11-onizleme.png",
+    "konu": "Zaman ölçü birimleri, olayların süresini tahmin",
+    "konu_id": [
+      "mat:saat-dijital"
+    ]
+  },
+  {
+    "id": "m3-hafta-12",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (2)",
+    "hafta": 12,
+    "baslik": "12. Hafta · Süre Dedektifi",
+    "dosya": "materyaller/3-sinif/matematik/hafta-12.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-12-onizleme.png",
+    "konu": "Olayların oluş sürelerini tahmin",
+    "konu_id": [
+      "mat:saat-dijital"
+    ]
+  },
+  {
+    "id": "m3-hafta-13",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (2)",
+    "hafta": 13,
+    "baslik": "13. Hafta · Ölç ve Dönüştür",
+    "dosya": "materyaller/3-sinif/matematik/hafta-13.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-13-onizleme.png",
+    "konu": "Uzunluk ve kütle birimleri, paralar",
+    "konu_id": [
+      "mat:birim-donusum",
+      "mat:para"
+    ]
+  },
+  {
+    "id": "m3-hafta-14",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Sayılar ve Nicelikler (2)",
+    "hafta": 14,
+    "baslik": "14. Hafta · Kumbara Hesabı",
+    "dosya": "materyaller/3-sinif/matematik/hafta-14.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-14-onizleme.png",
+    "konu": "Madenî ve kâğıt paralar",
+    "konu_id": [
+      "mat:para"
+    ]
+  },
+  {
+    "id": "m3-hafta-15",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Hatırlatma ve Pekiştirme",
+    "hafta": 15,
+    "baslik": "15. Hafta · Pazar Alışverişi",
+    "dosya": "materyaller/3-sinif/matematik/hafta-15.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-15-onizleme.png",
+    "konu": "Madenî ve kâğıt paralar",
+    "konu_id": [
+      "mat:para"
+    ]
+  },
+  {
+    "id": "m3-hafta-16",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "İşlemlerden Cebirsel Düşünmeye",
+    "hafta": 16,
+    "baslik": "16. Hafta · Tahmin Ustası",
+    "dosya": "materyaller/3-sinif/matematik/hafta-16.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-16-onizleme.png",
+    "konu": "Toplama ve çıkarmada tahmin ve zihinden işlem",
+    "konu_id": [
+      "mat:zihinden"
+    ]
+  },
+  {
+    "id": "m3-hafta-17",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "İşlemlerden Cebirsel Düşünmeye",
+    "hafta": 17,
+    "baslik": "17. Hafta · Zihin Koşusu",
+    "dosya": "materyaller/3-sinif/matematik/hafta-17.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-17-onizleme.png",
+    "konu": "Toplama ve çıkarmada tahmin ve zihinden işlem",
+    "konu_id": [
+      "mat:zihinden"
+    ]
+  },
+  {
+    "id": "m3-hafta-18",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "İşlemlerden Cebirsel Düşünmeye",
+    "hafta": 18,
+    "baslik": "18. Hafta · Basamak Basamak",
+    "dosya": "materyaller/3-sinif/matematik/hafta-18.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-18-onizleme.png",
+    "konu": "Toplama ve çıkarma işlemlerini çözümleme",
+    "konu_id": [
+      "mat:toplama",
+      "mat:cikarma"
+    ]
+  },
+  {
+    "id": "m3-hafta-19",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "İşlemlerden Cebirsel Düşünmeye",
+    "hafta": 19,
+    "baslik": "19. Hafta · Çarpım Tablosu",
+    "dosya": "materyaller/3-sinif/matematik/hafta-19.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-19-onizleme.png",
+    "konu": "Çarpma ve bölmede tahmin ve zihinden işlem",
+    "konu_id": [
+      "mat:carpim-tablosu",
+      "mat:bolme3"
+    ]
+  },
+  {
+    "id": "m3-hafta-20",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "İşlemlerden Cebirsel Düşünmeye",
+    "hafta": 20,
+    "baslik": "20. Hafta · Çarp ve Böl",
+    "dosya": "materyaller/3-sinif/matematik/hafta-20.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-20-onizleme.png",
+    "konu": "Çarpma ve bölme işlemlerini çözümleme",
+    "konu_id": [
+      "mat:carpim-tablosu",
+      "mat:bolme3"
+    ]
+  },
+  {
+    "id": "m3-hafta-21",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "İşlemlerden Cebirsel Düşünmeye",
+    "hafta": 21,
+    "baslik": "21. Hafta · Yönergeyi İzle",
+    "dosya": "materyaller/3-sinif/matematik/hafta-21.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-21-onizleme.png",
+    "konu": "Dört işlemi yönergelere göre yorumlama",
+    "konu_id": [
+      "mat:dort-islem-problem"
+    ]
+  },
+  {
+    "id": "m3-hafta-22",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "İşlemlerden Cebirsel Düşünmeye",
+    "hafta": 22,
+    "baslik": "22. Hafta · Problem Çözücü",
+    "dosya": "materyaller/3-sinif/matematik/hafta-22.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-22-onizleme.png",
+    "konu": "Dört işlem gerektiren problemler",
+    "konu_id": [
+      "mat:dort-islem-problem"
+    ]
+  },
+  {
+    "id": "m3-hafta-23",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "İşlemlerden Cebirsel Düşünmeye",
+    "hafta": 23,
+    "baslik": "23. Hafta · Adım Adım Problem",
+    "dosya": "materyaller/3-sinif/matematik/hafta-23.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-23-onizleme.png",
+    "konu": "Dört işlem gerektiren problemler",
+    "konu_id": [
+      "mat:dort-islem-problem"
+    ]
+  },
+  {
+    "id": "m3-hafta-24",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Hatırlatma ve Pekiştirme",
+    "hafta": 24,
+    "baslik": "24. Hafta · Market Hesabı",
+    "dosya": "materyaller/3-sinif/matematik/hafta-24.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-24-onizleme.png",
+    "konu": "Dört işlem gerektiren problemler",
+    "konu_id": [
+      "mat:dort-islem-problem"
+    ]
+  },
+  {
+    "id": "m3-hafta-25",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "İşlemlerden Cebirsel Düşünmeye",
+    "hafta": 25,
+    "baslik": "25. Hafta · Problem Fabrikası",
+    "dosya": "materyaller/3-sinif/matematik/hafta-25.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-25-onizleme.png",
+    "konu": "Problem çözme ve problem yapılandırma",
+    "konu_id": [
+      "mat:dort-islem-problem"
+    ]
+  },
+  {
+    "id": "m3-hafta-26",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "İşlemlerden Cebirsel Düşünmeye",
+    "hafta": 26,
+    "baslik": "26. Hafta · Denge Kur",
+    "dosya": "materyaller/3-sinif/matematik/hafta-26.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-26-onizleme.png",
+    "konu": "Problem yapılandırma, dört işlemde eşitlik",
+    "konu_id": [
+      "mat:dort-islem-problem",
+      "mat:esitlik"
+    ]
+  },
+  {
+    "id": "m3-hafta-27",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "İşlemlerden Cebirsel Düşünmeye",
+    "hafta": 27,
+    "baslik": "27. Hafta · Eşitlik ve Cisimler",
+    "dosya": "materyaller/3-sinif/matematik/hafta-27.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-27-onizleme.png",
+    "konu": "Dört işlemde eşitlik, geometrik cisimler",
+    "konu_id": [
+      "mat:esitlik",
+      "mat:cisimler"
+    ]
+  },
+  {
+    "id": "m3-hafta-28",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Nesnelerin Geometrisi (1)",
+    "hafta": 28,
+    "baslik": "28. Hafta · Kenarları Say",
+    "dosya": "materyaller/3-sinif/matematik/hafta-28.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-28-onizleme.png",
+    "konu": "Cisimlerin özellikleri, şekilleri sınıflandırma",
+    "konu_id": [
+      "mat:cisimler",
+      "mat:sekil-kenar"
+    ]
+  },
+  {
+    "id": "m3-hafta-29",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Nesnelerin Geometrisi (1)",
+    "hafta": 29,
+    "baslik": "29. Hafta · Şekil Mimarı",
+    "dosya": "materyaller/3-sinif/matematik/hafta-29.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-29-onizleme.png",
+    "konu": "Şekilleri sınıflandırma, şekil ve cisim çizme",
+    "konu_id": [
+      "mat:sekil-kenar"
+    ]
+  },
+  {
+    "id": "m3-hafta-30",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Nesnelerin Geometrisi (1)",
+    "hafta": 30,
+    "baslik": "30. Hafta · Çevreyi Ölç",
+    "dosya": "materyaller/3-sinif/matematik/hafta-30.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-30-onizleme.png",
+    "konu": "Çevre uzunluğunu tahmin, sıvı ölçme",
+    "konu_id": [
+      "mat:cevre",
+      "mat:birim-donusum"
+    ]
+  },
+  {
+    "id": "m3-hafta-31",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Nesnelerin Geometrisi (1)",
+    "hafta": 31,
+    "baslik": "31. Hafta · Litre ve Simetri",
+    "dosya": "materyaller/3-sinif/matematik/hafta-31.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-31-onizleme.png",
+    "konu": "Sıvı miktarı tahmini, simetri doğrusu",
+    "konu_id": [
+      "mat:birim-donusum",
+      "mat:sekil-kenar"
+    ]
+  },
+  {
+    "id": "m3-hafta-32",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Nesnelerin Geometrisi (2)",
+    "hafta": 32,
+    "baslik": "32. Hafta · Simetri Ustası",
+    "dosya": "materyaller/3-sinif/matematik/hafta-32.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-32-onizleme.png",
+    "konu": "Simetrik şekli tamamlama ve oluşturma",
+    "konu_id": [
+      "mat:simetri"
+    ]
+  },
+  {
+    "id": "m3-hafta-33",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Hatırlatma ve Pekiştirme",
+    "hafta": 33,
+    "baslik": "33. Hafta · Yönergeyle Çiz",
+    "dosya": "materyaller/3-sinif/matematik/hafta-33.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-33-onizleme.png",
+    "konu": "Yönergeyle şekil tamamlama",
+    "konu_id": [
+      "mat:simetri",
+      "mat:yon"
+    ]
+  },
+  {
+    "id": "m3-hafta-34",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Veriye Dayalı Araştırma",
+    "hafta": 34,
+    "baslik": "34. Hafta · Veri Topla",
+    "dosya": "materyaller/3-sinif/matematik/hafta-34.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-34-onizleme.png",
+    "konu": "Veriyle çalışma",
+    "konu_id": [
+      "mat:sutun-grafik"
+    ]
+  },
+  {
+    "id": "m3-hafta-35",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Veriye Dayalı Araştırma",
+    "hafta": 35,
+    "baslik": "35. Hafta · Grafik Oku",
+    "dosya": "materyaller/3-sinif/matematik/hafta-35.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-35-onizleme.png",
+    "konu": "Veriyle çalışma ve karar verme",
+    "konu_id": [
+      "mat:sutun-grafik"
+    ]
+  },
+  {
+    "id": "m3-hafta-36",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "matematik",
+    "unite": "Veriye Dayalı Araştırma",
+    "hafta": 36,
+    "baslik": "36. Hafta · Veriyle Karar",
+    "dosya": "materyaller/3-sinif/matematik/hafta-36.pdf",
+    "resim": "materyaller/3-sinif/matematik/hafta-36-onizleme.png",
+    "konu": "Veriye dayalı karar verme",
+    "konu_id": [
+      "mat:sutun-grafik"
+    ]
   }
 ]

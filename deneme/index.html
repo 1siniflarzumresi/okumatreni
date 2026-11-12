@@ -111,7 +111,7 @@ h1 em{font-style:normal;color:var(--mavi)}
     <div class="secimler" id="siniflar">
       <button class="secim" style="--renk:var(--mavi);--renk-a:var(--mavi-a)" data-sinif="1" aria-pressed="true"><span class="ik">1</span><b>1. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi</span></button>
       <button class="secim" style="--renk:var(--mor,#8b5cf6);--renk-a:var(--mor-a,#f4edff)" data-sinif="2" aria-pressed="false"><span class="ik">2</span><b>2. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi</span></button>
-      <button class="secim" style="--renk:var(--yesil);--renk-a:var(--yesil-a)" data-sinif="3" aria-pressed="false"><span class="ik">3</span><b>3. Sınıf</b><span>Türkçe · diğer dersler hazırlanıyor</span></button>
+      <button class="secim" style="--renk:var(--yesil);--renk-a:var(--yesil-a)" data-sinif="3" aria-pressed="false"><span class="ik">3</span><b>3. Sınıf</b><span>Türkçe, Matematik · diğerleri hazırlanıyor</span></button>
       <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">4</span><b>4. Sınıf</b><span>Yakında</span></div>
     </div>
   </section>
@@ -150,7 +150,7 @@ h1 em{font-style:normal;color:var(--mavi)}
   var DERS_AD = {
     1: {turkce:["Aa","Türkçe","İlk okuma yazma · 29 harf"], matematik:["12","Matematik","36 hafta · oyunlu kâğıtlar"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · keşif ve oyun"]},
     2: {turkce:["Aa","Türkçe","Haftalık okuma metni · dil bilgisi · yazma"], matematik:["12","Matematik","36 hafta · oyunlu kâğıtlar ve konu anlatımı"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · karar anları, plan, keşif"]},
-    3: {turkce:["Aa","Türkçe","36 özgün metin · dil bilgisi · yazma"], matematik:["12","Matematik","Hazırlanıyor"], hayat_bilgisi:["🌿","Hayat Bilgisi","Hazırlanıyor"], fen_bilimleri:["🔬","Fen Bilimleri","Hazırlanıyor"]}
+    3: {turkce:["Aa","Türkçe","36 özgün metin · dil bilgisi · yazma"], matematik:["12","Matematik","36 hafta · 1000'e kadar sayılar, kesir, dört işlem"], hayat_bilgisi:["🌿","Hayat Bilgisi","Hazırlanıyor"], fen_bilimleri:["🔬","Fen Bilimleri","Hazırlanıyor"]}
   };
   function harfli(){ return sinif === 1 && ders === "turkce"; }
   function dersleriCiz(){
