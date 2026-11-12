@@ -49,7 +49,7 @@ module.exports = ({ S }) => {
     s += kutu(160, 26, a[0], 200) + ok(110, 50, 80, 78, 'D', '#12b886') + ok(210, 50, 240, 78, 'Y', '#f2546b') + kutu(80, 102, b[0]) + kutu(240, 102, c[0]);
     s += ok(50, 126, 34, 152, 'D', '#12b886') + ok(110, 126, 126, 152, 'Y', '#f2546b') + ok(210, 126, 194, 152, 'D', '#12b886') + ok(270, 126, 286, 152, 'Y', '#f2546b');
     [34, 126, 194, 286].forEach((x, i) => { s += `<rect x="${x - 22}" y="154" width="44" height="22" rx="11" fill="#fff3c4" stroke="#e08a00"/><text x="${x}" y="169" font-size="10" text-anchor="middle">${i + 1}. çıkış</text>`; });
-    return soru(p(giris) + S(320, 180, s, 86), kok, { l: ['1. çıkış', '2. çıkış', '3. çıkış', '4. çıkış'], d: cikis - 1 }, { tip: 'yolDY' });
+    return soru(p(giris) + S(320, 180, s, 74), kok, { l: ['1. çıkış', '2. çıkış', '3. çıkış', '4. çıkış'], d: cikis - 1 }, { tip: 'yolDY' });
   };
   // 3) Kaplar: numaralı kartlar doğruysa "Doğru Bilgi", yanlışsa "Yanlış Bilgi" kabına; kaplarla ilgili hangisi yanlış/doğru?
   const kapDY = (giris, ifadeler, t, istenen = 'yanlış') => {
