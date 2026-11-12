@@ -563,6 +563,8 @@ const M3MODUL = require('./matematik3.js')({ etk, resim, RY, numarala, A: M2MODU
 const H3MODUL = require('./hayat3.js')({ etk, resim, numarala, resimVar, A: H2MODUL.A });
 const F3MODUL = require('./fen3.js')({ etk, resim, numarala, resimVar, A: H2MODUL.A });
 const S4MODUL = require('./sosyal4.js')({ etk, numarala, A: H2MODUL.A });
+const T4 = require('./test4.js')({ S: H2MODUL.A.S });
+const S4O = require('./sosyal4-ornek.js')({ T: T4 });
 const T3MODUL = require('./turkce3.js')({ etk, resim, numarala, resimVar, A: T2MODUL.A, M: MATMODUL.ARAC });
 const DERS = { mat: { K: MATMODUL.MAT, ad: 'Matematik', klasor: 'matematik', paket: 'matematik' },
                hb: { K: HBMODUL.HB, ad: 'Hayat Bilgisi', klasor: 'hayat-bilgisi', paket: 'hayat-bilgisi' },
@@ -573,6 +575,7 @@ const DERS = { mat: { K: MATMODUL.MAT, ad: 'Matematik', klasor: 'matematik', pak
                m3: { K: M3MODUL.M3, ad: 'Matematik', klasor: 'matematik', paket: 'matematik', sinif: 3 },
                h3: { K: H3MODUL.H3, ad: 'Hayat Bilgisi', klasor: 'hayat-bilgisi', paket: 'hayat-bilgisi', sinif: 3 },
                f3: { K: F3MODUL.F3, ad: 'Fen Bilimleri', klasor: 'fen-bilimleri', paket: 'fen-bilimleri', sinif: 3 },
+               s4o: { K: S4O.S4, ad: 'Sosyal Bilgiler', klasor: 'ornek-sb', paket: 'ornek-sb', sinif: 4 },
                s4: { K: S4MODUL.S4, ad: 'Sosyal Bilgiler', klasor: 'sosyal-bilgiler', paket: 'sosyal-bilgiler', sinif: 4 } };
 const MAT = DERS.mat.K;
 // Çıktı dosya adları yalnız ASCII: sıra numarası + harf (ı → 11-i, İ → 05-i), paketler grup-1-anetil…
@@ -701,6 +704,7 @@ ${M3MODUL.CSS}
 ${H3MODUL.CSS}
 ${F3MODUL.CSS}
 ${S4MODUL.CSS}
+${T4.CSS}
 /* Kullanıcı kararı: kâğıtlardaki bütün yazılar TTKB; TTKB'de olmayan işaretler (× → ↔ ✓) Andika'ya düşer */
 *,svg text{font-family:TTKB,Andika,sans-serif !important}
 .harf.mat{font-size:10.5mm;letter-spacing:.2mm}
