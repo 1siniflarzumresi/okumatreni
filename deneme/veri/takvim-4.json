@@ -1,7 +1,7 @@
 {
  "egitim_yili": "2026-2027",
  "sinif": 4,
- "kaynak": "MEB 4. sınıf Türkçe, Matematik, Fen Bilimleri taslak yıllık planları (2026-2027)",
+ "kaynak": "MEB 4. sınıf Türkçe, Matematik, Fen Bilimleri taslak yıllık planları (2026-2027) · Sosyal Bilgiler: 2018 öğretim programı ünitelerine göre Ladin Ormanı planı",
  "uniteler": {
   "turkce": [
    {
@@ -216,6 +216,15 @@
        "ad": "Yer kabuğunun kara tabakasının kayaçlardan oluştuğunu belirtir"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "BİREY VE TOPLUM"
+     ],
+     "konu": [
+      "Resmî kimlik belgesi"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -333,6 +342,15 @@
        "ad": "Fosillerin oluşumunu açıklar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "BİREY VE TOPLUM"
+     ],
+     "konu": [
+      "Farklı özelliklere saygı"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -434,6 +452,15 @@
        "ad": "Dünya’nın dönme ve dolanma hareketleri arasındaki farkı açıklar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "BİREY VE TOPLUM"
+     ],
+     "konu": [
+      "Önemli olayları kronolojik sıralama"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -550,6 +577,15 @@
        "ad": "Dünya’nın hareketleri sonucu gerçekleşen olayları açıklar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "BİREY VE TOPLUM"
+     ],
+     "konu": [
+      "Aile içi roller ve sorumluluklar"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -648,6 +684,15 @@
        "ad": "Dünya’nın hareketleri sonucu gerçekleşen olayları açıklar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "BİREY VE TOPLUM"
+     ],
+     "konu": [
+      "Grup içinde sorumluluk ve ortak karar"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -746,6 +791,15 @@
        "ad": "Canlı yaşamı ve besin içerikleri arasındaki ilişkiyi açıklar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "KÜLTÜR VE MİRAS"
+     ],
+     "konu": [
+      "Aile tarihi ve soy ağacı"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -856,6 +910,15 @@
        "ad": "Su ve minerallerin bütün besinlerde bulunduğu çıkarımını yapar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "KÜLTÜR VE MİRAS"
+     ],
+     "konu": [
+      "Millî bayramlar ve kültürel ögeler"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -965,6 +1028,15 @@
        "ad": "Sağlıklı bir yaşam için besinlerin tazeliğinin ve doğallığının önemini, araştırma verilerine dayalı olarak tartışır"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "KÜLTÜR VE MİRAS"
+     ],
+     "konu": [
+      "Geçmiş ve bugün: oyunlar ve oyuncaklar"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -1052,6 +1124,15 @@
        "ad": "İnsan sağlığı ile dengeli beslenmeyi ilişkilendirir"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "KÜLTÜR VE MİRAS"
+     ],
+     "konu": [
+      "Atatürk'ün hayatı ve kişilik özellikleri"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -1160,6 +1241,15 @@
        "ad": "Alkol ve sigara kullanımının insan sağlığına olan olumsuz etkilerinin farkına varır"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "KÜLTÜR VE MİRAS"
+     ],
+     "konu": [
+      "Millî Mücadele'de kahramanlar"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -1274,6 +1364,15 @@
        "ad": "Yakın çevresinde sigara kullanımını azaltmaya yönelik sorumluluk üstlenir"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "KÜLTÜR VE MİRAS"
+     ],
+     "konu": [
+      "Yakın çevredeki tarihî ve kültürel mekânlar"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -1387,6 +1486,15 @@
        "ad": "Kuvvetin, cisimlere hareket kazandırmasına ve cisimlerin şekillerini değiştirmesine yönelik deneyler yapar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "İNSANLAR, YERLER VE ÇEVRELER"
+     ],
+     "konu": [
+      "Ana ve ara yönler"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -1494,6 +1602,15 @@
        "ad": "Kuvvetin, cisimlere hareket kazandırmasına ve cisimlerin şekillerini değiştirmesine yönelik deneyler yapar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "İNSANLAR, YERLER VE ÇEVRELER"
+     ],
+     "konu": [
+      "Kroki çizme ve okuma"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -1595,6 +1712,15 @@
        "ad": "Mıknatısın etki ettiği maddeleri deney yaparak keşfeder"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "İNSANLAR, YERLER VE ÇEVRELER"
+     ],
+     "konu": [
+      "Yeryüzü şekilleri"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -1696,6 +1822,15 @@
        "ad": "Mıknatısların yeni kullanım alanları konusunda fikirlerini açıklar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "İNSANLAR, YERLER VE ÇEVRELER"
+     ],
+     "konu": [
+      "Hava durumu ve insan yaşamı"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -1802,6 +1937,15 @@
        "ad": "Beş duyu organını kullanarak maddeyi niteleyen temel özellikleri açıklar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "İNSANLAR, YERLER VE ÇEVRELER"
+     ],
+     "konu": [
+      "Doğal afetler"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -1904,6 +2048,15 @@
        "ad": "Ölçülebilir özelliklerini kullanarak maddeyi tanımlar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "İNSANLAR, YERLER VE ÇEVRELER"
+     ],
+     "konu": [
+      "Afetlere hazırlık"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -1995,6 +2148,15 @@
        "ad": "Maddelerin hâllerine ait temel özellikleri karşılaştırır"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE TOPLUM"
+     ],
+     "konu": [
+      "Teknolojik ürünlerin geçmişi ve bugünü"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -2124,6 +2286,15 @@
        "ad": "Maddelerin ısınıp soğumasına yönelik deneyler tasarlar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE TOPLUM"
+     ],
+     "konu": [
+      "Buluşların toplum yaşamına etkisi"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -2221,6 +2392,15 @@
        "ad": "Maddelerin ısı etkisiyle hâl değiştirebileceğine yönelik deney tasarlar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE TOPLUM"
+     ],
+     "konu": [
+      "Teknolojik ürünlerin bilinçli kullanımı"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -2339,6 +2519,15 @@
        "ad": "Günlük yaşamında sıklıkla kullandığı maddeleri saf madde ve karışım şeklinde sınıflandırarak araların daki farkları açıklar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE TOPLUM"
+     ],
+     "konu": [
+      "İnternette güvenlik"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -2460,6 +2649,15 @@
        "ad": "Karışımların ayrılmasını, ülke ekonomisine katkısı ve kaynakların etkili kullanımı bakımından tartışır"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "BİLİM, TEKNOLOJİ VE TOPLUM"
+     ],
+     "konu": [
+      "Fikrî ürünlere saygı (telif)"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -2565,6 +2763,15 @@
        "ad": "Geçmişte ve günümüzde kullanılan aydınlatma araçlarını karşılaştırır"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "ÜRETİM, DAĞITIM VE TÜKETİM"
+     ],
+     "konu": [
+      "İhtiyaç ve istek"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -2671,6 +2878,15 @@
        "ad": "Uygun aydınlatma hakkında araştırma yapar"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "ÜRETİM, DAĞITIM VE TÜKETİM"
+     ],
+     "konu": [
+      "Bütçe ve birikim"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -2778,6 +2994,15 @@
        "ad": "Işık kirliliğinin nedenlerini sorgular"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "ÜRETİM, DAĞITIM VE TÜKETİM"
+     ],
+     "konu": [
+      "Bilinçli tüketicilik"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -2881,6 +3106,15 @@
        "ad": "Işık kirliliğini azaltmaya yönelik çözümler üretir"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "ÜRETİM, DAĞITIM VE TÜKETİM"
+     ],
+     "konu": [
+      "Yaşadığı yerin ekonomik faaliyetleri"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -2986,6 +3220,15 @@
        "ad": "Geçmişte ve günümüzde kullanılan ses teknolojilerini karşılaştırır"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "ÜRETİM, DAĞITIM VE TÜKETİM"
+     ],
+     "konu": [
+      "Üretim, dağıtım ve tüketim; meslekler"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -3098,6 +3341,15 @@
        "ad": "Ses kirliliğinin nedenlerini sorgular"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "ETKİN VATANDAŞLIK"
+     ],
+     "konu": [
+      "Ulusal egemenlik ve çocuk hakları"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -3212,6 +3464,15 @@
        "ad": "Ses kirliliğini azaltmaya yönelik çözümler üretir"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "ETKİN VATANDAŞLIK"
+     ],
+     "konu": [
+      "Haklar ve sorumluluklar"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -3322,6 +3583,15 @@
        "ad": "Kaynakların kullanımında tasarruflu davranmaya özen gösterir"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "ETKİN VATANDAŞLIK"
+     ],
+     "konu": [
+      "Demokratik katılım ve seçim"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -3411,6 +3681,15 @@
        "ad": "Yaşam için gerekli olan kaynakların ve geri dönüşümün önemini fark eder"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "ETKİN VATANDAŞLIK"
+     ],
+     "konu": [
+      "Kamu kurumları ve hizmetleri"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -3492,6 +3771,15 @@
        "ad": "Basit elektrik devresini oluşturan devre elemanlarını işlevleri ile tanır"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "ETKİN VATANDAŞLIK"
+     ],
+     "konu": [
+      "Millî semboller ve 19 Mayıs"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -3613,6 +3901,15 @@
        "ad": "Evde ve okuldaki elektrik düğmelerinin ve kabloların birer devre elemanı olduğunu bilir"
       }
      ]
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "KÜRESEL BAĞLANTILAR"
+     ],
+     "konu": [
+      "Farklı kültürler"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -3710,6 +4007,15 @@
       "(Öğrencilerin yıl içerisinde ortaya çıkardıkları ürünü etkili bir şekilde sunmaları beklenir.)"
      ],
      "ciktilar": []
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "KÜRESEL BAĞLANTILAR"
+     ],
+     "konu": [
+      "Ülkemizin diğer ülkelerle ilişkileri"
+     ],
+     "ciktilar": []
     }
    },
    "belirli_gunler": []
@@ -3802,6 +4108,15 @@
     "fen_bilimleri": {
      "unite": [],
      "konu": [],
+     "ciktilar": []
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "KÜRESEL BAĞLANTILAR"
+     ],
+     "konu": [
+      "Küresel bağlantılar ve iş birliği"
+     ],
      "ciktilar": []
     }
    },
@@ -3899,6 +4214,15 @@
      "konu": [
       "Yıl Sonu Bilim Şenliği",
       "(Öğrencilerin yıl içerisinde ortaya çıkardıkları ürünü etkili bir şekilde sunmaları beklenir.)"
+     ],
+     "ciktilar": []
+    },
+    "sosyal_bilgiler": {
+     "unite": [
+      "KÜRESEL BAĞLANTILAR"
+     ],
+     "konu": [
+      "Yıl sonu değerlendirmesi"
      ],
      "ciktilar": []
     }

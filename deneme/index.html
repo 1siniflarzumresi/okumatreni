@@ -112,7 +112,7 @@ h1 em{font-style:normal;color:var(--mavi)}
       <button class="secim" style="--renk:var(--mavi);--renk-a:var(--mavi-a)" data-sinif="1" aria-pressed="true"><span class="ik">1</span><b>1. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi</span></button>
       <button class="secim" style="--renk:var(--mor,#8b5cf6);--renk-a:var(--mor-a,#f4edff)" data-sinif="2" aria-pressed="false"><span class="ik">2</span><b>2. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi</span></button>
       <button class="secim" style="--renk:var(--yesil);--renk-a:var(--yesil-a)" data-sinif="3" aria-pressed="false"><span class="ik">3</span><b>3. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi, Fen Bilimleri</span></button>
-      <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">4</span><b>4. Sınıf</b><span>Yakında</span></div>
+      <button class="secim" style="--renk:#e08a00;--renk-a:#fff6dc" data-sinif="4" aria-pressed="false"><span class="ik">4</span><b>4. Sınıf</b><span>Sosyal Bilgiler · diğerleri hazırlanıyor</span></button>
     </div>
   </section>
 
@@ -141,17 +141,19 @@ h1 em{font-style:normal;color:var(--mavi)}
 <script src="konu-mat.js"></script>
 <script src="konu-hb.js"></script>
 <script src="konu-fen.js"></script>
+<script src="konu-sb.js"></script>
 <script src="konu.js"></script>
 <script type="module" src="uyelik.js"></script>
 <script>
 (function(){
   var HARF = ["A","N","E","T","İ","L","O","K","U","R","I","M","Ü","S","Ö","Y","D","Z","Ç","B","G","C","Ş","P","H","V","Ğ","F","J"];
-  var RENK = {turkce:["var(--mercan)","var(--mercan-a)"], matematik:["var(--mavi)","var(--mavi-a)"], hayat_bilgisi:["var(--yesil)","var(--yesil-a)"], fen_bilimleri:["var(--mor)","var(--mor-a)"]};
+  var RENK = {turkce:["var(--mercan)","var(--mercan-a)"], matematik:["var(--mavi)","var(--mavi-a)"], hayat_bilgisi:["var(--yesil)","var(--yesil-a)"], fen_bilimleri:["var(--mor)","var(--mor-a)"], sosyal_bilgiler:["#e08a00","#fff6dc"]};
   var MATS = [], TK = null, ders = null, sec = null, buHafta = null, sinif = 1;
   var DERS_AD = {
     1: {turkce:["Aa","Türkçe","İlk okuma yazma · 29 harf"], matematik:["12","Matematik","36 hafta · oyunlu kâğıtlar"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · keşif ve oyun"]},
     2: {turkce:["Aa","Türkçe","Haftalık okuma metni · dil bilgisi · yazma"], matematik:["12","Matematik","36 hafta · oyunlu kâğıtlar ve konu anlatımı"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · karar anları, plan, keşif"]},
-    3: {turkce:["Aa","Türkçe","36 özgün metin · dil bilgisi · yazma"], matematik:["12","Matematik","36 hafta · 1000'e kadar sayılar, kesir, dört işlem"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · haklar, güvenlik, toplum, kroki"], fen_bilimleri:["🔬","Fen Bilimleri","36 hafta · deney föyleri, canlılar, madde, elektrik"]}
+    3: {turkce:["Aa","Türkçe","36 özgün metin · dil bilgisi · yazma"], matematik:["12","Matematik","36 hafta · 1000'e kadar sayılar, kesir, dört işlem"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · haklar, güvenlik, toplum, kroki"], fen_bilimleri:["🔬","Fen Bilimleri","36 hafta · deney föyleri, canlılar, madde, elektrik"]},
+    4: {sosyal_bilgiler:["🌍","Sosyal Bilgiler","36 hafta · bağlam temelli sorular"], turkce:["Aa","Türkçe","Hazırlanıyor"], matematik:["12","Matematik","Hazırlanıyor"], fen_bilimleri:["🔬","Fen Bilimleri","Hazırlanıyor"]}
   };
   function harfli(){ return sinif === 1 && ders === "turkce"; }
   function dersleriCiz(){

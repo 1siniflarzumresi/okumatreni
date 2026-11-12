@@ -62,10 +62,11 @@ body.yazdir .ust,body.yazdir .alt,body.yazdir .baslik,body.yazdir .sekmeler,body
 <script src="konu-mat.js"></script>
 <script src="konu-hb.js"></script>
 <script src="konu-fen.js"></script>
+<script src="konu-sb.js"></script>
 <script src="konu.js"></script>
 <script>
 (function(){
-  var SEKME = [["dil","Dil Bilgisi","Aa"],["mat","Matematik","12"],["hb","Hayat Bilgisi","🌿"],["fen","Fen Bilimleri","🔬"]];
+  var SEKME = [["dil","Dil Bilgisi","Aa"],["mat","Matematik","12"],["hb","Hayat Bilgisi","🌿"],["fen","Fen Bilimleri","🔬"],["sb","Sosyal Bilgiler","🌍"]];
   var sek = document.getElementById("sekmeler"), dizin = document.getElementById("dizin"), konular = document.getElementById("konular");
   sek.innerHTML = SEKME.map(function(s){ return '<button type="button" class="sekme" data-s="'+s[0]+'"><span>'+s[2]+'</span>'+s[1]+'</button>'; }).join("");
   function ciz(ad){

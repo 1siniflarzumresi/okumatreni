@@ -5227,5 +5227,545 @@
     "konu_id": [
       "fen:alan-koruma"
     ]
+  },
+  {
+    "id": "s4-hafta-01",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Birey ve Toplum",
+    "hafta": 1,
+    "baslik": "1. Hafta · Kimliğimi Tanıyorum",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-01.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-01-onizleme.png",
+    "konu": "Resmî kimlik belgesi",
+    "konu_id": [
+      "sb:sb-kimlik"
+    ]
+  },
+  {
+    "id": "s4-hafta-02",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Birey ve Toplum",
+    "hafta": 2,
+    "baslik": "2. Hafta · Farklılıklarımız Zenginliğimiz",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-02.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-02-onizleme.png",
+    "konu": "Farklı özelliklere saygı",
+    "konu_id": [
+      "sb:sb-farklilik"
+    ]
+  },
+  {
+    "id": "s4-hafta-03",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Birey ve Toplum",
+    "hafta": 3,
+    "baslik": "3. Hafta · Yaşam Çizgim",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-03.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-03-onizleme.png",
+    "konu": "Önemli olayları kronolojik sıralama",
+    "konu_id": [
+      "sb:sb-kronoloji"
+    ]
+  },
+  {
+    "id": "s4-hafta-04",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Birey ve Toplum",
+    "hafta": 4,
+    "baslik": "4. Hafta · Ailemde Rollerim",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-04.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-04-onizleme.png",
+    "konu": "Aile içi roller ve sorumluluklar",
+    "konu_id": [
+      "sb:sb-aile-grup"
+    ]
+  },
+  {
+    "id": "s4-hafta-05",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Birey ve Toplum",
+    "hafta": 5,
+    "baslik": "5. Hafta · Grupta Karar Alıyorum",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-05.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-05-onizleme.png",
+    "konu": "Grup içinde sorumluluk ve ortak karar",
+    "konu_id": [
+      "sb:sb-aile-grup"
+    ]
+  },
+  {
+    "id": "s4-hafta-06",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Kültür ve Miras",
+    "hafta": 6,
+    "baslik": "6. Hafta · Aile Tarihim",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-06.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-06-onizleme.png",
+    "konu": "Aile tarihi ve soy ağacı",
+    "konu_id": [
+      "sb:sb-aile-tarihi"
+    ]
+  },
+  {
+    "id": "s4-hafta-07",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Kültür ve Miras",
+    "hafta": 7,
+    "baslik": "7. Hafta · Cumhuriyet Bayramı",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-07.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-07-onizleme.png",
+    "konu": "Millî bayramlar ve kültürel ögeler",
+    "konu_id": [
+      "sb:sb-bayramlar"
+    ]
+  },
+  {
+    "id": "s4-hafta-08",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Kültür ve Miras",
+    "hafta": 8,
+    "baslik": "8. Hafta · Geçmişten Bugüne Oyunlar",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-08.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-08-onizleme.png",
+    "konu": "Geçmiş ve bugün: oyunlar ve oyuncaklar",
+    "konu_id": [
+      "sb:sb-gecmis-bugun"
+    ]
+  },
+  {
+    "id": "s4-hafta-09",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Kültür ve Miras",
+    "hafta": 9,
+    "baslik": "9. Hafta · Atatürk'ü Tanıyorum",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-09.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-09-onizleme.png",
+    "konu": "Atatürk'ün hayatı ve kişilik özellikleri",
+    "konu_id": [
+      "sb:sb-ataturk"
+    ]
+  },
+  {
+    "id": "s4-hafta-10",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Kültür ve Miras",
+    "hafta": 10,
+    "baslik": "10. Hafta · Millî Mücadele Kahramanları",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-10.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-10-onizleme.png",
+    "konu": "Millî Mücadele'de kahramanlar",
+    "konu_id": [
+      "sb:sb-ataturk"
+    ]
+  },
+  {
+    "id": "s4-hafta-11",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Kültür ve Miras",
+    "hafta": 11,
+    "baslik": "11. Hafta · Kültürel Mirasımız",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-11.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-11-onizleme.png",
+    "konu": "Yakın çevredeki tarihî ve kültürel mekânlar",
+    "konu_id": [
+      "sb:sb-miras"
+    ]
+  },
+  {
+    "id": "s4-hafta-12",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "İnsanlar, Yerler ve Çevreler",
+    "hafta": 12,
+    "baslik": "12. Hafta · Ana ve Ara Yönler",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-12.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-12-onizleme.png",
+    "konu": "Ana ve ara yönler",
+    "konu_id": [
+      "sb:sb-yon-kroki"
+    ]
+  },
+  {
+    "id": "s4-hafta-13",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "İnsanlar, Yerler ve Çevreler",
+    "hafta": 13,
+    "baslik": "13. Hafta · Kroki Çiziyorum",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-13.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-13-onizleme.png",
+    "konu": "Kroki çizme ve okuma",
+    "konu_id": [
+      "sb:sb-yon-kroki"
+    ]
+  },
+  {
+    "id": "s4-hafta-14",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "İnsanlar, Yerler ve Çevreler",
+    "hafta": 14,
+    "baslik": "14. Hafta · Yeryüzü Şekilleri",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-14.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-14-onizleme.png",
+    "konu": "Yeryüzü şekilleri",
+    "konu_id": [
+      "sb:sb-yeryuzu-hava"
+    ]
+  },
+  {
+    "id": "s4-hafta-15",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "İnsanlar, Yerler ve Çevreler",
+    "hafta": 15,
+    "baslik": "15. Hafta · Hava Durumu ve Yaşam",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-15.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-15-onizleme.png",
+    "konu": "Hava durumu ve insan yaşamı",
+    "konu_id": [
+      "sb:sb-yeryuzu-hava"
+    ]
+  },
+  {
+    "id": "s4-hafta-16",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "İnsanlar, Yerler ve Çevreler",
+    "hafta": 16,
+    "baslik": "16. Hafta · Doğal Afetler",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-16.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-16-onizleme.png",
+    "konu": "Doğal afetler",
+    "konu_id": [
+      "sb:sb-afet"
+    ]
+  },
+  {
+    "id": "s4-hafta-17",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "İnsanlar, Yerler ve Çevreler",
+    "hafta": 17,
+    "baslik": "17. Hafta · Afetlere Hazırım",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-17.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-17-onizleme.png",
+    "konu": "Afetlere hazırlık",
+    "konu_id": [
+      "sb:sb-afet"
+    ]
+  },
+  {
+    "id": "s4-hafta-18",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Bilim, Teknoloji ve Toplum",
+    "hafta": 18,
+    "baslik": "18. Hafta · Teknoloji Değişiyor",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-18.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-18-onizleme.png",
+    "konu": "Teknolojik ürünlerin geçmişi ve bugünü",
+    "konu_id": [
+      "sb:sb-teknoloji"
+    ]
+  },
+  {
+    "id": "s4-hafta-19",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Bilim, Teknoloji ve Toplum",
+    "hafta": 19,
+    "baslik": "19. Hafta · Buluşlar ve Mucitler",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-19.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-19-onizleme.png",
+    "konu": "Buluşların toplum yaşamına etkisi",
+    "konu_id": [
+      "sb:sb-teknoloji"
+    ]
+  },
+  {
+    "id": "s4-hafta-20",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Bilim, Teknoloji ve Toplum",
+    "hafta": 20,
+    "baslik": "20. Hafta · Teknolojiyi Güvenli Kullan",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-20.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-20-onizleme.png",
+    "konu": "Teknolojik ürünlerin bilinçli kullanımı",
+    "konu_id": [
+      "sb:sb-dijital"
+    ]
+  },
+  {
+    "id": "s4-hafta-21",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Bilim, Teknoloji ve Toplum",
+    "hafta": 21,
+    "baslik": "21. Hafta · İnternette Güvendeyim",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-21.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-21-onizleme.png",
+    "konu": "İnternette güvenlik",
+    "konu_id": [
+      "sb:sb-dijital"
+    ]
+  },
+  {
+    "id": "s4-hafta-22",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Bilim, Teknoloji ve Toplum",
+    "hafta": 22,
+    "baslik": "22. Hafta · Emeğe Saygı",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-22.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-22-onizleme.png",
+    "konu": "Fikrî ürünlere saygı (telif)",
+    "konu_id": [
+      "sb:sb-dijital"
+    ]
+  },
+  {
+    "id": "s4-hafta-23",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Üretim, Dağıtım ve Tüketim",
+    "hafta": 23,
+    "baslik": "23. Hafta · İhtiyaç mı, İstek mi?",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-23.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-23-onizleme.png",
+    "konu": "İhtiyaç ve istek",
+    "konu_id": [
+      "sb:sb-ihtiyac-butce"
+    ]
+  },
+  {
+    "id": "s4-hafta-24",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Üretim, Dağıtım ve Tüketim",
+    "hafta": 24,
+    "baslik": "24. Hafta · Bütçemi Yapıyorum",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-24.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-24-onizleme.png",
+    "konu": "Bütçe ve birikim",
+    "konu_id": [
+      "sb:sb-ihtiyac-butce"
+    ]
+  },
+  {
+    "id": "s4-hafta-25",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Üretim, Dağıtım ve Tüketim",
+    "hafta": 25,
+    "baslik": "25. Hafta · Bilinçli Tüketici",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-25.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-25-onizleme.png",
+    "konu": "Bilinçli tüketicilik",
+    "konu_id": [
+      "sb:sb-tuketici"
+    ]
+  },
+  {
+    "id": "s4-hafta-26",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Üretim, Dağıtım ve Tüketim",
+    "hafta": 26,
+    "baslik": "26. Hafta · Yöremin Ürünleri",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-26.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-26-onizleme.png",
+    "konu": "Yaşadığı yerin ekonomik faaliyetleri",
+    "konu_id": [
+      "sb:sb-uretim"
+    ]
+  },
+  {
+    "id": "s4-hafta-27",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Üretim, Dağıtım ve Tüketim",
+    "hafta": 27,
+    "baslik": "27. Hafta · Tarladan Sofraya",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-27.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-27-onizleme.png",
+    "konu": "Üretim, dağıtım ve tüketim; meslekler",
+    "konu_id": [
+      "sb:sb-uretim"
+    ]
+  },
+  {
+    "id": "s4-hafta-28",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Etkin Vatandaşlık",
+    "hafta": 28,
+    "baslik": "28. Hafta · 23 Nisan ve Haklarım",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-28.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-28-onizleme.png",
+    "konu": "Ulusal egemenlik ve çocuk hakları",
+    "konu_id": [
+      "sb:sb-haklar"
+    ]
+  },
+  {
+    "id": "s4-hafta-29",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Etkin Vatandaşlık",
+    "hafta": 29,
+    "baslik": "29. Hafta · Haklarım ve Sorumluluklarım",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-29.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-29-onizleme.png",
+    "konu": "Haklar ve sorumluluklar",
+    "konu_id": [
+      "sb:sb-haklar"
+    ]
+  },
+  {
+    "id": "s4-hafta-30",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Etkin Vatandaşlık",
+    "hafta": 30,
+    "baslik": "30. Hafta · Katılıyorum, Seçiyorum",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-30.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-30-onizleme.png",
+    "konu": "Demokratik katılım ve seçim",
+    "konu_id": [
+      "sb:sb-katilim"
+    ]
+  },
+  {
+    "id": "s4-hafta-31",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Etkin Vatandaşlık",
+    "hafta": 31,
+    "baslik": "31. Hafta · Kurumlar Bize Hizmet Eder",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-31.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-31-onizleme.png",
+    "konu": "Kamu kurumları ve hizmetleri",
+    "konu_id": [
+      "sb:sb-katilim"
+    ]
+  },
+  {
+    "id": "s4-hafta-32",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Etkin Vatandaşlık",
+    "hafta": 32,
+    "baslik": "32. Hafta · Millî Sembollerimiz",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-32.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-32-onizleme.png",
+    "konu": "Millî semboller ve 19 Mayıs",
+    "konu_id": [
+      "sb:sb-semboller"
+    ]
+  },
+  {
+    "id": "s4-hafta-33",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Küresel Bağlantılar",
+    "hafta": 33,
+    "baslik": "33. Hafta · Dünyada Farklı Kültürler",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-33.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-33-onizleme.png",
+    "konu": "Farklı kültürler",
+    "konu_id": [
+      "sb:sb-kuresel"
+    ]
+  },
+  {
+    "id": "s4-hafta-34",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Küresel Bağlantılar",
+    "hafta": 34,
+    "baslik": "34. Hafta · Ülkeler Arası Bağlar",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-34.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-34-onizleme.png",
+    "konu": "Ülkemizin diğer ülkelerle ilişkileri",
+    "konu_id": [
+      "sb:sb-kuresel"
+    ]
+  },
+  {
+    "id": "s4-hafta-35",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Küresel Bağlantılar",
+    "hafta": 35,
+    "baslik": "35. Hafta · Dünyaya Açılan Kapılar",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-35.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-35-onizleme.png",
+    "konu": "Küresel bağlantılar ve iş birliği",
+    "konu_id": [
+      "sb:sb-kuresel"
+    ]
+  },
+  {
+    "id": "s4-hafta-36",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "sosyal_bilgiler",
+    "unite": "Küresel Bağlantılar",
+    "hafta": 36,
+    "baslik": "36. Hafta · Dünya Vatandaşıyım",
+    "dosya": "materyaller/4-sinif/sosyal-bilgiler/hafta-36.pdf",
+    "resim": "materyaller/4-sinif/sosyal-bilgiler/hafta-36-onizleme.png",
+    "konu": "Yıl sonu değerlendirmesi",
+    "konu_id": [
+      "sb:sb-kuresel"
+    ]
   }
 ]

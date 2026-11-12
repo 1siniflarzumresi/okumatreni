@@ -6,7 +6,8 @@ L = json.load(open(p))
 def bas(s):
     return ' '.join(w.lower() if w.lower() in ('ve', 'ile') else w[:1] + w[1:].replace('I', 'ı').replace('İ', 'i').lower() for w in s.replace('(', '( ').split()).replace('( ', '(')
 SINIF = {2: [('turkce', 'turkce2.js', 'tema', 't2'), ('matematik', 'matematik2.js', 'unite', 'm2'), ('hayat_bilgisi', 'hayat2.js', 'unite', 'h2')],
-         3: [('turkce', 'turkce3.js', 'tema', 't3'), ('matematik', 'matematik3.js', 'unite', 'm3'), ('hayat_bilgisi', 'hayat3.js', 'unite', 'h3'), ('fen_bilimleri', 'fen3.js', 'unite', 'f3')]}
+         3: [('turkce', 'turkce3.js', 'tema', 't3'), ('matematik', 'matematik3.js', 'unite', 'm3'), ('hayat_bilgisi', 'hayat3.js', 'unite', 'h3'), ('fen_bilimleri', 'fen3.js', 'unite', 'f3')],
+         4: [('sosyal_bilgiler', 'sosyal4.js', 'unite', 's4'), ('matematik', 'matematik4.js', 'konu', 'm4'), ('fen_bilimleri', 'fen4.js', 'konu', 'f4'), ('turkce', 'turkce4.js', 'tema', 't4')]}
 for sinif, dersler in SINIF.items():
     T = json.load(open(f'deneme/veri/takvim-{sinif}.json'))
     for ders, dosya, alan, onek in dersler:

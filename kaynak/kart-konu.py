@@ -10,7 +10,7 @@ def oku(dosya):
     for h, k in re.findall(r"'hafta-\d\d': [HW]\((\d+), \d+, '(?:[^'\\]|\\.)+', '((?:[^'\\]|\\.)+)'", t): d[int(h)] = k
     return {h: k.replace("\\'", "'") for h, k in d.items()}
 ilk = lambda s: s[:1].upper() + s[1:]
-KAYNAK = {(1, 'matematik'): 'matematik.js', (1, 'hayat_bilgisi'): 'hayat.js', (2, 'turkce'): 'turkce2.js', (2, 'matematik'): 'matematik2.js', (2, 'hayat_bilgisi'): 'hayat2.js', (3, 'turkce'): 'turkce3.js', (3, 'matematik'): 'matematik3.js', (3, 'hayat_bilgisi'): 'hayat3.js', (3, 'fen_bilimleri'): 'fen3.js'}
+KAYNAK = {(1, 'matematik'): 'matematik.js', (1, 'hayat_bilgisi'): 'hayat.js', (2, 'turkce'): 'turkce2.js', (2, 'matematik'): 'matematik2.js', (2, 'hayat_bilgisi'): 'hayat2.js', (3, 'turkce'): 'turkce3.js', (3, 'matematik'): 'matematik3.js', (3, 'hayat_bilgisi'): 'hayat3.js', (3, 'fen_bilimleri'): 'fen3.js', (4, 'sosyal_bilgiler'): 'sosyal4.js'}
 # 2. sınıf hafta → konu anlatımı (konu-dil.js / konu-mat.js kimlikleri)
 KM = {1: ['cisimler'], 2: ['cisimler', 'modeller'], 3: ['modeller'], 4: ['yon-buyukluk'], 5: ['sivi'], 6: ['sayilar100'], 7: ['sayilar100', 'cozumleme'], 8: ['cozumleme'],
       9: ['siralama'], 10: ['siralama', 'ritmik'], 11: ['ritmik'], 12: ['oruntu'], 13: ['oruntu', 'tahmin'], 14: ['problem'], 15: ['toplama', 'cikarma'], 16: ['problem'],
@@ -46,6 +46,7 @@ KF3 = {1: ['bilgi-yollari'], 2: ['bilgi-yollari', 'bilim-insani'], 3: ['bilim-in
        17: ['karisim', 'atik'], 18: ['atik'], 19: ['atik', 'hareket'], 20: ['hareket'], 21: ['kuvvet'], 22: ['kuvvet'], 23: ['kuvvet', 'elektrik'], 24: ['elektrik', 'elektrik-guvenlik'], 25: ['elektrik-guvenlik'],
        26: ['elektrik-tasarruf'], 27: ['elektrik-tasarruf', 'toprak'], 28: ['toprak'], 29: ['toprak', 'bitki-yetistirme'], 30: ['bitki-yetistirme'], 31: ['bitki-yetistirme', 'yasam-alani'], 32: ['yasam-alani'],
        33: ['yasam-alani', 'cesitlilik'], 34: ['cesitlilik'], 35: ['cesitlilik'], 36: ['alan-koruma']}
+KS4 = {1: ['sb-kimlik'], 2: ['sb-farklilik'], 3: ['sb-kronoloji'], 4: ['sb-aile-grup'], 5: ['sb-aile-grup'], 6: ['sb-aile-tarihi'], 7: ['sb-bayramlar'], 8: ['sb-gecmis-bugun'], 9: ['sb-ataturk'], 10: ['sb-ataturk'], 11: ['sb-miras'], 12: ['sb-yon-kroki'], 13: ['sb-yon-kroki'], 14: ['sb-yeryuzu-hava'], 15: ['sb-yeryuzu-hava'], 16: ['sb-afet'], 17: ['sb-afet'], 18: ['sb-teknoloji'], 19: ['sb-teknoloji'], 20: ['sb-dijital'], 21: ['sb-dijital'], 22: ['sb-dijital'], 23: ['sb-ihtiyac-butce'], 24: ['sb-ihtiyac-butce'], 25: ['sb-tuketici'], 26: ['sb-uretim'], 27: ['sb-uretim'], 28: ['sb-haklar'], 29: ['sb-haklar'], 30: ['sb-katilim'], 31: ['sb-katilim'], 32: ['sb-semboller'], 33: ['sb-kuresel'], 34: ['sb-kuresel'], 35: ['sb-kuresel'], 36: ['sb-kuresel']}
 konular = {k: oku(v) for k, v in KAYNAK.items()}
 for m in L:
     s, d, h = m.get('sinif', 1), m.get('ders'), m.get('hafta')
@@ -56,6 +57,7 @@ for m in L:
     if (s, d) == (2, 'turkce'): m['konu_id'] = ['dil:' + x for x in KD.get(h, [])]
     if (s, d) == (3, 'turkce'): m['konu_id'] = ['dil:' + x for x in KD3.get(h, [])]
     if (s, d) == (3, 'matematik'): m['konu_id'] = ['mat:' + x for x in KM3.get(h, [])]
+    if (s, d) == (4, 'sosyal_bilgiler'): m['konu_id'] = ['sb:' + x for x in KS4.get(h, [])]
     if (s, d) == (3, 'fen_bilimleri'): m['konu_id'] = ['fen:' + x for x in KF3.get(h, [])]
     if (s, d) == (3, 'hayat_bilgisi'): m['konu_id'] = ['hb:' + x for x in KH3.get(h, [])]
     if (s, d) == (2, 'hayat_bilgisi'): m['konu_id'] = ['hb:' + x for x in KH.get(h, [])]
