@@ -4123,5 +4123,555 @@
     "konu_id": [
       "mat:sutun-grafik"
     ]
+  },
+  {
+    "id": "h3-hafta-01",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Ben ve Okulum",
+    "hafta": 1,
+    "baslik": "1. Hafta · Ben Kimim?",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-01.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-01-onizleme.png",
+    "konu": "Güçlü ve gelişime açık alanlar",
+    "konu_id": [
+      "hb:guclu-yanlar"
+    ]
+  },
+  {
+    "id": "h3-hafta-02",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Ben ve Okulum",
+    "hafta": 2,
+    "baslik": "2. Hafta · Gelişim Planım",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-02.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-02-onizleme.png",
+    "konu": "Güçlü ve gelişime açık alanlar",
+    "konu_id": [
+      "hb:guclu-yanlar"
+    ]
+  },
+  {
+    "id": "h3-hafta-03",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Ben ve Okulum",
+    "hafta": 3,
+    "baslik": "3. Hafta · Okulda Haklarım",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-03.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-03-onizleme.png",
+    "konu": "Okuldaki hak ve sorumluluklar",
+    "konu_id": [
+      "hb:haklar"
+    ]
+  },
+  {
+    "id": "h3-hafta-04",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Ben ve Okulum",
+    "hafta": 4,
+    "baslik": "4. Hafta · Sorumluluk Bende",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-04.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-04-onizleme.png",
+    "konu": "Okuldaki hak ve sorumluluklar",
+    "konu_id": [
+      "hb:haklar"
+    ]
+  },
+  {
+    "id": "h3-hafta-05",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Ben ve Okulum",
+    "hafta": 5,
+    "baslik": "5. Hafta · Çocuk Hakları",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-05.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-05-onizleme.png",
+    "konu": "Çocuk hakları",
+    "konu_id": [
+      "hb:haklar"
+    ]
+  },
+  {
+    "id": "h3-hafta-06",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Ben ve Okulum",
+    "hafta": 6,
+    "baslik": "6. Hafta · Haklarımı Duyuruyorum",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-06.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-06-onizleme.png",
+    "konu": "Çocuk hakları",
+    "konu_id": [
+      "hb:haklar"
+    ]
+  },
+  {
+    "id": "h3-hafta-07",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Sağlığım ve Güvenliğim",
+    "hafta": 7,
+    "baslik": "7. Hafta · Sağlığımı Koruyorum",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-07.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-07-onizleme.png",
+    "konu": "Sağlığı koruma",
+    "konu_id": [
+      "hb:saglik"
+    ]
+  },
+  {
+    "id": "h3-hafta-08",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Sağlığım ve Güvenliğim",
+    "hafta": 8,
+    "baslik": "8. Hafta · Tehlikeyi Fark Et",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-08.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-08-onizleme.png",
+    "konu": "Güvenliği tehdit eden durumlar",
+    "konu_id": [
+      "hb:guvenlik"
+    ]
+  },
+  {
+    "id": "h3-hafta-09",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Sağlığım ve Güvenliğim",
+    "hafta": 9,
+    "baslik": "9. Hafta · Güvende Kalırım",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-09.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-09-onizleme.png",
+    "konu": "Güvenliği tehdit eden durumlar",
+    "konu_id": [
+      "hb:guvenlik"
+    ]
+  },
+  {
+    "id": "h3-hafta-10",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Sağlığım ve Güvenliğim",
+    "hafta": 10,
+    "baslik": "10. Hafta · Hayır Diyebilirim",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-10.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-10-onizleme.png",
+    "konu": "Güvenliği tehdit eden durumlar",
+    "konu_id": [
+      "hb:guvenlik",
+      "hb:acil"
+    ]
+  },
+  {
+    "id": "h3-hafta-11",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Sağlığım ve Güvenliğim",
+    "hafta": 11,
+    "baslik": "11. Hafta · Trafik Kahramanı",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-11.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-11-onizleme.png",
+    "konu": "Trafik kuralları",
+    "konu_id": [
+      "hb:trafik3",
+      "hb:levhalar"
+    ]
+  },
+  {
+    "id": "h3-hafta-12",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Sağlığım ve Güvenliğim",
+    "hafta": 12,
+    "baslik": "12. Hafta · Trafik Afişi",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-12.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-12-onizleme.png",
+    "konu": "Trafik kuralları",
+    "konu_id": [
+      "hb:trafik3"
+    ]
+  },
+  {
+    "id": "h3-hafta-13",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Sağlığım ve Güvenliğim",
+    "hafta": 13,
+    "baslik": "13. Hafta · Aile ve Toplum",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-13.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-13-onizleme.png",
+    "konu": "Trafik kuralları, aile ve toplum",
+    "konu_id": [
+      "hb:trafik3",
+      "hb:toplum-yardimlasma"
+    ]
+  },
+  {
+    "id": "h3-hafta-14",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Ailem ve Toplum",
+    "hafta": 14,
+    "baslik": "14. Hafta · Toplumun Bir Parçasıyım",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-14.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-14-onizleme.png",
+    "konu": "Aile ve toplum",
+    "konu_id": [
+      "hb:toplum-yardimlasma"
+    ]
+  },
+  {
+    "id": "h3-hafta-15",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Ailem ve Toplum",
+    "hafta": 15,
+    "baslik": "15. Hafta · Yardımlaşma",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-15.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-15-onizleme.png",
+    "konu": "Yardımlaşma",
+    "konu_id": [
+      "hb:toplum-yardimlasma"
+    ]
+  },
+  {
+    "id": "h3-hafta-16",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Ailem ve Toplum",
+    "hafta": 16,
+    "baslik": "16. Hafta · Engelleri Kaldıralım",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-16.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-16-onizleme.png",
+    "konu": "Yardımlaşma",
+    "konu_id": [
+      "hb:toplum-yardimlasma"
+    ]
+  },
+  {
+    "id": "h3-hafta-17",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Ailem ve Toplum",
+    "hafta": 17,
+    "baslik": "17. Hafta · İyilik Zinciri",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-17.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-17-onizleme.png",
+    "konu": "Yardımlaşma",
+    "konu_id": [
+      "hb:toplum-yardimlasma"
+    ]
+  },
+  {
+    "id": "h3-hafta-18",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Ailem ve Toplum",
+    "hafta": 18,
+    "baslik": "18. Hafta · Meslekler",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-18.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-18-onizleme.png",
+    "konu": "Toplumsal yaşamda meslekler",
+    "konu_id": [
+      "hb:meslekler"
+    ]
+  },
+  {
+    "id": "h3-hafta-19",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Ailem ve Toplum",
+    "hafta": 19,
+    "baslik": "19. Hafta · Mekânları Koruyalım",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-19.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-19-onizleme.png",
+    "konu": "Meslekler, tarihî mekân ve doğal güzellikleri koruma",
+    "konu_id": [
+      "hb:meslekler",
+      "hb:tarihi"
+    ]
+  },
+  {
+    "id": "h3-hafta-20",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Yaşadığım Yer ve Ülkem",
+    "hafta": 20,
+    "baslik": "20. Hafta · Ülkemiz Nasıl Yönetilir?",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-20.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-20-onizleme.png",
+    "konu": "Ülkemizin yönetim şekli",
+    "konu_id": [
+      "hb:yonetim3"
+    ]
+  },
+  {
+    "id": "h3-hafta-21",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Yaşadığım Yer ve Ülkem",
+    "hafta": 21,
+    "baslik": "21. Hafta · Cumhuriyet ve Seçim",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-21.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-21-onizleme.png",
+    "konu": "Ülkemizin yönetim şekli",
+    "konu_id": [
+      "hb:yonetim3"
+    ]
+  },
+  {
+    "id": "h3-hafta-22",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Yaşadığım Yer ve Ülkem",
+    "hafta": 22,
+    "baslik": "22. Hafta · Atatürk'ün Kişiliği",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-22.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-22-onizleme.png",
+    "konu": "Atatürk'ün başarıları ve kişilik özellikleri",
+    "konu_id": [
+      "hb:ataturk-kisilik"
+    ]
+  },
+  {
+    "id": "h3-hafta-23",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Yaşadığım Yer ve Ülkem",
+    "hafta": 23,
+    "baslik": "23. Hafta · Atatürk'ten Öğrendiklerim",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-23.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-23-onizleme.png",
+    "konu": "Atatürk'ün başarıları ve kişilik özellikleri",
+    "konu_id": [
+      "hb:ataturk-kisilik"
+    ]
+  },
+  {
+    "id": "h3-hafta-24",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Yaşadığım Yer ve Ülkem",
+    "hafta": 24,
+    "baslik": "24. Hafta · Birlikten Kuvvet Doğar",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-24.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-24-onizleme.png",
+    "konu": "Millî birlik ve beraberlik",
+    "konu_id": [
+      "hb:milli-birlik"
+    ]
+  },
+  {
+    "id": "h3-hafta-25",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Yaşadığım Yer ve Ülkem",
+    "hafta": 25,
+    "baslik": "25. Hafta · Bayrağımız, Marşımız",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-25.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-25-onizleme.png",
+    "konu": "Millî birlik ve beraberlik",
+    "konu_id": [
+      "hb:milli-birlik",
+      "hb:milli"
+    ]
+  },
+  {
+    "id": "h3-hafta-26",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Doğa ve Çevre",
+    "hafta": 26,
+    "baslik": "26. Hafta · Doğa Bize Neler Verir?",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-26.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-26-onizleme.png",
+    "konu": "Doğadaki varlıkların insan yaşamındaki önemi",
+    "konu_id": [
+      "hb:surdurulebilirlik"
+    ]
+  },
+  {
+    "id": "h3-hafta-27",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Doğa ve Çevre",
+    "hafta": 27,
+    "baslik": "27. Hafta · Kroki Ustası",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-27.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-27-onizleme.png",
+    "konu": "Kroki ve konum",
+    "konu_id": [
+      "hb:kroki",
+      "hb:yon"
+    ]
+  },
+  {
+    "id": "h3-hafta-28",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Doğa ve Çevre",
+    "hafta": 28,
+    "baslik": "28. Hafta · Afete Hazırlık",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-28.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-28-onizleme.png",
+    "konu": "Afet öncesi, anı ve sonrası",
+    "konu_id": [
+      "hb:afet3"
+    ]
+  },
+  {
+    "id": "h3-hafta-29",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Doğa ve Çevre",
+    "hafta": 29,
+    "baslik": "29. Hafta · Afet Planım",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-29.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-29-onizleme.png",
+    "konu": "Afet öncesi, anı ve sonrası",
+    "konu_id": [
+      "hb:afet3"
+    ]
+  },
+  {
+    "id": "h3-hafta-30",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Doğa ve Çevre",
+    "hafta": 30,
+    "baslik": "30. Hafta · Sürdürülebilir Yaşam",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-30.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-30-onizleme.png",
+    "konu": "Çevresel sürdürülebilirlik",
+    "konu_id": [
+      "hb:surdurulebilirlik",
+      "hb:tasarruf"
+    ]
+  },
+  {
+    "id": "h3-hafta-31",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Doğa ve Çevre",
+    "hafta": 31,
+    "baslik": "31. Hafta · Yeşil Okul",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-31.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-31-onizleme.png",
+    "konu": "Çevresel sürdürülebilirlik",
+    "konu_id": [
+      "hb:surdurulebilirlik"
+    ]
+  },
+  {
+    "id": "h3-hafta-32",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Bilim, Teknoloji ve Sanat",
+    "hafta": 32,
+    "baslik": "32. Hafta · Bilim Hayatımızda",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-32.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-32-onizleme.png",
+    "konu": "Bilimsel gelişmelerin günlük yaşama etkisi",
+    "konu_id": [
+      "hb:bilim-teknoloji3",
+      "hb:bilim"
+    ]
+  },
+  {
+    "id": "h3-hafta-33",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Bilim, Teknoloji ve Sanat",
+    "hafta": 33,
+    "baslik": "33. Hafta · Teknoloji ve Ben",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-33.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-33-onizleme.png",
+    "konu": "Teknolojik gelişmelerin günlük yaşama etkisi",
+    "konu_id": [
+      "hb:bilim-teknoloji3",
+      "hb:teknoloji"
+    ]
+  },
+  {
+    "id": "h3-hafta-34",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Bilim, Teknoloji ve Sanat",
+    "hafta": 34,
+    "baslik": "34. Hafta · Teknolojiyi Dengeli Kullan",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-34.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-34-onizleme.png",
+    "konu": "Teknolojik gelişmelerin günlük yaşama etkisi",
+    "konu_id": [
+      "hb:bilim-teknoloji3"
+    ]
+  },
+  {
+    "id": "h3-hafta-35",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Bilim, Teknoloji ve Sanat",
+    "hafta": 35,
+    "baslik": "35. Hafta · Sanatçılar",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-35.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-35-onizleme.png",
+    "konu": "Sanatçıların sanata katkıları",
+    "konu_id": [
+      "hb:sanatcilar"
+    ]
+  },
+  {
+    "id": "h3-hafta-36",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "hayat_bilgisi",
+    "unite": "Bilim, Teknoloji ve Sanat",
+    "hafta": 36,
+    "baslik": "36. Hafta · Sanat Sergimiz",
+    "dosya": "materyaller/3-sinif/hayat-bilgisi/hafta-36.pdf",
+    "resim": "materyaller/3-sinif/hayat-bilgisi/hafta-36-onizleme.png",
+    "konu": "Sanatçıların sanata katkıları",
+    "konu_id": [
+      "hb:sanatcilar",
+      "hb:sanat"
+    ]
   }
 ]

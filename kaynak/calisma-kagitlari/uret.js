@@ -560,6 +560,7 @@ const M2MODUL = require('./matematik2.js')({ etk, resim, RY, rastgele, numarala 
 const H2MODUL = require('./hayat2.js')({ etk, resim, numarala, rastgele });
 const resimVar = ad => ['resimler-renkli', 'resimler-hayat', 'resimler-turkce2', 'resimler-hayat2', 'resimler-mat2', 'resimler-turkce3', 'resimler-hayat3', 'resimler-mat3', 'resimler-fen3', 'resimler'].some(k => fs.existsSync(path.join(KOK, `deneme/materyaller/${k}/${ad}.png`)));
 const M3MODUL = require('./matematik3.js')({ etk, resim, RY, numarala, A: M2MODUL.A });
+const H3MODUL = require('./hayat3.js')({ etk, resim, numarala, resimVar, A: H2MODUL.A });
 const T3MODUL = require('./turkce3.js')({ etk, resim, numarala, resimVar, A: T2MODUL.A, M: MATMODUL.ARAC });
 const DERS = { mat: { K: MATMODUL.MAT, ad: 'Matematik', klasor: 'matematik', paket: 'matematik' },
                hb: { K: HBMODUL.HB, ad: 'Hayat Bilgisi', klasor: 'hayat-bilgisi', paket: 'hayat-bilgisi' },
@@ -567,7 +568,8 @@ const DERS = { mat: { K: MATMODUL.MAT, ad: 'Matematik', klasor: 'matematik', pak
                m2: { K: M2MODUL.M2, ad: 'Matematik', klasor: 'matematik', paket: 'matematik', sinif: 2 },
                h2: { K: H2MODUL.H2, ad: 'Hayat Bilgisi', klasor: 'hayat-bilgisi', paket: 'hayat-bilgisi', sinif: 2 },
                t3: { K: T3MODUL.T3, ad: 'Türkçe', klasor: 'turkce', paket: 'turkce', sinif: 3 },
-               m3: { K: M3MODUL.M3, ad: 'Matematik', klasor: 'matematik', paket: 'matematik', sinif: 3 } };
+               m3: { K: M3MODUL.M3, ad: 'Matematik', klasor: 'matematik', paket: 'matematik', sinif: 3 },
+               h3: { K: H3MODUL.H3, ad: 'Hayat Bilgisi', klasor: 'hayat-bilgisi', paket: 'hayat-bilgisi', sinif: 3 } };
 const MAT = DERS.mat.K;
 // Çıktı dosya adları yalnız ASCII: sıra numarası + harf (ı → 11-i, İ → 05-i), paketler grup-1-anetil…
 const ASCII = { 'ı': 'i', 'ü': 'u', 'ö': 'o', 'ç': 'c', 'ş': 's', 'ğ': 'g' };
@@ -692,6 +694,7 @@ ${M2MODUL.CSS}
 ${H2MODUL.CSS}
 ${T3MODUL.CSS}
 ${M3MODUL.CSS}
+${H3MODUL.CSS}
 /* Kullanıcı kararı: kâğıtlardaki bütün yazılar TTKB; TTKB'de olmayan işaretler (× → ↔ ✓) Andika'ya düşer */
 *,svg text{font-family:TTKB,Andika,sans-serif !important}
 .harf.mat{font-size:10.5mm;letter-spacing:.2mm}

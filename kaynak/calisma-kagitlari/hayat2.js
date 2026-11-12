@@ -207,5 +207,5 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
 .h2-bilet{min-height:55mm;background:#fff;border:1mm dashed #8b5cf6;border-radius:6mm}
 .govde>.etk:last-child>:is(.h2-resimler,.h2-levhalar,.h2-kutular,.h2-esle){align-content:stretch!important}
 `;
-  return { H2, CSS };
+  return { H2, CSS, A: { S, cizgi, kutu, yuz, LEVHA, levha, resimSec, davranis, esle, ciz, yaz, durum, tablo, siniflandir, dy, haftaPlan, gunSirala, levhaTanit, levhaBoya, levhaTasarla, acilKart, aramaSirala, aileAgaci, gorevTablo, mevsimTablo, havaGunlugu, pusula, tasarrufHesap, eskiYeni, muzeBilet } };
 };

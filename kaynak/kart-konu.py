@@ -10,7 +10,7 @@ def oku(dosya):
     for h, k in re.findall(r"'hafta-\d\d': [HW]\((\d+), \d+, '(?:[^'\\]|\\.)+', '((?:[^'\\]|\\.)+)'", t): d[int(h)] = k
     return {h: k.replace("\\'", "'") for h, k in d.items()}
 ilk = lambda s: s[:1].upper() + s[1:]
-KAYNAK = {(1, 'matematik'): 'matematik.js', (1, 'hayat_bilgisi'): 'hayat.js', (2, 'turkce'): 'turkce2.js', (2, 'matematik'): 'matematik2.js', (2, 'hayat_bilgisi'): 'hayat2.js', (3, 'turkce'): 'turkce3.js', (3, 'matematik'): 'matematik3.js'}
+KAYNAK = {(1, 'matematik'): 'matematik.js', (1, 'hayat_bilgisi'): 'hayat.js', (2, 'turkce'): 'turkce2.js', (2, 'matematik'): 'matematik2.js', (2, 'hayat_bilgisi'): 'hayat2.js', (3, 'turkce'): 'turkce3.js', (3, 'matematik'): 'matematik3.js', (3, 'hayat_bilgisi'): 'hayat3.js'}
 # 2. sınıf hafta → konu anlatımı (konu-dil.js / konu-mat.js kimlikleri)
 KM = {1: ['cisimler'], 2: ['cisimler', 'modeller'], 3: ['modeller'], 4: ['yon-buyukluk'], 5: ['sivi'], 6: ['sayilar100'], 7: ['sayilar100', 'cozumleme'], 8: ['cozumleme'],
       9: ['siralama'], 10: ['siralama', 'ritmik'], 11: ['ritmik'], 12: ['oruntu'], 13: ['oruntu', 'tahmin'], 14: ['problem'], 15: ['toplama', 'cikarma'], 16: ['problem'],
@@ -36,6 +36,11 @@ KM3 = {1: ['sayilar1000'], 2: ['sayilar1000', 'ritmik'], 3: ['ritmik', 'tek-cift
        21: ['dort-islem-problem'], 22: ['dort-islem-problem'], 23: ['dort-islem-problem'], 24: ['dort-islem-problem'], 25: ['dort-islem-problem'], 26: ['dort-islem-problem', 'esitlik'],
        27: ['esitlik', 'cisimler'], 28: ['cisimler', 'sekil-kenar'], 29: ['sekil-kenar'], 30: ['cevre', 'birim-donusum'], 31: ['birim-donusum', 'sekil-kenar'], 32: ['simetri'],
        33: ['simetri', 'yon'], 34: ['sutun-grafik'], 35: ['sutun-grafik'], 36: ['sutun-grafik']}
+KH3 = {1: ['guclu-yanlar'], 2: ['guclu-yanlar'], 3: ['haklar'], 4: ['haklar'], 5: ['haklar'], 6: ['haklar'], 7: ['saglik'], 8: ['guvenlik'], 9: ['guvenlik'], 10: ['guvenlik', 'acil'],
+       11: ['trafik3', 'levhalar'], 12: ['trafik3'], 13: ['trafik3', 'toplum-yardimlasma'], 14: ['toplum-yardimlasma'], 15: ['toplum-yardimlasma'], 16: ['toplum-yardimlasma'], 17: ['toplum-yardimlasma'],
+       18: ['meslekler'], 19: ['meslekler', 'tarihi'], 20: ['yonetim3'], 21: ['yonetim3'], 22: ['ataturk-kisilik'], 23: ['ataturk-kisilik'], 24: ['milli-birlik'], 25: ['milli-birlik', 'milli'],
+       26: ['surdurulebilirlik'], 27: ['kroki', 'yon'], 28: ['afet3'], 29: ['afet3'], 30: ['surdurulebilirlik', 'tasarruf'], 31: ['surdurulebilirlik'], 32: ['bilim-teknoloji3', 'bilim'],
+       33: ['bilim-teknoloji3', 'teknoloji'], 34: ['bilim-teknoloji3'], 35: ['sanatcilar'], 36: ['sanatcilar', 'sanat']}
 konular = {k: oku(v) for k, v in KAYNAK.items()}
 for m in L:
     s, d, h = m.get('sinif', 1), m.get('ders'), m.get('hafta')
@@ -46,6 +51,7 @@ for m in L:
     if (s, d) == (2, 'turkce'): m['konu_id'] = ['dil:' + x for x in KD.get(h, [])]
     if (s, d) == (3, 'turkce'): m['konu_id'] = ['dil:' + x for x in KD3.get(h, [])]
     if (s, d) == (3, 'matematik'): m['konu_id'] = ['mat:' + x for x in KM3.get(h, [])]
+    if (s, d) == (3, 'hayat_bilgisi'): m['konu_id'] = ['hb:' + x for x in KH3.get(h, [])]
     if (s, d) == (2, 'hayat_bilgisi'): m['konu_id'] = ['hb:' + x for x in KH.get(h, [])]
 json.dump(L, open(p, 'w'), ensure_ascii=False, indent=2); open(p, 'a').write('\n')
 print(sum(1 for m in L if m.get('konu')), 'karta konu eklendi')
