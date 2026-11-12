@@ -1,0 +1,131 @@
+// Konu Anlatımı · Fen Bilimleri verisi (3. sınıf, MEB 2026-2027 planı sırasıyla). konu-anlatimi.html ve index.html okur.
+(function(){
+  var GRUP = {
+    bilim:  {ad:"Bilimsel Keşif Yolculuğu", g:"#1d6fd8", ga:"#e7f0ff"},
+    canli:  {ad:"Canlılar Dünyası", g:"#12b886", ga:"#e6faf2"},
+    yer:    {ad:"Yer Bilimciler İş Başında", g:"#8e5b2b", ga:"#f6ede4"},
+    madde:  {ad:"Madde ve Karışımlar", g:"#3a86ff", ga:"#eaf3ff"},
+    hareket:{ad:"Hareket ve Kuvvet", g:"#f2546b", ga:"#ffeef0"},
+    elektrik:{ad:"Elektrik", g:"#e08a00", ga:"#fff6dc"},
+    toprak: {ad:"Toprak ve Tarım", g:"#6b8e23", ga:"#f1f6e6"},
+    alan:   {ad:"Yaşam Alanları", g:"#8b5cf6", ga:"#f3edff"}
+  };
+  function svg(w, h, ic, px){ return '<svg viewBox="0 0 '+w+' '+h+'" style="width:'+(px||220)+'px;max-width:100%;height:auto">'+ic+'</svg>'; }
+  function tablo(bas, satir){ return '<table class="mk-tablo"><tr>'+bas.map(function(b){ return '<th>'+b+'</th>'; }).join('')+'</tr>'+satir.map(function(r){ return '<tr>'+r.map(function(c){ return '<td>'+c+'</td>'; }).join('')+'</tr>'; }).join('')+'</table>'; }
+  function zincir(l){ return '<p style="font-size:1.15em">'+l.map(function(s){ return '<b>'+s+'</b>'; }).join(' → ')+'</p>'; }
+  function dongu(l, renk){ var n = l.length, s = '<defs><marker id="dk'+n+'" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9db4c8"/></marker></defs>';
+    for (var i = 0; i < n; i++) { var a = -Math.PI/2 + i*2*Math.PI/n, b = a + 2*Math.PI/n, x = 130 + 85*Math.cos(a), y = 115 + 85*Math.sin(a);
+      s += '<path d="M'+(130+85*Math.cos(a+.45)).toFixed(1)+' '+(115+85*Math.sin(a+.45)).toFixed(1)+' A85 85 0 0 1 '+(130+85*Math.cos(b-.45)).toFixed(1)+' '+(115+85*Math.sin(b-.45)).toFixed(1)+'" fill="none" stroke="#9db4c8" stroke-width="3" marker-end="url(#dk'+n+')"/>';
+      s += '<rect x="'+(x-44).toFixed(1)+'" y="'+(y-14).toFixed(1)+'" width="88" height="28" rx="14" fill="#fff" stroke="'+renk+'" stroke-width="2.5"/><text x="'+x.toFixed(1)+'" y="'+(y+5).toFixed(1)+'" text-anchor="middle" font-size="12">'+l[i]+'</text>'; }
+    return svg(260, 230, s, 300); }
+  var HAL = (function(){ var k = '', t = function(x, l){ return l.map(function(p){ return '<circle cx="'+(x+p[0])+'" cy="'+(10+p[1])+'" r="6" fill="#7ab8ff" stroke="#1d4e89"/>'; }).join(''); }, kati = [];
+    for (var i = 0; i < 4; i++) for (var j = 0; j < 4; j++) kati.push([18+i*15, 18+j*15]);
+    [10, 100, 190].forEach(function(x, i){ k += '<rect x="'+x+'" y="10" width="80" height="80" rx="6" fill="#fff" stroke="#1d4e89" stroke-width="2"/><text x="'+(x+40)+'" y="108" text-anchor="middle" font-size="13">'+['Katı','Sıvı','Gaz'][i]+'</text>'; });
+    return svg(280, 115, k + t(10, kati) + t(100, [[12,70],[26,72],[40,68],[54,72],[68,70],[18,56],[34,58],[50,54],[64,58],[28,44]]) + t(190, [[14,18],[62,16],[40,40],[16,66],[66,62],[48,72]]), 300); })();
+  var TOPRAK = svg(220, 150, [['#6b8e23',0,10,'Bitki örtüsü'],['#5a3b1e',10,30,'Üst toprak (humuslu)'],['#a0703c',40,36,'Alt toprak'],['#c9a46a',76,32,'Kaya parçaları'],['#8d8d8d',108,36,'Ana kaya']].map(function(r){ return '<rect x="0" y="'+(r[1]+4)+'" width="90" height="'+r[2]+'" fill="'+r[0]+'"/><text x="98" y="'+(r[1]+4+r[2]/2+4)+'" font-size="11">'+r[3]+'</text>'; }).join(''), 300);
+
+  var K = [
+    {id:"bilgi-yollari", grup:"bilim", sinif:"3. sınıf", baslik:"Bilimsel Bilgiye Ulaşma Yolları",
+     ornek: tablo(["Yol","Örnek"], [["Gözlem","Kuşları dürbünle izlemek"],["Deney","Buzu güneşte bekletmek"],["Araştırma","Ansiklopediden okumak"],["Söyleşi","Bir bilim insanına soru sormak"]]),
+     kural:["Bilim, <b>merak</b> ve <b>soru sormakla</b> başlar.","Bilgiye <b>gözlem</b>, <b>deney</b> ve <b>araştırma</b> yaparak ulaşırız. Gözlem yaparken duyu organlarımızı ve büyüteç gibi araçları kullanırız.","Deneyden önce <b>tahmin</b> eder, deney sırasında <b>gözlem</b> yapar, sonunda <b>sonuç</b> çıkarırız.","Araştırma yaparken <b>güvenilir kaynak</b> kullanırız: bilim kitapları, ansiklopediler, resmî kurumların siteleri."],
+     dikkat:"<b>Dikkat!</b> Kimin yazdığı belli olmayan bir paylaşım güvenilir kaynak değildir.",
+     dene:{s:"Buzun sıcakta erimesini denemek hangi yola örnektir?", c:["Söyleşi","Deney","Araştırma"], d:1, a:"Bir durumu sınamak için yapılan çalışma deneydir."}},
+    {id:"bilim-insani", grup:"bilim", sinif:"3. sınıf", baslik:"Bilim İnsanlarının Özellikleri",
+     ornek: tablo(["Davranış","Özellik"], [["Her şeyin nedenini sorar.","Meraklı"],["Deneyi defalarca tekrarlar.","Sabırlı"],["Sonuçları doğru yazar.","Dürüst"],["Farklı fikirleri dinler.","Açık fikirli"]]),
+     kural:["Bilim insanları <b>meraklı, sabırlı, dürüst, kararlı ve açık fikirlidir</b>.","Hatalarından ders çıkarır, çalışmalarını başkalarıyla paylaşırlar.","Bilim insanları yalnızca laboratuvarda değil; ormanda, denizde, uzayda da çalışır. Herkes bilim insanı olabilir."],
+     dikkat:"<b>İpucu:</b> Sen de bir bilim insanı gibi davranabilirsin: Merak et, sor, dene, kaydet.",
+     dene:{s:"Deneyi başarısız olan bir bilim insanı ne yapmalıdır?", c:["Hemen vazgeçmeli","Hatasını bulup yeniden denemeli","Sonucu değiştirip yazmalı"], d:1, a:"Bilim insanı sabırlı ve dürüsttür."}},
+    {id:"canli-sinif", grup:"canli", sinif:"3. sınıf", baslik:"Canlıların Sınıflandırılması",
+     ornek: tablo(["Grup","Örnekler"], [["Mikroskopla görülen canlılar","Bakteri, maya"],["Mantarlar","Şapkalı mantar, küf"],["Bitkiler","Papatya, çam, yosun"],["Hayvanlar","Kedi, arı, balık"]]),
+     kural:["Canlılar <b>beslenir, büyür, solunum yapar, ürer</b> ve sonunda ölür.","Canlıları dört grupta inceleriz: <b>mikroskopla görülebilen canlılar, mantarlar, bitkiler, hayvanlar</b>.","Bitkiler kendi besinini üretir. Hayvanlar ve mantarlar besinini dışarıdan alır.","Mikroskobik canlıların yararlıları (yoğurt mayası) ve zararlıları (hastalık yapanlar) vardır."],
+     dikkat:"<b>Dikkat!</b> Mantarlar bitki değildir. Bazı mantarlar zehirlidir; doğada bulduğumuz mantarı asla yemeyiz.",
+     dene:{s:"Ekmekte oluşan küf hangi gruptadır?", c:["Bitkiler","Mantarlar","Hayvanlar"], d:1, a:"Küf bir mantardır."}},
+    {id:"duyular", grup:"canli", sinif:"3. sınıf", baslik:"Duyu Organları ve Algılama",
+     ornek: tablo(["Duyu","Organ","Algıladığı"], [["Görme","Göz","Işık, renk, şekil"],["İşitme","Kulak","Ses"],["Koklama","Burun","Koku"],["Tatma","Dil","Tat"],["Dokunma","Deri","Sıcak, soğuk, sert, yumuşak"]]),
+     kural:["Çevremizi <b>beş duyu organımızla</b> algılarız.","Hayvanlar çevrelerini farklı yollarla algılar: yarasa ses yankısıyla yolunu bulur, köpek çok güçlü koku alır, kartal çok uzağı görür.","Duyu organlarımızı korumalıyız: Güneşe doğrudan bakmayız, kulağımıza sivri cisim sokmayız, çok yüksek sesten uzak dururuz."],
+     dikkat:"<b>İpucu:</b> Burnun tıkalıyken yemeklerin tadını daha az alırsın; çünkü koklama tatmaya yardım eder.",
+     dene:{s:"Yarasa karanlıkta yolunu nasıl bulur?", c:["Güçlü gözleriyle","Ses yankısıyla","Koku alarak"], d:1, a:"Yarasa çıkardığı seslerin yankısını dinler."}},
+    {id:"yasam-dongusu", grup:"canli", sinif:"3. sınıf", baslik:"Canlıların Yaşam Döngüleri",
+     ornek: dongu(["Yumurta","Tırtıl","Koza","Kelebek"], "#12b886"),
+     kural:["Bir canlının doğumundan ölümüne kadar geçirdiği aşamalara <b>yaşam döngüsü</b> denir.","Kelebek: yumurta → tırtıl → koza → kelebek. Kurbağa: yumurta → iribaş → yavru kurbağa → ergin kurbağa.","Bitki: tohum → filiz → genç bitki → çiçekli bitki → meyve ve yeni tohum.","Farklı canlıların döngülerini karşılaştırınca bir genelleme yaparız: <b>Bütün canlılar doğar, büyür, çoğalır ve ölür.</b>"],
+     dikkat:"<b>Dikkat!</b> Bazı canlıların yavruları anne ve babasına hiç benzemez: İribaş, kurbağaya; tırtıl, kelebeğe benzemez.",
+     dene:{s:"Kurbağanın yaşam döngüsünde yumurtadan sonra hangi aşama gelir?", c:["Ergin kurbağa","İribaş","Koza"], d:1, a:"Yumurtadan iribaş çıkar."}},
+    {id:"kayac-maden", grup:"yer", sinif:"3. sınıf", baslik:"Kayaçlar, Madenler ve Mineraller",
+     ornek: tablo(["Grup","Örnek","Kullanım"], [["Kayaç","Mermer, granit","Bina, heykel"],["Maden","Demir, bakır","Köprü, kablo"],["Mineral","Kuvars, tuz","Cam, yemek"]]),
+     kural:["Yer kabuğunu oluşturan katı maddelere <b>kayaç</b> denir. Kayaçlar bir ya da birkaç <b>mineralden</b> oluşur.","Yer kabuğundan çıkarılıp işlenerek kullanılan değerli maddelere <b>maden</b> denir.","Kayaçları rengine, sertliğine ve yüzeyine (pürüzlü, düz) göre inceleriz.","Madenler sınırlıdır; onları tasarruflu kullanır ve geri dönüştürürüz."],
+     dikkat:"<b>İpucu:</b> Bir kural biliyorsan (“Madenler işlenerek kullanılır.”), yeni örneklere uygulayabilirsin: Demir → çivi, bakır → kablo.",
+     dene:{s:"Elektrik kablolarında en çok hangi maden kullanılır?", c:["Bakır","Mermer","Kuvars"], d:0, a:"Bakır elektriği iyi iletir."}},
+    {id:"fosil", grup:"yer", sinif:"3. sınıf", baslik:"Fosil Oluşumu",
+     ornek: zincir(["Canlı ölür","Çamura gömülür","Üstü katmanlarla örtülür","Milyonlarca yıl sonra taşlaşır"]),
+     kural:["Çok eski zamanlarda yaşamış canlıların taşlaşmış kalıntılarına ya da izlerine <b>fosil</b> denir.","Fosiller genellikle canlının kemik, diş, kabuk gibi <b>sert kısımlarından</b> oluşur.","Fosilleri inceleyen bilim insanlarına <b>paleontolog</b> denir.","Fosiller bize geçmişte yaşamış canlıları, nasıl beslendiklerini ve nerede yaşadıklarını anlatır."],
+     dikkat:"<b>Dikkat!</b> Her ölen canlı fosil olmaz. Fosil oluşması için çok uzun zaman ve uygun koşullar gerekir.",
+     dene:{s:"Dinozorların yaşadığını nereden biliyoruz?", c:["Fosillerinden","Fotoğraflarından","Masallardan"], d:0, a:"Dinozorları fosilleri sayesinde tanıyoruz."}},
+    {id:"madde-hal", grup:"madde", sinif:"3. sınıf", baslik:"Maddenin Katı, Sıvı ve Gaz Hâli",
+     ornek: HAL,
+     kural:["Kütlesi ve hacmi olan her şeye <b>madde</b> denir. Maddeler çok küçük <b>taneciklerden</b> oluşur.","<b>Katılar</b>ın belirli bir şekli vardır; tanecikleri sıkı dizilmiştir (taş, kaşık).","<b>Sıvılar</b> akar ve konuldukları kabın şeklini alır (su, süt).","<b>Gazlar</b> bulundukları yeri tamamen doldurur; çoğu gözle görülmez ama yer kaplar (hava, su buharı)."],
+     dikkat:"<b>Dikkat!</b> Kum akıyor gibi görünse de katıdır; her bir kum tanesinin belirli bir şekli vardır.",
+     dene:{s:"Hangisi konulduğu kabın şeklini alır?", c:["Taş","Meyve suyu","Kitap"], d:1, a:"Sıvılar kabın şeklini alır."}},
+    {id:"karisim", grup:"madde", sinif:"3. sınıf", baslik:"Karışımlar ve Ayırma Yöntemleri",
+     ornek: tablo(["Karışım","Ayırma yöntemi"], [["Demir tozu + kum","Mıknatısla"],["Un + iri taneler","Elekle"],["Kumlu su","Süzgeç kâğıdıyla süzerek"],["Fasulye + nohut","Elle seçerek"],["Tuzlu su","Buharlaştırarak"]]),
+     kural:["Birden fazla maddenin bir araya gelmesiyle <b>karışım</b> oluşur: meyve salatası, çorba, limonata.","Karışımdaki maddeler, özelliklerinden yararlanılarak birbirinden ayrılabilir.","Tane büyüklüğü farklıysa <b>eleme</b>, biri mıknatısa çekiliyorsa <b>mıknatıs</b>, katı suda çözünmemişse <b>süzme</b> kullanılır."],
+     dikkat:"<b>İpucu:</b> Yöntemi seçmeden önce sor: “Maddeler hangi özellikleriyle birbirinden farklı?”",
+     dene:{s:"Kum ile ataşları ayırmak için en kolay yöntem hangisi?", c:["Mıknatıs","Süzme","Buharlaştırma"], d:0, a:"Ataşlar mıknatısa çekilir, kum çekilmez."}},
+    {id:"atik", grup:"madde", sinif:"3. sınıf", baslik:"Atıkların Ayrıştırılması",
+     ornek: tablo(["Kutu","Atık"], [["Mavi","Kâğıt, karton"],["Sarı","Plastik"],["Yeşil","Cam"],["Gri","Metal"],["Atık pil kutusu","Eski piller"]]),
+     kural:["İşimize yaramayan, atılan maddelere <b>atık</b> denir.","Atıkları türlerine göre ayrı kutulara atarsak <b>geri dönüşüm</b> kolaylaşır; doğal kaynaklar ve enerji korunur.","Yemek artıkları gibi <b>organik atıklardan</b> gübre (kompost) yapılabilir.","Önce <b>azaltır</b>, sonra <b>yeniden kullanır</b>, en son <b>geri dönüştürürüz</b>."],
+     dikkat:"<b>Dikkat!</b> Piller çöpe atılırsa toprağı ve suyu kirletir. Atık pil kutusunu kullan.",
+     dene:{s:"Reçel kavanozu hangi kutuya atılır?", c:["Mavi","Yeşil (cam)","Sarı"], d:1, a:"Cam atıklar cam kutusuna atılır."}},
+    {id:"hareket", grup:"hareket", sinif:"3. sınıf", baslik:"Varlıkların Hareketleri",
+     ornek: tablo(["Hareket","Örnek"], [["Dönme","Vantilatör pervanesi, dönme dolap"],["Sallanma","Salıncak, saat sarkacı"],["Yuvarlanma","Top, bilye"],["Kayma","Kızak, kaydıraktaki çocuk"]]),
+     kural:["Bir varlığın bulunduğu yeri zamanla değiştirmesine <b>hareket</b> denir.","Varlıklar farklı şekillerde hareket eder: <b>dönme, sallanma, yuvarlanma, kayma</b>.","Hareket eden varlıklar <b>hızlı</b> ya da <b>yavaş</b> olabilir; hızlanabilir, yavaşlayabilir, durabilir.","Gözlem yaparak bir varlığın nasıl hareket edeceğini tahmin edebiliriz."],
+     dikkat:"<b>İpucu:</b> Eğik bir rampa ne kadar yüksekse, aşağı inen top o kadar hızlı hareket eder.",
+     dene:{s:"Salıncağın hareketi hangisidir?", c:["Dönme","Sallanma","Kayma"], d:1, a:"Salıncak ileri geri sallanır."}},
+    {id:"kuvvet", grup:"hareket", sinif:"3. sınıf", baslik:"Kuvvet ve Etkileri",
+     ornek: zincir(["İtme","Çekme"]) + tablo(["Kuvvetin etkisi","Örnek"], [["Harekete geçirir","Duran arabayı itmek"],["Durdurur","Kalecinin topu tutması"],["Yönünü değiştirir","Topa raketle vurmak"],["Şeklini değiştirir","Hamura şekil vermek"]]),
+     kural:["Varlıklara uygulanan <b>itme</b> ve <b>çekme</b>ye <b>kuvvet</b> denir. Kuvvet gözle görülmez ama etkisi görülür.","Kuvvet duran bir varlığı <b>harekete geçirebilir</b>, hareket edeni <b>durdurabilir</b>, <b>hızını</b> ya da <b>yönünü</b> değiştirebilir.","Kuvvet bazı varlıkların <b>şeklini</b> değiştirir (hamur, sünger)."],
+     dikkat:"<b>İpucu:</b> Ağır bir varlığı hareket ettirmek için daha büyük kuvvet gerekir.",
+     dene:{s:"Kalecinin topu tutması kuvvetin hangi etkisidir?", c:["Harekete geçirme","Durdurma","Şekil değiştirme"], d:1, a:"Kaleci hareket eden topu durdurur."}},
+    {id:"elektrik", grup:"elektrik", sinif:"3. sınıf", baslik:"Elektrikli Araç Gereçler",
+     ornek: tablo(["Kaynak","Örnek araç"], [["Şehir elektriği (priz)","Buzdolabı, çamaşır makinesi, ütü"],["Pil","El feneri, uzaktan kumanda, oyuncak araba"]]),
+     kural:["Elektrikle çalışan araçlara <b>elektrikli araç gereç</b> denir.","Bazıları <b>prizden</b> (şehir elektriği), bazıları <b>pille</b> çalışır.","Bir aracın elektrikli olduğunu kablo, fiş, pil yuvası ya da açma-kapama düğmesinden anlayabiliriz."],
+     dikkat:"<b>Dikkat!</b> Pil yuvası olan ama pili bitmiş bir araç çalışmaz; bu, onun elektrikle çalıştığını gösterir.",
+     dene:{s:"Hangisi elektrik kullanmaz?", c:["Uzaktan kumanda","Makas","Ütü"], d:1, a:"Makas elle çalışır."}},
+    {id:"elektrik-guvenlik", grup:"elektrik", sinif:"3. sınıf", baslik:"Elektriğin Güvenli Kullanımı",
+     ornek: tablo(["Doğru ✓","Yanlış ✗"], [["Fişi prizden tutarak çıkarırım.","Fişi kablosundan çekerim."],["Elimi kurularım.","Islak elle prize dokunurum."],["Hasarlı kabloyu büyüğüme söylerim.","Soyulmuş kabloyu kullanırım."]]),
+     kural:["Elektrik hayatımızı kolaylaştırır ama yanlış kullanılırsa <b>çarpılma</b> ve <b>yangın</b> tehlikesi vardır.","Islak elle elektrikli araçlara dokunmayız; prizlere cisim sokmayız.","Bir prize çok sayıda fiş takmayız; elektrik direklerinden ve tellerinden uzak dururuz."],
+     dikkat:"<b>Dikkat!</b> Biri elektrik çarpmasına uğrarsa ona dokunma! Bir büyüğüne haber ver, 112'yi ara.",
+     dene:{s:"Banyodan ıslak elle çıktın, saç kurutma makinesini kullanacaksın. Önce ne yaparsın?", c:["Hemen prize takarım","Ellerimi kurularım","Makineyi suyla silerim"], d:1, a:"Su elektriği iletir; önce ellerimizi kurularız."}},
+    {id:"elektrik-tasarruf", grup:"elektrik", sinif:"3. sınıf", baslik:"Elektriği Tasarruflu Kullanmak",
+     ornek: tablo(["Tasarruflu","Savurgan"], [["LED ampul kullanmak","Boş odada ışık yakmak"],["Gündüz perdeyi açmak","Buzdolabı kapısını açık tutmak"],["Makineyi dolu çalıştırmak","Şarj aletini prizde bırakmak"]]),
+     kural:["Elektrik üretmek için doğal kaynaklar kullanılır; bu kaynaklar sınırlıdır.","Elektriği tasarruflu kullanırsak hem doğayı hem aile bütçemizi koruruz.","Evdeki <b>elektrik sayacı</b> ne kadar elektrik harcadığımızı gösterir. Sayacı her gün okuyarak verilere dayalı tahmin yapabiliriz."],
+     dikkat:"<b>İpucu:</b> Odadan çıkarken ışığı söndürmek küçük ama değerli bir alışkanlıktır.",
+     dene:{s:"Hangisi elektrik tasarrufu sağlar?", c:["Televizyonu açık bırakmak","LED ampul kullanmak","Kapıyı açık tutmak"], d:1, a:"LED ampul daha az elektrik harcar."}},
+    {id:"toprak", grup:"toprak", sinif:"3. sınıf", baslik:"Toprağın Oluşumu ve Yapısı",
+     ornek: TOPRAK,
+     kural:["Kayalar güneş, su, rüzgâr ve bitki kökleriyle zamanla parçalanır; bu parçalar bitki ve hayvan kalıntılarıyla karışarak <b>toprağı</b> oluşturur.","Toprağın oluşması <b>yüzlerce yıl</b> sürer.","Toprakta <b>çakıl, kum, kil, humus</b>, su ve hava bulunur. Humus, çürümüş bitki ve hayvan kalıntısıdır; toprağı verimli yapar.","Solucanlar toprağı havalandırır; bitki kökleri toprağın kaymasını önler."],
+     dikkat:"<b>İpucu:</b> Bir kavanoz toprağı suyla çalkalayıp beklet: Ağır taneler dibe, hafif olanlar üste çöker.",
+     dene:{s:"Toprağı verimli yapan nedir?", c:["Humus","Çakıl","Plastik"], d:0, a:"Humus bitkiler için besin sağlar."}},
+    {id:"bitki-yetistirme", grup:"toprak", sinif:"3. sınıf", baslik:"Bitki Yetiştirme",
+     ornek: tablo(["Bitkinin ihtiyacı","Neden?"], [["Su","Kökler suyla besinleri alır."],["Işık","Yapraklar ışıkla besin üretir."],["Hava","Yapraklar havayı alıp verir."],["Toprak","Kökler tutunur, besin alır."],["Uygun sıcaklık","Çok soğukta tohum çimlenmez."]]),
+     kural:["Bir bitkinin yetişmesi için <b>su, ışık, hava, toprak ve uygun sıcaklık</b> gerekir.","Bitkinin bölümleri: <b>kök</b> (su ve besin alır), <b>gövde</b> (taşır), <b>yaprak</b> (besin üretir), <b>çiçek</b> (meyve ve tohum oluşturur).","Bir ihtiyacı eksik olan bitki iyi gelişmez. Deneylerle bunu gözlemleyip genelleme yaparız."],
+     dikkat:"<b>Dikkat!</b> Deneyde yalnız bir koşulu değiştir (ör. ışık), diğerlerini aynı bırak. Yoksa sonucun nedenini bulamazsın.",
+     dene:{s:"Karanlıkta bırakılan fasulye fidesine ne olur?", c:["Daha hızlı ve yeşil büyür","Soluk ve cılız kalır","Hiç değişmez"], d:1, a:"Işık olmadan bitki besin üretemez."}},
+    {id:"yasam-alani", grup:"alan", sinif:"3. sınıf", baslik:"Yaşam Alanları",
+     ornek: tablo(["Yaşam alanı","Özelliği","Canlı"], [["Orman","Nemli, ağaçlık","Sincap"],["Çöl","Sıcak, kurak","Deve, kaktüs"],["Kutup","Çok soğuk, buzlu","Penguen"],["Deniz","Tuzlu su","Yunus"]]),
+     kural:["Canlıların barındığı, beslendiği ve çoğaldığı yerlere <b>yaşam alanı</b> denir.","Her yaşam alanının sıcaklık, su, ışık ve toprak özellikleri farklıdır.","Canlıların vücut özellikleri yaşam alanlarına uygundur. Bu özellikler, canlının nerede yaşadığına dair <b>kanıttır</b>: Kutup ayısının kalın kürkü, devenin hörgücü."],
+     dikkat:"<b>İpucu:</b> Okul bahçen de bir yaşam alanıdır. Orada karıncalar, solucanlar, kuşlar ve bitkiler yaşar.",
+     dene:{s:"Kalın kürkü ve beyaz rengiyle kutup ayısının yaşam alanı hangisidir?", c:["Çöl","Kutup","Orman"], d:1, a:"Kalın kürk soğuktan korur; beyaz renk karla uyumludur."}},
+    {id:"cesitlilik", grup:"alan", sinif:"3. sınıf", baslik:"Canlı Çeşitliliği",
+     ornek: zincir(["Güneş","Ot","Tavşan","Tilki"]),
+     kural:["Bir yaşam alanındaki <b>farklı canlı türlerinin</b> zenginliğine <b>canlı çeşitliliği</b> denir.","Çeşitliliği ölçmek için belirli bir alanı (ör. 1 metrekare) sınırlar, içindeki farklı türleri sayarız. Tür sayısı ne kadar çoksa çeşitlilik o kadar fazladır.","Canlılar besin için birbirine bağlıdır. Bir canlı yok olursa ona bağlı diğer canlılar da etkilenir.","Türkiye canlı çeşitliliği bakımından zengindir: Caretta caretta, Anadolu parsı, kelaynak, sığla ağacı."],
+     dikkat:"<b>Dikkat!</b> Çeşitliliği sayarken küçük canlıları da say: karıncalar, böcekler, otlar.",
+     dene:{s:"Tavşanlar bir ormandan yok olursa tilkiler ne olur?", c:["Etkilenmez","Besin bulmakta zorlanır","Daha çok çoğalır"], d:1, a:"Tilki tavşanla beslenir; besin zinciri bozulur."}},
+    {id:"alan-koruma", grup:"alan", sinif:"3. sınıf", baslik:"Yaşam Alanlarını Korumak",
+     ornek: tablo(["Tehdit","Çözüm"], [["Orman yangını","Doğada ateş yakmamak"],["Plastik atık","Bez çanta, geri dönüşüm"],["Sulak alanların kurutulması","Koruma altına almak"],["Aşırı avlanma","Av yasaklarına uymak"]]),
+     kural:["Yaşam alanları zarar görürse orada yaşayan canlılar da yok olur, <b>çeşitlilik azalır</b>.","Ağaç dikmek, atıkları ayırmak, doğada çöp bırakmamak yaşam alanlarını korur.","<b>Millî parklar</b> ve koruma alanları canlıları ve yaşam alanlarını korumak için kurulur."],
+     dikkat:"<b>İpucu:</b> Yakın çevrendeki bir yaşam alanı için küçük bir koruma projesi planlayabilirsin.",
+     dene:{s:"Hangisi yaşam alanlarını korur?", c:["Piknikte çöpleri doğada bırakmak","Ağaç dikmek","Sulak alanları kurutmak"], d:1, a:"Ağaçlar birçok canlıya yuva ve besin sağlar."}}
+  ];
+  window.KONU = window.KONU || {};
+  window.KONU.fen = {ad:"Fen Bilimleri", aciklama:"3. sınıf Fen Bilimleri konuları, MEB yıllık planı sırasıyla. Her konuda önce örneğe bakıyor, kuralları öğreniyor, sonra kendimiz deniyoruz.", GRUP:GRUP, K:K};
+})();

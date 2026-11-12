@@ -4673,5 +4673,559 @@
       "hb:sanatcilar",
       "hb:sanat"
     ]
+  },
+  {
+    "id": "f3-hafta-01",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Bilimsel Keşif Yolculuğu",
+    "hafta": 1,
+    "baslik": "1. Hafta · Bilim Kâşifi Oluyorum",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-01.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-01-onizleme.png",
+    "konu": "Bilimsel bilgiye ulaşma yolları",
+    "konu_id": [
+      "fen:bilgi-yollari"
+    ]
+  },
+  {
+    "id": "f3-hafta-02",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Bilimsel Keşif Yolculuğu",
+    "hafta": 2,
+    "baslik": "2. Hafta · Bilgi Peşinde",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-02.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-02-onizleme.png",
+    "konu": "Bilimsel bilgiye ulaşma yolları, bilim insanlarının özellikleri",
+    "konu_id": [
+      "fen:bilgi-yollari",
+      "fen:bilim-insani"
+    ]
+  },
+  {
+    "id": "f3-hafta-03",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Bilimsel Keşif Yolculuğu",
+    "hafta": 3,
+    "baslik": "3. Hafta · Bilim İnsanı Gibi",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-03.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-03-onizleme.png",
+    "konu": "Bilim insanlarının özellikleri",
+    "konu_id": [
+      "fen:bilim-insani"
+    ]
+  },
+  {
+    "id": "f3-hafta-04",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Canlılar Dünyasına Yolculuk",
+    "hafta": 4,
+    "baslik": "4. Hafta · Canlılar Dünyası",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-04.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-04-onizleme.png",
+    "konu": "Canlıların sınıflandırılması",
+    "konu_id": [
+      "fen:canli-sinif"
+    ]
+  },
+  {
+    "id": "f3-hafta-05",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Canlılar Dünyasına Yolculuk",
+    "hafta": 5,
+    "baslik": "5. Hafta · Mikroskobun Gözüyle",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-05.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-05-onizleme.png",
+    "konu": "Canlıların sınıflandırılması",
+    "konu_id": [
+      "fen:canli-sinif"
+    ]
+  },
+  {
+    "id": "f3-hafta-06",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Canlılar Dünyasına Yolculuk",
+    "hafta": 6,
+    "baslik": "6. Hafta · Beş Duyum",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-06.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-06-onizleme.png",
+    "konu": "Duyu organlarının işlevleri",
+    "konu_id": [
+      "fen:duyular"
+    ]
+  },
+  {
+    "id": "f3-hafta-07",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Canlılar Dünyasına Yolculuk",
+    "hafta": 7,
+    "baslik": "7. Hafta · Canlılar Nasıl Algılar?",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-07.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-07-onizleme.png",
+    "konu": "Duyu organlarının işlevleri",
+    "konu_id": [
+      "fen:duyular"
+    ]
+  },
+  {
+    "id": "f3-hafta-08",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Canlılar Dünyasına Yolculuk",
+    "hafta": 8,
+    "baslik": "8. Hafta · Büyüyen Canlılar",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-08.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-08-onizleme.png",
+    "konu": "Duyu organları, canlıların yaşam döngüleri",
+    "konu_id": [
+      "fen:duyular",
+      "fen:yasam-dongusu"
+    ]
+  },
+  {
+    "id": "f3-hafta-09",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Canlılar Dünyasına Yolculuk",
+    "hafta": 9,
+    "baslik": "9. Hafta · Döngüler ve Taşlar",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-09.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-09-onizleme.png",
+    "konu": "Canlıların yaşam döngüleri, kayaçlar",
+    "konu_id": [
+      "fen:yasam-dongusu",
+      "fen:kayac-maden"
+    ]
+  },
+  {
+    "id": "f3-hafta-10",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Yer Bilimciler İş Başında",
+    "hafta": 10,
+    "baslik": "10. Hafta · Taşların Sırrı",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-10.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-10-onizleme.png",
+    "konu": "Kayaçlar, madenler ve mineraller",
+    "konu_id": [
+      "fen:kayac-maden"
+    ]
+  },
+  {
+    "id": "f3-hafta-11",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Yer Bilimciler İş Başında",
+    "hafta": 11,
+    "baslik": "11. Hafta · Fosil Avcısı",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-11.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-11-onizleme.png",
+    "konu": "Kayaçlar, madenler ve mineraller; fosil oluşumu",
+    "konu_id": [
+      "fen:kayac-maden",
+      "fen:fosil"
+    ]
+  },
+  {
+    "id": "f3-hafta-12",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Yer Bilimciler İş Başında",
+    "hafta": 12,
+    "baslik": "12. Hafta · Fosil Yapıyorum",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-12.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-12-onizleme.png",
+    "konu": "Fosil oluşumu",
+    "konu_id": [
+      "fen:fosil"
+    ]
+  },
+  {
+    "id": "f3-hafta-13",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Yer Bilimciler İş Başında",
+    "hafta": 13,
+    "baslik": "13. Hafta · Madde Dedektifi",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-13.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-13-onizleme.png",
+    "konu": "Fosil oluşumu; maddenin katı, sıvı ve gaz hâli",
+    "konu_id": [
+      "fen:fosil",
+      "fen:madde-hal"
+    ]
+  },
+  {
+    "id": "f3-hafta-14",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Maddeyi Tanıyalım, Karıştırıp Ayıralım",
+    "hafta": 14,
+    "baslik": "14. Hafta · Katı, Sıvı, Gaz",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-14.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-14-onizleme.png",
+    "konu": "Maddenin katı, sıvı ve gaz hâli",
+    "konu_id": [
+      "fen:madde-hal"
+    ]
+  },
+  {
+    "id": "f3-hafta-15",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Maddeyi Tanıyalım, Karıştırıp Ayıralım",
+    "hafta": 15,
+    "baslik": "15. Hafta · Maddeler Her Yerde",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-15.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-15-onizleme.png",
+    "konu": "Maddenin katı, sıvı ve gaz hâli",
+    "konu_id": [
+      "fen:madde-hal"
+    ]
+  },
+  {
+    "id": "f3-hafta-16",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Maddeyi Tanıyalım, Karıştırıp Ayıralım",
+    "hafta": 16,
+    "baslik": "16. Hafta · Karışımlar",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-16.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-16-onizleme.png",
+    "konu": "Maddenin hâlleri; karışımlar ve karışımların ayrılması",
+    "konu_id": [
+      "fen:madde-hal",
+      "fen:karisim"
+    ]
+  },
+  {
+    "id": "f3-hafta-17",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Maddeyi Tanıyalım, Karıştırıp Ayıralım",
+    "hafta": 17,
+    "baslik": "17. Hafta · Ayırma Ustası",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-17.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-17-onizleme.png",
+    "konu": "Karışımların ayrılması, atıkların ayrıştırılması",
+    "konu_id": [
+      "fen:karisim",
+      "fen:atik"
+    ]
+  },
+  {
+    "id": "f3-hafta-18",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Maddeyi Tanıyalım, Karıştırıp Ayıralım",
+    "hafta": 18,
+    "baslik": "18. Hafta · Atık Dedektifi",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-18.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-18-onizleme.png",
+    "konu": "Atıkların ayrıştırılması",
+    "konu_id": [
+      "fen:atik"
+    ]
+  },
+  {
+    "id": "f3-hafta-19",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Maddeyi Tanıyalım, Karıştırıp Ayıralım",
+    "hafta": 19,
+    "baslik": "19. Hafta · Her Şey Hareket Eder",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-19.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-19-onizleme.png",
+    "konu": "Atıkların ayrıştırılması; varlıkların hareketleri",
+    "konu_id": [
+      "fen:atik",
+      "fen:hareket"
+    ]
+  },
+  {
+    "id": "f3-hafta-20",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Hareketi Keşfediyorum",
+    "hafta": 20,
+    "baslik": "20. Hafta · Hızlı mı, Yavaş mı?",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-20.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-20-onizleme.png",
+    "konu": "Varlıkların hareketleri",
+    "konu_id": [
+      "fen:hareket"
+    ]
+  },
+  {
+    "id": "f3-hafta-21",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Hareketi Keşfediyorum",
+    "hafta": 21,
+    "baslik": "21. Hafta · İt ve Çek",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-21.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-21-onizleme.png",
+    "konu": "Kuvvet ve etkileri",
+    "konu_id": [
+      "fen:kuvvet"
+    ]
+  },
+  {
+    "id": "f3-hafta-22",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Hareketi Keşfediyorum",
+    "hafta": 22,
+    "baslik": "22. Hafta · Kuvvetin Etkileri",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-22.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-22-onizleme.png",
+    "konu": "Kuvvet ve etkileri",
+    "konu_id": [
+      "fen:kuvvet"
+    ]
+  },
+  {
+    "id": "f3-hafta-23",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Hareketi Keşfediyorum",
+    "hafta": 23,
+    "baslik": "23. Hafta · Elektrik Nereden Gelir?",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-23.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-23-onizleme.png",
+    "konu": "Kuvvet ve etkileri; elektrikli araç gereç",
+    "konu_id": [
+      "fen:kuvvet",
+      "fen:elektrik"
+    ]
+  },
+  {
+    "id": "f3-hafta-24",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Yaşamımızı Kolaylaştıran Elektrik",
+    "hafta": 24,
+    "baslik": "24. Hafta · Güvenli Elektrik",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-24.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-24-onizleme.png",
+    "konu": "Elektrikli araç gereç; güvenli kullanım",
+    "konu_id": [
+      "fen:elektrik",
+      "fen:elektrik-guvenlik"
+    ]
+  },
+  {
+    "id": "f3-hafta-25",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Yaşamımızı Kolaylaştıran Elektrik",
+    "hafta": 25,
+    "baslik": "25. Hafta · Elektrik Güvenliği Afişi",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-25.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-25-onizleme.png",
+    "konu": "Elektrikli araç gerecin güvenli kullanımı",
+    "konu_id": [
+      "fen:elektrik-guvenlik"
+    ]
+  },
+  {
+    "id": "f3-hafta-26",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Yaşamımızı Kolaylaştıran Elektrik",
+    "hafta": 26,
+    "baslik": "26. Hafta · Elektriği Tasarruflu Kullan",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-26.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-26-onizleme.png",
+    "konu": "Elektriğin tasarruflu kullanımı",
+    "konu_id": [
+      "fen:elektrik-tasarruf"
+    ]
+  },
+  {
+    "id": "f3-hafta-27",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Yaşamımızı Kolaylaştıran Elektrik",
+    "hafta": 27,
+    "baslik": "27. Hafta · Toprak Nasıl Oluşur?",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-27.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-27-onizleme.png",
+    "konu": "Elektriğin tasarruflu kullanımı; toprak oluşumu ve yapısı",
+    "konu_id": [
+      "fen:elektrik-tasarruf",
+      "fen:toprak"
+    ]
+  },
+  {
+    "id": "f3-hafta-28",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Toprağı Tanıyorum, Tarımı Keşfediyorum",
+    "hafta": 28,
+    "baslik": "28. Hafta · Toprak Laboratuvarı",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-28.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-28-onizleme.png",
+    "konu": "Toprak oluşumu ve yapısı",
+    "konu_id": [
+      "fen:toprak"
+    ]
+  },
+  {
+    "id": "f3-hafta-29",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Toprağı Tanıyorum, Tarımı Keşfediyorum",
+    "hafta": 29,
+    "baslik": "29. Hafta · Tohumdan Fidana",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-29.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-29-onizleme.png",
+    "konu": "Toprak yapısı; bitki yetiştirme",
+    "konu_id": [
+      "fen:toprak",
+      "fen:bitki-yetistirme"
+    ]
+  },
+  {
+    "id": "f3-hafta-30",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Toprağı Tanıyorum, Tarımı Keşfediyorum",
+    "hafta": 30,
+    "baslik": "30. Hafta · Bitkinin İhtiyaçları",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-30.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-30-onizleme.png",
+    "konu": "Bitki yetiştirme",
+    "konu_id": [
+      "fen:bitki-yetistirme"
+    ]
+  },
+  {
+    "id": "f3-hafta-31",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Toprağı Tanıyorum, Tarımı Keşfediyorum",
+    "hafta": 31,
+    "baslik": "31. Hafta · Yaşam Alanları",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-31.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-31-onizleme.png",
+    "konu": "Bitki yetiştirme; yaşam alanları",
+    "konu_id": [
+      "fen:bitki-yetistirme",
+      "fen:yasam-alani"
+    ]
+  },
+  {
+    "id": "f3-hafta-32",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Canlıların Yaşam Alanlarına Yolculuk",
+    "hafta": 32,
+    "baslik": "32. Hafta · Kanıt Topluyorum",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-32.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-32-onizleme.png",
+    "konu": "Yaşam alanları",
+    "konu_id": [
+      "fen:yasam-alani"
+    ]
+  },
+  {
+    "id": "f3-hafta-33",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Canlıların Yaşam Alanlarına Yolculuk",
+    "hafta": 33,
+    "baslik": "33. Hafta · Canlı Çeşitliliği",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-33.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-33-onizleme.png",
+    "konu": "Yaşam alanları; canlı çeşitliliği",
+    "konu_id": [
+      "fen:yasam-alani",
+      "fen:cesitlilik"
+    ]
+  },
+  {
+    "id": "f3-hafta-34",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Canlıların Yaşam Alanlarına Yolculuk",
+    "hafta": 34,
+    "baslik": "34. Hafta · Besin Ağı",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-34.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-34-onizleme.png",
+    "konu": "Canlı çeşitliliği",
+    "konu_id": [
+      "fen:cesitlilik"
+    ]
+  },
+  {
+    "id": "f3-hafta-35",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Canlıların Yaşam Alanlarına Yolculuk",
+    "hafta": 35,
+    "baslik": "35. Hafta · Çeşitliliği Keşfet",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-35.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-35-onizleme.png",
+    "konu": "Canlı çeşitliliği",
+    "konu_id": [
+      "fen:cesitlilik"
+    ]
+  },
+  {
+    "id": "f3-hafta-36",
+    "sinif": 3,
+    "tur": "calisma",
+    "ders": "fen_bilimleri",
+    "unite": "Canlıların Yaşam Alanlarına Yolculuk",
+    "hafta": 36,
+    "baslik": "36. Hafta · Yaşam Alanlarını Koru",
+    "dosya": "materyaller/3-sinif/fen-bilimleri/hafta-36.pdf",
+    "resim": "materyaller/3-sinif/fen-bilimleri/hafta-36-onizleme.png",
+    "konu": "Yaşam alanlarının korunması",
+    "konu_id": [
+      "fen:alan-koruma"
+    ]
   }
 ]

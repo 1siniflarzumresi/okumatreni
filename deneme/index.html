@@ -89,7 +89,7 @@ h1 em{font-style:normal;color:var(--mavi)}
 
 <section class="kahraman"><div class="kap">
   <div>
-    <span class="ufak">1. ve 2. sınıf · MEB Maarif Modeli</span>
+    <span class="ufak">1, 2 ve 3. sınıf · MEB Maarif Modeli</span>
     <h1>Her hafta <em>oyun gibi</em> çalışma kâğıtları</h1>
     <p>Sınıfını, dersini ve konunu seç; konu anlatımı ve çalışma kâğıdı yan yana açılsın.</p>
   </div>
@@ -111,7 +111,7 @@ h1 em{font-style:normal;color:var(--mavi)}
     <div class="secimler" id="siniflar">
       <button class="secim" style="--renk:var(--mavi);--renk-a:var(--mavi-a)" data-sinif="1" aria-pressed="true"><span class="ik">1</span><b>1. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi</span></button>
       <button class="secim" style="--renk:var(--mor,#8b5cf6);--renk-a:var(--mor-a,#f4edff)" data-sinif="2" aria-pressed="false"><span class="ik">2</span><b>2. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi</span></button>
-      <button class="secim" style="--renk:var(--yesil);--renk-a:var(--yesil-a)" data-sinif="3" aria-pressed="false"><span class="ik">3</span><b>3. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi · Fen hazırlanıyor</span></button>
+      <button class="secim" style="--renk:var(--yesil);--renk-a:var(--yesil-a)" data-sinif="3" aria-pressed="false"><span class="ik">3</span><b>3. Sınıf</b><span>Türkçe, Matematik, Hayat Bilgisi, Fen Bilimleri</span></button>
       <div class="secim yakinda"><span class="ik" style="background:#f1f4f7;color:#9aa7b4">4</span><b>4. Sınıf</b><span>Yakında</span></div>
     </div>
   </section>
@@ -140,6 +140,7 @@ h1 em{font-style:normal;color:var(--mavi)}
 <script src="konu-dil.js"></script>
 <script src="konu-mat.js"></script>
 <script src="konu-hb.js"></script>
+<script src="konu-fen.js"></script>
 <script src="konu.js"></script>
 <script type="module" src="uyelik.js"></script>
 <script>
@@ -150,7 +151,7 @@ h1 em{font-style:normal;color:var(--mavi)}
   var DERS_AD = {
     1: {turkce:["Aa","Türkçe","İlk okuma yazma · 29 harf"], matematik:["12","Matematik","36 hafta · oyunlu kâğıtlar"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · keşif ve oyun"]},
     2: {turkce:["Aa","Türkçe","Haftalık okuma metni · dil bilgisi · yazma"], matematik:["12","Matematik","36 hafta · oyunlu kâğıtlar ve konu anlatımı"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · karar anları, plan, keşif"]},
-    3: {turkce:["Aa","Türkçe","36 özgün metin · dil bilgisi · yazma"], matematik:["12","Matematik","36 hafta · 1000'e kadar sayılar, kesir, dört işlem"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · haklar, güvenlik, toplum, kroki"], fen_bilimleri:["🔬","Fen Bilimleri","Hazırlanıyor"]}
+    3: {turkce:["Aa","Türkçe","36 özgün metin · dil bilgisi · yazma"], matematik:["12","Matematik","36 hafta · 1000'e kadar sayılar, kesir, dört işlem"], hayat_bilgisi:["🌿","Hayat Bilgisi","36 hafta · haklar, güvenlik, toplum, kroki"], fen_bilimleri:["🔬","Fen Bilimleri","36 hafta · deney föyleri, canlılar, madde, elektrik"]}
   };
   function harfli(){ return sinif === 1 && ders === "turkce"; }
   function dersleriCiz(){
