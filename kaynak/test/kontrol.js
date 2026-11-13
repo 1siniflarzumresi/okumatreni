@@ -1,6 +1,8 @@
 // Kontrol testi: node kaynak/test/kontrol.js   (Playwright gerekir: npm i -g playwright)
 // 1) Her oyun açılıyor mu, hata var mı  2) Her harf durağında ekranda öğrenilmemiş harf var mı
 // 3) Her oyun 5 ekran boyutunda sığıyor mu (akıllı tahta dahil)
+// Çalışma kâğıdı paketleri: node kaynak/test/kontrol.js paket t2:hafta-05 m2:hafta-05 …  (bkz. paket.js)
+if (process.argv[2] === 'paket') return require('./paket.js')(process.argv.slice(3));
 const path = require('path');
 const { chromium } = require('playwright');
 const ONLY = process.argv[2]; // 'harf' = sadece harf taraması (hızlı)

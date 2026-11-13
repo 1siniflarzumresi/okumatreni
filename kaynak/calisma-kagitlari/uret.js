@@ -100,6 +100,8 @@ const etk = (no, yonerge, ic) => `<div class="etk"><h2 class="ttkb"><b>${no}</b>
 // Kural: çocuğun okuyacağı her harf/hece/kelime o ana kadar öğretilmiş harflerden (A N E T İ L sırası).
 // Yönergeleri öğretmen ya da bir büyüğü okur. Resim adları yazılmaz.
 const SIRA = ['a', 'n', 'e', 't', 'i', 'l', 'o', 'k', 'u', 'r', 'ı', 'm', 'ü', 's', 'ö', 'y', 'd', 'z', 'ç', 'b', 'g', 'c', 'ş', 'p', 'h', 'v', 'ğ', 'f', 'j'];
+// Denetim kancası: kontrol.js harf sırasını haftalar.json'dan çıkarıp HARF_SIRASI ile verir (virgüllü). Verilmezse yukarıdaki sıra.
+if (process.env.HARF_SIRASI) SIRA.splice(0, SIRA.length, ...process.env.HARF_SIRASI.split(','));
 const GRUPLAR = [['a', 'n', 'e', 't', 'i', 'l'], ['o', 'k', 'u', 'r', 'ı', 'm'], ['ü', 's', 'ö', 'y', 'd', 'z'], ['ç', 'b', 'g', 'c', 'ş', 'p'], ['h', 'v', 'ğ', 'f', 'j']];   // Maarif ses grupları
 const B = h => h.toLocaleUpperCase('tr');
 function rastgele(tohum) { let x = tohum; return () => (x = (x * 16807) % 2147483647) / 2147483647; }
@@ -757,6 +759,9 @@ const SAYFALAR = {};
     if (HATALAR.length) break;
     const html = `<!doctype html><html lang="tr"><meta charset="utf-8"><style>${CSS}</style><body>${OKLAR}<script>addEventListener('load',()=>document.querySelectorAll('.sayfa').forEach(s=>{const f=s.querySelector('footer'),h=s.querySelector('header');if(!f||!h)return;const g=document.createElement('div');g.className='govde';[...s.children].filter(c=>c!==f&&c!==h).forEach(c=>g.appendChild(c));s.insertBefore(g,f);const tm=g.querySelector('.t2-metin');if(tm){let fs=5.9;while(g.scrollHeight>g.clientHeight+2&&fs>4.6){fs=Math.round((fs-.1)*10)/10;tm.style.setProperty('--fs',fs+'mm');}}const t4=g.querySelector('.t4');if(t4&&!g.querySelector('.t4-optik')||t4){let z=1;while(z<1.3){g.style.zoom=z+.02;if(g.scrollHeight>g.clientHeight+1){g.style.zoom=z;break;}z+=.02;}}const bos2=0,bos=g.clientHeight,ihtiyac=g.scrollHeight;if(ihtiyac>bos+2){g.style.zoom=Math.max(.72,bos/ihtiyac);if(g.scrollHeight>g.clientHeight+2)g.style.zoom=Math.max(.72,parseFloat(g.style.zoom)*g.clientHeight/g.scrollHeight);}}));</script><script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('path.iz').forEach(p=>{const n=Math.max(3,Math.round(p.getTotalLength()/80));p.setAttribute('pathLength',n);p.setAttribute('stroke-dasharray','0 1');const L=p.getTotalLength(),e=p.getPointAtLength(L),c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',e.x);c.setAttribute('cy',e.y);c.setAttribute('r',22);c.setAttribute('fill','#8a8f8b');p.after(c);}));</script>${govdeler.map((g, i) => sayfa({ harf: h, govde: g, no: i + 1, toplam: govdeler.length, mat: MATMOD ? Object.assign({ ders: D.ad, sinif: D.sinif }, KAG[h]) : null })).join('')}</body></html>`;
     SAYFALAR[h] = html;
+    // Denetim kancası: SADECE_HTML=<dizin> → PDF üretmeden HTML'i ve PDF yolunu dizine yaz (kontrol.js paket). İçerik dosyalarına dokunmaz.
+    if (process.env.SADECE_HTML) { fs.mkdirSync(process.env.SADECE_HTML, { recursive: true }); fs.writeFileSync(path.join(process.env.SADECE_HTML, h + '.html'), html);
+      fs.writeFileSync(path.join(process.env.SADECE_HTML, h + '.json'), JSON.stringify({ pdf: path.relative(KOK, path.join(HEDEF, `${MATMOD ? h : dosyaAdi(h)}.pdf`)), sayfa: govdeler.length, ders: D ? D.ad : 'Türkçe', sinif: D ? (D.sinif || 1) : 1 })); continue; }
     const p = await b.newPage({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 2 });
     await p.goto(`http://127.0.0.1:${port}/__sayfa/${encodeURIComponent(h)}`, { waitUntil: 'networkidle' });
     await p.evaluate(() => document.fonts.ready);
@@ -775,6 +780,7 @@ const SAYFALAR = {};
     console.log(h, 'sayfa:', govdeler.length, 'fontlar:', fontlar.join(' '), 'taşan:', tasan, bosluk ? 'BOŞ: ' + bosluk : '');
     await p.close();
   }
+  if (process.env.SADECE_HTML) return;
   if (MATMOD && arg.includes(dk)) for (const no of [...new Set(Object.values(KAG).map(m => m.unite))]) {   // ünite paketleri
     const ks = Object.keys(KAG).filter(k => KAG[k].unite === no), hs = ks.map(k => KAG[k].hafta), ad = `${D.paket}-hafta-${String(Math.min(...hs)).padStart(2, '0')}-${String(Math.max(...hs)).padStart(2, '0')}`;
     if (ks.length < 2) continue;

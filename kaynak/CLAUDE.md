@@ -111,3 +111,11 @@ Kullanıcı MEB 2026-2027 taslak yıllık planlarını (xlsx) yükledi: `kaynak/
 - Motor `kaynak/calisma-kagitlari/test4.js`: kodDY (D/Y şifre), yolDY (D/Y yol, 4 çıkış), kapDY (doğru/yanlış bilgi kapları), konusma (balonlar, kimler yanlış), roma (I-II-III), sirala, esle, bulmaca (renkli sütun sözcüğü), kacTane, kareYol (sağa 2/sola 1), tabloSec (tablo seçenek), cocukSec (çocuk+balon seçenek; ilk eleman doğru cevap), grafikSec (grafik seçenek), ortak (ikili/üçlü ortak bağlam), coktan, grafik, tablo, bilgi. Çeldiriciler ve doğru cevap hesaplanır; yolDY çıkışları haftadan haftaya değişsin. uret.js `.t4` sayfasında boşluk varsa yazıyı %130'a kadar büyütür.
 - `sosyal4.js` (S4, `uret.js s4`): 36 hafta × 8 soru, 2 sayfa + cevap sayfası. Döngü: 1,4,7… kodDY/yolDY/kapDY/konusma; 2,5,8… roma/sirala/esle/bulmaca; 3,6,9… kacTane/kareYol/tabloSec/cocukSec. Eski bağlam sürümü `sosyal4-eski.js` (kullanılmıyor). SB planı yok: 2018 programı ünitelerine göre kendi planımız takvim-4.json'da.
 - Konu anlatımı `deneme/konu-sb.js` (21 konu, `sb-`), bağlar KS4. Gönderilen yayın tarzındaki diğer tipler (etiketli görsel, hatalı model "olsaydı", kavram haritası sembol, puanlı oyun, ipucundan sayı, NUMAREBE gibi şifre çarkı, fiyat-indirim) Matematik/Fen/Türkçe'de kullanılacak. Sırada: matematik4.js, fen4.js, turkce4.js (kart-2.py 4. sınıf girdileri hazır).
+
+## Denetim
+- Aynı anda tek sınıf ve tek ders üret.
+- Her paket bitince önce kontrol betiğini, sonra denetleyici ajanı çalıştır. İkisi de geçmeden paketi bitmiş sayma.
+- Denetleyiciye sadece dosya yollarını ver; kendi değerlendirmeni ya da "iyi oldu" gibi yorum verme.
+- Sonunda en fazla 1 sayfalık özet: ne geçti, ne düzeltildi, benim bakacağım en fazla 3 örnek sayfa.
+- Kontrol betiği: `node kaynak/test/kontrol.js paket <ders>:hafta-NN …` (ör. `t2:hafta-05`; 1. sınıf harf kâğıdı için harfin kendisi: `a`). Ayrıntı `kaynak/test/paket.js`. PDF'leri değiştirmez; HTML'i `uret.js`'in `SADECE_HTML` kancasıyla alır, harf sırasını `haftalar.json`'dan `HARF_SIRASI` ile verir. Sayfa PNG'leri `kaynak/test/cikti/<ders>/` (git dışı).
+- Denetleyici ajan: `.claude/agents/denetleyici.md` (yalnız okur). Ona verilecekler: kaynak modül dosyası + hafta anahtarı, PNG klasörü, ilgili takvim dosyası (`deneme/veri/takvim-<sınıf>.json`).
