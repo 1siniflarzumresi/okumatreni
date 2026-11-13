@@ -57,6 +57,27 @@ function olc() {
     (govde || s).querySelectorAll('.etk, .t4-ic').forEach(k => { const c = [...k.children].filter(e => e.getBoundingClientRect().height > 2);
       for (let a = 0; a < c.length; a++) for (let b = a + 1; b < c.length; b++) if (kes(c[a].getBoundingClientRect(), c[b].getBoundingClientRect()) > 3.78 * 3.78 * 4) icBin.push(ad(c[a]).slice(0, 30) + ' ↔ ' + ad(c[b]).slice(0, 30)); });
     if (icBin.length) hata.push(`kart içinde binen öğe (${icBin.length}): ` + icBin.slice(0, 3).join(' · '));
+    // Boş alan: sayfadaki "mürekkepli" öğelerin (yazı, resim, çizim, çizgi, çerçeveli boş kutu) dikey kapsamı dışında kalan 22 mm'den büyük boşluk
+    const murekkep = [...(govde || s).querySelectorAll('*')].filter(e => { if (e.closest('svg') && e.tagName !== 'svg') return false; const r = e.getBoundingClientRect(); if (r.width < 2 || r.height < 0.5) return false;
+      if (e.tagName === 'IMG' || e.tagName === 'svg') return true; if ([...e.childNodes].some(c => c.nodeType === 3 && c.textContent.trim())) return true;
+      const cs = getComputedStyle(e); const kenar = ['Top', 'Bottom', 'Left', 'Right'].some(k => parseFloat(cs['border' + k + 'Width']) > 0 && cs['border' + k + 'Style'] !== 'none');
+      return !e.children.length && kenar; }).map(e => { const r = e.getBoundingClientRect(); return [r.top, r.bottom]; }).sort((x, y) => x[0] - y[0]);
+    const ustS = ust, altS = alt; let son = ustS; const bosluk = [];
+    for (const [a, b] of murekkep) { if (a - son > 22 * 3.78) bosluk.push(`${mm(a - son)} mm (${mm(son - S.top)}–${mm(a - S.top)} mm arası)`); son = Math.max(son, b); }
+    if (altS - son > 22 * 3.78) bosluk.push(`${mm(altS - son)} mm (sayfa altı)`);
+    if (bosluk.length) hata.push(`boş alan (22 mm üstü, ${bosluk.length}): ` + bosluk.slice(0, 4).join(' · '));
+    // Yazma yeri: "yaz/düzelt/cevapla/tamamla" diyen etkinlikte belirgin yazma yeri olmalı (en az 0,4 mm kalınlıkta, yeterince koyu çizgi ya da çerçeveli boş kutu)
+    const lum = c => { const m = c.match(/[\d.]+/g); if (!m) return 1; const [r, g, b] = m.map(Number); return (0.299 * r + 0.587 * g + 0.114 * b) / 255; };
+    (govde || s).querySelectorAll('.etk, .t4-s').forEach(k => { const y = (k.querySelector('h2, .t4-kok') || {}).textContent || '';
+      if (!/\b(yaz|yazın|yazalım|düzelt|cevapla|tamamla|doldur)/i.test(y)) return;
+      const yerler = [...k.querySelectorAll('*')].filter(e => !e.children.length && !e.textContent.trim()).map(e => { const cs = getComputedStyle(e), r = e.getBoundingClientRect();
+        const kalin = Math.max(...['Top', 'Bottom', 'Left', 'Right'].map(x => cs['border' + x + 'Style'] !== 'none' ? parseFloat(cs['border' + x + 'Width']) : 0));
+        const renk = ['Bottom', 'Top', 'Left'].map(x => cs['border' + x + 'Color']).find((c, i) => parseFloat(cs['border' + ['Bottom', 'Top', 'Left'][i] + 'Width']) > 0) || 'rgb(255,255,255)';
+        const ebeveyn = e.parentElement ? getComputedStyle(e.parentElement) : null, kutu = e.tagName === 'TD' || (r.height >= 3.78 * 5 && ebeveyn && parseFloat(ebeveyn.borderTopWidth) > 0);
+        return { kalin: kutu ? Math.max(kalin, 2) : kalin, renk: kutu ? 0 : lum(renk), w: r.width, h: r.height }; }).filter(x => x.kalin > 0 && x.w > 3.78 * 8);
+      const no = (k.querySelector('h2 b, .t4-no') || {}).textContent || '?';
+      if (!yerler.length && !/A\)|B\)/.test(k.textContent)) hata.push(`${no}. etkinlik: "yaz" diyor ama yazma yeri yok`);
+      else if (yerler.length && yerler.every(x => x.kalin < 1.5 || x.renk > 0.7)) hata.push(`${no}. etkinlik: yazma yeri belirsiz (çizgi ${Math.max(...yerler.map(x => x.kalin)).toFixed(1)} px, açık renkli) — çocuk nereye yazacağını görmüyor`); });
     // Görseller
     const kirik = [...s.querySelectorAll('img')].filter(im => !im.complete || !im.naturalWidth).map(im => im.getAttribute('src'));
     if (kirik.length) hata.push('yüklenmeyen görsel: ' + [...new Set(kirik)].join(', '));
@@ -73,7 +94,7 @@ module.exports = async function paket(kagitlar) {
   const ekle = (dosya, sayfa, m, liste = HATA) => liste.push(`${dosya}${sayfa ? ' · sayfa ' + sayfa : ''}: ${m}`);
   // Anahtarları derse göre grupla (uret.js aynı derste birden çok kağıt alır)
   const gruplar = {};
-  for (const k of kagitlar) { const d = k.includes(':') ? k.split(':')[0] : '_harf'; (gruplar[d] = gruplar[d] || []).push(k); }
+  for (const k of kagitlar) { const d = k.includes(':') ? k.split(':')[0] : '_harf'; (gruplar[d] = gruplar[d] || []).push(k.endsWith(':*') ? d : k); }   // t2:* = dersin bütün haftaları
   const htmlDiz = path.join(CIKTI, 'html'); fs.rmSync(htmlDiz, { recursive: true, force: true });
   for (const [d, ks] of Object.entries(gruplar)) {
     // 1) Öğretilmemiş harf: yalnız 1. sınıf okuma-yazma (harf kâğıtları); kaynak metinden
