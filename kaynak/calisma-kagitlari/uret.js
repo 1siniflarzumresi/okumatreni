@@ -618,7 +618,7 @@ img{width:100%;height:100%;object-fit:contain}
 .y{border:.4mm solid #cfd8d1;border-radius:4mm;padding:2mm 2mm 2.5mm;display:flex;flex-direction:column;align-items:center;gap:2mm;position:relative}
 .y img{height:20mm}
 .kutular{display:flex;gap:1mm}
-.kutular span{width:6.6mm;height:6.6mm;border:.45mm solid #4a5a50;border-radius:1mm}
+.kutular span{width:6.6mm;height:6.6mm;border:.7mm solid #4a5a50;border-radius:1mm}
 .kutular span.dolu{background:#c0392b;border-color:#c0392b}
 .y em{position:absolute;top:-2.6mm;left:2mm;background:#fff;padding:0 1.2mm;font-style:normal;font-size:3.4mm;color:#c0392b}
 .y.ornek{border-color:#c0392b;border-style:dashed}
@@ -693,7 +693,7 @@ img{width:100%;height:100%;object-fit:contain}
 .tamamla{display:flex;flex-direction:column;gap:3mm}
 .tamamla u{display:inline-block;width:42mm;border-bottom:.6mm solid #4a5a50;margin:0 2mm}
 .tamamla>div>div{display:flex;gap:4mm;padding-left:6mm}
-.tamamla>div>div span{border:.4mm solid #4a5a50;border-radius:999px;padding:.5mm 4mm;font-size:6mm}
+.tamamla>div>div span{border:.7mm solid #4a5a50;border-radius:999px;padding:.5mm 4mm;font-size:6mm}
 ${MAT_CSS}
 ${HBMODUL.CSS}
 ${T2MODUL.CSS}

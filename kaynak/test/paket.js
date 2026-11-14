@@ -69,7 +69,7 @@ function olc() {
     // Yazma yeri: "yaz/düzelt/cevapla/tamamla" diyen etkinlikte belirgin yazma yeri olmalı (en az 0,4 mm kalınlıkta, yeterince koyu çizgi ya da çerçeveli boş kutu)
     const lum = c => { const m = c.match(/[\d.]+/g); if (!m) return 1; const [r, g, b] = m.map(Number); return (0.299 * r + 0.587 * g + 0.114 * b) / 255; };
     (govde || s).querySelectorAll('.etk, .t4-s').forEach(k => { const y = (k.querySelector('h2, .t4-kok') || {}).textContent || '';
-      if (!/\b(yaz|yazın|yazalım|düzelt|cevapla|tamamla|doldur)/i.test(y)) return;
+      if (!/(^|[\s!?.,])(yaz|yazın|yazalım|düzelt|cevapla|tamamla|doldur)(?=[\s.!?,:;]|$)/i.test(y)) return;   // "yazılmış" gibi sözcükleri saymaz
       const yerler = [...k.querySelectorAll('*')].filter(e => !e.children.length && !e.textContent.trim()).map(e => { const cs = getComputedStyle(e), r = e.getBoundingClientRect();
         const kalin = Math.max(...['Top', 'Bottom', 'Left', 'Right'].map(x => cs['border' + x + 'Style'] !== 'none' ? parseFloat(cs['border' + x + 'Width']) : 0));
         const renk = ['Bottom', 'Top', 'Left'].map(x => cs['border' + x + 'Color']).find((c, i) => parseFloat(cs['border' + ['Bottom', 'Top', 'Left'][i] + 'Width']) > 0) || 'rgb(255,255,255)';

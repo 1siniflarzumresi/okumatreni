@@ -75,7 +75,7 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
       numarala([gunSirala(['calar-saat', 'dis-fircala', 'saglikli-kahvalti', 'okul', 'futbol-park', 'yatak'], 11), davranis([['plan-yapan', 'Hafta sonu ne yapacağımı önceden planlarım.'], ['gece-ekran', 'Gece geç saate kadar tablette oyun oynarım.'], ['calar-saat', 'Sabah alarm çalınca hemen kalkarım.']])]),
       numarala([haftaPlan(), yaz('Plan yapmak sana nasıl yardım eder?', ['Plan yaptığım bir gün neler oldu?', 'Plan yapmadığım bir gün neler oldu?'])])]),
     'hafta-02': W(2, 1, 'Zamanım Bende', 'Zaman yönetimi', () => [
-      numarala([tablo('Günümü saat saat yazıyorum.', ['Saat', 'Ne yapıyorum?'], [['07.00', ''], ['08.30', ''], ['12.30', ''], ['15.30', ''], ['19.00', ''], ['21.00', '']]), durum([['plan-yapan', 'Yarın sınav var ama arkadaşların seni oyuna çağırıyor.']])]),
+      numarala([tablo('Günümü saat saat yazıyorum.', ['Saat', 'Ne yapıyorum?'], [['07.00', ''], ['08.30', ''], ['12.30', ''], ['15.30', ''], ['19.00', ''], ['21.00', '']]), durum([['plan-yapan', 'Yarın kitap okuma saatinde kitabını anlatacaksın ama arkadaşların seni oyuna çağırıyor.']])]),
       numarala([siniflandir('Hangi işi ne zaman yaparız? Resimleri sabah, öğle ve akşam kutularına çizgiyle götür.', [['Sabah', '#f4a100'], ['Öğle', '#3a86ff'], ['Akşam', '#8b5cf6']], ['calar-saat', 'saglikli-kahvalti', 'okul', 'futbol-park', 'aile-sofrasi', 'yatak'], 21), ciz('En sevdiğin gününün resmini çiz.', 50)])]),
     'hafta-03': W(3, 1, 'Seni Dinliyorum', 'İletişim kuralları', () => [
       numarala([davranis([['dinleme', 'Arkadaşım konuşurken gözlerine bakarak dinlerim.'], ['soz-kesme', 'Arkadaşım konuşurken sözünü keserim.'], ['el-kaldir', 'Söz almak için parmak kaldırırım.'], ['bagir', 'Derste yüksek sesle bağırırım.']])]),
@@ -138,7 +138,7 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
       numarala([esle('Bayramı tarihiyle eşleştir.', [['#23 Nisan', '#Ulusal Egemenlik ve Çocuk Bayramı'], ['#19 Mayıs', '#Atatürk\'ü Anma, Gençlik ve Spor Bayramı'], ['#30 Ağustos', '#Zafer Bayramı'], ['#29 Ekim', '#Cumhuriyet Bayramı']], 221), resimSec('Bayramlarda neler yaparız? Daire içine al.', ['cocuk-bayrami', 'anitkabir', 'bayram-ziyaret', 'gece-ekran', 'kasa-sira', 'cips'], 222)]),
       numarala([ciz('En sevdiğin millî bayramı çiz.', 80), yaz('Bu bayram neden önemli?', [''])])]),
     'hafta-23': W(23, 4, 'Bayram Coşkusu', 'Millî gün ve bayramların önemi', () => [
-      numarala([tablo('Millî günlerimizi araştır.', ['Gün', 'Tarih', 'Ne yaparız?'], [['Cumhuriyet Bayramı', '', ''], ['Atatürk\'ü Anma', '10 Kasım', ''], ['Ulusal Egemenlik ve Çocuk Bayramı', '', ''], ['Gençlik ve Spor Bayramı', '', '']]), dy(['Millî bayramlar birlik ve beraberliğimizi güçlendirir.', 'Bayramlarda okullar ve sokaklar süslenir.'])]),
+      numarala([tablo('Millî günlerimizi araştır.', ['Gün', 'Tarih', 'Ne yaparız?'], [['Cumhuriyet Bayramı', '', ''], ['Atatürk\'ü Anma Günü', '10 Kasım', ''], ['Ulusal Egemenlik ve Çocuk Bayramı', '', ''], ['Atatürk\'ü Anma, Gençlik ve Spor Bayramı', '', ''], ['Zafer Bayramı', '', '']]), dy(['Millî bayramlar birlik ve beraberliğimizi güçlendirir.', 'Bayramlarda okullar ve sokaklar süslenir.', 'Millî bayramları yalnız büyükler kutlar.'])]),
       numarala([ciz('Sınıfını bir millî bayram için süsle: süsleri ve bayrakları çiz.', 90)])]),
     'hafta-24': W(24, 4, 'Ramazan Bayramı', 'Dinî gün ve bayramlar', () => [
       numarala([resimSec('Ramazan ayında ve Ramazan Bayramı\'nda neler yaparız? Daire içine al.', ['iftar', 'bayram-ziyaret', 'el-op', 'seker-tabagi', 'yemek-paylas', 'gece-ekran'], 241), davranis([['bayram-ziyaret', 'Bayramda büyüklerimi ziyaret ederim.'], ['el-op', 'Büyüklerimin elini öperim.'], ['yemek-paylas', 'Komşularımla yemek paylaşırım.']])]),
@@ -148,19 +148,19 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
       numarala([tablo('Bayram ziyareti planı yap.', ['Kimi ziyaret edeceğim?', 'Ne götüreceğim?'], [['', ''], ['', ''], ['', '']]), ciz('Bayramda aile büyüklerinle bir anını çiz.', 60)])]),
     'hafta-26': W(26, 5, 'Hava Nasıl?', 'Hava olayları ve mevsimler', () => [
       numarala([esle('Hava olayını adıyla eşleştir.', [['sis', '#sis'], ['dolu', '#dolu'], ['simsek', '#şimşek'], ['ruzgar', '#rüzgâr'], ['yagmur', '#yağmur']], 261), mevsimTablo()]),
-      numarala([havaGunlugu(), resimSec('Kış mevsiminde hangileri olur? Daire içine al.', ['kar', 'dolu', 'gunes-dogus', 'dort-mevsim', 'ruzgar', 'sis'], 262)])]),
+      numarala([havaGunlugu(), resimSec('Kış mevsiminde hangileri olur? Daire içine al.', ['kar', 'dolu', 'cicek-sula', 'dort-mevsim', 'plaj', 'sis'], 262)])]),
     'hafta-27': W(27, 5, 'Yönümü Buluyorum', 'Doğadan yararlanarak yön bulma', () => [
       numarala([pusula(), esle('Doğada yönü nasıl buluruz? Eşleştir.', [['gunes-dogus', '#Güneş doğudan doğar.'], ['kutup-yildizi', '#Kutup Yıldızı kuzeyi gösterir.'], ['yosunlu-agac', '#Yosunlar genellikle ağacın kuzey yüzünde olur.']], 271)]),
       numarala([dy(['Güneş batıdan doğar.', 'Gece Kutup Yıldızı\'na bakarak kuzeyi bulabiliriz.', 'Kaybolursak sakin kalır, bir büyüğe haber veririz.']), ciz('Okulunun hangi tarafından güneş doğuyor? Gözle ve çiz.', 70)])]),
     'hafta-28': W(28, 5, 'Afetlere Hazırım', 'Afetlere karşı alınacak önlemler', () => [
-      numarala([resimSec('Afet çantasına neler koyarız? Daire içine al.', ['afet-cantasi', 'su-ic', 'fener', 'ilac', 'tablet', 'top'], 281), esle('Afet ve önlem. Eşleştir.', [['deprem', '#Çök, kapan, tutun.'], ['sel', '#Yüksek bir yere çık.'], ['orman-yangini', '#Ormanda ateş yakma.']], 282)]),
+      numarala([resimSec('Afet çantasına neler koyarız? Daire içine al.', ['sise', 'ilac', 'eldiven', 'tablet', 'top', 'cips'], 281), esle('Afet ve önlem. Eşleştir.', [['deprem', '#Çök, kapan, tutun.'], ['sel', '#Yüksek bir yere çık.'], ['orman-yangini', '#Ormanda ateş yakma.']], 282)]),
       numarala([davranis([['toplanma-alani', 'Ailemle toplanma alanımızı öğrenirim.'], ['afet-cantasi', 'Evde afet çantası hazırlarız.'], ['deprem', 'Deprem anında çök-kapan-tutun yaparım.']]), ciz('Evinizden toplanma alanına giden yolu çiz.', 60)])]),
     'hafta-29': W(29, 5, 'Hazırlıklı Aile', 'Afetlere karşı alınacak önlemler', () => [
       numarala([tablo('Ailemle afet planımızı yapıyoruz.', ['Soru', 'Cevap'], [['Toplanma alanımız neresi?', ''], ['Afet çantası nerede?', ''], ['Kimi arayacağız?', ''], ['Evde güvenli yerimiz neresi?', '']]), dy(['Ağır eşyaları duvara sabitlemek güvenliğimizi artırır.', 'Afet çantasına oyuncak koymak en önemlisidir.'])]),
       numarala([durum([['deprem', 'Okuldasın ve deprem oldu.'], ['sel', 'Çok yağmur yağıyor, sokakta su birikti.']]), ciz('Afet çantanı tasarla. İçine koyacaklarını çiz.', 60)])]),
     'hafta-30': W(30, 5, 'Damla Damla', 'Doğal kaynakları tasarruflu kullanma', () => [
       numarala([davranis([['musluk-kapat', 'Dişlerimi fırçalarken musluğu kapatırım.'], ['isik-sondur', 'Odadan çıkarken ışığı söndürürüm.'], ['gece-ekran', 'Kullanmadığım cihazları açık bırakırım.'], ['geri-donusum', 'Atıkları ayırırım.']]), tasarrufHesap()]),
-      numarala([resimSec('Doğal kaynaklarımız hangileri? Daire içine al.', ['su-ic', 'gunes-dogus', 'selale', 'orman-yangini', 'tarla', 'cips'], 301), ciz('Tasarruf için bir afiş tasarla.', 70)])]),
+      numarala([resimSec('Doğal kaynaklarımız hangileri? Daire içine al.', ['selale', 'gunes-dogus', 'agac', 'tablet', 'cips', 'top'], 301), ciz('Tasarruf için bir afiş tasarla.', 70)])]),
     'hafta-31': W(31, 5, 'Tasarruf Kahramanı', 'Doğal kaynakları tasarruflu kullanma', () => [
       numarala([tablo('Tasarruf sözleşmem! Bir hafta boyunca uyduğun kurallara ✓ koy.', ['Kural', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum'], [['Musluğu kapattım', '', '', '', '', ''], ['Işığı söndürdüm', '', '', '', '', ''], ['Kâğıdın iki yüzünü kullandım', '', '', '', '', ''], ['Yemeğimi bitirdim', '', '', '', '', '']]), dy(['Su sınırsızdır, istediğimiz kadar harcayabiliriz.', 'Geri dönüşüm doğal kaynakları korur.'])]),
       numarala([yaz('Ailenle bir tasarruf planı yap.', ['Suyu korumak için:', 'Elektriği korumak için:', 'Kâğıdı korumak için:']), ciz('Tasarruf kahramanı kostümünü çiz.', 60)])]),

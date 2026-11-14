@@ -620,7 +620,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .onluk{display:block}.onluk2{display:flex;gap:1.5mm}
 .rakamlar{display:flex;flex-direction:column;gap:3mm}
 .rs{display:flex;align-items:center;gap:6mm}
-.yazkutu{display:inline-block;width:16mm;height:16mm;border:.6mm solid #4a5a50;border-radius:2.5mm;background:#fff;flex:none}
+.yazkutu{display:inline-block;width:16mm;height:16mm;border:.8mm solid #4a5a50;border-radius:2.5mm;background:#fff;flex:none}
 .grup{display:flex;flex-wrap:wrap;gap:1mm;align-content:center;justify-content:center;border:.4mm solid #cfd8d1;border-radius:3mm;padding:2mm;min-height:24mm}
 .grup span{width:var(--rb,12mm);height:var(--rb,12mm);display:block}
 .sayyaz{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
@@ -811,7 +811,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .grafik>div{display:flex;flex-direction:column;align-items:center;gap:2mm}
 .grafik img{width:24mm;height:24mm}.grafik b{font-size:8mm;font-weight:400}
 .g-kare{display:flex;flex-direction:column-reverse;gap:1mm}
-.g-kare i{width:26mm;height:12.5mm;border:.4mm solid #4a5a50;border-radius:1mm;background:#fff}
+.g-kare i{width:26mm;height:12.5mm;border:.7mm solid #4a5a50;border-radius:1mm;background:#fff}
 .g-kare.uzun i{height:12.5mm}
 .olcum{display:flex;flex-direction:column;gap:3mm}
 .kars-uz{display:flex;flex-direction:column;gap:2mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:2.5mm 4mm}
