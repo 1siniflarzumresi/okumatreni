@@ -14,3 +14,11 @@ Kaynak: `kontrol.js paket t3:* m3:* h3:* f3:*` + denetleyici. Yalnız rapor; hi�
   - 08-1: "arabasına çağırıyor" resminde araba yok; gaz kokusu durumuna yanan tava resmi (yangına müdahaleye yönlendirebilir); "Okul çıkışı" → "Okul çıkışında". 08-2: yönerge kişi karışık; 112'den sonra boş çizgi.
   - 09-1: "Büyüğüme sorarım" sütununa giden öğe yok. 09-2: 112 sıralaması tek doğrulu değil. 10-1: sır durumuna ilgisiz resim; "hayır deme" etkinliği yok.
   - Ortak: D/Y maddeleri bağlamsız; afiş şablonu 4, 5, 12. haftalarda aynı.
+
+## Türkçe (`turkce3.js`)
+- 25-30. hafta: 24 sayfadan 5'i kaldı.
+  - 26-1: gözlemevi resminde teleskop var, metin "teleskop yoktu" diyor (2. sayfadaki D/Y ile çelişiyor); "binlerce yıldız" → "bin kadar".
+  - 28-4: dört kare öykü sayfası bozuk — `.t3-dortkare i` seçicisi yazma çizgilerini de kutuya çeviriyor (turkce3.js:675), numaralar kenara biniyor.
+  - 29-1: usta metinde kadın (Nesrin Hanım), resimde erkek; 1 Mayıs tatil günü gezi → "öncesinde".
+  - 30-2: "Bütün köy" satırının metinde karşılığı yok. 30-4: mektupta "Başlık:".
+  - Küçük: 29-3 atasözü anlamı iki eşe uyuyor; 30-1 mayısta "kış için yufka"; 25-3, 30-3 sözcük dedektifi çeldiricileri zayıf; 27-2 yönerge eksik.
