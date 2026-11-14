@@ -26,7 +26,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
     return etk(0, yonerge, `<div class="f3-dongu"><div>${S(190, 190, s, 70)}</div><div class="ttkb"><div class="h2-banka">${kar.map(x => `<span>${x}</span>`).join('')}</div>${asamalar.map((_, i) => `<p><b>${i + 1}.</b><i></i></p>`).join('')}</div></div>`); };
   // Maddenin hâlleri: tanecik modeli.
   const halModel = () => { const kut = (x, top) => `<rect x="${x}" y="10" width="90" height="90" rx="6" fill="#fff" stroke="#1d4e89" stroke-width="2.5"/>` + top.map(([a, b]) => `<circle cx="${x + a}" cy="${10 + b}" r="7" fill="#7ab8ff" stroke="#1d4e89"/>`).join('');
-    const kati = [], sivi = [[14, 80], [30, 82], [46, 78], [62, 82], [78, 80], [20, 64], [38, 66], [56, 62], [72, 66], [30, 50]], gaz = [[16, 20], [70, 18], [44, 46], [20, 76], [76, 70], [56, 84]];
+    const kati = [], sivi = [[14, 80], [30, 82], [46, 78], [62, 82], [78, 80], [20, 64], [38, 66], [56, 62], [72, 66], [30, 50]], gaz = [[16, 20], [70, 18], [44, 46], [20, 76], [76, 70], [56, 78]];
     for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) kati.push([21 + i * 16, 21 + j * 16]);
     return etk(0, 'Tanecik dedektifi! Maddeler çok küçük taneciklerden oluşur. Kutuların altına katı, sıvı ya da gaz yaz. Sonra her birine bir örnek ver.',
       `<div class="f3-hal">${S(320, 110, kut(10, kati) + kut(115, sivi) + kut(220, gaz), 150)}<div class="f3-kutu ttkb" style="grid-template-columns:repeat(3,1fr)">${['A', 'B', 'C'].map(h => `<div style="border-color:#3a86ff"><b style="color:#3a86ff">${h} kutusu</b><small>Hâli:</small>${cizgi(1)}<small>Örnek:</small>${cizgi(1)}</div>`).join('')}</div></div>`); };
@@ -70,12 +70,12 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
     numarala([yaz('Bir gün boyunca çevreni gözlemle. Üç gözlem yaz ve her biri için bir soru sor.', ['Gözlemim 1 ve sorum:', 'Gözlemim 2 ve sorum:', 'Gözlemim 3 ve sorum:']),
       ciz('Gözlem yaptığın bir anı çiz. Hangi duyu organlarını kullandığını resmin yanına yaz.', 70)])]),
     'hafta-03': W(3, 1, 'Bilim İnsanı Gibi', 'Bilim insanlarının özellikleri', () => [numarala([
-      esle('Bilim insanının hangi davranışı hangi özelliğini gösterir? Eşleştir.', [['#Aynı deneyi birçok kez tekrarlar.', '#Sabırlı'], ['#Her şeyin nedenini sorar.', '#Meraklı'], ['#Hatalarından ders çıkarır.', '#Açık fikirli'], ['#Farklı düşüncelere kulak verir.', '#Kararlı'], ['#Sonuçları doğru ve eksiksiz yazar.', '#Dürüst']], 31),
+      esle('Bilim insanının hangi davranışı hangi özelliğini gösterir? Eşleştir.', [['#Aynı deneyi birçok kez tekrarlar.', '#Sabırlı'], ['#Her şeyin nedenini sorar.', '#Meraklı'], ['#Farklı düşüncelere kulak verir.', '#Açık fikirli'], ['#Ölçümlerini özenle yapar.', '#Dikkatli'], ['#Sonuçları doğru ve eksiksiz yazar.', '#Dürüst']], 31),
       dy(['Bilim insanları yalnızca laboratuvarda çalışır.', 'Bilim insanları çalışmalarını başkalarıyla paylaşır.', 'Kadın ve erkek herkes bilim insanı olabilir.'])]),
     numarala([tablo('Bilim insanı kartı! Bir bilim insanını araştır. Bir büyüğünden, kitaptan ya da güvenilir bir siteden yararlan.', ['Soru', 'Cevap'], [['Adı:', ''], ['Hangi alanda çalıştı?', ''], ['Neyi merak etti?', ''], ['Bize ne kazandırdı?', ''], ['Hangi özelliğini örnek alıyorum?', ''], ['Kaynağım:', '']]),
       rozet(['Bilgiye ulaşma yollarını sayabilirim.', 'Güvenilir kaynağı ayırt edebilirim.', 'Bilim insanlarının özelliklerini söyleyebilirim.'])])]),
     'hafta-04': W(4, 2, 'Canlılar Dünyası', 'Canlıların sınıflandırılması', () => [numarala([
-      banka('Canlılar dört gruba ayrılır! Her canlıyı doğru gruba yaz.', [['Mikroskopla görülen', '#8b5cf6'], ['Mantarlar', '#f4a100'], ['Bitkiler', '#12b886'], ['Hayvanlar', '#f2546b']], ['Bakteri', 'Şapkalı mantar', 'Papatya', 'Kedi', 'Ekmek küfü', 'Çam ağacı', 'Arı', 'Maya', 'Yosun', 'Balık', 'Çilek', 'Kurbağa'], 2),
+      banka('Canlılar dört gruba ayrılır! Her canlıyı doğru gruba yaz.', [['Mikroskopla görülen', '#8b5cf6'], ['Mantarlar', '#f4a100'], ['Bitkiler', '#12b886'], ['Hayvanlar', '#f2546b']], ['Bakteri', 'Şapkalı mantar', 'Papatya', 'Kedi', 'Ekmek küfü', 'Çam ağacı', 'Arı', 'Amip', 'Yosun', 'Balık', 'Çilek', 'Kurbağa'], 2),
       dy(['Bazı canlılar o kadar küçüktür ki ancak mikroskopla görülür.', 'Mantarlar da bitkiler gibi kendi besinini üretir.', 'Hayvanlar besinlerini dışarıdan alır.'])]),
     numarala([tablo('Canlı mı, cansız mı? Her varlık için ✓ koy.', ['Varlık', 'Beslenir', 'Büyür', 'Ürer', 'Canlı mı?'], ['Ağaç', 'Taş', 'Kedi', 'Bulut', 'Mantar', 'Oyuncak robot'].map(v => [v, '', '', '', ''])),
       bilmece('Canlı bilmecesi!', [['Besinini kendi üretir, güneşi sever, yaprakları vardır.', 'BİTKİ', 0], ['Nemli yerde, çürümüş ağaçta biter.', 'MANTAR', 1], ['Gözle görülmez, büyüteçle bile seçilmez.', 'BAKTERİ', 2]], 'BAK')])]),
@@ -87,12 +87,12 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
     'hafta-06': W(6, 2, 'Beş Duyum', 'Duyu organlarının işlevleri', () => [numarala([
       tablo('Duyu haritam! Tabloyu tamamla.', ['Duyu', 'Organ', 'Ne algılarız?', 'Bir örnek'], [['Görme', 'Göz', '', ''], ['İşitme', '', 'Sesleri', ''], ['Koklama', '', '', 'Çiçek kokusu'], ['Tatma', 'Dil', '', ''], ['Dokunma', '', 'Sıcak, soğuk, sert, yumuşak', '']]),
       dy(['Gözlerimizi korumak için güneşe doğrudan bakmayız.', 'Kulaklarımızı sivri cisimlerle temizleriz.', 'Yemeğin tadını alırken kokusu da yardımcı olur.'])]),
-    numarala([deney('Gizemli kutu!', ['Ağzı kapalı bir kutu', 'Kutuya konacak 3 nesne (ör. silgi, kaşık, pamuk)', 'Göz bandı'], ['Bir büyüğün kutuya sen görmeden nesneleri koysun.', 'Gözlerin bağlıyken elinle dokun, kutuyu salla, kokla.', 'Hangi duyunla neyi bulduğunu yaz.'], 'Kutuda neler var?'),
+    numarala([deney('Gizemli kutu!', ['Elini sokabileceğin delikli bir kutu', 'Kutuya konacak 3 nesne (ör. silgi, kaşık, pamuk)', 'Göz bandı'], ['Bir büyüğün kutuya sen görmeden nesneleri koysun.', 'Gözlerin bağlıyken elinle dokun, kutuyu salla, kokla.', 'Hangi duyunla neyi bulduğunu yaz.'], 'Kutuda neler var?'),
       yaz('Hangi duyu organın sana en çok yardım etti? Neden?', ['Organ ve nedeni:'])])]),
     'hafta-07': W(7, 2, 'Canlılar Nasıl Algılar?', 'Duyu organlarının işlevleri', () => [numarala([
       esle('Hayvanlar çevrelerini nasıl algılar? Eşleştir.', [['#Yarasa', '#Ses yankısıyla yolunu bulur.'], ['#Köpek', '#Çok güçlü koku alır.'], ['#Kedi', '#Bıyıklarıyla dar yerleri ölçer.'], ['#Kartal', '#Çok uzağı keskin görür.'], ['#Yılan', '#Diliyle koku toplar.']], 71),
       dy(['Bütün canlılar çevrelerini aynı yolla algılar.', 'Bitkiler de ışığa doğru yönelir.'])]),
-    numarala([tahmin('Ses dedektifi! Gözlerini kapat, sesi dinle ve neyin sesi olduğunu tahmin et. Bir büyüğün sesleri çıkarsın.', ['Kâğıt buruşturma', 'Kaşığı bardağa vurma', 'Su dökme', 'Anahtar şıngırdatma'], ['Ses', 'Tahminim', 'Doğru mu?']),
+    numarala([tahmin('Ses dedektifi! Gözlerini kapat, sesi dinle ve neyin sesi olduğunu tahmin et. Bir büyüğün sesleri çıkarsın.', ['1. ses', '2. ses', '3. ses', '4. ses'], ['Ses', 'Tahminim', 'Doğru mu?']),
       ciz('Bir hayvanın dünyayı nasıl algıladığını hayal et ve çiz: Örneğin bir yarasa gece nasıl uçar?', 80)])]),
     'hafta-08': W(8, 2, 'Büyüyen Canlılar', 'Duyu organları, canlıların yaşam döngüleri', () => [numarala([
       dongu('Kelebeğin yaşam döngüsü! Çarktaki numaralara aşamaları sırasıyla yaz.', ['Yumurta', 'Tırtıl', 'Koza (pupa)', 'Kelebek']),
@@ -123,7 +123,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       halModel(),
       rozet(['Kayaç, maden ve minerale örnek verebilirim.', 'Fosilin nasıl oluştuğunu anlatabilirim.', 'Maddenin üç hâlini söyleyebilirim.'])]),
     numarala([banka('Evdeki maddeleri hâllerine göre sınıflandır.', [['Katı', '#3a86ff'], ['Sıvı', '#12b886'], ['Gaz', '#f4a100']], ['Kaşık', 'Süt', 'Balondaki hava', 'Taş', 'Zeytinyağı', 'Su buharı', 'Kitap', 'Meyve suyu', 'Buz']),
-      dy(['Katıların belirli bir şekli vardır.', 'Sıvılar konuldukları kabın şeklini alır.', 'Gazlar bulundukları yeri tamamen doldurur.'])])]),
+      dy(['Katıların belirli bir şekli vardır.', 'Sıvılar konuldukları kabın şeklini alır.', 'Gazlar bulundukları yeri tamamen doldurur.', 'Gazların belirli bir şekli vardır.'])])]),
     'hafta-14': W(14, 4, 'Katı, Sıvı, Gaz', 'Maddenin katı, sıvı ve gaz hâli', () => [numarala([
       deney('Şekil değiştiren su!', ['Farklı şekilli 3 kap (bardak, tabak, şişe)', 'Bir ölçü kabı su'], ['Ölçü kabındaki suyu sırayla her kaba dök.', 'Suyun şeklini gözlemle.', 'Sonra suyu yine ölçü kabına dök: Miktar değişti mi?'], 'Suyun şekli değişir mi?'),
       tablo('Özellik avı! Tabloyu ✓ ile doldur.', ['Özellik', 'Katı', 'Sıvı', 'Gaz'], [['Belirli bir şekli var', '', '', ''], ['Akabilir', '', '', ''], ['Kabın şeklini alır', '', '', ''], ['Elle tutulabilir', '', '', '']])]),
@@ -133,10 +133,10 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       deney('Hava yer kaplar mı?', ['Derin bir kap su', 'Boş bir bardak', 'Kâğıt mendil'], ['Mendili buruşturup bardağın dibine sıkıştır.', 'Bardağı ters çevir ve dik olarak suya batır.', 'Bardağı dik çıkar, mendile dokun.'], 'Mendil ıslanır mı?'),
       dy(['Hava gözle görülmez ama yer kaplar.', 'Sıvılar elle tutulup şekil verilebilir.', 'Tahta, hem katı hem sıvıdır.'])]),
     numarala([tablo('Evinde madde avına çık! Her odadan bir örnek bul.', ['Oda', 'Katı', 'Sıvı', 'Gaz'], [['Mutfak', '', '', ''], ['Banyo', '', '', ''], ['Oturma odası', '', '', '']]),
-      yaz('Hamur, diş macunu ve kum gibi maddeler hangi hâlde? Düşün ve gerekçeni yaz.', ['Kum:', 'Diş macunu:'])])]),
+      yaz('Hamur, diş macunu ve kum gibi maddeler hangi hâlde? Düşün ve gerekçeni yaz.', ['Hamur:', 'Kum:', 'Diş macunu:'])])]),
     'hafta-16': W(16, 4, 'Karışımlar', 'Maddenin hâlleri; karışımlar ve karışımların ayrılması', () => [numarala([
       dy(['Birden fazla maddenin bir araya gelmesiyle karışım oluşur.', 'Meyve salatası bir karışımdır.', 'Karışımdaki maddeler asla ayrılamaz.', 'Çorbada birçok madde karışmıştır.']),
-      banka('Karışım avı! Kutudaki örneklerin karışım olup olmadığına karar ver.', [['Karışım', '#12b886'], ['Karışım değil', '#f2546b']], ['Ayranlı makarna salatası', 'Kum ve çakıl', 'Tek bir demir çivi', 'Pirinç ve mercimek', 'Bir parça buz', 'Limonata'], 3)]),
+      banka('Karışım avı! Kutudaki örneklerin karışım olup olmadığına karar ver.', [['Karışım', '#12b886'], ['Karışım değil', '#f2546b']], ['Makarna salatası', 'Kum ve çakıl', 'Bir bardak saf su', 'Pirinç ve mercimek', 'Bir parça buz', 'Limonata'], 4)]),
     numarala([esle('Karışımı ayırmak için hangi yöntemi kullanırsın? Eşleştir.', [['#Demir tozu ve kum', '#Mıknatısla'], ['#Un ve iri taneler', '#Elekle'], ['#Kumlu su', '#Süzgeç kâğıdıyla'], ['#Fasulye ve nohut', '#Elle seçerek'], ['#Tuzlu su', '#Buharlaştırarak']], 161),
       ciz('Kendi karışımını tasarla: İçinde hangi maddeler olsun? Çiz ve etiketle.', 50)])]),
     'hafta-17': W(17, 4, 'Ayırma Ustası', 'Karışımların ayrılması, atıkların ayrıştırılması', () => [numarala([
@@ -147,25 +147,25 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
     'hafta-18': W(18, 4, 'Atık Dedektifi', 'Atıkların ayrıştırılması', () => [numarala([
       tablo('Evimizin atık raporu! Bir gün boyunca evdeki atıkları say, çetele tut.', ['Atık türü', 'Çetele', 'Toplam'], [['Kâğıt', '', ''], ['Plastik', '', ''], ['Cam', '', ''], ['Metal', '', ''], ['Organik (yemek artığı)', '', '']]),
       yaz('Raporuna bak: En çok hangi atık çıkıyor? Bunu azaltmak için ne önerirsin?', ['En çok çıkan atık:', 'Önerim:'])]),
-    numarala([banka('Atık sorununa çözüm bul! Her durumu uygun çözümle yaz.', [['Azalt', '#3a86ff'], ['Yeniden kullan', '#12b886'], ['Geri dönüştür', '#f4a100']], ['Bez çanta kullanmak', 'Kavanozu kalemlik yapmak', 'Gazeteyi mavi kutuya atmak', 'Suyu matarayla taşımak', 'Kutudan oyuncak yapmak', 'Pil kutusuna eski pil atmak']),
+    numarala([banka('Atık sorununa çözüm bul! Her davranışı ait olduğu sütuna yaz.', [['Azalt', '#3a86ff'], ['Yeniden kullan', '#12b886'], ['Geri dönüştür', '#f4a100']], ['Kâğıdın iki yüzünü kullanmak', 'Kavanozu kalemlik yapmak', 'Gazeteyi mavi kutuya atmak', 'Ambalajsız ürün seçmek', 'Kutudan oyuncak yapmak', 'Pil kutusuna eski pil atmak']),
       ciz('Okulun için eğlenceli bir atık kutusu tasarla. Hangi atık için olduğunu yaz.', 60)])]),
     'hafta-19': W(19, 5, 'Her Şey Hareket Eder', 'Atıkların ayrıştırılması; varlıkların hareketleri', () => [numarala([
       dy(['Atık piller çöpe değil, atık pil kutusuna atılır.', 'Organik atıklardan gübre (kompost) yapılabilir.', 'Cam şişeler geri dönüştürülemez.']),
       hareketIz()]),
-    numarala([tahmin('Hareket tahmini! Önce tahmin et, sonra dene.', ['Masadaki bilye itilirse', 'Topaç çevrilirse', 'İpe bağlı silgi bırakılırsa', 'Eğik tahtaya kutu konursa'], ['Durum', 'Nasıl hareket eder? (tahmin)', 'Gözlemim']),
+    numarala([tahmin('Hareket tahmini! Önce tahmin et, sonra dene.', ['Masadaki bilye itilirse', 'Topaç çevrilirse', 'İpe bağlı silgi yana çekilip bırakılırsa', 'Eğik tahtaya kutu konursa'], ['Durum', 'Nasıl hareket eder? (tahmin)', 'Gözlemim']),
       rozet(['Atıkları türüne göre ayırabilirim.', 'Karışımları ayırma yöntemlerini bilirim.', 'Hareket türlerine örnek verebilirim.'])])]),
     'hafta-20': W(20, 5, 'Hızlı mı, Yavaş mı?', 'Varlıkların hareketleri', () => [numarala([
       banka('Hareket şeklini bul! Her varlığı doğru sütuna yaz.', [['Dönme', '#3a86ff'], ['Sallanma', '#f4a100'], ['Yuvarlanma', '#12b886'], ['Kayma', '#8b5cf6']], ['Vantilatör pervanesi', 'Salıncak', 'Futbol topu', 'Kızak', 'Saat sarkacı', 'Dönme dolap', 'Bilye', 'Kaydıraktaki çocuk']),
-      tablo('Hızlı ya da yavaş? Varlıkları en hızlıdan en yavaşa sırala.', ['Sıra', 'Varlık'], [['1. (en hızlı)', ''], ['2.', ''], ['3.', ''], ['4. (en yavaş)', '']])]),
+      tablo('Hızlı ya da yavaş? Uçak, bisiklet, kaplumbağa ve otomobili en hızlıdan en yavaşa sırala.', ['Sıra', 'Varlık'], [['1. (en hızlı)', ''], ['2.', ''], ['3.', ''], ['4. (en yavaş)', '']])]),
     numarala([deney('Yarış rampası!', ['Bir tahta ya da kalın karton', 'Birkaç kitap', 'Top, bilye, oyuncak araba'], ['Tahtanın bir ucunu kitaplarla yükselt.', 'Varlıkları aynı yerden bırak.', 'Hangisinin en hızlı indiğini gözlemle. Sonra rampayı yükselt ve tekrarla.'], 'Hangisi en hızlı iner?'),
       yaz('Rampa yükselince ne değişti? Bir sonuç yaz.', ['Sonucum:'])])]),
     'hafta-21': W(21, 5, 'İt ve Çek', 'Kuvvet ve etkileri', () => [numarala([
-      banka('İtme mi, çekme mi? Her hareketi doğru sütuna yaz.', [['İtme', '#f2546b'], ['Çekme', '#3a86ff']], ['Kapıyı kapatmak', 'Çekmeceyi açmak', 'Alışveriş arabasını sürmek', 'Kova ipini yukarı almak', 'Topa tekme atmak', 'Halat çekme oyunu', 'Zile basmak', 'Bitkiyi kökünden sökmek'], 4),
+      banka('İtme mi, çekme mi? Her hareketi doğru sütuna yaz.', [['İtme', '#f2546b'], ['Çekme', '#3a86ff']], ['Bebek arabasını itmek', 'Çekmeceyi açmak', 'Alışveriş arabasını sürmek', 'Kova ipini yukarı almak', 'Topa tekme atmak', 'Halat çekme oyunu', 'Zile basmak', 'Bitkiyi kökünden sökmek'], 4),
       dy(['Duran bir varlığı hareket ettirmek için kuvvet uygularız.', 'Kuvvet gözle görülür.', 'İtme ve çekme birer kuvvettir.'])]),
     numarala([tahmin('Kuvvet tahmini! Önce tahmin et, sonra dene: Hangisini hareket ettirmek daha çok kuvvet ister?', ['Boş kutu – Kitap dolu kutu', 'Tüy – Silgi', 'Boş çanta – Dolu çanta'], ['Karşılaştırma', 'Tahminim', 'Gözlemim']),
       ciz('Günlük yaşamda itme ve çekme kuvveti kullandığın iki anı çiz. Okla kuvvetin yönünü göster.', 70)])]),
     'hafta-22': W(22, 5, 'Kuvvetin Etkileri', 'Kuvvet ve etkileri', () => [numarala([
-      banka('Kuvvet ne yaptı? Her örneği uygun etkiye yaz.', [['Harekete geçirdi', '#12b886'], ['Durdurdu', '#f2546b'], ['Yönünü değiştirdi', '#3a86ff'], ['Şeklini değiştirdi', '#f4a100']], ['Kaleci topu tuttu.', 'Hamura şekil verdim.', 'Duran arabayı ittim.', 'Tenis topuna raketle vurdum.', 'Süngeri sıktım.', 'Kaydıraktaki kardeşimi tuttum.', 'Topa vurup gol attım.', 'Bisikletin direksiyonunu çevirdim.'], 2),
+      banka('Kuvvet ne yaptı? Her örneği uygun etkiye yaz.', [['Harekete geçirdi', '#12b886'], ['Durdurdu', '#f2546b'], ['Yönünü değiştirdi', '#3a86ff'], ['Şeklini değiştirdi', '#f4a100']], ['Kaleci topu tuttu.', 'Hamura şekil verdim.', 'Duran arabayı ittim.', 'Tenis topuna raketle vurdum.', 'Süngeri sıktım.', 'Kaydıraktaki kardeşimi tuttum.', 'Duran topa vurdum.', 'Bisikletin direksiyonunu çevirdim.'], 2),
       dy(['Kuvvet, varlıkların şeklini değiştirebilir.', 'Hareket eden bir top kendiliğinden yön değiştirir.'])]),
     numarala([deney('Oyun hamuru laboratuvarı!', ['Oyun hamuru', 'Bir kitap', 'Bir kalem'], ['Hamurdan bir top yap.', 'Topu avucunla bastır, sonra kalemle bastır, sonra kitabı üzerine koy.', 'Her seferinde şeklin nasıl değiştiğini çiz.'], 'Hangisi şekli en çok değiştirir?'),
       yaz('Kuvvet uygulayınca şekli değişen ama sonra eski hâline dönen bir varlık bul.', ['Varlık:', 'Neden eski hâline döner?'])])]),
