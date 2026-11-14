@@ -28,7 +28,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
   const sanatciKart = (liste) => etk(0, 'Sanatçı kartları! Bir büyüğünden ya da kitaptan yararlanarak her sanatçının hangi sanat dalında eser verdiğini ve bir eserini yaz. Kaynağını da belirt.',
     `<div class="h3-meslek ttkb">${liste.map(s => `<div><b>${s}</b><span class="h3-k">Sanat dalı:</span>${cizgi(1)}<span class="h3-k">Bir eseri:</span>${cizgi(1)}</div>`).join('')}</div><p class="ttkb h3-not">Kaynağım: <span class="h3-cizgi"></span></p>`);
   const kisilik = () => esle('Atatürk\'ün hangi davranışı hangi kişilik özelliğini gösterir? Eşleştir.', [['#Çocukken çok soru sorardı.', '#Meraklılık'], ['#Her gün geç saatlere kadar çalışırdı.', '#Çalışkanlık'], ['#Zor savaşlarda geri adım atmadı.', '#Cesaret'], ['#Ülkesi için hayatını adadı.', '#Vatanseverlik']], 221);
-  const basarilar = () => tablo('Atatürk\'ün başarılarını araştır. Bir büyüğünden ya da kitaptan yararlan.', ['Ne zaman?', 'Başarı', 'Bize ne kazandırdı?'], [['1919', 'Samsun\'a çıktı, Kurtuluş Savaşı\'nı başlattı.', ''], ['1920', 'TBMM\'yi açtı.', ''], ['1923', 'cumhuriyeti ilan etti.', ''], ['1928', 'Yeni harfleri kabul ettirdi.', '']]);
+  const basarilar = () => tablo('Atatürk\'ün başarılarını incele. Her başarı bize ne kazandırdı? Atatürk\'ün hangi kişilik özelliğini gösterir? Yaz.', ['Başarı', 'Bize ne kazandırdı?', 'Hangi özelliğini gösterir?'], [['1919: Samsun\'a çıktı, Kurtuluş Savaşı\'nı başlattı.', '', ''], ['1920: TBMM\'yi açtı.', '', ''], ['1923: Cumhuriyeti ilan etti.', '', ''], ['1928: Yeni harfleri kabul ettirdi.', '', '']]);
 
   const W = (hafta, unite, baslik, konu, sayfalar) => ({ unite, hafta, baslik, konu, sayfalar });
   const H3 = {

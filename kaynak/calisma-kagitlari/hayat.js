@@ -246,8 +246,8 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
       numarala([yolGorev(), dogruYanlisResim([['top', 'Yolda top oynamak'], ['araba', 'Arabada kemer takmak']])]),
     ] },
     'hafta-10': { unite: 2, hafta: 10, baslik: 'Okul Yolunda', konu: 'Trafik kuralları iyi ki var', sayfalar: () => [
-      numarala([lambaEsle(), dogruYanlisResim([['otobus', 'Otobüse sırayla binmek'], ['kedi', 'Yola koşan kediyi kovalamak']])]),
-      numarala([dogruYanlisResim([['top', 'Yolda top oynamak'], ['otobus', 'Otobüse sırayla binmek'], ['araba', 'Arabada kemer takmak'], ['kedi', 'Yola koşan kediyi kovalamak'], ['ucurtma', 'Elektrik tellerinin yanında uçurtma uçurmak']])]),
+      numarala([daireIcine('Okul yolunda bizi koruyanlar hangileri? Daire içine al.', ['emniyet-kemeri', 'yaya-gecidi', 'kask', 'trafik-polisi', 'kaldirim', 'top', 'ucurtma', 'kedi'], 101), dogruYanlisResim([['okul-servisi', 'Servis durmadan kapıyı açmak'], ['trafik-polisi', 'Trafik polisinin işaretine uymak']])]),
+      numarala([dogruYanlisResim([['kaldirim', 'Kaldırımda yürümek'], ['kask', 'Bisiklete kasksız binmek'], ['otobus', 'Otobüse sırayla binmek'], ['emniyet-kemeri', 'Serviste kemer takmak'], ['kedi', 'Yola koşan kediyi kovalamak']])]),
     ] },
     'hafta-19': { unite: 4, hafta: 19, baslik: 'Bayrağım', konu: 'Bayrağım ve marşımla gururluyum', sayfalar: () => [
       numarala([bayrakBoya(), dogruBayrak()]),
