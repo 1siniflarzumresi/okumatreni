@@ -128,10 +128,10 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
       numarala([yazma('Çanakkale\'de savaşan bir askere bir mektup yaz. Ona bugünkü Türkiye\'yi anlat.', ['Hitap:', 'Ona neler anlatacaksın?', 'Nasıl bir dilekle bitireceksin?'], 12)]),
     ] },
     'hafta-07': { unite: 3, hafta: 7, baslik: 'Herkes Okula!', konu: 'Atatürk ve kahramanlarımız · Karşılaştırma, zıt anlam, imza', sayfalar: () => [
-      metin({ baslik: 'Herkes Okula!', resimler: ['millet-mektebi', 'harf-bloklari'], tahmin: 'Büyükler de okula gider mi? Ne öğrenmiş olabilirler?', paragraflar: [
+      metin({ baslik: 'Herkes Okula!', resimler: ['harf-bloklari'], tahmin: 'Büyükler de okula gider mi? Ne öğrenmiş olabilirler?', paragraflar: [
         'Cumhuriyet Bayramı\'na bir hafta kala öğretmenimiz bir ödev verdi: “Ailenizdeki en yaşlı kişiye Cumhuriyet\'in ilk yıllarını sorun.”',
         'Ben de büyük ninem Hatice Nine\'ye sordum. Hatice Nine yüz iki yaşındaydı ama hafızası pırıl pırıldı. Gözlüğünü taktı, anlatmaya başladı:',
-        '– Ben küçükken annem okuma yazma bilmezdi. Köyümüzde okuyabilen ancak birkaç kişi vardı. Hem eskiden kullanılan harfler öğrenmesi zor harflerdi.',
+        '– Ben küçükken annem okuma yazma bilmezdi. Köyümüzde okuyabilen ancak birkaç kişi vardı. Hem de eskiden kullanılan harfleri öğrenmek zordu.',
         '– Peki sonra ne oldu nine?',
         '– 1928 yılında Atatürk yeni harfleri getirdi. Bugün senin defterine yazdığın harfleri. Ardından her yerde “Millet Mektepleri” açıldı. Büyükler de akşamları okula gitmeye başladı. Annem kırk yaşındaydı. Gündüz tarlada çalışır, akşam elinde gaz lambasıyla okula giderdi.',
         'Hatice Nine durdu, gülümsedi:',
@@ -174,7 +174,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
         'Atatürk 10 Kasım 1938\'de aramızdan ayrıldı. Biz onu her yıl saygıyla anıyoruz. Ama onu en iyi, onun gibi kitap okuyarak ve merak ederek anabiliriz.',
       ] }),
       numarala([harita(), dogruYanlis(['Ülkü, Atatürk\'ün evlat edindiği çocuklardandı.', 'Atatürk kitaplarına hiç not almazdı.', 'Atatürk 23 Nisan\'ı dünya çocuklarına armağan etti.', 'Atatürk\'ün okuduğu kitaplar azdı.']),
-        soru(['Yazarın "Hiç açılmazsa içindekiler karanlıkta kalır." sözü ne anlatıyor?'])]),
+        soru(['Yazarın "Ama hiç açılmazsa içindekiler sonsuza kadar karanlıkta kalır." sözü ne anlatıyor?'])]),
       numarala([siniflandir('Sözcükleri sınıflandır: kişi mi, yer mi, nesne mi?', [['Kişiler', '#3a86ff'], ['Yerler', '#12b886'], ['Nesneler', '#f2546b']], ['Ülkü', 'Ankara', 'kitap', 'Atatürk', 'Çankaya Köşkü', 'bardak', 'masa', 'bahçe', 'çocuklar']),
         tablo('Atatürk hakkında öğrendiklerini sınıflandırarak yaz.', ['Sevdiği şeyler', 'Yaptığı işler'], [['', ''], ['', ''], ['', '']])]),
       numarala([yazma('Atatürk\'e bir mektup yaz. Ona okuduğun en güzel kitabı anlat.', ['Hitap:', 'Hangi kitap, ne anlatıyor?', 'Kapanış:'], 12)]),
@@ -439,7 +439,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
         'Aylar geçti. Bir gün okul müdürümüz elinde bir zarfla sınıfa girdi. Zarfın üzerinde bir uzay roketi resmi vardı! Bir bilim merkezinden geliyordu. İçinde bir mektup ve uzaydan çekilmiş bir dünya fotoğrafı vardı.',
         'Mektupta bir uzay bilimcisi bizim sorularımızı cevaplamıştı. Uzay istasyonunda her şey havada süzüldüğü için astronotların uyku tulumlarını duvara bağlayarak uyuduğunu yazıyordu. Yemekler özel paketlerdeydi; ekmek yerine pide gibi yassı ekmekler kullanılıyordu çünkü ekmek kırıntıları havada uçuşup aletlere zarar verebiliyordu.',
         'Mektubun sonunda şu satırlar vardı: “Uzaydan dünyaya bakınca ülkeler arasında sınır görünmüyor. Mavi bir top, beyaz bulutlar… Hepimiz aynı evde yaşıyoruz. Bilim insanı olmak isteyenler, unutmayın: Damlaya damlaya göl olur. Her gün biraz öğrenin.”',
-        'Fotoğrafı sınıf panosuna astık. Can gözünü dört açıp fotoğrafı uzun uzun izledi. Sonra bana döndü:',
+        'Fotoğrafı sınıf panosuna astık. Can gözünü dört açıp fotoğraftaki her ayrıntıya dikkatle baktı. Sonra bana döndü:',
         '– Ben büyüyünce o istasyona gideceğim, dedi.',
         'Selin Hanım duymuştu. Gülümsedi:',
         '– Hayal kurmak işin yarısıdır Can. Kalan yarısı çalışmak.',

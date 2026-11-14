@@ -59,7 +59,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
     const yuru = `<g transform="translate(0 86)" fill="${ys}" stroke="${ys}" stroke-linecap="round"><circle cx="42" cy="14" r="7" stroke="none"/><line x1="40" y1="24" x2="36" y2="46" stroke-width="9"/><line x1="36" y1="46" x2="24" y2="68" stroke-width="6"/><line x1="36" y1="46" x2="50" y2="66" stroke-width="6"/><line x1="39" y1="28" x2="26" y2="42" stroke-width="5"/><line x1="40" y1="28" x2="54" y2="38" stroke-width="5"/></g>`;
     return `<svg viewBox="0 0 80 172" width="${Math.round(h * 80 / 172)}" height="${h}"><rect x="2" y="2" width="76" height="168" rx="10" fill="#2b3a48"/><rect x="8" y="8" width="64" height="76" rx="6" fill="#1b252e"/><rect x="8" y="88" width="64" height="76" rx="6" fill="#1b252e"/>${dur}${yuru}</svg>`; };
   const lambaEsle = () => etk(0, 'Bu yaya ışığında hangi lamba yanıyor? Yanınca ne yapmalısın? Çizgiyle eşleştir.',
-    `<div class="esles lmb"><div class="sol">${[0, 1].map(i => `<div>${yayaLamba(i, 120)}<i></i></div>`).join('')}</div><div class="sag">${[['bekle', 'Kaldırımda bekle'], ['gec', 'Sağa, sola bak; yaya geçidinden geç']].map(([k, m]) => `<div><i></i><b class="ttkb">${m}</b></div>`).join('')}</div></div>`);
+    `<div class="esles lmb"><div class="sol">${[0, 1].map(i => `<div>${yayaLamba(i, 120)}<i></i></div>`).join('')}</div><div class="sag">${[['gec', 'Sağa, sola bak; yaya geçidinden geç'], ['bekle', 'Kaldırımda bekle']].map(([k, m]) => `<div><i></i><b class="ttkb">${m}</b></div>`).join('')}</div></div>`);
   const yolSahne = () => { let s = `<rect width="640" height="300" fill="#e7faf2"/><rect y="110" width="640" height="110" fill="#6c757d"/><rect y="98" width="640" height="12" fill="#ced4da"/><rect y="220" width="640" height="12" fill="#ced4da"/>`;
     for (let i = 0; i < 8; i++) s += `<rect x="${270 + 0}" y="${116 + i * 13}" width="100" height="8" fill="#fff"/>`;
     for (let i = 0; i < 10; i++) s += `<rect x="${20 + i * 64}" y="162" width="34" height="6" fill="#ffd23f"/>`;
@@ -149,7 +149,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
       numarala([acilAdim(), ciz('Acil durumda evinden nereye çıkarsın? Toplanma yerini çiz.', 70)]),
     ] },
     'hafta-12': { unite: 2, hafta: 12, baslik: 'Hazırım!', konu: 'Eyvah, acil durum!', sayfalar: () => [
-      numarala([daireIcine('Acil durumda yardım edenleri daire içine al.', ['ambulans', 'itfaiye', 'polis', 'yangin-tupu', 'telefon-112', 'top', 'kek', 'gitar'], 12), dy([['deprem', 'Depremde masanın altına girmek'], ['koridor-kos', 'Tatbikatta koşup itişmek']])]),
+      numarala([daireIcine('Acil durumda yardım edenleri daire içine al.', ['ambulans', 'itfaiye', 'polis', 'ogretmen', 'top', 'kek', 'gitar', 'tablet'], 12), dy([['deprem', 'Depremde masanın altına girmek'], ['koridor-kos', 'Tatbikatta koşup itişmek']])]),
       numarala([ciz('Acil durum çantasına ne koyarsın? Çantanın içine çiz.', 140)]),
     ] },
     'hafta-13': { unite: 2, hafta: 13, baslik: 'Bizim Ev', konu: 'Eyvah, acil durum! · Bizim ev', sayfalar: () => [
@@ -201,8 +201,8 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
       numarala([acilAdim(), ciz('Ailenle toplanma yerinizi çiz.', 70)]),
     ] },
     'hafta-29': { unite: 5, hafta: 29, baslik: 'Hazırlıklıyım', konu: 'Afetleri tanıyalım', sayfalar: () => [
-      numarala([daireIcine('Afet çantasına neler koyarız? Daire içine al.', ['su-ic', 'ilac', 'fener', 'ekmek', 'eldiven', 'gitar', 'top', 'tablet'], 29), dy([['yangin-tupu', 'Yangın tüpünün yerini bilmek'], ['telefon-112', '112\'yi şaka için aramak']])]),
-      numarala([esle('Hangi afette ne işimize yarar? Eşleştir.', [['orman-yangini', 'telefon-112'], ['deprem', 'canta']], 291), ciz('Evinde depremde güvenli bir yer bul ve çiz.', 90)]),
+      numarala([daireIcine('Afet çantasına neler koyarız? Daire içine al.', ['sise', 'ilac', 'eldiven', 'canta', 'gitar', 'top', 'tablet', 'cips'], 29), dy([['yangin-tupu', 'Yangın tüpünün yerini bilmek'], ['telefon-112', '112\'yi şaka için aramak']])]),
+      numarala([esle('Afetleri tanıyalım! Resmi afetin adıyla eşleştir.', [['orman-yangini', '<b class="ttkb" style="font-size:7mm">Yangın</b>'], ['sel', '<b class="ttkb" style="font-size:7mm">Sel</b>'], ['deprem', '<b class="ttkb" style="font-size:7mm">Deprem</b>']], 291), ciz('Evinde depremde güvenli bir yer bul ve çiz.', 90)]),
     ] },
     'hafta-30': { unite: 5, hafta: 30, baslik: 'Atma, Yazık Olur', konu: 'Atma yazık olur', sayfalar: () => [
       numarala([ayir('Atıkları doğru kutuya çizgiyle götür: plastik maviye, kâğıt sarıya, cam yeşile.', [['plastik', '#3a86ff'], ['kâğıt', '#f4a100'], ['cam', '#12b886']], ['plastik-sise', 'kagit', 'cam-kavanoz', 'gazete', 'sise', 'kutu'], 30)]),
