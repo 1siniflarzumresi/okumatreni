@@ -629,7 +629,7 @@ img{width:100%;height:100%;object-fit:contain}
 .c-kuyruk{stroke:#b9cbbf;stroke-width:14;stroke-dasharray:20 30}
 .c-orta{stroke:#86a891;stroke-width:16;stroke-dasharray:50 34}
 .balonlar{display:grid;grid-template-columns:repeat(12,1fr);gap:2mm 2.4mm}
-.balonlar span{aspect-ratio:1;border:.5mm solid #4a5a50;border-radius:50%;display:grid;place-items:center;font-size:7.5mm;line-height:1;padding-top:.6mm}
+.balonlar span{aspect-ratio:1;border:.6mm solid #4a5a50;border-radius:50%;display:grid;place-items:center;font-size:7.5mm;line-height:1;padding-top:.6mm}
 .heceler{display:flex;flex-direction:column;gap:2mm}
 .heceler div{display:grid;grid-template-columns:repeat(var(--n,4),1fr);gap:3mm}
 .heceler span{border:.4mm solid #cfd8d1;border-radius:3mm;display:flex;justify-content:space-between;align-items:center;padding:.6mm 3mm}
@@ -648,7 +648,7 @@ img{width:100%;height:100%;object-fit:contain}
 .esles i{width:3.2mm;height:3.2mm;border-radius:50%;background:#1f2a24;flex:none}
 .esles img{width:17mm;height:17mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:1.5mm}
 .cumleler{display:flex;flex-direction:column;gap:1.8mm}
-.cumleler div{display:flex;justify-content:space-between;align-items:center;border-bottom:.3mm dashed #cfd8d1;padding:0 2mm 1mm}
+.cumleler div{display:flex;justify-content:space-between;align-items:center;border-bottom:.55mm dashed #8fa39a;padding:0 2mm 1mm}
 .cumleler span{font-size:7.6mm;line-height:1.25}
 .metin{border:.5mm solid #2e6b4a;border-radius:4mm;padding:4mm 7mm;background:#f6faf3}
 .metin h3{margin:0 0 2mm;text-align:center;font-size:9mm;font-weight:400;color:#1f4d36}
@@ -661,7 +661,7 @@ img{width:100%;height:100%;object-fit:contain}
 .m-yildiz span{width:9mm;height:9mm;display:grid;place-items:center;font:700 3.6mm Andika,sans-serif;color:#6b7a70;
   clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);background:#cfd8d1;padding-top:1mm}
 .merdiven ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:flex-start;gap:.6mm}
-.merdiven li{line-height:1.28;padding:0 2mm;border-bottom:.3mm dashed #dbe6d4}
+.merdiven li{line-height:1.28;padding:0 2mm;border-bottom:.55mm dashed #8fa39a}
 .merdiven li b{color:#c0392b;font-weight:400}
 .hikaye{border:.5mm solid #2e6b4a;border-radius:4mm;padding:5mm 7mm;background:#f6faf3;display:grid;grid-template-columns:62mm 1fr;gap:7mm;align-items:center}
 .hikaye svg{width:62mm;height:39mm;border-radius:3mm}
@@ -671,27 +671,27 @@ img{width:100%;height:100%;object-fit:contain}
 .cizim{flex:1;border:.5mm dashed #9fc6ef;border-radius:4mm;background:#fff}
 .metin p{font-size:var(--mb,7.8mm)!important}
 .dy{display:flex;flex-direction:column;gap:2mm}
-.dy div{display:flex;align-items:center;gap:4mm;border-bottom:.3mm dashed #cfd8d1;padding-bottom:1mm}
+.dy div{display:flex;align-items:center;gap:4mm;border-bottom:.55mm dashed #8fa39a;padding-bottom:1mm}
 .dy span{flex:1;font-size:7.2mm}
-.dy i{font-style:normal;width:10mm;height:10mm;border:.5mm solid #4a5a50;border-radius:2mm;display:grid;place-items:center;font:700 6mm Andika,sans-serif;color:#9aa59d}
+.dy i{font-style:normal;width:10mm;height:10mm;border:.6mm solid #4a5a50;border-radius:2mm;display:grid;place-items:center;font:700 6mm Andika,sans-serif;color:#9aa59d}
 .secmeli{display:flex;flex-direction:column;gap:3mm}
 .secmeli p,.acik p,.tamamla p{margin:0 0 1.5mm;font-size:6.6mm}
 .secmeli p b,.acik p b{color:#2e6b4a;font-weight:400}
 .secmeli>div>div{display:flex;gap:8mm;padding-left:6mm}
 .secmeli>div>div>span{display:flex;align-items:center;gap:2mm;font-size:6.6mm}
-.secmeli i{width:5.5mm;height:5.5mm;border:.5mm solid #4a5a50;border-radius:50%}
+.secmeli i{width:5.5mm;height:5.5mm;border:.6mm solid #4a5a50;border-radius:50%}
 .acik{display:flex;flex-direction:column;gap:2mm}
 .sirala{display:flex;flex-direction:column;gap:2mm}
 .sirala div{display:flex;align-items:center;gap:4mm}
-.sirala i{width:10mm;height:10mm;border:.5mm solid #4a5a50;border-radius:2mm;flex:none}
+.sirala i{width:10mm;height:10mm;border:.6mm solid #4a5a50;border-radius:2mm;flex:none}
 .sirala span{font-size:6.8mm}
 .kr{display:flex;flex-direction:column;gap:2mm}
-.kr>div{display:grid;grid-template-columns:44mm repeat(3,1fr);gap:4mm;align-items:center;border-bottom:.3mm dashed #cfd8d1;padding-bottom:1.5mm}
+.kr>div{display:grid;grid-template-columns:44mm repeat(3,1fr);gap:4mm;align-items:center;border-bottom:.55mm dashed #8fa39a;padding-bottom:1.5mm}
 .kr b{font-size:9mm;font-weight:400}
 .kr span{height:21mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:1.5mm;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .kr span img{width:auto;height:100%;max-width:100%;object-fit:contain}
 .tamamla{display:flex;flex-direction:column;gap:3mm}
-.tamamla u{display:inline-block;width:42mm;border-bottom:.5mm solid #4a5a50;margin:0 2mm}
+.tamamla u{display:inline-block;width:42mm;border-bottom:.6mm solid #4a5a50;margin:0 2mm}
 .tamamla>div>div{display:flex;gap:4mm;padding-left:6mm}
 .tamamla>div>div span{border:.4mm solid #4a5a50;border-radius:999px;padding:.5mm 4mm;font-size:6mm}
 ${MAT_CSS}
@@ -714,6 +714,7 @@ ${T4.CSS}
 .sayfa:has(.harf.mat) .ad i{width:34mm}
 .sayfa:has(.harf.mat) .ad i.kisa{width:22mm}
 .govde{display:flex;flex-direction:column;gap:3.5mm;flex:1;min-height:0}
+.govde.olc>.etk:last-child,.govde.olc>.etk:last-child>div:last-child{flex:none!important}
 .govde>.etk:last-child{flex:1;display:flex;flex-direction:column}
 .govde>.etk:last-child>div:last-child:not(.cizim):not(.satirlar){flex:1;justify-content:space-evenly;align-content:space-evenly}
 footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font:3.2mm Andika,sans-serif;color:#1d4e89;padding:1.6mm 4mm;border-radius:999px;background:linear-gradient(90deg,#eaf4ff,#fff6dc)}
@@ -757,7 +758,7 @@ const SAYFALAR = {};
     AKTIF = h === '_yon' || MATMOD ? null : h; const govdeler = MATMOD ? KAG[h].sayfalar() : HARF[h](); AKTIF = null;
     const HEDEF = MATMOD ? CIKTI_D : CIKTI;
     if (HATALAR.length) break;
-    const html = `<!doctype html><html lang="tr"><meta charset="utf-8"><style>${CSS}</style><body>${OKLAR}<script>addEventListener('load',()=>document.querySelectorAll('.sayfa').forEach(s=>{const f=s.querySelector('footer'),h=s.querySelector('header');if(!f||!h)return;const g=document.createElement('div');g.className='govde';[...s.children].filter(c=>c!==f&&c!==h).forEach(c=>g.appendChild(c));s.insertBefore(g,f);const tm=g.querySelector('.t2-metin');if(tm){let fs=5.9;while(g.scrollHeight>g.clientHeight+2&&fs>4.6){fs=Math.round((fs-.1)*10)/10;tm.style.setProperty('--fs',fs+'mm');}}const t4=g.querySelector('.t4');if(t4&&!g.querySelector('.t4-optik')||t4){let z=1;while(z<1.3){g.style.zoom=z+.02;if(g.scrollHeight>g.clientHeight+1){g.style.zoom=z;break;}z+=.02;}}const bos2=0,bos=g.clientHeight,ihtiyac=g.scrollHeight;if(ihtiyac>bos+2){g.style.zoom=Math.max(.72,bos/ihtiyac);if(g.scrollHeight>g.clientHeight+2)g.style.zoom=Math.max(.72,parseFloat(g.style.zoom)*g.clientHeight/g.scrollHeight);}}));</script><script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('path.iz').forEach(p=>{const n=Math.max(3,Math.round(p.getTotalLength()/80));p.setAttribute('pathLength',n);p.setAttribute('stroke-dasharray','0 1');const L=p.getTotalLength(),e=p.getPointAtLength(L),c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',e.x);c.setAttribute('cy',e.y);c.setAttribute('r',22);c.setAttribute('fill','#8a8f8b');p.after(c);}));</script>${govdeler.map((g, i) => sayfa({ harf: h, govde: g, no: i + 1, toplam: govdeler.length, mat: MATMOD ? Object.assign({ ders: D.ad, sinif: D.sinif }, KAG[h]) : null })).join('')}</body></html>`;
+    const html = `<!doctype html><html lang="tr"><meta charset="utf-8"><style>${CSS}</style><body>${OKLAR}<script>addEventListener('load',()=>document.querySelectorAll('.sayfa').forEach(s=>{const f=s.querySelector('footer'),h=s.querySelector('header');if(!f||!h)return;const g=document.createElement('div');g.className='govde';[...s.children].filter(c=>c!==f&&c!==h).forEach(c=>g.appendChild(c));s.insertBefore(g,f);const tm=g.querySelector('.t2-metin');if(tm){let fs=5.9;while(g.scrollHeight>g.clientHeight+2&&fs>4.6){fs=Math.round((fs-.1)*10)/10;tm.style.setProperty('--fs',fs+'mm');}}const t4=g.querySelector('.t4');if(t4&&!g.querySelector('.t4-optik')||t4){let z=1;while(z<1.3){g.style.zoom=z+.02;if(g.scrollHeight>g.clientHeight+1){g.style.zoom=z;break;}z+=.02;}}if(!t4){g.classList.add('olc');const P=3.78,dol=()=>{const c=g.lastElementChild;return c?g.clientHeight-(c.getBoundingClientRect().bottom-g.getBoundingClientRect().top):0};const L=[...g.querySelectorAll('*')].filter(e=>{if(e.children.length||e.textContent.trim()||e.closest('svg,table'))return false;const c=getComputedStyle(e),w=e.getBoundingClientRect().width;return parseFloat(c.borderBottomWidth)>0&&!parseFloat(c.borderTopWidth)&&w>30*P&&c.display!=='inline'});let h=9;while(L.length&&dol()>10*P&&h<13){h+=.5;L.forEach(e=>e.style.height=h+'mm')}if(dol()<0&&h>9){h-=.5;L.forEach(e=>e.style.height=h+'mm')}const R=[...g.querySelectorAll('table tr')].filter(t=>t.querySelector('td')&&[...t.querySelectorAll('td')].some(d=>!d.textContent.trim()));if(R.length&&dol()>10*P){const r=dol()-4*P;R.forEach(t=>t.style.height=Math.min(t.getBoundingClientRect().height+r/R.length,45*P)+'px')}const C=[...g.querySelectorAll('.h2-ciz,.m2-ciz,.m2-coz')];if(C.length&&dol()>10*P){const r=dol()-4*P;C.forEach(e=>e.style.minHeight=(e.getBoundingClientRect().height+r/C.length)+'px')}g.classList.remove('olc')}const bos2=0,bos=g.clientHeight,ihtiyac=g.scrollHeight;if(ihtiyac>bos+2){g.style.zoom=Math.max(.72,bos/ihtiyac);if(g.scrollHeight>g.clientHeight+2)g.style.zoom=Math.max(.72,parseFloat(g.style.zoom)*g.clientHeight/g.scrollHeight);}}));</script><script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('path.iz').forEach(p=>{const n=Math.max(3,Math.round(p.getTotalLength()/80));p.setAttribute('pathLength',n);p.setAttribute('stroke-dasharray','0 1');const L=p.getTotalLength(),e=p.getPointAtLength(L),c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',e.x);c.setAttribute('cy',e.y);c.setAttribute('r',22);c.setAttribute('fill','#8a8f8b');p.after(c);}));</script>${govdeler.map((g, i) => sayfa({ harf: h, govde: g, no: i + 1, toplam: govdeler.length, mat: MATMOD ? Object.assign({ ders: D.ad, sinif: D.sinif }, KAG[h]) : null })).join('')}</body></html>`;
     SAYFALAR[h] = html;
     // Denetim kancası: SADECE_HTML=<dizin> → PDF üretmeden HTML'i ve PDF yolunu dizine yaz (kontrol.js paket). İçerik dosyalarına dokunmaz.
     if (process.env.SADECE_HTML) { fs.mkdirSync(process.env.SADECE_HTML, { recursive: true }); fs.writeFileSync(path.join(process.env.SADECE_HTML, h + '.html'), html);

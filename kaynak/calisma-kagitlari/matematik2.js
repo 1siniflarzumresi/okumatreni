@@ -124,9 +124,9 @@ module.exports = ({ etk, resim, RY, rastgele, numarala }) => {
   const cikarmaBoz = (t, n = 8) => { const r = R(t); const L = Array.from({ length: n }, () => { let a, b; do { a = tam(r, 31, 95); b = tam(r, 12, 49); } while ((a % 10) >= (b % 10) || b >= a); return [a, b]; });
     return etk(0, 'Onluk bozma! Birlikler yetmiyorsa bir onluğu boz. Bozduğun onluğu çizip düzelt.', `<div class="m2-islemler">${L.map(([a, b]) => dikey(a, b, '−')).join('')}</div>`); };
   const problem = (liste) => etk(0, 'Problemi oku. Anla, planla, çöz ve kontrol et.',
-    `<div class="m2-problem">${liste.map(([ad, metin]) => `<div><span>${resim(ad)}</span><div><p class="ttkb">${metin}</p><div class="m2-adim ttkb"><span>İşlem: ${kutu(34)}</span><span>Cevap: ${kutu(20)}</span><span>Kontrol: ${kutu(30)}</span></div></div></div>`).join('')}</div>`);
+    `<div class="m2-problem">${liste.map(([ad, metin]) => `<div><span>${resim(ad)}</span><div><p class="ttkb">${metin}</p><div class="m2-coz"></div><div class="m2-adim ttkb"><span>İşlem: ${kutu(34)}</span><span>Cevap: ${kutu(20)}</span><span>Kontrol: ${kutu(30)}</span></div></div></div>`).join('')}</div>`);
   const problemKur = (resimler) => etk(0, 'Problem yazarı sensin! Resme bak, bir toplama ya da çıkarma problemi yaz ve çöz.',
-    `<div class="m2-pkur">${resimler.map(a => `<div><span>${resim(a)}</span><div class="m2-cizgiler">${'<i></i>'.repeat(3)}</div></div>`).join('')}</div>`);
+    `<div class="m2-pkur">${resimler.map(a => `<div><span>${resim(a)}</span><div><div class="m2-cizgiler">${'<i></i>'.repeat(3)}</div><div class="m2-coz" style="margin-top:2mm"></div></div></div>`).join('')}</div>`);
   const market = (urunler, t) => { const r = R(t);
     return etk(0, 'Ladin Market! Fiyatlara bak, soruları cevapla.',
       `<div class="m2-market">${urunler.map(([a, f]) => `<div><span>${resim(a)}</span><b class="ttkb">${f} TL</b></div>`).join('')}</div><div class="m2-soru ttkb">${[`1 ${urunler[0][2]} ve 1 ${urunler[1][2]} alırsam kaç lira öderim?`, 'En pahalı ürün ile en ucuz ürün arasında kaç lira fark var?', `Cebimde 50 lira var. 1 ${urunler[2][2]} alırsam kaç liram kalır?`, `3 ${urunler[3][2]} kaç lira eder?`].map(s => `<p>${s} ${kutu(18)}</p>`).join('')}</div>`); };
@@ -265,7 +265,7 @@ module.exports = ({ etk, resim, RY, rastgele, numarala }) => {
     'hafta-36': H(36, 6, 'Veri Kararı', 'Veriye dayalı karar verme', () => [numarala([cetele({ kedi: 6, kopek: 8 }, 'Hangi hayvanı daha çok seviyoruz? Resimleri say, çeteleyi ve tabloyu doldur.'), grafikBoya(['kedi', 'kopek'])]), numarala([anket(), problem([['otobus', 'Sınıf gezisi için 28 öğrenci müzeyi, 17 öğrenci hayvanat bahçesini seçti. Hangisi kaç oy fazla aldı? Gezi nereye olmalı?']])])]),
   };
   const CSS = `
-.m2k{display:inline-block;height:9mm;border:.5mm solid #4a5a50;border-radius:2mm;background:#fff;vertical-align:middle}
+.m2k{display:inline-block;height:9mm;border:.6mm solid #4a5a50;border-radius:2mm;background:#fff;vertical-align:middle}
 .m2-esle{display:grid;grid-template-columns:1fr 1fr;gap:28mm;padding:0 6mm}.m2-esle>div{display:flex;flex-direction:column;gap:3mm;justify-content:space-around}
 .m2-esle span{display:flex;align-items:center;gap:3mm;background:#fff;border-radius:3mm;padding:1.5mm 3mm;min-height:17mm}.m2-esle>div:first-child span{justify-content:space-between}
 .m2-esle span img{width:16mm;height:16mm;object-fit:contain}.m2-esle i{flex:none;width:3.5mm;height:3.5mm;border-radius:50%;background:#1f2a24}.m2-esle b{font-weight:400;font-size:5mm}
@@ -296,13 +296,13 @@ module.exports = ({ etk, resim, RY, rastgele, numarala }) => {
 .m2-dikey{background:#fff;border-radius:3mm;padding:2mm 3mm;display:flex;flex-direction:column;align-items:flex-end;font-size:8mm;line-height:1.1}.m2-dikey span{display:flex;gap:1mm;align-items:center}.m2-dikey i{font-style:normal;width:8mm;text-align:center}
 .m2-dikey em{font-style:normal;margin-right:2mm}.m2-elde{width:8mm;height:6mm;border:.4mm dashed #e63946;border-radius:1mm;margin-right:9mm}.m2-cizgi{width:100%;height:0;border-top:.6mm solid #1f2a24!important;margin:1mm 0}.m2-dikey i.b{height:9mm;border:.4mm solid #9db4c8;border-radius:1.5mm}
 .m2-problem{display:flex;flex-direction:column;gap:3mm}.m2-problem>div{background:#fff;border-radius:3mm;padding:2.5mm 3mm;display:grid;grid-template-columns:22mm 1fr;gap:3mm;align-items:center}.m2-problem img{width:20mm;height:20mm;object-fit:contain}
-.m2-problem p{margin:0 0 2mm;font-size:5.2mm;line-height:1.5}.m2-adim{display:flex;flex-wrap:wrap;gap:2mm 5mm;font-size:4.6mm;align-items:center}
+.m2-problem p{margin:0 0 2mm;font-size:5.2mm;line-height:1.5}.m2-coz{min-height:22mm;border:.6mm dashed #7d95ab;border-radius:2mm;margin-bottom:2mm}.m2-adim{display:flex;flex-wrap:wrap;gap:2mm 5mm;font-size:4.6mm;align-items:center}
 .m2-pkur{display:flex;flex-direction:column;gap:3mm}.m2-pkur>div{background:#fff;border-radius:3mm;padding:2mm 3mm;display:grid;grid-template-columns:30mm 1fr;gap:3mm;align-items:center}.m2-pkur img{width:28mm;height:28mm;object-fit:contain}
-.m2-cizgiler{display:flex;flex-direction:column}.m2-cizgiler i{height:10mm;border-bottom:.45mm solid #9db4c8}
+.m2-cizgiler{display:flex;flex-direction:column}.m2-cizgiler i{height:10mm;border-bottom:.6mm solid #7d95ab}
 .m2-market{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-bottom:3mm}.m2-market>div{background:#fff;border-radius:3mm;padding:2mm;display:flex;flex-direction:column;align-items:center;gap:1mm;border-bottom:1.2mm solid #f4a100}.m2-market img{width:20mm;height:20mm;object-fit:contain}.m2-market b{font-weight:400;font-size:6mm;background:#fff6dc;border-radius:2mm;padding:0 2mm}
 .m2-soru{display:flex;flex-direction:column;gap:2.5mm}.m2-soru p{margin:0;background:#fff;border-radius:3mm;padding:2mm 3mm;font-size:5mm;display:flex;align-items:center;gap:3mm;justify-content:space-between;min-height:11mm}
 .m2-zihin{display:grid;grid-template-columns:repeat(2,1fr);gap:3mm}.m2-zihin span{background:#fff;border-radius:3mm;padding:2mm 3mm;font-size:6mm;display:flex;align-items:center;gap:2mm;justify-content:center}.m2-zihin b{font-weight:400}
-.m2-dy{display:inline-block;width:9mm;height:9mm;border:.5mm solid #4a5a50;border-radius:2mm}
+.m2-dy{display:inline-block;width:9mm;height:9mm;border:.6mm solid #4a5a50;border-radius:2mm}
 .m2-aile{display:grid;grid-template-columns:1fr 1fr;gap:3mm}.m2-aile>div{background:#fff;border-radius:3mm;padding:2mm;display:grid;grid-template-columns:32mm 1fr;gap:2mm;align-items:center}.m2-aile>div>div{display:flex;flex-direction:column;gap:1.5mm;font-size:5mm}.m2-aile .m2k{height:7.5mm}
 .m2-carp{display:flex;flex-direction:column;gap:3mm}.m2-carp>div{background:#fff;border-radius:3mm;padding:2mm 3mm;display:flex;flex-direction:column;gap:2mm;align-items:center;font-size:5.4mm}
 .m2-gruplar{display:flex;gap:4mm;flex-wrap:wrap;justify-content:center}.m2-gruplar>span{display:flex;flex-wrap:wrap;gap:1mm;max-width:34mm;border:.6mm dashed #f4a100;border-radius:5mm;padding:2mm;justify-content:center}.m2-gruplar img{width:9mm;height:9mm}
@@ -322,9 +322,9 @@ module.exports = ({ etk, resim, RY, rastgele, numarala }) => {
 .m2-kroki{display:grid;grid-template-columns:100mm 1fr;gap:3mm;align-items:start}.m2-kroki>svg{background:#fff;border-radius:3mm}
 .m2-simetri{display:grid;grid-template-columns:1fr 1fr;gap:4mm}.m2-simetri>svg{background:#fff;border-radius:3mm}
 .m2-harfler{display:grid;grid-template-columns:repeat(7,1fr);gap:2.5mm}.m2-harfler span{background:#fff;border-radius:3mm;font-size:14mm;text-align:center;line-height:1.2;-webkit-text-stroke:.3mm #1f2a24;color:#fff}
-.m2-veri{display:grid;grid-template-columns:1fr 70mm;gap:3mm;align-items:center}.m2-veri>svg{background:#fff;border-radius:3mm}.m2-cet{display:inline-block;width:30mm;height:8mm;border-bottom:.4mm solid #9db4c8}
+.m2-veri{display:grid;grid-template-columns:1fr 70mm;gap:3mm;align-items:center}.m2-veri>svg{background:#fff;border-radius:3mm}.m2-cet{display:inline-block;width:30mm;height:8mm;border-bottom:.6mm solid #7d95ab}
 .m2-grafik{display:grid;grid-template-columns:96mm 1fr;gap:3mm;align-items:center}.m2-grafik>svg{background:#fff;border-radius:3mm}
-.m2-anket{background:#fff;border-radius:3mm;padding:3mm;font-size:5mm}.m2-anket p{margin:0 0 2mm;display:flex;gap:2mm;align-items:flex-end}.m2-cizgi2{flex:1;border-bottom:.45mm solid #9db4c8;height:7mm}.m2-anket td{height:11mm;background:#f4f7fb}
+.m2-anket{background:#fff;border-radius:3mm;padding:3mm;font-size:5mm}.m2-anket p{margin:0 0 2mm;display:flex;gap:2mm;align-items:flex-end}.m2-cizgi2{flex:1;border-bottom:.6mm solid #7d95ab;height:7mm}.m2-anket td{height:11mm;background:#f4f7fb}
 /* son etkinlikte ızgaralar sayfayı doldurur */
 .govde>.etk:last-child>:is(.m2-ctablo,.m2-onluk,.m2-kesir,.m2-saat,.m2-terazi,.m2-birim,.m2-agir,.m2-zihin,.m2-kars,.m2-avi,.m2-komsu,.m2-islemler,.m2-ciz,.m2-aile,.m2-tahmin,.m2-buyu,.m2-simetri,.m2-model){align-content:stretch!important}
 .govde>.etk:last-child>:is(.m2-ctablo,.m2-onluk,.m2-kesir,.m2-saat,.m2-terazi,.m2-birim,.m2-agir,.m2-tahmin,.m2-buyu)>div{justify-content:center}

@@ -53,8 +53,13 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
   // trafik
   const lambaBoya = () => etk(0, 'Trafik ışığını doğru renklere boya: en üst kırmızı, ortası sarı, en alt yeşil. Sonra her ışığın yanındaki anlamı söyle.',
     `<div class="lambalar"><div>${lamba([], 230)}</div><div class="anlam">${[['#e63946', 'Kırmızı: DUR'], ['#ffb703', 'Sarı: HAZIRLAN'], ['#2a9d8f', 'Yeşil: GEÇ']].map(([r, m]) => `<p class="ttkb"><i style="background:${r}"></i>${m}</p>`).join('')}</div></div>`);
-  const lambaEsle = () => etk(0, 'Yayalar için ışık hangisi? Işık yanınca ne yapmalısın? Çizgiyle eşleştir.',
-    `<div class="esles lmb"><div class="sol">${[['#e63946'], ['#2a9d8f']].map(([r], i) => `<div>${lamba(i ? ['#fff', '#fff', r] : [r, '#fff', '#fff'], 120)}<i></i></div>`).join('')}</div><div class="sag">${[['bekle', 'Kaldırımda bekle'], ['gec', 'Bak, sonra karşıya geç']].map(([k, m]) => `<div><i></i><b class="ttkb">${m}</b></div>`).join('')}</div></div>`);
+  // yaya ışığı: üstte kırmızı duran insan, altta yeşil yürüyen insan; yanan lamba renkli, sönük lamba gri
+  const yayaLamba = (yesil, h) => { const kr = yesil ? '#4a5560' : '#e63946', ys = yesil ? '#2a9d8f' : '#4a5560';
+    const dur = `<g fill="${kr}"><circle cx="40" cy="20" r="7"/><rect x="33" y="29" width="14" height="24" rx="4"/><rect x="34" y="52" width="5" height="20" rx="2"/><rect x="41" y="52" width="5" height="20" rx="2"/><rect x="27" y="30" width="5" height="20" rx="2"/><rect x="48" y="30" width="5" height="20" rx="2"/></g>`;
+    const yuru = `<g transform="translate(0 86)" fill="${ys}" stroke="${ys}" stroke-linecap="round"><circle cx="42" cy="14" r="7" stroke="none"/><line x1="40" y1="24" x2="36" y2="46" stroke-width="9"/><line x1="36" y1="46" x2="24" y2="68" stroke-width="6"/><line x1="36" y1="46" x2="50" y2="66" stroke-width="6"/><line x1="39" y1="28" x2="26" y2="42" stroke-width="5"/><line x1="40" y1="28" x2="54" y2="38" stroke-width="5"/></g>`;
+    return `<svg viewBox="0 0 80 172" width="${Math.round(h * 80 / 172)}" height="${h}"><rect x="2" y="2" width="76" height="168" rx="10" fill="#2b3a48"/><rect x="8" y="8" width="64" height="76" rx="6" fill="#1b252e"/><rect x="8" y="88" width="64" height="76" rx="6" fill="#1b252e"/>${dur}${yuru}</svg>`; };
+  const lambaEsle = () => etk(0, 'Bu yaya ışığında hangi lamba yanıyor? Yanınca ne yapmalısın? Çizgiyle eşleştir.',
+    `<div class="esles lmb"><div class="sol">${[0, 1].map(i => `<div>${yayaLamba(i, 120)}<i></i></div>`).join('')}</div><div class="sag">${[['bekle', 'Kaldırımda bekle'], ['gec', 'Sağa, sola bak; yaya geçidinden geç']].map(([k, m]) => `<div><i></i><b class="ttkb">${m}</b></div>`).join('')}</div></div>`);
   const yolSahne = () => { let s = `<rect width="640" height="300" fill="#e7faf2"/><rect y="110" width="640" height="110" fill="#6c757d"/><rect y="98" width="640" height="12" fill="#ced4da"/><rect y="220" width="640" height="12" fill="#ced4da"/>`;
     for (let i = 0; i < 8; i++) s += `<rect x="${270 + 0}" y="${116 + i * 13}" width="100" height="8" fill="#fff"/>`;
     for (let i = 0; i < 10; i++) s += `<rect x="${20 + i * 64}" y="162" width="34" height="6" fill="#ffd23f"/>`;
@@ -140,7 +145,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
       numarala([daireIcine('Bir sorun olduğunda kimden yardım istersin? Güvendiğin kişileri daire içine al.', ['anne', 'ogretmen', 'buyukanne', 'polis', 'trafik-polisi', 'yabanci', 'aile', 'kopek'], 8), ciz('Seni mutlu eden bir anı çiz.', 70)]),
     ] },
     'hafta-11': { unite: 2, hafta: 11, baslik: 'Eyvah, Acil Durum!', konu: 'Eyvah, acil durum!', sayfalar: () => [
-      numarala([esle('Kim yardıma gelir? Durumu yardım edecek araçla eşleştir.', [['duman', 'itfaiye'], ['yabanci', 'polis'], ['deprem', 'ambulans']], 11), dy([['telefon-112', 'Acil durumda 112\'yi aramak'], ['duman', 'Duman görünce saklanmak'], ['yangin-tupu', 'Yangın tüpüne dokunup oynamak']])]),
+      numarala([esle('Kim yardıma gelir? Durumu yardım edecek araçla eşleştir.', [['duman', 'itfaiye'], ['deprem', 'ambulans']], 11), dy([['telefon-112', 'Acil durumda 112\'yi aramak'], ['duman', 'Duman görünce saklanmak'], ['yangin-tupu', 'Yangın tüpüne dokunup oynamak']])]),
       numarala([acilAdim(), ciz('Acil durumda evinden nereye çıkarsın? Toplanma yerini çiz.', 70)]),
     ] },
     'hafta-12': { unite: 2, hafta: 12, baslik: 'Hazırım!', konu: 'Eyvah, acil durum!', sayfalar: () => [
@@ -197,7 +202,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
     ] },
     'hafta-29': { unite: 5, hafta: 29, baslik: 'Hazırlıklıyım', konu: 'Afetleri tanıyalım', sayfalar: () => [
       numarala([daireIcine('Afet çantasına neler koyarız? Daire içine al.', ['su-ic', 'ilac', 'fener', 'ekmek', 'eldiven', 'gitar', 'top', 'tablet'], 29), dy([['yangin-tupu', 'Yangın tüpünün yerini bilmek'], ['telefon-112', '112\'yi şaka için aramak']])]),
-      numarala([esle('Hangi afette ne işimize yarar? Eşleştir.', [['orman-yangini', 'yangin-tupu'], ['deprem', 'fener'], ['sel', 'telefon-112']], 291), ciz('Evinde depremde güvenli bir yer bul ve çiz.', 90)]),
+      numarala([esle('Hangi afette ne işimize yarar? Eşleştir.', [['orman-yangini', 'telefon-112'], ['deprem', 'canta']], 291), ciz('Evinde depremde güvenli bir yer bul ve çiz.', 90)]),
     ] },
     'hafta-30': { unite: 5, hafta: 30, baslik: 'Atma, Yazık Olur', konu: 'Atma yazık olur', sayfalar: () => [
       numarala([ayir('Atıkları doğru kutuya çizgiyle götür: plastik maviye, kâğıt sarıya, cam yeşile.', [['plastik', '#3a86ff'], ['kâğıt', '#f4a100'], ['cam', '#12b886']], ['plastik-sise', 'kagit', 'cam-kavanoz', 'gazete', 'sise', 'kutu'], 30)]),
@@ -296,14 +301,14 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
 .cizelge th{font-weight:400;color:#1d4e89}
 .cizelge td{background:#fff;border-radius:2mm;text-align:center;padding:1.5mm}
 .cizelge td img{width:30mm;height:30mm}
-.cizelge td i{display:inline-block;width:14mm;height:14mm;border:.5mm solid #4a5a50;border-radius:50%}
+.cizelge td i{display:inline-block;width:14mm;height:14mm;border:.6mm solid #4a5a50;border-radius:50%}
 .acil{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
 .acil>div{display:flex;flex-direction:column;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:3mm}
 .acil b{font-weight:400;font-size:7mm;color:#e63946}.acil img{width:42mm;height:42mm}
 .ayir{display:flex;flex-direction:column;gap:6mm}
 .ayir-oge{display:grid;grid-template-columns:repeat(6,1fr);gap:3mm}.ayir-oge span{background:#fff;border-radius:3mm;padding:2mm;display:flex;justify-content:center}.ayir-oge span{min-width:0}.ayir-oge img{width:100%;height:24mm;object-fit:contain}
 .ayir-kutu{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}.ayir-kutu>div{height:70mm;border:1.2mm solid;border-radius:4mm 4mm 10mm 10mm;background:#fff;display:flex;justify-content:center;padding-top:3mm}.ayir-kutu b{font-weight:400;font-size:8mm}
-.yb td{padding:2mm}.yb-s{display:inline-block;border:.5mm solid #4a5a50;border-radius:999px;padding:1mm 3mm;margin:0 1mm;font-size:5.5mm}
+.yb td{padding:2mm}.yb-s{display:inline-block;border:.6mm solid #4a5a50;border-radius:999px;padding:1mm 3mm;margin:0 1mm;font-size:5.5mm}
 .renkler{display:flex;flex-direction:column;gap:4mm}.renkler>div{display:flex;align-items:center;justify-content:center;gap:5mm;background:#fff;border-radius:3mm;padding:3mm}
 .renkler i{width:24mm;height:24mm;border-radius:50%;border:.6mm solid #1f2a24;display:block}.renkler b{font:400 10mm TTKB,sans-serif}
 .ata{display:grid;grid-template-columns:70mm 1fr;gap:5mm;align-items:center}.ata img{width:70mm;height:70mm}

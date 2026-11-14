@@ -631,12 +631,12 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .onlukyaz>div{display:flex;flex-direction:column;align-items:center;gap:2mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:2.5mm}
 .onlukyaz b{font-size:11mm;font-weight:400;line-height:1}
 .sayboya{display:flex;flex-direction:column;gap:2.5mm}
-.sayboya>div{display:flex;align-items:center;gap:5mm;border-bottom:.3mm dashed #cfd8d1;padding-bottom:1.5mm}
+.sayboya>div{display:flex;align-items:center;gap:5mm;border-bottom:.55mm dashed #8fa39a;padding-bottom:1.5mm}
 .sayboya b{font-size:13mm;font-weight:400;width:14mm;text-align:center}
 .sayboya .dizi{display:flex;gap:1.6mm}.sayboya img{width:14mm;height:14mm}
 .esles.m b{font-size:13mm;font-weight:400}
 .sira{display:flex;flex-direction:column;gap:2.5mm}
-.sira>div{display:flex;align-items:center;gap:2mm;border-bottom:.3mm dashed #cfd8d1;padding-bottom:1.5mm}
+.sira>div{display:flex;align-items:center;gap:2mm;border-bottom:.55mm dashed #8fa39a;padding-bottom:1.5mm}
 .sira b{font-size:10mm;font-weight:400;width:13mm;color:#c0392b}
 .sira .bayrak{font-size:8mm;color:#2e6b4a}.sira span:not(.bayrak){width:17mm;height:17mm;display:block}
 .yaris{display:flex;align-items:flex-end;gap:4mm;padding-left:4mm}
@@ -694,7 +694,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .dogrular{display:flex;flex-direction:column;gap:3mm}
 .dogrular>div{border:.4mm solid #cfd8d1;border-radius:3mm;padding:1.5mm 2mm}
 .zarcift{display:flex;flex-direction:column;gap:2.5mm}
-.zarcift>div{display:flex;align-items:center;justify-content:space-between;border-bottom:.3mm dashed #cfd8d1;padding-bottom:2mm}
+.zarcift>div{display:flex;align-items:center;justify-content:space-between;border-bottom:.55mm dashed #8fa39a;padding-bottom:2mm}
 .zarlar{display:flex;gap:2mm}.zarlar .zar{width:11mm;height:11mm}
 .boncuklar{display:flex;flex-direction:column;gap:3mm}
 .kavanozlar{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}
@@ -715,7 +715,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .oklar{display:grid;grid-template-columns:repeat(9,1fr);gap:3mm}
 .oklar svg{width:100%;height:auto}
 .esbul{display:flex;flex-direction:column;gap:2.5mm}
-.esbul>div{display:grid;grid-template-columns:30mm repeat(4,1fr);gap:4mm;align-items:center;border-bottom:.3mm dashed #cfd8d1;padding-bottom:2mm}
+.esbul>div{display:grid;grid-template-columns:30mm repeat(4,1fr);gap:4mm;align-items:center;border-bottom:.55mm dashed #8fa39a;padding-bottom:2mm}
 .esbul .model{height:26mm;border:.8mm solid #2e6b4a;border-radius:3mm;padding:2mm;display:block}
 .esbul .sec{height:26mm;display:flex;align-items:center;justify-content:center}
 .esbul .sec img{object-fit:contain}
@@ -767,7 +767,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .yazkutu.kucuk{width:11mm;height:11mm}
 .islem{display:inline-flex;align-items:center;gap:1.5mm;font-size:8mm;color:#1d4e89}
 .islem b{font-weight:400;width:6mm;text-align:center}
-.opk{display:inline-block;width:8mm;height:8mm;border-radius:50%;border:.5mm solid #4a5a50;background:#fff}
+.opk{display:inline-block;width:8mm;height:8mm;border-radius:50%;border:.6mm solid #4a5a50;background:#fff}
 .dikey{display:flex;flex-direction:column;align-items:center;gap:2mm;margin-left:auto}
 .rislem{display:flex;flex-direction:column;gap:3mm}
 .rislem>div{display:flex;align-items:center;justify-content:space-between;gap:3mm;background:#fff;border-radius:3mm;padding:2.5mm 3mm}
@@ -775,7 +775,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .tabak{display:inline-flex;gap:1mm;min-width:22mm;min-height:16mm;align-items:center;justify-content:center;padding:1mm 3mm;border-radius:999px;background:#f1f3f5;border:.5mm solid #cfd8d1}
 .tabak img{width:11mm;height:11mm}
 .kd{display:flex;align-items:center;gap:3mm}
-.secler{display:flex;gap:3mm}.secler b{font-size:9mm;font-weight:400;width:15mm;height:15mm;border:.5mm solid #4a5a50;border-radius:50%;display:grid;place-items:center;background:#fff}
+.secler{display:flex;gap:3mm}.secler b{font-size:9mm;font-weight:400;width:15mm;height:15mm;border:.6mm solid #4a5a50;border-radius:50%;display:grid;place-items:center;background:#fff}
 .esitmi{display:flex;flex-direction:column;gap:3mm}
 .esitmi>div{display:grid;grid-template-columns:1fr auto 1fr;gap:4mm;align-items:center}
 .sayiesit{display:grid;grid-template-columns:1fr 1fr;gap:4mm 8mm;font-size:10mm}
@@ -815,7 +815,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .g-kare.uzun i{height:12.5mm}
 .olcum{display:flex;flex-direction:column;gap:3mm}
 .kars-uz{display:flex;flex-direction:column;gap:2mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:2.5mm 4mm}
-.olc-satir{display:flex;align-items:center;justify-content:space-between;gap:4mm;border-bottom:.3mm dashed #cfd8d1;padding-bottom:2mm}
+.olc-satir{display:flex;align-items:center;justify-content:space-between;gap:4mm;border-bottom:.55mm dashed #8fa39a;padding-bottom:2mm}
 .sirala-uz{display:flex;flex-direction:column;gap:2mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:2.5mm 4mm}
 .sirala-uz>div{display:flex;align-items:center;gap:4mm}
 .sirala-uz .yazkutu{width:12mm;height:12mm}

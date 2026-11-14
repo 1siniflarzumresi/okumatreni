@@ -144,7 +144,7 @@ module.exports = ({ etk, resim, RY, numarala, A }) => {
     'hafta-36': W(36, 6, 'Veriyle Karar', 'Veriye dayalı karar verme', () => [numarala([veri3(['otobus', 'araba', 'ayakkabi', 'top'], [10, 6, 8, 3]), problem([['otobus', 'Okula geliş yolları anketi: 10 kişi servisle, 6 kişi arabayla, 8 kişi yürüyerek geliyor. Okul önündeki trafiği azaltmak için ne önerirsin?']])]), numarala([anket(), problemKur(['kitap'])])]),
   };
   const CSS = `
-.m3-cizgi{display:flex;flex-direction:column}.m3-cizgi i{height:8mm;border-bottom:.45mm solid #9db4c8}
+.m3-cizgi{display:flex;flex-direction:column}.m3-cizgi i{height:8mm;border-bottom:.6mm solid #7d95ab}
 .m3-blok{display:grid;grid-template-columns:1fr 1fr;gap:3mm}.m3-blok>div{background:#fff;border-radius:3mm;padding:2mm;display:flex;flex-direction:column;align-items:center;gap:2mm}.m3-blok span{font-size:4.8mm}
 .m3-tablo{width:100%;border-collapse:separate;border-spacing:0 1.5mm;font-size:5mm}.m3-tablo th{font-weight:400;background:#3a86ff;color:#fff;padding:1.5mm}.m3-tablo td{background:#fff;padding:1.5mm 2mm;text-align:center}.m3-tablo td b{font-weight:400;font-size:6mm}.m3-tablo small{color:#6b7a70}
 .m3-not{font-size:5mm;margin:3mm 0 0;background:#fff;border-radius:3mm;padding:2mm 3mm}
@@ -154,7 +154,7 @@ module.exports = ({ etk, resim, RY, numarala, A }) => {
 .m3-kgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.m3-kgrid>div{background:#fff;border-radius:3mm;padding:2mm;display:flex;flex-direction:column;align-items:center;gap:2mm}.m3-kgrid span{font-size:4.8mm}
 .m3-kgrid:has(>div:nth-child(8)){grid-template-columns:repeat(4,1fr)}
 .m3-kesir{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 1mm}.m3-kesir b{font-weight:400;font-size:6mm;line-height:1}.m3-kesir i{width:9mm;border-top:.6mm solid #1f2a24;margin:.6mm 0}
-.m3-kesir b.bos{width:8mm;height:8mm;border:.5mm solid #4a5a50;border-radius:1.5mm}
+.m3-kesir b.bos{width:8mm;height:8mm;border:.6mm solid #4a5a50;border-radius:1.5mm}
 .m3-esle{display:grid;grid-template-columns:1fr 1fr;gap:24mm;padding:0 6mm}.m3-esle>div{display:flex;flex-direction:column;gap:3mm}.m3-esle span{display:flex;align-items:center;justify-content:space-between;gap:3mm;background:#fff;border-radius:3mm;padding:1.5mm 3mm}.m3-esle span svg{margin:0!important}.m3-esle i{width:3.5mm;height:3.5mm;border-radius:50%;background:#1f2a24;flex:none}
 .m3-sure{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm}.m3-sure>div{background:#fff;border-radius:3mm;padding:2mm 3mm;display:flex;flex-direction:column;gap:1mm;font-size:5mm}.m3-sure em{font-style:normal;font-size:4.2mm;color:#5b6b7b}
 .m3-elde{display:flex;gap:1mm}.m3-elde u{width:8mm;height:5mm;border:.4mm dashed #e63946;border-radius:1mm;text-decoration:none}

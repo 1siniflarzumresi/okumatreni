@@ -181,8 +181,8 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
       numarala([ciz('Çini deseni tasarla: Lale, karanfil ya da kendi deseninle bir kareyi süsle.', 110)])]),
   };
   const CSS = `
-.h2k{display:inline-block;height:8mm;border:.5mm solid #4a5a50;border-radius:2mm;background:#fff;vertical-align:middle}
-.h2-cizgi{display:flex;flex-direction:column}.h2-cizgi i{height:9mm;border-bottom:.45mm solid #9db4c8}
+.h2k{display:inline-block;height:8mm;border:.6mm solid #4a5a50;border-radius:2mm;background:#fff;vertical-align:middle}
+.h2-cizgi{display:flex;flex-direction:column}.h2-cizgi i{height:9mm;border-bottom:.6mm solid #7d95ab}
 .h2-resimler{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}.h2-resimler span{background:#fff;border-radius:4mm;padding:2mm;display:flex;flex-direction:column;align-items:center;gap:1.5mm;border:.5mm solid #cfd8d1}
 .h2-resimler img{width:100%;height:30mm;object-fit:contain}.h2-resimler:has(span:nth-child(5):last-child),.h2-resimler:has(span:nth-child(6):last-child){grid-template-columns:repeat(3,1fr)}
 .h2-dav{display:flex;flex-direction:column;gap:2.5mm}.h2-dav>div{display:grid;grid-template-columns:24mm 1fr auto;gap:3mm;align-items:center;background:#fff;border-radius:3mm;padding:1.5mm 3mm}
@@ -197,11 +197,11 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
 .h2-ogeler{display:grid;grid-template-columns:repeat(6,1fr);gap:2.5mm;margin-bottom:3mm}.h2-ogeler span{background:#fff;border-radius:3mm;padding:1.5mm;display:flex;justify-content:center;min-width:0}.h2-ogeler img{width:100%;height:20mm;object-fit:contain}
 .h2-ogeler:has(span:nth-child(4):last-child){grid-template-columns:repeat(4,1fr)}
 .h2-kutular{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4mm}.h2-kutular>div{height:40mm;border:1mm solid;border-radius:4mm;background:#fff;display:flex;justify-content:center;padding-top:2mm}.h2-kutular b{font-weight:400;font-size:6mm}
-.h2-dy{display:flex;flex-direction:column;gap:2.5mm}.h2-dy>div{display:flex;align-items:center;gap:3mm;background:#fff;border-radius:3mm;padding:2mm 3mm}.h2-dy p{margin:0;font-size:5mm;flex:1}.h2-dy i{flex:none;width:10mm;height:10mm;border:.5mm solid #4a5a50;border-radius:2mm}
+.h2-dy{display:flex;flex-direction:column;gap:2.5mm}.h2-dy>div{display:flex;align-items:center;gap:3mm;background:#fff;border-radius:3mm;padding:2mm 3mm}.h2-dy p{margin:0;font-size:5mm;flex:1}.h2-dy i{flex:none;width:10mm;height:10mm;border:.6mm solid #4a5a50;border-radius:2mm}
 .h2-plan{width:100%;border-collapse:collapse;font-size:4.8mm}.h2-plan th,.h2-plan td{border:.5mm solid #9db4c8;padding:1.5mm;font-weight:400;background:#fff}.h2-plan th{background:#fff6dc}.h2-plan td{height:22mm}
 .h2-banka{display:flex;flex-wrap:wrap;gap:3mm;justify-content:center;margin-bottom:3mm}.h2-banka span{background:#fff;border:.5mm dashed #f4a100;border-radius:2mm;padding:1mm 3mm;font-size:5mm}
 .h2-levhalar{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}.h2-levhalar>div{background:#fff;border-radius:3mm;padding:3mm;display:flex;flex-direction:column;gap:2mm}.h2-levhalar:not(:has(div)){display:flex;justify-content:space-around;background:#fff;border-radius:3mm;padding:3mm}
-.h2-kart{background:#fff;border:1mm dashed #e63946;border-radius:4mm;padding:3mm 4mm;display:flex;flex-direction:column;gap:2mm;font-size:5mm}.h2-kart b{font-weight:400;color:#e63946;text-align:center;font-size:6mm}.h2-kart div{display:flex;gap:2mm;align-items:flex-end}.h2-kart i{flex:1;border-bottom:.45mm solid #9db4c8;height:7mm}
+.h2-kart{background:#fff;border:1mm dashed #e63946;border-radius:4mm;padding:3mm 4mm;display:flex;flex-direction:column;gap:2mm;font-size:5mm}.h2-kart b{font-weight:400;color:#e63946;text-align:center;font-size:6mm}.h2-kart div{display:flex;gap:2mm;align-items:flex-end}.h2-kart i{flex:1;border-bottom:.6mm solid #7d95ab;height:7mm}
 .h2-agac{background:#fff;border-radius:3mm;padding:2mm}
 .h2-pusula{background:#fff;border-radius:3mm;padding:3mm}
 .h2-bilet{min-height:55mm;background:#fff;border:1mm dashed #8b5cf6;border-radius:6mm}

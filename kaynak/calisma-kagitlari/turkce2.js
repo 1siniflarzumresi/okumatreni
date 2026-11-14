@@ -19,7 +19,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
   const sozcuk = (liste) => etk(0, 'Sözcük dedektifi! Altı çizili sözcüğün anlamını cümleden tahmin et. Doğru anlamı daire içine al.',
     `<div class="t2-soz">${liste.map(([cumle, secenek]) => `<div><p class="ttkb">${cumle}</p><div>${secenek.map(s => `<span class="ttkb">${s}</span>`).join('')}</div></div>`).join('')}</div>`);
   const soru = (liste) => etk(0, 'Soruları metne göre cevapla.',
-    `<div class="t2-soru">${liste.map(s => `<div><p class="ttkb">${s}</p>${cizgi(1)}</div>`).join('')}</div>`);
+    `<div class="t2-soru">${liste.map(s => `<div><p class="ttkb">${s}</p>${cizgi(2)}</div>`).join('')}</div>`);
   // Noktalama treni: her vagonun sonuna uygun işareti koy
   const tren = (yonerge, cumleler, isaretler) => etk(0, yonerge,
     `<div class="t2-tren">${cumleler.map(c => `<div><span class="ttkb">${c}</span><i></i></div>`).join('')}</div><div class="t2-isaret ttkb">${isaretler.map(s => `<b>${s}</b>`).join('')}</div>`);
@@ -711,7 +711,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
   };
 
   const CSS = `
-.t2-cizgi{display:flex;flex-direction:column}.t2-cizgi i{display:block;height:9mm;border-bottom:.45mm solid #9db4c8}
+.t2-cizgi{display:flex;flex-direction:column}.t2-cizgi i{display:block;height:9mm;border-bottom:.6mm solid #7d95ab}
 .t2-cizgi.genis i{height:11mm}
 .t2-metin{background:#fff;border:.6mm solid #bcdcff;border-radius:5mm;padding:4mm 6mm 3mm;flex:1;margin-top:3mm}
 .t2-metin h3{text-align:center;font-size:8.5mm;font-weight:400;margin:0 0 3mm;color:#1d4e89}
@@ -746,14 +746,14 @@ module.exports = ({ etk, resim, numarala, M }) => {
 .t2-esle span{display:flex;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:2.5mm 3mm;font-size:4.8mm;min-height:12mm}
 .t2-esle>div:first-child span{justify-content:space-between}.t2-esle i{flex:none;width:3.5mm;height:3.5mm;border-radius:50%;background:#1f2a24}
 .t2-bosluk{display:flex;flex-direction:column;gap:3mm}.t2-bosluk p{margin:0;background:#fff;border-radius:3mm;padding:2.5mm 3mm;font-size:5mm;line-height:1.6}
-.t2-bosluk i{display:inline-block;min-width:42mm;border-bottom:.5mm solid #4a5a50;height:6mm;vertical-align:bottom;margin:0 1mm}
+.t2-bosluk i{display:inline-block;min-width:42mm;border-bottom:.6mm solid #4a5a50;height:6mm;vertical-align:bottom;margin:0 1mm}
 .t2-kimlik{display:grid;grid-template-columns:34mm 1fr;gap:4mm;align-items:center}.t2-kimlik>span img{width:34mm;height:34mm;object-fit:contain}
 .t2-kimlik>div{display:grid;grid-template-columns:1fr 1fr;gap:2mm 4mm}.t2-kimlik>div>div{display:flex;align-items:flex-end;gap:2mm;background:#fff;border-radius:3mm;padding:2mm 3mm}
-.t2-kimlik b{font-weight:400;font-size:4.6mm;white-space:nowrap}.t2-kimlik i{flex:1;border-bottom:.45mm solid #9db4c8;height:6mm}
+.t2-kimlik b{font-weight:400;font-size:4.6mm;white-space:nowrap}.t2-kimlik i{flex:1;border-bottom:.6mm solid #7d95ab;height:6mm}
 .t2-yeniden u{text-decoration-thickness:.5mm;text-underline-offset:1mm;color:#c2410c}
 .t2-sinif{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}.t2-sinif>div{background:#fff;border:.7mm solid;border-radius:4mm;padding:2mm 3mm}.t2-sinif b{font-weight:400;font-size:5.4mm}
 .t2-tablo{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:3mm;overflow:hidden;font-size:5mm}.t2-tablo th{background:#3a86ff;color:#fff;font-weight:400;padding:2mm}.t2-tablo td{border-bottom:.4mm solid #cfe0ff;padding:2.5mm 3mm;height:9mm}.t2-tablo td:first-child{width:55%}
-.t2-fikir{background:#fff;border-radius:3mm;padding:3mm}.t2-fikir p{margin:0;font-size:5.2mm}.t2-fikir>div{display:flex;gap:6mm;margin-top:2mm}.t2-fikir span{border:.5mm solid #4a5a50;border-radius:999px;padding:1mm 4mm;font-size:4.8mm}
+.t2-fikir{background:#fff;border-radius:3mm;padding:3mm}.t2-fikir p{margin:0;font-size:5.2mm}.t2-fikir>div{display:flex;gap:6mm;margin-top:2mm}.t2-fikir span{border:.6mm solid #4a5a50;border-radius:999px;padding:1mm 4mm;font-size:4.8mm}
 .t2-mesaj{display:flex;justify-content:center}.t2-tel{width:120mm;border:1.2mm solid #1f2a24;border-radius:8mm;padding:6mm 5mm;background:#f4f7fb;display:flex;flex-direction:column;gap:4mm}
 .t2-balon-g{align-self:flex-start;max-width:85%;background:#fff;border:.5mm solid #cfd8d1;border-radius:4mm 4mm 4mm 0;padding:2.5mm 3.5mm;font-size:4.8mm;line-height:1.5}
 .t2-balon-y{align-self:flex-end;width:85%;background:#dcf8c6;border-radius:4mm 4mm 0 4mm;padding:1mm 3.5mm 3mm}
@@ -765,7 +765,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
 .t2-sinif>div,.t2-venn>div,.t2-harita>div{display:flex;flex-direction:column}.t2-sinif .t2-cizgi,.t2-venn .t2-cizgi,.t2-harita .t2-cizgi{flex:1;justify-content:space-evenly}
 .govde>.etk:last-child>.t2-domino{align-content:space-evenly!important}
 .t2-yaz{background:#fff;border-radius:3mm;padding:3mm 5mm 4mm;margin-top:3mm;flex:1;display:flex;flex-direction:column}.t2-yaz .t2-cizgi{flex:1;justify-content:space-evenly}
-.t2-bas{display:flex;align-items:flex-end;gap:3mm;font-size:5.2mm;color:#1d4e89}.t2-bas i{flex:1;max-width:110mm;border-bottom:.5mm solid #1d4e89;height:8mm}
+.t2-bas{display:flex;align-items:flex-end;gap:3mm;font-size:5.2mm;color:#1d4e89}.t2-bas i{flex:1;max-width:110mm;border-bottom:.6mm solid #1d4e89;height:8mm}
 `;
   return { T2, CSS, A: { metin, harita, sirala, dogruYanlis, sozcuk, soru, tren, dogruYazim, hece, yeniden, domino, yazma, eslestir, bosluk, kimlik, siniflandir, tablo, fikir, mesaj, kiyas, yonergeYaz, cizgi } };
 };

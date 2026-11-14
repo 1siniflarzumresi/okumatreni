@@ -168,14 +168,14 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
         'Atatürk çocukları çok severdi. Onlarla konuşmak, sorularını dinlemek, onları güldürmek ona büyük mutluluk verirdi. Hayatında birkaç çocuğu evlat edindi. Bunlardan en küçüğü Ülkü\'ydü.',
         'Ülkü, Atatürk\'ün yanına geldiğinde çok küçüktü. Ankara\'da, Çankaya Köşkü\'nün bahçesinde koşup oynardı. Atatürk yorucu bir günün ardından bahçeye çıktığında Ülkü hemen yanına koşar, elinden tutar, ona topladığı çiçekleri verirdi. Atatürk o çiçekleri çalışma masasındaki bir bardağa koyardı.',
         'Çalışma odası kitaplarla doluydu. Atatürk çok kitap okurdu. Tarih, dil, matematik, coğrafya… Okuduğu kitapların kenarlarına notlar alır, önemli yerlerin altını çizerdi. Kitaplığında binlerce kitap vardı.',
-        'Bir gün Ülkü masaya tırmanıp bir kitabı açmaya çalıştı. Kitap ağırdı, düştü. Ülkü korkuyla Atatürk\'e baktı. Atatürk kitabı yerden aldı, Ülkü\'yü kucağına oturttu ve kitaptaki resimleri birlikte incelediler.',
-        '– Kitaplar düşerse kaldırırız, dedi Atatürk. Ama hiç açılmazsa içindekiler sonsuza kadar karanlıkta kalır.',
+        'Bu satırları okurken gözümün önüne bir sahne geldi: Ülkü masaya tırmanıp ağır bir kitabı açmaya çalışıyor, kitap yere düşüyor. Atatürk kitabı yerden alıyor, Ülkü\'yü kucağına oturtuyor ve resimlere birlikte bakıyorlar.',
+        'Sonra şöyle düşündüm: Bir kitap düşerse kaldırırız. Ama hiç açılmazsa içindekiler sonsuza kadar karanlıkta kalır.',
         'Atatürk, 23 Nisan\'ı dünya çocuklarına armağan etti. Bugün her 23 Nisan\'da farklı ülkelerden çocuklar Türkiye\'ye gelir, bayramı birlikte kutlar. Onun çocuklara verdiği değerin en güzel göstergesi, belki de budur.',
         'Atatürk 10 Kasım 1938\'de aramızdan ayrıldı. Biz onu her yıl saygıyla anıyoruz. Ama onu en iyi, onun gibi kitap okuyarak ve merak ederek anabiliriz.',
       ] }),
-      numarala([harita(), dogruYanlis(['Ülkü, Atatürk\'ün evlat edindiği çocuklardandı.', 'Atatürk kitaplarına hiç not almazdı.', 'Atatürk 23 Nisan\'ı dünya çocuklarına armağan etti.', 'Ülkü kitabı düşürünce Atatürk ona kızdı.']),
-        soru(['Atatürk\'ün "Hiç açılmazsa içindekiler karanlıkta kalır." sözü ne anlatıyor?'])]),
-      numarala([siniflandir('Metindeki sözcükleri sınıflandır: kişi mi, yer mi, nesne mi?', [['Kişiler', '#3a86ff'], ['Yerler', '#12b886'], ['Nesneler', '#f2546b']], ['Ülkü', 'Ankara', 'kitap', 'Atatürk', 'Çankaya Köşkü', 'bardak', 'çiçek', 'bahçe', 'öğretmen']),
+      numarala([harita(), dogruYanlis(['Ülkü, Atatürk\'ün evlat edindiği çocuklardandı.', 'Atatürk kitaplarına hiç not almazdı.', 'Atatürk 23 Nisan\'ı dünya çocuklarına armağan etti.', 'Atatürk\'ün okuduğu kitaplar azdı.']),
+        soru(['Yazarın "Hiç açılmazsa içindekiler karanlıkta kalır." sözü ne anlatıyor?'])]),
+      numarala([siniflandir('Sözcükleri sınıflandır: kişi mi, yer mi, nesne mi?', [['Kişiler', '#3a86ff'], ['Yerler', '#12b886'], ['Nesneler', '#f2546b']], ['Ülkü', 'Ankara', 'kitap', 'Atatürk', 'Çankaya Köşkü', 'bardak', 'masa', 'bahçe', 'çocuklar']),
         tablo('Atatürk hakkında öğrendiklerini sınıflandırarak yaz.', ['Sevdiği şeyler', 'Yaptığı işler'], [['', ''], ['', ''], ['', '']])]),
       numarala([yazma('Atatürk\'e bir mektup yaz. Ona okuduğun en güzel kitabı anlat.', ['Hitap:', 'Hangi kitap, ne anlatıyor?', 'Kapanış:'], 12)]),
     ] },
@@ -666,10 +666,10 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
 .t3-sec{display:flex;flex-direction:column;gap:2mm}.t3-sec span{background:#fff;border:.5mm solid #9db4c8;border-radius:3mm;padding:2mm 3mm;font-size:5mm}
 .t3-not{margin:3mm 0 0;font-size:5mm}
 .t3-gm{display:flex;flex-direction:column;gap:2.5mm}.t3-gm>div{display:flex;align-items:center;gap:4mm;background:#fff;border-radius:3mm;padding:2mm 3mm}.t3-gm p{margin:0;flex:1;font-size:5mm}
-.t3-gm span{display:flex;align-items:center;gap:1.5mm;font-size:4.6mm}.t3-gm i{width:6mm;height:6mm;border:.5mm solid #4a5a50;border-radius:1.5mm}
+.t3-gm span{display:flex;align-items:center;gap:1.5mm;font-size:4.6mm}.t3-gm i{width:6mm;height:6mm;border:.6mm solid #4a5a50;border-radius:1.5mm}
 .t3-gm u{text-decoration-thickness:.5mm;text-underline-offset:1mm;color:#c2410c}
-.t3-imza{display:flex;flex-direction:column;gap:3mm;background:#fff;border-radius:3mm;padding:3mm}.t3-imza>div{display:grid;grid-template-columns:40mm 1fr;align-items:end;gap:2mm}.t3-imza span{font-size:5mm}.t3-imza i{height:22mm;border-bottom:.45mm dashed #9db4c8}
-.t3-sirala{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.t3-sirala span{display:flex;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:2mm 3mm;font-size:5.4mm}.t3-sirala i{width:9mm;height:9mm;border:.5mm solid #4a5a50;border-radius:50%}
+.t3-imza{display:flex;flex-direction:column;gap:3mm;background:#fff;border-radius:3mm;padding:3mm}.t3-imza>div{display:grid;grid-template-columns:40mm 1fr;align-items:end;gap:2mm}.t3-imza span{font-size:5mm}.t3-imza i{height:22mm;border-bottom:.6mm dashed #7d95ab}
+.t3-sirala{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.t3-sirala span{display:flex;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:2mm 3mm;font-size:5.4mm}.t3-sirala i{width:9mm;height:9mm;border:.6mm solid #4a5a50;border-radius:50%}
 .t3-sozluk{display:flex;flex-direction:column;gap:2mm}.t3-sozluk>div{background:#fff;border-radius:3mm;padding:2mm 3mm}.t3-sozluk b{font-weight:400;font-size:5.2mm;color:#1d4e89}
 .t3-ucbolum{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.t3-ucbolum>div{background:#fff;border-radius:3mm;padding:2mm 3mm}.t3-ucbolum b{font-weight:400;font-size:5mm;color:#8b5cf6}
 .t3-dortkare{display:grid;grid-template-columns:1fr 1fr;gap:4mm;flex:1}.t3-dortkare>div{background:#fff;border-radius:3mm;padding:2mm 3mm;display:flex;flex-direction:column;gap:1mm;position:relative}.t3-dortkare span{position:absolute;top:2mm;left:3mm;font-size:5mm;color:#8b5cf6}.t3-dortkare i{flex:1;min-height:44mm;border:.5mm dashed #9db4c8;border-radius:2mm}
