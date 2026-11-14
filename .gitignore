@@ -2,3 +2,5 @@ __pycache__/
 
 # denetim çıktıları (kontrol.js paket)
 kaynak/test/cikti/
+kaynak/test/raporlar/tarama-*.txt
+kaynak/test/raporlar/tarama.bitti
