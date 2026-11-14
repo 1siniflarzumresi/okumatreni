@@ -47,5 +47,14 @@ Kaynak: `kontrol.js paket` (harf kâğıtları, mat:*, hb:*) + denetleyici. Yaln
 - 19-1 notu: mavi çeldirici bayrak Doğu Türkistan bayrağının aynısı; başka bir yanlış seçilmeli.
 - Kazanım ölçülmüyor: 18 (yaşadığı yer), 21 (Atatürk'ün hayatı), 25 (dinî bayram duyguları), 26 (doğa gözlemi), 34-36 (merak ettiklerini sorma). Diğer haftaların çoğu kısmen.
 
-## Türkçe (harf kâğıtları)
-- Denetleyici sonuçları bekleniyor.
+## Türkçe (harf kâğıtları, `uret.js` HARF + `akici.json`)
+- Öğretilmemiş harf YOK; ses bulma ve sesin yeri cevaplarının hepsi doğru. 87 sayfadan 23'ü kaldı.
+- Ortak: TTKB'de kesme işareti ters tırnak (‘) gibi görünüyor ("Nil‘e", "Selin‘e"). Öznede gereksiz virgül: "Kuzu, otu yer.", "Bebek, mama ister.", "Cüzdan, çantada.", "Şişe, masada." (ayrıca z-2, z-3, b-3). Hece kutularında uzun kelime yıldıza yapışıyor (o-2, m-2, ü-2, ö-2, s-2, z-2, d-2). Yazma satırları kartın sağından taşıyor (c-2, p-1, v-2, ğ-3, j-1).
+- t-2: "Ana, tane tane at." / "Ata, nane at." anlamsız.
+- l-1, l-2 (ve o-2): "tel" resmi ağ/file gibi. l-2: "Lale ile Nil" metni kopuk. l-3: "Ninni anlat." yanlış eşdizim.
+- o-2: "Anne, nota al." zayıf. m-4: hikâye kopuk (anne birden konuşuyor, limon/limonata, "Tatlı mı? — Tamam", market/pazar resmi) — `akici.json`'dan, oyunu da etkiler.
+- b-2: "bebek" satırında anne resmi kucağında bebekle (iki doğru).
+- c-3: "rüzgar" (TDK: rüzgâr) — şapka denetleyiciye takıldığı için cümle değişmeli; ceket metinde mor, resimde kırmızı ve "kırmızı" çeldirici.
+- ğ-1: yönerge üç sütuna bölünüyor. ğ-3: "yağmur yağar … dağların üstü bembeyaz" bilimsel olarak yanlış.
+- j-1: jeton resmi altın paraya benziyor. j-2: "kayağa gideriz" doğal değil. j-3: plajda "garaja park etti"; "Annem ne getirdi?" hitabı yanlış.
+- Küçük: u-1 un torbası, r-4 "karlar tane tane erir", ü-3 son cümle kopuk.
