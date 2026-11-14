@@ -59,7 +59,7 @@ function olc() {
     if (icBin.length) hata.push(`kart içinde binen öğe (${icBin.length}): ` + icBin.slice(0, 3).join(' · '));
     // Boş alan: sayfadaki "mürekkepli" öğelerin (yazı, resim, çizim, çizgi, çerçeveli boş kutu) dikey kapsamı dışında kalan 22 mm'den büyük boşluk
     const murekkep = [...(govde || s).querySelectorAll('*')].filter(e => { if (e.closest('svg') && e.tagName !== 'svg') return false; const r = e.getBoundingClientRect(); if (r.width < 2 || r.height < 0.5) return false;
-      if (e.tagName === 'IMG' || e.tagName === 'svg') return true; if ([...e.childNodes].some(c => c.nodeType === 3 && c.textContent.trim())) return true;
+      if (e.tagName === 'IMG' || e.tagName === 'svg' || e.tagName === 'TD') return true; /* boş tablo hücresi yazma yeridir */ if ([...e.childNodes].some(c => c.nodeType === 3 && c.textContent.trim())) return true;
       const cs = getComputedStyle(e); const kenar = ['Top', 'Bottom', 'Left', 'Right'].some(k => parseFloat(cs['border' + k + 'Width']) > 0 && cs['border' + k + 'Style'] !== 'none');
       return !e.children.length && kenar; }).map(e => { const r = e.getBoundingClientRect(); return [r.top, r.bottom]; }).sort((x, y) => x[0] - y[0]);
     const ustS = ust, altS = alt; let son = ustS; const bosluk = [];

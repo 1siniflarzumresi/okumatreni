@@ -71,8 +71,8 @@ module.exports = ({ etk, resim, RY, rastgele, numarala }) => {
     return S(200, 200, R2.map(([k, x, y, s, f]) => SEKIL[k](x, y + 10, s, f)).join(''), 58); };
   const sekilModel = (adlar) => etk(0, 'Şekil resimleri! Her resimde kaç üçgen, kare, dikdörtgen ve daire kullanılmış? Say ve yaz.',
     `<div class="m2-model">${adlar.map(a => `<div>${sekilResim(a)}<table class="m2-tablo ttkb">${[['ucgen', 'üçgen'], ['kare', 'kare'], ['dikdortgen', 'dikdörtgen'], ['daire', 'daire']].map(([k, n]) => `<tr><td>${S(60, 60, SEKIL[k](12, 12, 36, '#eef5ff'), 7)}</td><td>${n}</td><td>${kutu(9)}</td></tr>`).join('')}</table></div>`).join('')}</div>`);
-  const sekilCiz = () => etk(0, 'Noktalı kâğıtta şekil çiz! Bir üçgen, bir kare ve bir dikdörtgen çiz. Sonra bunları birleştirerek bir resim yap.',
-    `<div class="m2-nokta">${S(300, 140, Array.from({ length: 8 * 18 }, (_, i) => `<circle cx="${10 + (i % 18) * 16.6}" cy="${10 + Math.floor(i / 18) * 17}" r="2" fill="#6b7a70"/>`).join(''), 176)}</div>`);
+  const sekilCiz = (sat = 8, yon = 'Noktalı kâğıtta şekil çiz! Bir üçgen, bir kare ve bir dikdörtgen çiz. Sonra bunları birleştirerek bir resim yap.') => etk(0, yon,
+    `<div class="m2-nokta">${S(300, 6 + sat * 17, Array.from({ length: sat * 18 }, (_, i) => `<circle cx="${10 + (i % 18) * 16.6}" cy="${10 + Math.floor(i / 18) * 17}" r="2" fill="#6b7a70"/>`).join(''), 176)}</div>`);
   const dondur = (t) => { const r = R(t); const satirlar = [['kare', 0], ['ucgen', 0], ['dikdortgen', 0]];
     return etk(0, 'Şekil dedektifi! Soldaki şeklin aynısını bul. Döndürülmüş ya da büyütülmüş olabilir. Aynı şekilleri boya.',
       `<div class="m2-dondur">${satirlar.map(([k], i) => { const sec = karistir([[k, 30], [k, 0, 1.4], ['daire', 0], [k === 'kare' ? 'ucgen' : 'kare', 15], [k, 60, .7]], R(t + i));
