@@ -117,7 +117,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
     'hafta-12': W(12, 3, 'Fosil Yapıyorum', 'Fosil oluşumu', () => [numarala([
       deney('Kendi fosilimi yapıyorum!', ['Oyun hamuru ya da kil', 'Deniz kabuğu, yaprak', 'Biraz alçı ve su (bir büyüğünle)'], ['Hamuru düzle, kabuğu bastır ve çıkar.', 'İzin içine sulandırılmış alçı dök.', 'Bir gün bekle, alçıyı çıkar ve incele.'], 'Fosilim neye benzer?'),
       dy(['Fosiller bize geçmişte yaşamış canlılar hakkında bilgi verir.', 'Bütün canlılar ölünce fosil olur.', 'Dinozorları fosilleri sayesinde tanıyoruz.'])]),
-    numarala([yaz('Fosillerden öğrendiklerini birleştir: Bir fosil bize neler anlatabilir?', ['Canlı ne zaman yaşamış olabilir?', 'Nerede yaşamış olabilir?', 'Ne ile beslenmiş olabilir?']),
+    numarala([yaz('Fosil dedektifi! Kâşif Deniz bir dağın yamacında kaya katmanlarını kazdı. En alttaki katmanda bir deniz kabuğu fosili, onun üstündeki katmanda bir yaprak fosili buldu. İpuçlarını birleştir ve yaz.', ['Hangi fosil daha eskidir? Neden?', 'Dağın bulunduğu yerde eskiden ne vardı? Neden böyle düşünüyorsun?', 'Yaprak fosili bize o dönem hakkında ne anlatır?']),
       tablo('Fosil müzesi! Araştır ve tamamla.', ['Fosil', 'Hangi canlı?', 'Nerede bulundu?'], [['', '', ''], ['', '', ''], ['', '', '']])])]),
     'hafta-13': W(13, 4, 'Madde Dedektifi', 'Fosil oluşumu; maddenin katı, sıvı ve gaz hâli', () => [numarala([
       halModel(),
