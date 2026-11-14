@@ -75,6 +75,8 @@ function olc() {
         const renk = ['Bottom', 'Top', 'Left'].map(x => cs['border' + x + 'Color']).find((c, i) => parseFloat(cs['border' + ['Bottom', 'Top', 'Left'][i] + 'Width']) > 0) || 'rgb(255,255,255)';
         const ebeveyn = e.parentElement ? getComputedStyle(e.parentElement) : null, kutu = e.tagName === 'TD' || (r.height >= 3.78 * 5 && ebeveyn && parseFloat(ebeveyn.borderTopWidth) > 0);
         return { kalin: kutu ? Math.max(kalin, 2) : kalin, renk: kutu ? 0 : lum(renk), w: r.width, h: r.height }; }).filter(x => x.kalin > 0 && x.w > 3.78 * 8);
+      // SVG ile çizilmiş defter satırları (1. sınıf harf yazma) da yazma yeridir
+      [...k.querySelectorAll('svg')].filter(sv => sv.getBoundingClientRect().width > 3.78 * 30 && sv.querySelectorAll('line').length >= 2).forEach(() => yerler.push({ kalin: 2, renk: 0, w: 999, h: 0 }));
       const no = (k.querySelector('h2 b, .t4-no') || {}).textContent || '?';
       if (!yerler.length && !/A\)|B\)/.test(k.textContent)) hata.push(`${no}. etkinlik: "yaz" diyor ama yazma yeri yok`);
       else if (yerler.length && yerler.every(x => x.kalin < 1.5 || x.renk > 0.7)) hata.push(`${no}. etkinlik: yazma yeri belirsiz (çizgi ${Math.max(...yerler.map(x => x.kalin)).toFixed(1)} px, açık renkli) — çocuk nereye yazacağını görmüyor`); });
