@@ -17,7 +17,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
   const dogruYanlis = (liste) => etk(0, 'Metne göre doğru olanların kutusuna D, yanlış olanların kutusuna Y yaz.',
     `<div class="t2-dy">${liste.map(c => `<div><span class="ttkb">${c}</span><i></i></div>`).join('')}</div>`);
   const sozcuk = (liste) => etk(0, 'Sözcük dedektifi! Altı çizili sözcüğün anlamını cümleden tahmin et. Doğru anlamı daire içine al.',
-    `<div class="t2-soz">${liste.map(([cumle, secenek]) => `<div><p class="ttkb">${cumle}</p><div>${secenek.map(s => `<span class="ttkb">${s}</span>`).join('')}</div></div>`).join('')}</div>`);
+    `<div class="t2-soz">${liste.map(([cumle, secenek]) => `<div><p class="ttkb">${cumle}</p><div>${karistir(secenek, R([...cumle].reduce((a, c) => a + c.charCodeAt(0), 0) % 997)).map(s => `<span class="ttkb">${s}</span>`).join('')}</div></div>`).join('')}</div>`);
   const soru = (liste) => etk(0, 'Soruları metne göre cevapla.',
     `<div class="t2-soru">${liste.map(s => `<div><p class="ttkb">${s}</p>${cizgi(2)}</div>`).join('')}</div>`);
   // Noktalama treni: her vagonun sonuna uygun işareti koy
@@ -33,9 +33,9 @@ module.exports = ({ etk, resim, numarala, M }) => {
   const domino = (yonerge, sozcukler, banka) => etk(0, yonerge,
     `<div class="t2-domino">${sozcukler.map(s => `<div><b class="ttkb">${s}</b><i></i></div>`).join('')}</div><div class="t2-banka ttkb">${banka.map(s => `<span>${s}</span>`).join('')}</div>`);
   const yazma = (yonerge, adimlar, satir) => etk(0, yonerge,
-    `<div class="t2-plan">${adimlar.map((a, i) => `<div><b>${i + 1}</b><span class="ttkb">${a}</span>${cizgi(1)}</div>`).join('')}</div><div class="t2-yaz"><div class="t2-bas ttkb">Başlık:<i></i></div>${cizgi(satir, 'genis')}</div>`);
+    `<div class="t2-plan">${adimlar.map((a, i) => `<div><b>${i + 1}</b><span class="ttkb">${a}</span>${cizgi(1)}</div>`).join('')}</div><div class="t2-yaz"><div class="t2-bas ttkb">${adimlar.some(a => /^Hitap/i.test(a)) || /mektup/i.test(yonerge) ? 'Tarih:' : 'Başlık:'}<i></i></div>${cizgi(satir, 'genis')}</div>`);
 
-  const eslestir = (yonerge, ciftler, t) => { const sag = karistir(ciftler.map(c => c[1]), R(t));
+  const eslestir = (yonerge, ciftler, t) => { const ilk = ciftler.map(c => c[1]); let sag = karistir(ilk, R(t)); for (let k = 1; k < 30 && ilk.length > 1 && sag.some((x, i) => x === ilk[i]); k++) sag = karistir(ilk, R(t + k * 101)); if (sag.some((x, i) => x === ilk[i])) sag = ilk.slice(1).concat(ilk[0]);
     return etk(0, yonerge, `<div class="t2-esle"><div>${ciftler.map(c => `<span class="ttkb">${c[0]}<i></i></span>`).join('')}</div><div>${sag.map(s => `<span class="ttkb"><i></i>${s}</span>`).join('')}</div></div>`); };
   const bosluk = (yonerge, cumleler, banka) => etk(0, yonerge,
     (banka ? `<div class="t2-banka ttkb" style="margin:0 0 3mm">${banka.map(s => `<span>${s}</span>`).join('')}</div>` : '') +
@@ -731,7 +731,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
 .t2-tren>div:after{content:'';position:absolute;left:6mm;right:6mm;bottom:-3mm;height:3mm;background:radial-gradient(circle at 3mm 0,#4a5a50 2mm,transparent 2.2mm) 0 0/14mm 3mm repeat-x}
 .t2-tren span{font-size:5mm;flex:1}.t2-tren i{flex:none;width:10mm;height:10mm;border-radius:2mm;border:.6mm dashed #f2546b;background:#fff7f8}
 .t2-isaret{display:flex;justify-content:center;gap:6mm;margin-top:2mm}.t2-isaret b{font-weight:400;font-size:8mm;width:12mm;height:12mm;display:grid;place-items:center;border-radius:50%;background:#fff;border:.6mm solid #f2546b;color:#f2546b}
-.t2-balon{display:grid;grid-template-columns:1fr 1fr;gap:3mm 6mm}.t2-balon>div{display:flex;gap:3mm;justify-content:center}
+.t2-balon{display:grid;grid-template-columns:1fr;gap:3mm}.t2-balon>div{display:flex;gap:10mm;justify-content:center;background:#f6f2ff;border-radius:4mm;padding:3mm 3mm 7mm}
 .t2-balon span{background:#fff;border:.6mm solid #8b5cf6;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;padding:3mm 4mm;font-size:5mm;position:relative;min-width:30mm;text-align:center}
 .t2-balon span:after{content:'';position:absolute;left:50%;bottom:-5mm;width:.4mm;height:5mm;background:#8b5cf6}
 .t2-balon{padding-bottom:4mm}

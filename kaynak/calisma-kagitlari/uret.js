@@ -266,7 +266,7 @@ const HARF = {
   numarala([
     heceOku([['at', 'ta', 'et', 'te'], ['an', 'na', 'en', 'ne'], ['tat', 'tan', 'ten', 'net']]),
     eslestir([['at', 'at'], ['anne', 'anne'], ['et', 'et'], ['nane', 'nane']], 7),
-    cumleOku(['Anne, nane at.', 'Ana, tane tane at.', 'Ata, nane at.']),
+    cumleOku(['Anne, nane at.', 'Ata, nane tat.', 'Tane tane at.']),
     yazKelime([['at', 'et', 'ata'], ['tane', 'tat']])]),
   numarala([akici('t')])],
   i: () => [numarala([
@@ -420,7 +420,7 @@ const HARF = {
   numarala([
     heceOku([['az', 'za', 'ez', 'ze', 'iz', 'zi'], ['oz', 'zo', 'uz', 'zu', 'kuzu', 'üzüm']]),
     eslestir([['üzüm', 'uzum'], ['kuzu', 'kuzu'], ['yıldız', 'yildiz'], ['zeytin', 'zeytin']], 83),
-    cumleOku(['Zerrin, üzüm ye.', 'Kuzu, otu yer.', 'Zil, zır zır öter.']),
+    cumleOku(['Zerrin, üzüm ye.', 'Kuzu otu yer.', 'Zil, zır zır öter.']),
     yazKelime([['az', 'kuzu'], ['üzüm', 'yıldız']])]),
   numarala([
     metin('Kuzu', ['Kuzu otlakta.', 'Kuzu otları yer.', 'Zerrin kuzuya Duman adını takar.', 'Duman, Zerrin\'i izler.', 'Zerrin ile Duman mutlu.']),
@@ -441,7 +441,7 @@ const HARF = {
     harfYazma('b'), harfAvi('b', 36)]),
   numarala([
     kelimeResim([['balık', 'balik', 'kedi', 'ordek'], ['balon', 'balon', 'yumurta', 'zil'], ['bebek', 'bebek', 'ogretmen', 'anne'], ['robot', 'robot', 'davul', 'kutu']], 97),
-    cumleOku(['Bora, balon al.', 'Bebek, mama ister.', 'Bulut bembeyaz.']),
+    cumleOku(['Bora, balon al.', 'Bebek mama ister.', 'Bulut bembeyaz.']),
     yazKelime([['bal', 'balık'], ['bebek', 'bulut']])]),
   numarala([
     metin('Balon', ['Bora bir balon alır.', 'Balon kırmızı.', 'Bora balonu uçurur.', 'Balon bulutlara kadar uçar.', 'Bora: Balonum, dön!', 'Balon, Bora\'yı duymaz.']),
@@ -461,17 +461,17 @@ const HARF = {
     harfYazma('c'), harfAvi('c', 36)]),
   numarala([
     kelimeResim([['incir', 'incir', 'muz', 'limon'], ['cami', 'cami', 'kale', 'ev'], ['ceket', 'ceket', 'kazak', 'etek'], ['cüzdan', 'cuzdan', 'canta', 'kutu']], 103),
-    cumleOku(['Cem, ceket giy.', 'Ceren, incir ye.', 'Cüzdan, çantada.']),
+    cumleOku(['Cem, ceket giy.', 'Ceren, incir ye.', 'Cüzdan çantada.']),
     yazKelime([['cam', 'gece'], ['ceket', 'incir']])]),
   numarala([
-    metin('Cem\'in Ceketi', ['Cem ceketini giyer.', 'Ceket mor renkli.', 'Cem cebine cüzdanını koyar.', 'Cem ile Ceren okula giderler.', 'Yolda rüzgar eser.', 'Cem: Ceketim beni ısıtır.']),
+    metin('Cem\'in Ceketi', ['Cem ceketini giyer.', 'Ceket kırmızı renkli.', 'Cem cebine cüzdanını koyar.', 'Cem ile Ceren okula giderler.', 'Yolda serin bir yel eser.', 'Cem: Ceketim beni ısıtır.']),
     secmeli([['Cem ne giyer?', ['ceket', 'kazak', 'önlük']], ['Ceket ne renk?', ['sarı', 'mor', 'kırmızı']], ['Cem cebine ne koyar?', ['cüzdan', 'incir', 'kalem']]]), resimCiz()])],
   'ş': () => [numarala([
     sesiBul('ş', ['semsiye', 'saat', 'seker', 'sise', 'simit', 'sapka']),
     harfYazma('ş'), harfAvi('ş', 36)]),
   numarala([
     kelimeResim([['şemsiye', 'semsiye', 'balon', 'mantar'], ['şeker', 'seker', 'cilek', 'kek'], ['şişe', 'sise', 'bardak', 'vazo'], ['güneş', 'gunes', 'ay', 'yildiz']], 107),
-    cumleOku(['Şule, şemsiye al.', 'Şişe, masada.', 'Güneş ışıl ışıl.']),
+    cumleOku(['Şule, şemsiye al.', 'Şişe masada.', 'Güneş ışıl ışıl.']),
     yazKelime([['şeker', 'şişe'], ['kuş', 'güneş']])]),
   numarala([
     metin('Şemsiye', ['Şule okula gider.', 'Birden şimşek çakar.', 'Gökyüzü kararır.', 'Şule şemsiyesini açar.', 'Şemsiye, Şule\'yi ıslanmaktan korur.', 'Şule: İyi ki şemsiye almışım!']),
@@ -517,7 +517,7 @@ const HARF = {
     cumleTamamla([['Dağın üstünde ___ var.', ['kar', 'deniz']], ['Yağmur ___ yağar.', ['buluttan', 'topraktan']], ['Ağaçta ___ var.', ['yaprak', 'balık']]]),
     yazKelime([['dağ', 'ağaç'], ['yağmur', 'doğa']])]),
   numarala([
-    metin('Yağmur', ['Sabah gökyüzü bulutlu.', 'Birden yağmur yağar.', 'Ağaçların yaprakları ıslanır.', 'Dağların üstü bembeyaz olur.', 'Kuşlar ağaca saklanır.', 'Doğa yıkanır, temizlenir.', 'Yağmur dinince gökkuşağı çıkar.'], 6.8),
+    metin('Yağmur', ['Sabah gökyüzü bulutlu.', 'Birden yağmur yağar.', 'Ağaçların yaprakları ıslanır.', 'Dağların üstünü sis kaplar.', 'Kuşlar ağaca saklanır.', 'Doğa yıkanır, temizlenir.', 'Yağmur dinince gökkuşağı çıkar.'], 6.8),
     acikUclu(['Sabah gökyüzü nasıl?', 'Kuşlar nereye saklanır?', 'Yağmur dinince ne çıkar?']),
     sirala(['Gökkuşağı çıkar.', 'Gökyüzü bulutlu.', 'Yağmur yağar.'])])],
   f: () => [numarala([
@@ -536,11 +536,11 @@ const HARF = {
     harfYazma('j'), harfAvi('j', 36)]),
   numarala([
     kelimeResim([['jöle', 'jole', 'dondurma', 'yogurt'], ['garaj', 'garaj', 'ev', 'cami'], ['plaj', 'plaj', 'dag', 'agac']], 139),
-    cumleTamamla([['Arabayı ___ park ederiz.', ['garaja', 'denize']], ['Yazın ___ gideriz.', ['plaja', 'kayağa']], ['Annem bana bir ___ yolladı.', ['mesaj', 'plaj']]]),
+    cumleTamamla([['Arabayı ___ park ederiz.', ['garaja', 'denize']], ['Yazın ___ gideriz.', ['plaja', 'buz pistine']], ['Annem bana bir ___ yolladı.', ['mesaj', 'plaj']]]),
     yazKelime([['jöle', 'jeton'], ['garaj', 'plaj']])]),
   numarala([
-    metin('Plajda Bir Gün', ['Yaz tatilinde ailecek plaja gittik.', 'Babam arabayı garaja park etti.', 'Ben kumdan bir kale yaptım.', 'Kardeşim Jale denizde yüzdü.', 'Annem bize soğuk jöle getirdi.', 'Jöle çok lezzetliydi.', 'Akşam güneş batarken eve döndük.', 'Bu güzel günü hiç unutmayacağım.'], 6.4),
-    acikUclu(['Aile nereye gitti?', 'Jale ne yaptı?', 'Annem ne getirdi?']),
+    metin('Plajda Bir Gün', ['Yaz tatilinde ailecek plaja gittik.', 'Babam arabayı plajın otoparkına bıraktı.', 'Ben kumdan bir kale yaptım.', 'Kardeşim Jale denizde yüzdü.', 'Annem bize soğuk jöle getirdi.', 'Jöle çok lezzetliydi.', 'Akşam güneş batarken eve döndük.', 'Bu güzel günü hiç unutmayacağım.'], 6.4),
+    acikUclu(['Aile nereye gitti?', 'Jale ne yaptı?', 'Annesi ne getirdi?']),
     sirala(['Eve döndük.', 'Plaja gittik.', 'Kumdan kale yaptım.'])])],
 };
 
@@ -758,7 +758,7 @@ const SAYFALAR = {};
     AKTIF = h === '_yon' || MATMOD ? null : h; const govdeler = MATMOD ? KAG[h].sayfalar() : HARF[h](); AKTIF = null;
     const HEDEF = MATMOD ? CIKTI_D : CIKTI;
     if (HATALAR.length) break;
-    const html = `<!doctype html><html lang="tr"><meta charset="utf-8"><style>${CSS}</style><body>${OKLAR}<script>addEventListener('load',()=>document.querySelectorAll('.sayfa').forEach(s=>{const f=s.querySelector('footer'),h=s.querySelector('header');if(!f||!h)return;const g=document.createElement('div');g.className='govde';[...s.children].filter(c=>c!==f&&c!==h).forEach(c=>g.appendChild(c));s.insertBefore(g,f);const tm=g.querySelector('.t2-metin');if(tm){let fs=5.9;while(g.scrollHeight>g.clientHeight+2&&fs>4.6){fs=Math.round((fs-.1)*10)/10;tm.style.setProperty('--fs',fs+'mm');}}const t4=g.querySelector('.t4');if(t4&&!g.querySelector('.t4-optik')||t4){let z=1;while(z<1.3){g.style.zoom=z+.02;if(g.scrollHeight>g.clientHeight+1){g.style.zoom=z;break;}z+=.02;}}if(!t4){g.classList.add('olc');const P=3.78,dol=()=>{const c=g.lastElementChild;return c?g.clientHeight-(c.getBoundingClientRect().bottom-g.getBoundingClientRect().top):0};const L=[...g.querySelectorAll('*')].filter(e=>{if(e.children.length||e.textContent.trim()||e.closest('svg,table'))return false;const c=getComputedStyle(e),w=e.getBoundingClientRect().width;return parseFloat(c.borderBottomWidth)>0&&!parseFloat(c.borderTopWidth)&&w>30*P&&c.display!=='inline'});let h=9;while(L.length&&dol()>10*P&&h<13){h+=.5;L.forEach(e=>e.style.height=h+'mm')}if(dol()<0&&h>9){h-=.5;L.forEach(e=>e.style.height=h+'mm')}const R=[...g.querySelectorAll('table tr')].filter(t=>t.querySelector('td')&&[...t.querySelectorAll('td')].some(d=>!d.textContent.trim()));if(R.length&&dol()>10*P){const r=dol()-4*P;R.forEach(t=>t.style.height=Math.min(t.getBoundingClientRect().height+r/R.length,45*P)+'px')}const C=[...g.querySelectorAll('.h2-ciz,.m2-ciz,.m2-coz')];if(C.length&&dol()>10*P){const r=dol()-4*P;C.forEach(e=>e.style.minHeight=(e.getBoundingClientRect().height+r/C.length)+'px')}g.classList.remove('olc')}const bos2=0,bos=g.clientHeight,ihtiyac=g.scrollHeight;if(ihtiyac>bos+2){g.style.zoom=Math.max(.72,bos/ihtiyac);if(g.scrollHeight>g.clientHeight+2)g.style.zoom=Math.max(.72,parseFloat(g.style.zoom)*g.clientHeight/g.scrollHeight);}}));</script><script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('path.iz').forEach(p=>{const n=Math.max(3,Math.round(p.getTotalLength()/80));p.setAttribute('pathLength',n);p.setAttribute('stroke-dasharray','0 1');const L=p.getTotalLength(),e=p.getPointAtLength(L),c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',e.x);c.setAttribute('cy',e.y);c.setAttribute('r',22);c.setAttribute('fill','#8a8f8b');p.after(c);}));</script>${govdeler.map((g, i) => sayfa({ harf: h, govde: g, no: i + 1, toplam: govdeler.length, mat: MATMOD ? Object.assign({ ders: D.ad, sinif: D.sinif }, KAG[h]) : null })).join('')}</body></html>`;
+    const html = `<!doctype html><html lang="tr"><meta charset="utf-8"><style>${CSS}</style><body>${OKLAR}<script>addEventListener('load',()=>document.querySelectorAll('.sayfa').forEach(s=>{const f=s.querySelector('footer'),h=s.querySelector('header');if(!f||!h)return;const g=document.createElement('div');g.className='govde';[...s.children].filter(c=>c!==f&&c!==h).forEach(c=>g.appendChild(c));s.insertBefore(g,f);const tm=g.querySelector('.t2-metin');if(tm){let fs=5.9;while(g.scrollHeight>g.clientHeight+2&&fs>4.6){fs=Math.round((fs-.1)*10)/10;tm.style.setProperty('--fs',fs+'mm');}}const t4=g.querySelector('.t4');if(t4&&!g.querySelector('.t4-optik')||t4){let z=1;while(z<1.3){g.style.zoom=z+.02;if(g.scrollHeight>g.clientHeight+1){g.style.zoom=z;break;}z+=.02;}}if(!t4){g.classList.add('olc');const P=3.78,dol=()=>{const c=g.lastElementChild;return c?g.clientHeight-(c.getBoundingClientRect().bottom-g.getBoundingClientRect().top):0};const L=[...g.querySelectorAll('*')].filter(e=>{if(e.children.length||e.textContent.trim()||e.closest('svg,table'))return false;const c=getComputedStyle(e),w=e.getBoundingClientRect().width;return parseFloat(c.borderBottomWidth)>0&&!parseFloat(c.borderTopWidth)&&w>30*P&&c.display!=='inline'});let h=9;while(L.length&&dol()>10*P&&h<13){h+=.5;L.forEach(e=>e.style.height=h+'mm')}if(dol()<0&&h>9){h-=.5;L.forEach(e=>e.style.height=h+'mm')}const R=[...g.querySelectorAll('table tr')].filter(t=>t.querySelector('td')&&[...t.querySelectorAll('td')].some(d=>!d.textContent.trim()));if(R.length&&dol()>10*P){const r=dol()-4*P;R.forEach(t=>t.style.height=Math.min(t.getBoundingClientRect().height+r/R.length,45*P)+'px')}const C=[...g.querySelectorAll('.h2-ciz,.m2-ciz,.m2-coz')];if(C.length&&dol()>10*P){const r=dol()-4*P;C.forEach(e=>e.style.minHeight=(e.getBoundingClientRect().height+r/C.length)+'px')}g.classList.remove('olc')}const bos2=0,bos=g.clientHeight,ihtiyac=g.scrollHeight;if(ihtiyac>bos+2){g.style.zoom=Math.max(.72,bos/ihtiyac);if(g.scrollHeight>g.clientHeight+2)g.style.zoom=Math.max(.72,parseFloat(g.style.zoom)*g.clientHeight/g.scrollHeight);}g.querySelectorAll('div').forEach(k=>{const ch=[...k.children];if(ch.length<2||k.parentElement.lastElementChild!==k||!ch.every(e=>e.tagName==='I'&&!e.textContent.trim()&&parseFloat(getComputedStyle(e).borderBottomWidth)>0))return;const lh=ch[0].getBoundingClientRect().height;if(lh<5)return;const n=Math.floor((k.parentElement.getBoundingClientRect().bottom-k.getBoundingClientRect().bottom-12)/lh);for(let i=0;i<Math.min(n,25);i++)k.appendChild(ch[0].cloneNode())});}));</script><script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('path.iz').forEach(p=>{const n=Math.max(3,Math.round(p.getTotalLength()/80));p.setAttribute('pathLength',n);p.setAttribute('stroke-dasharray','0 1');const L=p.getTotalLength(),e=p.getPointAtLength(L),c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',e.x);c.setAttribute('cy',e.y);c.setAttribute('r',22);c.setAttribute('fill','#8a8f8b');p.after(c);}));</script>${govdeler.map((g, i) => sayfa({ harf: h, govde: g, no: i + 1, toplam: govdeler.length, mat: MATMOD ? Object.assign({ ders: D.ad, sinif: D.sinif }, KAG[h]) : null })).join('')}</body></html>`;
     SAYFALAR[h] = html;
     // Denetim kancası: SADECE_HTML=<dizin> → PDF üretmeden HTML'i ve PDF yolunu dizine yaz (kontrol.js paket). İçerik dosyalarına dokunmaz.
     if (process.env.SADECE_HTML) { fs.mkdirSync(process.env.SADECE_HTML, { recursive: true }); fs.writeFileSync(path.join(process.env.SADECE_HTML, h + '.html'), html);

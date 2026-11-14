@@ -14,7 +14,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
     korkmus: '<path d="M-14 14 q3.5 -5 7 0 q3.5 5 7 0 q3.5 -5 7 0 q3.5 5 7 0" fill="none" stroke="#1f2a24" stroke-width="3"/><path d="M-20 -18 l10 -4 M20 -18 l-10 -4" stroke="#1f2a24" stroke-width="3" stroke-linecap="round"/>',
   };
   const RENKY = { mutlu: '#ffd23f', uzgun: '#9fd3f5', kizgin: '#ff8a80', saskin: '#c7b8ff', korkmus: '#b8e6c9' };
-  const duygu = (tip, s = 60, bos) => `<svg viewBox="-40 -40 80 80" width="${s}" height="${s}"><circle r="34" fill="${bos ? '#fff' : RENKY[tip]}" stroke="#1f2a24" stroke-width="3"/>${bos ? '' : `<circle cx="-11" cy="-8" r="4" fill="#1f2a24"/><circle cx="11" cy="-8" r="4" fill="#1f2a24"/>${YUZ[tip]}`}</svg>`;
+  const duygu = (tip, s = 60, bos) => `<svg viewBox="-40 -40 80 80" width="${s}" height="${s}"><circle r="34" fill="${bos ? '#fff' : RENKY[tip]}" stroke="#1f2a24" stroke-width="3"/>${bos === true ? '' : `<circle cx="-11" cy="-8" r="4" fill="#1f2a24"/><circle cx="11" cy="-8" r="4" fill="#1f2a24"/>${YUZ[tip]}`}</svg>`;
   const lamba = (renkler, s = 70) => `<svg viewBox="0 0 60 150" width="${s * .4}" height="${s}"><rect x="6" y="4" width="48" height="128" rx="12" fill="#2b3a48"/><rect x="26" y="132" width="8" height="16" fill="#2b3a48"/>${[0, 1, 2].map(i => `<circle cx="30" cy="${26 + i * 40}" r="15" fill="${renkler[i] || '#fff'}" stroke="#fff" stroke-width="2"/>`).join('')}</svg>`;
   // Türk bayrağı (TS 2289 oranları, sadeleştirilmiş). bos=true → boyamalık; ters=true → hilal/yıldız ters (yanlış seçenek)
   const bayrak = (w, { bos, ters, renk } = {}) => { const h = w * 2 / 3, G = h, kirmizi = bos ? '#fff' : (renk || '#e30a17');
@@ -37,7 +37,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
       <div class="ben-s"><b>En sevdiğim meyve</b><span class="meyveler">${['elma', 'muz', 'cilek', 'uzum', 'mandalina'].map(a => resim(a)).join('')}</span></div>
       <div class="ben-s"><b>Kaç yaşındayım?</b><span>${kutuK}</span></div></div></div>`);
   const duyguTanit = () => etk(0, 'Duygular! Her yüze bak, o duyguyu yüzünle sen de yap. Sonra her yüzü kendi rengine boya.',
-    `<div class="duygular">${['mutlu', 'uzgun', 'kizgin', 'saskin', 'korkmus'].map(t => `<div>${duygu(t, 92)}<b class="ttkb">${{ mutlu: 'mutlu', uzgun: 'üzgün', kizgin: 'kızgın', saskin: 'şaşkın', korkmus: 'korkmuş' }[t]}</b></div>`).join('')}</div>`);
+    `<div class="duygular">${['mutlu', 'uzgun', 'kizgin', 'saskin', 'korkmus'].map(t => `<div>${duygu(t, 92, 2)}<b class="ttkb">${{ mutlu: 'mutlu', uzgun: 'üzgün', kizgin: 'kızgın', saskin: 'şaşkın', korkmus: 'korkmuş' }[t]}</b></div>`).join('')}</div>`);
   const duyguCiz = (liste) => etk(0, 'Resme bak. Böyle bir anda ne hissedersin? Boş yüze o duyguyu çiz.',
     `<div class="duyguciz">${liste.map(a => `<div><span>${resim(a)}</span>${duygu('', 88, true)}</div>`).join('')}</div>`);
   const benzerFarkli = () => etk(0, 'Bir arkadaşınla yan yana dur. Benzer olan özelliklerinizi yeşile, farklı olanları turuncuya boya.',
@@ -69,7 +69,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
   const yolGorev = () => etk(0, 'Okul yolundayız! Öğretmeninin söylediklerini yap.',
     gorev([['1', 'Yaya geçidini bul, çizgilerini maviye boya.'], ['2', 'Trafik ışığını doğru renklere boya.'], ['3', 'Yolda tehlikeli olan şeyi daire içine al.'], ['4', 'Kendini kaldırımda, güvenli bir yere çiz.']]) + `<div class="ortala">${yolSahne()}</div>`);
   const dogruYanlisResim = (liste) => etk(0, 'Doğru davranışın yanındaki gülen yüzü, yanlış davranışın yanındaki üzgün yüzü boya.',
-    `<div class="dyr">${liste.map(([a, m]) => `<div><span>${resim(a)}</span><p class="ttkb">${m}</p>${duygu('mutlu', 54)}${duygu('uzgun', 54)}</div>`).join('')}</div>`);
+    `<div class="dyr">${liste.map(([a, m]) => `<div><span>${resim(a)}</span><p class="ttkb">${m}</p>${duygu('mutlu', 54, 2)}${duygu('uzgun', 54, 2)}</div>`).join('')}</div>`);
   // bayrak ve marş
   const bayrakBoya = () => etk(0, 'Şanlı bayrağımızı boya. Ay ve yıldız beyaz kalsın, zemini kırmızıya boya.',
     `<div class="bayrak-boya">${bayrak(600, { bos: true })}</div>`);
@@ -91,7 +91,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
   // ---------- genel etkinlikler (resimler-hayat ile) ----------
   const ciz = (yonerge, mm = 110) => etk(0, yonerge, `<div class="kutu-ciz" style="height:${mm}mm"></div>`);
   const daireIcine = (yonerge, liste, t) => etk(0, yonerge, `<div class="yiyecek" style="grid-template-columns:repeat(${liste.length > 6 ? Math.ceil(liste.length / 2) : liste.length},1fr)">${karistir(liste, R(t)).map(a => `<span>${resim(a)}</span>`).join('')}</div>`);
-  const esle = (yonerge, ciftler, t) => { const sag = karistir(ciftler.map(c => c[1]), R(t));
+  const esle = (yonerge, ciftler, t) => { const ilk = ciftler.map(c => c[1]); let sag = karistir(ilk, R(t)); for (let k = 1; k < 30 && ilk.length > 1 && sag.some((x, i) => x === ilk[i]); k++) sag = karistir(ilk, R(t + k * 101)); if (sag.some((x, i) => x === ilk[i])) sag = ilk.slice(1).concat(ilk[0]);
     return etk(0, yonerge, `<div class="esles hb"><div class="sol">${ciftler.map(([a]) => `<div>${resim(a)}<i></i></div>`).join('')}</div><div class="sag">${sag.map(b => `<div><i></i>${b.startsWith('<') ? b : resim(b)}</div>`).join('')}</div></div>`); };
   const sirala = (yonerge, liste) => etk(0, yonerge, `<div class="sirala-r">${liste.map(a => `<div>${resim(a)}${kutuK}</div>`).join('')}</div>`);
   const GUN = ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'];
@@ -137,7 +137,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
       numarala([ciz('Sınıfımızın bir kuralını resimle anlat. Kural kartını çiz.', 90), daireIcine('Kurallara uyan çocukları daire içine al.', ['el-kaldir', 'sira-bekle', 'cop-at', 'paylas', 'bagir', 'koridor-kos'], 4)]),
     ] },
     'hafta-05': { unite: 1, hafta: 5, baslik: 'Kural Kartları', konu: 'Kurallar her yerde', sayfalar: () => [
-      numarala([esle('Nerede hangi kural? Resimleri eşleştir.', [['kutuphane', 'el-kaldir'], ['yaya-gecidi', 'trafik-isigi'], ['aile-sofrasi', 'el-yika'], ['okul-servisi', 'emniyet-kemeri']], 5)]),
+      numarala([esle('Nerede hangi kural? Resimleri eşleştir.', [['yaya-gecidi', 'trafik-isigi'], ['aile-sofrasi', 'el-yika'], ['okul-servisi', 'emniyet-kemeri']], 5)]),
       numarala([dy([['cop-at', 'Parkta çöpü yere atmak'], ['sira-bekle', 'Otobüse sırayla binmek'], ['paylas', 'Arkadaşına sıra vermek']]), ciz('Evdeki bir kuralını çiz.', 70)]),
     ] },
     'hafta-08': { unite: 2, hafta: 8, baslik: 'Kişisel Alanım', konu: 'Kişisel alanıma dikkat!', sayfalar: () => [

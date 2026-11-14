@@ -28,7 +28,7 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
   const resimSec = (yonerge, liste, t) => etk(0, yonerge, `<div class="h2-resimler">${karistir(liste, R(t)).map(a => `<span>${resim(a)}</span>`).join('')}</div>`);
   const davranis = (liste, yonerge) => etk(0, yonerge || 'Doğru davranışın yanındaki gülen yüzü, yanlış davranışın yanındaki üzgün yüzü boya.',
     `<div class="h2-dav">${liste.map(([a, s]) => `<div><span>${resim(a)}</span><p class="ttkb">${s}</p><em>${yuz(1)}${yuz(0)}</em></div>`).join('')}</div>`);
-  const esle = (yonerge, ciftler, t) => { const sag = karistir(ciftler.map(c => c[1]), R(t));
+  const esle = (yonerge, ciftler, t) => { const ilk = ciftler.map(c => c[1]); let sag = karistir(ilk, R(t)); for (let k = 1; k < 30 && ilk.length > 1 && sag.some((x, i) => x === ilk[i]); k++) sag = karistir(ilk, R(t + k * 101)); if (sag.some((x, i) => x === ilk[i])) sag = ilk.slice(1).concat(ilk[0]);
     const hucre = x => x.startsWith('#') ? `<b class="ttkb">${x.slice(1)}</b>` : x.startsWith('@') ? levha(x.slice(1), 16) : resim(x);
     return etk(0, yonerge, `<div class="h2-esle"><div>${ciftler.map(c => `<span>${hucre(c[0])}<i></i></span>`).join('')}</div><div>${sag.map(s => `<span><i></i>${hucre(s)}</span>`).join('')}</div></div>`); };
   const ciz = (yonerge, mm = 90) => etk(0, yonerge, `<div class="h2-ciz" style="min-height:${mm}mm"></div>`);
@@ -38,7 +38,7 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
   const tablo = (yonerge, bas, satirlar) => etk(0, yonerge,
     `<table class="h2-tablo ttkb"><tr>${bas.map(b => `<th>${b}</th>`).join('')}</tr>${satirlar.map(r => `<tr>${r.map(c => `<td>${c && c.startsWith && c.startsWith('img:') ? resim(c.slice(4)) : c}</td>`).join('')}</tr>`).join('')}</table>`);
   const siniflandir = (yonerge, kutular, ogeler, t) => etk(0, yonerge,
-    `<div class="h2-ogeler">${karistir(ogeler, R(t)).map(a => `<span>${resim(a)}</span>`).join('')}</div><div class="h2-kutular">${kutular.map(([ad, renk]) => `<div style="border-color:${renk}"><b class="ttkb" style="color:${renk}">${ad}</b></div>`).join('')}</div>`);
+    `<div class="h2-ogeler">${karistir(ogeler, R(t)).map(a => `<span>${resim(a)}</span>`).join('')}</div><div class="h2-kutular">${kutular.map(([ad, renk]) => `<div style="border-color:${renk}"><b class="ttkb" style="color:${renk}">${ad}</b>${/yaz/.test(yonerge) ? cizgi(Math.ceil(ogeler.length / kutular.length)) : ''}</div>`).join('')}</div>`);
   const dy = (liste) => etk(0, 'Doğru olanların kutusuna D, yanlış olanların kutusuna Y yaz.',
     `<div class="h2-dy">${liste.map(s => `<div><p class="ttkb">${s}</p><i></i></div>`).join('')}</div>`);
   const haftaPlan = () => etk(0, 'Haftalık planım! Her güne ders, oyun ve dinlenme için birer iş yaz ya da çiz.',
@@ -120,10 +120,10 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
       numarala([gorevTablo(), resimSec('Evde yapabileceğin görevleri daire içine al.', ['cop-cikar', 'bulasik', 'kopek-besle', 'cicek-sula', 'yatak', 'gece-ekran'], 161)]),
       numarala([durum([['cop-cikar', 'Bugün çöpü çıkarma sırası sende ama oyun oynamak istiyorsun.']]), ciz('Evde en sevdiğin görevi yaparken kendini çiz.', 70)])]),
     'hafta-17': W(17, 3, 'Sorumluluk Sende', 'Görev ve sorumluluklar', () => [
-      numarala([siniflandir('Görevler nerede yapılır? Resimleri doğru kutuya götür.', [['Evde', '#3a86ff'], ['Okulda', '#f4a100'], ['Çevrede', '#12b886']], ['bulasik', 'cop-cikar', 'el-kaldir', 'cop-at', 'cicek-sula', 'sira-bekle'], 171), dy(['Sorumluluklarımı zamanında yaparım.', 'Görevimi başkasına yaptırırım.', 'Okul çantamı kendim hazırlarım.'])]),
+      numarala([siniflandir('Görevler nerede yapılır? Resimleri doğru kutuya çizgiyle götür.', [['Evde', '#3a86ff'], ['Okulda', '#f4a100'], ['Çevrede', '#12b886']], ['bulasik', 'cop-cikar', 'el-kaldir', 'cop-at', 'cicek-sula', 'sira-bekle'], 171), dy(['Sorumluluklarımı zamanında yaparım.', 'Görevimi başkasına yaptırırım.', 'Okul çantamı kendim hazırlarım.'])]),
       numarala([yaz('Okulda hangi görevleri üstlenebilirsin?', ['1.', '2.']), ciz('Sınıf görev panosu için bir görev kartı çiz.', 60)])]),
     'hafta-18': W(18, 4, 'Yakınımdaki Güzellikler', 'Görev ve sorumluluklar, tarihî mekânlar ve doğal güzellikler', () => [
-      numarala([siniflandir('Tarihî mekân mı, doğal güzellik mi? Resimleri doğru kutuya götür.', [['Tarihî mekân', '#8e5b2b'], ['Doğal güzellik', '#12b886']], ['kale', 'tas-kopru', 'selale', 'magara', 'muze-bina', 'gunes-dogus'], 181), tablo('Yaşadığın yerdeki güzellikleri araştır.', ['Yerin adı', 'Tarihî mi, doğal mı?', 'Neden güzel?'], [['', '', ''], ['', '', ''], ['', '', '']])]),
+      numarala([siniflandir('Tarihî mekân mı, doğal güzellik mi? Resimleri doğru kutuya çizgiyle götür.', [['Tarihî mekân', '#8e5b2b'], ['Doğal güzellik', '#12b886']], ['kale', 'tas-kopru', 'selale', 'magara', 'muze-bina', 'gunes-dogus'], 181), tablo('Yaşadığın yerdeki güzellikleri araştır.', ['Yerin adı', 'Tarihî mi, doğal mı?', 'Neden güzel?'], [['', '', ''], ['', '', ''], ['', '', '']])]),
       numarala([muzeBilet(), ciz('Yaşadığın yerin en güzel köşesini çiz.', 70)])]),
     'hafta-19': W(19, 4, 'Mahallemi Kim Yönetir?', 'Yaşadığı yerin yönetim birimleri', () => [
       numarala([esle('Kim, ne iş yapar? Eşleştir.', [['muhtar', '#Mahallenin işlerini takip eder.'], ['belediye', '#Yollar, parklar ve çöp toplama.'], ['harita-okul', '#Yaşadığımız yeri tanırız.']], 191), tablo('Yaşadığın yeri tanı. Bir büyüğüne sorarak doldur.', ['', 'Adı'], [['Mahallem / köyüm', ''], ['İlçem', ''], ['İlim', ''], ['Muhtarımız', '']])]),
