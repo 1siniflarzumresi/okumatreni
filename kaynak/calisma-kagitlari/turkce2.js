@@ -44,7 +44,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
     `<div class="t2-kimlik">${gorsel ? `<span>${resim(gorsel)}</span>` : ''}<div>${alanlar.map(a => `<div><b class="ttkb">${a}</b><i></i></div>`).join('')}</div></div>`);
 
   const siniflandir = (yonerge, kutular, sozcukler) => etk(0, yonerge,
-    `<div class="t2-banka ttkb" style="margin:0 0 3mm">${sozcukler.map(s => `<span>${s}</span>`).join('')}</div><div class="t2-sinif">${kutular.map(([ad, renk]) => `<div style="border-color:${renk}"><b class="ttkb" style="color:${renk}">${ad}</b>${cizgi(3)}</div>`).join('')}</div>`);
+    `<div class="t2-banka ttkb" style="margin:0 0 3mm">${sozcukler.map(s => `<span>${s}</span>`).join('')}</div><div class="t2-sinif" style="grid-template-columns:repeat(${kutular.length},1fr)">${kutular.map(([ad, renk]) => `<div style="border-color:${renk}"><b class="ttkb" style="color:${renk}">${ad}</b>${cizgi(3)}</div>`).join('')}</div>`);
   const tablo = (yonerge, basliklar, satirlar) => etk(0, yonerge,
     `<table class="t2-tablo ttkb"><tr>${basliklar.map(b => `<th>${b}</th>`).join('')}</tr>${satirlar.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</table>`);
   const fikir = (yonerge, ileti) => etk(0, yonerge,

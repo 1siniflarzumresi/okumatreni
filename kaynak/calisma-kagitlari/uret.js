@@ -82,7 +82,7 @@ const resimCizgi = ad => `<img src="/deneme/materyaller/resimler/${ad}.png" alt=
 const LADIN = `<svg viewBox="0 0 40 48" class="ladin"><path d="M20 2 L30 16 H25 L33 27 H27 L36 39 H4 L13 27 H7 L15 16 H10 Z" fill="#2e6b4a"/><rect x="17.5" y="39" width="5" height="7" rx="1" fill="#8e5b2b"/></svg>`;
 function sayfa({ harf, govde, no, toplam, mat }) {
   if (mat) return `<section class="sayfa">
-  <header><div class="baslik">${LADIN}<div class="harf ttkb mat" style="font-size:${Math.min(10.5, 160 / mat.baslik.length).toFixed(1)}mm">${mat.baslik}</div></div>
+  <header><div class="baslik">${LADIN}<div class="harf ttkb mat" style="font-size:${Math.min(10.5, 132 / mat.baslik.length).toFixed(1)}mm">${mat.baslik}</div></div>
     <div class="ad ttkb"><span>Adım:</span><i></i><span>Tarih:</span><i class="kisa"></i></div></header>
   ${govde}
   <footer><span>Ladin Ormanı · ${mat.sinif || 1}. Sınıf ${mat.ders || 'Matematik'} · ${mat.konu}</span><span>${toplam > 1 ? no + ' / ' + toplam : ''}</span></footer>
@@ -592,7 +592,7 @@ const CSS = `
 body{margin:0;color:#1f2a24;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .ttkb{font-family:TTKB,sans-serif}
 .sayfa{width:210mm;height:297mm;padding:10mm 12mm 8mm;display:flex;flex-direction:column;gap:3.5mm;page-break-after:always;overflow:hidden}
-header{display:flex;justify-content:space-between;align-items:center;padding:2.5mm 5mm;border-radius:5mm;background:linear-gradient(105deg,#d9f0ff 0%,#eaf7ff 45%,#fff3c4 100%);border:.5mm solid #9fd3f5;position:relative;overflow:hidden}
+header{display:flex;justify-content:space-between;align-items:center;gap:5mm;padding:2.5mm 5mm;border-radius:5mm;background:linear-gradient(105deg,#d9f0ff 0%,#eaf7ff 45%,#fff3c4 100%);border:.5mm solid #9fd3f5;position:relative;overflow:hidden}
 header::after{content:"";position:absolute;right:4mm;top:-5mm;width:14mm;height:14mm;border-radius:50%;background:#ffd23f;box-shadow:0 0 0 2.5mm rgba(255,210,63,.35);pointer-events:none}
 .baslik{display:flex;align-items:center;gap:3mm}
 .ladin{width:9mm}
