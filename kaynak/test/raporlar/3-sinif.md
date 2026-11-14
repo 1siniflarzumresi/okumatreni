@@ -16,9 +16,26 @@ Kaynak: `kontrol.js paket t3:* m3:* h3:* f3:*` + denetleyici. Yalnız rapor; hi�
   - Ortak: D/Y maddeleri bağlamsız; afiş şablonu 4, 5, 12. haftalarda aynı.
 
 ## Türkçe (`turkce3.js`)
+- 13-18. hafta: 24 sayfadan 8'i kaldı.
+  - 13-1: yaz tilkisi resmi kızıl tilki (metin: kahverengi-gri kutup tilkisi). 14-4: "okuyuculara … ona" uyumsuz.
+  - 15-1: "han, hançer, hangar" sözlük sırasına uymuyor (kazanımla çelişiyor); tırnaklar karışık. 15-4: görev üç cümle, altında ilgisiz başlık ve 12 satır.
+  - 16-3: dilekçe formu ortada, 6 satır, "Konu:" imzanın altında, adres yok.
+  - 17-1: "Sen de kaldın mı?" metinle çelişiyor. 17-3: "Ben de" yanlış; hata avcısında bir cümlede iki hata; başlatma/sürdürme/sonlandırma tek cevaplı değil.
+  - 18-3: domino E/Z yönergesi ve yer yok; "kısaltma ekleri" hiç ölçülmüyor; "İtfaiyeyi 112'ye bildirdik" bozuk.
 - 25-30. hafta: 24 sayfadan 5'i kaldı.
   - 26-1: gözlemevi resminde teleskop var, metin "teleskop yoktu" diyor (2. sayfadaki D/Y ile çelişiyor); "binlerce yıldız" → "bin kadar".
   - 28-4: dört kare öykü sayfası bozuk — `.t3-dortkare i` seçicisi yazma çizgilerini de kutuya çeviriyor (turkce3.js:675), numaralar kenara biniyor.
   - 29-1: usta metinde kadın (Nesrin Hanım), resimde erkek; 1 Mayıs tatil günü gezi → "öncesinde".
   - 30-2: "Bütün köy" satırının metinde karşılığı yok. 30-4: mektupta "Başlık:".
   - Küçük: 29-3 atasözü anlamı iki eşe uyuyor; 30-1 mayısta "kış için yufka"; 25-3, 30-3 sözcük dedektifi çeldiricileri zayıf; 27-2 yönerge eksik.
+
+## Fen Bilimleri (`fen3.js`)
+- 25-36. hafta: 24 sayfadan 13'ü kaldı.
+  - 26-1: "elde bulaşık – makine" elektrik karşılaştırması değil; "şarj olan telefonu fişten çekmek" belirsiz. 26-2: sayaç tablosunda günlük fark sütunu yok → 27. haftadaki soru yanlış cevaba götürüyor.
+  - 27-2: toprak katman adları yönergede doğru sırayla (cevap veriliyor); parçalar yanlış katmanda çizili.
+  - 28-2: "toprağı havalandıran canlı" SOLUCAN da KARINCA da 7 kutuya sığıyor.
+  - 29-1: pamuktaki fasulye iyi büyür → "toprak gerekmez" yanlış genellemesi. 29-2: yalnız boy ölçülüyor, karanlıktaki fide en uzun çıkar.
+  - 30-2: "Kök su ve besin alır" kavram yanılgısı (su ve mineral). 31-2: "deniz canlılarının çoğu solungaçla" belirsiz.
+  - 32-1: "hayvanın özelliği" ama kaktüs var. 33-1: cevap çizgisi görünmüyor (`.f3-not` flex değil); karınca/böcek iki satırda.
+  - 34-1: "Kim kimi yer?" ilk halka Güneş; "kutudan seç" kutu yok; çeşitlilik kazanımı ölçülmüyor. 34-2: "arılar olmasa çiçekler tozlaşamaz" aşırı genelleme.
+  - 36-1: "Milli" → "Millî".
