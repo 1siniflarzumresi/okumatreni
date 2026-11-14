@@ -78,7 +78,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       banka('Canlılar dört gruba ayrılır! Her canlıyı doğru gruba yaz.', [['Mikroskopla görülen', '#8b5cf6'], ['Mantarlar', '#f4a100'], ['Bitkiler', '#12b886'], ['Hayvanlar', '#f2546b']], ['Bakteri', 'Şapkalı mantar', 'Papatya', 'Kedi', 'Ekmek küfü', 'Çam ağacı', 'Arı', 'Maya', 'Yosun', 'Balık', 'Çilek', 'Kurbağa'], 2),
       dy(['Bazı canlılar o kadar küçüktür ki ancak mikroskopla görülür.', 'Mantarlar da bitkiler gibi kendi besinini üretir.', 'Hayvanlar besinlerini dışarıdan alır.'])]),
     numarala([tablo('Canlı mı, cansız mı? Her varlık için ✓ koy.', ['Varlık', 'Beslenir', 'Büyür', 'Ürer', 'Canlı mı?'], ['Ağaç', 'Taş', 'Kedi', 'Bulut', 'Mantar', 'Oyuncak robot'].map(v => [v, '', '', '', ''])),
-      bilmece('Canlı bilmecesi!', [['Topraktan beslenir, güneşi sever, yaprakları vardır.', 'BİTKİ', 0], ['Nemli yerde, çürümüş ağaçta biter.', 'MANTAR', 1], ['Gözle görülmez, büyüteçle bile seçilmez.', 'BAKTERİ', 2]], 'BAK')])]),
+      bilmece('Canlı bilmecesi!', [['Besinini kendi üretir, güneşi sever, yaprakları vardır.', 'BİTKİ', 0], ['Nemli yerde, çürümüş ağaçta biter.', 'MANTAR', 1], ['Gözle görülmez, büyüteçle bile seçilmez.', 'BAKTERİ', 2]], 'BAK')])]),
     'hafta-05': W(5, 2, 'Mikroskobun Gözüyle', 'Canlıların sınıflandırılması', () => [numarala([
       deney('Ekmekte küf oluşur mu?', ['İki dilim ekmek', 'İki kilitli poşet', 'Biraz su', 'Büyüteç'], ['Bir dilimi az suyla nemlendir, diğerini kuru bırak.', 'İkisini de poşete koyup kapat, karanlık bir yere bırak.', 'Bir hafta her gün büyüteçle incele. Poşetleri açma!'], 'Hangisinde küf olur?'),
       tahmin('Küf günlüğü! Her gün gözlemini yaz.', ['1. gün', '3. gün', '5. gün', '7. gün'], ['Gün', 'Nemli ekmek', 'Kuru ekmek'])]),
