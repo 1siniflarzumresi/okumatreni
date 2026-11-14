@@ -8,7 +8,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
   // 3. sınıfa özgü
   const anaFikir = (secenekler, dogru) => etk(0, 'Metnin ana fikri hangisi? Doğru olanı daire içine al. Sonra nedenini yaz.',
     `<div class="t3-sec">${secenekler.map(s => `<span class="ttkb">${s}</span>`).join('')}</div><p class="ttkb t3-not">Çünkü</p>${cizgi(2)}`);
-  const gercekMecaz = (liste) => etk(0, 'Altı çizili sözcük gerçek anlamında mı, mecaz anlamında mı kullanılmış? Doğru kutuyu işaretle.',
+  const gercekMecaz = (liste) => etk(0, 'Altı çizili sözcük ya da söz gerçek anlamında mı, mecaz anlamında mı kullanılmış? Doğru kutuyu işaretle.',
     `<div class="t3-gm">${liste.map(s => `<div><p class="ttkb">${s}</p><span class="ttkb"><i></i>gerçek</span><span class="ttkb"><i></i>mecaz</span></div>`).join('')}</div>`);
   const dilekce = (yonerge, kime, konu) => etk(0, yonerge,
     `<div class="t3-dilekce ttkb"><p class="t3-sag">Tarih: ……/……/20……</p><p class="t3-orta">${kime}</p>${cizgi(6)}<p class="t3-sag">Ad soyad: ………………………<br>İmza:</p><p class="t3-konu">Konu: ${konu}</p></div>`);
@@ -445,8 +445,8 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
         '– Hayal kurmak işin yarısıdır Can. Kalan yarısı çalışmak.',
       ] }),
       numarala([harita(), soru(['Astronotlar uzayda nasıl uyur?', 'Uzayda neden ekmek yerine yassı ekmek kullanılır?', 'Mektuptaki "Hepimiz aynı evde yaşıyoruz." sözü ne anlatıyor?'])]),
-      numarala([gercekMecaz(['Can\'ın <u>ağzı kulaklarına vardı</u>.', 'Astronot <u>uzaya</u> gitti.', 'Bu haber bizi <u>uçurdu</u>.', 'Kuşlar gökyüzünde <u>uçuyor</u>.']),
-        eslestir('Deyim ve atasözlerini anlamlarıyla eşleştir.', [['Damlaya damlaya göl olur.', 'küçük birikimler büyür'], ['Ağzı kulaklarına varmak', 'çok sevinmek'], ['Gözünü dört açmak', 'çok dikkatli olmak']], 241)]),
+      numarala([gercekMecaz(['Mektubu okuyunca herkesin <u>ağzı kulaklarına vardı</u>.', 'Astronot uzay aracının <u>kapısını</u> açtı.', 'Bu haber bizi <u>uçurdu</u>.', 'Kuşlar gökyüzünde <u>uçuyor</u>.']),
+        eslestir('Deyim ve atasözlerini anlamlarıyla eşleştir.', [['Damlaya damlaya göl olur.', 'küçük birikimler büyür'], ['Ağzı kulaklarına varmak', 'çok sevinmek'], ['Gözünü dört açmak', 'çok dikkatli olmak'], ['Ağaç yaşken eğilir.', 'iyi alışkanlıklar küçük yaşta kazanılır'], ['Kulak misafiri olmak', 'başkalarının konuşmasını istemeden duymak']], 241), yeniden('Deyimleri kendi cümlende kullan.', ['Gözünü dört açmak:', 'Kulak misafiri olmak:'])]),
       numarala([yazma('Bir bilim insanına ya da astronota bir mektup yaz. Ona merak ettiğin soruları sor. En az bir deyim kullan.', ['Hitap:', 'Kendini tanıt ve sorularını sor:', 'Kapanış:'], 12)]),
     ] },
     'hafta-25': { unite: 7, hafta: 25, baslik: 'Saati Taşıyan Fil', konu: 'Bilim yolculuğu · Farklı öneriler sunma, açıklayıcı metin', sayfalar: () => [
