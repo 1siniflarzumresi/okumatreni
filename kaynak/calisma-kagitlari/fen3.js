@@ -8,8 +8,8 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
   const var_ = l => l.filter(x => Array.isArray(x) ? resimVar(x[0]) : resimVar(x));
   // Resimli sınıflandırma; yeterli resim yoksa sözcük bankalı sürüme düşer.
   const ayir = (yonerge, kutular, resimler, sozcukler, t) => var_(resimler).length >= 6 ? siniflandir(yonerge, kutular, var_(resimler), t) : banka(yonerge, kutular, sozcukler);
-  const banka = (yonerge, kutular, ogeler, n = 3) => etk(0, yonerge,
-    `<div class="h2-banka ttkb">${ogeler.map(s => `<span>${s}</span>`).join('')}</div><div class="f3-kutu ttkb" style="grid-template-columns:repeat(${kutular.length},1fr)">${kutular.map(([b, r]) => `<div style="border-color:${r}"><b style="color:${r}">${b}</b>${cizgi(n)}</div>`).join('')}</div>`);
+  const banka = (yonerge, kutular, ogeler, n = 3) => etk(0, yonerge + ' Numarasını yazman yeterli.',
+    `<div class="h2-banka ttkb">${ogeler.map((s, i) => `<span><b class="f3-no">${i + 1}</b> ${s}</span>`).join('')}</div><div class="f3-kutu ttkb" style="grid-template-columns:repeat(${kutular.length},1fr)">${kutular.map(([b, r]) => `<div style="border-color:${r}"><b style="color:${r}">${b}</b>${cizgi(n)}</div>`).join('')}</div>`);
 
   // Deney föyü: malzeme, adımlar, tahmin, gözlem, sonuç.
   const deney = (baslik, malzeme, adimlar, soru) => etk(0, `Deney zamanı: ${baslik} Bir büyüğünle birlikte yap.`,
@@ -244,7 +244,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
   function davranisYaz(liste) { return etk(0, 'Doğru davranışın yanına 😊, yanlış davranışın yanına 😟 çiz.', `<div class="h2-dy">${liste.map(s => `<div><p class="ttkb">${s}</p><i></i></div>`).join('')}</div>`); }
   void ayir; void resimSec;
   const CSS = `
-.f3-kutu{display:grid;gap:3mm}.f3-kutu>div{background:#fff;border:.8mm solid;border-radius:4mm;padding:2mm 3mm}.f3-kutu b{font-weight:400;font-size:5mm;display:block;text-align:center}.f3-kutu small{font-size:4mm;color:#5b6b7b}
+.f3-no{display:inline-block;min-width:5.5mm;height:5.5mm;border-radius:50%;background:#3a86ff;color:#fff;text-align:center;font-size:3.8mm;line-height:5.5mm;margin-right:1mm}.f3-kutu{display:grid;gap:3mm}.f3-kutu>div{background:#fff;border:.8mm solid;border-radius:4mm;padding:2mm 3mm}.f3-kutu b{font-weight:400;font-size:5mm;display:block;text-align:center}.f3-kutu small{font-size:4mm;color:#5b6b7b}
 .f3-deney{display:flex;flex-direction:column;gap:2mm}.f3-malz{display:flex;flex-wrap:wrap;gap:1.5mm;align-items:center;background:#fff;border-radius:3mm;padding:2mm 3mm}.f3-malz b{font-weight:400;font-size:5mm;color:#8b5cf6;margin-right:2mm}.f3-malz span{background:#f3edff;border-radius:3mm;padding:.5mm 2.5mm;font-size:4.6mm}
 .f3-deney ol{margin:0;background:#fff;border-radius:3mm;padding:2mm 3mm 2mm 10mm;font-size:5mm;line-height:1.45}
 .f3-ug{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5mm}.f3-ug>div{background:#fff;border-top:2mm solid var(--r);border-radius:3mm;padding:2mm 3mm}.f3-ug b{font-weight:400;font-size:5.2mm;color:var(--r);display:block}.f3-ug small{font-size:4.2mm;color:#5b6b7b}
