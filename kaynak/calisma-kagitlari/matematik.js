@@ -440,7 +440,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
     `<div class="market">${liste.map(([ad, fiyat, paralar]) => { let x = 0, s = ''; paralar.forEach(n => { s += lira(n, x, 2); x += n >= 5 ? 100 : 54; });
       return `<div><span class="urun">${resim(ad)}<b class="etiket-f ttkb">${fiyat} lira</b></span>${sahne(x, 52, s, Math.min(120, x * .4))}</div>`; }).join('')}</div>`);
   const paraEsle = (liste) => etk(0, 'Hangi para hangisine eşit? Çizgiyle birleştir.',
-    `<div class="esles"><div class="sol">${liste.map(([a]) => `<div>${sahne(100, 52, lira(a, 4, 2), 42)}<i></i></div>`).join('')}</div><div class="sag">${karistir(liste.map(x => x[1]), R(91)).map(p => { let x = 0, s = ''; p.forEach(n => { s += lira(n, x, 2); x += n >= 5 ? 100 : 54; }); return `<div><i></i>${sahne(x, 52, s, Math.min(95, x * .4))}</div>`; }).join('')}</div></div>`);
+    `<div class="esles"><div class="sol">${liste.map(([a]) => `<div>${sahne(100, 52, lira(a, 4, 2), 42)}<i></i></div>`).join('')}</div><div class="sag">${karistir(liste.map(x => x[1]), R(91)).map(p => { let x = 0, s = ''; p.forEach(n => { s += lira(n, x, 2); x += n >= 5 ? 100 : 54; }); return `<div><i></i>${sahne(x, 52, s, Math.min(68, x * .3))}</div>`; }).join('')}</div></div>`);
   // geometri
   const SK = { kare: (x, y, s, r) => `<rect x="${x}" y="${y}" width="${s}" height="${s}" fill="${r}" stroke="#1f2a24" stroke-width="3"/>`,
     dik: (x, y, w, h, r) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${r}" stroke="#1f2a24" stroke-width="3"/>`,
