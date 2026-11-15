@@ -22,7 +22,7 @@ module.exports = ({ S }) => {
   const p = (...l) => l.map(x => `<p class="t4-p">${x}</p>`).join('');
   const madde = l => `<ul class="t4-madde">${l.map(x => `<li>${x}</li>`).join('')}</ul>`;
   const tablo = (bas, sat, renk = '#8b5cf6') => `<table class="t4-t" style="--tr:${renk}"><tr>${bas.map(b => `<th>${b}</th>`).join('')}</tr>${sat.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</table>`;
-  const kartlar = (l, renk = '#fff3a8') => `<div class="t4-kartlar">${l.map((x, i) => `<div style="background:${renk}"><i>${i + 1}</i>${x}</div>`).join('')}</div>`;
+  const kartlar = (l, renk = '#fff3a8') => `<div class="t4-kartlar">${l.map((x, i) => `<div style="background:${renk}"><i>${i + 1}</i><span>${x}</span></div>`).join('')}</div>`;
   // Çocuk avatarı (başörtüsüz; saç tipi: 0 kısa, 1 at kuyruğu, 2 kıvırcık, 3 örgülü)
   const AVR = [['#f6c39a', '#5b3a1e', 0, '#3a86ff'], ['#e9b48a', '#2b1b10', 1, '#f2546b'], ['#c98a5e', '#1f140c', 2, '#12b886'], ['#f3d0b0', '#a0522d', 3, '#f4a100'], ['#d9a06f', '#3b2a1a', 0, '#8b5cf6'], ['#f1c7a3', '#6b3e1f', 1, '#1d6fd8']];
   const avatar = (k, mm = 13) => { const [ten, sac, tip, zemin] = AVR[k % AVR.length];
@@ -81,16 +81,16 @@ module.exports = ({ S }) => {
   // 6) Sıralama: doğru sıra harflerle
   const sirala = (giris, adimlar, kok, t) => {
     const et = 'KLMNPR'.slice(0, adimlar.length).split(''), kar = karistir(adimlar.map((a, i) => [et[i], a]), t);
-    const dogru = adimlar.map(a => kar.find(k => k[1] === a)[0]).join(' - ');
-    const y = new Set(); const r = R(t + 's'); while (y.size < 3) { const d = dogru.split(' - '); const i = Math.floor(r() * (d.length - 1)); [d[i], d[i + 1]] = [d[i + 1], d[i]]; if (r() < .5) { const j = Math.floor(r() * (d.length - 1)); [d[j], d[j + 1]] = [d[j + 1], d[j]]; } const k = d.join(' - '); if (k !== dogru) y.add(k); }
-    return soru(p(giris) + `<div class="t4-sira">${kar.map(([e, a]) => `<div><b>${e}</b>${a}</div>`).join('')}</div>`, kok, sec(dogru, [...y], t), { tip: 'sirala' });
+    const dogru = adimlar.map(a => kar.find(k => k[1] === a)[0]).join('-');
+    const y = new Set(); const r = R(t + 's'); while (y.size < 3) { const d = dogru.split('-'); const i = Math.floor(r() * (d.length - 1)); [d[i], d[i + 1]] = [d[i + 1], d[i]]; if (r() < .5) { const j = Math.floor(r() * (d.length - 1)); [d[j], d[j + 1]] = [d[j + 1], d[j]]; } const k = d.join('-'); if (k !== dogru) y.add(k); }
+    return soru(p(giris) + `<div class="t4-sira">${kar.map(([e, a]) => `<div><b>${e}</b>${a}</div>`).join('')}</div>`, kok, sec(dogru, [...y], t), { tip: 'sirala', kolon: adimlar.length > 4 ? 1 : 2 });
   };
   // 7) Eşleştirme: numaralı sol + harfli sağ
   const esle = (giris, ciftler, kok, t) => {
     const et = 'abcde'.slice(0, ciftler.length).split(''), sag = karistir(ciftler.map(c => c[1]), t);
     const dogru = ciftler.map((c, i) => `${i + 1}-${et[sag.indexOf(c[1])]}`).join(', ');
     const y = new Set(); const r = R(t + 'e'); while (y.size < 3) { const m = ciftler.map((c, i) => et[sag.indexOf(c[1])]); const a = Math.floor(r() * m.length), b = (a + 1 + Math.floor(r() * (m.length - 1))) % m.length; [m[a], m[b]] = [m[b], m[a]]; const k = m.map((x, i) => `${i + 1}-${x}`).join(', '); if (k !== dogru) y.add(k); }
-    return soru(p(giris) + `<div class="t4-esle"><div>${ciftler.map((c, i) => `<p><b>${i + 1}.</b> ${c[0]}</p>`).join('')}</div><div>${sag.map((c, i) => `<p><b>${et[i]})</b> ${c}</p>`).join('')}</div></div>`, kok, sec(dogru, [...y], t), { kolon: 2, tip: 'esle' });
+    return soru(p(giris) + `<div class="t4-esle"><div>${ciftler.map((c, i) => `<p><b>${i + 1}.</b> ${c[0]}</p>`).join('')}</div><div>${sag.map((c, i) => `<p><b>${et[i]})</b> ${c}</p>`).join('')}</div></div>`, kok, sec(dogru, [...y], t), { kolon: ciftler.length > 3 ? 1 : 2, tip: 'esle' });
   };
   // 8) Bulmaca: ipuçlarının cevapları satırlara yazılır; işaretli sütundaki harflerle oluşan sözcük ya da "hangisi bulmacada yer almaz"
   const bulmaca = (giris, ipuclari, t, sutun = 0) => {
