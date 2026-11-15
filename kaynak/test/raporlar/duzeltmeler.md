@@ -23,3 +23,11 @@ Raporlardaki (1-sinif.md, 2-sinif.md, 3-sinif.md) bulgulardan yapılanlar. Yapı
 ## Bekleyen (resim gerektirir)
 - T3: nene-hatun (8), eski-mektup miğfer (6), komsu-bahce/sokak-kedisi/barinak kesim dikişi (3-4), oyuncak-tamir/soz-veren (2), 21-1 erkek çocuk resmi, 22-1, 23-1; millet-mektebi (7) kaldırıldı.
 - 2. sınıf HB 13-2 bayram-ziyaret resmi.
+
+## 15 Kasım 2026
+- 4. sınıf Matematik (36 hafta, hesaplanan cevaplar), Fen (36), Türkçe (36, özgün metinler); Matematik ve Fen konu anlatımları (18 + 14) ve PDF'leri. Denetleyici: üç dersin örnek haftalarında bütün cevaplar doğru; bulunan biçim ve içerik hataları düzeltildi.
+- TTKB'de ÷ ve kesme işareti bozuk görünüyordu: kâğıtlarda `andika-is` etiketiyle Andika'ya çevriliyor, konu PDF'lerinde `span.bol`.
+- I-II-III sorularında doğru seçeneğin boş kalması (hiç doğru ifade yok) engellendi.
+- 2. sınıf Matematik: gerçek ölçekli cetvel (2-3. sınıf), geri sayma sayı doğrusu, "1 şişe = 1 kova" kaldırıldı, problem yazarı etkinliğine sayılar.
+- 1. sınıf: para eşleştirme çizimleri, 1-2 mm taşmalar.
+- Türkçe 3 · 10-11 resimleri işlendi (Nene Hatun yetişkin, Millet Mektebi, rüzgârlı tepe, Nusret, el feneri, sessiz kütüphane, toplanma alanı, deprem).
