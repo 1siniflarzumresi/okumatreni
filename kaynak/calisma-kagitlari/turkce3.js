@@ -128,7 +128,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
       numarala([yazma('Çanakkale\'de savaşan bir askere bir mektup yaz. Ona bugünkü Türkiye\'yi anlat.', ['Hitap:', 'Ona neler anlatacaksın?', 'Nasıl bir dilekle bitireceksin?'], 12)]),
     ] },
     'hafta-07': { unite: 3, hafta: 7, baslik: 'Herkes Okula!', konu: 'Atatürk ve kahramanlarımız · Karşılaştırma, zıt anlam, imza', sayfalar: () => [
-      metin({ baslik: 'Herkes Okula!', resimler: ['harf-bloklari'] /* Türkçe 3 · 10 gelince 'millet-mektebi' yeniden eklenecek */, tahmin: 'Büyükler de okula gider mi? Ne öğrenmiş olabilirler?', paragraflar: [
+      metin({ baslik: 'Herkes Okula!', resimler: ['millet-mektebi', 'harf-bloklari'], tahmin: 'Büyükler de okula gider mi? Ne öğrenmiş olabilirler?', paragraflar: [
         'Cumhuriyet Bayramı\'na bir hafta kala öğretmenimiz bir ödev verdi: “Ailenizdeki en yaşlı kişiye Cumhuriyet\'in ilk yıllarını sorun.”',
         'Ben de büyük ninem Hatice Nine\'ye sordum. Hatice Nine yüz iki yaşındaydı ama hafızası pırıl pırıldı. Gözlüğünü taktı, anlatmaya başladı:',
         '– Ben küçükken annem okuma yazma bilmezdi. Köyümüzde okuyabilen ancak birkaç kişi vardı. Hem de eskiden kullanılan harfleri öğrenmek zordu.',

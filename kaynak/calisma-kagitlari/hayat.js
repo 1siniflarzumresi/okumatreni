@@ -137,7 +137,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
       numarala([ciz('Sınıfımızın bir kuralını resimle anlat. Kural kartını çiz.', 90), daireIcine('Kurallara uyan çocukları daire içine al.', ['el-kaldir', 'sira-bekle', 'cop-at', 'paylas', 'bagir', 'koridor-kos'], 4)]),
     ] },
     'hafta-05': { unite: 1, hafta: 5, baslik: 'Kural Kartları', konu: 'Kurallar her yerde', sayfalar: () => [
-      numarala([esle('Nerede hangi kural? Resimleri eşleştir.', [['yaya-gecidi', 'trafik-isigi'], ['aile-sofrasi', 'el-yika'], ['okul-servisi', 'emniyet-kemeri']], 5)]),
+      numarala([esle('Nerede hangi kural? Resimleri eşleştir.', [['kutuphane', 'sessiz-kutuphane'], ['yaya-gecidi', 'trafik-isigi'], ['aile-sofrasi', 'el-yika'], ['okul-servisi', 'emniyet-kemeri']], 5)]),
       numarala([dy([['cop-at', 'Parkta çöpü yere atmak'], ['sira-bekle', 'Otobüse sırayla binmek'], ['paylas', 'Arkadaşına sıra vermek']]), ciz('Evdeki bir kuralını çiz.', 70)]),
     ] },
     'hafta-08': { unite: 2, hafta: 8, baslik: 'Kişisel Alanım', konu: 'Kişisel alanıma dikkat!', sayfalar: () => [
@@ -201,8 +201,8 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
       numarala([acilAdim(), ciz('Ailenle toplanma yerinizi çiz.', 70)]),
     ] },
     'hafta-29': { unite: 5, hafta: 29, baslik: 'Hazırlıklıyım', konu: 'Afetleri tanıyalım', sayfalar: () => [
-      numarala([daireIcine('Afet çantasına neler koyarız? Daire içine al.', ['sise', 'ilac', 'eldiven', 'canta', 'gitar', 'top', 'tablet', 'cips'], 29), dy([['yangin-tupu', 'Yangın tüpünün yerini bilmek'], ['telefon-112', '112\'yi şaka için aramak']])]),
-      numarala([esle('Afetleri tanıyalım! Resmi afetin adıyla eşleştir.', [['orman-yangini', '<b class="ttkb" style="font-size:7mm">Yangın</b>'], ['sel', '<b class="ttkb" style="font-size:7mm">Sel</b>'], ['deprem', '<b class="ttkb" style="font-size:7mm">Deprem</b>']], 291), ciz('Evinde depremde güvenli bir yer bul ve çiz.', 90)]),
+      numarala([daireIcine('Afet çantasına neler koyarız? Daire içine al.', ['sise', 'ilac', 'el-feneri', 'eldiven', 'gitar', 'top', 'tablet', 'cips'], 29), dy([['yangin-tupu', 'Yangın tüpünün yerini bilmek'], ['telefon-112', '112\'yi şaka için aramak']])]),
+      numarala([esle('Afetleri tanıyalım! Resmi afetin adıyla eşleştir.', [['orman-yangini', '<b class="ttkb" style="font-size:7mm">Yangın</b>'], ['sel', '<b class="ttkb" style="font-size:7mm">Sel</b>'], ['deprem-sarsinti', '<b class="ttkb" style="font-size:7mm">Deprem</b>']], 291), ciz('Evinde depremde güvenli bir yer bul ve çiz.', 90)]),
     ] },
     'hafta-30': { unite: 5, hafta: 30, baslik: 'Atma, Yazık Olur', konu: 'Atma yazık olur', sayfalar: () => [
       numarala([ayir('Atıkları doğru kutuya çizgiyle götür: plastik maviye, kâğıt sarıya, cam yeşile.', [['plastik', '#3a86ff'], ['kâğıt', '#f4a100'], ['cam', '#12b886']], ['plastik-sise', 'kagit', 'cam-kavanoz', 'gazete', 'sise', 'kutu'], 30)]),
