@@ -7023,5 +7023,93 @@
     "baslik": "14. Hafta · Bilim Nedir?",
     "dosya": "materyaller/4-sinif/turkce/hafta-14.pdf",
     "resim": "materyaller/4-sinif/turkce/hafta-14-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-15",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Bilim ve Teknoloji",
+    "hafta": 15,
+    "baslik": "15. Hafta · Sporun Arkasındaki Bilim",
+    "dosya": "materyaller/4-sinif/turkce/hafta-15.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-15-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-16",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Bilim ve Teknoloji",
+    "hafta": 16,
+    "baslik": "16. Hafta · Hayata Varım",
+    "dosya": "materyaller/4-sinif/turkce/hafta-16.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-16-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-17",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Bilim ve Teknoloji",
+    "hafta": 17,
+    "baslik": "17. Hafta · Otomobil Uçar Gider",
+    "dosya": "materyaller/4-sinif/turkce/hafta-17.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-17-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-18",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Bilim ve Teknoloji",
+    "hafta": 18,
+    "baslik": "18. Hafta · Robotların Ustası",
+    "dosya": "materyaller/4-sinif/turkce/hafta-18.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-18-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-19",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Doğa ve Evren",
+    "hafta": 19,
+    "baslik": "19. Hafta · Alo! Kayın Ağacı mı?",
+    "dosya": "materyaller/4-sinif/turkce/hafta-19.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-19-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-20",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Doğa ve Evren",
+    "hafta": 20,
+    "baslik": "20. Hafta · Güneş Nasıl Çalışır?",
+    "dosya": "materyaller/4-sinif/turkce/hafta-20.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-20-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-21",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Doğa ve Evren",
+    "hafta": 21,
+    "baslik": "21. Hafta · Orman Dostları",
+    "dosya": "materyaller/4-sinif/turkce/hafta-21.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-21-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-22",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Doğa ve Evren",
+    "hafta": 22,
+    "baslik": "22. Hafta · İklim Değişikliği",
+    "dosya": "materyaller/4-sinif/turkce/hafta-22.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-22-onizleme.png"
   }
 ]
