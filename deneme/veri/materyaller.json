@@ -6879,7 +6879,12 @@
     "hafta": 1,
     "baslik": "1. Hafta · Türkçe Konuşalım",
     "dosya": "materyaller/4-sinif/turkce/hafta-01.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-01-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-01-onizleme.png",
+    "konu": "Türkçe konuşma, eş ve zıt anlam",
+    "konu_id": [
+      "dil:es",
+      "dil:zit"
+    ]
   },
   {
     "id": "t4-hafta-02",
@@ -6890,7 +6895,11 @@
     "hafta": 2,
     "baslik": "2. Hafta · Evimizdeki Kütüphane",
     "dosya": "materyaller/4-sinif/turkce/hafta-02.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-02-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-02-onizleme.png",
+    "konu": "Kütüphane, metin türleri",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-03",
@@ -6901,7 +6910,12 @@
     "hafta": 3,
     "baslik": "3. Hafta · Yanlış Haber",
     "dosya": "materyaller/4-sinif/turkce/hafta-03.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-03-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-03-onizleme.png",
+    "konu": "Doğru bilgiye ulaşma",
+    "konu_id": [
+      "dil:konu-anafikir",
+      "dil:soru"
+    ]
   },
   {
     "id": "t4-hafta-04",
@@ -6912,7 +6926,11 @@
     "hafta": 4,
     "baslik": "4. Hafta · Kitaplar Ne İşe Yarar?",
     "dosya": "materyaller/4-sinif/turkce/hafta-04.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-04-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-04-onizleme.png",
+    "konu": "Okumanın yararları, hikâye unsurları",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-05",
@@ -6923,7 +6941,12 @@
     "hafta": 5,
     "baslik": "5. Hafta · Gözüm Arkada Kalmayacak",
     "dosya": "materyaller/4-sinif/turkce/hafta-05.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-05-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-05-onizleme.png",
+    "konu": "Duygular, neden-sonuç",
+    "konu_id": [
+      "dil:atasozu",
+      "dil:es"
+    ]
   },
   {
     "id": "t4-hafta-06",
@@ -6934,7 +6957,11 @@
     "hafta": 6,
     "baslik": "6. Hafta · İstiklal Marşı'nın Şairi",
     "dosya": "materyaller/4-sinif/turkce/hafta-06.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-06-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-06-onizleme.png",
+    "konu": "Mehmet Âkif Ersoy, bilgilendirici metin",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-07",
@@ -6945,7 +6972,11 @@
     "hafta": 7,
     "baslik": "7. Hafta · Mehmetçiğe Botlar",
     "dosya": "materyaller/4-sinif/turkce/hafta-07.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-07-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-07-onizleme.png",
+    "konu": "Dinleme, olay sırası",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-08",
@@ -6956,7 +6987,12 @@
     "hafta": 8,
     "baslik": "8. Hafta · Çanakkale",
     "dosya": "materyaller/4-sinif/turkce/hafta-08.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-08-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-08-onizleme.png",
+    "konu": "Bilgilendirici metin, şiir okuma",
+    "konu_id": [
+      "dil:konu-anafikir",
+      "dil:unlem"
+    ]
   },
   {
     "id": "t4-hafta-09",
@@ -6967,7 +7003,11 @@
     "hafta": 9,
     "baslik": "9. Hafta · Anafartalar Kahramanı",
     "dosya": "materyaller/4-sinif/turkce/hafta-09.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-09-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-09-onizleme.png",
+    "konu": "Ana fikir, söz varlığı",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-10",
@@ -6978,7 +7018,12 @@
     "hafta": 10,
     "baslik": "10. Hafta · İyileştirici Güç",
     "dosya": "materyaller/4-sinif/turkce/hafta-10.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-10-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-10-onizleme.png",
+    "konu": "Sevgi, duygular",
+    "konu_id": [
+      "dil:benzetme",
+      "dil:zit"
+    ]
   },
   {
     "id": "t4-hafta-11",
@@ -6989,7 +7034,11 @@
     "hafta": 11,
     "baslik": "11. Hafta · Maysa ile Bulut",
     "dosya": "materyaller/4-sinif/turkce/hafta-11.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-11-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-11-onizleme.png",
+    "konu": "Empati, arkadaşlık",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-12",
@@ -7000,7 +7049,11 @@
     "hafta": 12,
     "baslik": "12. Hafta · Hasta Ziyareti",
     "dosya": "materyaller/4-sinif/turkce/hafta-12.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-12-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-12-onizleme.png",
+    "konu": "Görgü kuralları, yönerge",
+    "konu_id": [
+      "dil:yonerge"
+    ]
   },
   {
     "id": "t4-hafta-13",
@@ -7011,7 +7064,11 @@
     "hafta": 13,
     "baslik": "13. Hafta · Çiftçi ve Oğulları",
     "dosya": "materyaller/4-sinif/turkce/hafta-13.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-13-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-13-onizleme.png",
+    "konu": "Çalışkanlık, fabl",
+    "konu_id": [
+      "dil:atasozu"
+    ]
   },
   {
     "id": "t4-hafta-14",
@@ -7022,7 +7079,11 @@
     "hafta": 14,
     "baslik": "14. Hafta · Bilim Nedir?",
     "dosya": "materyaller/4-sinif/turkce/hafta-14.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-14-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-14-onizleme.png",
+    "konu": "Bilgilendirici metin, soru sorma",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-15",
@@ -7033,7 +7094,11 @@
     "hafta": 15,
     "baslik": "15. Hafta · Sporun Arkasındaki Bilim",
     "dosya": "materyaller/4-sinif/turkce/hafta-15.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-15-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-15-onizleme.png",
+    "konu": "Bilgilendirici metin, sebep-sonuç",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-16",
@@ -7044,7 +7109,11 @@
     "hafta": 16,
     "baslik": "16. Hafta · Hayata Varım",
     "dosya": "materyaller/4-sinif/turkce/hafta-16.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-16-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-16-onizleme.png",
+    "konu": "Teknoloji ve engelsiz yaşam",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-17",
@@ -7055,7 +7124,11 @@
     "hafta": 17,
     "baslik": "17. Hafta · Otomobil Uçar Gider",
     "dosya": "materyaller/4-sinif/turkce/hafta-17.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-17-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-17-onizleme.png",
+    "konu": "Hayal gücü, tahmin",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-18",
@@ -7066,7 +7139,11 @@
     "hafta": 18,
     "baslik": "18. Hafta · Robotların Ustası",
     "dosya": "materyaller/4-sinif/turkce/hafta-18.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-18-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-18-onizleme.png",
+    "konu": "Biyografi, bilgilendirici metin",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-19",
@@ -7077,7 +7154,11 @@
     "hafta": 19,
     "baslik": "19. Hafta · Alo! Kayın Ağacı mı?",
     "dosya": "materyaller/4-sinif/turkce/hafta-19.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-19-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-19-onizleme.png",
+    "konu": "Kişileştirme, hikâye unsurları",
+    "konu_id": [
+      "dil:benzetme"
+    ]
   },
   {
     "id": "t4-hafta-20",
@@ -7088,7 +7169,11 @@
     "hafta": 20,
     "baslik": "20. Hafta · Güneş Nasıl Çalışır?",
     "dosya": "materyaller/4-sinif/turkce/hafta-20.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-20-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-20-onizleme.png",
+    "konu": "Bilgilendirici metin, sayısal bilgi",
+    "konu_id": [
+      "dil:gercek-mecaz"
+    ]
   },
   {
     "id": "t4-hafta-21",
@@ -7099,7 +7184,11 @@
     "hafta": 21,
     "baslik": "21. Hafta · Orman Dostları",
     "dosya": "materyaller/4-sinif/turkce/hafta-21.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-21-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-21-onizleme.png",
+    "konu": "Ağaçlandırma, yönerge",
+    "konu_id": [
+      "dil:yonerge"
+    ]
   },
   {
     "id": "t4-hafta-22",
@@ -7110,7 +7199,11 @@
     "hafta": 22,
     "baslik": "22. Hafta · İklim Değişikliği",
     "dosya": "materyaller/4-sinif/turkce/hafta-22.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-22-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-22-onizleme.png",
+    "konu": "Bilgilendirici metin, sebep-sonuç",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-23",
@@ -7121,7 +7214,11 @@
     "hafta": 23,
     "baslik": "23. Hafta · Anadolu Bacıları",
     "dosya": "materyaller/4-sinif/turkce/hafta-23.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-23-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-23-onizleme.png",
+    "konu": "Bilgilendirici metin, tarih",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-24",
@@ -7132,7 +7229,11 @@
     "hafta": 24,
     "baslik": "24. Hafta · Kapalıçarşı",
     "dosya": "materyaller/4-sinif/turkce/hafta-24.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-24-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-24-onizleme.png",
+    "konu": "Bilgilendirici metin, gezi",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-25",
@@ -7143,7 +7244,12 @@
     "hafta": 25,
     "baslik": "25. Hafta · Yatıya Misafir",
     "dosya": "materyaller/4-sinif/turkce/hafta-25.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-25-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-25-onizleme.png",
+    "konu": "Misafirlik geleneği, hikâye",
+    "konu_id": [
+      "dil:es",
+      "dil:zit"
+    ]
   },
   {
     "id": "t4-hafta-26",
@@ -7154,7 +7260,11 @@
     "hafta": 26,
     "baslik": "26. Hafta · Türk Okçuluğu",
     "dosya": "materyaller/4-sinif/turkce/hafta-26.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-26-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-26-onizleme.png",
+    "konu": "Geleneksel sporlar, bilgilendirici metin",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-27",
@@ -7165,7 +7275,11 @@
     "hafta": 27,
     "baslik": "27. Hafta · Keloğlan'ın Bilmecesi",
     "dosya": "materyaller/4-sinif/turkce/hafta-27.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-27-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-27-onizleme.png",
+    "konu": "Halk edebiyatı, masal",
+    "konu_id": [
+      "dil:atasozu"
+    ]
   },
   {
     "id": "t4-hafta-28",
@@ -7176,7 +7290,12 @@
     "hafta": 28,
     "baslik": "28. Hafta · Annem Diyor ki",
     "dosya": "materyaller/4-sinif/turkce/hafta-28.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-28-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-28-onizleme.png",
+    "konu": "Öğüt, konuşma",
+    "konu_id": [
+      "dil:nokta",
+      "dil:virgul"
+    ]
   },
   {
     "id": "t4-hafta-29",
@@ -7187,7 +7306,11 @@
     "hafta": 29,
     "baslik": "29. Hafta · Güzel Anıları Biriktirmek",
     "dosya": "materyaller/4-sinif/turkce/hafta-29.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-29-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-29-onizleme.png",
+    "konu": "Anı, duygular",
+    "konu_id": [
+      "dil:gercek-mecaz"
+    ]
   },
   {
     "id": "t4-hafta-30",
@@ -7198,7 +7321,11 @@
     "hafta": 30,
     "baslik": "30. Hafta · Arkadaşım 23 Nisan",
     "dosya": "materyaller/4-sinif/turkce/hafta-30.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-30-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-30-onizleme.png",
+    "konu": "Millî bayram, yazma",
+    "konu_id": [
+      "dil:buyuk-harf"
+    ]
   },
   {
     "id": "t4-hafta-31",
@@ -7209,7 +7336,11 @@
     "hafta": 31,
     "baslik": "31. Hafta · Beştaş",
     "dosya": "materyaller/4-sinif/turkce/hafta-31.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-31-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-31-onizleme.png",
+    "konu": "Geleneksel oyunlar, yönerge",
+    "konu_id": [
+      "dil:yonerge"
+    ]
   },
   {
     "id": "t4-hafta-32",
@@ -7220,7 +7351,11 @@
     "hafta": 32,
     "baslik": "32. Hafta · Uçurtmalar Nasıl Uçar?",
     "dosya": "materyaller/4-sinif/turkce/hafta-32.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-32-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-32-onizleme.png",
+    "konu": "Bilgilendirici metin, yönerge",
+    "konu_id": [
+      "dil:yonerge"
+    ]
   },
   {
     "id": "t4-hafta-33",
@@ -7231,7 +7366,11 @@
     "hafta": 33,
     "baslik": "33. Hafta · Sağlığımı Korurum",
     "dosya": "materyaller/4-sinif/turkce/hafta-33.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-33-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-33-onizleme.png",
+    "konu": "Sağlıklı yaşam, öneri",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-34",
@@ -7242,7 +7381,11 @@
     "hafta": 34,
     "baslik": "34. Hafta · İlk Yardımı Hatırla",
     "dosya": "materyaller/4-sinif/turkce/hafta-34.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-34-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-34-onizleme.png",
+    "konu": "Yönerge, ilk yardım",
+    "konu_id": [
+      "dil:yonerge"
+    ]
   },
   {
     "id": "t4-hafta-35",
@@ -7253,7 +7396,11 @@
     "hafta": 35,
     "baslik": "35. Hafta · Centilmenlik",
     "dosya": "materyaller/4-sinif/turkce/hafta-35.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-35-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-35-onizleme.png",
+    "konu": "Fair play, takım ruhu",
+    "konu_id": [
+      "dil:konu-anafikir"
+    ]
   },
   {
     "id": "t4-hafta-36",
@@ -7264,6 +7411,10 @@
     "hafta": 36,
     "baslik": "36. Hafta · Doğa Yürüyüşü",
     "dosya": "materyaller/4-sinif/turkce/hafta-36.pdf",
-    "resim": "materyaller/4-sinif/turkce/hafta-36-onizleme.png"
+    "resim": "materyaller/4-sinif/turkce/hafta-36-onizleme.png",
+    "konu": "Yönerge, yaz tatili",
+    "konu_id": [
+      "dil:yonerge"
+    ]
   }
 ]
