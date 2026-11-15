@@ -43,3 +43,4 @@
 .yazdir{margin:6px 0 0}
 @media print{.konu{break-inside:avoid;box-shadow:none;border:1px solid #ccc}.geri{display:none}}
 .mk-kart .hk-img{width:100px;height:100px;object-fit:contain}
+.bol{font-family:Andika,sans-serif!important}

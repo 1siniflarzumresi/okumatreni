@@ -10,7 +10,7 @@ def oku(dosya):
     for h, k in re.findall(r"'hafta-\d\d': [HW]\((\d+), \d+, '(?:[^'\\]|\\.)+', '((?:[^'\\]|\\.)+)'", t): d[int(h)] = k
     return {h: k.replace("\\'", "'") for h, k in d.items()}
 ilk = lambda s: s[:1].upper() + s[1:]
-KAYNAK = {(1, 'matematik'): 'matematik.js', (1, 'hayat_bilgisi'): 'hayat.js', (2, 'turkce'): 'turkce2.js', (2, 'matematik'): 'matematik2.js', (2, 'hayat_bilgisi'): 'hayat2.js', (3, 'turkce'): 'turkce3.js', (3, 'matematik'): 'matematik3.js', (3, 'hayat_bilgisi'): 'hayat3.js', (3, 'fen_bilimleri'): 'fen3.js', (4, 'sosyal_bilgiler'): 'sosyal4.js'}
+KAYNAK = {(1, 'matematik'): 'matematik.js', (1, 'hayat_bilgisi'): 'hayat.js', (2, 'turkce'): 'turkce2.js', (2, 'matematik'): 'matematik2.js', (2, 'hayat_bilgisi'): 'hayat2.js', (3, 'turkce'): 'turkce3.js', (3, 'matematik'): 'matematik3.js', (3, 'hayat_bilgisi'): 'hayat3.js', (3, 'fen_bilimleri'): 'fen3.js', (4, 'sosyal_bilgiler'): 'sosyal4.js', (4, 'matematik'): 'matematik4.js', (4, 'fen_bilimleri'): 'fen4.js'}
 # 2. sınıf hafta → konu anlatımı (konu-dil.js / konu-mat.js kimlikleri)
 KM = {1: ['cisimler'], 2: ['cisimler', 'modeller'], 3: ['modeller'], 4: ['yon-buyukluk'], 5: ['sivi'], 6: ['sayilar100'], 7: ['sayilar100', 'cozumleme'], 8: ['cozumleme'],
       9: ['siralama'], 10: ['siralama', 'ritmik'], 11: ['ritmik'], 12: ['oruntu'], 13: ['oruntu', 'tahmin'], 14: ['problem'], 15: ['toplama', 'cikarma'], 16: ['problem'],

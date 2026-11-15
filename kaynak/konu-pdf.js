@@ -9,6 +9,7 @@ const srv = http.createServer((q, r) => { const f = path.join(KOK, decodeURIComp
   r.writeHead(200, { 'Content-Type': TUR[path.extname(f)] || 'application/octet-stream' }); fs.createReadStream(f).pipe(r); });
 const EK = `@font-face{font-family:TTKB;src:url(/kaynak/fontlar/ttkb.ttf)}
 *{font-family:TTKB,Andika,sans-serif!important}.mk-islem{font-family:ui-monospace,Menlo,Consolas,monospace!important}
+.bol{font-family:Andika,sans-serif!important}
 body{background:#fff!important}main.kap{padding:0!important;max-width:none!important}
 .pdf-bas{display:flex;justify-content:space-between;align-items:center;color:#1d4e89;font-size:15px;margin:0 0 10px;padding:6px 14px;border-radius:999px;background:linear-gradient(90deg,#eaf4ff,#fff6dc)}
 .konu{border:2px solid #e3ecf5!important}.konu-ic{grid-template-columns:1.15fr 1fr!important}.secenek button{min-width:70px}

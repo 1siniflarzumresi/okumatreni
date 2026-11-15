@@ -5777,7 +5777,11 @@
     "hafta": 1,
     "baslik": "1. Hafta · Büyük Sayılar",
     "dosya": "materyaller/4-sinif/matematik/hafta-01.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-01-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-01-onizleme.png",
+    "konu": "Doğal sayılar: okuma ve yazma",
+    "konu_id": [
+      "mat:m4-dogal"
+    ]
   },
   {
     "id": "m4-hafta-02",
@@ -5788,7 +5792,11 @@
     "hafta": 2,
     "baslik": "2. Hafta · Basamak Avcısı",
     "dosya": "materyaller/4-sinif/matematik/hafta-02.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-02-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-02-onizleme.png",
+    "konu": "Basamak ve bölükler, sayıları karşılaştırma",
+    "konu_id": [
+      "mat:m4-dogal"
+    ]
   },
   {
     "id": "m4-hafta-03",
@@ -5799,7 +5807,11 @@
     "hafta": 3,
     "baslik": "3. Hafta · Sayı Örüntüleri",
     "dosya": "materyaller/4-sinif/matematik/hafta-03.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-03-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-03-onizleme.png",
+    "konu": "Sıralama, yuvarlama ve örüntüler",
+    "konu_id": [
+      "mat:m4-dogal"
+    ]
   },
   {
     "id": "m4-hafta-04",
@@ -5810,7 +5822,12 @@
     "hafta": 4,
     "baslik": "4. Hafta · Sayılardan Toplamaya",
     "dosya": "materyaller/4-sinif/matematik/hafta-04.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-04-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-04-onizleme.png",
+    "konu": "Doğal sayılar, toplama",
+    "konu_id": [
+      "mat:m4-dogal",
+      "mat:m4-toplama"
+    ]
   },
   {
     "id": "m4-hafta-05",
@@ -5821,7 +5838,12 @@
     "hafta": 5,
     "baslik": "5. Hafta · Topla ve Çıkar",
     "dosya": "materyaller/4-sinif/matematik/hafta-05.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-05-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-05-onizleme.png",
+    "konu": "Toplama ve çıkarma",
+    "konu_id": [
+      "mat:m4-toplama",
+      "mat:m4-cikarma"
+    ]
   },
   {
     "id": "m4-hafta-06",
@@ -5832,7 +5854,12 @@
     "hafta": 6,
     "baslik": "6. Hafta · Tahmin Ustası",
     "dosya": "materyaller/4-sinif/matematik/hafta-06.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-06-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-06-onizleme.png",
+    "konu": "Toplama ve çıkarmada tahmin",
+    "konu_id": [
+      "mat:m4-toplama",
+      "mat:m4-cikarma"
+    ]
   },
   {
     "id": "m4-hafta-07",
@@ -5843,7 +5870,11 @@
     "hafta": 7,
     "baslik": "7. Hafta · Zihinden Toplama",
     "dosya": "materyaller/4-sinif/matematik/hafta-07.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-07-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-07-onizleme.png",
+    "konu": "Zihinden toplama, problemler",
+    "konu_id": [
+      "mat:m4-toplama"
+    ]
   },
   {
     "id": "m4-hafta-08",
@@ -5854,7 +5885,11 @@
     "hafta": 8,
     "baslik": "8. Hafta · Toplama Problemleri",
     "dosya": "materyaller/4-sinif/matematik/hafta-08.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-08-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-08-onizleme.png",
+    "konu": "Toplama problemleri",
+    "konu_id": [
+      "mat:m4-toplama"
+    ]
   },
   {
     "id": "m4-hafta-09",
@@ -5865,7 +5900,11 @@
     "hafta": 9,
     "baslik": "9. Hafta · Zihinden Çıkarma",
     "dosya": "materyaller/4-sinif/matematik/hafta-09.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-09-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-09-onizleme.png",
+    "konu": "Çıkarmada tahmin ve zihinden işlem",
+    "konu_id": [
+      "mat:m4-cikarma"
+    ]
   },
   {
     "id": "m4-hafta-10",
@@ -5876,7 +5915,12 @@
     "hafta": 10,
     "baslik": "10. Hafta · Çıkarma Problemleri",
     "dosya": "materyaller/4-sinif/matematik/hafta-10.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-10-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-10-onizleme.png",
+    "konu": "Toplama ve çıkarma problemleri",
+    "konu_id": [
+      "mat:m4-cikarma",
+      "mat:m4-toplama"
+    ]
   },
   {
     "id": "m4-hafta-11",
@@ -5887,7 +5931,11 @@
     "hafta": 11,
     "baslik": "11. Hafta · Çarpma Yolculuğu",
     "dosya": "materyaller/4-sinif/matematik/hafta-11.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-11-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-11-onizleme.png",
+    "konu": "Çarpma işlemi",
+    "konu_id": [
+      "mat:m4-carpma"
+    ]
   },
   {
     "id": "m4-hafta-12",
@@ -5898,7 +5946,11 @@
     "hafta": 12,
     "baslik": "12. Hafta · Kısayol Çarpma",
     "dosya": "materyaller/4-sinif/matematik/hafta-12.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-12-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-12-onizleme.png",
+    "konu": "10, 100, 1000 ile çarpma, tahmin",
+    "konu_id": [
+      "mat:m4-carpma"
+    ]
   },
   {
     "id": "m4-hafta-13",
@@ -5909,7 +5961,12 @@
     "hafta": 13,
     "baslik": "13. Hafta · Çarpmadan Bölmeye",
     "dosya": "materyaller/4-sinif/matematik/hafta-13.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-13-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-13-onizleme.png",
+    "konu": "Çarpma problemleri, bölme",
+    "konu_id": [
+      "mat:m4-carpma",
+      "mat:m4-bolme"
+    ]
   },
   {
     "id": "m4-hafta-14",
@@ -5920,7 +5977,11 @@
     "hafta": 14,
     "baslik": "14. Hafta · Eşit Paylaşım",
     "dosya": "materyaller/4-sinif/matematik/hafta-14.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-14-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-14-onizleme.png",
+    "konu": "Bölme işlemi",
+    "konu_id": [
+      "mat:m4-bolme"
+    ]
   },
   {
     "id": "m4-hafta-15",
@@ -5931,7 +5992,11 @@
     "hafta": 15,
     "baslik": "15. Hafta · Kalanlı Bölme",
     "dosya": "materyaller/4-sinif/matematik/hafta-15.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-15-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-15-onizleme.png",
+    "konu": "Kalanlı bölme, sağlama",
+    "konu_id": [
+      "mat:m4-bolme"
+    ]
   },
   {
     "id": "m4-hafta-16",
@@ -5942,7 +6007,11 @@
     "hafta": 16,
     "baslik": "16. Hafta · Bölme Problemleri",
     "dosya": "materyaller/4-sinif/matematik/hafta-16.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-16-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-16-onizleme.png",
+    "konu": "10, 100 ile bölme, problemler",
+    "konu_id": [
+      "mat:m4-bolme"
+    ]
   },
   {
     "id": "m4-hafta-17",
@@ -5953,7 +6022,12 @@
     "hafta": 17,
     "baslik": "17. Hafta · Bölmeden Kesre",
     "dosya": "materyaller/4-sinif/matematik/hafta-17.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-17-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-17-onizleme.png",
+    "konu": "Bölme problemleri, kesirler",
+    "konu_id": [
+      "mat:m4-bolme",
+      "mat:m4-kesir"
+    ]
   },
   {
     "id": "m4-hafta-18",
@@ -5964,7 +6038,11 @@
     "hafta": 18,
     "baslik": "18. Hafta · Kesir Dünyası",
     "dosya": "materyaller/4-sinif/matematik/hafta-18.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-18-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-18-onizleme.png",
+    "konu": "Basit, bileşik ve tam sayılı kesirler",
+    "konu_id": [
+      "mat:m4-kesir"
+    ]
   },
   {
     "id": "m4-hafta-19",
@@ -5975,7 +6053,11 @@
     "hafta": 19,
     "baslik": "19. Hafta · Kesir Sırası",
     "dosya": "materyaller/4-sinif/matematik/hafta-19.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-19-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-19-onizleme.png",
+    "konu": "Kesirleri karşılaştırma, bir çokluğun kesri",
+    "konu_id": [
+      "mat:m4-kesir-islem"
+    ]
   },
   {
     "id": "m4-hafta-20",
@@ -5986,7 +6068,11 @@
     "hafta": 20,
     "baslik": "20. Hafta · Kesirlerle İşlemler",
     "dosya": "materyaller/4-sinif/matematik/hafta-20.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-20-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-20-onizleme.png",
+    "konu": "Paydaları eşit kesirlerle toplama-çıkarma",
+    "konu_id": [
+      "mat:m4-kesir-islem"
+    ]
   },
   {
     "id": "m4-hafta-21",
@@ -5997,7 +6083,11 @@
     "hafta": 21,
     "baslik": "21. Hafta · Zaman Yolcusu",
     "dosya": "materyaller/4-sinif/matematik/hafta-21.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-21-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-21-onizleme.png",
+    "konu": "Zaman ölçü birimleri",
+    "konu_id": [
+      "mat:m4-zaman"
+    ]
   },
   {
     "id": "m4-hafta-22",
@@ -6008,7 +6098,12 @@
     "hafta": 22,
     "baslik": "22. Hafta · Saat ve Veri",
     "dosya": "materyaller/4-sinif/matematik/hafta-22.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-22-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-22-onizleme.png",
+    "konu": "Zaman problemleri, veri toplama",
+    "konu_id": [
+      "mat:m4-zaman",
+      "mat:m4-veri"
+    ]
   },
   {
     "id": "m4-hafta-23",
@@ -6019,7 +6114,12 @@
     "hafta": 23,
     "baslik": "23. Hafta · Grafik Okuyalım",
     "dosya": "materyaller/4-sinif/matematik/hafta-23.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-23-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-23-onizleme.png",
+    "konu": "Veri ve grafik, geometrik cisimler",
+    "konu_id": [
+      "mat:m4-veri",
+      "mat:m4-sekil"
+    ]
   },
   {
     "id": "m4-hafta-24",
@@ -6030,7 +6130,11 @@
     "hafta": 24,
     "baslik": "24. Hafta · Şekil ve Cisim",
     "dosya": "materyaller/4-sinif/matematik/hafta-24.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-24-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-24-onizleme.png",
+    "konu": "Geometrik şekiller ve cisimler",
+    "konu_id": [
+      "mat:m4-sekil"
+    ]
   },
   {
     "id": "m4-hafta-25",
@@ -6041,7 +6145,12 @@
     "hafta": 25,
     "baslik": "25. Hafta · Nokta, Doğru, Işın",
     "dosya": "materyaller/4-sinif/matematik/hafta-25.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-25-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-25-onizleme.png",
+    "konu": "Şekiller, geometride temel kavramlar",
+    "konu_id": [
+      "mat:m4-sekil",
+      "mat:m4-kavram"
+    ]
   },
   {
     "id": "m4-hafta-26",
@@ -6052,7 +6161,11 @@
     "hafta": 26,
     "baslik": "26. Hafta · Açılar",
     "dosya": "materyaller/4-sinif/matematik/hafta-26.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-26-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-26-onizleme.png",
+    "konu": "Açının elemanları, adlandırılması ve ölçülmesi",
+    "konu_id": [
+      "mat:m4-aci"
+    ]
   },
   {
     "id": "m4-hafta-27",
@@ -6063,7 +6176,12 @@
     "hafta": 27,
     "baslik": "27. Hafta · Açı ve Simetri",
     "dosya": "materyaller/4-sinif/matematik/hafta-27.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-27-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-27-onizleme.png",
+    "konu": "Açı türleri, uzamsal ilişkiler",
+    "konu_id": [
+      "mat:m4-aci",
+      "mat:m4-simetri"
+    ]
   },
   {
     "id": "m4-hafta-28",
@@ -6074,7 +6192,12 @@
     "hafta": 28,
     "baslik": "28. Hafta · Uzunluk Ölçme",
     "dosya": "materyaller/4-sinif/matematik/hafta-28.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-28-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-28-onizleme.png",
+    "konu": "Uzamsal ilişkiler, uzunluk ölçme",
+    "konu_id": [
+      "mat:m4-simetri",
+      "mat:m4-uzunluk"
+    ]
   },
   {
     "id": "m4-hafta-29",
@@ -6085,7 +6208,11 @@
     "hafta": 29,
     "baslik": "29. Hafta · Kilometre ve Metre",
     "dosya": "materyaller/4-sinif/matematik/hafta-29.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-29-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-29-onizleme.png",
+    "konu": "Uzunluk birimleri ve dönüşümler",
+    "konu_id": [
+      "mat:m4-uzunluk"
+    ]
   },
   {
     "id": "m4-hafta-30",
@@ -6096,7 +6223,12 @@
     "hafta": 30,
     "baslik": "30. Hafta · Çevre Ölçme",
     "dosya": "materyaller/4-sinif/matematik/hafta-30.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-30-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-30-onizleme.png",
+    "konu": "Uzunluk problemleri, çevre",
+    "konu_id": [
+      "mat:m4-uzunluk",
+      "mat:m4-cevre"
+    ]
   },
   {
     "id": "m4-hafta-31",
@@ -6107,7 +6239,11 @@
     "hafta": 31,
     "baslik": "31. Hafta · Çevre Problemleri",
     "dosya": "materyaller/4-sinif/matematik/hafta-31.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-31-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-31-onizleme.png",
+    "konu": "Çevre uzunluğu",
+    "konu_id": [
+      "mat:m4-cevre"
+    ]
   },
   {
     "id": "m4-hafta-32",
@@ -6118,7 +6254,11 @@
     "hafta": 32,
     "baslik": "32. Hafta · Alan Ölçme",
     "dosya": "materyaller/4-sinif/matematik/hafta-32.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-32-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-32-onizleme.png",
+    "konu": "Birim karelerle alan",
+    "konu_id": [
+      "mat:m4-alan"
+    ]
   },
   {
     "id": "m4-hafta-33",
@@ -6129,7 +6269,11 @@
     "hafta": 33,
     "baslik": "33. Hafta · Tartalım",
     "dosya": "materyaller/4-sinif/matematik/hafta-33.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-33-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-33-onizleme.png",
+    "konu": "Kütle ölçme",
+    "konu_id": [
+      "mat:m4-tartma"
+    ]
   },
   {
     "id": "m4-hafta-34",
@@ -6140,7 +6284,11 @@
     "hafta": 34,
     "baslik": "34. Hafta · Ton ve Kilogram",
     "dosya": "materyaller/4-sinif/matematik/hafta-34.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-34-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-34-onizleme.png",
+    "konu": "Kütle problemleri",
+    "konu_id": [
+      "mat:m4-tartma"
+    ]
   },
   {
     "id": "m4-hafta-35",
@@ -6151,7 +6299,11 @@
     "hafta": 35,
     "baslik": "35. Hafta · Sıvı Ölçme",
     "dosya": "materyaller/4-sinif/matematik/hafta-35.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-35-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-35-onizleme.png",
+    "konu": "Litre ve mililitre",
+    "konu_id": [
+      "mat:m4-sivi"
+    ]
   },
   {
     "id": "m4-hafta-36",
@@ -6162,7 +6314,12 @@
     "hafta": 36,
     "baslik": "36. Hafta · Yıl Sonu Karışık",
     "dosya": "materyaller/4-sinif/matematik/hafta-36.pdf",
-    "resim": "materyaller/4-sinif/matematik/hafta-36-onizleme.png"
+    "resim": "materyaller/4-sinif/matematik/hafta-36-onizleme.png",
+    "konu": "Sıvı ölçme ve yıl sonu tekrarı",
+    "konu_id": [
+      "mat:m4-sivi",
+      "mat:m4-tartma"
+    ]
   },
   {
     "id": "f4-hafta-01",
@@ -6173,7 +6330,11 @@
     "hafta": 1,
     "baslik": "1. Hafta · Yer Kabuğu",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-01.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-01-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-01-onizleme.png",
+    "konu": "Yer kabuğunun yapısı, kayaçlar",
+    "konu_id": [
+      "fen:f4-yerkabugu"
+    ]
   },
   {
     "id": "f4-hafta-02",
@@ -6184,7 +6345,11 @@
     "hafta": 2,
     "baslik": "2. Hafta · Madenler ve Fosiller",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-02.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-02-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-02-onizleme.png",
+    "konu": "Kayaçlar, madenler ve fosiller",
+    "konu_id": [
+      "fen:f4-yerkabugu"
+    ]
   },
   {
     "id": "f4-hafta-03",
@@ -6195,7 +6360,11 @@
     "hafta": 3,
     "baslik": "3. Hafta · Dönen Dünya",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-03.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-03-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-03-onizleme.png",
+    "konu": "Dünya'nın dönme ve dolanma hareketleri",
+    "konu_id": [
+      "fen:f4-dunya"
+    ]
   },
   {
     "id": "f4-hafta-04",
@@ -6206,7 +6375,11 @@
     "hafta": 4,
     "baslik": "4. Hafta · Gece ve Gündüz",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-04.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-04-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-04-onizleme.png",
+    "konu": "Dünya'nın hareketlerinin sonuçları",
+    "konu_id": [
+      "fen:f4-dunya"
+    ]
   },
   {
     "id": "f4-hafta-05",
@@ -6217,7 +6390,12 @@
     "hafta": 5,
     "baslik": "5. Hafta · Mevsimler",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-05.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-05-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-05-onizleme.png",
+    "konu": "Dünya'nın hareketlerinin sonuçları",
+    "konu_id": [
+      "fen:f4-dunya",
+      "fen:f4-yerkabugu"
+    ]
   },
   {
     "id": "f4-hafta-06",
@@ -6228,7 +6406,11 @@
     "hafta": 6,
     "baslik": "6. Hafta · Besinler",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-06.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-06-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-06-onizleme.png",
+    "konu": "Besin içerikleri",
+    "konu_id": [
+      "fen:f4-besin"
+    ]
   },
   {
     "id": "f4-hafta-07",
@@ -6239,7 +6421,11 @@
     "hafta": 7,
     "baslik": "7. Hafta · Su ve Mineraller",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-07.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-07-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-07-onizleme.png",
+    "konu": "Besin içerikleri, su ve mineraller",
+    "konu_id": [
+      "fen:f4-besin"
+    ]
   },
   {
     "id": "f4-hafta-08",
@@ -6250,7 +6436,11 @@
     "hafta": 8,
     "baslik": "8. Hafta · Taze ve Doğal",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-08.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-08-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-08-onizleme.png",
+    "konu": "Besinlerin tazeliği ve doğallığı",
+    "konu_id": [
+      "fen:f4-besin"
+    ]
   },
   {
     "id": "f4-hafta-09",
@@ -6261,7 +6451,11 @@
     "hafta": 9,
     "baslik": "9. Hafta · Dengeli Beslenme",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-09.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-09-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-09-onizleme.png",
+    "konu": "Dengeli beslenme",
+    "konu_id": [
+      "fen:f4-besin"
+    ]
   },
   {
     "id": "f4-hafta-10",
@@ -6272,7 +6466,11 @@
     "hafta": 10,
     "baslik": "10. Hafta · Sağlığımı Koruyorum",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-10.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-10-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-10-onizleme.png",
+    "konu": "Alkol ve sigaranın zararları",
+    "konu_id": [
+      "fen:f4-sigara"
+    ]
   },
   {
     "id": "f4-hafta-11",
@@ -6283,7 +6481,12 @@
     "hafta": 11,
     "baslik": "11. Hafta · Dumansız Yaşam",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-11.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-11-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-11-onizleme.png",
+    "konu": "Sigara kullanımını azaltma",
+    "konu_id": [
+      "fen:f4-sigara",
+      "fen:f4-besin"
+    ]
   },
   {
     "id": "f4-hafta-12",
@@ -6294,7 +6497,11 @@
     "hafta": 12,
     "baslik": "12. Hafta · Kuvvetin Etkileri",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-12.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-12-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-12-onizleme.png",
+    "konu": "Kuvvetin hareket ve şekil üzerindeki etkisi",
+    "konu_id": [
+      "fen:f4-kuvvet"
+    ]
   },
   {
     "id": "f4-hafta-13",
@@ -6305,7 +6512,11 @@
     "hafta": 13,
     "baslik": "13. Hafta · İt ve Çek",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-13.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-13-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-13-onizleme.png",
+    "konu": "Kuvvetin cisimler üzerindeki etkileri",
+    "konu_id": [
+      "fen:f4-kuvvet"
+    ]
   },
   {
     "id": "f4-hafta-14",
@@ -6316,7 +6527,11 @@
     "hafta": 14,
     "baslik": "14. Hafta · Mıknatıs",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-14.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-14-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-14-onizleme.png",
+    "konu": "Mıknatısın kutupları ve etkilediği maddeler",
+    "konu_id": [
+      "fen:f4-miknatis"
+    ]
   },
   {
     "id": "f4-hafta-15",
@@ -6327,7 +6542,12 @@
     "hafta": 15,
     "baslik": "15. Hafta · Mıknatıs Nerede?",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-15.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-15-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-15-onizleme.png",
+    "konu": "Mıknatısların kullanım alanları",
+    "konu_id": [
+      "fen:f4-miknatis",
+      "fen:f4-kuvvet"
+    ]
   },
   {
     "id": "f4-hafta-16",
@@ -6338,7 +6558,11 @@
     "hafta": 16,
     "baslik": "16. Hafta · Maddeyi Tanıyalım",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-16.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-16-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-16-onizleme.png",
+    "konu": "Maddeyi niteleyen özellikler",
+    "konu_id": [
+      "fen:f4-madde"
+    ]
   },
   {
     "id": "f4-hafta-17",
@@ -6349,7 +6573,11 @@
     "hafta": 17,
     "baslik": "17. Hafta · Kütle ve Hacim",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-17.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-17-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-17-onizleme.png",
+    "konu": "Maddenin ölçülebilir özellikleri",
+    "konu_id": [
+      "fen:f4-madde"
+    ]
   },
   {
     "id": "f4-hafta-18",
@@ -6360,7 +6588,11 @@
     "hafta": 18,
     "baslik": "18. Hafta · Maddenin Hâlleri",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-18.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-18-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-18-onizleme.png",
+    "konu": "Katı, sıvı ve gaz",
+    "konu_id": [
+      "fen:f4-hal"
+    ]
   },
   {
     "id": "f4-hafta-19",
@@ -6371,7 +6603,12 @@
     "hafta": 19,
     "baslik": "19. Hafta · Isınma ve Soğuma",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-19.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-19-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-19-onizleme.png",
+    "konu": "Maddenin hâlleri, ısı etkisi",
+    "konu_id": [
+      "fen:f4-hal",
+      "fen:f4-madde"
+    ]
   },
   {
     "id": "f4-hafta-20",
@@ -6382,7 +6619,11 @@
     "hafta": 20,
     "baslik": "20. Hafta · Hâl Değişimi",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-20.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-20-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-20-onizleme.png",
+    "konu": "Maddenin ısı etkisiyle değişimi",
+    "konu_id": [
+      "fen:f4-hal"
+    ]
   },
   {
     "id": "f4-hafta-21",
@@ -6393,7 +6634,11 @@
     "hafta": 21,
     "baslik": "21. Hafta · Saf mı, Karışım mı?",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-21.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-21-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-21-onizleme.png",
+    "konu": "Saf madde ve karışım",
+    "konu_id": [
+      "fen:f4-karisim"
+    ]
   },
   {
     "id": "f4-hafta-22",
@@ -6404,7 +6649,11 @@
     "hafta": 22,
     "baslik": "22. Hafta · Karışımları Ayıralım",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-22.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-22-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-22-onizleme.png",
+    "konu": "Karışımları ayırma yöntemleri",
+    "konu_id": [
+      "fen:f4-karisim"
+    ]
   },
   {
     "id": "f4-hafta-23",
@@ -6415,7 +6664,11 @@
     "hafta": 23,
     "baslik": "23. Hafta · Aydınlatma Araçları",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-23.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-23-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-23-onizleme.png",
+    "konu": "Geçmişte ve günümüzde aydınlatma",
+    "konu_id": [
+      "fen:f4-aydinlatma"
+    ]
   },
   {
     "id": "f4-hafta-24",
@@ -6426,7 +6679,11 @@
     "hafta": 24,
     "baslik": "24. Hafta · Uygun Aydınlatma",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-24.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-24-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-24-onizleme.png",
+    "konu": "Aydınlatma teknolojileri, uygun aydınlatma",
+    "konu_id": [
+      "fen:f4-aydinlatma"
+    ]
   },
   {
     "id": "f4-hafta-25",
@@ -6437,7 +6694,12 @@
     "hafta": 25,
     "baslik": "25. Hafta · Tasarruflu Aydınlatma",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-25.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-25-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-25-onizleme.png",
+    "konu": "Uygun aydınlatma, ışık kirliliği",
+    "konu_id": [
+      "fen:f4-aydinlatma",
+      "fen:f4-isik-kirliligi"
+    ]
   },
   {
     "id": "f4-hafta-26",
@@ -6448,7 +6710,11 @@
     "hafta": 26,
     "baslik": "26. Hafta · Işık Kirliliği",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-26.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-26-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-26-onizleme.png",
+    "konu": "Işık kirliliğinin etkileri",
+    "konu_id": [
+      "fen:f4-isik-kirliligi"
+    ]
   },
   {
     "id": "f4-hafta-27",
@@ -6459,7 +6725,12 @@
     "hafta": 27,
     "baslik": "27. Hafta · Karanlık Gökyüzü",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-27.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-27-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-27-onizleme.png",
+    "konu": "Işık kirliliği, ses teknolojileri",
+    "konu_id": [
+      "fen:f4-isik-kirliligi",
+      "fen:f4-ses"
+    ]
   },
   {
     "id": "f4-hafta-28",
@@ -6470,7 +6741,11 @@
     "hafta": 28,
     "baslik": "28. Hafta · Sesin Teknolojisi",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-28.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-28-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-28-onizleme.png",
+    "konu": "Ses teknolojileri, ses kirliliği",
+    "konu_id": [
+      "fen:f4-ses"
+    ]
   },
   {
     "id": "f4-hafta-29",
@@ -6481,7 +6756,11 @@
     "hafta": 29,
     "baslik": "29. Hafta · Gürültüye Dur De",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-29.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-29-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-29-onizleme.png",
+    "konu": "Ses kirliliği",
+    "konu_id": [
+      "fen:f4-ses"
+    ]
   },
   {
     "id": "f4-hafta-30",
@@ -6492,7 +6771,11 @@
     "hafta": 30,
     "baslik": "30. Hafta · Bilinçli Tüketici",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-30.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-30-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-30-onizleme.png",
+    "konu": "Kaynakların tasarruflu kullanımı",
+    "konu_id": [
+      "fen:f4-tuketici"
+    ]
   },
   {
     "id": "f4-hafta-31",
@@ -6503,7 +6786,11 @@
     "hafta": 31,
     "baslik": "31. Hafta · Geri Dönüşüm",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-31.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-31-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-31-onizleme.png",
+    "konu": "Kaynaklar ve geri dönüşüm",
+    "konu_id": [
+      "fen:f4-tuketici"
+    ]
   },
   {
     "id": "f4-hafta-32",
@@ -6514,7 +6801,11 @@
     "hafta": 32,
     "baslik": "32. Hafta · Elektrik Devresi",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-32.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-32-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-32-onizleme.png",
+    "konu": "Basit elektrik devresinin elemanları",
+    "konu_id": [
+      "fen:f4-devre"
+    ]
   },
   {
     "id": "f4-hafta-33",
@@ -6525,7 +6816,11 @@
     "hafta": 33,
     "baslik": "33. Hafta · Devre Kuruyorum",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-33.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-33-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-33-onizleme.png",
+    "konu": "Çalışan elektrik devresi, güvenlik",
+    "konu_id": [
+      "fen:f4-devre"
+    ]
   },
   {
     "id": "f4-hafta-34",
@@ -6536,7 +6831,12 @@
     "hafta": 34,
     "baslik": "34. Hafta · Bilim Şenliği 1",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-34.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-34-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-34-onizleme.png",
+    "konu": "Yıl sonu tekrarı: Dünya ve canlılar",
+    "konu_id": [
+      "fen:f4-dunya",
+      "fen:f4-besin"
+    ]
   },
   {
     "id": "f4-hafta-35",
@@ -6547,7 +6847,12 @@
     "hafta": 35,
     "baslik": "35. Hafta · Bilim Şenliği 2",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-35.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-35-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-35-onizleme.png",
+    "konu": "Yıl sonu tekrarı: kuvvet ve madde",
+    "konu_id": [
+      "fen:f4-kuvvet",
+      "fen:f4-hal"
+    ]
   },
   {
     "id": "f4-hafta-36",
@@ -6558,6 +6863,11 @@
     "hafta": 36,
     "baslik": "36. Hafta · Bilim Şenliği 3",
     "dosya": "materyaller/4-sinif/fen-bilimleri/hafta-36.pdf",
-    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-36-onizleme.png"
+    "resim": "materyaller/4-sinif/fen-bilimleri/hafta-36-onizleme.png",
+    "konu": "Yıl sonu tekrarı: ışık, ses ve elektrik",
+    "konu_id": [
+      "fen:f4-isik-kirliligi",
+      "fen:f4-devre"
+    ]
   }
 ]
