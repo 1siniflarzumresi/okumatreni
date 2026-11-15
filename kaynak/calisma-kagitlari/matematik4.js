@@ -509,7 +509,7 @@ module.exports = ({ T, S }) => {
     (K, r, t) => [() => kodDY(K.gir + ' Bilgi doğruysa "Doğru", yanlışsa "Yanlış" bölümündeki rakamı boyayacaksınız.', kar(r, K.st(r)).slice(0, 4), t + 'k'),
       () => yolDY(K.gir + ' Öğrenciler ifade doğruysa "D", yanlışsa "Y" okunu izliyor.', kar(r, K.st(r)).slice(0, 3), t + 'y'),
       () => kapDY(K.gir + ' Bilgi doğruysa "Doğru Bilgi", yanlışsa "Yanlış Bilgi" kabına atılıyor.', kar(r, K.st(r)).slice(0, 5), t + 'p')],
-    (K, r, t) => [() => roma(p(K.gir), 'Buna göre yukarıdaki ifadelerden hangileri doğrudur?', kar(r, K.st(r)).slice(0, 3)),
+    (K, r, t) => [() => { let l, n = 0; do { l = kar(r, K.st(r)).slice(0, 3); } while (!l.some(x => x[1]) && ++n < 50); return roma(p(K.gir), 'Buna göre yukarıdaki ifadelerden hangileri doğrudur?', l); },
       () => { const s = K.sr(r); return sirala(s.giris, s.adim, s.kok, t + 's'); },
       () => esle('Soldaki ifadeleri sağdaki eşleriyle eşleştiriniz.', K.es(r), 'Buna göre eşleştirme hangi seçenekte doğru verilmiştir?', t + 'e')],
     (K, r, t) => [() => kacTane(p(K.gir), kar(r, K.st(r)).slice(0, 4)),

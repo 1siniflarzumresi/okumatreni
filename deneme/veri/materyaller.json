@@ -6869,5 +6869,71 @@
       "fen:f4-isik-kirliligi",
       "fen:f4-devre"
     ]
+  },
+  {
+    "id": "t4-hafta-01",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Okuma Kültürü",
+    "hafta": 1,
+    "baslik": "1. Hafta · Türkçe Konuşalım",
+    "dosya": "materyaller/4-sinif/turkce/hafta-01.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-01-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-02",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Okuma Kültürü",
+    "hafta": 2,
+    "baslik": "2. Hafta · Evimizdeki Kütüphane",
+    "dosya": "materyaller/4-sinif/turkce/hafta-02.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-02-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-03",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Okuma Kültürü",
+    "hafta": 3,
+    "baslik": "3. Hafta · Yanlış Haber",
+    "dosya": "materyaller/4-sinif/turkce/hafta-03.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-03-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-04",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Okuma Kültürü",
+    "hafta": 4,
+    "baslik": "4. Hafta · Kitaplar Ne İşe Yarar?",
+    "dosya": "materyaller/4-sinif/turkce/hafta-04.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-04-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-05",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Millî Mücadele ve Atatürk",
+    "hafta": 5,
+    "baslik": "5. Hafta · Gözüm Arkada Kalmayacak",
+    "dosya": "materyaller/4-sinif/turkce/hafta-05.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-05-onizleme.png"
+  },
+  {
+    "id": "t4-hafta-06",
+    "sinif": 4,
+    "tur": "calisma",
+    "ders": "turkce",
+    "unite": "Millî Mücadele ve Atatürk",
+    "hafta": 6,
+    "baslik": "6. Hafta · İstiklal Marşı'nın Şairi",
+    "dosya": "materyaller/4-sinif/turkce/hafta-06.pdf",
+    "resim": "materyaller/4-sinif/turkce/hafta-06-onizleme.png"
   }
 ]

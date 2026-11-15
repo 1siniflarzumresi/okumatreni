@@ -74,6 +74,7 @@ module.exports = ({ S }) => {
   const roma = (ic, kok, ifadeler) => {
     const d = ifadeler.map((x, i) => x[1] ? ['I', 'II', 'III'][i] : null).filter(Boolean);
     const ad = l => l.length === 1 ? `Yalnız ${l[0]}` : l.length === 3 ? 'I, II ve III' : l.join(' ve ');
+    if (!d.length) throw new Error('roma: doğru ifade yok: ' + kok);
     const tum = [['I'], ['II'], ['III'], ['I', 'II'], ['I', 'III'], ['II', 'III'], ['I', 'II', 'III']].map(ad), dogru = ad(d);
     const y = karistir(tum.filter(x => x !== dogru), kok).slice(0, 3);
     return soru(ic + `<div class="t4-roma">${ifadeler.map(([s], i) => `<p><b>${['I', 'II', 'III'][i]}.</b> ${s}</p>`).join('')}</div>`, kok, sec(dogru, y, kok, true), { kolon: 2, tip: 'roma' });

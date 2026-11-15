@@ -568,6 +568,7 @@ const T4 = require('./test4.js')({ S: H2MODUL.A.S });
 const S4MODUL = require('./sosyal4.js')({ T: T4 });
 const M4MODUL = require('./matematik4.js')({ T: T4, S: H2MODUL.A.S });
 const F4MODUL = require('./fen4.js')({ T: T4, S: H2MODUL.A.S });
+const T4MODUL = require('./turkce4.js')({ T: T4, S: H2MODUL.A.S });
 const T3MODUL = require('./turkce3.js')({ etk, resim, numarala, resimVar, A: T2MODUL.A, M: MATMODUL.ARAC });
 const DERS = { mat: { K: MATMODUL.MAT, ad: 'Matematik', klasor: 'matematik', paket: 'matematik' },
                hb: { K: HBMODUL.HB, ad: 'Hayat Bilgisi', klasor: 'hayat-bilgisi', paket: 'hayat-bilgisi' },
@@ -580,7 +581,8 @@ const DERS = { mat: { K: MATMODUL.MAT, ad: 'Matematik', klasor: 'matematik', pak
                f3: { K: F3MODUL.F3, ad: 'Fen Bilimleri', klasor: 'fen-bilimleri', paket: 'fen-bilimleri', sinif: 3 },
                               s4: { K: S4MODUL.S4, ad: 'Sosyal Bilgiler', klasor: 'sosyal-bilgiler', paket: 'sosyal-bilgiler', sinif: 4 },
                               m4: { K: M4MODUL.M4, ad: 'Matematik', klasor: 'matematik', paket: 'matematik', sinif: 4 },
-                              f4: { K: F4MODUL.F4, ad: 'Fen Bilimleri', klasor: 'fen-bilimleri', paket: 'fen-bilimleri', sinif: 4 } };
+                              f4: { K: F4MODUL.F4, ad: 'Fen Bilimleri', klasor: 'fen-bilimleri', paket: 'fen-bilimleri', sinif: 4 },
+                              t4: { K: T4MODUL.T4, ad: 'Türkçe', klasor: 'turkce', paket: 'turkce', sinif: 4 } };
 const MAT = DERS.mat.K;
 // Çıktı dosya adları yalnız ASCII: sıra numarası + harf (ı → 11-i, İ → 05-i), paketler grup-1-anetil…
 const ASCII = { 'ı': 'i', 'ü': 'u', 'ö': 'o', 'ç': 'c', 'ş': 's', 'ğ': 'g' };
@@ -709,6 +711,7 @@ ${H3MODUL.CSS}
 ${F3MODUL.CSS}
 ${S4MODUL.CSS}
 ${M4MODUL.CSS}
+${T4MODUL.CSS}
 ${T4.CSS}
 /* Kullanıcı kararı: kâğıtlardaki bütün yazılar TTKB; TTKB'de olmayan işaretler (× → ↔ ✓) Andika'ya düşer */
 *,svg text{font-family:TTKB,Andika,sans-serif !important}
