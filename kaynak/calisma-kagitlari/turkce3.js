@@ -128,7 +128,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
       numarala([yazma('Çanakkale\'de savaşan bir askere bir mektup yaz. Ona bugünkü Türkiye\'yi anlat.', ['Hitap:', 'Ona neler anlatacaksın?', 'Nasıl bir dilekle bitireceksin?'], 12)]),
     ] },
     'hafta-07': { unite: 3, hafta: 7, baslik: 'Herkes Okula!', konu: 'Atatürk ve kahramanlarımız · Karşılaştırma, zıt anlam, imza', sayfalar: () => [
-      metin({ baslik: 'Herkes Okula!', resimler: ['harf-bloklari'], tahmin: 'Büyükler de okula gider mi? Ne öğrenmiş olabilirler?', paragraflar: [
+      metin({ baslik: 'Herkes Okula!', resimler: ['harf-bloklari'] /* Türkçe 3 · 10 gelince 'millet-mektebi' yeniden eklenecek */, tahmin: 'Büyükler de okula gider mi? Ne öğrenmiş olabilirler?', paragraflar: [
         'Cumhuriyet Bayramı\'na bir hafta kala öğretmenimiz bir ödev verdi: “Ailenizdeki en yaşlı kişiye Cumhuriyet\'in ilk yıllarını sorun.”',
         'Ben de büyük ninem Hatice Nine\'ye sordum. Hatice Nine yüz iki yaşındaydı ama hafızası pırıl pırıldı. Gözlüğünü taktı, anlatmaya başladı:',
         '– Ben küçükken annem okuma yazma bilmezdi. Köyümüzde okuyabilen ancak birkaç kişi vardı. Hem de eskiden kullanılan harfleri öğrenmek zordu.',
@@ -396,7 +396,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
       numarala([yazma('Geliştirmek istediğin bir yetenek için "hata defteri" planı yaz. Neyi deneyecek, nasıl ilerleyeceksin?', ['Yeteneğim:', 'Şu an zorlandığım şey:', 'Planım:'], 12)]),
     ] },
     'hafta-22': { unite: 6, hafta: 22, baslik: 'Rüzgârı Yakalayan Kız', konu: 'Yeteneklerimizi kullanıyoruz · Açıklayıcı yazı, dijital sunum', sayfalar: () => [
-      metin({ baslik: 'Rüzgârı Yakalayan Kız', resimler: ['mucit-kiz', 'parkta-kosu'], tahmin: 'Rüzgâr yakalanabilir mi? Bu kız ne yapıyor olabilir?', paragraflar: [
+      metin({ baslik: 'Rüzgârı Yakalayan Kız', resimler: ['mucit-kiz', 'ruzgar-tepe'], tahmin: 'Rüzgâr yakalanabilir mi? Bu kız ne yapıyor olabilir?', paragraflar: [
         'Zehra\'nın köyü bir tepenin üstündeydi ve orada rüzgâr hiç durmazdı. Çamaşırlar ipte dans eder, kapılar kendi kendine çarpardı. Herkes rüzgârdan şikâyet ederdi. Zehra ise bir gün şunu düşündü: “Bu kadar rüzgâr boşa mı esiyor?”',
         'Bilim ve Teknoloji Haftası\'nda öğretmeni Murat Bey sınıfa bir video izletti. Videoda dev beyaz pervaneler dönüyordu: rüzgâr türbinleri. Murat Bey, türbinlerin rüzgârın gücünü elektriğe çevirdiğini anlattı.',
         'Zehra o akşam bir proje yapmaya karar verdi. Eski bir bisiklet dinamosu, plastik şişelerden kestiği pervaneler ve tahta bir çubukla küçük bir türbin yaptı. İlk denemede pervaneler döndü ama ampul yanmadı. İkinci denemede kablolar koptu. Üçüncü denemede pervaneleri daha geniş kesti ve türbini tepenin en rüzgârlı yerine koydu.',
@@ -415,7 +415,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
       numarala([yazma('Rüzgâr ya da güneş enerjisini anlatan açıklayıcı bir yazı yaz. Bilgilerin kaynağını da belirt.', ['Nedir?', 'Nasıl elektrik üretilir?', 'Faydaları nelerdir?'], 12)]),
     ] },
     'hafta-23': { unite: 7, hafta: 23, baslik: 'Nusret\'in Gece Yolculuğu', konu: 'Bilim yolculuğu · Ön bilgilerle bağlantı kurma, olay sırası', sayfalar: () => [
-      metin({ baslik: 'Nusret\'in Gece Yolculuğu', resimler: ['bogaz-gunbatimi', 'dolma-kalem'], tahmin: 'Küçük bir gemi büyük bir zafere nasıl katkı sağlayabilir?', paragraflar: [
+      metin({ baslik: 'Nusret\'in Gece Yolculuğu', resimler: ['nusret-gemisi', 'dolma-kalem'], tahmin: 'Küçük bir gemi büyük bir zafere nasıl katkı sağlayabilir?', paragraflar: [
         '1915 yılının mart ayı. Çanakkale Boğazı\'nın önünde dünyanın en güçlü donanmalarından birinin gemileri bekliyordu. Amaçları boğazı geçip İstanbul\'a ulaşmaktı.',
         'Boğazın içinde ise küçük, sessiz bir gemi vardı: Nusret. Nusret bir mayın gemisiydi. Görevi denizin altına mayın döşemekti. Ama boğaza daha önce döşenen mayınlar düşman gemilerince temizlenmeye başlanmıştı.',
         'Nusret\'in komutanı ve mürettebatı bir gözlem yaptı: Düşman gemileri her gün Erenköy Koyu\'na girip orada dönüyordu. Bu koyun bir yeri, düşmanın dikkatinden kaçmıştı.',
