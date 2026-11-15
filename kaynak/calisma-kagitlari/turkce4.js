@@ -28,7 +28,8 @@ module.exports = ({ T, S }) => {
     r => { const e = kar(r, ES), z = kar(r, ZIT); return coktan(p(`${ADLAR[Math.floor(r() * 12)]} sözcük kartlarını eşleştiriyor.`), `“${e[0][0]}” sözcüğünün eş anlamlısı hangisidir?`, e[0][1], [z[0][1], e[1][1], z[1][0]]); },
     r => { const z = kar(r, ZIT), e = kar(r, ES); return coktan(p('Öğretmen tahtaya bir sözcük yazdı ve zıt anlamlısını sordu.'), `“${z[0][0]}” sözcüğünün zıt anlamlısı hangisidir?`, z[0][1], [e[0][1], z[1][1], e[1][0]]); },
     r => { const d = kar(r, DEYIM); return coktan(p('Öğretmen tahtaya bir deyim yazdı ve anlamını sordu.'), `“${d[0][0]}” deyiminin anlamı hangisidir?`, d[0][1], d.slice(1, 4).map(x => x[1])); },
-    r => { const a = kar(r, ATA); return coktan(p(`${ADLAR[Math.floor(r() * 12)]} her gün kumbarasına biraz para atıyor. Bir yıl sonra bisiklet alacak kadar parası oldu.`), 'Bu durumu en iyi anlatan atasözü hangisidir?', ATA[0][0], a.filter(x => x[0] !== ATA[0][0]).slice(0, 3).map(x => x[0])); },
+    r => { const SEN = [['her gün kumbarasına biraz para atıyor. Bir yıl sonra bisiklet alacak kadar parası oldu.', 0], ['ödevini akşama bırakınca yetiştiremedi; ertesi gün ödevlerini hemen yapmaya karar verdi.', 1], ['ile arkadaşları sınıf panosunu birlikte hazırlayınca iş bir saatte bitti.', 2], ['eski kumaş parçalarını bir kutuda saklıyordu; okul tiyatrosunda kostüm gerekince hepsi işe yaradı.', 4]];
+      const [sen, k] = SEN[Math.floor(r() * SEN.length)]; return coktan(p(`${ADLAR[Math.floor(r() * 12)]} ${sen}`), 'Bu durumu en iyi anlatan atasözü hangisidir?', ATA[k][0], kar(r, ATA.filter((_, i) => i !== k)).slice(0, 3).map(x => x[0])); },
     r => { const n = kar(r, NOKTA); return coktan(p('Bir öğrenci noktalama işaretlerini unutmuş.'), `“${n[0][0]}” cümlesinin sonuna hangi işaret konmalıdır?`, n[0][1] + ' (' + ISAD[n[0][1]] + ')', ['.', '?', '!', ','].filter(x => x !== n[0][1]).slice(0, 3).map(x => x + ' (' + (ISAD[x] || 'virgül') + ')')); },
   ];
   const SP = [
@@ -49,7 +50,7 @@ module.exports = ({ T, S }) => {
     const [s0, s1] = M.sozcuk;
     const A = [ortak(metinKutu(M), mq.slice(0, 3)), sp[0](), coktan(p(`Metinde geçen “${s0}” sözcüğünü düşününüz.`), `“${s0}” sözcüğünün metindeki anlamı hangisidir?`, s1[0], s1.slice(1))];
     const B = [mq[3](), sp[1](), sp[2](), dq[0](r), dq[1](r), mq[4] ? mq[4]() : dq[2](r)];
-    return [sayfa(A), sayfa(B).replace(/<\/div>$/, optik() + '</div>'), cevapSayfasi(`${hafta}. hafta · ${baslik}`)];
+    return [sayfa(A).replace('soruları aşağıdaki bilgilere göre', 'soruları aşağıdaki metne göre'), sayfa(B).replace(/<\/div>$/, optik() + '</div>'), cevapSayfasi(`${hafta}. hafta · ${baslik}`)];
   } });
 
   // ——— Haftalar: özgün metinler ———
@@ -288,11 +289,11 @@ module.exports = ({ T, S }) => {
         'Güneş\'e asla çıplak gözle ya da dürbünle bakmamalıyız; gözlerimize kalıcı zarar verebilir. Güneş tutulmasını izlerken bile özel gözlükler kullanmalıyız.'],
       sorular: [['Diğer yıldızların küçük noktalar gibi görünmesinin nedeni nedir?', 'Bize çok uzak olmaları', ['Çok küçük olmaları', 'Işık vermemeleri', 'Gündüz görünmemeleri']],
         ['Güneş ışığı Dünya\'ya yaklaşık ne kadar sürede ulaşır?', '8 dakikada', ['8 saatte', '8 günde', '8 saniyede']],
-        ['Metne göre Güneş ışığının yararlarından biri değildir?', 'Gece karanlığını oluşturması', ['Bitkilerin büyümesini sağlaması', 'Dünya\'yı ısıtması', 'Hayatı mümkün kılması']],
+        ['Metne göre hangisi Güneş ışığının yararlarından biri değildir?', 'Gece karanlığını oluşturması', ['Bitkilerin büyümesini sağlaması', 'Dünya\'yı ısıtması', 'Hayatı mümkün kılması']],
         ['Son paragrafta okura hangi uyarı yapılmaktadır?', 'Güneş\'e çıplak gözle bakmamalıyız.', ['Güneş tutulmasını izlememeliyiz.', 'Dürbün kullanmalıyız.', 'Güneşte çok kalmalıyız.']],
         ['Güneş\'in çapı ile ilgili hangisi doğrudur?', 'Dünya\'nın çapından yaklaşık 109 kat büyüktür.', ['Dünya\'nın çapına eşittir.', 'Dünya\'nın çapından küçüktür.', 'Dünya\'nın çapının iki katıdır.']]],
       sozcuk: ['kalıcı', ['uzun süre geçmeyen, sürekli', 'kısa süren', 'eğlenceli', 'hafif']],
-      sira: ['Güneş\'te ışık oluşur.', 'Işık uzayda yol alır.', 'Yaklaşık 8 dakika sonra Dünya\'ya ulaşır.', 'Bitkiler ışıkla büyür.', 'Dünya ısınır.'] }),
+      sira: ['Güneş\'te ışık oluşur.', 'Işık uzayda yol alır.', 'Yaklaşık 8 dakika sonra Dünya\'ya ulaşır.', 'Bitkiler bu ışıkla büyür.'] }),
     'hafta-21': W(21, 5, 'Orman Dostları', 'Doğa ve evren · Ağaçlandırma, yönerge', { baslik: 'Bir Fidan Nasıl Dikilir?',
       metin: ['Kasım ayı, fidan dikmek için en uygun zamanlardan biridir. Bu dönemde toprak nemlidir ve fidanlar kök salmak için yeterli zaman bulur.',
         'Fidan dikmek için önce uygun bir yer seçilir. Fidanın kökünden biraz daha geniş ve derin bir çukur kazılır. Fidan çukura dik olarak yerleştirilir; kökleri kıvrılmamalıdır.',
@@ -312,7 +313,7 @@ module.exports = ({ T, S }) => {
         'Hepimiz bu soruna karşı bir şeyler yapabiliriz: Kısa mesafelerde yürüyebilir ya da bisiklet kullanabiliriz. Gereksiz ışıkları kapatabilir, ağaç dikebilir, atıklarımızı geri dönüşüme gönderebiliriz.'],
       sorular: [['Metne göre Dünya\'nın ısınmasının nedeni nedir?', 'Atmosferde biriken gazların ısıyı hapsetmesi', ['Güneş\'in Dünya\'ya yaklaşması', 'Ay\'ın büyümesi', 'Yağmurların artması']],
         ['İklim nedir?', 'Bir yerde uzun yıllar görülen hava koşulları', ['Bir günlük hava durumu', 'Yalnız yağmurlu günler', 'Bir şehrin nüfusu']],
-        ['Isınmanın sonuçlarından biri değildir?', 'Buzulların büyümesi', ['Deniz seviyesinin yükselmesi', 'Yaşam alanlarının daralması', 'Kuraklık yaşanması']],
+        ['Hangisi ısınmanın sonuçlarından biri değildir?', 'Buzulların büyümesi', ['Deniz seviyesinin yükselmesi', 'Yaşam alanlarının daralması', 'Kuraklık yaşanması']],
         ['Son paragrafta okurlardan ne istenmektedir?', 'Günlük yaşamda iklimi korumaya katkı sağlamaları', ['Daha çok araç kullanmaları', 'Işıkları açık bırakmaları', 'Ağaçları kesmeleri']],
         ['Metnin başlığındaki “ateş” sözcüğü neyi anlatmaktadır?', 'Dünya\'nın ısınmasını', ['Orman yangınlarını', 'Ocaktaki ateşi', 'Güneş\'in rengini']]],
       sozcuk: ['hapsetmek', ['bir yere kapatıp çıkmasına izin vermemek', 'serbest bırakmak', 'temizlemek', 'ölçmek']],
@@ -361,7 +362,7 @@ module.exports = ({ T, S }) => {
       sorular: [['Eski Türkler okçuluğu ne amaçla kullanırdı?', 'Avlanmak ve kendilerini korumak için', ['Müzik yapmak için', 'Ev yapmak için', 'Yemek pişirmek için']],
         ['Geleneksel Türk yayının yapımında hangisi kullanılmaz?', 'Plastik', ['Ağaç', 'Boynuz', 'Hayvan siniri']],
         ['“Menzil taşı” nedir?', 'Rekor atışların yazıldığı taş', ['Okun ucu', 'Yay yapımında kullanılan taş', 'Okçuların oturduğu taş']],
-        ['Okçuluğun gerektirdiği özellik değildir?', 'Hız için koşmak', ['Sabır', 'Dikkat', 'Denge']],
+        ['Hangisi okçuluğun gerektirdiği özelliklerden biri değildir?', 'Hız için koşmak', ['Sabır', 'Dikkat', 'Denge']],
         ['Metne göre okçuluk bugün nasıl yaşatılmaktadır?', 'Okçuluk kulüpleriyle', ['Okmeydanı\'nda savaşlarla', 'Avcılıkla', 'Yalnız müzelerde']]],
       sozcuk: ['dayanıklılık', ['kolay bozulmama, sağlamlık', 'hafiflik', 'renklilik', 'yumuşaklık']],
       sira: ['Ağaç, boynuz ve sinir hazırlanır.', 'Malzemeler birleştirilir.', 'Yay aylarca kurutulur.', 'Okçu atış yapar.', 'Rekor menzil taşına yazılır.'] }),
@@ -395,7 +396,7 @@ module.exports = ({ T, S }) => {
         'O gün ben de kendi anı kutumu hazırlamaya karar verdim. İçine 1. sınıfta yazdığım ilk cümleyi, deniz kenarında bulduğum bir deniz kabuğunu ve doğum günü kartlarımı koydum.',
         'Anılar, zamanla unutulmaya yüz tutan günlerimizi saklar. Kutuyu her açtığımda o günlerin sesi, kokusu ve neşesi yeniden aklıma geliyor.'],
       sorular: [['Dedenin kutusundaki bilet neyin hatırasıdır?', 'İlk kez trene bindiği günün', ['Bir futbol maçının', 'Bir sinema filminin', 'Okul gezisinin']],
-        ['Anlatıcının kendi anı kutusuna koyduğu eşyalardan biri değildir?', 'Kurumuş papatya', ['İlk yazdığı cümle', 'Deniz kabuğu', 'Doğum günü kartları']],
+        ['Hangisi anlatıcının kendi anı kutusuna koyduğu eşyalardan biri değildir?', 'Kurumuş papatya', ['İlk yazdığı cümle', 'Deniz kabuğu', 'Doğum günü kartları']],
         ['Metnin türü hangisidir?', 'Anı', ['Masal', 'Fabl', 'Bilgilendirici metin']],
         ['“Unutulmaya yüz tutmak” deyiminin anlamı nedir?', 'Unutulmaya başlamak', ['Hiç unutulmamak', 'Yüzü görmek', 'Bir şeyi saklamak']],
         ['Metnin ana fikri hangisidir?', 'Anıları saklamak geçmişimizi canlı tutar.', ['Teneke kutular eskidir.', 'Taşlar dereden alınmamalıdır.', 'Tren yolculuğu pahalıdır.']]],
@@ -442,7 +443,7 @@ module.exports = ({ T, S }) => {
         'Kerem gece geç saatlere kadar tablette oyun oynadığını, sabahları kahvaltı yapmadan okula geldiğini ve suyu çok az içtiğini anlattı. Hemşire gülümsedi: “Vücudumuz bir bitki gibidir; uykuyla, suyla ve iyi besinle büyür.”',
         'Hemşire Kerem\'e bir plan önerdi: Her gece aynı saatte yatmak, ekranı yatmadan bir saat önce kapatmak, kahvaltıyı atlamamak, gün içinde sık sık su içmek ve her gün en az bir saat hareket etmek.',
         'Kerem planı buzdolabının kapağına astı. İki hafta sonra derslerde daha dikkatliydi, teneffüste arkadaşlarıyla koşup oynuyordu. Hemşireye teşekkür etmeye gittiğinde “Bitkim büyüyor!” dedi.'],
-      sorular: [['Kerem\'in yorgun olmasının nedenlerinden biri değildir?', 'Her gün spor yapması', ['Geç yatması', 'Kahvaltı yapmaması', 'Az su içmesi']],
+      sorular: [['Hangisi Kerem\'in yorgun olmasının nedenlerinden biri değildir?', 'Her gün spor yapması', ['Geç yatması', 'Kahvaltı yapmaması', 'Az su içmesi']],
         ['Hemşire vücudumuzu neye benzetmiştir?', 'Bitkiye', ['Makineye', 'Arabaya', 'Saate']],
         ['Plana göre ekran yatmadan ne kadar önce kapatılmalıdır?', 'Bir saat önce', ['Beş dakika önce', 'On saat önce', 'Hiç kapatılmamalı']],
         ['Kerem\'in “Bitkim büyüyor!” sözü neyi gösterir?', 'Sağlığının ve enerjisinin düzeldiğini', ['Saksıda bitki yetiştirdiğini', 'Boyunun çok uzadığını', 'Hemşireye hediye verdiğini']],
@@ -478,7 +479,7 @@ module.exports = ({ T, S }) => {
         'Yürüyüşe çıkmadan önce bir plan yap. Rotayı bir büyüğünle birlikte belirle ve hava durumunu kontrol et. Rahat ayakkabılar giy, şapkanı ve güneş kremini unutma.',
         'Çantana mutlaka su, sağlıklı atıştırmalıklar, küçük bir ilk yardım çantası ve bir çöp torbası koy. Yolda yorulursan dinlen; doğa bir yarış alanı değil, keşif alanıdır.',
         'Doğada bulduğun hiçbir şeyi koparma, hayvanları rahatsız etme ve çöplerini mutlaka geri getir. Unutma, doğadan yalnızca fotoğraf al, geride yalnızca ayak izi bırak.'],
-      sorular: [['Yürüyüşten önce yapılması gerekenlerden biri değildir?', 'Çiçek toplamak için poşet almak', ['Rotayı belirlemek', 'Hava durumunu kontrol etmek', 'Rahat ayakkabı giymek']],
+      sorular: [['Hangisi yürüyüşten önce yapılması gerekenlerden biri değildir?', 'Çiçek toplamak için poşet almak', ['Rotayı belirlemek', 'Hava durumunu kontrol etmek', 'Rahat ayakkabı giymek']],
         ['Çantaya çöp torbası konmasının amacı nedir?', 'Çöpleri geri getirmek', ['Taş toplamak', 'Yağmurdan korunmak', 'Çiçek koparmak']],
         ['“Doğa bir yarış alanı değil, keşif alanıdır.” cümlesiyle anlatılmak istenen nedir?', 'Acele etmeden doğayı tanımalıyız.', ['Doğada koşmak yasaktır.', 'Yarışlar doğada yapılmalıdır.', 'Doğa çok tehlikelidir.']],
         ['Son paragraftaki “Geride yalnızca ayak izi bırak.” sözünün anlamı nedir?', 'Doğayı bulduğun gibi bırak.', ['Ayakkabılarını çıkar.', 'Yolu işaretle.', 'Çok hızlı yürü.']],

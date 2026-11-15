@@ -7,7 +7,7 @@ module.exports = ({ S }) => {
   const H = 'ABCD';
   const R = s => { let x = 0; for (const c of String(s)) x = (x * 31 + c.charCodeAt(0)) >>> 0; return () => ((x = (x * 1103515245 + 12345) >>> 0) / 4294967296); };
   const karistir = (l, t) => { const r = R(t), a = [...l]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-  const altCiz = s => s.replace(/(?<!\p{L})(değildir|yanlıştır|söylenemez|olamaz|ulaşamaz|yoktur|almaz|yapılamaz|bulunmaz|kullanılmaz|edemez|ulaşılamaz|gerekmez|çıkarılamaz|ulaşılamaz|uygun değildir|hatalıdır|yanlış|değil)(?!\p{L})/gu, '<u>$1</u>');
+  const altCiz = s => s.replace(/(?<!\p{L})(değildir|yanlıştır|söylenemez|olamaz|yapmamalıdır|yapılmamalıdır|etmemelidir|ulaşamaz|yoktur|almaz|yapılamaz|bulunmaz|kullanılmaz|edemez|ulaşılamaz|gerekmez|çıkarılamaz|ulaşılamaz|uygun değildir|hatalıdır|yanlış|değil)(?!\p{L})/gu, '<u>$1</u>');
   // Seçenek dizisi + doğru seçenek değeri → karıştırılmış seçenekler ve doğru indeks
   const sec = (dogru, yanlislar, t, sirali) => { const l = sirali ? [dogru, ...yanlislar].sort((a, b) => String(a).localeCompare(String(b), 'tr', { numeric: true })) : karistir([dogru, ...yanlislar.slice(0, 3)], t); return { l, d: l.indexOf(dogru) }; };
   // Ana soru kalıbı: ic = senaryo + görsel (HTML), kok = soru kökü, secenek = {l, d}
@@ -16,7 +16,7 @@ module.exports = ({ S }) => {
     const duz = s.l.map(x => String(x).replace(/<[^>]+>/g, ''));
     const resimli = s.l.some(x => String(x).includes('<svg') || String(x).includes('<img') || String(x).includes('class="t4-av'));
     const kolon = o.kolon || (resimli ? 2 : duz.every(x => x.length <= 6) ? 4 : duz.every(x => x.length <= 22) ? 2 : 1);
-    return `<div class="t4-s"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><ol class="t4-sec k${kolon}">${s.l.map((x, i) => `<li><b>${H[i]})</b> ${x}</li>`).join('')}</ol></div></div>`;
+    return `<div class="t4-s"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><ol class="t4-sec k${kolon}">${s.l.map((x, i) => `<li><b>${H[i]})</b> <span>${x}</span></li>`).join('')}</ol></div></div>`;
   };
   // Senaryo parçaları
   const p = (...l) => l.map(x => `<p class="t4-p">${x}</p>`).join('');
@@ -84,7 +84,7 @@ module.exports = ({ S }) => {
     const et = 'KLMNPR'.slice(0, adimlar.length).split(''), kar = karistir(adimlar.map((a, i) => [et[i], a]), t);
     const dogru = adimlar.map(a => kar.find(k => k[1] === a)[0]).join('-');
     const y = new Set(); const r = R(t + 's'); while (y.size < 3) { const d = dogru.split('-'); const i = Math.floor(r() * (d.length - 1)); [d[i], d[i + 1]] = [d[i + 1], d[i]]; if (r() < .5) { const j = Math.floor(r() * (d.length - 1)); [d[j], d[j + 1]] = [d[j + 1], d[j]]; } const k = d.join('-'); if (k !== dogru) y.add(k); }
-    return soru(p(giris) + `<div class="t4-sira">${kar.map(([e, a]) => `<div><b>${e}</b>${a}</div>`).join('')}</div>`, kok, sec(dogru, [...y], t), { tip: 'sirala', kolon: adimlar.length > 4 ? 1 : 2 });
+    return soru(p(giris) + `<div class="t4-sira">${kar.map(([e, a]) => `<div><b>${e}</b><span>${a}</span></div>`).join('')}</div>`, kok, sec(dogru, [...y], t), { tip: 'sirala', kolon: adimlar.length > 4 ? 1 : 2 });
   };
   // 7) Eşleştirme: numaralı sol + harfli sağ
   const esle = (giris, ciftler, kok, t) => {
