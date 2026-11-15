@@ -52,8 +52,8 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
   const levhaTasarla = () => ciz('Okulunun önüne konması gereken bir levha tasarla. Levhan ne anlatıyor? Altına yaz.', 80);
   const acilKart = () => etk(0, 'Acil durum kartımı doldururum. Kartı kesip çantanda taşıyabilirsin.',
     `<div class="h2-kart ttkb"><b>ACİL DURUM KARTIM</b>${['Adım soyadım:', 'Adresim:', 'Annemin / babamın telefonu:', 'Acil çağrı numarası: 112', 'Okulumun adı:'].map(s => `<div><span>${s}</span><i></i></div>`).join('')}</div>`);
-  const aramaSirala = () => etk(0, '112\'yi aradığında neleri söylersin? Doğru sıraya koy.',
-    `<div class="h2-dy">${['Sakin olur, adımı söylerim.', 'Ne olduğunu kısaca anlatırım.', 'Adresimi açıkça söylerim.', 'Görevli kapatana kadar telefonu kapatmam.'].map((s, i, a) => `<div><p class="ttkb">${a[[2, 0, 3, 1][i]]}</p><i></i></div>`).join('')}</div>`);
+  const aramaSirala = () => etk(0, 'Evde biri düştü ve kalkamıyor. 112\'yi aradın. Görevliye ne söylersin? Konuşmayı tamamla.',
+    `<div class="h2-yaz">${['Görevli: “112 Acil, buyurun.” Sen: Adım…', 'Görevli: “Ne oldu?” Sen:', 'Görevli: “Adresiniz nedir?” Sen:', 'Görevli: “Ekip yola çıktı. Telefonu kapatmayın.” Sen ne yaparsın?'].map(q => `<div><p class="ttkb">${q}</p>${cizgi(1)}</div>`).join('')}</div>`);
   const aileAgaci = () => etk(0, 'Aile ağacımı çiziyorum. Kutulara aile büyüklerinin adlarını yaz ya da resimlerini çiz.',
     `<div class="h2-agac">${S(300, 190, '<path d="M150 190 V110 M150 110 L80 70 M150 110 L220 70 M80 70 L36 30 M80 70 L112 30 M220 70 L188 30 M220 70 L264 30" stroke="#8e5b2b" stroke-width="7" fill="none" stroke-linecap="round"/>' + [[150, 150, 'Ben'], [80, 82, 'Annem'], [220, 82, 'Babam'], [36, 22, ''], [112, 22, ''], [188, 22, ''], [264, 22, '']].map(([x, y, s]) => `<rect x="${x - 31}" y="${y - 18}" width="62" height="36" rx="8" fill="#fff" stroke="#12b886" stroke-width="2.5"/><text x="${x}" y="${y + 6}" text-anchor="middle" font-size="13" fill="#6b7a70">${s}</text>`).join(''), 150)}</div>`);
   const gorevTablo = () => tablo('Görev çizelgem! Bir hafta boyunca yaptığın görevlerin altına ✓ koy.', ['Görevim', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum'],
