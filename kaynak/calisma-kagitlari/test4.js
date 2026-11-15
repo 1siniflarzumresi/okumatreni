@@ -15,7 +15,7 @@ module.exports = ({ S }) => {
     const n = ++NO; ANAH.push(`${n}-${H[s.d]}`); TIP.push(o.tip || 'coktan');
     const duz = s.l.map(x => String(x).replace(/<[^>]+>/g, ''));
     const resimli = s.l.some(x => String(x).includes('<svg') || String(x).includes('<img') || String(x).includes('class="t4-av'));
-    const kolon = o.kolon || (resimli ? 2 : duz.every(x => x.length <= 9) ? 4 : duz.every(x => x.length <= 22) ? 2 : 1);
+    const kolon = o.kolon || (resimli ? 2 : duz.every(x => x.length <= 6) ? 4 : duz.every(x => x.length <= 22) ? 2 : 1);
     return `<div class="t4-s"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><ol class="t4-sec k${kolon}">${s.l.map((x, i) => `<li><b>${H[i]})</b> ${x}</li>`).join('')}</ol></div></div>`;
   };
   // Senaryo parçaları
@@ -164,7 +164,7 @@ module.exports = ({ S }) => {
 .t4-esle{display:grid;grid-template-columns:1fr 1fr;gap:3mm}.t4-esle p{margin:.6mm 0;font-size:3.9mm;line-height:1.3}
 .t4-ipucu{margin:0;padding-left:5mm;font-size:3.85mm;line-height:1.35}
 .t4-bul{display:flex;flex-direction:column;gap:.8mm;align-self:center}.t4-bul>div{display:flex;gap:.6mm;align-items:center}.t4-bul b{width:4mm;font-size:3.4mm;color:#d6336c}.t4-bul i{width:6mm;height:6mm;border:.35mm solid #d6336c;border-radius:1mm;background:#fff}.t4-bul i.y{background:#ffe066}.t4-bul i.bos{border-color:transparent;background:transparent}
-.t4-g{text-align:center}.t4-g>b{font-size:3.8mm;font-weight:400;display:block}
+.t4-ic svg{max-width:100%;height:auto}.t4-ic table{max-width:100%}.t4-g{text-align:center}.t4-g>b{font-size:3.8mm;font-weight:400;display:block}
 .t4 .b4-kimlik{width:100%}
 .t4-ry{display:grid;grid-template-columns:1fr auto;gap:2mm;align-items:center}
 .t4-optik{column-span:all;break-inside:avoid;border:.4mm solid #1f2a24;border-radius:2mm;padding:1.5mm 3mm;margin-top:2mm}.t4-optik>b{font-size:3.6mm;font-weight:400}.t4-optik>div{display:flex;flex-wrap:wrap;gap:1mm 4mm}.t4-optik span{display:flex;gap:.8mm;align-items:center;font-size:3.2mm}.t4-optik em{font-style:normal;width:4mm;text-align:right}.t4-optik i{font-style:normal;width:4.2mm;height:4.2mm;border:.3mm solid #1f2a24;border-radius:50%;display:grid;place-items:center;font-size:2.6mm}

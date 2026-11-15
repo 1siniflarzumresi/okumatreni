@@ -36,6 +36,8 @@ KM3 = {1: ['sayilar1000'], 2: ['sayilar1000', 'ritmik'], 3: ['ritmik', 'tek-cift
        21: ['dort-islem-problem'], 22: ['dort-islem-problem'], 23: ['dort-islem-problem'], 24: ['dort-islem-problem'], 25: ['dort-islem-problem'], 26: ['dort-islem-problem', 'esitlik'],
        27: ['esitlik', 'cisimler'], 28: ['cisimler', 'sekil-kenar'], 29: ['sekil-kenar'], 30: ['cevre', 'birim-donusum'], 31: ['birim-donusum', 'sekil-kenar'], 32: ['simetri'],
        33: ['simetri', 'yon'], 34: ['sutun-grafik'], 35: ['sutun-grafik'], 36: ['sutun-grafik']}
+KM4 = {1: ['m4-dogal'], 2: ['m4-dogal'], 3: ['m4-dogal'], 4: ['m4-dogal', 'm4-toplama'], 5: ['m4-toplama', 'm4-cikarma'], 6: ['m4-toplama', 'm4-cikarma'], 7: ['m4-toplama'], 8: ['m4-toplama'], 9: ['m4-cikarma'], 10: ['m4-cikarma', 'm4-toplama'], 11: ['m4-carpma'], 12: ['m4-carpma'], 13: ['m4-carpma', 'm4-bolme'], 14: ['m4-bolme'], 15: ['m4-bolme'], 16: ['m4-bolme'], 17: ['m4-bolme', 'm4-kesir'], 18: ['m4-kesir'], 19: ['m4-kesir-islem'], 20: ['m4-kesir-islem'], 21: ['m4-zaman'], 22: ['m4-zaman', 'm4-veri'], 23: ['m4-veri', 'm4-sekil'], 24: ['m4-sekil'], 25: ['m4-sekil', 'm4-kavram'], 26: ['m4-aci'], 27: ['m4-aci', 'm4-simetri'], 28: ['m4-simetri', 'm4-uzunluk'], 29: ['m4-uzunluk'], 30: ['m4-uzunluk', 'm4-cevre'], 31: ['m4-cevre'], 32: ['m4-alan'], 33: ['m4-tartma'], 34: ['m4-tartma'], 35: ['m4-sivi'], 36: ['m4-sivi', 'm4-tartma']}
+KF4 = {1: ['f4-yerkabugu'], 2: ['f4-yerkabugu'], 3: ['f4-dunya'], 4: ['f4-dunya'], 5: ['f4-dunya', 'f4-yerkabugu'], 6: ['f4-besin'], 7: ['f4-besin'], 8: ['f4-besin'], 9: ['f4-besin'], 10: ['f4-sigara'], 11: ['f4-sigara', 'f4-besin'], 12: ['f4-kuvvet'], 13: ['f4-kuvvet'], 14: ['f4-miknatis'], 15: ['f4-miknatis', 'f4-kuvvet'], 16: ['f4-madde'], 17: ['f4-madde'], 18: ['f4-hal'], 19: ['f4-hal', 'f4-madde'], 20: ['f4-hal'], 21: ['f4-karisim'], 22: ['f4-karisim'], 23: ['f4-aydinlatma'], 24: ['f4-aydinlatma'], 25: ['f4-aydinlatma', 'f4-isik-kirliligi'], 26: ['f4-isik-kirliligi'], 27: ['f4-isik-kirliligi', 'f4-ses'], 28: ['f4-ses'], 29: ['f4-ses'], 30: ['f4-tuketici'], 31: ['f4-tuketici'], 32: ['f4-devre'], 33: ['f4-devre'], 34: ['f4-dunya', 'f4-besin'], 35: ['f4-kuvvet', 'f4-hal'], 36: ['f4-isik-kirliligi', 'f4-devre']}
 KH3 = {1: ['guclu-yanlar'], 2: ['guclu-yanlar'], 3: ['haklar'], 4: ['haklar'], 5: ['haklar'], 6: ['haklar'], 7: ['saglik'], 8: ['guvenlik'], 9: ['guvenlik'], 10: ['guvenlik', 'acil'],
        11: ['trafik3', 'levhalar'], 12: ['trafik3'], 13: ['trafik3', 'toplum-yardimlasma'], 14: ['toplum-yardimlasma'], 15: ['toplum-yardimlasma'], 16: ['toplum-yardimlasma'], 17: ['toplum-yardimlasma'],
        18: ['meslekler'], 19: ['meslekler', 'tarihi'], 20: ['yonetim3'], 21: ['yonetim3'], 22: ['ataturk-kisilik'], 23: ['ataturk-kisilik'], 24: ['milli-birlik'], 25: ['milli-birlik', 'milli'],
@@ -58,6 +60,8 @@ for m in L:
     if (s, d) == (3, 'turkce'): m['konu_id'] = ['dil:' + x for x in KD3.get(h, [])]
     if (s, d) == (3, 'matematik'): m['konu_id'] = ['mat:' + x for x in KM3.get(h, [])]
     if (s, d) == (4, 'sosyal_bilgiler'): m['konu_id'] = ['sb:' + x for x in KS4.get(h, [])]
+    if (s, d) == (4, 'matematik'): m['konu_id'] = ['mat:' + x for x in KM4.get(h, [])]
+    if (s, d) == (4, 'fen_bilimleri'): m['konu_id'] = ['fen:' + x for x in KF4.get(h, [])]
     if (s, d) == (3, 'fen_bilimleri'): m['konu_id'] = ['fen:' + x for x in KF3.get(h, [])]
     if (s, d) == (3, 'hayat_bilgisi'): m['konu_id'] = ['hb:' + x for x in KH3.get(h, [])]
     if (s, d) == (2, 'hayat_bilgisi'): m['konu_id'] = ['hb:' + x for x in KH.get(h, [])]
