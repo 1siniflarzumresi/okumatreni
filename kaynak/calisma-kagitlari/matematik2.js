@@ -51,8 +51,9 @@ module.exports = ({ etk, resim, RY, rastgele, numarala }) => {
     ${T(55, 90, sol, 20)}${T(185, 90, sag, 20)}`, mm);
   const cetvelSvg = (cm, nesne, uz, mm = 150) => { const k = 20; let s = `<rect x="4" y="60" width="${cm * k + 16}" height="34" rx="4" fill="#fff3c4" stroke="#a0640a" stroke-width="2"/>`;
     for (let i = 0; i <= cm; i++) { s += `<line x1="${12 + i * k}" y1="60" x2="${12 + i * k}" y2="74" stroke="#a0640a" stroke-width="2"/>${T(12 + i * k, 90, i, 11, '#a0640a')}`; }
-    s += `<image href="${RY(nesne)}" x="12" y="6" width="${uz * k}" height="50" preserveAspectRatio="none"/>`;
-    return S(cm * k + 24, 98, s, mm); };
+    // Nesne: 0 çizgisinden başlayan renkli şerit (uzunluk tam okunur) + üstünde küçük resim; uçlardan cetvele kesik kılavuz
+    s += `<rect x="12" y="34" width="${uz * k}" height="20" rx="6" fill="#9fd3ff" stroke="#1d4e89" stroke-width="2"/><line x1="12" y1="34" x2="12" y2="60" stroke="#e63946" stroke-width="1.5" stroke-dasharray="3 2"/><line x1="${12 + uz * k}" y1="34" x2="${12 + uz * k}" y2="60" stroke="#e63946" stroke-width="1.5" stroke-dasharray="3 2"/><image href="${RY(nesne)}" x="14" y="0" width="34" height="32"/>`;
+    return S(cm * k + 24, 98, s, Math.round((cm * k + 24) / 2)); };
 
   // ---------- etkinlikler ----------
   const cisimEsle = (t) => { const L = [['top', 'kure'], ['kutu', 'prizma'], ['dondurma', 'koni'], ['bardak', 'silindir'], ['hediye', 'kup']]; const sag = karistir(L.map(x => x[1]), R(t));
@@ -78,7 +79,7 @@ module.exports = ({ etk, resim, RY, rastgele, numarala }) => {
       `<div class="m2-dondur">${satirlar.map(([k], i) => { const sec = karistir([[k, 30], [k, 0, 1.4], ['daire', 0], [k === 'kare' ? 'ucgen' : 'kare', 15], [k, 60, .7]], R(t + i));
         return `<div><span class="m2-ana">${S(70, 70, SEKIL[k](15, 15, 40, '#ffd166'), 18)}</span>${sec.map(([s, a, b = 1]) => `<span>${S(80, 80, `<g transform="rotate(${a} 40 40) translate(${40 - 20 * b} ${40 - 20 * b}) scale(${b})">${SEKIL[s](0, 0, 40, '#fff')}</g>`, 17)}</span>`).join('')}</div>`; }).join('')}</div>`); };
   const sivi = () => etk(0, 'Su dolu sürahiyi farklı kaplarla boşaltıyoruz. Kaç kap dolar? Önce tahmin et, sonra resme bakıp say.',
-    `<div class="m2-sivi">${[['bardak', 4], ['fincan', 8], ['kova', 1]].map(([k, n]) => `<div><span>${resim('sise')}</span><b>=</b><span class="m2-kaplar">${Array.from({ length: n }, () => resim(k)).join('')}</span><span class="m2-th"><small class="ttkb">Tahminim</small>${kutu(11)}<small class="ttkb">Saydım</small>${kutu(11)}</span></div>`).join('')}</div>`);
+    `<div class="m2-sivi">${[['bardak', 4], ['fincan', 8]].map(([k, n]) => `<div><span>${resim('sise')}</span><b>=</b><span class="m2-kaplar">${Array.from({ length: n }, () => resim(k)).join('')}</span><span class="m2-th"><small class="ttkb">Tahminim</small>${kutu(11)}<small class="ttkb">Saydım</small>${kutu(11)}</span></div>`).join('')}</div>`);
   const siviKarsilastir = () => etk(0, 'Hangi kapla ölçersek daha çok sayarız? Doğru cevabı daire içine al.',
     `<div class="m2-secim ttkb">${[['Kovayı bardakla mı, kaşıkla mı doldurursak daha çok sayarız?', 'bardakla', 'kaşıkla'], ['Küveti kovayla mı, bardakla mı doldurursak daha az sayarız?', 'kovayla', 'bardakla'], ['Aynı sürahiyi Ali 6 bardak, Ece 3 bardak buldu. Kimin bardağı büyük?', 'Ali\'nin', 'Ece\'nin']].map(([s, a, b]) => `<div><p>${s}</p><span>${a}</span><span>${b}</span></div>`).join('')}</div>`);
 
@@ -100,12 +101,14 @@ module.exports = ({ etk, resim, RY, rastgele, numarala }) => {
     return etk(0, `Sayı treni! Sayıları ${buyuktenMi ? 'büyükten küçüğe' : 'küçükten büyüğe'} sıralayıp vagonlara yaz.`,
       `<div class="m2-yolcu ttkb">${L.map(n => `<span>${n}</span>`).join('')}</div><div class="m2-tren">${S(330, 70, `<rect x="4" y="12" width="44" height="40" rx="6" fill="#e63946"/><rect x="14" y="2" width="12" height="14" fill="#1f2a24"/>${[0, 1, 2, 3, 4].map(i => `<rect x="${58 + i * 54}" y="14" width="48" height="38" rx="5" fill="#fff" stroke="#3a86ff" stroke-width="3"/><circle cx="${70 + i * 54}" cy="58" r="6" fill="#1f2a24"/><circle cx="${94 + i * 54}" cy="58" r="6" fill="#1f2a24"/>`).join('')}<circle cx="16" cy="58" r="7" fill="#1f2a24"/><circle cx="38" cy="58" r="7" fill="#1f2a24"/>`, 176)}</div>`); };
   const komsu = (t) => { const r = R(t);
-    return etk(0, 'Sayı evleri! Her sayının önündeki ve arkasındaki komşusunu yaz.',
+    return etk(0, 'Sayı evleri! Soldaki kutuya sayının 1 eksiğini, sağdaki kutuya 1 fazlasını yaz.',
       `<div class="m2-komsu ttkb">${Array.from({ length: 6 }, () => tam(r, 11, 98)).map(n => `<div>${kutu(12)}<b>${n}</b>${kutu(12)}</div>`).join('')}</div>`); };
   const kurbaga = (bas, adim, n, bosluklar, yonerge) => { const k = 172 / n; let s = `<line x1="4" y1="70" x2="${n * k * 1 + 26}" y2="70" stroke="#1f2a24" stroke-width="2"/>`;
-    for (let i = 0; i <= n; i++) { const x = 10 + i * k * .98, v = bas + i * adim; s += `<line x1="${x}" y1="63" x2="${x}" y2="77" stroke="#1f2a24" stroke-width="2"/>` + (bosluklar.includes(i) ? `<rect x="${x - 11}" y="80" width="22" height="18" rx="3" fill="#fff" stroke="#3a86ff" stroke-width="1.5"/>` : T(x, 94, v, 13));
-      if (i < n) s += `<path d="M${x} 62 Q${x + k * .49} 30 ${x + k * .98} 62" fill="none" stroke="#12b886" stroke-width="2"/>`; }
-    s += `<image href="${RY('kurbaga')}" x="0" y="20" width="26" height="26"/>`;
+    // Geri saymada sayı doğrusu yine soldan sağa artar; kurbağa sağdan sola zıplar
+    const ger = adim < 0;
+    for (let i = 0; i <= n; i++) { const x = 10 + (ger ? n - i : i) * k * .98, v = bas + i * adim; s += `<line x1="${x}" y1="63" x2="${x}" y2="77" stroke="#1f2a24" stroke-width="2"/>` + (bosluklar.includes(i) ? `<rect x="${x - 11}" y="80" width="22" height="18" rx="3" fill="#fff" stroke="#3a86ff" stroke-width="1.5"/>` : T(x, 94, v, 13));
+      if (i < n) s += `<path d="M${x} 62 Q${x + (ger ? -1 : 1) * k * .49} 30 ${x + (ger ? -1 : 1) * k * .98} 62" fill="none" stroke="#12b886" stroke-width="2"/>`; }
+    s += `<image href="${RY('kurbaga')}" x="${ger ? n * k * .98 - 6 : 0}" y="20" width="26" height="26"/>`;
     return etk(0, yonerge || `Kurbağa ${adim > 0 ? adim + '’er ileri' : -adim + '’er geri'} zıplıyor. Boş kutulara sayıları yaz.`, S(n * k + 30, 104, s, 178)); };
   const oruntuSayi = (liste) => etk(0, 'Örüntünün kuralını bul, boşlukları doldur ve kuralı yaz.',
     `<div class="m2-oruntu ttkb">${liste.map(d => `<div>${d.map(x => x === null ? kutu(12) : `<b>${x}</b>`).join('<em>,</em>')}<span>Kural: ${kutu(22)}</span></div>`).join('')}</div>`);
@@ -244,7 +247,7 @@ module.exports = ({ etk, resim, RY, rastgele, numarala }) => {
     'hafta-19': H(19, 3, 'İşlem Ailesi', 'Toplama ve çıkarmanın ilişkisi', () => [numarala([aile([[8, 5, 13], [9, 7, 16], [24, 15, 39], [30, 40, 70]]), eksik(192)]), numarala([eksik(191), problem([['balik', 'Akvaryumda bir miktar balık vardı. 12 balık daha koyduk, 30 balık oldu. Başta kaç balık vardı?'], ['kus', 'Ağaçta 25 kuş vardı. Bir kısmı uçtu, 16 kuş kaldı. Kaç kuş uçtu?']]), hizliIslem(193)])]),
     'hafta-20': H(20, 3, 'Gruplar Hâlinde', 'Toplama-çıkarma ilişkisi, çarpma', () => [numarala([eksik(201), carpGrup([['elma', 3, 4], ['cilek', 2, 5]])]), numarala([carpGrup([['yildiz', 4, 2], ['balon', 5, 3]]), carpCiz(['2 × 6', '3 × 3', '4 × 2', '5 × 2'])])]),
     'hafta-21': H(21, 3, 'Paylaşalım', 'Çarpma ve bölme', () => [numarala([carpGrup([['ordek', 3, 5]]), paylas([['seker', 12, 3], ['elma', 10, 2]])]), numarala([grupla([['yumurta', 12, 6], ['kalem', 15, 5]]), carpCiz(['4 × 2', '5 × 3'])])]),
-    'hafta-22': H(22, 3, 'Çarpım Ustası', 'Çarpma ve bölmede tahmin, zihinden işlem', () => [numarala([carpimTablosuMini(), kurbaga(0, 5, 9, [2, 5, 8], 'Beşer ritmik say: 5 × 4 kaçtır? Kurbağa sana yardım etsin.')]),
+    'hafta-22': H(22, 3, 'Çarpım Ustası', 'Çarpma ve bölmede tahmin, zihinden işlem', () => [numarala([carpimTablosuMini(), kurbaga(0, 5, 9, [2, 4, 7], 'Beşer ritmik say: 5 × 4 kaçtır? Kurbağanın 4. zıplayışta geldiği sayı cevabı verir. Boş kutuları doldur.')]),
       numarala([etk(0, 'Zihinden çarp ve böl.', `<div class="m2-zihin ttkb">${['2 × 5', '3 × 4', '5 × 5', '4 × 2', '10 ÷ 2', '12 ÷ 3', '20 ÷ 5', '8 ÷ 4'].map(s => `<span><b>${s}</b> = ${kutu(12)}</span>`).join('')}</div>`), problem([['yumurta', 'Bir kolide 6 yumurta var. 3 kolide kaç yumurta vardır?'], ['kek', '16 keki 4 tabağa eşit paylaştırdık. Her tabakta kaç kek var?']])])]),
     'hafta-23': H(23, 3, 'Paylaşım Problemleri', 'Çarpma ve bölmede tahmin, zihinden işlem', () => [numarala([paylas([['kek', 15, 3]]), problem([['top', '4 arkadaş, her biri 5 top getirdi. Toplam kaç top oldu?'], ['seker', '20 şekeri 4 arkadaş eşit paylaştı. Her birine kaç şeker düştü?']])]), numarala([carpimTablosuMini(), problemKur(['cicek', 'yumurta'])])]),
     'hafta-24': H(24, 3, 'Teraziler Dengede', 'Dört işlemde eşitlik', () => [numarala([teraziler([['7 + 3', '5 + __'], ['12 − 2', '__ + 4'], ['2 × 5', '__ + 6'], ['15', '9 + __']])]), numarala([esitMi(['6 + 4 = 5 + 5', '9 − 3 = 2 + 3', '2 × 4 = 4 + 4', '10 = 15 − 5', '3 + 3 = 2 × 3', '8 + 2 = 12']), eksik(241)])]),
