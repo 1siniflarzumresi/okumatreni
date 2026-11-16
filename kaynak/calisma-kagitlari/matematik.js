@@ -210,7 +210,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 
   // kavanoz tahmini
   const kavanoz = (n, r) => { let s = `<path d="M30 20 h60 v12 q18 10 18 30 v80 q0 14 -14 14 h-68 q-14 0 -14 -14 v-80 q0 -20 18 -30 Z" fill="#f4f9fc" stroke="#1f2a24" stroke-width="2.5"/><rect x="26" y="8" width="68" height="14" rx="4" fill="#8e5b2b"/>`;
-    const yer = []; for (let i = 0; i < 60 && yer.length < n; i++) { const x = 26 + r() * 68, y = 70 + r() * 80; if (yer.every(([a, b]) => (a - x) ** 2 + (b - y) ** 2 > 230)) yer.push([x, y]); }
+    const yer = []; for (let i = 0; i < n; i++) { const sat = Math.floor(i / 5), sut = i % 5; yer.push([28 + sut * 16 + (sat % 2 ? 4 : 0) + (r() - .5) * 3, 144 - sat * 14 + (r() - .5) * 2]); }
     yer.forEach(([x, y], i) => s += `<circle cx="${x}" cy="${y}" r="7" fill="${['#c0392b', '#2a6fdb', '#f2b94b', '#2e6b4a'][i % 4]}" stroke="#1f2a24" stroke-width="1.2"/>`);
     return satirSvg2(120, 162, s, .3); };
   const kavanozTahmin = (liste, t) => { const r = R(t);
@@ -379,7 +379,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
   // otobüs: icerde kişi, durakta binen (yeşil ok) / inen (kırmızı ok)
   const otobus = (icerde, binen, inen) => { let s = `<rect x="150" y="10" width="300" height="110" rx="18" fill="#ffd23f" stroke="#1f2a24" stroke-width="3"/><rect x="150" y="80" width="300" height="14" fill="#f4a100"/>`;
     for (let i = 0; i < 6; i++) s += `<rect x="${168 + i * 46}" y="24" width="38" height="44" rx="6" fill="#d9f0ff" stroke="#1f2a24" stroke-width="2"/>`;
-    for (let i = 0; i < icerde; i++) s += yuz(187 + (i % 6) * 46, 52 - (i >= 6 ? 0 : 0), i);
+    for (let i = 0; i < icerde - inen; i++) s += yuz(187 + (i % 6) * 46, 52, i);
     s += [190, 410].map(x => `<circle cx="${x}" cy="124" r="16" fill="#1f2a24"/><circle cx="${x}" cy="124" r="6" fill="#cfd8d1"/>`).join('');
     s += `<rect x="40" y="0" width="8" height="140" fill="#9aa59d"/><rect x="22" y="0" width="44" height="26" rx="4" fill="#3a86ff"/><text x="44" y="18" font-size="14" text-anchor="middle" fill="#fff" font-family="Andika" font-weight="700">DURAK</text>`;
     for (let i = 0; i < binen; i++) s += yuz(82 + (i % 3) * 24, 100 - Math.floor(i / 3) * 26, i + 2);
@@ -392,10 +392,11 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
   // kuş teli
   const kusTeli = (liste) => etk(0, 'Teldeki kuşları say. Kuşlar kondu mu, uçtu mu? Şimdi telde kaç kuş var? Kutuya yaz, işlem cümlesini tamamla.',
     `<div class="hikayeler">${liste.map(([a, b, tur]) => { const W = 520; let s = `<line x1="0" x2="${W}" y1="70" y2="70" stroke="#1f2a24" stroke-width="2.5"/><rect x="0" y="40" width="8" height="90" fill="#8e5b2b"/><rect x="${W - 8}" y="40" width="8" height="90" fill="#8e5b2b"/>`;
-      for (let i = 0; i < a; i++) s += IMGm('kus', 20 + i * 44, 30, 44);
-      for (let i = 0; i < b; i++) s += `<g transform="translate(${tur === 'kondu' ? 40 + i * 50 : 30 + (a - b + i) * 44} 0)">${IMGm('kus', 0, -2, 36)}</g>`;
+      for (let i = 0; i < (tur === 'kondu' ? a : a - b); i++) s += IMGm('kus', 20 + i * 44, 30, 44);
+      for (let i = 0; i < b; i++) s += `<g transform="translate(${tur === 'kondu' ? 50 + (a + i) * 44 : 30 + (a - b + i) * 44} 0)">${IMGm('kus', 0, -2, 36)}</g>`;
       s += tur === 'kondu' ? `<text x="${W - 12}" y="24" font-size="16" text-anchor="end" fill="#12b886" font-family="TTKB">kondu</text>` : `<text x="${W - 12}" y="24" font-size="16" text-anchor="end" fill="#f2546b" font-family="TTKB">uçtu</text>`;
       if (tur !== 'kondu') for (let i = a - b; i < a; i++) s += `<path d="M${30 + i * 44} 70 l14 -32" stroke="#f2546b" stroke-width="2" stroke-dasharray="4 3"/>`;
+      else for (let i = a; i < a + b; i++) s += `<path d="M${84 + i * 44} 36 l-12 30" stroke="#12b886" stroke-width="2" stroke-dasharray="4 3"/>`;
       return `<div>${sahne(W, 135, s, 138)}<span class="dikey">${kutuK}${islem(tur === 'kondu' ? '+' : '−')}</span></div>`; }).join('')}</div>`);
   const resimIslem = (liste) => etk(0, 'Resme bak. İşlem cümlesindeki kutuları doldur.',
     `<div class="rislem">${liste.map(([ad, a, b, op]) => `<div><span class="h-grup">${Array.from({ length: a }, (_, i) => `<span class="${op === '−' && i >= a - b ? 'giden' : ''}">${resim(ad)}</span>`).join('')}${op === '+' ? `<b class="arti">+</b>${Array.from({ length: b }, () => resim(ad)).join('')}` : ''}</span>${islem(op)}</div>`).join('')}</div>`);
@@ -697,10 +698,10 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .zarcift>div{display:flex;align-items:center;justify-content:space-between;border-bottom:.55mm dashed #8fa39a;padding-bottom:2mm}
 .zarlar{display:flex;gap:2mm}.zarlar .zar{width:11mm;height:11mm}
 .boncuklar{display:flex;flex-direction:column;gap:3mm}
-.kavanozlar{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}
-.kavanozlar .yazkutu{width:13mm;height:13mm}
+.kavanozlar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4mm}
+.kavanozlar .yazkutu{width:11mm;height:11mm}
 .kavanozlar svg{width:40mm!important;height:auto!important}
-.kavanozlar>div{display:flex;flex-direction:column;align-items:center;gap:2mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:3mm}
+.kavanozlar>div{display:flex;flex-direction:column;align-items:center;gap:2mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:3mm 2mm;min-width:0}
 .teraziler2{display:grid;grid-template-columns:repeat(2,1fr);gap:4mm}
 .teraziler2>div{display:flex;flex-direction:column;align-items:center;gap:2mm;border:.4mm solid #cfd8d1;border-radius:3mm;padding:2mm}
 .terazi2{width:76mm;height:53mm}

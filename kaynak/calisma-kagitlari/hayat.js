@@ -74,7 +74,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
   const bayrakBoya = () => etk(0, 'Şanlı bayrağımızı boya. Ay ve yıldız beyaz kalsın, zemini kırmızıya boya.',
     `<div class="bayrak-boya">${bayrak(600, { bos: true })}</div>`);
   const dogruBayrak = () => etk(0, 'Hangisi bizim bayrağımız? Doğru olanı daire içine al. Yanlış olanlarda ne farklı? Söyle.',
-    `<div class="bayraklar">${karistir([bayrak(300), bayrak(300, { ters: true }), bayrak(300, { renk: '#2a6fdb' })], R(19)).map(b => `<div>${b}</div>`).join('')}</div>`);
+    `<div class="bayraklar">${karistir([bayrak(300), bayrak(300, { ters: true }), bayrak(300, { renk: '#f08c00' })], R(19)).map(b => `<div>${b}</div>`).join('')}</div>`);
   const marsKurallari = () => etk(0, 'İstiklâl Marşı okunurken nasıl davranırız? Doğru davranışın yanındaki kutuya ✓ koy.',
     `<div class="mars ttkb">${['Hazır ol duruşunda dururum.', 'Arkadaşımla konuşurum.', 'Bayrağa bakarım.', 'Yerimde zıplarım.', 'Marşa eşlik ederim.'].map(m => `<div><span>${m}</span>${kutuK}</div>`).join('')}</div>`);
   const bayrakYap = () => etk(0, 'Kendi bayrağını yap! Kırmızı kâğıda kesik çizgilerden kestiğin beyaz ayı ve yıldızı yapıştır. Bayrağını bir çubuğa tak.',
@@ -254,8 +254,8 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
       numarala([marsKurallari(), bayrakYap()]),
     ] },
     'hafta-20': { unite: 4, hafta: 20, baslik: 'İstiklâl Marşı', konu: 'Bayrağım ve marşımla gururluyum', sayfalar: () => [
-      numarala([marsKurallari(), dogruBayrak()]),
-      numarala([bayrakYap(), etk(0, 'Bayrağımızı nerelerde görürsün? Okulda, evde, bayramda… Gördüğün bir yeri çiz.', '<div class="kutu-ciz" style="height:120mm"></div>')]),
+      numarala([marsKurallari(), dy([['okul', 'Marş okunurken hazır olda durmak'], ['bagir', 'Marş okunurken arkadaşınla konuşmak'], ['cocuk-bayrami', 'Bayrağımıza saygı göstermek']])]),
+      numarala([ciz('İstiklâl Marşı okunurken nasıl duruyoruz? Kendini çiz.', 80), etk(0, 'Bayrağımızı nerelerde görürsün? Okulda, evde, bayramda… Gördüğün bir yeri çiz.', '<div class="kutu-ciz" style="height:90mm"></div>')]),
     ] },
     'hafta-26': { unite: 5, hafta: 26, baslik: 'Güneş, Dünya, Ay', konu: 'Güneş, Dünya, Ay · Doğayla baş başa', sayfalar: () => [
       numarala([gokBoyut(), gunduzGece(['kus', 'gunes', 'yildiz', 'ari', 'mum', 'cicek', 'lamba', 'ucurtma'])]),
