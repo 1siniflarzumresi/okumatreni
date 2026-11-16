@@ -148,7 +148,7 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
       numarala([tablo('Bayram ziyareti planı yap.', ['Kimi ziyaret edeceğim?', 'Ne götüreceğim?'], [['', ''], ['', ''], ['', '']]), ciz('Bayramda aile büyüklerinle bir anını çiz.', 60)])]),
     'hafta-26': W(26, 5, 'Hava Nasıl?', 'Hava olayları ve mevsimler', () => [
       numarala([esle('Hava olayını adıyla eşleştir.', [['sis', '#sis'], ['dolu', '#dolu'], ['simsek', '#şimşek'], ['ruzgar', '#rüzgâr'], ['yagmur', '#yağmur']], 261), mevsimTablo()]),
-      numarala([havaGunlugu(), resimSec('Kış mevsiminde hangileri olur? Daire içine al.', ['kar', 'dolu', 'cicek-sula', 'dort-mevsim', 'plaj', 'sis'], 262)])]),
+      numarala([havaGunlugu(), resimSec('Kışın en çok hangilerini görürüz? Daire içine al.', ['kar', 'eldiven', 'plaj', 'dondurma', 'cicek-sula', 'semsiye'], 262)])]),
     'hafta-27': W(27, 5, 'Yönümü Buluyorum', 'Doğadan yararlanarak yön bulma', () => [
       numarala([pusula(), esle('Doğada yönü nasıl buluruz? Eşleştir.', [['gunes-dogus', '#Güneş doğudan doğar.'], ['kutup-yildizi', '#Kutup Yıldızı kuzeyi gösterir.'], ['yosunlu-agac', '#Yosunlar genellikle ağacın kuzey yüzünde olur.']], 271)]),
       numarala([dy(['Güneş batıdan doğar.', 'Gece Kutup Yıldızı\'na bakarak kuzeyi bulabiliriz.', 'Kaybolursak sakin kalır, bir büyüğe haber veririz.']), ciz('Okulunun hangi tarafından güneş doğuyor? Gözle ve çiz.', 70)])]),
@@ -177,7 +177,7 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
       numarala([resimSec('Hangileri sanatla ilgili? Daire içine al.', ['ebru', 'cini', 'heykel', 'tiyatro', 'keman', 'palet', 'cop-cikar', 'kasa-sira'], 351), esle('Sanat dalını eşleştir.', [['ebru', '#geleneksel sanatımız'], ['tiyatro', '#sahne sanatı'], ['keman', '#müzik'], ['heykel', '#taşa, tahtaya biçim verme']], 352)]),
       numarala([ciz('Evinde ya da sokakta gördüğün bir sanat eserini çiz (halı deseni, tabak, afiş…).', 80), yaz('Sanat günlük yaşamımızı nasıl güzelleştirir?', ['', ''])])]),
     'hafta-36': W(36, 6, 'Sanat Şenliği', 'Sanatın günlük yaşamdaki yeri', () => [
-      numarala([tablo('Sınıf sanat şenliği planı! Kim ne sergileyecek?', ['Arkadaşım', 'Sanat dalı', 'Eseri'], [['', '', ''], ['', '', ''], ['', '', ''], ['', '', '']]), dy(['Sanat sadece müzede olur.', 'Bir tabağın deseni de sanattır.', 'Herkes sanat yapabilir.'])]),
+      numarala([tablo('Sınıf sanat şenliği planı! Kim ne sergileyecek?', ['Arkadaşım', 'Sanat dalı', 'Eseri'], [['', '', ''], ['', '', ''], ['', '', ''], ['', '', '']]), dy(['Sanat sadece müzede olur.', 'Bir tabağın deseni de sanattır.', 'Herkes sanat yapabilir.', 'Halk oyunları da bir sanattır.', 'Şarkı söylemek sanat değildir.'])]),
       numarala([ciz('Çini deseni tasarla: Lale, karanfil ya da kendi deseninle bir kareyi süsle.', 110)])]),
   };
   const CSS = `
