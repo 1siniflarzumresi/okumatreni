@@ -266,7 +266,7 @@ const HARF = {
   numarala([
     heceOku([['at', 'ta', 'et', 'te'], ['an', 'na', 'en', 'ne'], ['tat', 'tan', 'ten', 'net']]),
     eslestir([['at', 'at'], ['anne', 'anne'], ['et', 'et'], ['nane', 'nane']], 7),
-    cumleOku(['Anne, nane at.', 'Ata, nane tat.', 'Tane tane at.']),
+    cumleOku(['Anne, nane tat.', 'Nene, ete nane at.', 'Ata, nane tat.']),
     yazKelime([['at', 'et', 'ata'], ['tane', 'tat']])]),
   numarala([akici('t')])],
   i: () => [numarala([
@@ -286,7 +286,7 @@ const HARF = {
   numarala([
     heceOku([['al', 'la', 'el', 'le', 'il', 'li'], ['lan', 'len', 'lal', 'ela', 'lale', 'elle']]),
     eslestir([['lale', 'lale'], ['el', 'el'], ['tel', 'tel']], 21),
-    metin('Lale ile Nil', ['Lale ile Nil.', 'Nil, eline lale al.', 'Ali, nane al.', 'Anne ile nine el ele.']),
+    metin('Lale ile Nil', ['Lale ile Nil el ele.', 'Anne, Nil\'e lale al.', 'Nine, nane al.', 'Anne ile nine el ele.']),
     yazKelime([['lale', 'el', 'al'], ['Ali', 'ile', 'Nil']])]),
   numarala([akici('l')])],
   o: () => [numarala([
@@ -296,7 +296,7 @@ const HARF = {
   numarala([
     heceOku([['ol', 'lo', 'ot', 'to', 'on', 'no'], ['ot', 'olta', 'nota', 'otel', 'oto', 'ona']]),
     eslestir([['ot', 'ot'], ['olta', 'olta'], ['nota', 'nota'], ['tel', 'tel']], 31),
-    cumleOku(['Ali, olta al.', 'Anne, nota al.', 'Lale, ot al.']),
+    cumleOku(['Ali, olta al.', 'Ela, o nota ne?', 'Lale, ot al.']),
     yazKelime([['ot', 'ol', 'on'], ['olta', 'nota']])]),
   numarala([akici('o')])],
   k: () => [numarala([
@@ -363,7 +363,7 @@ const HARF = {
     cumleOku(['Annem ütü alır.', 'Ümit, kürek al.', 'Tülin, tülü ütüle.']),
     yazKelime([['ütü', 'kürek'], ['ünlü', 'tüm']])]),
   numarala([
-    metin('Ütü', ['Annem ütü alır.', 'Ütü mor renkli.', 'Annem tülü ütüler.', 'Tül ütülenir.', 'Ümit ile Ümran mutlu olur.']),
+    metin('Ütü', ['Annem ütü alır.', 'Ütü mor renkli.', 'Annem tülü ütüler.', 'Tül ütülenir.', 'Ümran, ütülü tülü takar.']),
     dogruYanlis([['Annem ütü alır.', true], ['Ümit tülü ütüler.', false], ['Ütü mor renkli.', true]]), resimCiz()])],
   s: () => [numarala([
     sesiBul('s', ['saat', 'top', 'simit', 'sincap', 'kedi', 'salyangoz']),
@@ -540,7 +540,7 @@ const HARF = {
     yazKelime([['jöle', 'jeton'], ['garaj', 'plaj']])]),
   numarala([
     metin('Plajda Bir Gün', ['Yaz tatilinde ailecek plaja gittik.', 'Babam arabayı plajın otoparkına bıraktı.', 'Ben kumdan bir kale yaptım.', 'Kardeşim Jale denizde yüzdü.', 'Annem bize soğuk jöle getirdi.', 'Jöle çok lezzetliydi.', 'Akşam güneş batarken eve döndük.', 'Bu güzel günü hiç unutmayacağım.'], 6.4),
-    acikUclu(['Aile nereye gitti?', 'Jale ne yaptı?', 'Annesi ne getirdi?']),
+    acikUclu(['Aile nereye gitti?', 'Jale ne yaptı?', 'Anne çocuklara ne getirdi?']),
     sirala(['Eve döndük.', 'Plaja gittik.', 'Kumdan kale yaptım.'])])],
 };
 

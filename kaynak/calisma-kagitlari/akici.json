@@ -83,9 +83,9 @@
   "merdivenler": [
    [
     "Anlat.",
-    "Ninni anlat.",
-    "Ela, ninni anlat.",
-    "Ela, Nil'e ninni anlat.",
+    "Tatili anlat.",
+    "Ela, tatili anlat.",
+    "Ela, Nil'e tatili anlat.",
     "Ela, Nil'e tane tane ninni anlat."
    ],
    [
@@ -192,7 +192,7 @@
    "Eren ile Rana erken kalkar.",
    "Tren kalkar.",
    "Tren, tarla tarla ilerler.",
-   "Karlar tane tane erir.",
+   "Karlar erir.",
    "Kartal, kulelere konar."
   ],
   "hikayeResim": "<rect width=\"240\" height=\"150\" rx=\"20\" fill=\"#CFEAF8\"></rect><rect y=\"120\" width=\"240\" height=\"30\" fill=\"#9AA3B5\"></rect><rect y=\"118\" width=\"240\" height=\"4\" fill=\"#4A5568\"></rect>\n      <g transform=\"translate(18 0)\"><rect x=\"0\" y=\"70\" width=\"60\" height=\"36\" rx=\"6\" fill=\"#4D96FF\"></rect><rect x=\"66\" y=\"70\" width=\"60\" height=\"36\" rx=\"6\" fill=\"#43AA8B\"></rect><rect x=\"132\" y=\"56\" width=\"58\" height=\"50\" rx=\"6\" fill=\"#E3051B\"></rect><rect x=\"150\" y=\"44\" width=\"14\" height=\"14\" fill=\"#2D3748\"></rect><rect x=\"140\" y=\"64\" width=\"22\" height=\"18\" rx=\"3\" fill=\"#CFEAF8\"></rect>\n      <circle cx=\"16\" cy=\"110\" r=\"9\" fill=\"#2D3748\"></circle><circle cx=\"46\" cy=\"110\" r=\"9\" fill=\"#2D3748\"></circle><circle cx=\"82\" cy=\"110\" r=\"9\" fill=\"#2D3748\"></circle><circle cx=\"112\" cy=\"110\" r=\"9\" fill=\"#2D3748\"></circle><circle cx=\"150\" cy=\"110\" r=\"9\" fill=\"#2D3748\"></circle><circle cx=\"176\" cy=\"110\" r=\"9\" fill=\"#2D3748\"></circle><circle cx=\"157\" cy=\"34\" r=\"7\" fill=\"#E8EDF3\"></circle><circle cx=\"168\" cy=\"22\" r=\"9\" fill=\"#E8EDF3\" opacity=\".8\"></circle></g>"
