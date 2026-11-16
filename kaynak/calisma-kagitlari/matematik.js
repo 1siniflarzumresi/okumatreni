@@ -130,7 +130,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
   const zarYolu = () => {
     const cols = 6, rows = 4, gx = 118, gy = 104, ox = 70, oy = 60, R = 30, N = cols * rows;
     const nok = Array.from({ length: N }, (_, i) => { const r = Math.floor(i / cols), c = r % 2 ? cols - 1 - i % cols : i % cols; return [ox + c * gx, oy + (rows - 1 - r) * gy]; });
-    const OZEL = { 4: ['sincap', '→ 2'], 10: ['salyangoz', '← 1'], 15: ['kus', 'zar'], 20: ['kaplumbaga', '■'] };
+    const OZEL = { 4: ['sincap', '+2'], 10: ['salyangoz', '−1'], 15: ['kus', 'zar'], 20: ['kaplumbaga', '■'] };
     const yol = nok.map((p, i) => i ? `L${p[0]} ${p[1]}` : `M${p[0]} ${p[1]}`).join(' ');
     let s = `<path d="${yol}" fill="none" stroke="#cfe3d4" stroke-width="34" stroke-linejoin="round" stroke-linecap="round"/>`;
     nok.forEach(([x, y], i) => { const o = OZEL[i];
@@ -230,7 +230,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
     const kefe = ([x, y], ic) => { const ty = y + 30;
       const icerik = typeof ic === 'string' ? IMG(ic, x - 36, ty - 70, 72) : Array.from({ length: ic.balya }, (_, i) => balya(x - 40 + (i % 3) * 27, ty - 18 - Math.floor(i / 3) * 19, 27)).join('');
       return `<path d="M${x} ${y} L${x - 40} ${ty} M${x} ${y} L${x + 40} ${ty}" stroke="#4a5a50" stroke-width="1.6"/>${icerik}<path d="M${x - 48} ${ty} Q${x} ${ty + 18} ${x + 48} ${ty} Z" fill="#cfd8d1" stroke="#1f2a24" stroke-width="2"/>`; };
-    return `<svg class="terazi2" viewBox="0 -40 300 210"><path d="M${cx} ${cy} V160 M${cx - 40} 164 h80" stroke="#1f2a24" stroke-width="6" stroke-linecap="round"/><path d="M${uc(-1).join(' ')} L${uc(1).join(' ')}" stroke="#8e5b2b" stroke-width="7" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="7" fill="#1f2a24"/>${kefe(uc(-1), sol)}${kefe(uc(1), sag)}</svg>`; };
+    return `<svg class="terazi2" viewBox="-24 -70 348 240"><path d="M${cx} ${cy} V160 M${cx - 40} 164 h80" stroke="#1f2a24" stroke-width="6" stroke-linecap="round"/><path d="M${uc(-1).join(' ')} L${uc(1).join(' ')}" stroke="#8e5b2b" stroke-width="7" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="7" fill="#1f2a24"/>${kefe(uc(-1), sol)}${kefe(uc(1), sag)}</svg>`; };
   const teraziOku2 = (liste) => etk(0, 'Çiftlik terazisine bak. Aşağı inen kefe daha ağırdır. Daha ağır olanı daire içine al. Terazi dengedeyse ikisini de daire içine al.',
     `<div class="teraziler2">${liste.map(([s, g, e]) => `<div>${terazi2(s, g, e)}</div>`).join('')}</div>`);
   const balyaDenge = (liste) => etk(0, 'Terazi dengede. Hayvan kaç balya ağırlığında? Balyaları say, kutuya yaz.',
@@ -506,7 +506,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
       numarala([onarSay([2, 4, 3]), seritEksik([[2, 4, null, 8, null, 12, null], [10, 20, null, 40, null, 60, null], [5, 10, null, 20, null, null, 35]]), ritmikResim([['eldiven', 2, 5], ['corap', 2, 6]], 31), beserSay(4)]),
     ] },
     'hafta-12': { unite: 1, hafta: 12, baslik: 'Geri Sayım · Boncuklar', konu: 'Ritmik saymalar · Sayı ve şekil örüntüleri', sayfalar: () => [
-      numarala([geriSay([[10, 9, null, 7, null, 5, null, 3], [20, 18, null, 14, null, 10, null], [50, 45, null, 35, null, 25, null]]), zipla([[0, 100, 10], [1, 21, 2]]), beserSay(5)]),
+      numarala([geriSay([[10, 9, null, 7, null, 5, null, 3], [20, 18, null, 14, null, 10, null], [15, 14, null, 12, null, 10, null]]), zipla([[0, 100, 10], [1, 21, 2]]), beserSay(5)]),
       numarala([boncuk([[['k', 's', 'k', 's', 'k', 's'], 3], [['y', 'y', 'm', 'y', 'y', 'm'], 3], [['k', 's', 'm', 'k', 's', 'm'], 3]]), oruntuResim([[['elma', 'armut', 'elma', 'armut', 'elma'], ['elma', 'armut', 'cilek']], [['kus', 'kus', 'balik', 'kus', 'kus'], ['kedi', 'balik', 'kus']], [['lale', 'gul', 'gul', 'lale', 'gul'], ['gul', 'lale', 'cicek']]]), oruntuOlustur()]),
     ] },
     'hafta-13': { unite: 1, hafta: 13, baslik: 'Örüntü Ormanı', konu: 'Sayı ve şekil örüntüleri', sayfalar: () => [
