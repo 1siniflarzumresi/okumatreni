@@ -6883,7 +6883,8 @@
     "konu": "Türkçe konuşma, eş ve zıt anlam",
     "konu_id": [
       "dil:es",
-      "dil:zit"
+      "dil:zit",
+      "dil:es-sesli"
     ]
   },
   {
@@ -7172,7 +7173,8 @@
     "resim": "materyaller/4-sinif/turkce/hafta-20-onizleme.png",
     "konu": "Bilgilendirici metin, sayısal bilgi",
     "konu_id": [
-      "dil:gercek-mecaz"
+      "dil:gercek-mecaz",
+      "dil:terim"
     ]
   },
   {
