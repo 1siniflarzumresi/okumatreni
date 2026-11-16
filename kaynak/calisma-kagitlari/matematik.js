@@ -324,7 +324,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
     sahne(620, 330, Array.from({ length: 10 }, (_, i) => `<rect x="${20 + i * 58}" y="${290 - (i + 1) * 28}" width="58" height="${(i + 1) * 28}" fill="#fff" stroke="#1f2a24" stroke-width="2.5"/>`).join('') + IMGm('kurbaga', -6, 196, 70) + `<line x1="0" x2="620" y1="291" y2="291" stroke="#5fa476" stroke-width="6"/>`, 178));
 
   // ---- 10. hafta: birebir eşleme, fazla olan ----
-  const birebir2 = (liste) => etk(0, 'Her hayvanı bir yiyecekle çizgiyle eşle. Eşi kalmayanları daire içine al. Hangisi çok? Çok olan grubun yanındaki kutuya ✓ koy.',
+  const birebir2 = (liste) => etk(0, 'Her hayvanı karşısındaki bir resimle çizgiyle eşle. Eşi kalmayanları daire içine al. Hangisi çok? Çok olan grubun yanındaki kutuya ✓ koy.',
     `<div class="birebir2">${liste.map(([a, n, b, m]) => `<div><div class="s">${Array.from({ length: n }, () => `<span>${resim(a)}</span>`).join('')}${kutuK}</div><div class="s">${Array.from({ length: m }, () => `<span>${resim(b)}</span>`).join('')}${kutuK}</div></div>`).join('')}</div>`);
 
   // ---- Zar Yolu (kullanılabilir masa oyunu) ----
@@ -363,7 +363,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
     `<div class="boncuklar">${[0, 1].map(() => sahne(10 * 46 + 30, 66, `<path d="M5 30 Q${(10 * 46 + 30) / 2} 52 ${10 * 46 + 25} 30" fill="none" stroke="#8e5b2b" stroke-width="2"/>` + Array.from({ length: 10 }, (_, i) => { const x = 26 + i * 46, y = 30 + Math.sin(Math.PI * (x / (10 * 46 + 30))) * 14; return `<circle cx="${x}" cy="${y}" r="18" fill="#fff" stroke="#1f2a24" stroke-width="2"/>`; }).join(''), 160)).join('')}</div>`);
   const sekilOruntu2 = (diziler) => etk(0, 'Örüntüde eksik olan şekli bul. Boş kutuya çiz.',
     `<div class="oruntu">${diziler.map(d => `<div>${d.map((s, i) => s === null ? '<span class="bosk">?</span>' : sekil(s, i % 2 === 0)).join('')}</div>`).join('')}</div>`);
-  const olcumTablosu = (liste, birim) => etk(0, `Sınıfta ölçelim! Nesneyi bul. Önce kaç ${birim} uzunluğunda olduğunu tahmin et, sonra ${birim}larla ölç.`,
+  const olcumTablosu = (liste, birim) => etk(0, `Sınıfta ölçelim! Nesneyi bul. Önce kaç ${birim} uzunluğunda olduğunu tahmin et, sonra ${birim}${/[eiöü][^aeıioöuü]*$/.test(birim) ? 'lerle' : 'larla'} ölç.`,
     `<table class="olctab"><tr><th>Nesne</th><th>Tahminim</th><th>Ölçtüm</th></tr>${liste.map(a => `<tr><td>${resim(a)}</td><td>${kutuK}</td><td>${kutuK}</td></tr>`).join('')}</table>`);
   const hikayeGel = (liste) => etk(0, 'Ne oldu? Önce kaç tane vardı, kaç tane geldi? Şimdi kaç tane oldu? Say, kutuya yaz.',
     `<div class="hikayeler">${liste.map(([ad, a, b]) => `<div><span class="h-grup">${Array.from({ length: a }, () => resim(ad)).join('')}</span><span class="h-ok">${sahne(60, 30, '<path d="M54 15 H8 M18 5 L6 15 L18 25" fill="none" stroke="#2e8b57" stroke-width="4" stroke-linecap="round"/>', 16)}</span><span class="h-grup gelen">${Array.from({ length: b }, () => resim(ad)).join('')}</span>${kutuK}</div>`).join('')}</div>`);
@@ -502,7 +502,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
       numarala([hayvanTreni2([[6, ['fare', 'kedi', 'kopek', 'kuzu', 'inek', 'fil']], [1, ['tavuk', 'ordek', 'kus', 'horoz', 'leylek', 'ari']], [4, ['zebra', 'zurafa', 'deve', 'kanguru', 'sincap', 'kaplumbaga']], [2, ['balik', 'kurbaga', 'ordek', 'kopek', 'kedi', 'kus']]]), kuyruk(['inek', 'kuzu', 'fare', 'zebra', 'tavuk', 'ari'])]),
       numarala([kuleKars([[5, 3], [4, 4], [2, 7], [6, 6], [8, 5], [3, 9]]), dominoKars([[[3, 2], [1, 1]], [[4, 0], [2, 2]], [[6, 1], [5, 3]], [[2, 1], [3, 3]], [[5, 5], [6, 3]], [[1, 0], [0, 2]]]), kuleEsitle([[5, 2], [6, 4], [7, 3], [4, 1], [8, 6], [6, 6]])])] },
     'hafta-11': { unite: 1, hafta: 11, baslik: 'Kanguru Zıplıyor', konu: 'Ritmik saymalar', sayfalar: () => [
-      numarala([zipla([[0, 20, 2], [0, 20, 2], [0, 50, 5]]), zarCifti([4, 6]), beserSay(6)]),
+      numarala([zipla([[0, 20, 2], [1, 19, 2], [0, 50, 5]]), zarCifti([4, 6]), beserSay(6)]),
       numarala([onarSay([2, 4, 3]), seritEksik([[2, 4, null, 8, null, 12, null], [10, 20, null, 40, null, 60, null], [5, 10, null, 20, null, null, 35]]), ritmikResim([['eldiven', 2, 5], ['corap', 2, 6]], 31), beserSay(4)]),
     ] },
     'hafta-12': { unite: 1, hafta: 12, baslik: 'Geri Sayım · Boncuklar', konu: 'Ritmik saymalar · Sayı ve şekil örüntüleri', sayfalar: () => [
@@ -529,7 +529,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
     ] },
     'hafta-17': { unite: 2, hafta: 17, baslik: 'Dominoyla Ölç', konu: 'Uzunluk ölçme', sayfalar: () => [
       numarala([dominoOlc([['kalem', 4], ['serit', 7], ['dal', 6], ['kalem', 9]]), tahminOlc([['kalem', 6], ['dal', 8], ['serit', 5]]), uzSirala([[['serit', 8], ['serit', 3], ['serit', 6]]])]),
-      numarala([olcumTablosu(['kalem', 'kitap', 'masa', 'canta', 'kasik', 'makas'], 'silgi')]),
+      numarala([olcumTablosu(['kalem', 'kitap', 'kutu', 'canta', 'kasik', 'makas'], 'silgi')]),
     ] },
     'hafta-18': { unite: 2, hafta: 18, baslik: 'Çiftlik Terazisi', konu: 'Tartma', sayfalar: () => [
       numarala([teraziOku2([['tavuk', 'inek', 1], ['fil', 'kedi', -1], ['kuzu', 'kuzu', 0], ['fare', 'kopek', 1]]), agirHafif([['fil', 'fare'], ['yaprak', 'kalem'], ['kitap', 'balon'], ['inek', 'kedi'], ['tencere', 'kasik'], ['kus', 'kopek'], ['domates', 'ceviz'], ['kova', 'kasik'], ['tilki', 'ari']])]),
@@ -574,13 +574,13 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
     ] },
     'hafta-28': { unite: 3, hafta: 28, baslik: 'Problem Ormanı 2', konu: 'Toplama ve çıkarma işlemlerini yorumlama', sayfalar: () => [
       numarala([problem([['Otobüste 8 yolcu vardı. Durakta 3 yolcu indi. Otobüste kaç yolcu kaldı?', 'otobus'], ['Sepette 4 yumurta vardı. Annem 2 yumurta daha koydu. Sepette kaç yumurta oldu?', 'yumurta'], ['Raftaki 12 kitaptan 5 tanesini okudum. Kaç kitap okumadım?', 'kitap'], ['Göldeki 9 kurbağadan 4 tanesi suya atladı. Kaç kurbağa kıyıda kaldı?', 'kurbaga']])]),
-      numarala([problem([['Mert 7 bilye kazandı, sonra 6 bilye daha kazandı. Kaç bilyesi oldu?', 'top'], ['Kafeste 9 kuş vardı. 9 kuş da uçtu. Kafeste kaç kuş kaldı?', 'kus'], ['Zeynep 11 simit aldı. Arkadaşlarına 5 tanesini verdi. Kaç simidi kaldı?', 'simit'], ['Kırmızı 7, mavi 8 balon var. Toplam kaç balon var?', 'balon']])]),
+      numarala([problem([['Mert\'in 7 topu vardı. Dedesi 6 top daha aldı. Mert\'in kaç topu oldu?', 'top'], ['Kafeste 9 kuş vardı. 9 kuş da uçtu. Kafeste kaç kuş kaldı?', 'kus'], ['Zeynep 11 simit aldı. Arkadaşlarına 5 tanesini verdi. Kaç simidi kaldı?', 'simit'], ['Kırmızı 7, mavi 8 balon var. Toplam kaç balon var?', 'balon']])]),
       numarala([problemKur([['kedi', 4, 3, '+'], ['balik', 8, 3, '−'], ['elma', 6, 2, '+']])]),
       numarala([problemCiz(['Tabakta 6 kurabiye vardı. 6 kurabiyeyi de yedik. Kaç kurabiye kaldı?', 'Tren 5 vagonluydu. 4 vagon daha eklendi. Tren kaç vagonlu oldu?', 'Okulda 14 öğrenci vardı. 6 öğrenci eve gitti. Okulda kaç öğrenci kaldı?'])]),
     ] },
     'hafta-29': { unite: 3, hafta: 29, baslik: 'Problem Ormanı 3', konu: 'Toplama ve çıkarma işlemlerini yorumlama', sayfalar: () => [
       numarala([problem([['Leyleğin yuvasında 3 yavru vardı. 2 yavru daha çıktı. Yuvada kaç yavru oldu?', 'leylek'], ['Pazardan 15 mandalina aldık. 7 tanesini yedik. Kaç mandalina kaldı?', 'mandalina'], ['Sınıfta 9 kız, 8 erkek öğrenci var. Sınıfta kaç öğrenci var?', 'ogretmen'], ['Annem 12 yumurta aldı. Kek için 4 tanesini kullandı. Kaç yumurta kaldı?', 'yumurta']])]),
-      numarala([problem([['Fil 14 muz yedi. Maymun ondan 6 muz az yedi. Maymun kaç muz yedi?', 'maymun'], ['Kutuda 20 boya kalemi vardı. 10 tanesi kırıldı. Kaç kalem sağlam kaldı?', 'kalem'], ['Ayşe 6 yaşında. Ablası ondan 4 yaş büyük. Ablası kaç yaşında?', 'bebek'], ['Bahçeye 8 lale, 7 gül diktik. Kaç çiçek diktik?', 'lale']])]),
+      numarala([problem([['Fil 14 muz yedi. Maymun ondan 6 muz az yedi. Maymun kaç muz yedi?', 'maymun'], ['Kutuda 20 boya kalemi vardı. 10 tanesi kırıldı. Kaç kalem sağlam kaldı?', 'kalem'], ['Ayşe 6 yaşında. Ablası ondan 4 yaş büyük. Ablası kaç yaşında?', 'kek'], ['Bahçeye 8 lale, 7 gül diktik. Kaç çiçek diktik?', 'lale']])]),
       numarala([problemKur([['tavuk', 5, 4, '+'], ['cicek', 9, 4, '−'], ['kus', 7, 2, '−']])]),
       numarala([problemCiz(['Ağaçta 8 elma vardı. Rüzgârda 3 elma düştü. Ağaçta kaç elma kaldı?', 'Kedi 2 balık yedi, sonra 5 balık daha yedi. Kedi kaç balık yedi?', 'Duvarda 13 resim vardı. 3 resmi kaldırdık. Kaç resim kaldı?'])]),
     ] },
@@ -594,15 +594,15 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
       numarala([sekilAvi(), noktali(['M45 45 H135 V135 H45 Z', 'M75 15 L135 135 H15 Z'])]),
     ] },
     'hafta-32': { unite: 4, hafta: 32, baslik: 'Noktalı Kâğıt', konu: 'Nesneler ve geometrik şekiller', sayfalar: () => [
-      numarala([sekilBul([['daire', ['saat', 'kitap', 'top', 'jeton', 'masa']], ['kare', ['pencere', 'top', 'kutu', 'gunes', 'kapi']], ['uc', ['ucgen', 'saat', 'cadir', 'top', 'zil']], ['dik', ['kapi', 'kitap', 'top', 'telefon', 'saat']]]), cisimEsle([['kutu'], ['top'], ['mum'], ['dondurma']])]),
-      numarala([noktali(['M45 45 H135 V135 H45 Z', 'M75 15 L135 135 H15 Z', 'M15 45 H165 V105 H15 Z', 'M45 15 H135 L165 75 L135 135 H45 L15 75 Z', 'M15 135 V75 L75 15 L135 75 V135 Z', 'M15 75 L75 15 L135 75 L75 135 Z']), sekilBul([['daire', ['gunes', 'kitap', 'saat', 'jeton', 'masa']], ['dik', ['telefon', 'top', 'kapi', 'kitap', 'gunes']]])]),
+      numarala([sekilBul([['daire', ['saat', 'kitap', 'kalem', 'jeton', 'masa']], ['kare', ['pencere', 'kalem', 'kutu', 'gunes', 'kapi']], ['uc', ['ucgen', 'saat', 'cadir', 'kalem', 'zil']], ['dik', ['kapi', 'kitap', 'kalem', 'telefon', 'saat']]]), cisimEsle([['kutu'], ['top'], ['mum'], ['dondurma']])]),
+      numarala([noktali(['M45 45 H135 V135 H45 Z', 'M75 15 L135 135 H15 Z', 'M15 45 H165 V105 H15 Z', 'M45 15 H135 L165 75 L135 135 H45 L15 75 Z', 'M15 135 V75 L75 15 L135 75 V135 Z', 'M15 75 L75 15 L135 75 L75 135 Z']), sekilBul([['daire', ['gunes', 'kitap', 'saat', 'jeton', 'masa']], ['dik', ['telefon', 'kalem', 'kapi', 'kitap', 'gunes']]])]),
     ] },
     'hafta-33': { unite: 4, hafta: 33, baslik: 'Küp, Küre, Silindir', konu: 'Nesneler ve geometrik şekiller', sayfalar: () => [
-      numarala([cisimEsle([['kutu'], ['top'], ['mum'], ['dondurma']]), sekilBul([['daire', ['saat', 'uzum', 'gunes', 'kitap', 'jeton']], ['dik', ['kapi', 'top', 'telefon', 'pencere', 'saat']]]), noktali(['M45 45 H135 V135 H45 Z', 'M15 135 L75 15 L135 135 Z'])]),
-      numarala([sekilAvi(), cisimEsle([['kova'], ['saat'], ['kek'], ['lamba']])]),
+      numarala([cisimEsle([['mandalina'], ['bardak'], ['kutu'], ['dondurma']]), sekilBul([['daire', ['saat', 'kalem', 'gunes', 'kitap', 'jeton']], ['dik', ['kapi', 'kalem', 'telefon', 'pencere', 'saat']]]), noktali(['M45 45 H135 V135 H45 Z', 'M15 135 L75 15 L135 135 Z'])]),
+      numarala([sekilAvi(), cisimEsle([['kova'], ['top'], ['kutu'], ['dondurma']])]),
     ] },
     'hafta-34': { unite: 5, hafta: 34, baslik: 'Çetele Tutalım', konu: 'Nesneler ve geometrik şekiller · Veri toplama', sayfalar: () => [
-      numarala([noktali(['M15 135 L75 15 L135 135 Z', 'M45 15 H135 V135 H45 Z', 'M15 15 H165 V75 H15 Z', 'M15 75 L75 15 L135 75 L75 135 Z']), sekilBul([['kare', ['pencere', 'top', 'kutu', 'saat', 'kapi']], ['uc', ['cadir', 'top', 'ucgen', 'kitap', 'saat']], ['daire', ['kitap', 'saat', 'jeton', 'kapi', 'gunes']]])]),
+      numarala([noktali(['M15 135 L75 15 L135 135 Z', 'M45 15 H135 V135 H45 Z', 'M15 15 H165 V75 H15 Z', 'M15 75 L75 15 L135 75 L75 135 Z']), sekilBul([['kare', ['pencere', 'kalem', 'kutu', 'saat', 'kapi']], ['uc', ['cadir', 'kalem', 'ucgen', 'kitap', 'saat']], ['daire', ['kitap', 'saat', 'jeton', 'kapi', 'gunes']]])]),
       numarala([cetele([['elma', 5], ['armut', 3], ['cilek', 7], ['muz', 4]], 41)]),
     ] },
     'hafta-35': { unite: 5, hafta: 35, baslik: 'Resim Grafiği', konu: 'Veri toplama ve değerlendirme', sayfalar: () => [
