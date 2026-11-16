@@ -16,13 +16,20 @@ module.exports = ({ T, S }) => {
   const ATA = [['Damlaya damlaya göl olur.', 'Küçük birikimler zamanla büyür.'], ['Bugünün işini yarına bırakma.', 'İşleri zamanında yapmalıyız.'], ['Bir elin nesi var, iki elin sesi var.', 'Birlikte çalışmak başarı getirir.'], ['Ağaç yaşken eğilir.', 'Eğitim küçük yaşta başlamalıdır.'], ['Sakla samanı, gelir zamanı.', 'Gereksiz görünen şey bir gün işe yarar.'], ['Komşu komşunun külüne muhtaçtır.', 'İnsanlar birbirine ihtiyaç duyar.']];
   const NOKTA = [['Ne güzel bir gün', '!'], ['Yarın okula gelecek misin', '?'], ['Kitabımı masaya koydum', '.'], ['Eyvah, süt taştı', '!'], ['Bu kitabı kim yazmış', '?'], ['Annem bahçede çiçek suluyor', '.']];
   const ISAD = { '!': 'ünlem', '?': 'soru işareti', '.': 'nokta' };
+  // Eş sesli sözcükler: [sözcük, cümle 1 (anlam 1), cümle 2 (anlam 2)]
+  const ESSES = [['yüz', 'Denizde yüz metre yüzdük.', 'Yüzünü yıkadı.'], ['gül', 'Bahçede kırmızı bir gül açtı.', 'Bu fıkraya çok gül!'], ['yaş', 'Kardeşim beş yaşında.', 'Çamaşırlar hâlâ yaş.'],
+    ['dolu', 'Bardak su dolu.', 'Gece dolu yağdı.'], ['çay', 'Dedem çay demledi.', 'Köyün yanından bir çay akıyor.'], ['kır', 'Pazar günü kıra gittik.', 'Ekmeği ikiye kır.'], ['at', 'Çiftlikte bir at gördük.', 'Topu bana at.']];
+  // Terim anlamı: bir bilim ya da sanat dalına özgü anlam
+  const TERIM = [['Bitkinin kökü toprağın derinine uzanır.', 'kök', 'Bitki bilimine özgü (terim)'], ['Üçgenin üç köşesi vardır.', 'köşe', 'Matematiğe özgü (terim)'], ['Kaleci topu ağlara gitmekten kurtardı.', 'kaleci', 'Spora özgü (terim)'], ['Ressam tuvaline önce açık renkleri sürdü.', 'tuval', 'Resim sanatına özgü (terim)']];
   const dilSt = r => { const e = kar(r, ES), z = kar(r, ZIT), d = kar(r, DEYIM), a = kar(r, ATA), n = kar(r, NOKTA); const f = (t, y) => r() < .5 ? [t, true] : [y, false];
     return [f(`“${e[0][0]}” ile “${e[0][1]}” eş anlamlı sözcüklerdir.`, `“${z[0][0]}” ile “${z[0][1]}” eş anlamlı sözcüklerdir.`),
       f(`“${z[1][0]}” ile “${z[1][1]}” zıt anlamlı sözcüklerdir.`, `“${e[1][0]}” ile “${e[1][1]}” zıt anlamlı sözcüklerdir.`),
       f(`“${d[0][0]}” deyimi “${d[0][1]}” anlamındadır.`, `“${d[0][0]}” deyimi “${d[1][1]}” anlamındadır.`),
       f(`“${a[0][0]}” atasözü “${a[0][1]}” anlamındadır.`, `“${a[0][0]}” atasözü “${a[1][1]}” anlamındadır.`),
       f(`“${n[0][0]}” cümlesinin sonuna ${ISAD[n[0][1]]} konur.`, `“${n[0][0]}” cümlesinin sonuna ${ISAD[n[0][1] === '.' ? '?' : '.']} konur.`),
-      f(`“${e[2][0]}” sözcüğünün eş anlamlısı “${e[2][1]}” sözcüğüdür.`, `“${z[2][0]}” sözcüğünün eş anlamlısı “${z[2][1]}” sözcüğüdür.`)]; };
+      f(`“${e[2][0]}” sözcüğünün eş anlamlısı “${e[2][1]}” sözcüğüdür.`, `“${z[2][0]}” sözcüğünün eş anlamlısı “${z[2][1]}” sözcüğüdür.`),
+      (() => { const x = kar(r, ESSES)[0]; return f(`“${x[1]}” ve “${x[2]}” cümlelerindeki “${x[0]}” sözcükleri eş seslidir.`, `“${x[1]}” ve “${x[2]}” cümlelerindeki “${x[0]}” sözcükleri aynı anlamdadır.`); })(),
+      (() => { const t = kar(r, TERIM)[0]; return f(`“${t[0]}” cümlesindeki “${t[1]}” sözcüğü terim anlamıyla kullanılmıştır.`, `“${t[0]}” cümlesindeki “${t[1]}” sözcüğü mecaz anlamıyla kullanılmıştır.`); })()]; };
   const DIL = { gir: 'Öğretmen tahtaya sözcükler ve cümlelerle ilgili bilgiler yazdı.' };
   const dilCq = [
     r => { const e = kar(r, ES), z = kar(r, ZIT); return coktan(p(`${ADLAR[Math.floor(r() * 12)]} sözcük kartlarını eşleştiriyor.`), `“${e[0][0]}” sözcüğünün eş anlamlısı hangisidir?`, e[0][1], [z[0][1], e[1][1], z[1][0]]); },
@@ -32,6 +39,9 @@ module.exports = ({ T, S }) => {
       const [sen, k] = SEN[Math.floor(r() * SEN.length)]; return coktan(p(`${ADLAR[Math.floor(r() * 12)]} ${sen}`), 'Bu durumu en iyi anlatan atasözü hangisidir?', ATA[k][0], kar(r, ATA.filter((_, i) => i !== k)).slice(0, 3).map(x => x[0])); },
     r => { const n = kar(r, NOKTA); return coktan(p('Bir öğrenci noktalama işaretlerini unutmuş.'), `“${n[0][0]}” cümlesinin sonuna hangi işaret konmalıdır?`, n[0][1] + ' (' + ISAD[n[0][1]] + ')', ['.', '?', '!', ','].filter(x => x !== n[0][1]).slice(0, 3).map(x => x + ' (' + (ISAD[x] || 'virgül') + ')')); },
   ];
+  dilCq.push(
+    r => { const x = kar(r, ESSES), y = x.slice(1, 4); return coktan(p(`“${x[0][1]}” ve “${x[0][2]}”`), `Bu iki cümlede yazılışı ve okunuşu aynı, anlamı farklı olan sözcük hangisidir?`, x[0][0], y.map(z => z[0])); },
+    r => { const t = kar(r, TERIM)[0]; return coktan(p(`“${t[0]}”`), `Bu cümledeki “${t[1]}” sözcüğü hangi anlamda kullanılmıştır?`, t[2], ['Mecaz anlamda', 'Gerçek anlamda, günlük konuşmaya özgü', 'Eş sesli olarak']); });
   const SP = [
     (r, t) => [() => kodDY(DIL.gir + ' Bilgi doğruysa "Doğru", yanlışsa "Yanlış" bölümündeki rakamı boyayacaksınız.', kar(r, dilSt(r)).slice(0, 4), t + 'k'),
       () => yolDY(DIL.gir + ' Öğrenciler ifade doğruysa "D", yanlışsa "Y" okunu izliyor.', kar(r, dilSt(r)).slice(0, 3), t + 'y'),
