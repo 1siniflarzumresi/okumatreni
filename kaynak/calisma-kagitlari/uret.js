@@ -440,7 +440,7 @@ const HARF = {
     sesiBul('b', ['balon', 'palyaco', 'bebek', 'bulut', 'top', 'bardak']),
     harfYazma('b'), harfAvi('b', 36)]),
   numarala([
-    kelimeResim([['balık', 'balik', 'kedi', 'ordek'], ['balon', 'balon', 'yumurta', 'zil'], ['bebek', 'bebek', 'ogretmen', 'anne'], ['robot', 'robot', 'davul', 'kutu']], 97),
+    kelimeResim([['balık', 'balik', 'kedi', 'ordek'], ['balon', 'balon', 'yumurta', 'zil'], ['bebek', 'bebek', 'ogretmen', 'kedi'], ['robot', 'robot', 'davul', 'kutu']], 97),
     cumleOku(['Bora, balon al.', 'Bebek mama ister.', 'Bulut bembeyaz.']),
     yazKelime([['bal', 'balık'], ['bebek', 'bulut']])]),
   numarala([
