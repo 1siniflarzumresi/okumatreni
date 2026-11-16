@@ -61,7 +61,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
   const F3 = {
     'hafta-01': W(1, 1, 'Bilim Kâşifi Oluyorum', 'Bilimsel bilgiye ulaşma yolları', () => [numarala([
       banka('Bilgiye nasıl ulaşırız? Kutudaki örnekleri doğru yola yaz.', [['Gözlem yaparak', '#3a86ff'], ['Deney yaparak', '#f2546b'], ['Araştırarak', '#12b886']], ['Kuşların yuvasını dürbünle izlemek', 'Buzun sıcakta erimesini denemek', 'Ansiklopediden balinaları okumak', 'Ayın şeklini her gece çizmek', 'Tohumu farklı ışıkta yetiştirmek', 'Bir bilim insanıyla söyleşi yapmak']),
-      dy(['Bilim insanları merak ettikleri bir soruyla işe başlar.', 'Bir bilgi internette yazıyorsa kesinlikle doğrudur.', 'Gözlem yaparken duyu organlarımızı kullanırız.', 'Deney yaparken sonucu tahmin edebiliriz.'])]),
+      dy(['Bilim insanları merak ettikleri bir soruyla işe başlar.', 'Bir bilgi internette yazıyorsa kesinlikle doğrudur.', 'Gözlem yaparken duyu organlarımızı kullanırız.', 'Deney yaparken sonucu tahmin edebiliriz.', 'Bilim insanları deneylerinin sonuçlarını kaydeder.'])]),
     numarala([deney('Hangi nesne suda batar?', ['Bir kap su', 'Taş', 'Mantar tıpa', 'Kurşun kalem', 'Silgi', 'Yaprak'], ['Nesneleri incele ve her biri için tahminini yaz.', 'Nesneleri sırayla suya bırak.', 'Hangilerinin battığını, hangilerinin yüzdüğünü gözlemle.'], 'Hangileri batar?'),
       yaz('Merak ettiğin bir soruyu yaz. Bu soruya nasıl cevap bulabilirsin?', ['Merak ettiğim soru:', 'Cevabı bulmak için ne yapabilirim?'])])]),
     'hafta-02': W(2, 1, 'Bilgi Peşinde', 'Bilimsel bilgiye ulaşma yolları, bilim insanlarının özellikleri', () => [numarala([
@@ -71,12 +71,12 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       ciz('Gözlem yaptığın bir anı çiz. Hangi duyu organlarını kullandığını resmin yanına yaz.', 70)])]),
     'hafta-03': W(3, 1, 'Bilim İnsanı Gibi', 'Bilim insanlarının özellikleri', () => [numarala([
       esle('Bilim insanının hangi davranışı hangi özelliğini gösterir? Eşleştir.', [['#Aynı deneyi birçok kez tekrarlar.', '#Sabırlı'], ['#Her şeyin nedenini sorar.', '#Meraklı'], ['#Farklı düşüncelere kulak verir.', '#Açık fikirli'], ['#Ölçümlerini özenle yapar.', '#Dikkatli'], ['#Sonuçları doğru ve eksiksiz yazar.', '#Dürüst']], 31),
-      dy(['Bilim insanları yalnızca laboratuvarda çalışır.', 'Bilim insanları çalışmalarını başkalarıyla paylaşır.', 'Kadın ve erkek herkes bilim insanı olabilir.'])]),
+      dy(['Bilim insanları yalnızca laboratuvarda çalışır.', 'Bilim insanları çalışmalarını başkalarıyla paylaşır.', 'Kadın ve erkek herkes bilim insanı olabilir.', 'Aziz Sancar bilim alanında Nobel Ödülü kazanmış bir Türk bilim insanıdır.', 'Bilim insanları hiç hata yapmaz.', 'Bir bilim insanı aynı deneyi birçok kez tekrarlayabilir.'])]),
     numarala([tablo('Bilim insanı kartı! Bir bilim insanını araştır. Bir büyüğünden, kitaptan ya da güvenilir bir siteden yararlan.', ['Soru', 'Cevap'], [['Adı:', ''], ['Hangi alanda çalıştı?', ''], ['Neyi merak etti?', ''], ['Bize ne kazandırdı?', ''], ['Hangi özelliğini örnek alıyorum?', ''], ['Kaynağım:', '']]),
       rozet(['Bilgiye ulaşma yollarını sayabilirim.', 'Güvenilir kaynağı ayırt edebilirim.', 'Bilim insanlarının özelliklerini söyleyebilirim.'])])]),
     'hafta-04': W(4, 2, 'Canlılar Dünyası', 'Canlıların sınıflandırılması', () => [numarala([
       banka('Canlılar dört gruba ayrılır! Her canlıyı doğru gruba yaz.', [['Mikroskopla görülen', '#8b5cf6'], ['Mantarlar', '#f4a100'], ['Bitkiler', '#12b886'], ['Hayvanlar', '#f2546b']], ['Bakteri', 'Şapkalı mantar', 'Papatya', 'Kedi', 'Ekmek küfü', 'Çam ağacı', 'Arı', 'Amip', 'Yosun', 'Balık', 'Çilek', 'Kurbağa'], 2),
-      dy(['Bazı canlılar o kadar küçüktür ki ancak mikroskopla görülür.', 'Mantarlar da bitkiler gibi kendi besinini üretir.', 'Hayvanlar besinlerini dışarıdan alır.'])]),
+      dy(['Bazı canlılar o kadar küçüktür ki ancak mikroskopla görülür.', 'Mantarlar da bitkiler gibi kendi besinini üretir.', 'Hayvanlar besinlerini dışarıdan alır.', 'Bitkiler kendi besinlerini üretir.', 'Canlılar büyür, beslenir ve çoğalır.', 'Taş da bir canlıdır çünkü yer kaplar.'])]),
     numarala([tablo('Canlı mı, cansız mı? Her varlık için ✓ koy.', ['Varlık', 'Beslenir', 'Büyür', 'Ürer', 'Canlı mı?'], ['Ağaç', 'Taş', 'Kedi', 'Bulut', 'Mantar', 'Oyuncak robot'].map(v => [v, '', '', '', ''])),
       bilmece('Canlı bilmecesi!', [['Besinini kendi üretir, güneşi sever, yaprakları vardır.', 'BİTKİ', 0], ['Nemli yerde, çürümüş ağaçta biter.', 'MANTAR', 1], ['Gözle görülmez, büyüteçle bile seçilmez.', 'BAKTERİ', 2]], 'BAK')])]),
     'hafta-05': W(5, 2, 'Mikroskobun Gözüyle', 'Canlıların sınıflandırılması', () => [numarala([
@@ -86,17 +86,17 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       yaz('Mikroskobik canlıların yararları ve zararları nelerdir? Araştırıp yaz.', ['Yararı:', 'Zararı:', 'Kendimi nasıl korurum?'])])]),
     'hafta-06': W(6, 2, 'Beş Duyum', 'Duyu organlarının işlevleri', () => [numarala([
       tablo('Duyu haritam! Tabloyu tamamla.', ['Duyu', 'Organ', 'Ne algılarız?', 'Bir örnek'], [['Görme', 'Göz', '', ''], ['İşitme', '', 'Sesleri', ''], ['Koklama', '', '', 'Çiçek kokusu'], ['Tatma', 'Dil', '', ''], ['Dokunma', '', 'Sıcak, soğuk, sert, yumuşak', '']]),
-      dy(['Gözlerimizi korumak için güneşe doğrudan bakmayız.', 'Kulaklarımızı sivri cisimlerle temizleriz.', 'Yemeğin tadını alırken kokusu da yardımcı olur.'])]),
+      dy(['Gözlerimizi korumak için güneşe doğrudan bakmayız.', 'Kulaklarımızı sivri cisimlerle temizleriz.', 'Yemeğin tadını alırken kokusu da yardımcı olur.', 'Çok yüksek sesli müzik dinlemek kulaklarımıza zarar verebilir.', 'Derimiz sıcağı ve soğuğu hissetmemizi sağlar.', 'Burnumuz tat almamızı sağlayan tek organdır.'])]),
     numarala([deney('Gizemli kutu!', ['Elini sokabileceğin delikli bir kutu', 'Kutuya konacak 3 nesne (ör. silgi, kaşık, pamuk)', 'Göz bandı'], ['Bir büyüğün kutuya sen görmeden nesneleri koysun.', 'Gözlerin bağlıyken elinle dokun, kutuyu salla, kokla.', 'Hangi duyunla neyi bulduğunu yaz.'], 'Kutuda neler var?'),
       yaz('Hangi duyu organın sana en çok yardım etti? Neden?', ['Organ ve nedeni:'])])]),
     'hafta-07': W(7, 2, 'Canlılar Nasıl Algılar?', 'Duyu organlarının işlevleri', () => [numarala([
       esle('Hayvanlar çevrelerini nasıl algılar? Eşleştir.', [['#Yarasa', '#Ses yankısıyla yolunu bulur.'], ['#Köpek', '#Çok güçlü koku alır.'], ['#Kedi', '#Bıyıklarıyla dar yerleri ölçer.'], ['#Kartal', '#Çok uzağı keskin görür.'], ['#Yılan', '#Diliyle koku toplar.']], 71),
-      dy(['Bütün canlılar çevrelerini aynı yolla algılar.', 'Bitkiler de ışığa doğru yönelir.'])]),
+      dy(['Bütün canlılar çevrelerini aynı yolla algılar.', 'Bitkiler de ışığa doğru yönelir.', 'Yarasalar sesten yararlanarak yön bulur.', 'Kediler karanlıkta insanlardan daha iyi görür.', 'Köpeklerin koku alma duyusu çok gelişmiştir.', 'Bitkiler hiçbir şekilde çevrelerini algılamaz.'])]),
     numarala([tahmin('Ses dedektifi! Gözlerini kapat, sesi dinle ve neyin sesi olduğunu tahmin et. Bir büyüğün sesleri çıkarsın.', ['1. ses', '2. ses', '3. ses', '4. ses'], ['Ses', 'Tahminim', 'Doğru mu?']),
       ciz('Bir hayvanın dünyayı nasıl algıladığını hayal et ve çiz: Örneğin bir yarasa gece nasıl uçar?', 80)])]),
     'hafta-08': W(8, 2, 'Büyüyen Canlılar', 'Duyu organları, canlıların yaşam döngüleri', () => [numarala([
       dongu('Kelebeğin yaşam döngüsü! Çarktaki numaralara aşamaları sırasıyla yaz.', ['Yumurta', 'Tırtıl', 'Koza (pupa)', 'Kelebek']),
-      dy(['Tırtıl kelebeğin yavrusudur.', 'Kelebek yumurtadan kanatlı olarak çıkar.', 'Yaşam döngüsü bir çember gibi tekrar eder.'])]),
+      dy(['Tırtıl kelebeğin yavrusudur.', 'Kelebek yumurtadan kanatlı olarak çıkar.', 'Yaşam döngüsü bir çember gibi tekrar eder.', 'Kurbağa yavrusu suda yaşar.', 'Tavuk yumurtadan civciv olarak çıkar.', 'Bütün canlıların yaşam döngüsü aynı uzunluktadır.'])]),
     numarala([dongu('Fasulyenin yaşam döngüsü! Aşamaları sırasıyla yaz.', ['Tohum', 'Filiz', 'Genç bitki', 'Çiçekli bitki', 'Meyve ve yeni tohum']),
       rozet(['Beş duyumu ve organlarını söyleyebilirim.', 'Duyu organlarımı nasıl koruyacağımı bilirim.', 'Bir yaşam döngüsünü sırasıyla anlatabilirim.'])])]),
     'hafta-09': W(9, 2, 'Döngüler ve Taşlar', 'Canlıların yaşam döngüleri, kayaçlar', () => [numarala([
@@ -108,7 +108,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       deney('Taşları incele!', ['Farklı 4 taş', 'Büyüteç', 'Bir çivi', 'Bir kap su'], ['Taşları büyüteçle incele: renk, desen, parlaklık.', 'Çiviyle hafifçe çiz: İz kalıyor mu?', 'Taşları suya bırak, gözlemle.'], 'En sert taş hangisi?'),
       tablo('Taş kimlik kartı!', ['Taş', 'Rengi', 'Sert mi?', 'Pürüzlü mü?'], [['1', '', '', ''], ['2', '', '', ''], ['3', '', '', ''], ['4', '', '', '']])]),
     numarala([esle('Kayaç ve madenler nerede kullanılır? Eşleştir.', [['#Mermer', '#Heykel, merdiven'], ['#Demir', '#Köprü, çivi'], ['#Bakır', '#Elektrik kablosu'], ['#Kum', '#Cam yapımı'], ['#Kömür', '#Isınma']], 101),
-      dy(['Kayaçlar bir ya da birden fazla mineralden oluşur.', 'Madenler doğada sonsuz miktarda bulunur.', 'Tuz da bir mineraldir.'])])]),
+      dy(['Kayaçlar bir ya da birden fazla mineralden oluşur.', 'Madenler doğada sonsuz miktarda bulunur.', 'Tuz da bir mineraldir.', 'Mermer bir kayaçtır.', 'Kayaçlar inşaatta ve heykelcilikte kullanılır.', 'Bütün kayaçların rengi ve sertliği aynıdır.'])])]),
     'hafta-11': W(11, 3, 'Fosil Avcısı', 'Kayaçlar, madenler ve mineraller; fosil oluşumu', () => [numarala([
       tablo('Tümdengelim yap! Kural: "Madenler yer kabuğundan çıkarılır ve işlenerek kullanılır." Bu kurala göre örnekleri tamamla.', ['Maden', 'Nereden çıkarılır?', 'Neye dönüşür?'], [['Demir', '', ''], ['Altın', '', ''], ['Bakır', '', '']]),
       bilmece('Yer bilim bilmecesi!', [['Taşlaşmış canlı kalıntısı', 'FOSİL', 0], ['Fosilleri inceleyen bilim insanı', 'PALEONTOLOG', 0], ['Heykel yapılan beyaz taş', 'MERMER', 0]])]),
@@ -116,14 +116,14 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       ciz('Sen bir paleontologsun! Kazıda bulduğun bir fosili çiz ve hangi canlıya ait olabileceğini yaz.', 70)])]),
     'hafta-12': W(12, 3, 'Fosil Yapıyorum', 'Fosil oluşumu', () => [numarala([
       deney('Kendi fosilimi yapıyorum!', ['Oyun hamuru ya da kil', 'Deniz kabuğu, yaprak', 'Biraz alçı ve su (bir büyüğünle)'], ['Hamuru düzle, kabuğu bastır ve çıkar.', 'İzin içine sulandırılmış alçı dök.', 'Bir gün bekle, alçıyı çıkar ve incele.'], 'Fosilim neye benzer?'),
-      dy(['Fosiller bize geçmişte yaşamış canlılar hakkında bilgi verir.', 'Bütün canlılar ölünce fosil olur.', 'Dinozorları fosilleri sayesinde tanıyoruz.'])]),
+      dy(['Fosiller bize geçmişte yaşamış canlılar hakkında bilgi verir.', 'Bütün canlılar ölünce fosil olur.', 'Dinozorları fosilleri sayesinde tanıyoruz.', 'Fosiller genellikle kayaçların içinde bulunur.', 'Fosiller bugün yaşayan canlılardır.', 'Fosil bulunca dikkatlice uzmanlara haber veririz.'])]),
     numarala([yaz('Fosil dedektifi! Kâşif Deniz bir dağın yamacında kaya katmanlarını kazdı. En alttaki katmanda bir deniz kabuğu fosili, onun üstündeki katmanda bir yaprak fosili buldu. İpuçlarını birleştir ve yaz.', ['Hangi fosil daha eskidir? Neden?', 'Dağın bulunduğu yerde eskiden ne vardı? Neden böyle düşünüyorsun?', 'Yaprak fosili bize o dönem hakkında ne anlatır?']),
       tablo('Fosil müzesi! Araştır ve tamamla.', ['Fosil', 'Hangi canlı?', 'Nerede bulundu?'], [['', '', ''], ['', '', ''], ['', '', '']])])]),
     'hafta-13': W(13, 4, 'Madde Dedektifi', 'Fosil oluşumu; maddenin katı, sıvı ve gaz hâli', () => [numarala([
       halModel(),
       rozet(['Kayaç, maden ve minerale örnek verebilirim.', 'Fosilin nasıl oluştuğunu anlatabilirim.', 'Maddenin üç hâlini söyleyebilirim.'])]),
     numarala([banka('Evdeki maddeleri hâllerine göre sınıflandır.', [['Katı', '#3a86ff'], ['Sıvı', '#12b886'], ['Gaz', '#f4a100']], ['Kaşık', 'Süt', 'Balondaki hava', 'Taş', 'Zeytinyağı', 'Su buharı', 'Kitap', 'Meyve suyu', 'Buz']),
-      dy(['Katıların belirli bir şekli vardır.', 'Sıvılar konuldukları kabın şeklini alır.', 'Gazlar bulundukları yeri tamamen doldurur.', 'Gazların belirli bir şekli vardır.'])])]),
+      dy(['Katıların belirli bir şekli vardır.', 'Sıvılar konuldukları kabın şeklini alır.', 'Gazlar bulundukları yeri tamamen doldurur.', 'Gazların belirli bir şekli vardır.', 'Su bir sıvıdır.'])])]),
     'hafta-14': W(14, 4, 'Katı, Sıvı, Gaz', 'Maddenin katı, sıvı ve gaz hâli', () => [numarala([
       deney('Şekil değiştiren su!', ['Farklı şekilli 3 kap (bardak, tabak, şişe)', 'Bir ölçü kabı su'], ['Ölçü kabındaki suyu sırayla her kaba dök.', 'Suyun şeklini gözlemle.', 'Sonra suyu yine ölçü kabına dök: Miktar değişti mi?'], 'Suyun şekli değişir mi?'),
       tablo('Özellik avı! Tabloyu ✓ ile doldur.', ['Özellik', 'Katı', 'Sıvı', 'Gaz'], [['Belirli bir şekli var', '', '', ''], ['Akabilir', '', '', ''], ['Kabın şeklini alır', '', '', ''], ['Elle tutulabilir', '', '', '']])]),
@@ -131,11 +131,11 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       ciz('Mutfakta katı, sıvı ve gaz hâlinde maddelerin bir arada olduğu bir sahne çiz. Her birini etiketle.', 60)])]),
     'hafta-15': W(15, 4, 'Maddeler Her Yerde', 'Maddenin katı, sıvı ve gaz hâli', () => [numarala([
       deney('Hava yer kaplar mı?', ['Derin bir kap su', 'Boş bir bardak', 'Kâğıt mendil'], ['Mendili buruşturup bardağın dibine sıkıştır.', 'Bardağı ters çevir ve dik olarak suya batır.', 'Bardağı dik çıkar, mendile dokun.'], 'Mendil ıslanır mı?'),
-      dy(['Hava gözle görülmez ama yer kaplar.', 'Sıvılar elle tutulup şekil verilebilir.', 'Tahta, hem katı hem sıvıdır.'])]),
+      dy(['Hava gözle görülmez ama yer kaplar.', 'Sıvılar elle tutulup şekil verilebilir.', 'Tahta, hem katı hem sıvıdır.', 'Taş bir katıdır.', 'Süt bir sıvıdır.', 'Balonun içindeki hava bir gazdır.'])]),
     numarala([tablo('Evinde madde avına çık! Her odadan bir örnek bul.', ['Oda', 'Katı', 'Sıvı', 'Gaz'], [['Mutfak', '', '', ''], ['Banyo', '', '', ''], ['Oturma odası', '', '', '']]),
       yaz('Hamur, diş macunu ve kum gibi maddeler hangi hâlde? Düşün ve gerekçeni yaz.', ['Hamur:', 'Kum:', 'Diş macunu:'])])]),
     'hafta-16': W(16, 4, 'Karışımlar', 'Maddenin hâlleri; karışımlar ve karışımların ayrılması', () => [numarala([
-      dy(['Birden fazla maddenin bir araya gelmesiyle karışım oluşur.', 'Meyve salatası bir karışımdır.', 'Karışımdaki maddeler asla ayrılamaz.', 'Çorbada birçok madde karışmıştır.']),
+      dy(['Birden fazla maddenin bir araya gelmesiyle karışım oluşur.', 'Meyve salatası bir karışımdır.', 'Karışımdaki maddeler asla ayrılamaz.', 'Çorbada birçok madde karışmıştır.', 'Kum ve demir tozu karışımını mıknatısla ayırabiliriz.']),
       banka('Karışım avı! Kutudaki örneklerin karışım olup olmadığına karar ver.', [['Karışım', '#12b886'], ['Karışım değil', '#f2546b']], ['Makarna salatası', 'Kum ve çakıl', 'Bir bardak saf su', 'Pirinç ve mercimek', 'Bir parça buz', 'Limonata'], 4)]),
     numarala([esle('Karışımı ayırmak için hangi yöntemi kullanırsın? Eşleştir.', [['#Demir tozu ve kum', '#Mıknatısla'], ['#Un ve iri taneler', '#Elekle'], ['#Kumlu su', '#Süzgeç kâğıdıyla'], ['#Fasulye ve nohut', '#Elle seçerek'], ['#Tuzlu su', '#Buharlaştırarak']], 161),
       ciz('Kendi karışımını tasarla: İçinde hangi maddeler olsun? Çiz ve etiketle.', 50)])]),
@@ -150,7 +150,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
     numarala([banka('Atık sorununa çözüm bul! Her davranışı ait olduğu sütuna yaz.', [['Azalt', '#3a86ff'], ['Yeniden kullan', '#12b886'], ['Geri dönüştür', '#f4a100']], ['Kâğıdın iki yüzünü kullanmak', 'Kavanozu kalemlik yapmak', 'Gazeteyi mavi kutuya atmak', 'Ambalajsız ürün seçmek', 'Kutudan oyuncak yapmak', 'Pil kutusuna eski pil atmak']),
       ciz('Okulun için eğlenceli bir atık kutusu tasarla. Hangi atık için olduğunu yaz.', 60)])]),
     'hafta-19': W(19, 5, 'Her Şey Hareket Eder', 'Atıkların ayrıştırılması; varlıkların hareketleri', () => [numarala([
-      dy(['Atık piller çöpe değil, atık pil kutusuna atılır.', 'Organik atıklardan gübre (kompost) yapılabilir.', 'Cam şişeler geri dönüştürülemez.']),
+      dy(['Atık piller çöpe değil, atık pil kutusuna atılır.', 'Organik atıklardan gübre (kompost) yapılabilir.', 'Cam şişeler geri dönüştürülemez.', 'Kâğıt atıklar geri dönüştürülebilir.', 'Atıkları ayrı toplamak doğayı korur.', 'Plastik atıklar doğada kısa sürede yok olur.']),
       hareketIz()]),
     numarala([tahmin('Hareket tahmini! Önce tahmin et, sonra dene.', ['Masadaki bilye itilirse', 'Topaç çevrilirse', 'İpe bağlı silgi yana çekilip bırakılırsa', 'Eğik tahtaya kutu konursa'], ['Durum', 'Nasıl hareket eder? (tahmin)', 'Gözlemim']),
       rozet(['Atıkları türüne göre ayırabilirim.', 'Karışımları ayırma yöntemlerini bilirim.', 'Hareket türlerine örnek verebilirim.'])])]),
@@ -161,12 +161,12 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       yaz('Rampa yükselince ne değişti? Bir sonuç yaz.', ['Sonucum:'])])]),
     'hafta-21': W(21, 5, 'İt ve Çek', 'Kuvvet ve etkileri', () => [numarala([
       banka('İtme mi, çekme mi? Her hareketi doğru sütuna yaz.', [['İtme', '#f2546b'], ['Çekme', '#3a86ff']], ['Bebek arabasını itmek', 'Çekmeceyi açmak', 'Alışveriş arabasını sürmek', 'Kova ipini yukarı almak', 'Topa tekme atmak', 'Halat çekme oyunu', 'Zile basmak', 'Bitkiyi kökünden sökmek'], 4),
-      dy(['Duran bir varlığı hareket ettirmek için kuvvet uygularız.', 'Kuvvet gözle görülür.', 'İtme ve çekme birer kuvvettir.'])]),
+      dy(['Duran bir varlığı hareket ettirmek için kuvvet uygularız.', 'Kuvvet gözle görülür.', 'İtme ve çekme birer kuvvettir.', 'Kapıyı açarken itme ya da çekme kuvveti uygularız.', 'Kuvvet hareket eden bir varlığı durdurabilir.', 'Kuvvet uygulamadan bir topu hareket ettirebiliriz.'])]),
     numarala([tahmin('Kuvvet tahmini! Önce tahmin et, sonra dene: Hangisini hareket ettirmek daha çok kuvvet ister?', ['Boş kutu – Kitap dolu kutu', 'Tüy – Silgi', 'Boş çanta – Dolu çanta'], ['Karşılaştırma', 'Tahminim', 'Gözlemim']),
       ciz('Günlük yaşamda itme ve çekme kuvveti kullandığın iki anı çiz. Okla kuvvetin yönünü göster.', 70)])]),
     'hafta-22': W(22, 5, 'Kuvvetin Etkileri', 'Kuvvet ve etkileri', () => [numarala([
       banka('Kuvvet ne yaptı? Her örneği uygun etkiye yaz.', [['Harekete geçirdi', '#12b886'], ['Durdurdu', '#f2546b'], ['Yönünü değiştirdi', '#3a86ff'], ['Şeklini değiştirdi', '#f4a100']], ['Kaleci topu tuttu.', 'Hamura şekil verdim.', 'Duran arabayı ittim.', 'Tenis topuna raketle vurdum.', 'Süngeri sıktım.', 'Kaydıraktaki kardeşimi tuttum.', 'Duran topa vurdum.', 'Bisikletin direksiyonunu çevirdim.'], 2),
-      dy(['Kuvvet, varlıkların şeklini değiştirebilir.', 'Hareket eden bir top kendiliğinden yön değiştirir.'])]),
+      dy(['Kuvvet, varlıkların şeklini değiştirebilir.', 'Hareket eden bir top kendiliğinden yön değiştirir.', 'Hamuru sıkınca şekli değişir.', 'Kuvvet, hareket eden bir varlığın yönünü değiştirebilir.', 'Duran bir araba kendiliğinden hareket etmeye başlar.', 'Topa daha güçlü vurursak daha hızlı gider.'])]),
     numarala([deney('Oyun hamuru laboratuvarı!', ['Oyun hamuru', 'Bir kitap', 'Bir kalem'], ['Hamurdan bir top yap.', 'Topu avucunla bastır, sonra kalemle bastır, sonra kitabı üzerine koy.', 'Her seferinde şeklin nasıl değiştiğini çiz.'], 'Hangisi şekli en çok değiştirir?'),
       yaz('Kuvvet uygulayınca şekli değişen ama sonra eski hâline dönen bir varlık bul.', ['Varlık:', 'Neden eski hâline döner?'])])]),
     'hafta-23': W(23, 6, 'Elektrik Nereden Gelir?', 'Kuvvet ve etkileri; elektrikli araç gereç', () => [numarala([
@@ -176,7 +176,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       yaz('Elektrik olmasaydı bir günün nasıl geçerdi? Hayal et ve yaz.', ['Sabah:', 'Akşam:'])])]),
     'hafta-24': W(24, 6, 'Güvenli Elektrik', 'Elektrikli araç gereç; güvenli kullanım', () => [numarala([
       tablo('Bilimsel çıkarım yap! Bir aracın elektrikli olduğunu nasıl anlarsın? İpucunu yaz.', ['Araç', 'İpucum (kablo, fiş, pil yuvası, düğme…)'], [['Saç kurutma makinesi', ''], ['Oyuncak robot', ''], ['Hesap makinesi', ''], ['Mikser', '']]),
-      dy(['Islak elle prize dokunmayız.', 'Fişi kablosundan çekerek çıkarırız.', 'Prizlere çocuk koruyucu takılmalıdır.', 'Elektrik direğine uçurtma takılırsa tırmanırız.'])]),
+      dy(['Islak elle prize dokunmayız.', 'Fişi kablosundan çekerek çıkarırız.', 'Prizlere çocuk koruyucu takılmalıdır.', 'Elektrik direğine uçurtma takılırsa tırmanırız.', 'Prize metal cisim sokmayız.'])]),
     numarala([durum2([['Kardeşin prizin deliğine bir toka sokmaya çalışıyor.'], ['Banyoda ıslak elle saç kurutma makinesini prize takmak üzeresin.'], ['Ütünün kablosunun soyulduğunu fark ettin.']]),
       rozet(['Elektrikli araçları tanıyabilirim.', 'Pille ve prizle çalışan araçları ayırabilirim.', 'Elektriği güvenli kullanırım.'])])]),
     'hafta-25': W(25, 6, 'Elektrik Güvenliği Afişi', 'Elektrikli araç gerecin güvenli kullanımı', () => [numarala([
@@ -192,14 +192,14 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       yaz('Sayaç verilerine bak: Hangi gün daha çok elektrik harcandı? Gelecek hafta için bir tasarruf hedefi koy.', ['En çok harcanan gün ve nedeni:', 'Tasarruf hedefim:']),
       etk(0, 'Toprak nasıl oluşur? Aşamaları sırala, kutulara 1\'den 4\'e kadar numara ver.', `<div class="h2-dy">${['Küçük parçalar bitki ve hayvan kalıntılarıyla karışır.', 'Kayalar güneş, su, rüzgâr ve bitki kökleriyle çatlar.', 'Yüzlerce yıl içinde verimli toprak oluşur.', 'Çatlayan kayalar küçük parçalara ayrılır.'].map(s => `<div><p class="ttkb">${s}</p><i></i></div>`).join('')}</div>`)]),
     numarala([toprakKatman(),
-      dy(['Toprağın oluşması çok uzun yıllar sürer.', 'Humus, bitki ve hayvan kalıntılarından oluşur.', 'Toprak yalnızca kumdan oluşur.'])])]),
+      dy(['Toprağın oluşması çok uzun yıllar sürer.', 'Humus, bitki ve hayvan kalıntılarından oluşur.', 'Toprak yalnızca kumdan oluşur.', 'Toprakta canlılar da yaşar.', 'Kayaçlar zamanla parçalanarak toprağı oluşturur.', 'Toprağın bütün katmanları aynı renktedir.'])])]),
     'hafta-28': W(28, 7, 'Toprak Laboratuvarı', 'Toprak oluşumu ve yapısı', () => [numarala([
       deney('Toprağın içinde ne var?', ['Şeffaf bir kavanoz', 'Bir avuç bahçe toprağı', 'Su', 'Büyüteç'], ['Toprağı büyüteçle incele, gördüklerini yaz.', 'Toprağı kavanoza koy, üstüne su ekle, kapağı kapatıp salla.', 'Bir gün bekle ve oluşan katmanları çiz.'], 'Kavanozda kaç katman oluşur?'),
       ciz('Kavanozdaki katmanları çiz ve etiketle: çakıl, kum, kil, humus.', 50)]),
     numarala([tablo('Toprak örneklerini karşılaştır! Farklı yerlerden toprak topla.', ['Nereden?', 'Rengi', 'Elle dokununca', 'İçinde neler var?'], [['Bahçe', '', '', ''], ['Saksı', '', '', ''], ['Yol kenarı', '', '', '']]),
       bilmece('Toprak bilmecesi!', [['Toprağı verimli yapan çürümüş kalıntı', 'HUMUS', 0], ['Islanınca yapışan ince toprak', 'KİL', 0], ['Toprağı havalandıran canlı', 'SOLUCAN', 0]])])]),
     'hafta-29': W(29, 7, 'Tohumdan Fidana', 'Toprak yapısı; bitki yetiştirme', () => [numarala([
-      dy(['Solucanlar toprağı havalandırır.', 'Toprak kirliliği bitkilerin büyümesini etkilemez.', 'Bitki kökleri toprağın kaymasını önler.']),
+      dy(['Solucanlar toprağı havalandırır.', 'Toprak kirliliği bitkilerin büyümesini etkilemez.', 'Bitki kökleri toprağın kaymasını önler.', 'Toprağa çöp gömmek toprağı kirletir.', 'Ağaç dikmek toprağın korunmasına yardım eder.', 'Toprak kirliliği yalnız bitkileri etkiler, insanları etkilemez.']),
       deney('Bitkiler neye ihtiyaç duyar?', ['4 küçük saksı', 'Fasulye tohumları', 'Toprak', 'Su', 'Bir karton kutu'], ['Dört saksıya tohum ek.', '1. saksı: Işık + su. 2. saksı: Karanlık + su. 3. saksı: Işık, su yok. 4. saksı: Toprak yerine pamuk + ışık + su.', 'İki hafta boyunca gözlemle.'], 'En iyi hangisi büyür?')]),
     numarala([tablo('Fide günlüğüm! Her saksıyı 3 günde bir gözlemle, boyunu cetvelle ölç.', ['Gün', '1. saksı', '2. saksı', '3. saksı', '4. saksı'], [['3. gün', '', '', '', ''], ['6. gün', '', '', '', ''], ['9. gün', '', '', '', ''], ['12. gün', '', '', '', '']]),
       ciz('12. günde dört saksının görünümünü yan yana çiz. Altlarına numaralarını yaz.', 70)])]),
@@ -212,22 +212,22 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       rozet(['Toprağın nasıl oluştuğunu anlatabilirim.', 'Toprağın katmanlarını sayabilirim.', 'Bir bitkinin ihtiyaçlarını söyleyebilirim.']),
       esle('Canlıyı yaşam alanıyla eşleştir.', [['#Penguen', '#Kutuplar'], ['#Deve', '#Çöl'], ['#Yunus', '#Deniz'], ['#Sincap', '#Orman'], ['#Kurbağa', '#Göl kenarı']], 311)]),
     numarala([tablo('Yaşam alanı kimlik kartı!', ['Yaşam alanı', 'Hava nasıl?', 'Su durumu', 'Orada yaşayan bir canlı'], [['Orman', '', '', ''], ['Çöl', '', '', ''], ['Kutup', '', '', ''], ['Deniz', '', '', '']]),
-      dy(['Çölde gündüzler çok sıcak, geceler soğuktur.', 'Kutuplarda bitki çeşitliliği çok fazladır.', 'Denizde yaşayan canlıların çoğu solungaçla solunum yapar.']),
+      dy(['Çölde gündüzler çok sıcak, geceler soğuktur.', 'Kutuplarda bitki çeşitliliği çok fazladır.', 'Denizde yaşayan canlıların çoğu solungaçla solunum yapar.', 'Develer çöl koşullarına uygun canlılardır.', 'Kutup ayıları kalın kürk ve yağ tabakasıyla soğuktan korunur.', 'Ormanlar birçok canlıya yaşam alanı sağlar.']),
       ciz('Kendi hayalî yaşam alanını tasarla: Nasıl bir yer? Orada hangi canlılar yaşar?', 60)])]),
     'hafta-32': W(32, 8, 'Kanıt Topluyorum', 'Yaşam alanları', () => [numarala([
       tablo('Kanıt dedektifi! Hayvanın özelliği, yaşam alanına nasıl uyum sağladığının kanıtıdır. Tamamla.', ['Canlı', 'Özelliği', 'Hangi yaşam alanına uygun? Neden?'], [['Kutup ayısı', 'Kalın kürk, beyaz renk', ''], ['Deve', 'Hörgüç, geniş ayak', ''], ['Balık', 'Solungaç, yüzgeç', ''], ['Kaktüs', 'Kalın gövde, diken', '']]),
-      dy(['Her canlı her yaşam alanında rahatça yaşayabilir.', 'Canlıların vücut özellikleri yaşam alanlarına uygundur.'])]),
+      dy(['Her canlı her yaşam alanında rahatça yaşayabilir.', 'Canlıların vücut özellikleri yaşam alanlarına uygundur.', 'Balıklar suda yaşamaya uygundur.', 'Kutup ayısı çölde rahatça yaşar.', 'Ördeklerin perdeli ayakları yüzmelerine yardım eder.', 'Kaktüs kurak yerlerde yaşayabilir.'])]),
     numarala([yaz('Okul bahçen bir yaşam alanıdır! Bahçeyi gözlemle ve kanıt topla.', ['Hangi canlılar var?', 'Toprak, su ve ışık durumu nasıl?', 'Canlılar burada nasıl barınıyor ve besleniyor?']),
       ciz('Gözlemlediğin yaşam alanının krokisini çiz, canlıları işaretle.', 70)])]),
     'hafta-33': W(33, 8, 'Canlı Çeşitliliği', 'Yaşam alanları; canlı çeşitliliği', () => [numarala([
       etk(0, 'Canlı çeşitliliğini ölç! Okul bahçesinde 1 metrekarelik bir alanı iple çevir. İçindeki farklı canlıları say.', `<table class="h2-tablo f3-tab ttkb"><tr><th>Canlı</th><th>Çetele</th><th>Sayı</th></tr>${['Çimen ve otlar', 'Çiçekler', 'Karıncalar', 'Böcekler', 'Solucanlar', 'Diğer'].map(c => `<tr><td>${c}</td><td></td><td></td></tr>`).join('')}</table><p class="ttkb f3-not">Kaç farklı canlı türü buldun? <span class="h3-cizgi"></span> Bu sayı alanın <b>canlı çeşitliliğini</b> gösterir.</p>`),
-      dy(['Bir yaşam alanında ne kadar çok farklı canlı varsa çeşitlilik o kadar fazladır.', 'Canlı çeşitliliğini saymak için yalnızca büyük hayvanlara bakarız.'])]),
+      dy(['Bir yaşam alanında ne kadar çok farklı canlı varsa çeşitlilik o kadar fazladır.', 'Canlı çeşitliliğini saymak için yalnızca büyük hayvanlara bakarız.', 'Böcekler de canlı çeşitliliğinin bir parçasıdır.', 'Ormanlarda çok sayıda farklı canlı yaşar.', 'Bir bahçede canlı çeşitliliği hiç olmaz.', 'Canlı çeşitliliğini korumak doğanın dengesi için önemlidir.'])]),
     numarala([tablo('İki alanı karşılaştır! Bahçenin güneşli ve gölgeli köşelerindeki canlıları say.', ['Canlı türü', 'Güneşli köşe', 'Gölgeli köşe'], [['', '', ''], ['', '', ''], ['', '', ''], ['Toplam tür sayısı', '', '']]),
       yaz('Hangi alanda çeşitlilik daha fazla? Bunun nedeni ne olabilir?', ['Sonucum:', 'Nedeni:'])])]),
     'hafta-34': W(34, 8, 'Besin Ağı', 'Canlı çeşitliliği', () => [numarala([
       etk(0, 'Kim kimi yer? Okları takip et ve boşlukları doldur.', `<div class="f3-zincir ttkb">${['Güneş', 'Ot', '', 'Tilki'].map((s, i) => `${i ? '<em>➜</em>' : ''}<span>${s || '<i></i>'}</span>`).join('')}</div><div class="f3-zincir ttkb">${['Yaprak', '', 'Serçe', ''].map((s, i) => `${i ? '<em>➜</em>' : ''}<span>${s || '<i></i>'}</span>`).join('')}</div><p class="ttkb f3-not">Kutudan seç: tavşan, tırtıl, şahin</p>`),
       yaz('Besin zincirinden bir canlı yok olursa ne olur? Örneğin tavşanlar yok olursa tilkiler ne yapar?', ['Düşüncem:'])]),
-    numarala([dy(['Canlılar besin için birbirine bağlıdır.', 'Arılar olmasa çiçekler tozlaşamaz.', 'Bir canlının yok olması diğerlerini etkilemez.']),
+    numarala([dy(['Canlılar besin için birbirine bağlıdır.', 'Arılar olmasa çiçekler tozlaşamaz.', 'Bir canlının yok olması diğerlerini etkilemez.', 'Otçul hayvanlar bitkilerle beslenir.', 'Bitkiler besinlerini hayvanlardan alır.', 'Kurbağalar böceklerle beslenir.']),
       ciz('Bir orman besin ağı çiz: En az 5 canlıyı oklarla birbirine bağla.', 90)])]),
     'hafta-35': W(35, 8, 'Çeşitliliği Keşfet', 'Canlı çeşitliliği', () => [numarala([
       tablo('Türkiye\'nin canlı zenginliği! Araştır ve tamamla.', ['Canlı', 'Nerede yaşar?', 'Neden önemli?'], [['Caretta caretta', '', ''], ['Anadolu parsı', '', ''], ['Kelaynak', '', ''], ['Sığla ağacı', '', '']]),
@@ -236,7 +236,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A }) => {
       ciz('Yaşam alanı kartı tasarla: Bir yaşam alanını ve orada yaşayan canlıları çiz.', 80)])]),
     'hafta-36': W(36, 8, 'Yaşam Alanlarını Koru', 'Yaşam alanlarının korunması', () => [numarala([
       tablo('Sorgula! Yaşam alanlarına zarar veren durumlar ve çözüm önerilerin.', ['Zarar veren durum', 'Canlılara etkisi', 'Çözüm önerim'], [['Orman yangını', '', ''], ['Denize atılan plastik', '', ''], ['Sulak alanların kurutulması', '', ''], ['Aşırı avlanma', '', '']]),
-      dy(['Ağaç dikmek yaşam alanlarını korur.', 'Piknikten sonra çöplerimizi doğada bırakabiliriz.', 'Milli parklar canlıları korumak için kurulur.'])]),
+      dy(['Ağaç dikmek yaşam alanlarını korur.', 'Piknikten sonra çöplerimizi doğada bırakabiliriz.', 'Millî parklar canlıları korumak için kurulur.', 'Avlanma yasaklarına uymak canlıları korur.', 'Kuşlar için yuva ve yem koyabiliriz.', 'Yaşam alanlarının yok olması canlıları etkilemez.'])]),
     numarala([yaz('Koruma projesi! Yakın çevrendeki bir yaşam alanı için proje hazırla.', ['Yaşam alanı:', 'Sorun:', 'Ne yapacağız?', 'Kimlerle birlikte?']),
       rozet(['Yaşam alanlarının özelliklerini söyleyebilirim.', 'Canlı çeşitliliğini ölçebilirim.', 'Yaşam alanlarını korumak için önerim var.'])])]),
   };
