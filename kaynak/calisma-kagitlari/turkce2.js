@@ -18,7 +18,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
     `<div class="t2-dy">${liste.map(c => `<div><span class="ttkb">${c}</span><i></i></div>`).join('')}</div>`);
   const sozcuk = (liste) => etk(0, 'Sözcük dedektifi! Altı çizili sözcüğün anlamını cümleden tahmin et. Doğru anlamı daire içine al.',
     `<div class="t2-soz">${liste.map(([cumle, secenek]) => `<div><p class="ttkb">${cumle}</p><div>${karistir(secenek, R([...cumle].reduce((a, c) => a + c.charCodeAt(0), 0) % 997)).map(s => `<span class="ttkb">${s}</span>`).join('')}</div></div>`).join('')}</div>`);
-  const soru = (liste) => etk(0, 'Soruları metne göre cevapla.',
+  const soru = (liste, bas) => etk(0, bas || (liste.every(q => /\b([Ss]en|[Ss]ence|[Ss]enin|[Ss]ana|[Ss]eni|[Ss]ize|[Ss]izin|[Ss]ınıfınız)/.test(q)) ? (liste.length > 1 ? 'Soruları kendi düşüncene göre cevapla.' : 'Soruyu kendi düşüncene göre cevapla.') : (liste.length > 1 ? 'Soruları metne göre cevapla.' : 'Soruyu metne göre cevapla.')),
     `<div class="t2-soru">${liste.map(s => `<div><p class="ttkb">${s}</p>${cizgi(2)}</div>`).join('')}</div>`);
   // Noktalama treni: her vagonun sonuna uygun işareti koy
   const tren = (yonerge, cumleler, isaretler) => etk(0, yonerge,
@@ -129,7 +129,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       ] }),
       numarala([harita(), sirala(['Teyzesi Ali\'ye bir kedi yavrusu getirdi.', 'Ali bir sabah geç uyandı.', 'Ali eve gelince boş su kabını gördü.', 'Ali buzdolabına bir not yapıştırdı.'], 41),
         sozcuk([['Pamuk artık senin <u>sorumluluğunda</u>.', ['bakımı sana ait', 'oyuncağın', 'komşunun']], ['Okula gitmeden önce Pamuk\'un kabını <u>tazeledi</u>.', ['kırdı', 'yeniden doldurdu', 'sakladı']]])]),
-      numarala([dogruYazim('Kişi, hayvan ve yer adlarına gelen ekler kesme işaretiyle (\') ayrılır. Doğru yazılmış balonu boya.', [['Ali\'nin', 'Alinin'], ['Pamuk\'a', 'Pamuka'], ['İzmir\'den', 'İzmirden'], ['kedinin', 'kedi\'nin']], 43),
+      numarala([dogruYazim('Kişi, hayvan ve yer adlarına gelen ekler kesme işaretiyle (\') ayrılır; kedi, ev gibi genel adlara gelen ekler ayrılmaz. Doğru yazılmış balonu boya.', [['Ali\'nin', 'Alinin'], ['Pamuk\'a', 'Pamuka'], ['İzmir\'den', 'İzmirden'], ['kedinin', 'kedi\'nin']], 43),
         yeniden('Cümleleri kesme işaretini doğru kullanarak yeniden yaz.', ['Zeynepin kedisi çok tatlı.', 'Yarın Ankaraya gideceğiz.', 'Bu top Mertin topu.']),
         soru(['Ali\'nin yaptığı not ona nasıl yardım etti?'])]),
       numarala([yazma('Senin de bir sorumluluğun var mı? (Çiçek sulamak, oyuncak toplamak, kardeşine yardım…) Onu anlatan bir yazı yaz.', ['Sorumluluğun ne?', 'Bunu ne zaman, nasıl yapıyorsun?', 'Unutursan ne olur?'], 12)]),
@@ -160,7 +160,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
         'Yıllar geçti. Mustafa askerî okulda okurken matematik dersinde öyle başarılı oldu ki öğretmeni ona yeni bir ad verdi: Kemal. Kemal, “olgun, mükemmel” demekti.',
         'O meraklı çocuk büyüyünce ülkesini kurtaracak, Türkiye Cumhuriyeti\'ni kuracaktı. Biz onu bugün sevgiyle Atatürk diye anıyoruz.',
       ] }),
-      numarala([kimlik('Mustafa\'nın kimlik kartını metinden bulduğun bilgilerle doldur.', ['Doğduğu yıl:', 'Doğduğu şehir:', 'Annesinin adı:', 'Babasının adı:', 'Gittiği okul:', 'Öğretmeninin verdiği ad:'], 'kitap'),
+      numarala([kimlik('Mustafa\'nın kimlik kartını metinden bulduğun bilgilerle doldur.', ['Doğduğu yıl:', 'Doğduğu şehir:', 'Annesinin adı:', 'Babasının adı:', 'Babasının yazdırdığı okul:', 'Öğretmeninin verdiği ad:'], 'kitap'),
         eslestir('Neden ne oldu? Nedeni sonucuyla çizgiyle eşleştir.', [['Babası yeni bilgiler öğrensin istedi,', 'onu Şemsi Efendi Okulu\'na yazdırdı.'], ['Mustafa matematikte çok başarılıydı,', 'öğretmeni ona Kemal adını verdi.'], ['Mustafa çok meraklıydı,', 'her şeyi sorar dururdu.']], 61),
         sozcuk([['Evde <u>tatlı bir tartışma</u> çıktı.', ['kavga, dövüş', 'kırıcı olmayan fikir ayrılığı', 'şeker yemek']], ['Biz onu bugün sevgiyle <u>anıyoruz</u>.', ['hatırlıyoruz, düşünüyoruz', 'unutuyoruz', 'arıyoruz']]])]),
       numarala([yeniden('Kişi ve yer adları büyük harfle başlar. Yanlışları düzelterek cümleleri yeniden yaz.', ['mustafa selanik\'te doğdu.', 'annesi zübeyde hanım çok sevecendi.', 'atatürk, türkiye cumhuriyeti\'ni kurdu.']),
@@ -284,7 +284,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
         'Akşam defteri karıştırırken eski sayfalarda dedemin yıllar önce yazdığı notları buldum: “1985. Elma ağacını diktim. Boyu 50 cm.” Şimdi o ağaç evimizin çatısına uzanıyordu.',
         'Defterin yeni sayfasına kocaman yazdım: “Bu yıl ceviz fidanı diktik. Boyu 45 cm.” Kim bilir, belki bir gün benim torunum da bu notu okuyacak.',
       ] }),
-      numarala([tablo('Defterdeki hasat tablosunu metne göre doldur.', ['Ürün', 'Ne kadar?'], [['domates', ''], ['havuç', ''], ['biber', ''], ['Elma fidanının boyu', ''], ['Ceviz fidanının boyu', '']]),
+      numarala([tablo('Defterdeki tabloyu metne göre doldur.', ['Ürün', 'Ne kadar?'], [['domates', ''], ['havuç', ''], ['biber', ''], ['Elma fidanının boyu', ''], ['Ceviz fidanının boyu', '']]),
         soru(['Bahçede en çok hangi üründen çıktı?', 'Dede neden torununa "bahçenin kâtibi" dedi?', 'Elma ağacı hangi yıl dikilmişti?'])]),
       numarala([eslestir('Kısaltmaları eşleştir.', [['santimetre', 'cm'], ['kilogram', 'kg'], ['kilometre', 'km'], ['metre', 'm']], 131),
         dogruYazim('Hangisi doğru yazılmış? Balonu boya.', [['5 kg', '5 Kg.'], ['80 cm', '80 cm.'], ['3 km', '3 KM']], 133),
@@ -360,7 +360,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
         '– Benim ışığım ablam. Matematikte zorlandığımda bana o yardım ediyor.',
         'O gün herkes kendi “deniz fenerini” anlattı. Zil çaldığında kimse kalkmak istemedi. Efe kitabı kulüp rafına koydu. Rafın önünde şimdiden üç kişi sıraya girmişti.',
       ] }),
-      numarala([harita(), eslestir('Hangisi metnin konusu, hangisi ana fikri? Eşleştir.', [['Konu (metin neyi anlatıyor?)', 'Fırtınada yolunu kaybeden bir martı.'], ['Ana fikir (yazar ne demek istiyor?)', 'Zor zamanlarda bize yol gösteren biri mutlaka vardır.']], 171),
+      numarala([harita(), eslestir('Efe\'nin tanıttığı kitabın konusu hangisi, ana fikri hangisi? Eşleştir.', [['Konu (metin neyi anlatıyor?)', 'Fırtınada yolunu kaybeden bir martı.'], ['Ana fikir (yazar ne demek istiyor?)', 'Zor zamanlarda bize yol gösteren biri mutlaka vardır.']], 171),
         soru(['Senin "deniz fenerin" kim? Neden?'])]),
       numarala([kimlik('Bir kitap künyesi hazırla. En son okuduğun kitabın bilgilerini yaz.', ['Kitabın adı:', 'Yazarı:', 'Yayınevi:', 'Sayfa sayısı:', 'Ana kahramanı:', 'Puanım (1-5):'], 'kitap'),
         sozcuk([['Kitap kulübü her cuma <u>toplanır</u>.', ['bir araya gelir', 'dağılır', 'uyur']], ['Martı fenerin ışığını <u>takip</u> ediyor.', ['izliyor, peşinden gidiyor', 'söndürüyor', 'çiziyor']]]),
@@ -418,7 +418,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([harita(), dogruYanlis(['Elif yetenek gününde keman çaldı.', 'Anlatıcı başta kendini yeteneksiz sanıyordu.', 'Öğretmen ona şarkı söylemesini önerdi.', 'Anlatıcı sahneye bir çiçekle çıktı.']),
         soru(['Öğretmen "Bazı yetenekler her gün, sessizce parlar." derken ne demek istedi?', 'Senin sessiz yeteneğin ne?'])]),
       numarala([yeniden('Konuşmaları iki nokta ve tırnak işaretiyle yaz. Örnek: Annem dedi ki elini yıka. → Annem dedi ki: “Elini yıka.”', ['Öğretmenim dedi ki sen de bir yıldızsın.', 'Kaan sordu sihir nasıl yapılır', 'Elif dedi ki keman çalmayı seviyorum.']),
-        dogruYazim('Hangisi doğru yazılmış? Balonu boya.', [['Ada dedi ki: “Bak!”', 'Ada dedi ki “bak!”'], ['Mert “Teşekkürler.” dedi.', 'Mert: “teşekkürler” dedi.']], 203),
+        dogruYazim('Hangisi doğru yazılmış? Balonu boya.', [['Ada dedi ki: “Bak!”', 'Ada dedi ki “bak!”'], ['Mert, “Teşekkürler.” dedi.', 'Mert: “teşekkürler” dedi.']], 203),
         soru(['Öğretmenin sana söylediği güzel bir sözü tırnak içinde yaz.'])]),
       numarala([yazma('Sınıfındaki bir arkadaşının yeteneğini anlatan bir yazı yaz. Onun söylediği bir sözü tırnak içinde aktar.', ['Arkadaşının adı ve yeteneği:', 'Bu yeteneği nasıl fark ettin?', 'Onun bir sözü: “…”'], 12)]),
     ] },
@@ -433,7 +433,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
         'Seni çok seven torunun,',
         'Elif',
       ] }),
-      numarala([soru(['Elif mektubu kime yazdı?', 'Yetenek gününde ne çaldı?', 'Elif babaannesine neden teşekkür ediyor?']), sirala(['Tarih', 'Hitap', 'Selamlama ve hâl hatır sorma', 'Asıl konu', 'Kapanış ve ad'], 211).replace('Olayları oluş sırasına göre numaralandır.', 'Mektubun bölümlerini mektuptaki sırasına göre numaralandır.'),
+      numarala([soru(['Elif mektubu kime yazdı?', 'Elif yetenek gününde hangi ninniyi çaldı?', 'Elif babaannesine neden teşekkür ediyor?']), sirala(['Tarih', 'Hitap', 'Selamlama ve hâl hatır sorma', 'Asıl konu', 'Kapanış ve ad'], 211).replace('Olayları oluş sırasına göre numaralandır.', 'Mektubun bölümlerini mektuptaki sırasına göre numaralandır.'),
         sozcuk([['Kemandan <u>cırlak</u> sesler çıkıyordu.', ['ince ve kulak tırmalayan', 'tatlı ve yumuşak', 'hiç']]])]),
       numarala([eslestir('Mektuptan alınan satırları bölüm adlarıyla eşleştir.', [['Sevgili Babaanneciğim,', 'hitap'], ['Nasılsın? Kedin Tarçın iyi mi?', 'selamlama'], ['15.02.2027', 'tarih'], ['Seni çok seven torunun,', 'kapanış']], 212),
         bosluk('Hitap ve kapanışları tamamla.', ['Sevgili ___,', 'Değerli ___,', 'Sevgilerimle, ___', 'Görüşmek üzere, ___'])]),
@@ -475,7 +475,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([kiyas('İstiklal Marşı ile okulda öğrendiğin bir şarkıyı karşılaştır. Benzer ve farklı yönlerini yaz.', 'İstiklal Marşı', 'Okul şarkım'),
         sozcuk([['Arkadaşları onu <u>ikna</u> etmeye çalıştı.', ['bir şeyi kabul ettirmek', 'kızdırmak', 'uyutmak']], ['Parayı bir kuruma <u>bağışladı</u>.', ['karşılıksız verdi', 'sakladı', 'kaybetti']]]),
         soru(['Mehmet Akif\'in hangi davranışını örnek alırsın? Neden?'])]),
-      numarala([yazma('Vatanımızı ya da bayrağımızı anlatan dört dizelik kısa bir şiir yaz. Şiirine bir de ad koy.', ['Şiirinin konusu:', 'Kullanacağın güzel sözcükler:', 'Şiirinin adı:'], 10)]),
+      numarala([yazma('Vatanımızı ya da bayrağımızı anlatan dört dizelik kısa bir şiir yaz. Şiirine bir de ad koy.', ['Şiirinin konusu:', 'Kullanacağın güzel sözcükler:', 'Şiirin adı için iki fikir:'], 10)]),
     ] },
     'hafta-24': { unite: 7, hafta: 24, baslik: 'Ters Şemsiye', konu: 'Mucit çocuk · Zıt anlam, çıkarım yapma', sayfalar: () => [
       metin({ baslik: 'Ters Şemsiye', resimler: ['domates-bahce', 'ters-semsiye'], tahmin: 'Bir şemsiye ters tutulursa ne olur?', paragraflar: [
@@ -541,13 +541,14 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([harita(), sirala(['Kâğıdı ortadan ikiye katla ve aç.', 'Üst köşeleri ortadaki çizgiye katla.', 'Kenarları bir kez daha içe katla.', 'Kanatları iki yana aç ve bastır.'], 271).replace('Olayları oluş sırasına göre numaralandır.', 'Selin\'in uçak yapma adımlarını sıraya koy.'),
         soru(['Arda\'nın uçağı neden kısa uçtu?', '"Acele işe şeytan karışır." sözü ne anlatır?'])]),
       numarala([yonergeYaz('Bildiğin bir şeyin nasıl yapıldığını adım adım yaz. (dişini fırçalamak, sandviç hazırlamak, çiçek dikmek…)', 5),
-        domino('Zıt anlam dominosu!', ['hızlı', 'eğri', 'uzak', 'yumuşak', 'üzgün', 'önce'], ['sonra', 'yakın', 'mutlu', 'yavaş', 'sert', 'düz'])]),
+        domino('Zıt anlam dominosu! Alttaki sözcükleri zıt anlamlılarının yanına yaz.', ['hızlı', 'eğri', 'uzak', 'yumuşak', 'üzgün', 'önce'], ['sonra', 'yakın', 'mutlu', 'yavaş', 'sert', 'düz']),
+        soru(['Dominodan iki zıt sözcük seç. İkisini de aynı cümlede kullan.'], 'Cümle kur.')]),
       numarala([yazma('Bir yarışmaya katıldığın günü anlat. Kazanmak mı daha önemli, öğrenmek mi? Düşünceni de yaz.', ['Hangi yarışma?', 'Neler oldu?', 'Ne öğrendin?'], 12)]),
     ] },
     'hafta-28': { unite: 8, hafta: 28, baslik: 'Dünya Çocukları Bizde', konu: 'Kültür hazinemiz · Görüş bildirme, iki nokta ve tırnak', sayfalar: () => [
       metin({ baslik: 'Dünya Çocukları Bizde', resimler: ['cocuklar-halka', 'turna'], tahmin: '23 Nisan\'da evine başka ülkeden bir çocuk gelse ne yapardın?', paragraflar: [
         'Bu yıl 23 Nisan\'da evimizde bir misafirimiz vardı: Japonya\'dan gelen Hana. Hana, şehrimizdeki çocuk şenliğine katılmak için gelmişti ve bir hafta bizde kalacaktı.',
-        'İlk akşam biraz çekingendik. Hana Türkçe bilmiyordu, ben de Japonca. Ama annem sofraya mercimek çorbası koyunca Hana kaşığını aldı, tadına baktı ve parmağını kaldırdı. Hepimiz güldük. Bazen anlaşmak için ortak bir dil gerekmiyordu.',
+        'İlk akşam biraz çekingendik. Hana Türkçe bilmiyordu, ben de Japonca. Ama annem sofraya mercimek çorbası koyunca Hana kaşığını aldı, tadına baktı ve gülümseyerek başparmağını kaldırdı. Hepimiz güldük. Bazen anlaşmak için ortak bir dil gerekmiyordu.',
         'Ertesi gün Hana bana kâğıttan turna yapmayı öğretti. Kâğıdı katladıkça katladı, sonunda avucunda kanatlı bir kuş belirdi. Ben de ona hamur açıp gözleme yapmayı gösterdim. Unlu ellerimizle birbirimize baktık ve kahkahalarla güldük.',
         '23 Nisan sabahı stadyumda farklı ülkelerden gelen yüzlerce çocuk vardı. Herkes kendi ülkesinin dansını yaptı. Hana kimonosuyla dans etti, ben de halk oyunu oynadım. Sonunda bütün çocuklar el ele tutuşup kocaman bir halka oluşturduk.',
         'Hana dönerken bana bir turna verdi. Babamın telefonundan çevirdiği bir not da yazmıştı: “Arkadaşlığımız bu kuş gibi uzaklara uçsun.”',
@@ -572,7 +573,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
         'O akşam ninemden oya yapmayı öğrenmeye başladım. Daha ilk çiçeğimi bile bitiremedim ama ninem gülümsedi:',
         '– Damlaya damlaya göl olur, yavrum.',
       ] }),
-      numarala([harita(), tablo('Sandıktan çıkanları ve özelliklerini yaz.', ['Sandıktan çıkan', 'Özelliği'], [['kilim', ''], ['yazma', ''], ['', ''], ['', '']]),
+      numarala([harita(), tablo('Sandıktan çıkanları ve özelliklerini yaz.', ['Sandıktan çıkan', 'Özelliği'], [['kilim', ''], ['yazma', ''], ['', ''], ['', ''], ['', '']]),
         soru(['Kilimdeki şekiller ne anlatıyordu?'])]),
       numarala([eslestir('Atasözlerini anlamlarıyla eşleştir.', [['Emek olmadan yemek olmaz.', 'Çalışmadan bir şey kazanılmaz.'], ['Damlaya damlaya göl olur.', 'Küçük çabalar birikince büyük sonuç verir.'], ['Acele işe şeytan karışır.', 'Aceleyle yapılan iş bozuk olur.']], 291),
         siniflandir('Sandıktaki eşyaları sınıflandır.', [['Giyecek', '#3a86ff'], ['Evde kullanılan', '#12b886'], ['Süs', '#f2546b']], ['yün çorap', 'kilim', 'oyalı yazma', 'bakır kaşık', 'masa örtüsü', 'işlemeli yastık']),
@@ -648,7 +649,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       ] }),
       numarala([harita(), soru(['Sınıf meclisi neden kuruldu?', 'Kurallar nasıl seçildi?', 'Nehir\'in son sözünü kendi cümlelerinle açıkla.']),
         sozcuk([['<u>Aday</u> olanlar kısa konuşmalar yaptı.', ['seçilmek isteyen kişi', 'oy sayan kişi', 'izleyici']], ['<u>Çoğunluğun</u> kabul ettiği kurallar yazıldı.', ['sınıfın büyük bölümünün', 'yalnız öğretmenin', 'hiç kimsenin']]])]),
-      numarala([siniflandir('Hak mı, sorumluluk mu? Sözcükleri doğru kutuya yaz.', [['Hak', '#3a86ff'], ['Sorumluluk', '#f2546b'], ['İkisi de', '#8b5cf6']], ['oyun oynamak', 'sırayı beklemek', 'eğitim almak', 'eşyaları toplamak', 'fikrini söylemek', 'başkasını dinlemek', 'sağlıklı beslenmek']),
+      numarala([siniflandir('Hak mı, sorumluluk mu? Sözcükleri doğru kutuya yaz.', [['Hak', '#3a86ff'], ['Sorumluluk', '#f2546b']], ['oyun oynamak', 'sırayı beklemek', 'eğitim almak', 'eşyaları toplamak', 'fikrini söylemek', 'başkasını dinlemek']),
         fikir('Bu düşünceye katılıyor musun?', 'Sınıf kurallarını öğrenciler birlikte koymalıdır.'),
         soru(['Sınıfınızda hangi kural olsun isterdin? Neden?'])]),
       numarala([yazma('Sınıf meclisine bir öneri yazısı hazırla. Önce yazma planını doldur, sonra yaz.', ['Sorun ne?', 'Önerin ne?', 'Önerin neden işe yarar?'], 12)]),
@@ -668,7 +669,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([harita(), sirala(['Berk uzun süre salıncakta sallandı.', 'Duru ağlamaya başladı.', 'Dede kum saatini önerdi.', 'Berk Duru\'yu salıncağa bindirdi.'], 341),
         soru(['Berk\'in "Önce gelen istediği kadar biner!" düşüncesi neden adil değil?'])]),
       numarala([fikir('Dedenin önerisine katılıyor musun?', 'Herkes eşit süre binsin. Parkı hepimiz paylaşıyoruz.'),
-        yeniden('Konuşmaları iki nokta ve tırnak işaretiyle yeniden yaz.', ['Ece dedi ki biraz da biz binelim.', 'Dede dedi ki parkı hepimiz paylaşıyoruz.']),
+        yeniden('Konuşmaları iki nokta ve tırnak işaretiyle yeniden yaz. Örnek: Duru dedi ki: “Sıra bende.”', ['Ece dedi ki Berk biraz da biz binelim mi', 'Dede dedi ki parkı hepimiz paylaşıyoruz']),
         soru(['Sen hiç sıranı beklerken zorlandın mı? Ne yaptın?'])]),
       numarala([yazma('Paylaşmak zorunda kaldığın bir şeyi (oyuncak, bilgisayar, top…) anlat. Sorunu nasıl çözdünüz?', ['Ne paylaşılacaktı?', 'Sorun neydi?', 'Nasıl çözdünüz?'], 12)]),
     ] },
@@ -701,11 +702,12 @@ module.exports = ({ etk, resim, numarala, M }) => {
         'Öğretmenimiz gülümsedi:',
         '– Gördünüz mü? Bir yılda ne kadar büyüdünüz. Üçüncü sınıfta yeni kutular sizi bekliyor.',
       ] }),
-      numarala([harita(), tablo('Anlatıcının kutusuna koyduğu eşyaları ve ona neyi hatırlattığını yaz.', ['Eşya', 'Neyi hatırlatıyor?'], [['kırmızı kalem', ''], ['kâğıt fener', ''], ['serçe resmi', ''], ['', '']]),
+      numarala([harita(), tablo('Anlatıcının kutusuna koyduğu eşyaları ve ona neyi hatırlattığını yaz.', ['Eşya', 'Neyi hatırlatıyor?'], [['kırmızı kalem', ''], ['kâğıt fener', ''], ['serçe resmi', ''], ['', ''], ['', '']]),
         soru(['Öğretmen "Bir yılda ne kadar büyüdünüz." derken neyi kastediyor?', 'Bu yıl okuduğun metinlerden en çok hangisini sevdin? Neden?'])]),
-      numarala([tren('Noktalama trenleri! Son vagonlara uygun işareti koy.', ['Kutu doldu', 'Sen kutuna ne koydun', 'Yaşasın, yaz tatili geldi', 'Eylülde okul açılacak'], ['.', '?', '!']),
+      numarala([tren('Noktalama trenleri! Son vagonlara uygun işareti koy.', ['Kutuya bir fotoğraf koydum', 'Sen kutuna ne koydun', 'Yaşasın, yaz tatili geldi', 'Eylülde okul açılacak'], ['.', '?', '!']),
         yeniden('Yazım hatalarını düzelterek yeniden yaz. (büyük harf, kesme, soru eki)', ['elifin kutusunda keman teli varmı?', 'yusuf ankarada yaşıyor.']),
-        domino('Zıt anlam dominosu!', ['ilk', 'kısa', 'boş', 'eğri'], ['dolu', 'son', 'düz', 'uzun'])]),
+        domino('Zıt anlam dominosu! Alttaki sözcükleri zıt anlamlılarının yanına yaz.', ['ilk', 'kısa', 'boş', 'eğri'], ['dolu', 'son', 'düz', 'uzun']),
+        soru(['Dominodan iki zıt sözcük seç. İkisini de aynı cümlede kullan.'], 'Cümle kur.')]),
       numarala([yazma('Senin "Yıl Sonu Kutun"a neler koyardın? Bu yılı anlatan bir yazı yaz.', ['Kutuna koyacağın üç şey:', 'Bu yıl öğrendiğin en güzel şey:', 'Üçüncü sınıftan beklentin:'], 12)]),
     ] },
   };
@@ -761,6 +763,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
 .t2-adimlar{display:flex;flex-direction:column;gap:2.5mm}.t2-adimlar>div{display:grid;grid-template-columns:8mm 26mm 1fr;align-items:end;gap:2mm;background:#fff;border-radius:3mm;padding:1mm 3mm 2mm}
 .t2-adimlar b{width:7mm;height:7mm;border-radius:50%;background:#f4a100;color:#fff;display:grid;place-items:center;font-size:4mm;align-self:center}.t2-adimlar span{font-size:5mm;align-self:center}
 .govde>.etk:last-child>:is(.t2-sinif,.t2-venn,.t2-harita,.t2-domino){align-content:stretch!important}
+.govde>.etk:last-child>.t2-soru{justify-content:flex-start!important}.govde>.etk:last-child>.t2-soru>div{flex:1;display:flex;flex-direction:column}
 .govde>.etk:last-child>.t2-esle{flex:0 0 auto!important;align-content:start!important}
 .t2-sinif>div,.t2-venn>div,.t2-harita>div{display:flex;flex-direction:column}.t2-sinif .t2-cizgi,.t2-venn .t2-cizgi,.t2-harita .t2-cizgi{flex:1;justify-content:space-evenly}
 .govde>.etk:last-child>.t2-domino{align-content:space-evenly!important}
