@@ -31,3 +31,13 @@ Raporlardaki (1-sinif.md, 2-sinif.md, 3-sinif.md) bulgulardan yapılanlar. Yapı
 - 2. sınıf Matematik: gerçek ölçekli cetvel (2-3. sınıf), geri sayma sayı doğrusu, "1 şişe = 1 kova" kaldırıldı, problem yazarı etkinliğine sayılar.
 - 1. sınıf: para eşleştirme çizimleri, 1-2 mm taşmalar.
 - Türkçe 3 · 10-11 resimleri işlendi (Nene Hatun yetişkin, Millet Mektebi, rüzgârlı tepe, Nusret, el feneri, sessiz kütüphane, toplanma alanı, deprem).
+
+## 16 Kasım 2026
+- Eşleştirme verilerindeki yanlış çiftler (T2, T3: 17 etkinlik) düzeltildi.
+- D/Y listeleri (HB2, HB3, Fen3) 5-6 maddeye çıktı.
+- 1. sınıf Matematik: kavanoz bilye sayısı, otobüs/kuş teli tek cevap, terazi kesiği, noktalı kâğıt köşeleri, eşini bul boyları, 20 sınırı, tekrarlar.
+- 1. sınıf Hayat Bilgisi: çok cevaplı eşleştirmeler, resim-yazı çelişkileri, 19. hafta bayrak çeldiricisi, 20/27. hafta tekrarları.
+- 1. sınıf Türkçe: t, l, o, ü, j, b sayfalarındaki cümleler; akıcı okuma (l, R hikâyesi) kök sayfada da.
+- 2. sınıf Matematik: şekil resimleri, kesir/simetri tekrarları, çizim kutusu.
+- 2-3. sınıf Türkçe/HB/Fen: rapordaki metin hataları; son kutuda soru ve yazma alanı üstte.
+- Kalan: boş alan (22 mm üstü) sayfaları; resim gerektiren maddeler.
