@@ -44,7 +44,7 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
   const haftaPlan = () => etk(0, 'Haftalık planım! Her güne ders, oyun ve dinlenme için birer iş yaz ya da çiz.',
     `<table class="h2-plan ttkb"><tr><th></th>${['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'].map(g => `<th>${g}</th>`).join('')}</tr>${[['📚', 'Ders'], ['⚽', 'Oyun'], ['🛏️', 'Dinlenme']].map(([i, s]) => `<tr><th>${s}</th>${'<td></td>'.repeat(7)}</tr>`).join('')}</table>`);
   const gunSirala = (liste, t) => etk(0, 'Günün olaylarını sıraya koy. Kutulara 1, 2, 3… yaz.',
-    `<div class="h2-resimler sira">${karistir(liste, R(t)).map(a => `<span>${resim(a)}${kutu(10)}</span>`).join('')}</div>`);
+    `<div class="h2-resimler gsira">${karistir(liste, R(t)).map(a => `<span>${resim(a)}${kutu(10)}</span>`).join('')}</div>`);
   const levhaTanit = (adlar) => etk(0, 'Trafik levhalarını tanıyalım. Her levhanın altına adını yaz. Kutudan seçebilirsin.',
     `<div class="h2-banka ttkb">${karistir(adlar.map(a => LAD[a]), R(adlar.length)).map(s => `<span>${s}</span>`).join('')}</div><div class="h2-levhalar">${adlar.map(a => `<div>${levha(a, 26)}${cizgi(1)}</div>`).join('')}</div>`);
   const levhaBoya = () => etk(0, 'Levhaları doğru renklere boya: Dur levhası kırmızı, yaya geçidi levhası mavi.',
@@ -183,7 +183,7 @@ module.exports = ({ etk, resim, numarala, rastgele }) => {
   const CSS = `
 .h2k{display:inline-block;height:8mm;border:.6mm solid #4a5a50;border-radius:2mm;background:#fff;vertical-align:middle}
 .h2-cizgi{display:flex;flex-direction:column}.h2-cizgi i{height:9mm;border-bottom:.6mm solid #7d95ab}
-.h2-resimler{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}.h2-resimler span{background:#fff;border-radius:4mm;padding:2mm;display:flex;flex-direction:column;align-items:center;gap:1.5mm;border:.5mm solid #cfd8d1}
+.h2-resimler{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}.h2-resimler>span{background:#fff;border-radius:4mm;padding:2mm;display:flex;flex-direction:column;align-items:center;gap:1.5mm;border:.5mm solid #cfd8d1}
 .h2-resimler img{width:100%;height:30mm;object-fit:contain}.h2-resimler:has(span:nth-child(5):last-child),.h2-resimler:has(span:nth-child(6):last-child){grid-template-columns:repeat(3,1fr)}
 .h2-dav{display:flex;flex-direction:column;gap:2.5mm}.h2-dav>div{display:grid;grid-template-columns:24mm 1fr auto;gap:3mm;align-items:center;background:#fff;border-radius:3mm;padding:1.5mm 3mm}
 .h2-dav img{width:22mm;height:22mm;object-fit:contain}.h2-dav p{margin:0;font-size:5mm}.h2-dav em{display:flex;gap:2mm}.h2-dav em svg{margin:0!important}
