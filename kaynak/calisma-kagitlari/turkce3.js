@@ -259,7 +259,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
         soru(['Okan Bey\'e göre ansiklopediler neden güvenilir kaynaktır?', 'Sema neden mektuplar saklamış olabilir?'])]),
       numarala([fikir('Bu düşünceye katılıyor musun?', 'İnternet varken ansiklopediye gerek yoktur.'),
         yazma('Okul müdürüne kütüphane için bir istek ve öneri mektubu yaz.', ['Hitap:', 'İsteğin ve önerin:', 'Kapanış ve ad soyad:'], 5)]),
-      numarala([yazma('Gelecekteki okuyuculara bir mektup yaz ve ona bir soru sor. Mektubunu bir kitabın arasına saklayabilirsin.', ['Hitap:', 'Kendini tanıt ve soruyu sor:', 'Kapanış:'], 12)]),
+      numarala([yazma('Gelecekteki bir okuyucuya mektup yaz ve ona bir soru sor. Mektubunu bir kitabın arasına saklayabilirsin.', ['Hitap:', 'Kendini tanıt ve soruyu sor:', 'Kapanış:'], 12)]),
     ] },
     'hafta-15': { unite: 5, hafta: 15, baslik: 'Sözlükte Bir Yolculuk', konu: 'Bilgi hazinemiz · Alfabetik sıra, sözlük kullanma', sayfalar: () => [
       metin({ baslik: 'Sözlükte Bir Yolculuk', resimler: ['sozluk-cocuk', 'kitaptan-sekiller'], tahmin: 'Sözlükte bir sözcük nasıl bulunur?', paragraflar: [
@@ -329,7 +329,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
       numarala([harita(), sirala(['Bahçede pati izleri bulundu.', 'Ayten Hanım miyavlama duyduğunu söyledi.', 'Boncuk ağaçta bulundu.', '112 arandı.', 'İtfaiyeci Boncuk\'u kurtardı.'], 181),
         soru(['Anlatıcı neden sakin kalmaya çalıştı?', '112\'yi ararken hangi bilgileri verdi?'])]),
       numarala([domino('Eş ve zıt anlam karışık! Her taşın yanına ister eş ister zıt anlamlısını yaz ve hangisi olduğunu belirt (E / Z).', ['yüksek', 'kibar', 'sakin', 'büyük', 'yavaş', 'cevap'], ['alçak', 'nazik', 'telaşlı', 'iri', 'hızlı', 'yanıt']),
-        yeniden('Büyük harf ve kısaltma eklerini düzelterek yeniden yaz.', ['mina ile ayten hanım boncuk\'u aradı.', 'İtfaiyeyi 112ye bildirdik.']),
+        yeniden('Büyük harf ve kısaltma eklerini düzelterek yeniden yaz.', ['mina ile ayten hanım boncuk\'u aradı.', 'Yangını 112ye bildirdik.']),
         yonergeYaz('Kaybolan bir evcil hayvanı bulmak için ayrıntılı bir yönerge yaz.', 4)]),
       numarala([yazma('İtfaiyeci Kerem Bey\'e bir teşekkür mektubu yaz.', ['Hitap:', 'Ne için teşekkür ediyorsun?', 'Kapanış:'], 12)]),
     ] },
@@ -467,10 +467,10 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
       numarala([yazma('Kendi icadını tasarla! Adını koy, nasıl çalıştığını ve neye yaradığını açıklayan bir yazı yaz.', ['İcadımın adı:', 'Nasıl çalışır?', 'Kimin işine yarar?'], 12)]),
     ] },
     'hafta-26': { unite: 7, hafta: 26, baslik: 'Yıldızları Sayan Adam', konu: 'Bilim yolculuğu · Gerçek ve mecaz anlam, okuma stratejisi', sayfalar: () => [
-      metin({ baslik: 'Yıldızları Sayan Adam', resimler: ['eski-gozlemevi', 'teleskoplu-cocuk'], tahmin: 'Eskiden insanlar yıldızları nasıl inceliyordu?', paragraflar: [
+      metin({ baslik: 'Yıldızları Sayan Adam', resimler: ['teleskoplu-cocuk'], tahmin: 'Eskiden insanlar yıldızları nasıl inceliyordu?', paragraflar: [
         'Yaklaşık altı yüz yıl önce, Semerkant şehrinde büyük bir gözlemevi vardı. Bu gözlemevini bilim âşığı bir hükümdar olan Uluğ Bey yaptırmıştı. Gözlemevinde yıldızların, gezegenlerin, Güneş\'in ve Ay\'ın hareketlerini inceleyen bilginler çalışırdı.',
         'Bu bilginlerden biri, genç ve meraklı bir öğrenciydi: Ali Kuşçu. Adının bir hikâyesi vardı. Babası Uluğ Bey\'in doğancısıydı, yani avcı kuşlarına bakardı. Kuşçu adı buradan geliyordu. Ama Ali\'nin gözü kuşlarda değil, yıldızlardaydı.',
-        'Ali Kuşçu her gece gözlemevinin kulesine çıkar, saatlerce gökyüzünü izlerdi. O zamanlar teleskop yoktu. Bilginler yıldızları büyük taş ve bakır aletlerle ölçerdi. Ali Kuşçu ve arkadaşları binlerce yıldızın yerini tek tek ölçüp bir kitaba yazdılar. Bu yıldız kataloğu, yüzyıllar boyunca bilim insanlarının kullandığı bir hazine oldu.',
+        'Ali Kuşçu her gece gözlemevinin kulesine çıkar, saatlerce gökyüzünü izlerdi. O zamanlar teleskop yoktu. Bilginler yıldızları büyük taş ve bakır aletlerle ölçerdi. Ali Kuşçu ve arkadaşları binden fazla yıldızın yerini tek tek ölçüp bir kitaba yazdılar. Bu yıldız kataloğu, yüzyıllar boyunca bilim insanlarının kullandığı bir hazine oldu.',
         'Ali Kuşçu ayrıca matematik ve astronomi kitapları yazdı. Yıllar sonra İstanbul\'a geldi ve burada ders verdi. Öğrencilerine şöyle derdi:',
         '– Gökyüzü büyük bir kitaptır. Onu okumak için önce sabırla bakmayı öğrenmelisiniz.',
         'Bugün Ay\'da bir kraterin adı Ali Kuşçu\'dur. Gökyüzünü okuyan adamın adı, artık gökyüzünde yazılıdır.',
@@ -550,7 +550,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
         'Annem gülümsedi:',
         '– Tek başına açsan bir hafta sürer. Birlikte açınca bir gün. Hem bir günde yalnız yufka değil, dostluk da pişer.',
       ] }),
-      numarala([harita(), tablo('İmecede kim ne yaptı? Metne göre doldur.', ['Kim?', 'Görevi'], [['Gülsüm Teyze', ''], ['Anneanne', ''], ['Anlatıcı', ''], ['Bütün köy', '']]),
+      numarala([harita(), tablo('İmecede kim ne yaptı? Metne göre doldur.', ['Kim?', 'Görevi'], [['Gülsüm Teyze', ''], ['Anneanne', ''], ['Anlatıcı', ''], ['Kadınlar', '']]),
         soru(['Annenin "Bir günde dostluk da pişer." sözü ne anlatıyor?'])]),
       numarala([tablo('Okuma amacım! Aşağıdaki metinleri hangi amaçla ve nasıl okursun?', ['Metin', 'Amacım', 'Nasıl okurum?'], [['Bir yufka tarifi', 'Yapmayı öğrenmek', ''], ['Bir masal', '', 'Baştan sona, keyifle'], ['Bir otobüs saati tablosu', '', '']]),
         sozcuk([['Hamurdan <u>bezeler</u> koparıldı.', ['yuvarlak hamur parçaları', 'tahta parçaları', 'kaplar']], ['Bu işi <u>el birliğiyle</u> yaptık.', ['birlikte, yardımlaşarak', 'tek elle', 'eldivenle']]])]),
@@ -672,7 +672,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
 .t3-sirala{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.t3-sirala span{display:flex;align-items:center;gap:2mm;background:#fff;border-radius:3mm;padding:2mm 3mm;font-size:5.4mm}.t3-sirala i{width:9mm;height:9mm;border:.6mm solid #4a5a50;border-radius:50%}
 .t3-sozluk{display:flex;flex-direction:column;gap:2mm}.t3-sozluk>div{background:#fff;border-radius:3mm;padding:2mm 3mm}.t3-sozluk b{font-weight:400;font-size:5.2mm;color:#1d4e89}
 .t3-ucbolum{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.t3-ucbolum>div{background:#fff;border-radius:3mm;padding:2mm 3mm}.t3-ucbolum b{font-weight:400;font-size:5mm;color:#8b5cf6}
-.t3-dortkare{display:grid;grid-template-columns:1fr 1fr;gap:4mm;flex:1}.t3-dortkare>div{background:#fff;border-radius:3mm;padding:2mm 3mm;display:flex;flex-direction:column;gap:1mm;position:relative}.t3-dortkare span{position:absolute;top:2mm;left:3mm;font-size:5mm;color:#8b5cf6}.t3-dortkare i{flex:1;min-height:44mm;border:.5mm dashed #9db4c8;border-radius:2mm}
+.t3-dortkare{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:4mm;flex:1;align-content:stretch!important}.t3-dortkare>div{background:#fff;border-radius:3mm;padding:2mm 3mm;display:flex;flex-direction:column;gap:1mm;position:relative}.t3-dortkare span{position:absolute;top:2mm;left:3mm;font-size:5mm;color:#8b5cf6}.t3-dortkare>div>i{flex:1;min-height:44mm;border:.5mm dashed #9db4c8;border-radius:2mm;margin-top:7mm}
 .t3-dilekce{background:#fff;border-radius:3mm;padding:4mm 6mm;font-size:5mm}.t3-dilekce p{margin:0 0 2mm}.t3-sag{text-align:right}.t3-orta{text-align:center;text-transform:uppercase}.t3-konu{font-size:4.6mm;color:#5b6b7b}
 `;
   return { T3, CSS };
