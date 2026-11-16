@@ -461,10 +461,10 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
   const cisimEsle = (liste) => etk(0, 'Eşyaları benzedikleri cisimle çizgiyle birleştir: küp, küre, silindir, koni.',
     `<div class="esles cisim"><div class="sol">${liste.map(([e]) => `<div>${resim(e)}<i></i></div>`).join('')}</div><div class="sag">${['kup', 'kure', 'silindir', 'koni'].map(c => `<div><i></i>${sahne(60, 60, { kup: '<path d="M10 22 L30 12 L52 22 L52 48 L30 58 L10 48 Z M10 22 L30 32 L52 22 M30 32 V58" fill="#d9f0ff" stroke="#1f2a24" stroke-width="2.5" stroke-linejoin="round"/>', kure: '<circle cx="30" cy="32" r="24" fill="#fff3c4" stroke="#1f2a24" stroke-width="2.5"/><ellipse cx="30" cy="32" rx="24" ry="7" fill="none" stroke="#1f2a24" stroke-width="1.5" stroke-dasharray="3 3"/>', silindir: '<path d="M12 14 V48 A18 7 0 0 0 48 48 V14" fill="#d8f5e9" stroke="#1f2a24" stroke-width="2.5"/><ellipse cx="30" cy="14" rx="18" ry="7" fill="#d8f5e9" stroke="#1f2a24" stroke-width="2.5"/>', koni: '<path d="M30 6 L50 50 A20 7 0 0 1 10 50 Z" fill="#ffe0e5" stroke="#1f2a24" stroke-width="2.5" stroke-linejoin="round"/>' }[c], 26)}<b class="ttkb cisim">${{ kup: 'küp', kure: 'küre', silindir: 'silindir', koni: 'koni' }[c]}</b></div>`).join('')}</div></div>`);
   // veri
-  const cetele = (resimler, tohum) => { const r = R(tohum); const tum = karistir(resimler.flatMap(([a, n]) => Array(n).fill(a)), r);
-    return etk(0, 'Bahçedeki meyveleri say. Her meyve için tabloya bir çentik (|) çiz, sonra sayıyı yaz.',
+  const cetele = (resimler, tohum, ne = 'Bahçedeki meyveleri say. Her meyve için') => { const r = R(tohum); const tum = karistir(resimler.flatMap(([a, n]) => Array(n).fill(a)), r);
+    return etk(0, ne + ' tabloya bir çentik (|) çiz, sonra sayıyı yaz.',
       `<div class="dagin veri">${tum.map((a, i) => `<span style="left:${(i % 7) * 13.5 + 2 + r() * 4}%;top:${Math.floor(i / 7) * 30 + 4 + r() * 8}%">${resim(a)}</span>`).join('')}</div><table class="olctab"><tr><th></th><th>Çentikler</th><th>Kaç tane?</th></tr>${resimler.map(([a]) => `<tr><td>${resim(a)}</td><td class="centik"></td><td>${kutuK}</td></tr>`).join('')}</table>`); };
-  const resimGrafigi = (liste, soru) => etk(0, 'Tablodaki sayılara göre grafiği boya: her kare bir oy. Sonra soruları cevapla.',
+  const resimGrafigi = (liste, soru) => etk(0, 'Resmin yanındaki sayı kadar kareyi boya: her kare bir oy. Sonra soruları cevapla.',
     `<div class="grafik">${liste.map(([a, n]) => `<div><span class="g-kare">${Array.from({ length: 9 }, () => '<i></i>').join('')}</span>${resim(a)}<b class="ttkb">${n}</b></div>`).join('')}</div>${gorev(soru.map(s => ['?', s]))}`);
   const anket = (secenek, soru) => etk(0, `Sınıf anketi: ${soru} Arkadaşlarına sor, her cevap için bir kareyi boya.`,
     `<div class="grafik anket">${secenek.map(a => `<div><span class="g-kare uzun">${Array.from({ length: 12 }, () => '<i></i>').join('')}</span>${resim(a)}</div>`).join('')}</div>`);
@@ -573,7 +573,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
       numarala([problemCiz(['Masada 3 kalem var. Can 5 kalem daha koydu. Masada kaç kalem oldu?', 'Bahçede 10 çiçek vardı. 4 çiçeği kopardık. Kaç çiçek kaldı?', 'Akvaryumda 4 balık vardı. Babam 4 balık daha aldı. Kaç balık oldu?'])]),
     ] },
     'hafta-28': { unite: 3, hafta: 28, baslik: 'Problem Ormanı 2', konu: 'Toplama ve çıkarma işlemlerini yorumlama', sayfalar: () => [
-      numarala([problem([['Otobüste 8 yolcu vardı. Durakta 3 yolcu indi. Otobüste kaç yolcu kaldı?', 'otobus'], ['Tavuk sabah 4 yumurta, öğlen 2 yumurta yumurtladı. Toplam kaç yumurta oldu?', 'yumurta'], ['Raftaki 12 kitaptan 5 tanesini okudum. Kaç kitap okumadım?', 'kitap'], ['Göldeki 9 kurbağadan 4 tanesi suya atladı. Kaç kurbağa kıyıda kaldı?', 'kurbaga']])]),
+      numarala([problem([['Otobüste 8 yolcu vardı. Durakta 3 yolcu indi. Otobüste kaç yolcu kaldı?', 'otobus'], ['Sepette 4 yumurta vardı. Annem 2 yumurta daha koydu. Sepette kaç yumurta oldu?', 'yumurta'], ['Raftaki 12 kitaptan 5 tanesini okudum. Kaç kitap okumadım?', 'kitap'], ['Göldeki 9 kurbağadan 4 tanesi suya atladı. Kaç kurbağa kıyıda kaldı?', 'kurbaga']])]),
       numarala([problem([['Mert 7 bilye kazandı, sonra 6 bilye daha kazandı. Kaç bilyesi oldu?', 'top'], ['Kafeste 9 kuş vardı. 9 kuş da uçtu. Kafeste kaç kuş kaldı?', 'kus'], ['Zeynep 11 simit aldı. Arkadaşlarına 5 tanesini verdi. Kaç simidi kaldı?', 'simit'], ['Kırmızı 7, mavi 8 balon var. Toplam kaç balon var?', 'balon']])]),
       numarala([problemKur([['kedi', 4, 3, '+'], ['balik', 8, 3, '−'], ['elma', 6, 2, '+']])]),
       numarala([problemCiz(['Tabakta 6 kurabiye vardı. 6 kurabiyeyi de yedik. Kaç kurabiye kaldı?', 'Tren 5 vagonluydu. 4 vagon daha eklendi. Tren kaç vagonlu oldu?', 'Okulda 14 öğrenci vardı. 6 öğrenci eve gitti. Okulda kaç öğrenci kaldı?'])]),
@@ -585,29 +585,29 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
       numarala([problemCiz(['Ağaçta 8 elma vardı. Rüzgârda 3 elma düştü. Ağaçta kaç elma kaldı?', 'Kedi 2 balık yedi, sonra 5 balık daha yedi. Kedi kaç balık yedi?', 'Duvarda 13 resim vardı. 3 resmi kaldırdık. Kaç resim kaldı?'])]),
     ] },
     'hafta-30': { unite: 3, hafta: 30, baslik: 'Kumbaram', konu: 'Problemler · Paralarımız', sayfalar: () => [
-      numarala([problem([['Kumbaramda 5 lira vardı. Dedem 10 lira verdi. Kaç liram oldu?', 'cuzdan'], ['20 liram vardı. 5 liralık dondurma aldım. Kaç liram kaldı?', 'dondurma']]), kumbara([[1, 1, 1], [5, 1, 1], [10, 5], [10, 10, 1]])]),
+      numarala([problem([['Cüzdanımda 5 lira vardı. Dedem 10 lira verdi. Kaç liram oldu?', 'cuzdan'], ['20 liram vardı. 5 liralık dondurma aldım. Kaç liram kaldı?', 'dondurma']]), kumbara([[1, 1, 1], [5, 1, 1], [10, 5], [10, 10, 1]])]),
       numarala([kumbara([[5, 5, 1, 1], [20, 10], [10, 5, 1, 1, 1]]), paraEsle([[5, [1, 1, 1, 1, 1]], [10, [5, 5]], [20, [10, 10]], [50, [20, 20, 10]]])]),
       numarala([problemCiz(['Simit 10 lira, ayran 5 lira. İkisini almak için kaç lira gerekir?', 'Cüzdanımda 20 lira var. 10 liralık kalem aldım. Kaç liram kaldı?', 'Dedem bana 5 lira, ninem 10 lira verdi. Kaç liram oldu?'])]),
     ] },
     'hafta-31': { unite: 4, hafta: 31, baslik: 'Market · Şekil Ormanı', konu: 'Paralarımız · Nesneler ve geometrik şekiller', sayfalar: () => [
       numarala([market([['elma', 5, [1, 5, 1, 10]], ['simit', 10, [5, 10, 1, 5]], ['top', 20, [10, 5, 20, 1]], ['kitap', 15, [10, 1, 5, 20]], ['dondurma', 7, [5, 1, 10, 1, 1]], ['canta', 50, [20, 50, 10, 5]]])]),
-      numarala([sekilAvi(), noktali(['M45 45 H135 V135 H45 Z', 'M90 15 L165 135 H15 Z'])]),
+      numarala([sekilAvi(), noktali(['M45 45 H135 V135 H45 Z', 'M75 15 L135 135 H15 Z'])]),
     ] },
     'hafta-32': { unite: 4, hafta: 32, baslik: 'Noktalı Kâğıt', konu: 'Nesneler ve geometrik şekiller', sayfalar: () => [
       numarala([sekilBul([['daire', ['saat', 'kitap', 'top', 'jeton', 'masa']], ['kare', ['pencere', 'top', 'kutu', 'gunes', 'kapi']], ['uc', ['ucgen', 'saat', 'cadir', 'top', 'zil']], ['dik', ['kapi', 'kitap', 'top', 'telefon', 'saat']]]), cisimEsle([['kutu'], ['top'], ['mum'], ['dondurma']])]),
-      numarala([noktali(['M45 45 H135 V135 H45 Z', 'M90 15 L165 135 H15 Z', 'M15 45 H165 V105 H15 Z', 'M45 15 H135 L165 75 L135 135 H45 L15 75 Z', 'M15 135 V45 L90 15 L165 45 V135 Z', 'M15 75 L90 15 L165 75 L90 135 Z']), sekilBul([['daire', ['gunes', 'kitap', 'saat', 'jeton', 'masa']], ['dik', ['telefon', 'top', 'kapi', 'kitap', 'gunes']]])]),
+      numarala([noktali(['M45 45 H135 V135 H45 Z', 'M75 15 L135 135 H15 Z', 'M15 45 H165 V105 H15 Z', 'M45 15 H135 L165 75 L135 135 H45 L15 75 Z', 'M15 135 V75 L75 15 L135 75 V135 Z', 'M15 75 L75 15 L135 75 L75 135 Z']), sekilBul([['daire', ['gunes', 'kitap', 'saat', 'jeton', 'masa']], ['dik', ['telefon', 'top', 'kapi', 'kitap', 'gunes']]])]),
     ] },
     'hafta-33': { unite: 4, hafta: 33, baslik: 'Küp, Küre, Silindir', konu: 'Nesneler ve geometrik şekiller', sayfalar: () => [
-      numarala([cisimEsle([['kutu'], ['top'], ['mum'], ['dondurma']]), sekilBul([['daire', ['saat', 'uzum', 'gunes', 'kitap', 'jeton']], ['dik', ['kapi', 'top', 'telefon', 'pencere', 'saat']]]), noktali(['M45 45 H135 V135 H45 Z', 'M15 135 L90 15 L165 135 Z'])]),
+      numarala([cisimEsle([['kutu'], ['top'], ['mum'], ['dondurma']]), sekilBul([['daire', ['saat', 'uzum', 'gunes', 'kitap', 'jeton']], ['dik', ['kapi', 'top', 'telefon', 'pencere', 'saat']]]), noktali(['M45 45 H135 V135 H45 Z', 'M15 135 L75 15 L135 135 Z'])]),
       numarala([sekilAvi(), cisimEsle([['kova'], ['saat'], ['kek'], ['lamba']])]),
     ] },
     'hafta-34': { unite: 5, hafta: 34, baslik: 'Çetele Tutalım', konu: 'Nesneler ve geometrik şekiller · Veri toplama', sayfalar: () => [
-      numarala([noktali(['M15 135 L90 15 L165 135 Z', 'M45 15 H135 V135 H45 Z', 'M15 15 H165 V75 H15 Z', 'M90 15 L165 75 L90 135 L15 75 Z']), sekilBul([['kare', ['pencere', 'top', 'kutu', 'saat', 'kapi']], ['uc', ['cadir', 'top', 'ucgen', 'kitap', 'saat']], ['daire', ['kitap', 'saat', 'jeton', 'kapi', 'gunes']]])]),
+      numarala([noktali(['M15 135 L75 15 L135 135 Z', 'M45 15 H135 V135 H45 Z', 'M15 15 H165 V75 H15 Z', 'M15 75 L75 15 L135 75 L75 135 Z']), sekilBul([['kare', ['pencere', 'top', 'kutu', 'saat', 'kapi']], ['uc', ['cadir', 'top', 'ucgen', 'kitap', 'saat']], ['daire', ['kitap', 'saat', 'jeton', 'kapi', 'gunes']]])]),
       numarala([cetele([['elma', 5], ['armut', 3], ['cilek', 7], ['muz', 4]], 41)]),
     ] },
     'hafta-35': { unite: 5, hafta: 35, baslik: 'Resim Grafiği', konu: 'Veri toplama ve değerlendirme', sayfalar: () => [
       numarala([resimGrafigi([['kedi', 6], ['kopek', 4], ['kus', 2], ['balik', 5]], ['En çok sevilen hayvan hangisi?', 'Kaç kişi kuşu seçti?', 'Kedi, köpekten kaç fazla?', 'Toplam kaç kişi oy verdi?'])]),
-      numarala([cetele([['top', 6], ['balon', 4], ['ucurtma', 3], ['robot', 5]], 47)]),
+      numarala([cetele([['top', 6], ['balon', 4], ['ucurtma', 3], ['robot', 5]], 47, 'Odadaki oyuncakları say. Her oyuncak için')]),
     ] },
     'hafta-36': { unite: 5, hafta: 36, baslik: 'Sınıf Anketi', konu: 'Veri toplama ve değerlendirme', sayfalar: () => [
       numarala([anket(['elma', 'muz', 'cilek', 'uzum', 'mandalina'], 'Hangi meyveyi en çok seversin?')]),
