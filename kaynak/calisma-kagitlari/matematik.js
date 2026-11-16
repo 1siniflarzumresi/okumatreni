@@ -290,8 +290,8 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
   const corapIpi = (dizi) => etk(0, 'Çamaşır ipindeki çorapların eşlerini bul. Eş çorapları aynı renge boya.',
     sahne(dizi.length * 100 + 20, 170, `<path d="M0 22 Q${dizi.length * 50 + 10} 46 ${dizi.length * 100 + 20} 22" fill="none" stroke="#8e5b2b" stroke-width="3"/>` + dizi.map((d, i) => corap(20 + i * 100, 30, d) + `<rect x="${26 + i * 100}" y="20" width="10" height="22" rx="2" fill="#f2b94b" stroke="#1f2a24" stroke-width="2"/>`).join(''), 178));
   const esiniBul = (satirlar) => etk(0, 'Çerçevedeki resme bak. Onunla EŞ olanı (aynı şekil, aynı büyüklük) bul, daire içine al.',
-    `<div class="esbul">${satirlar.map(([ad, digeri], k) => { const sec = [[ad, 1], [ad, .6], [ad, 1.35], [digeri, 1]]; const sira = [[0, 1, 2, 3], [1, 0, 3, 2], [2, 3, 0, 1], [3, 2, 1, 0]][k % 4].map(i => sec[i]);
-      return `<div><span class="model">${resim(ad)}</span>${sira.map(([a, o]) => `<span class="sec"><img src="${RY(a)}" style="width:${o * 100}%;height:${o * 100}%"></span>`).join('')}</div>`; }).join('')}</div>`);
+    `<div class="esbul">${satirlar.map(([ad, digeri], k) => { const sec = [[ad, 18], [ad, 11], [ad, 25], [digeri, 18]]; const sira = [[0, 1, 2, 3], [1, 0, 3, 2], [2, 3, 0, 1], [3, 2, 1, 0]][k % 4].map(i => sec[i]);
+      return `<div><span class="model"><img src="${RY(ad)}" style="height:18mm;width:auto"></span>${sira.map(([a, o]) => `<span class="sec"><img src="${RY(a)}" style="height:${o}mm;width:auto;max-width:none"></span>`).join('')}</div>`; }).join('')}</div>`);
   const DOLGU = { b: 'none', d: '#9aa59d', c: 'url(#kc)', n: 'url(#kn)' };
   const kuleKopya = (modeller) => etk(0, 'Örnek kuleye bak. Yanındaki boş kuleyi aynı desenle boya: düz, gri, çizgili ya da noktalı.',
     `<div class="kopyalar">${modeller.map(m => sahne(240, 60 + m.length * 34, `<defs>${DESEN.cizgi('kc')}${DESEN.nokta('kn')}</defs>` + m.map((d, i) => `<rect x="30" y="${20 + (m.length - 1 - i) * 34}" width="60" height="32" fill="${DOLGU[d]}" stroke="#1f2a24" stroke-width="2.5"/><rect x="150" y="${20 + (m.length - 1 - i) * 34}" width="60" height="32" fill="none" stroke="#1f2a24" stroke-width="2.5"/>`).join('') + `<line x1="10" x2="230" y1="${22 + m.length * 34}" y2="${22 + m.length * 34}" stroke="#8e5b2b" stroke-width="4"/><path d="M105 ${30 + m.length * 15} h28 l-8 -6 m8 6 l-8 6" stroke="#2e6b4a" stroke-width="3" fill="none"/>`, 55)).join('')}</div>`);
@@ -717,7 +717,7 @@ module.exports = ({ etk, satir, resim, resimCizgi, RY, rastgele, numarala }) => 
 .oklar svg{width:100%;height:auto}
 .esbul{display:flex;flex-direction:column;gap:2.5mm}
 .esbul>div{display:grid;grid-template-columns:30mm repeat(4,1fr);gap:4mm;align-items:center;border-bottom:.55mm dashed #8fa39a;padding-bottom:2mm}
-.esbul .model{height:26mm;border:.8mm solid #2e6b4a;border-radius:3mm;padding:2mm;display:block}
+.esbul .model{height:26mm;border:.8mm solid #2e6b4a;border-radius:3mm;padding:2mm;display:flex;align-items:center;justify-content:center}
 .esbul .sec{height:26mm;display:flex;align-items:center;justify-content:center}
 .esbul .sec img{object-fit:contain}
 .kopyalar{display:flex;flex-wrap:wrap;gap:4mm;justify-content:space-around;align-items:flex-end}
