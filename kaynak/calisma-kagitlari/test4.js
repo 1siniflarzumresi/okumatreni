@@ -15,7 +15,7 @@ module.exports = ({ S }) => {
     const n = ++NO; ANAH.push(`${n}-${H[s.d]}`); TIP.push(o.tip || 'coktan');
     const duz = s.l.map(x => String(x).replace(/<[^>]+>/g, ''));
     const resimli = s.l.some(x => String(x).includes('<svg') || String(x).includes('<img') || String(x).includes('class="t4-av'));
-    const kolon = o.kolon || (resimli ? 2 : duz.every(x => x.length <= 6) ? 4 : duz.every(x => x.length <= 22) ? 2 : 1);
+    const kolon = o.kolon || (resimli ? 2 : duz.every(x => x.length <= 5) ? 4 : duz.every(x => x.length <= 22) ? 2 : 1);
     return `<div class="t4-s"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><ol class="t4-sec k${kolon}">${s.l.map((x, i) => `<li><b>${H[i]})</b> <span>${x}</span></li>`).join('')}</ol></div></div>`;
   };
   // Senaryo parçaları
@@ -99,7 +99,7 @@ module.exports = ({ S }) => {
     const r = R(t), harf = 'ABCÇDEFGHIİKLMNOÖPRSŞTUÜVYZ'; const y = new Set();
     while (y.size < 3) { const d = dogru.split(''); const i = Math.floor(r() * d.length); d[i] = harf[Math.floor(r() * harf.length)]; const k = d.join(''); if (k !== dogru) y.add(k); }
     const en = Math.max(...ipuclari.map(x => x[1].length));
-    const kb = Math.min(6, (72 - en * .6) / en).toFixed(2); const izgara = `<div class="t4-bul" style="--kb:${kb}mm">${ipuclari.map(([, c], i) => `<div><b>${i + 1}</b>${[...Array(en)].map((_, j) => j < c.length ? `<i${j === sutun ? ' class="y"' : ''}></i>` : '<i class="bos"></i>').join('')}</div>`).join('')}</div>`;
+    const kb = Math.min(6, (58 - en * .6) / en).toFixed(2); const izgara = `<div class="t4-bul" style="--kb:${kb}mm">${ipuclari.map(([, c], i) => `<div><b>${i + 1}</b>${[...Array(en)].map((_, j) => j < c.length ? `<i${j === sutun ? ' class="y"' : ''}></i>` : '<i class="bos"></i>').join('')}</div>`).join('')}</div>`;
     return soru(p(giris) + `<ol class="t4-ipucu">${ipuclari.map(([s]) => `<li>${s}</li>`).join('')}</ol>` + izgara, 'Buna göre renkli kutulara yazılan harfler yukarıdan aşağıya doğru okunduğunda hangi sözcük oluşur?', sec(dogru, [...y], t), { tip: 'bulmaca' });
   };
   // Tek seçenekli klasik soru (senaryo + soru + seçenekler)
