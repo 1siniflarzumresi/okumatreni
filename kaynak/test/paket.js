@@ -118,7 +118,7 @@ module.exports = async function paket(kagitlar) {
       const hatalar = []; p.on('pageerror', e => hatalar.push(e.message)); p.on('requestfailed', q => hatalar.push('istek başarısız: ' + q.url()));
       p.on('response', q => { if (q.status() >= 400) hatalar.push(`${q.status()}: ${q.url().replace(/^http:\/\/127\.0\.0\.1:\d+/, '')}`); });
       await p.goto(`http://127.0.0.1:${port}/${path.relative(KOK, path.join(htmlDiz, d, f))}`, { waitUntil: 'networkidle' });
-      await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(200);
+      await p.evaluate(() => document.fonts.ready); await p.waitForFunction(() => !document.querySelector('.sayfa') || document.body.dataset.hazir === '1', null, { timeout: 30000 }).catch(() => {}); await p.waitForTimeout(200);
       const o = await p.evaluate(olc);
       if (!o.ttkb) ekle(etiket, 0, 'TTKB yazı tipi yüklenmedi');
       o.fontHata.forEach(x => ekle(etiket, 0, 'yazı tipi yüklenemedi: ' + x));
