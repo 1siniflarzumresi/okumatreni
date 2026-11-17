@@ -61,7 +61,7 @@ function olc() {
     const murekkep = [...(govde || s).querySelectorAll('*')].filter(e => { if (e.closest('svg') && e.tagName !== 'svg') return false; const r = e.getBoundingClientRect(); if (r.width < 2 || r.height < 0.5) return false;
       if (e.tagName === 'IMG' || e.tagName === 'svg' || e.tagName === 'TD') return true; /* boş tablo hücresi yazma yeridir */ if ([...e.childNodes].some(c => c.nodeType === 3 && c.textContent.trim())) return true;
       const cs = getComputedStyle(e); const kenar = ['Top', 'Bottom', 'Left', 'Right'].some(k => parseFloat(cs['border' + k + 'Width']) > 0 && cs['border' + k + 'Style'] !== 'none');
-      return !e.children.length && kenar; }).map(e => { const r = e.getBoundingClientRect(); return [r.top, r.bottom]; }).sort((x, y) => x[0] - y[0]);
+      const kalin4 = ['Top', 'Bottom', 'Left', 'Right'].every(k => parseFloat(cs['border' + k + 'Width']) >= 2.6 && cs['border' + k + 'Style'] !== 'none'); /* kalın çerçeveli kutu (sınıflandırma, çizim) yazma yeridir */ return (!e.children.length && kenar) || (kalin4 && r.height > 15 * 3.78); }).map(e => { const r = e.getBoundingClientRect(); return [r.top, r.bottom]; }).sort((x, y) => x[0] - y[0]);
     const ustS = ust, altS = alt; let son = ustS; const bosluk = [];
     for (const [a, b] of murekkep) { if (a - son > 22 * 3.78) bosluk.push(`${mm(a - son)} mm (${mm(son - S.top)}–${mm(a - S.top)} mm arası)`); son = Math.max(son, b); }
     if (altS - son > 22 * 3.78) bosluk.push(`${mm(altS - son)} mm (sayfa altı)`);
