@@ -99,7 +99,7 @@ module.exports = ({ S }) => {
     const r = R(t), harf = 'ABCÇDEFGHIİKLMNOÖPRSŞTUÜVYZ'; const y = new Set();
     while (y.size < 3) { const d = dogru.split(''); const i = Math.floor(r() * d.length); d[i] = harf[Math.floor(r() * harf.length)]; const k = d.join(''); if (k !== dogru) y.add(k); }
     const en = Math.max(...ipuclari.map(x => x[1].length));
-    const izgara = `<div class="t4-bul">${ipuclari.map(([, c], i) => `<div><b>${i + 1}</b>${[...Array(en)].map((_, j) => j < c.length ? `<i${j === sutun ? ' class="y"' : ''}></i>` : '<i class="bos"></i>').join('')}</div>`).join('')}</div>`;
+    const kb = Math.min(6, (72 - en * .6) / en).toFixed(2); const izgara = `<div class="t4-bul" style="--kb:${kb}mm">${ipuclari.map(([, c], i) => `<div><b>${i + 1}</b>${[...Array(en)].map((_, j) => j < c.length ? `<i${j === sutun ? ' class="y"' : ''}></i>` : '<i class="bos"></i>').join('')}</div>`).join('')}</div>`;
     return soru(p(giris) + `<ol class="t4-ipucu">${ipuclari.map(([s]) => `<li>${s}</li>`).join('')}</ol>` + izgara, 'Buna göre renkli kutulara yazılan harfler yukarıdan aşağıya doğru okunduğunda hangi sözcük oluşur?', sec(dogru, [...y], t), { tip: 'bulmaca' });
   };
   // Tek seçenekli klasik soru (senaryo + soru + seçenekler)
@@ -164,7 +164,7 @@ module.exports = ({ S }) => {
 .t4-sira{display:flex;flex-direction:column;gap:1mm}.t4-sira>div{display:flex;gap:2mm;align-items:center;font-size:3.9mm;line-height:1.3;background:#f1f7ff;border-radius:2mm;padding:1mm 2mm}.t4-sira b{flex:none;width:5.5mm;height:5.5mm;border-radius:1.2mm;background:#1d6fd8;color:#fff;display:grid;place-items:center;font-size:3.5mm;font-weight:400}
 .t4-esle{display:grid;grid-template-columns:1fr 1fr;gap:3mm}.t4-esle p{margin:.6mm 0;font-size:3.9mm;line-height:1.3}
 .t4-ipucu{margin:0;padding-left:5mm;font-size:3.85mm;line-height:1.35}
-.t4-bul{display:flex;flex-direction:column;gap:.8mm;align-self:center}.t4-bul>div{display:flex;gap:.6mm;align-items:center}.t4-bul b{width:4mm;font-size:3.4mm;color:#d6336c}.t4-bul i{width:6mm;height:6mm;border:.35mm solid #d6336c;border-radius:1mm;background:#fff}.t4-bul i.y{background:#ffe066}.t4-bul i.bos{border-color:transparent;background:transparent}
+.t4-bul{display:flex;flex-direction:column;gap:.8mm;align-self:center}.t4-bul>div{display:flex;gap:.6mm;align-items:center}.t4-bul b{width:4mm;font-size:3.4mm;color:#d6336c}.t4-bul i{width:var(--kb,6mm);height:var(--kb,6mm);border:.35mm solid #d6336c;border-radius:1mm;background:#fff}.t4-bul i.y{background:#ffe066}.t4-bul i.bos{border-color:transparent;background:transparent}
 .t4-ic svg{max-width:100%;height:auto}.t4-ic table{max-width:100%}.t4-g{text-align:center}.t4-g>b{font-size:3.8mm;font-weight:400;display:block}
 .t4 .b4-kimlik{width:100%}
 .t4-ry{display:grid;grid-template-columns:1fr auto;gap:2mm;align-items:center}
