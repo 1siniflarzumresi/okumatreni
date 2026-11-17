@@ -11,7 +11,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
   const gercekMecaz = (liste) => etk(0, 'Altı çizili sözcük ya da söz gerçek anlamında mı, mecaz anlamında mı kullanılmış? Doğru kutuyu işaretle.',
     `<div class="t3-gm">${liste.map(s => `<div><p class="ttkb">${s}</p><span class="ttkb"><i></i>gerçek</span><span class="ttkb"><i></i>mecaz</span></div>`).join('')}</div>`);
   const dilekce = (yonerge, kime, konu) => etk(0, yonerge,
-    `<div class="t3-dilekce ttkb"><p class="t3-sag">Tarih: ……/……/20……</p><p class="t3-orta">${kime}</p>${cizgi(6)}<p class="t3-sag">Ad soyad: ………………………<br>İmza:</p><p class="t3-konu">Konu: ${konu}</p></div>`);
+    `<div class="t3-dilekce ttkb"><p class="t3-sag">Tarih: ……/……/20……</p><p class="t3-orta">${kime}</p><p class="t3-konu">Konu: ${konu}</p>${cizgi(7)}<p class="t3-sag">Ad soyad: ………………………<br>İmza:</p><p class="t3-adres">Adres:</p>${cizgi(2)}<p></p></div>`);
 
   const T3 = {
     'hafta-01': { unite: 1, hafta: 1, baslik: 'Yeni Sınıf, Eski Dostlar', konu: 'Hatırlatma haftası · Büyük harf, kısaltma, noktalama', sayfalar: () => [
@@ -533,7 +533,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
       numarala([harita(), sirala(['Suya kitre karıştırılır.', 'Boyalar suyun üstüne serpilir.', 'İğneyle desen oluşturulur.', 'Kâğıt suyun üstüne bırakılır.', 'Kâğıt kaldırılır.'], 291).replace('Olayları oluş sırasına göre numaralandır.', 'Ebru nasıl yapılır? Adımları sıraya koy.'),
         soru(['Ustanın "Önce emeğe saygıyı öğren." sözü ne anlatıyor?', 'Neden iki ebru asla aynı olmaz?'])]),
       numarala([etk(0, 'Farklı öneriler! Ebru sanatını daha çok çocuğa sevdirmek için üç farklı öneri yaz.', `<div class="t3-ucbolum ttkb">${['1. öneri', '2. öneri', '3. öneri'].map(s => `<div><b>${s}</b>${cizgi(4)}</div>`).join('')}</div>`),
-        eslestir('Atasözlerini anlamlarıyla eşleştir.', [['Emek olmadan yemek olmaz.', 'Çalışmadan kazanılmaz.'], ['Sabrın sonu selamettir.', 'Sabırla çalışan sonunda başarır.'], ['Bir elin nesi var, iki elin sesi var.', 'Birlikte çalışmak işi kolaylaştırır.']], 292)]),
+        eslestir('Atasözlerini anlamlarıyla eşleştir.', [['Emek olmadan yemek olmaz.', 'Çalışmadan kazanılmaz.'], ['Sabrın sonu selamettir.', 'Sabırla çalışan sonunda başarır.'], ['Bir elin nesi var, iki elin sesi var.', 'Birlikte çalışmak işi kolaylaştırır.']], 292), soru(['Bu atasözlerinden birini yaşadığın bir olayla anlat.'], 'Kendi hayatından anlat.')]),
       numarala([yazma('Bir el sanatını (çini, ebru, kilim, oya, ahşap oyma…) araştır ve tanıtan bir yazı yaz. Bilginin kaynağını da yaz.', ['Sanatın adı ve nasıl yapıldığı:', 'Neden değerli?', 'Kaynağım:'], 12)]),
     ] },
     'hafta-30': { unite: 8, hafta: 30, baslik: 'Tandırın Başında', konu: 'Millî kültürümüz · Okuma amacına göre okuma, yardımlaşma', sayfalar: () => [
@@ -673,7 +673,7 @@ module.exports = ({ etk, resim, numarala, resimVar, A, M }) => {
 .t3-sozluk{display:flex;flex-direction:column;gap:2mm}.t3-sozluk>div{background:#fff;border-radius:3mm;padding:2mm 3mm}.t3-sozluk b{font-weight:400;font-size:5.2mm;color:#1d4e89}
 .t3-ucbolum{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.t3-ucbolum>div{background:#fff;border-radius:3mm;padding:2mm 3mm}.t3-ucbolum b{font-weight:400;font-size:5mm;color:#8b5cf6}
 .t3-dortkare{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:4mm;flex:1;align-content:stretch!important}.t3-dortkare>div{background:#fff;border-radius:3mm;padding:2mm 3mm;display:flex;flex-direction:column;gap:1mm;position:relative}.t3-dortkare span{position:absolute;top:2mm;left:3mm;font-size:5mm;color:#8b5cf6}.t3-dortkare>div>i{flex:1;min-height:44mm;border:.5mm dashed #9db4c8;border-radius:2mm;margin-top:7mm}
-.t3-dilekce{background:#fff;border-radius:3mm;padding:4mm 6mm;font-size:5mm}.t3-dilekce p{margin:0 0 2mm}.t3-sag{text-align:right}.t3-orta{text-align:center;text-transform:uppercase}.t3-konu{font-size:4.6mm;color:#5b6b7b}
+.t3-dilekce{background:#fff;border-radius:3mm;padding:4mm 6mm;font-size:5mm;display:flex;flex-direction:column;justify-content:flex-start!important}.t3-dilekce>.t2-cizgi,.t3-dilekce>div{flex:0 0 auto!important}.t3-adres{margin-top:4mm!important}.t3-dilekce p{margin:0 0 2mm}.t3-sag{text-align:right}.t3-orta{text-align:center;text-transform:uppercase}.t3-konu{font-size:4.6mm;color:#5b6b7b}
 `;
   return { T3, CSS };
 };
