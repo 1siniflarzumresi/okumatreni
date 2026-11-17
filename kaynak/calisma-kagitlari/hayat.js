@@ -209,7 +209,7 @@ module.exports = ({ etk, resim, resimCizgi, numarala, M }) => {
       numarala([dy([['cop-at', 'Çöpü çöp kutusuna atmak'], ['geri-donusum', 'Atıkları ayırmak'], ['plastik-sise', 'Şişeyi yere atmak']]), ciz('Eski bir kutuyu ya da şişeyi yeni bir şeye dönüştür: tasarımını çiz.', 70)]),
     ] },
     'hafta-31': { unite: 5, hafta: 31, baslik: 'Dünyamızı Koruyalım', konu: 'Atma yazık olur', sayfalar: () => [
-      numarala([ayir('Hangisi hangi kutuya? Çizgiyle eşleştir.', [['plastik', '#3a86ff'], ['kâğıt', '#f4a100'], ['cam', '#12b886']], ['plastik-sise', 'kagit', 'cam-kavanoz', 'kitap', 'bardak', 'gazete'], 31), daireIcine('Dünyayı mutlu edenleri daire içine al.', ['geri-donusum', 'cicek-sula', 'cop-at', 'orman-yangini', 'plastik-sise', 'isik-sondur'], 32)]),
+      numarala([ayir('Hangisi hangi kutuya? Çizgiyle eşleştir.', [['plastik', '#3a86ff'], ['kâğıt', '#f4a100'], ['cam', '#12b886']], ['plastik-sise', 'kagit', 'cam-kavanoz', 'kitap', 'bardak', 'gazete'], 31), daireIcine('Dünyayı mutlu edenleri daire içine al.', ['geri-donusum', 'cicek-sula', 'cop-at', 'orman-yangini', 'plastik-sise', 'isik-sondur'], 32), ciz('Doğayı korumak için yaptığın bir şeyi çiz.', 40)]),
       numarala([daireIcine('Hangileri geri dönüşür? Daire içine al.', ['plastik-sise', 'kagit', 'cam-kavanoz', 'gazete', 'elma', 'yaprak', 'sise', 'kutu'], 311), ciz('Dünya\'ya bir mektup resmi çiz: onu nasıl koruyacağını göster.', 100)]),
     ] },
     'hafta-32': { unite: 6, hafta: 32, baslik: 'Bilimin Peşindeyiz', konu: 'Bilimin peşindeyiz', sayfalar: () => [
