@@ -31,7 +31,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
   const yeniden = (yonerge, cumleler) => etk(0, yonerge,
     `<div class="t2-yeniden">${cumleler.map(c => `<div><p class="ttkb">${c}</p>${cizgi(1)}</div>`).join('')}</div>`);
   const domino = (yonerge, sozcukler, banka) => etk(0, yonerge,
-    `<div class="t2-domino">${sozcukler.map(s => `<div><b class="ttkb">${s}</b><i></i></div>`).join('')}</div><div class="t2-banka ttkb">${banka.map(s => `<span>${s}</span>`).join('')}</div>`);
+    `<div class="t2-domino">${sozcukler.map(s => `<div><b class="ttkb">${s}</b><i></i></div>`).join('')}</div><div class="t2-banka ttkb">${banka.map(s => `<span>${s}</span>`).join('')}</div><div class="t2-soru"><div><p class="ttkb">Bir zıt anlamlı sözcük çifti seç. İkisini de aynı cümlede kullan.</p>${cizgi(2)}</div></div>`);
   const yazma = (yonerge, adimlar, satir) => etk(0, yonerge,
     `<div class="t2-plan">${adimlar.map((a, i) => `<div><b>${i + 1}</b><span class="ttkb">${a}</span>${cizgi(1)}</div>`).join('')}</div><div class="t2-yaz"><div class="t2-bas ttkb">${adimlar.some(a => /^Hitap/i.test(a)) || /mektup/i.test(yonerge) ? 'Tarih:' : 'Başlık:'}<i></i></div>${cizgi(satir, 'genis')}</div>`);
 
@@ -541,8 +541,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([harita(), sirala(['Kâğıdı ortadan ikiye katla ve aç.', 'Üst köşeleri ortadaki çizgiye katla.', 'Kenarları bir kez daha içe katla.', 'Kanatları iki yana aç ve bastır.'], 271).replace('Olayları oluş sırasına göre numaralandır.', 'Selin\'in uçak yapma adımlarını sıraya koy.'),
         soru(['Arda\'nın uçağı neden kısa uçtu?', '"Acele işe şeytan karışır." sözü ne anlatır?'])]),
       numarala([yonergeYaz('Bildiğin bir şeyin nasıl yapıldığını adım adım yaz. (dişini fırçalamak, sandviç hazırlamak, çiçek dikmek…)', 5),
-        domino('Zıt anlam dominosu! Alttaki sözcükleri zıt anlamlılarının yanına yaz.', ['hızlı', 'eğri', 'uzak', 'yumuşak', 'üzgün', 'önce'], ['sonra', 'yakın', 'mutlu', 'yavaş', 'sert', 'düz']),
-        soru(['Dominodan iki zıt sözcük seç. İkisini de aynı cümlede kullan.'], 'Cümle kur.')]),
+        domino('Zıt anlam dominosu! Alttaki sözcükleri zıt anlamlılarının yanına yaz.', ['hızlı', 'eğri', 'uzak', 'yumuşak', 'üzgün', 'önce'], ['sonra', 'yakın', 'mutlu', 'yavaş', 'sert', 'düz'])]),
       numarala([yazma('Bir yarışmaya katıldığın günü anlat. Kazanmak mı daha önemli, öğrenmek mi? Düşünceni de yaz.', ['Hangi yarışma?', 'Neler oldu?', 'Ne öğrendin?'], 12)]),
     ] },
     'hafta-28': { unite: 8, hafta: 28, baslik: 'Dünya Çocukları Bizde', konu: 'Kültür hazinemiz · Görüş bildirme, iki nokta ve tırnak', sayfalar: () => [
@@ -632,7 +631,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
       numarala([kimlik('Yolculuğun kimlik kartını doldur.', ['Geminin adı:', 'Yola çıktığı şehir:', 'Vardığı şehir:', 'Tarih:', 'Yolculuk süresi:', 'Bayramın armağan edildiği kişiler:'], 'gemi'),
         sirala(['Gemi İstanbul\'dan yola çıktı.', 'Dalgalı denizde üç gün yol aldı.', 'Atatürk Samsun\'a çıktı.', 'Kurtuluş Savaşı\'nın ilk adımı atıldı.'], 321),
         soru(['Gemi neden müzeye dönüştürülmüş olabilir?'])]),
-      numarala([yeniden('Yer ve gemi adlarını büyük harfle başlatarak cümleleri düzelt.', ['atatürk bandırma vapuru ile samsun\'a çıktı.', 'gemi istanbul\'dan karadeniz\'e açıldı.']),
+      numarala([yeniden('Yer ve gemi adlarını büyük harfle başlatarak cümleleri düzelt.', ['atatürk bandırma vapuru ile samsun\'a çıktı.', 'gemi istanbul\'dan karadeniz\'e açıldı.', 'kızılırmak türkiye\'nin en uzun ırmağıdır.']),
         eslestir('Tarihleri olaylarla eşleştir.', [['19.05.1919', 'Atatürk Samsun\'a çıktı.'], ['23.04.1920', 'Meclis açıldı.'], ['29.10.1923', 'Cumhuriyet ilan edildi.']], 322),
         sozcuk([['Rehber gemi <u>rotasını</u> gösterdi.', ['geminin izlediği yol', 'geminin rengi', 'geminin kaptanı']]])]),
       numarala([yazma('Gezdiğin ya da gezmek istediğin bir müzeyi anlatan bir yazı yaz.', ['Hangi müze, nerede?', 'Orada neler gördün / görmek istersin?', 'Seni en çok ne etkiledi?'], 12)]),
@@ -706,8 +705,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
         soru(['Öğretmen "Bir yılda ne kadar büyüdünüz." derken neyi kastediyor?', 'Bu yıl okuduğun metinlerden en çok hangisini sevdin? Neden?'])]),
       numarala([tren('Noktalama trenleri! Son vagonlara uygun işareti koy.', ['Kutuya bir fotoğraf koydum', 'Sen kutuna ne koydun', 'Yaşasın, yaz tatili geldi', 'Eylülde okul açılacak'], ['.', '?', '!']),
         yeniden('Yazım hatalarını düzelterek yeniden yaz. (büyük harf, kesme, soru eki)', ['elifin kutusunda keman teli varmı?', 'yusuf ankarada yaşıyor.']),
-        domino('Zıt anlam dominosu! Alttaki sözcükleri zıt anlamlılarının yanına yaz.', ['ilk', 'kısa', 'boş', 'eğri'], ['dolu', 'son', 'düz', 'uzun']),
-        soru(['Dominodan iki zıt sözcük seç. İkisini de aynı cümlede kullan.'], 'Cümle kur.')]),
+        domino('Zıt anlam dominosu! Alttaki sözcükleri zıt anlamlılarının yanına yaz.', ['ilk', 'kısa', 'boş', 'eğri'], ['dolu', 'son', 'düz', 'uzun'])]),
       numarala([yazma('Senin "Yıl Sonu Kutun"a neler koyardın? Bu yılı anlatan bir yazı yaz.', ['Kutuna koyacağın üç şey:', 'Bu yıl öğrendiğin en güzel şey:', 'Üçüncü sınıftan beklentin:'], 12)]),
     ] },
   };
@@ -766,7 +764,7 @@ module.exports = ({ etk, resim, numarala, M }) => {
 .govde>.etk:last-child>.t2-soru{justify-content:flex-start!important}.govde>.etk:last-child>.t2-soru>div{flex:1;display:flex;flex-direction:column}
 .govde>.etk:last-child>.t2-esle{flex:0 0 auto!important;align-content:start!important}
 .t2-sinif>div,.t2-venn>div,.t2-harita>div{display:flex;flex-direction:column}.t2-sinif .t2-cizgi,.t2-venn .t2-cizgi,.t2-harita .t2-cizgi{flex:1;justify-content:space-evenly}
-.govde>.etk:last-child>.t2-domino{align-content:space-evenly!important}
+.govde>.etk:last-child>.t2-domino{align-content:start!important;flex:none!important}
 .t2-yaz{background:#fff;border-radius:3mm;padding:3mm 5mm 4mm;margin-top:3mm;flex:1;display:flex;flex-direction:column}.t2-yaz .t2-cizgi{flex:1;justify-content:space-evenly}
 .t2-bas{display:flex;align-items:flex-end;gap:3mm;font-size:5.2mm;color:#1d4e89}.t2-bas i{flex:1;max-width:110mm;border-bottom:.6mm solid #1d4e89;height:8mm}
 `;
