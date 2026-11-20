@@ -2,72 +2,136 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Oyunlar · Ladin Ormanı</title>
-<meta name="description" content="2. sınıf için oyunlar: onluk ve birlik, sayı doğrusu, toplama, çıkarma, çarpma, saat, para, kesir; sözlük sırası, eş ve zıt anlam, noktalama, büyük harf, cümle kurma.">
+<meta name="description" content="Ladin Kasabası: 2. sınıf için sesli yönergeli oyun dünyası. Simitçi Fırını, Teleferik, Saat Kulesi, Postane ve Kütüphane'de onluk-birlik, toplama, çıkarma, saat, cümle kurma, noktalama ve alfabetik sıra.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#3a86ff">
 <link rel="stylesheet" href="ortak.css">
+<link rel="preload" href="fontlar/ttkb.ttf" as="font" type="font/ttf" crossorigin>
 <style>
 @font-face{font-family:TTKB;src:url(fontlar/ttkb.ttf) format("truetype");font-display:swap}
-.baslik{padding:24px 0 8px}
-.baslik h1{font-size:clamp(28px,5vw,40px);font-weight:900;margin:0}
-.baslik p{margin:4px 0 0;color:var(--yazi-2)}
-.grup{margin:22px 0 8px;font-size:20px}
-.oyunlar{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
-.oyun{all:unset;box-sizing:border-box;cursor:pointer;background:var(--kart,#fff);border-radius:18px;padding:16px;box-shadow:var(--golge);display:flex;flex-direction:column;gap:6px;border-top:6px solid var(--r,#3a86ff)}
-.oyun:hover,.oyun:focus-visible{transform:translateY(-2px)}
-.oyun .ik{font-size:30px;line-height:1}
-.oyun b{font-size:18px}
-.oyun small{color:var(--yazi-2);font-size:14px}
-.oyun .yil{font-size:13px;color:#b45309}
-/* sahne */
-#stage{position:fixed;inset:0;z-index:50;background:#f4f9ff;display:flex;flex-direction:column}
-#stage[hidden]{display:none}
-.sbar{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.sbar h2{margin:0;font-size:18px;flex:1}
-.sbar button{all:unset;cursor:pointer;background:#eaf3ff;color:#1d4e89;border-radius:999px;padding:8px 14px;font-weight:700}
-.instr{font-family:TTKB,Andika,sans-serif;font-size:clamp(20px,3.2vw,30px);text-align:center;padding:10px 14px 4px;color:#1f2a24}
-.instr button{all:unset;cursor:pointer;margin-left:8px;font-size:22px}
-#sbwrap{flex:1;overflow:auto;display:flex;justify-content:center;align-items:flex-start}
-#sb{width:min(1000px,100%);padding:6px 14px 14px;box-sizing:border-box;font-family:TTKB,Andika,sans-serif;color:#1f2a24}
-.prog{display:flex;gap:6px;justify-content:center;margin:2px 0 10px}
-.prog i{width:22px;height:8px;border-radius:4px;background:#d6e4f5}
-.prog i.d{background:#12b886}
-.feedback{min-height:40px;text-align:center;font-size:24px;font-family:TTKB,Andika,sans-serif;color:#c0392b;padding:4px}
-.feedback.good{color:#12805c}
-.sahne{background:#fff;border-radius:20px;box-shadow:0 4px 14px rgba(29,78,137,.08);padding:14px;display:flex;flex-direction:column;align-items:center;gap:12px}
-.sahne svg{max-width:100%;height:auto}
-.secenek{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:12px}
-.opt{all:unset;box-sizing:border-box;cursor:pointer;min-width:90px;padding:12px 20px;border-radius:16px;background:#fff;border:3px solid #9cc3ff;font-size:clamp(24px,3.6vw,36px);text-align:center;font-family:TTKB,Andika,sans-serif;box-shadow:0 3px 0 #9cc3ff}
-.opt:active{transform:translateY(2px);box-shadow:none}
-.opt.yanlis{border-color:#f2546b;box-shadow:0 3px 0 #f2546b;opacity:.55;animation:salla .3s}
-.opt.dogru{border-color:#12b886;background:#e6faf2;box-shadow:0 3px 0 #12b886}
-.opt.sec{border-color:#f4a100;background:#fff6dc;box-shadow:0 3px 0 #f4a100}
-@keyframes salla{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-.cevap{margin-top:12px;background:#e6faf2;border:3px solid #12b886;border-radius:18px;padding:12px 18px;font-size:clamp(26px,4vw,40px);text-align:center}
-.cevap small{display:block;font-size:.6em;color:#12805c}
-.cta{all:unset;cursor:pointer;background:#3a86ff;color:#fff;border-radius:999px;padding:12px 26px;font-weight:700;font-size:20px;font-family:Andika,sans-serif;box-shadow:0 3px 0 #1d5fc4}
-.cta.alt{background:#fff;color:#1d4e89;border:2px solid #9cc3ff;box-shadow:none}
-.cta:disabled{opacity:.45;cursor:default}
-.satir{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center}
-.cumle{font-size:clamp(26px,4vw,40px);text-align:center;line-height:1.5}
-.kelime{all:unset;cursor:pointer;padding:4px 10px;border-radius:12px;border:2px dashed transparent}
-.kelime:hover{border-color:#9cc3ff}
-.kelime.yanlis{border-color:#f2546b;animation:salla .3s}
-.kelime.dogru{border-color:#12b886;background:#e6faf2}
-.yuva{min-height:64px;min-width:80%;border:3px dashed #9cc3ff;border-radius:16px;padding:8px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
-.sayac{font-size:28px;font-family:Andika,sans-serif;font-weight:700;color:#1d4e89}
-.exitcard{text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center}
-.exitcard h3{font-size:30px;margin:0}
-.faces{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.face{all:unset;cursor:pointer;background:#fff;border:3px solid #d6e4f5;border-radius:18px;padding:10px 16px;font-size:20px;display:flex;flex-direction:column;align-items:center;gap:4px;font-family:Andika,sans-serif}
-.face span{font-size:44px}
-.face.on{border-color:#12b886;background:#e6faf2}
-.ogrendim{display:flex;flex-direction:column;gap:8px;width:min(620px,100%)}
-.ogrendim button{all:unset;cursor:pointer;background:#fff;border:2px solid #d6e4f5;border-radius:14px;padding:10px 14px;font-size:20px;text-align:left;font-family:TTKB,Andika,sans-serif}
-.ogrendim button.on{border-color:#12b886;background:#e6faf2}
-.yildiz{font-size:18px;color:#b45309;font-weight:700}
+.ttkb{font-family:TTKB,Andika,sans-serif}
+.kesme{font-family:Andika,sans-serif!important}
+/* ---------- giriş ---------- */
+.kahraman{margin:20px 0 8px;border-radius:26px;overflow:hidden;background:linear-gradient(#8fd3ff,#e8f7ff);box-shadow:var(--golge);position:relative}
+.kahraman svg{display:block;width:100%;height:auto}
+.kahraman .yazi{position:absolute;left:clamp(16px,4vw,48px);top:clamp(14px,3.5vw,40px);max-width:min(520px,60%)}
+.kahraman h1{margin:0;font-family:TTKB,Andika,sans-serif;font-size:clamp(30px,6vw,64px);line-height:1.05;color:#1d4e89;text-shadow:0 2px 0 #fff}
+.kahraman p{margin:6px 0 12px;font-size:clamp(14px,2vw,19px);color:#1c2b3a;background:rgba(255,255,255,.75);border-radius:12px;padding:4px 10px;display:inline-block}
+.gir{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:10px;background:#f4a100;color:#fff;font-weight:700;font-size:clamp(18px,2.4vw,24px);padding:12px 26px;border-radius:999px;box-shadow:0 4px 0 #b45309}
+.gir:active{transform:translateY(3px);box-shadow:0 1px 0 #b45309}
+.gir:focus-visible{outline:3px solid #1d4e89;outline-offset:3px}
+.bolum{margin:26px 0 10px;font-size:22px}
+.yerler{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.yerk{all:unset;box-sizing:border-box;cursor:pointer;background:#fff;border-radius:20px;box-shadow:var(--golge);overflow:hidden;display:flex;flex-direction:column}
+.yerk:hover,.yerk:focus-visible{transform:translateY(-2px);box-shadow:0 10px 26px rgba(28,43,58,.14)}
+.yerk:focus-visible{outline:3px solid var(--mavi);outline-offset:2px}
+.yerk svg{display:block;width:100%;height:130px;background:linear-gradient(#bfe6ff,#effaff)}
+.yerk .ic{padding:10px 14px 14px;display:flex;flex-direction:column;gap:3px;border-top:5px solid var(--r)}
+.yerk b{font-size:19px}
+.yerk small{color:var(--yazi-2);font-size:14px;line-height:1.35}
+.yerk .ders{font-size:12px;font-weight:700;color:var(--r)}
+.yerk .yil{font-size:16px;color:#e8a100;letter-spacing:1px}
+.yerk .yil i{font-style:normal;color:#c9d2dc}
+.yakinda{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
+.yakinda span{background:#fff;border:1px dashed #c9b48c;color:#7a5a2a;border-radius:999px;padding:5px 12px;font-size:14px}
+.yakinda b{font-size:14px;color:var(--yazi-2)}
+.not{color:var(--yazi-2);font-size:15px;margin:14px 0 0}
+.birinci{box-sizing:border-box;display:flex;align-items:center;gap:14px;background:#fff;border-radius:20px;box-shadow:var(--golge);padding:14px 18px;border-left:6px solid var(--ladin);max-width:560px;text-decoration:none;color:inherit}
+.birinci .ik{font-size:34px}
+.birinci small{display:block;color:var(--yazi-2)}
+
+/* ---------- oyun kabuğu ---------- */
+#app{position:fixed;inset:0;z-index:60;background:#0f2a1c;display:flex;flex-direction:column;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+#app[hidden]{display:none}
+.ustc{display:flex;align-items:center;gap:8px;padding:6px 10px;padding-left:max(10px,env(safe-area-inset-left));padding-right:max(10px,env(safe-area-inset-right));background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15);z-index:2}
+.ustc button{all:unset;cursor:pointer;min-width:44px;height:44px;border-radius:999px;background:#eaf3ff;color:#1d4e89;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-size:20px;padding:0 12px;box-sizing:border-box}
+.ustc button:focus-visible{outline:3px solid #1d4e89}
+#haritaD{font-size:16px;gap:6px}
+#baslik{flex:1;margin:0;font-size:18px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#ilerleme{display:flex;gap:5px}
+#ilerleme i{width:20px;height:20px;border-radius:50%;background:#e3ecf5;border:2px solid #c9d6e6;box-sizing:border-box}
+#ilerleme i.d{background:#ffc93c;border-color:#e8a100}
+.yonc{display:flex;align-items:center;gap:10px;background:#fffdf6;padding:6px 14px;border-bottom:3px solid #f1e4cf;z-index:1}
+#yonerge{flex:1;font-family:TTKB,Andika,sans-serif;font-size:clamp(18px,2.4vw,27px);line-height:1.3;color:#1f2a24;margin:0}
+#dinle{all:unset;cursor:pointer;flex:none;width:44px;height:44px;border-radius:50%;background:#3a86ff;color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center}
+.sahne{flex:1;position:relative;min-height:0;overflow:hidden}
+#sv{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+#sv .tutulur{cursor:grab}
+#sv .tutuldu{cursor:grabbing;filter:drop-shadow(0 10px 8px rgba(0,0,0,.3))}
+#sv .yer{cursor:pointer}
+#sv .yer:hover{filter:brightness(1.06)}
+#sv .ok,#sv .dugum,#sv .koltuk,#sv .yazili,#sv .bossirik,#sv .ksirik,#sv .ksimit,#sv .skart{cursor:pointer}
+#eylem{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;padding:8px 12px calc(8px + env(safe-area-inset-bottom));min-height:68px;box-sizing:border-box;background:#fffdf6;border-top:3px solid #f1e4cf;z-index:1}
+.cta{all:unset;cursor:pointer;background:#3a86ff;color:#fff;border-radius:999px;padding:10px 24px;font-weight:700;font-size:20px;font-family:Andika,sans-serif;box-shadow:0 4px 0 #1d5fc4;text-align:center}
+.cta:active{transform:translateY(3px);box-shadow:0 1px 0 #1d5fc4}
+.cta:focus-visible{outline:3px solid #1d4e89;outline-offset:2px}
+.cta.alt{background:#fff;color:#1d4e89;box-shadow:0 0 0 2px #9cc3ff inset}
+.cta:disabled{opacity:.4;cursor:default}
+.cta.sec{min-width:70px;font-size:30px;background:#fff;color:#1f2a24;box-shadow:0 0 0 3px #f4a100 inset,0 4px 0 #b45309}
+.cta.muhur-b{background:#fff;color:#1d4e89;box-shadow:0 0 0 3px #f2546b inset,0 4px 0 #b4233a}
+.cta.muhur-b b{font-size:34px;color:#c0392b;margin-right:6px;line-height:.5}
+#bildirim{position:absolute;left:50%;top:10px;transform:translate(-50%,-20px);opacity:0;pointer-events:none;transition:.25s;width:max-content;max-width:min(92%,760px);font-family:TTKB,Andika,sans-serif;font-size:clamp(18px,2.4vw,26px);padding:10px 20px;border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.2);text-align:center;z-index:3}
+#bildirim.iyi,#bildirim.kotu{opacity:1;transform:translate(-50%,0)}
+#bildirim.iyi{border:3px solid #12b886;color:#0b6b4c}
+#bildirim.kotu{border:3px solid #f4a100;color:#7a3e00}
+#kart{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;pointer-events:none;background:#fff;border:5px solid #12b886;border-radius:24px;padding:16px 30px;box-shadow:0 16px 40px rgba(0,0,0,.3);font-family:TTKB,Andika,sans-serif;font-size:clamp(26px,4.4vw,48px);text-align:center;color:#1f2a24;width:max-content;max-width:88%;animation:kartGel .35s ease-out}
+#kart[hidden]{display:none}
+#kart.sag{left:auto;right:2%;transform:translateY(-50%);max-width:38%;animation:none}
+#app.haritada #eylem{display:none}
+#kart b{color:#c0392b}
+#kart small{display:block;font-size:.5em;color:#12805c;margin-top:4px}
+@keyframes kartGel{from{transform:translate(-50%,-40%) scale(.8);opacity:0}}
+/* seviye seçimi ve sonuç */
+.perde{position:absolute;inset:0;z-index:5;background:rgba(15,42,28,.55);display:flex;align-items:center;justify-content:center;padding:12px;overflow:auto}
+.perde[hidden]{display:none}
+.secim-ic,.sonuc-ic{position:relative;background:#fffdf6;border-radius:26px;box-shadow:0 20px 50px rgba(0,0,0,.35);padding:20px 22px;width:min(860px,100%);box-sizing:border-box;max-height:100%;overflow:auto}
+.kapat{all:unset;cursor:pointer;position:absolute;right:12px;top:12px;width:44px;height:44px;border-radius:50%;background:#eaf3ff;color:#1d4e89;font-size:20px;display:flex;align-items:center;justify-content:center}
+.secim-bas{display:flex;align-items:center;gap:14px;padding-right:50px}
+.secim-bas h2{margin:0;font-size:clamp(26px,3.6vw,36px)}
+.secim-bas p{margin:2px 0 0;color:var(--yazi-2);font-size:15px}
+.hikaye{font-size:clamp(18px,2.2vw,23px);line-height:1.4;margin:12px 0 14px;color:#1f2a24}
+.seviyeler{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.seviye{all:unset;box-sizing:border-box;cursor:pointer;background:#fff;border-radius:18px;padding:12px 14px;box-shadow:0 0 0 3px #9cc3ff inset,0 5px 0 #9cc3ff;display:flex;flex-direction:column;gap:3px}
+.seviye:active{transform:translateY(3px);box-shadow:0 0 0 3px #9cc3ff inset}
+.seviye:focus-visible{outline:3px solid #1d4e89;outline-offset:2px}
+.seviye b{font-size:14px;color:#3a86ff;text-transform:uppercase;letter-spacing:.04em}
+.seviye span{font-size:clamp(20px,2.4vw,26px)}
+.seviye small{font-size:14px;color:var(--yazi-2);line-height:1.35}
+.seviye em{font-style:normal;color:#e8a100;font-size:22px;letter-spacing:2px;margin-top:auto}
+.seviye em i{font-style:normal;color:#d9dee5}
+.seviye.kilitli{opacity:.6;box-shadow:0 0 0 3px #d9dee5 inset,0 5px 0 #d9dee5}
+.muhur{width:130px;height:130px;margin:0 auto;border-radius:50%;border:6px double #c0392b;color:#c0392b;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:48px;transform:rotate(-8deg);background:#fff6f4;animation:bas .5s ease-out;box-sizing:border-box}
+.muhur span{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-top:2px;max-width:100px;line-height:1.1}
+.muhur.kucuk{width:70px;height:70px;font-size:34px;flex:none;animation:none}
+@keyframes bas{from{transform:rotate(-8deg) scale(2.2);opacity:0}}
+.sonuc-ic{text-align:center;overflow:hidden}
+.sonuc-ic h2{font-size:clamp(34px,5vw,52px);margin:10px 0 0;color:#1d4e89}
+.yildiz3{font-size:48px;color:#f4a100;margin:0;letter-spacing:6px}
+.yildiz3 span{color:#d9dee5}
+.sonuc-ic p{font-size:20px;margin:6px 0}
+.satir{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.konfeti{position:absolute;inset:0;pointer-events:none}
+.konfeti i{position:absolute;top:-20px;width:10px;height:16px;border-radius:2px;animation:dus 2.6s linear forwards}
+@keyframes dus{to{transform:translateY(620px) rotate(540deg);opacity:.2}}
+#cevir{position:fixed;inset:0;z-index:80;background:#1d4e89;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:24px}
+#cevir[hidden]{display:none}
+#cevir .tel{width:70px;height:120px;border:6px solid #fff;border-radius:14px;animation:don 2s ease-in-out infinite}
+@keyframes don{50%{transform:rotate(-90deg)}}
+#cevir p{font-family:TTKB,Andika,sans-serif;font-size:26px;margin:0}
+@media (prefers-reduced-motion: reduce){#cevir .tel,.konfeti i,.muhur,#kart{animation:none}}
+@media (max-height:520px){
+  .ustc{padding-top:3px;padding-bottom:3px}.ustc button{height:36px;min-width:36px;font-size:17px}#baslik{font-size:15px}#ilerleme i{width:14px;height:14px}
+  .yonc{padding:3px 10px}#yonerge{font-size:16px}#dinle{width:36px;height:36px;font-size:18px}
+  #eylem{min-height:50px;padding-top:5px;padding-bottom:5px}.cta{font-size:16px;padding:7px 16px}.cta.sec{font-size:22px}.cta.muhur-b b{font-size:26px}
+  .seviyeler{gap:8px}.seviye small{display:none}.hikaye{font-size:16px;margin:6px 0 8px}.muhur{width:90px;height:90px;font-size:34px}.muhur span{display:none}.yildiz3{font-size:34px}
+}
+@media (max-height:520px) and (min-aspect-ratio:3/2){
+  #eylem{position:absolute;right:max(6px,env(safe-area-inset-right));bottom:max(6px,env(safe-area-inset-bottom));flex-direction:column;align-items:stretch;background:none;border:0;min-height:0;padding:0;max-width:22%;z-index:4}
+  .yonc{border-bottom-width:2px}
+}
+@media (max-width:640px){ #haritaD span{display:none} .seviyeler{grid-template-columns:1fr} #ilerleme{display:none} }
 </style>
 </head>
 <body>
@@ -78,276 +142,68 @@
 </div></header>
 
 <main class="kap" id="ana">
-  <div class="baslik"><h1>Oyunlar</h1><p>1. ve 2. sınıf için sesli yönergeli oyunlar.</p></div>
-  <h2 class="grup">1. Sınıf</h2>
-  <div class="oyunlar"><a class="oyun" style="--r:#2e8b57;text-decoration:none;color:inherit" href="../oyunlar.html"><span class="ik">🚂</span><b>Okuma Treni Oyunları</b><small>İlk okuma yazma, sayılar, işlemler, geometri ve ölçme: 31 oyun</small></a></div>
-  <div class="baslik" style="padding-top:18px"><h2 style="margin:0;font-size:26px">2. Sınıf</h2><p>Her oyun 8 tur. Robot yönergeyi sesli okur; doğru cevaptan sonra işlem ya da kural kartı çıkar. <span class="yildiz" id="yildizlar"></span></p></div>
-  <h2 class="grup">Matematik</h2>
-  <div class="oyunlar">
-    <button class="oyun" style="--r:#3a86ff" data-oyun="onluk"><span class="ik">🧱</span><b>Onluk Fabrikası</b><small>Onluk çubukları ve birlik küplerle 100'e kadar sayılar</small></button>
-    <button class="oyun" style="--r:#12b886" data-oyun="kanguru"><span class="ik">🦘</span><b>Kanguru Zıplıyor</b><small>Sayı doğrusunda ikişer, beşer, onar ritmik sayma</small></button>
-    <button class="oyun" style="--r:#f4a100" data-oyun="toplama"><span class="ik">🚂</span><b>Toplama Treni</b><small>İki basamaklı sayılarla toplama</small></button>
-    <button class="oyun" style="--r:#f2546b" data-oyun="kumbara"><span class="ik">🐷</span><b>Kumbaram</b><small>Para ile çıkarma, onluk bozma</small></button>
-    <button class="oyun" style="--r:#8b5cf6" data-oyun="bahce"><span class="ik">🌷</span><b>Çarpma Bahçesi</b><small>Eş gruplar, tekrarlı toplama, çarpma</small></button>
-    <button class="oyun" style="--r:#3a86ff" data-oyun="saat"><span class="ik">🕒</span><b>Saat Ustası</b><small>Tam, yarım ve çeyrek saatler</small></button>
-    <button class="oyun" style="--r:#12b886" data-oyun="pazar"><span class="ik">🧺</span><b>Pazar Yeri</b><small>Paralarla tam ödeme yap</small></button>
-    <button class="oyun" style="--r:#f4a100" data-oyun="pasta"><span class="ik">🥧</span><b>Pasta Paylaşımı</b><small>Bütün, yarım ve çeyrek</small></button>
-  </div>
-  <h2 class="grup">Türkçe</h2>
-  <div class="oyunlar">
-    <button class="oyun" style="--r:#8b5cf6" data-oyun="sozluk"><span class="ik">📖</span><b>Sözlük Sırası</b><small>Sözcükleri alfabetik sıraya diz</small></button>
-    <button class="oyun" style="--r:#f2546b" data-oyun="anlam"><span class="ik">🔁</span><b>Eş mi, Zıt mı?</b><small>Eş anlamlı ve zıt anlamlı sözcükler</small></button>
-    <button class="oyun" style="--r:#3a86ff" data-oyun="nokta"><span class="ik">❗</span><b>Noktalama Treni</b><small>Nokta, soru işareti, ünlem</small></button>
-    <button class="oyun" style="--r:#12b886" data-oyun="buyuk"><span class="ik">🔍</span><b>Büyük Harf Dedektifi</b><small>Özel adlar büyük harfle başlar</small></button>
-    <button class="oyun" style="--r:#f4a100" data-oyun="cumle"><span class="ik">🧩</span><b>Cümle Kur</b><small>Karışık sözcüklerden anlamlı cümle</small></button>
-    <button class="oyun" style="--r:#8b5cf6" data-oyun="mi"><span class="ik">❓</span><b>Soru Eki Avı</b><small>"mı, mi, mu, mü" ayrı yazılır</small></button>
-  </div>
+  <section class="kahraman">
+    <svg id="onizle" viewBox="0 0 1200 430" aria-hidden="true"></svg>
+    <div class="yazi"><h1>Ladin Kasabası</h1><p>2. sınıf için sesli yönergeli oyun dünyası</p><br><button class="gir" id="gir">Kasabaya gir <span aria-hidden="true">➜</span></button></div>
+  </section>
+  <h2 class="bolum">Kasabanın yerleri</h2>
+  <div class="yerler" id="yerler"></div>
+  <div class="yakinda" id="yakinda"></div>
+  <p class="not">Tablette ya da akıllı tahtada yatay ekranda oynanır. Yönergeleri robot sesli okur; sesi açın. Her yerde üç seviye var; bir seviye bitince sonraki açılır. Kazanılan yıldızlar bu cihazda saklanır.</p>
+  <h2 class="bolum">1. Sınıf</h2>
+  <a class="birinci" href="../oyunlar.html"><span class="ik" aria-hidden="true">🚂</span><span><b>Okuma Treni Oyunları</b><small>İlk okuma yazma, sayılar, işlemler, geometri ve ölçme</small></span></a>
 </main>
 
-<div id="stage" hidden>
-  <div class="sbar"><h2 id="stitle"></h2><button id="kapat">Oyunlardan çık</button></div>
-  <div class="instr"><span id="instr"></span><button id="tekrar" aria-label="Yönergeyi tekrar dinle">🔊</button></div>
-  <div id="sbwrap"><div id="sb"></div></div>
+<div id="app" hidden>
+  <div class="ustc">
+    <button id="haritaD" aria-label="Haritaya dön">🗺️<span>Harita</span></button>
+    <h2 id="baslik">Ladin Kasabası</h2>
+    <div id="ilerleme" aria-hidden="true"></div>
+    <button id="sesac" aria-label="Sesi aç ya da kapat">🔊</button>
+    <button id="cikis" aria-label="Oyundan çık">✕</button>
+  </div>
+  <div class="yonc"><p id="yonerge" aria-live="polite"></p><button id="dinle" aria-label="Yönergeyi tekrar dinle">👂</button></div>
+  <div class="sahne">
+    <svg id="sv" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid meet" overflow="visible" aria-label="Oyun sahnesi"></svg>
+    <div id="bildirim" role="status"></div>
+    <div id="kart" hidden></div>
+    <div id="secim" class="perde" hidden></div>
+    <div id="sonuc" class="perde" hidden></div>
+  </div>
+  <div id="eylem"></div>
 </div>
+<div id="cevir" hidden><div class="tel" aria-hidden="true"></div><p>Telefonu yan çevir.</p><button class="cta alt" id="cevirGec">Böyle devam et</button></div>
 
 <footer class="alt"><div class="kap"><span>Ladin Ormanı · MEB Maarif Modeli'ne uygun materyaller</span><a href="kvkk.html">KVKK Aydınlatma Metni</a></div></footer>
 
 <script src="ortak.js"></script>
+<script src="oyun2/motor.js"></script>
+<script src="oyun2/yerler.js"></script>
 <script>
 "use strict";
-/* ---------- yardımcılar ---------- */
-const rint = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
-const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-const pick = a => a[Math.floor(Math.random() * a.length)];
-const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const tr = s => s.toLocaleLowerCase('tr');
-
-/* ---------- ses ---------- */
-let VOICE = null, AC = null;
-function loadVoice(){ try { const v = speechSynthesis.getVoices().filter(x => /^tr/i.test(x.lang));
-  VOICE = v.find(x => /tolga|ahmet|erkek|male(?!.*female)/i.test(x.name + ' ' + x.voiceURI)) || v.find(x => x.localService) || v[0] || null; } catch(e){} }
-if ('speechSynthesis' in window) { loadVoice(); speechSynthesis.onvoiceschanged = loadVoice; }
-function queueSay(t){ String(t).split(/(?<=[.!?])\s+/).filter(Boolean).forEach(part => { const u = new SpeechSynthesisUtterance(part); u.lang = 'tr-TR'; if (VOICE) u.voice = VOICE; u.rate = .72; speechSynthesis.speak(u); }); }
-// speak: çocuğun dokunuşuna cevap (öncekini keser); sayAfter: otomatik ses (sıraya girer)
-function speak(t){ if (!('speechSynthesis' in window)) return; try { speechSynthesis.cancel(); queueSay(t); } catch(e){} }
-function sayAfter(t){ if (!('speechSynthesis' in window)) return; try { queueSay(t); } catch(e){} }
-// afterSay: robot konuşmasını bitirmeden ekran değişmez (en çok 12 sn)
-let GEN = 0;
-function afterSay(fn, ms){ const g = GEN, t0 = Date.now(); const busy = () => { try { return speechSynthesis.speaking || speechSynthesis.pending; } catch(e){ return false; } };
-  const go = () => { if (g !== GEN) return; if (busy() && Date.now() - t0 < 12000) { setTimeout(go, 200); return; } fn(); }; return setTimeout(go, ms || 0); }
-function tone(f, d, type = 'sine', vol = .14, delay = 0){ try { AC = AC || new (window.AudioContext || window.webkitAudioContext)(); const o = AC.createOscillator(), g = AC.createGain(), t = AC.currentTime + delay;
-  o.type = type; o.frequency.value = f; g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.001, t + d); o.connect(g).connect(AC.destination); o.start(t); o.stop(t + d + .02); } catch(e){} }
-const sOk = () => { tone(660, .12); tone(880, .18, 'sine', .14, .11); };
-const sBad = () => tone(200, .22, 'triangle', .12);
-const sPop = () => tone(950, .07, 'square', .06);
-const sWin = () => [523, 659, 784, 1047].forEach((f, i) => tone(f, .18, 'sine', .13, i * .12));
-
-/* ---------- sahne ---------- */
-const stage = document.getElementById('stage'), sb = document.getElementById('sb');
-let INSTR = '', LOCK = false, AKTIF = null;
-function setInstr(t){ LOCK = false; INSTR = t; document.getElementById('instr').textContent = t; sayAfter(t); }
-document.getElementById('tekrar').onclick = () => speak(INSTR);
-// doğru cevapta tahta kilitlenir; yeni soru çizilince açılır (çift dokunma turu atlatmaz)
-sb.addEventListener('click', e => { if (LOCK && !e.target.closest('[data-serbest]')) { e.stopPropagation(); e.preventDefault(); } }, true);
-new MutationObserver(() => { LOCK = false; }).observe(sb, { childList: true });
-const FB = (t, good) => { const f = document.getElementById('fb'); if (f) { f.className = 'feedback' + (good ? ' good' : ''); f.textContent = t; } if (good) LOCK = true; speak(t); };
-const progBar = (n, k) => `<div class="prog">${Array.from({ length: n }, (_, i) => `<i class="${i < k ? 'd' : ''}"></i>`).join('')}</div>`;
-const OVG = ['Aferin!', 'Harika!', 'Çok güzel!', 'Doğru!', 'Süper!', 'Bravo!'];
-function fitStage(){ if (stage.hidden) return; sb.style.zoom = 1; const w = document.getElementById('sbwrap'); const sc = Math.max(.45, Math.min(1, w.clientHeight / sb.scrollHeight, w.clientWidth / sb.scrollWidth)); if (sc < 1) sb.style.zoom = sc.toFixed(3); }
-new MutationObserver(() => requestAnimationFrame(fitStage)).observe(sb, { childList: true, subtree: true });
-addEventListener('resize', fitStage);
-function yildizSay(){ let n = 0; try { n = +localStorage.getItem('lo2_yildiz') || 0; } catch(e){} document.getElementById('yildizlar').textContent = n ? '⭐ ' + n + ' yıldız' : ''; return n; }
-function yildizEkle(){ try { localStorage.setItem('lo2_yildiz', yildizSay() + 1); } catch(e){} yildizSay(); }
-yildizSay();
-
-/* ---------- oyun çatısı: her oyun turları sırayla çizer; doğru cevapta kart, sonra sonraki tur ---------- */
-const N = 8;
-function tur(id, ciz){ let k = 0; const sonraki = () => { if (k >= N) return exitCard(id); ciz(k, () => { k++; afterSay(sonraki, 1400); }); }; sonraki(); }
-// seçenekli soru: sahne + seçenekler; doğruysa kart
-function soru(k, { ust, yon, secenekler, dogru, kart, sesli }, bitti){
-  setInstr(yon);
-  sb.innerHTML = progBar(N, k) + `<div class="sahne">${ust}<div class="secenek">${secenekler.map(s => `<button class="opt" data-v="${esc(s)}">${esc(s)}</button>`).join('')}</div><div id="kart"></div></div><div class="feedback" id="fb"></div>`;
-  sb.querySelector('.secenek').onclick = e => { const b = e.target.closest('.opt'); if (!b || b.classList.contains('yanlis')) return;
-    if (b.dataset.v === String(dogru)) { b.classList.add('dogru'); sOk(); document.getElementById('kart').innerHTML = kart ? `<div class="cevap">${kart}</div>` : ''; FB(pick(OVG) + (sesli ? ' ' + sesli : ''), true); bitti(); }
-    else { b.classList.add('yanlis'); sBad(); FB('Bir daha dene.', false); } };
-}
-function sayiSecenek(n, lo, hi, farklar){ const s = new Set([n]); for (const f of shuffle(farklar)) { if (s.size >= 3) break; const x = n + f; if (x >= lo && x <= hi) s.add(x); } let g = 0; while (s.size < 3 && g++ < 50) { const x = n + rint(-9, 9); if (x >= lo && x <= hi) s.add(x); } return shuffle([...s]); }
-
-/* ---------- SVG çizimler ---------- */
-const svg = (w, h, ic, mm) => `<svg viewBox="0 0 ${w} ${h}" width="${mm || w}" role="img">${ic}</svg>`;
-const onlukCubuk = (x, y) => { let s = `<rect x="${x}" y="${y}" width="22" height="200" rx="3" fill="#3a86ff" stroke="#1d4e89" stroke-width="2"/>`; for (let i = 1; i < 10; i++) s += `<line x1="${x}" x2="${x + 22}" y1="${y + i * 20}" y2="${y + i * 20}" stroke="#1d4e89" stroke-width="1.5"/>`; return s; };
-const birlikKup = (x, y) => `<rect x="${x}" y="${y}" width="20" height="20" rx="3" fill="#ffc93c" stroke="#b45309" stroke-width="2"/>`;
-function bloklar(o, b){ const w = Math.max(160, o * 30 + 20 + Math.ceil(b / 5) * 26 + 20); let s = ''; for (let i = 0; i < o; i++) s += onlukCubuk(10 + i * 30, 10);
-  for (let j = 0; j < b; j++) s += birlikKup(o * 30 + 24 + Math.floor(j / 5) * 26, 190 - (j % 5) * 24); return svg(w, 220, s, Math.min(620, w * 1.4)); }
-
-/* ---------- MATEMATİK ---------- */
-const OYUN = {};
-OYUN.onluk = { ad: 'Onluk Fabrikası', ogren: ['Bir onluk çubukta 10 birlik olduğunu biliyorum.', 'İki basamaklı bir sayıyı onluk ve birlik olarak gösterebilirim.', 'Onlukları ve birlikleri sayarak sayıyı bulabilirim.'],
-  oyna(){ tur('onluk', (k, bitti) => {
-    const n = rint(21, 99), o = Math.floor(n / 10), b = n % 10;
-    if (k % 2 === 0) return soru(k, { yon: 'Fabrikada kaç küp var? Onlukları ve birlikleri say.', ust: bloklar(o, b), secenekler: sayiSecenek(n, 10, 99, [10, -10, b * 10 + o - n, 1, -1]), dogru: n, kart: `${o} onluk ${b} birlik = ${n}` }, bitti);
-    // yap modu: çocuk onluk ve birlik ekleyerek sayıyı kurar
-    let co = 0, cb = 0;
-    setInstr(`Fabrika ${n} küp istiyor. Onluk ve birlik ekleyerek ${n} sayısını kur, sonra Tamam'a bas.`);
-    const ciz = () => { document.getElementById('kur').innerHTML = bloklar(co, cb) + `<div class="sayac">${co} onluk, ${cb} birlik</div>`; };
-    sb.innerHTML = progBar(N, k) + `<div class="sahne"><div class="cumle">Hedef: <b>${n}</b></div><div id="kur"></div><div class="satir"><button class="opt" data-a="o+">+ onluk</button><button class="opt" data-a="b+">+ birlik</button><button class="opt" data-a="o-">− onluk</button><button class="opt" data-a="b-">− birlik</button></div><button class="cta" id="tamam">Tamam</button><div id="kart"></div></div><div class="feedback" id="fb"></div>`;
-    ciz();
-    sb.querySelector('.satir').onclick = e => { const a = e.target.closest('[data-a]'); if (!a) return; sPop(); const v = a.dataset.a;
-      if (v === 'o+' && co < 9) co++; if (v === 'b+' && cb < 9) cb++; if (v === 'o-' && co > 0) co--; if (v === 'b-' && cb > 0) cb--; ciz(); };
-    document.getElementById('tamam').onclick = () => { if (co * 10 + cb === n) { sOk(); document.getElementById('kart').innerHTML = `<div class="cevap">${o} onluk ${b} birlik = ${n}</div>`; FB(pick(OVG), true); bitti(); }
-      else { sBad(); FB(co * 10 + cb < n ? 'Küp az. Biraz daha ekle.' : 'Küp çok. Biraz çıkar.', false); } };
-  }); } };
-
-OYUN.kanguru = { ad: 'Kanguru Zıplıyor', ogren: ['Sayı doğrusunda ritmik sayabilirim.', 'İkişer, beşer ve onar ileri sayabilirim.', 'Kangurunun nereye varacağını tahmin edebilirim.'],
-  oyna(){ tur('kanguru', (k, bitti) => {
-    const adim = pick([2, 5, 10]), kez = rint(3, 5), bas = adim === 10 ? rint(0, 4) * 10 : adim === 5 ? rint(0, 8) * 5 : rint(0, 20) * 2, son = bas + adim * kez;
-    const lo = Math.floor(bas / 10) * 10, hi = Math.max(lo + 20, Math.ceil(son / 10) * 10), W = 640, X = v => 40 + (v - lo) / (hi - lo) * (W - 80);
-    let s = `<line x1="30" x2="${W - 30}" y1="150" y2="150" stroke="#1f2a24" stroke-width="3"/>`;
-    const ad = hi - lo <= 40 ? 2 : 5; for (let v = lo; v <= hi; v += ad) s += `<line x1="${X(v)}" x2="${X(v)}" y1="${v % 10 ? 142 : 136}" y2="${v % 10 ? 158 : 164}" stroke="#1f2a24" stroke-width="2"/>${v % 10 === 0 ? `<text x="${X(v)}" y="196" font-size="32" text-anchor="middle" font-family="Andika" font-weight="700">${v}</text>` : ''}`;
-    s += `<text x="${X(bas)}" y="128" font-size="60" text-anchor="middle">🦘</text><circle cx="${X(bas)}" cy="150" r="9" fill="#f2546b"/>${bas % 10 ? `<text x="${X(bas)}" y="196" font-size="30" text-anchor="middle" fill="#f2546b" font-family="Andika" font-weight="700">${bas}</text>` : ''}`;
-    soru(k, { yon: `Kanguru ${bas} sayısından başlıyor. Her zıplayışta ${adim} ileri gidiyor. ${kez} kez zıplayınca hangi sayıya varır?`, ust: svg(W, 210, s, 640) + `<div class="cumle">${bas} → ${'? '.repeat(kez).trim().split(' ').join(' → ')}</div>`,
-      secenekler: sayiSecenek(son, 0, 100, [adim, -adim, adim * 2, 1]), dogru: son, kart: `${bas}${Array.from({ length: kez }, (_, i) => `, ${bas + adim * (i + 1)}`).join('')}<small>${{ 2: 'ikişer', 5: 'beşer', 10: 'onar' }[adim]} ritmik sayma</small>` }, bitti);
-  }); } };
-
-OYUN.toplama = { ad: 'Toplama Treni', ogren: ['İki basamaklı sayıları toplayabilirim.', 'Birlikleri toplayınca 10 olursa bir onluk yapabilirim.', 'Toplamı onluk ve birliklere bakarak bulabilirim.'],
-  oyna(){ tur('toplama', (k, bitti) => {
-    let a, b; do { a = rint(12, 68); b = rint(11, 39); } while (a + b > 99 || (k < 3 && (a % 10) + (b % 10) >= 10));
-    const t = a + b;
-    const vagon = (n, x) => `<g transform="translate(${x} 0)"><rect x="0" y="40" width="300" height="190" rx="18" fill="#fff6dc" stroke="#f4a100" stroke-width="4"/><circle cx="60" cy="236" r="18" fill="#1f2a24"/><circle cx="240" cy="236" r="18" fill="#1f2a24"/>${(() => { let s = ''; const o = Math.floor(n / 10), bb = n % 10; for (let i = 0; i < o; i++) s += `<g transform="translate(${16 + i * 26} 50) scale(.84)">${onlukCubuk(0, 0)}</g>`; for (let j = 0; j < bb; j++) s += birlikKup(18 + o * 26 + Math.floor(j / 5) * 24, 196 - (j % 5) * 22); return s; })()}<text x="150" y="30" font-size="30" text-anchor="middle" font-family="Andika" font-weight="700">${n}</text></g>`;
-    soru(k, { yon: `İki vagondaki küpleri birleştirelim. Toplam kaç küp olur?`, ust: svg(700, 260, vagon(a, 20) + vagon(b, 380), 680), secenekler: sayiSecenek(t, 20, 99, [10, -10, 1, -1]), dogru: t, kart: `${a} + ${b} = ${t}` }, bitti);
-  }); } };
-
-const para = (v, x, y) => v >= 5 ? `<g transform="translate(${x} ${y})"><rect width="96" height="50" rx="6" fill="${{ 5: '#cdb4f5', 10: '#ffb3b3', 20: '#a8e6cf', 50: '#ffd59e' }[v]}" stroke="#4a5a50" stroke-width="2"/><text x="48" y="34" font-size="22" text-anchor="middle" font-family="Andika" font-weight="700">${v} TL</text></g>` : `<g transform="translate(${x + 24} ${y + 25})"><circle r="23" fill="#f2c94c" stroke="#a5781b" stroke-width="2.5"/><text y="7" font-size="16" text-anchor="middle" font-family="Andika" font-weight="700">1 TL</text></g>`;
-OYUN.kumbara = { ad: 'Kumbaram', ogren: ['Paramdan harcadığımı çıkarabilirim.', 'Gerekince bir 10 TL\'yi on tane 1 TL olarak bozabilirim.', 'Kalan parayı hesaplayabilirim.'],
-  oyna(){ tur('kumbara', (k, bitti) => {
-    const on = rint(2, 7), bir = rint(0, 9), a = on * 10 + bir, b = rint(5, Math.min(a - 3, 38)), kalan = a - b, URUN = [['kalem', '✏️'], ['silgi', '🧽'], ['kitap', '📕'], ['top', '⚽'], ['oyuncak araba', '🚗'], ['boya kalemi', '🖍️']];
-    const [u, e] = pick(URUN); let s = ''; for (let i = 0; i < on; i++) s += para(10, 6 + (i % 3) * 104, 6 + Math.floor(i / 3) * 60); for (let j = 0; j < bir; j++) s += para(1, 330 + (j % 3) * 52, 6 + Math.floor(j / 3) * 52);
-    soru(k, { yon: `Kumbaramda ${a} lira var. ${b} liraya bir ${u} aldım. Kaç liram kaldı?`, ust: svg(490, 190, s, 520) + `<div class="cumle">${e} ${u}: ${b} TL</div>`, secenekler: sayiSecenek(kalan, 0, 99, [10, -10, 2, -2]), dogru: kalan, kart: `${a} − ${b} = ${kalan}` }, bitti);
-  }); } };
-
-const CICEK = ['🌷', '🌻', '🌼', '🌹', '🍎', '🍓'];
-OYUN.bahce = { ad: 'Çarpma Bahçesi', ogren: ['Eş grupları tekrarlı toplama ile sayabilirim.', 'Tekrarlı toplamayı çarpma olarak yazabilirim.', 'Satır ve sütunlara bakarak toplamı bulabilirim.'],
-  oyna(){ tur('bahce', (k, bitti) => {
-    const sat = rint(2, 5), sut = pick([2, 3, 4, 5, 10].filter(x => x * sat <= 50)), c = pick(CICEK), t = sat * sut;
-    const ust = `<div style="display:grid;gap:6px;font-size:${sut > 5 ? 30 : 42}px">${Array.from({ length: sat }, () => `<div style="display:flex;gap:6px;justify-content:center;background:#e6faf2;border-radius:12px;padding:4px 10px">${c.repeat(sut)}</div>`).join('')}</div>`;
-    soru(k, { yon: `Bahçede ${sat} sıra var. Her sırada ${sut} tane var. Hepsi kaç tane?`, ust, secenekler: sayiSecenek(t, 2, 60, [sut, -sut, sat, 1]), dogru: t, kart: `${Array(sat).fill(sut).join(' + ')} = ${t}<small>${sat} × ${sut} = ${t}</small>` }, bitti);
-  }); } };
-
-const SAAT_AD = ['on iki', 'bir', 'iki', 'üç', 'dört', 'beş', 'altı', 'yedi', 'sekiz', 'dokuz', 'on', 'on bir'];
-// "dördü çeyrek geçiyor" / "beşe çeyrek var" — ek uyumu sözcük sözcük (sayıya ek eklenmez)
-const SAAT_I = ['on ikiyi', 'biri', 'ikiyi', 'üçü', 'dördü', 'beşi', 'altıyı', 'yediyi', 'sekizi', 'dokuzu', 'onu', 'on biri'], SAAT_E = ['on ikiye', 'bire', 'ikiye', 'üçe', 'dörde', 'beşe', 'altıya', 'yediye', 'sekize', 'dokuza', 'ona', 'on bire'];
-const saatOku = (h, m) => m === 0 ? `saat ${SAAT_AD[h % 12]}` : m === 30 ? `saat ${SAAT_AD[h % 12]} buçuk` : m === 15 ? `${SAAT_I[h % 12]} çeyrek geçiyor` : `${SAAT_E[(h + 1) % 12]} çeyrek var`;
-function saatSvg(h, m){ let s = `<circle cx="150" cy="150" r="138" fill="#fff" stroke="#1d4e89" stroke-width="8"/>`; for (let i = 1; i <= 12; i++) { const a = i * Math.PI / 6; s += `<text x="${150 + 108 * Math.sin(a)}" y="${160 - 108 * Math.cos(a)}" font-size="28" text-anchor="middle" font-family="Andika" font-weight="700">${i}</text>`; }
-  for (let i = 0; i < 60; i++) { const a = i * Math.PI / 30, r1 = i % 5 ? 128 : 122; s += `<line x1="${150 + r1 * Math.sin(a)}" y1="${150 - r1 * Math.cos(a)}" x2="${150 + 134 * Math.sin(a)}" y2="${150 - 134 * Math.cos(a)}" stroke="#1d4e89" stroke-width="${i % 5 ? 1.5 : 3}"/>`; }
-  const ah = ((h % 12) + m / 60) * Math.PI / 6, am = m * Math.PI / 30;
-  s += `<line x1="150" y1="150" x2="${150 + 62 * Math.sin(ah)}" y2="${150 - 62 * Math.cos(ah)}" stroke="#f2546b" stroke-width="12" stroke-linecap="round"/><line x1="150" y1="150" x2="${150 + 100 * Math.sin(am)}" y2="${150 - 100 * Math.cos(am)}" stroke="#3a86ff" stroke-width="7" stroke-linecap="round"/><circle cx="150" cy="150" r="9" fill="#1f2a24"/>`;
-  return svg(300, 300, s, 300); }
-OYUN.saat = { ad: 'Saat Ustası', ogren: ['Akrep ve yelkovanı ayırt edebilirim.', 'Tam, yarım ve çeyrek saatleri okuyabilirim.', 'Saati sözle söyleyebilirim.'],
-  oyna(){ tur('saat', (k, bitti) => {
-    const m = k < 2 ? 0 : k < 4 ? 30 : pick([0, 15, 30, 45]), h = rint(1, 12), d = saatOku(h, m);
-    // çeldiriciler: akrep ile yelkovanı karıştırma ve bir saat kaydırma
-    const ad = [saatOku(h % 12 + 1, m), saatOku(h, (m + 30) % 60), saatOku(rint(1, 12), pick([0, 15, 30, 45]))], sec = [d]; for (const x of ad) if (!sec.includes(x) && sec.length < 3) sec.push(x);
-    while (sec.length < 3) { const x = saatOku(rint(1, 12), pick([0, 15, 30, 45])); if (!sec.includes(x)) sec.push(x); }
-    soru(k, { yon: 'Saat kaç? Kısa kırmızı akrep saati, uzun mavi yelkovan dakikayı gösterir.', ust: saatSvg(h, m), secenekler: shuffle(sec), dogru: d, kart: d }, bitti);
-  }); } };
-
-OYUN.pazar = { ad: 'Pazar Yeri', ogren: ['Bir ürünün fiyatını paralarla tam olarak ödeyebilirim.', 'Farklı paraları toplayarak bir tutar oluşturabilirim.', 'Ödediğim parayı sayabilirim.'],
-  oyna(){ tur('pazar', (k, bitti) => {
-    const URUN = [['domates', '🍅'], ['elma', '🍎'], ['peynir', '🧀'], ['ekmek', '🍞'], ['karpuz', '🍉'], ['süt', '🥛'], ['muz', '🍌'], ['simit', '🥯']], [u, e] = pick(URUN), fiyat = rint(6, k < 4 ? 30 : 68);
-    let odenen = [];
-    setInstr(`${u.charAt(0).toUpperCase() + u.slice(1)} ${fiyat} lira. Paralara dokunarak tam ${fiyat} lira öde, sonra Öde'ye bas.`);
-    sb.innerHTML = progBar(N, k) + `<div class="sahne"><div class="cumle" style="font-size:60px">${e}</div><div class="cumle">${u}: <b>${fiyat} TL</b></div><div class="satir" id="cuzdan">${[1, 5, 10, 20, 50].map(v => `<button class="opt" data-p="${v}" style="padding:4px">${svg(v >= 5 ? 100 : 52, v >= 5 ? 54 : 52, para(v, v >= 5 ? 2 : 2, 2), v >= 5 ? 110 : 60)}</button>`).join('')}</div><div class="yuva" id="tezgah"></div><div class="sayac" id="top">Ödenen: 0 TL</div><div class="satir"><button class="cta alt" id="geri">Geri al</button><button class="cta" id="ode">Öde</button></div><div id="kart"></div></div><div class="feedback" id="fb"></div>`;
-    const ciz = () => { document.getElementById('tezgah').innerHTML = odenen.map(v => svg(v >= 5 ? 100 : 52, v >= 5 ? 54 : 52, para(v, 2, 2), v >= 5 ? 90 : 48)).join(''); document.getElementById('top').textContent = 'Ödenen: ' + odenen.reduce((a, b) => a + b, 0) + ' TL'; };
-    document.getElementById('cuzdan').onclick = e => { const b = e.target.closest('[data-p]'); if (!b) return; sPop(); odenen.push(+b.dataset.p); ciz(); };
-    document.getElementById('geri').onclick = () => { odenen.pop(); ciz(); };
-    document.getElementById('ode').onclick = () => { const t = odenen.reduce((a, b) => a + b, 0); if (t === fiyat) { sOk(); document.getElementById('kart').innerHTML = `<div class="cevap">${odenen.join(' + ')} = ${fiyat}</div>`; FB(pick(OVG), true); bitti(); }
-      else { sBad(); FB(t < fiyat ? 'Para az. Biraz daha ekle.' : 'Para fazla. Geri al ile çıkar.', false); } };
-  }); } };
-
-function pastaSvg(parca, boyali, sekil){ let s = ''; const R = 110, cx = 130, cy = 130;
-  if (sekil === 'daire') { if (parca === 1) s += `<circle cx="${cx}" cy="${cy}" r="${R}" fill="${boyali ? '#f4a100' : '#fff'}" stroke="#1f2a24" stroke-width="4"/>`;
-    else for (let i = 0; i < parca; i++) { const a1 = i * 2 * Math.PI / parca - Math.PI / 2, a2 = (i + 1) * 2 * Math.PI / parca - Math.PI / 2;
-      s += `<path d="M${cx} ${cy} L${cx + R * Math.cos(a1)} ${cy + R * Math.sin(a1)} A${R} ${R} 0 ${parca === 1 ? 1 : 0} 1 ${cx + R * Math.cos(a2)} ${cy + R * Math.sin(a2)} Z" fill="${i < boyali ? '#f4a100' : '#fff'}" stroke="#1f2a24" stroke-width="4"/>`; } }
-  else { const w = 220 / parca; for (let i = 0; i < parca; i++) s += `<rect x="${20 + i * w}" y="60" width="${w}" height="140" fill="${i < boyali ? '#f2546b' : '#fff'}" stroke="#1f2a24" stroke-width="4"/>`; }
-  return svg(260, 260, s, 240); }
-OYUN.pasta = { ad: 'Pasta Paylaşımı', ogren: ['Bir bütünü eş parçalara ayırabilirim.', 'Yarımın iki eş parçadan biri olduğunu biliyorum.', 'Çeyreğin dört eş parçadan biri olduğunu biliyorum.'],
-  oyna(){ tur('pasta', (k, bitti) => {
-    const [parca, boyali, ad] = pick([[1, 1, 'bütün'], [2, 1, 'yarım'], [4, 1, 'çeyrek'], [2, 2, 'bütün'], [4, 2, 'yarım'], [4, 4, 'bütün']]), sekil = k % 2 ? 'dikdortgen' : 'daire';
-    soru(k, { yon: 'Pastanın boyalı kısmı ne kadar? Bütün mü, yarım mı, çeyrek mi?', ust: pastaSvg(parca, boyali, sekil), secenekler: ['bütün', 'yarım', 'çeyrek'], dogru: ad, kart: `${parca} eş parçadan ${boyali} tanesi boyalı: ${ad}` }, bitti);
-  }); } };
-
-/* ---------- TÜRKÇE ---------- */
-const SOZLER = [['araba', 'bahçe', 'ceviz', 'deniz', 'elma', 'fener', 'gemi', 'havuç', 'ıhlamur', 'irmik', 'jilet', 'kitap', 'limon', 'masa', 'nar', 'okul', 'öğretmen', 'portakal', 'resim', 'sepet', 'şemsiye', 'tavşan', 'uçak', 'üzüm', 'vazo', 'yastık', 'zeytin', 'çiçek', 'ğ']].flat().filter(x => x.length > 1);
-const ALF = 'abcçdefgğhıijklmnoöprsştuüvyz';
-const alfKarsi = (a, b) => { for (let i = 0; i < Math.min(a.length, b.length); i++) { const d = ALF.indexOf(a[i]) - ALF.indexOf(b[i]); if (d) return d; } return a.length - b.length; };
-OYUN.sozluk = { ad: 'Sözlük Sırası', ogren: ['Sözcükleri alfabetik sıraya dizebilirim.', 'İlk harfleri aynıysa ikinci harfe bakarım.', 'Sözlükte bir sözcüğü daha kolay bulabilirim.'],
-  oyna(){ tur('sozluk', (k, bitti) => {
-    let l; if (k < 4) l = shuffle(SOZLER).slice(0, 4); else { const G = [['kalem', 'kitap', 'kuş', 'köpek'], ['bal', 'balon', 'bebek', 'bulut'], ['simit', 'sepet', 'saat', 'su'], ['elma', 'ekmek', 'erik', 'eldiven'], ['top', 'tavuk', 'tren', 'tilki'], ['anne', 'ayva', 'arı', 'ağaç']]; l = shuffle(pick(G)); }
-    const dogru = [...l].sort(alfKarsi); let dizi = [];
-    setInstr(k < 4 ? 'Sözcüklere sözlükteki sırasıyla dokun. İlk harflerine bak.' : 'Bu sözcüklerin ilk harfleri aynı. İkinci harflerine bakarak sözlük sırasıyla dokun.');
-    sb.innerHTML = progBar(N, k) + `<div class="sahne"><div class="satir" id="kartlar">${l.map(w => `<button class="opt" data-w="${w}">${w}</button>`).join('')}</div><div class="yuva" id="yuva"></div><div id="kart"></div></div><div class="feedback" id="fb"></div>`;
-    document.getElementById('kartlar').onclick = e => { const b = e.target.closest('[data-w]'); if (!b || b.disabled) return;
-      if (b.dataset.w === dogru[dizi.length]) { sPop(); dizi.push(b.dataset.w); b.disabled = true; b.style.visibility = 'hidden'; document.getElementById('yuva').innerHTML = dizi.map((w, i) => `<span class="opt dogru">${i + 1}. ${w}</span>`).join('');
-        if (dizi.length === l.length) { sOk(); document.getElementById('kart').innerHTML = `<div class="cevap">${dogru.join(' · ')}</div>`; FB(pick(OVG), true); bitti(); } }
-      else { b.classList.add('yanlis'); setTimeout(() => b.classList.remove('yanlis'), 400); sBad(); FB('Alfabeye bak. Hangi harf daha önce geliyor?', false); } };
-  }); } };
-
-const ESA = [['cevap', 'yanıt'], ['okul', 'mektep'], ['armağan', 'hediye'], ['yurt', 'vatan'], ['ak', 'beyaz'], ['kara', 'siyah'], ['misafir', 'konuk'], ['doktor', 'hekim'], ['sözcük', 'kelime'], ['yıl', 'sene'], ['kalp', 'yürek'], ['soru', 'sual'], ['şehir', 'kent'], ['dost', 'arkadaş'], ['ad', 'isim']];
-const ZITA = [['uzun', 'kısa'], ['sıcak', 'soğuk'], ['geniş', 'dar'], ['erken', 'geç'], ['kolay', 'zor'], ['temiz', 'kirli'], ['eski', 'yeni'], ['ağır', 'hafif'], ['büyük', 'küçük'], ['açık', 'kapalı'], ['gece', 'gündüz'], ['iyi', 'kötü'], ['hızlı', 'yavaş'], ['dolu', 'boş'], ['ince', 'kalın']];
-OYUN.anlam = { ad: 'Eş mi, Zıt mı?', ogren: ['Eş anlamlı sözcüklerin anlamı aynıdır.', 'Zıt anlamlı sözcüklerin anlamı birbirinin tersidir.', 'Bir sözcüğün eş ya da zıt anlamlısını bulabilirim.'],
-  oyna(){ const L = shuffle([...shuffle(ESA).slice(0, 4).map(x => [x, 'eş anlamlı']), ...shuffle(ZITA).slice(0, 4).map(x => [x, 'zıt anlamlı'])]);
-    tur('anlam', (k, bitti) => { const [[a, b], t] = L[k];
-      soru(k, { yon: 'Bu iki sözcük eş anlamlı mı, zıt anlamlı mı?', ust: `<div class="cumle" style="font-size:52px">${a} &nbsp;—&nbsp; ${b}</div>`, secenekler: ['eş anlamlı', 'zıt anlamlı'], dogru: t, kart: `${a} – ${b}: ${t}` }, bitti); }); } };
-
-const NOKTALAR = [['Okulumuzun bahçesi çok büyük', '.'], ['Yarın parka gelecek misin', '?'], ['Ne güzel bir gün', '!'], ['Annem bana kitap aldı', '.'], ['Bu kalem kimin', '?'], ['Eyvah, süt taştı', '!'], ['Kedimiz bahçede uyuyor', '.'], ['Saat kaçta buluşalım', '?'], ['Yaşasın, kar yağıyor', '!'], ['Dedem bize masal anlattı', '.'], ['Sen hangi meyveyi seversin', '?'], ['Aman, dikkat et', '!'], ['Kardeşim resim çiziyor', '.'], ['Nereye gidiyorsunuz', '?'], ['Hadi, oyuna başlayalım', '!']];
-OYUN.nokta = { ad: 'Noktalama Treni', ogren: ['Bildiren cümlenin sonuna nokta koyarım.', 'Soru soran cümlenin sonuna soru işareti koyarım.', 'Sevinç, korku ve şaşkınlık bildiren cümlenin sonuna ünlem koyarım.'],
-  oyna(){ const L = shuffle(NOKTALAR); tur('nokta', (k, bitti) => { const [c, i] = L[k];
-    soru(k, { yon: 'Cümleyi oku. Son vagona hangi işaret gelmeli?', ust: `<div class="cumle">🚂 ${c} <span style="display:inline-block;min-width:40px;border:3px dashed #f2546b;border-radius:10px">&nbsp;</span></div>`, secenekler: ['.', '?', '!'], dogru: i, kart: c + i, sesli: '' }, bitti); }); } };
-
-const BUYUK = [['Arkadaşım', 'ayşe', 'bugün okula geldi.'], ['Biz yazın', 'antalya', 'şehrine gittik.'], ['Kedimizin adını', 'pamuk', 'koyduk.'], ['Dedem', 'trabzon', 'şehrinde yaşıyor.'], ['Okulumuzun adı', 'atatürk', 'İlkokulu.'], ['Ben ve kardeşim', 'mert', 'parkta oynadık.'], ['Yarın', 'ankara', 'şehrine gideceğiz.'], ['Komşumuzun köpeği', 'karabaş', 'çok uslu.'], ['Bu yaz', 'van', 'Gölü\'nü gördük.'], ['Teyzem', 'izmir', 'şehrinde oturuyor.']];
-OYUN.buyuk = { ad: 'Büyük Harf Dedektifi', ogren: ['Kişi adları büyük harfle başlar.', 'Şehir ve ülke adları büyük harfle başlar.', 'Hayvanlara verilen özel adlar büyük harfle başlar.'],
-  oyna(){ const L = shuffle(BUYUK); tur('buyuk', (k, bitti) => { const [o, x, s] = L[k]; const kel = [...o.split(' '), x, ...s.split(' ')];
-    setInstr('Bu cümlede büyük harfle başlaması gereken bir sözcük küçük yazılmış. O sözcüğe dokun.');
-    sb.innerHTML = progBar(N, k) + `<div class="sahne"><div class="cumle" id="cm">${kel.map(w => `<button class="kelime" data-w="${esc(w)}">${esc(w)}</button>`).join(' ')}</div><div id="kart"></div></div><div class="feedback" id="fb"></div>`;
-    document.getElementById('cm').onclick = e => { const b = e.target.closest('.kelime'); if (!b) return;
-      if (b.dataset.w === x) { b.classList.add('dogru'); const dz = x.charAt(0).toLocaleUpperCase('tr') + x.slice(1); b.textContent = dz; sOk(); document.getElementById('kart').innerHTML = `<div class="cevap">${o} ${dz} ${s}<small>Özel adlar büyük harfle başlar.</small></div>`; FB(pick(OVG), true); bitti(); }
-      else { b.classList.add('yanlis'); setTimeout(() => b.classList.remove('yanlis'), 400); sBad(); FB('Bu sözcük doğru yazılmış. Bir kişinin, şehrin ya da hayvanın özel adını ara.', false); } };
-  }); } };
-
-const CUMLELER = ['Ali okula yürüyerek gitti.', 'Kedi süt içti.', 'Annem bahçeye çiçek dikti.', 'Biz parkta top oynadık.', 'Kuşlar ağaçta ötüyor.', 'Dedem bana masal okudu.', 'Kardeşim resim yapmayı sever.', 'Yarın sinemaya gideceğiz.', 'Öğretmenimiz bize bir şarkı öğretti.', 'Akşam yemeğinde çorba içtik.', 'Yağmur durunca gökkuşağı çıktı.', 'Arkadaşım bana kalemini verdi.'];
-OYUN.cumle = { ad: 'Cümle Kur', ogren: ['Karışık sözcüklerden anlamlı cümle kurabilirim.', 'Cümle büyük harfle başlar.', 'Cümlenin sonuna uygun noktalama işareti konur.'],
-  oyna(){ const L = shuffle(CUMLELER); tur('cumle', (k, bitti) => { const c = L[k], kel = c.split(' '); let karisik; do { karisik = shuffle(kel); } while (karisik.join(' ') === c); let dizi = [];
-    setInstr('Sözcüklere doğru sırayla dokunarak anlamlı bir cümle kur. Büyük harfle başlayan sözcük ilk gelir.');
-    sb.innerHTML = progBar(N, k) + `<div class="sahne"><div class="yuva cumle" id="yuva"></div><div class="satir" id="kartlar">${karisik.map((w, i) => `<button class="opt" data-i="${i}">${esc(w)}</button>`).join('')}</div><div id="kart"></div></div><div class="feedback" id="fb"></div>`;
-    document.getElementById('kartlar').onclick = e => { const b = e.target.closest('[data-i]'); if (!b || b.disabled) return; const w = karisik[+b.dataset.i];
-      if (w === kel[dizi.length]) { sPop(); dizi.push(w); b.disabled = true; b.style.visibility = 'hidden'; document.getElementById('yuva').textContent = dizi.join(' ');
-        if (dizi.length === kel.length) { sOk(); document.getElementById('kart').innerHTML = `<div class="cevap">${esc(c)}</div>`; FB(pick(OVG), true); bitti(); } }
-      else { b.classList.add('yanlis'); setTimeout(() => b.classList.remove('yanlis'), 400); sBad(); FB('Bu sözcük buraya gelmiyor. Cümleyi baştan düşün.', false); } };
-  }); } };
-
-const MI = [['Okula geldin', 'mi'], ['Bu kitap senin', 'mi'], ['Dışarıda kar var', 'mı'], ['Annen evde', 'mi'], ['Ödevini yaptın', 'mı'], ['Kedi uyudu', 'mu'], ['Parka gidecek', 'misin'], ['Yemeğini yedin', 'mi'], ['Top yuvarlak', 'mı'], ['Bugün hava güzel', 'mi'], ['Kuşlar uçtu', 'mu'], ['Çay sıcak', 'mı'], ['Süt içtin', 'mi'], ['Bu gül', 'mü']];
-OYUN.mi = { ad: 'Soru Eki Avı', ogren: ['Soru eki "mı, mi, mu, mü" kendinden önceki sözcükten ayrı yazılır.', 'Soru ekinden sonra gelen ekler soru ekine bitişik yazılır.', 'Soru cümlesinin sonuna soru işareti konur.'],
-  oyna(){ const L = shuffle(MI); tur('mi', (k, bitti) => { const [c, e] = L[k]; const son = c.split(' ').pop(), bas = c.slice(0, -son.length), dogru = `${c} ${e}?`, yanlis = `${bas}${son}${e}?`;
-    soru(k, { yon: 'Hangisi doğru yazılmış?', ust: '', secenekler: shuffle([dogru, yanlis]), dogru, kart: `${dogru}<small>Soru eki ayrı yazılır.</small>` }, bitti); }); } };
-
-/* ---------- çıkış kartı ---------- */
-function exitCard(id){
-  setInstr('Çıkış kartı. Bu oyun senin için nasıldı?');
-  sb.innerHTML = `<div class="exitcard"><h3>Çıkış Kartı</h3><div class="faces">${[['😀', 'Kolaydı'], ['🙂', 'Biraz zordu'], ['😮', 'Zordu']].map(([e, t]) => `<button class="face" data-f="${t}"><span>${e}</span>${t}</button>`).join('')}</div><div class="ogrendim" id="ogr" hidden></div></div>`;
-  sb.querySelector('.faces').onclick = e => { const f = e.target.closest('.face'); if (!f) return; sb.querySelectorAll('.face').forEach(x => x.classList.toggle('on', x === f));
-    const box = document.getElementById('ogr'); box.hidden = false; box.innerHTML = `<p class="cumle" style="font-size:24px">Bugün ne öğrendin? Birini seç.</p>` + OYUN[id].ogren.map(t => `<button>${esc(t)}</button>`).join('');
-    setInstr('Bugün ne öğrendin? Birini seç.');
-    box.onclick = ev => { const b = ev.target.closest('button'); if (!b) return; box.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); sWin(); yildizEkle();
-      setTimeout(() => { sb.innerHTML = `<div class="exitcard"><h3>Teşekkürler!</h3><p class="cumle">Bir yıldız daha kazandın. ⭐</p><div class="satir"><button class="cta" id="yine">Tekrar oyna</button><button class="cta alt" id="don">Oyunlara dön</button></div></div>`;
-        setInstr('Teşekkürler! Bir yıldız daha kazandın.'); document.getElementById('yine').onclick = () => ac(id); document.getElementById('don').onclick = kapat; }, 700); }; };
-}
-
-/* ---------- aç / kapat ---------- */
-function ac(id){ GEN++; try { speechSynthesis.cancel(); } catch(e){} AKTIF = id; stage.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('stitle').textContent = OYUN[id].ad; OYUN[id].oyna(); }
-function kapat(){ GEN++; try { speechSynthesis.cancel(); } catch(e){} stage.hidden = true; document.body.style.overflow = ''; sb.innerHTML = ''; AKTIF = null; }
-document.getElementById('kapat').onclick = kapat;
-addEventListener('keydown', e => { if (e.key === 'Escape' && !stage.hidden) kapat(); });
-document.querySelectorAll('[data-oyun]').forEach(b => b.onclick = () => ac(b.dataset.oyun));
+(function(){
+  const sira = ['firin', 'teleferik', 'saat', 'postane', 'kutuphane'].filter(id => YER[id]);
+  // giriş görseli: kasabanın binaları tepede
+  $('onizle').innerHTML = `<rect width="1200" height="430" fill="#bfe6ff"/>${bulut(700, 60, .8)}${bulut(1020, 120, .6)}<circle cx="1110" cy="70" r="40" fill="#ffd23f"/>
+    <path d="M0 300 Q300 230 600 280 Q900 330 1200 260 L1200 430 L0 430 Z" fill="#8cc97b"/><path d="M0 350 Q400 300 800 350 Q1000 375 1200 340 L1200 430 L0 430 Z" fill="#7cc46a"/>
+    ${[[40, 390, .6], [1170, 380, .6], [990, 300, .4], [250, 330, .45]].map(([x, y, s]) => agac(x, y, s)).join('')}
+    ${sira.map((id, i) => `<g transform="translate(${370 + i * 175} ${395 - (i % 2) * 34}) scale(.9)">${YER[id].bina()}</g>`).join('')}
+    <g transform="translate(170 420) scale(.75)">${sincap()}</g>`;
+  function kartlar(){
+    $('yerler').innerHTML = sira.map(id => { const Y = YER[id], top = yildizlar(id).reduce((a, b) => a + b, 0);
+      return `<button class="yerk" style="--r:${Y.renk}" data-yer="${id}"><svg viewBox="-150 -265 300 295" aria-hidden="true"><path d="M-150 8 Q0 -16 150 8 L150 30 L-150 30 Z" fill="#a9df86"/>${Y.bina()}</svg>
+        <span class="ic"><span class="ders">${esc(Y.ders)}</span><b>${esc(Y.ad)}</b><small>${esc(Y.beceri)}</small><span class="yil" aria-label="${top} yıldız">${'★'.repeat(top)}<i>${'★'.repeat(9 - top)}</i></span></span></button>`; }).join('');
+    $('yerler').querySelectorAll('.yerk').forEach(b => b.onclick = () => ac(b.dataset.yer));
+  }
+  kartlar();
+  $('yakinda').innerHTML = '<b>Yapım aşamasında:</b>' + YAKINDA.map(o => `<span>${esc(o.ad)} · ${esc(o.beceri)}</span>`).join('');
+  $('gir').onclick = () => ac();
+  const kapat0 = kapat, kapatYeni = () => { kapat0(); kartlar(); };
+  window.kapat = kapatYeni;
+  $('cikis').onclick = kapatYeni;
+  $('haritaD').onclick = () => { if (AKTIF) harita(); else kapatYeni(); };
+  const h = location.hash.slice(1); if (h && YER[h]) ac(h);
+})();
 </script>
 </body>
 </html>
