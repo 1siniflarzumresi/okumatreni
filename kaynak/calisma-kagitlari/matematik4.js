@@ -47,7 +47,7 @@ module.exports = ({ T, S }) => {
     sr: r => { const b = tam(r, 3, 9) * 100000 + tam(r, 0, 99) * 1000; const l = [b + tam(r, 100, 900), b + tam(r, 10, 99) * 10, b + 10000 + tam(r, 0, 999), b - tam(r, 1, 9) * 1000]; const u = [...new Set(l)].sort((a, c) => a - c);
       return { giris: 'Bir kitap fuarının dört gününde satılan kitap sayıları kartlara yazıldı.', adim: u.map(f), kok: 'Buna göre kartlar küçükten büyüğe doğru hangi sırayla dizilir?' }; },
     cq: [
-      r => { const n = tam(r, 210000, 980000) + tam(r, 0, 9), s = String(n), i = tam(r, 2, 5), rak = +s[5 - i], dv = rak * 10 ** i; if (!rak) return KONU.dogal.cq[1](r);
+      r => { const n = tam(r, 210000, 980000) + tam(r, 0, 9), s = String(n), i = tam(r, 2, 5), rak = +s[5 - i], dv = rak * 10 ** i; if (!rak) return KONU.dogal.cq[1](r); if (s.split(String(rak)).length > 2) return KONU.dogal.cq[0](r);
         return coktan(p(`Bir müzeyi bir yılda ${f(n)} kişi ziyaret etti. ${ad(r)}, bu sayıdaki rakamların basamak değerlerini inceliyor.`), `Buna göre ${rak} rakamının basamak değeri kaçtır?`, f(dv), yanN(dv, [rak, rak * 10 ** (i - 1), rak * 10 ** (i + 1), rak * 10 ** (i - 2)])); },
       r => { const n = tam(r, 100000, 999999), y = yuvarla(n, 1000);
         return coktan(p(`Bir şehirde ${f(n)} ağaç dikildi. Belediye bu sayıyı haberde en yakın yüze yuvarlayarak verdi.`), 'Haberde verilen sayı kaçtır?', f(yuvarla(n, 100)), yanN(yuvarla(n, 100), [yuvarla(n, 1000), Math.floor(n / 100) * 100 === yuvarla(n, 100) ? yuvarla(n, 100) + 100 : Math.floor(n / 100) * 100, yuvarla(n, 10), yuvarla(n, 100) - 100])); },
@@ -472,9 +472,9 @@ module.exports = ({ T, S }) => {
       r => { const g = sec1(r, [250, 500]), n = tam(r, 2, 6), t = g * n;
         return coktan(p(`Bir paket makarna ${g} gramdır. ${ad(r)} ${n} paket makarna aldı.`), 'Aldığı makarnalar kaç gramdır?', f(t), yanN(t, [g + n, t + g, n * 100, t - 50])); },
     ],
-    ort: r => { const e = sec1(r, [150, 200, 250]), n = tam(r, 4, 8), s = 1000;
+    ort: r => { const e = sec1(r, [150, 200, 250]), n = sec1(r, [3, 4, 7]), s = 1000;
       return { ic: p(`Bir terazinin bir kefesinde ${n} elma, diğer kefesinde ${s} gramlık bir ağırlık var. Terazi dengede değil; elmalı kefeye bir elma daha konunca terazi dengeye geliyor. Bütün elmalar eş kütlelidir.`),
-        q: [() => coktan('', 'Dengedeki kefede kaç elma vardır?', String(n + 1), yanN(n + 1, [n, n + 2, n - 1, 2 * n])), () => coktan('', 'Bir elmanın kütlesi yaklaşık kaç gramdır? (Bölmeyi en yakın tam sayıya yuvarlayınız.)', String(Math.round(s / (n + 1))), yanN(Math.round(s / (n + 1)), [Math.round(s / n), Math.round(s / (n + 2)), e, 100]))] }; },
+        q: [() => coktan('', 'Terazi dengeye geldiğinde elmalı kefede kaç elma vardır?', String(n + 1), yanN(n + 1, [n, n + 2, n - 1, 2 * n])), () => coktan('', 'Bir elmanın kütlesi kaç gramdır?', String(s / (n + 1)), yanN(s / (n + 1), [Math.round(s / n), Math.round(s / (n + 2)), e, 100]))] }; },
   };
   // 16) Sıvı ölçme (L, mL)
   KONU.sivi = {
@@ -514,7 +514,7 @@ module.exports = ({ T, S }) => {
       () => esle('Soldaki ifadeleri sağdaki eşleriyle eşleştiriniz.', K.es(r), 'Buna göre eşleştirme hangi seçenekte doğru verilmiştir?', t + 'e')],
     (K, r, t) => [() => kacTane(p(K.gir), kar(r, K.st(r)).slice(0, 4)),
       () => kareYol(K.gir + ' ' + ad(r) + ' bu bilgilerle bir kare oyunu oynuyor.', kar(r, K.st(r)).slice(0, 4), t + 'q', 1, 1),
-      () => { const st = K.st(r).concat(K.st(r)); const y = st.find(x => !x[1]) || st[0], d = kar(r, st.filter(x => x[1])).slice(0, 3);
+      () => { const st = [...new Map(K.st(r).concat(K.st(r)).map(x => [x[0], x])).values()]; const y = st.find(x => !x[1]) || st[0], d = kar(r, st.filter(x => x[1])).slice(0, 3);
         return cocukSec(p('Dört arkadaş konuyla ilgili bildiklerini söylüyor.'), 'Buna göre hangi çocuğun söylediği yanlıştır?', [y[0], ...d.map(x => x[0])], t + 'c'); }],
   ];
   const W = (hafta, unite, baslik, konu, konular) => ({ unite, hafta, baslik, konu, sayfalar: () => {

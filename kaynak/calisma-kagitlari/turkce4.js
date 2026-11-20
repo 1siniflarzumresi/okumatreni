@@ -20,7 +20,7 @@ module.exports = ({ T, S }) => {
   const ESSES = [['yüz', 'Denizde yüz metre yüzdük.', 'Yüzünü yıkadı.'], ['gül', 'Bahçede kırmızı bir gül açtı.', 'Bu fıkraya çok gül!'], ['yaş', 'Kardeşim beş yaşında.', 'Çamaşırlar hâlâ yaş.'],
     ['dolu', 'Bardak su dolu.', 'Gece dolu yağdı.'], ['çay', 'Dedem çay demledi.', 'Köyün yanından bir çay akıyor.'], ['kır', 'Pazar günü kıra gittik.', 'Ekmeği ikiye kır.'], ['at', 'Çiftlikte bir at gördük.', 'Topu bana at.']];
   // Terim anlamı: bir bilim ya da sanat dalına özgü anlam
-  const TERIM = [['Bitkinin kökü toprağın derinine uzanır.', 'kök', 'Bitki bilimine özgü (terim)'], ['Üçgenin üç köşesi vardır.', 'köşe', 'Matematiğe özgü (terim)'], ['Kaleci topu ağlara gitmekten kurtardı.', 'kaleci', 'Spora özgü (terim)'], ['Ressam tuvaline önce açık renkleri sürdü.', 'tuval', 'Resim sanatına özgü (terim)']];
+  const TERIM = [['Cümlenin öznesini bulmak için “kim?” sorusunu sorarız.', 'özne', 'Dil bilgisine özgü (terim)'], ['Üçgenin üç köşesi vardır.', 'köşe', 'Matematiğe özgü (terim)'], ['Kaleci topu ağlara gitmekten kurtardı.', 'kaleci', 'Spora özgü (terim)'], ['Ressam tuvaline önce açık renkleri sürdü.', 'tuval', 'Resim sanatına özgü (terim)']];
   const dilSt = r => { const e = kar(r, ES), z = kar(r, ZIT), d = kar(r, DEYIM), a = kar(r, ATA), n = kar(r, NOKTA); const f = (t, y) => r() < .5 ? [t, true] : [y, false];
     return [f(`“${e[0][0]}” ile “${e[0][1]}” eş anlamlı sözcüklerdir.`, `“${z[0][0]}” ile “${z[0][1]}” eş anlamlı sözcüklerdir.`),
       f(`“${z[1][0]}” ile “${z[1][1]}” zıt anlamlı sözcüklerdir.`, `“${e[1][0]}” ile “${e[1][1]}” zıt anlamlı sözcüklerdir.`),
