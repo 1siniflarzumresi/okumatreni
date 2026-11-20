@@ -116,6 +116,13 @@ Kullanıcı MEB 2026-2027 taslak yıllık planlarını (xlsx) yükledi: `kaynak/
 - test4.js notları: I-II-III sorusunda en az bir ifade doğru olmalı (motor boş seçenekte hata verir). TTKB'de ÷ artıya, ' ters tırnağa benziyor: uret.js metin düğümlerinde Andika'ya çevirir; konu PDF'lerinde `<span class=bol>÷</span>`.
 - Konu anlatımı `deneme/konu-sb.js` (21 konu, `sb-`), bağlar KS4. Gönderilen yayın tarzındaki diğer tipler (etiketli görsel, hatalı model "olsaydı", kavram haritası sembol, puanlı oyun, ipucundan sayı, NUMAREBE gibi şifre çarkı, fiyat-indirim) Matematik/Fen/Türkçe'de kullanılacak. 4. sınıfın dört dersi de 36 hafta hazır (Kasım 2026).
 
+## 2. sınıf oyunları (Kasım 2026)
+- `deneme/oyunlar-2.html` (tek dosya, derleme yok): Ladin Ormanı menüsündeki "Oyunlar" bu sayfaya gider; üstte 1. sınıf Okuma Treni oyunlarına (`../oyunlar.html`, köke dokunulmadı) kart, altta 2. sınıf oyunları.
+- Matematik: onluk (Onluk Fabrikası; say/kur), kanguru (sayı doğrusunda 2-5-10 ritmik), toplama (vagonlarda onluk-birlik), kumbara (para ile çıkarma), bahce (eş gruplar → tekrarlı toplama → çarpma; kartta önce toplama sonra çarpma), saat (tam/yarım/çeyrek, sözle: "üçü çeyrek geçiyor"), pazar (paralarla tam ödeme), pasta (bütün/yarım/çeyrek). Türkçe: sozluk (alfabetik sıra, sonra 2. harf), anlam (eş/zıt), nokta (. ? !), buyuk (özel ad), cumle (sözcük sırası), mi (soru eki ayrı).
+- Çatı 1. sınıf oyunlarıyla aynı kurallar: `speak` / `sayAfter` / `afterSay`, `setInstr`, doğru cevapta `FB(..., true)` → `LOCK`, `progBar`, cevap kartı (işlem cümlesi ancak doğru cevaptan sonra), çıkış kartı + yıldız (`localStorage` `lo2_yildiz`, try/catch), `fitStage` (zoom). Her oyun 8 tur, içerik her girişte rastgele. Yazı TTKB (`deneme/fontlar/ttkb.ttf`).
+- Yeni oyun: `OYUN.ad = { ad, ogren: [3 çıkış cümlesi], oyna(){ tur('ad', (k, bitti) => soru(k, {...}, bitti)) } }` + menüde `data-oyun` kartı.
+- 4. sınıf Türkçe dil bilgisi soruları haftanın metnine bağlı (`turkce4.js` `METIN`, `metindeBul`: metindeki sözcükten eş/zıt anlam, metnin cümlesinden noktalama; bulunamazsa banka).
+
 ## Denetim
 - Aynı anda tek sınıf ve tek ders üret.
 - Her paket bitince önce kontrol betiğini, sonra denetleyici ajanı çalıştır. İkisi de geçmeden paketi bitmiş sayma.
