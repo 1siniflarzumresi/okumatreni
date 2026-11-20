@@ -15,7 +15,7 @@ module.exports = ({ S }) => {
     const n = ++NO; ANAH.push(`${n}-${H[s.d]}`); TIP.push(o.tip || 'coktan');
     const duz = s.l.map(x => String(x).replace(/<[^>]+>/g, ''));
     const resimli = s.l.some(x => String(x).includes('<svg') || String(x).includes('<img') || String(x).includes('class="t4-av'));
-    const kolon = o.kolon || (resimli ? 2 : duz.every(x => x.length <= 5) ? 4 : duz.every(x => x.length <= 22) ? 2 : 1);
+    const kolon = o.kolon || (resimli ? 2 : duz.every(x => x.length <= 4) ? 4 : duz.every(x => x.length <= 22) ? 2 : 1);
     return `<div class="t4-s"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><ol class="t4-sec k${kolon}">${s.l.map((x, i) => `<li><b>${H[i]})</b> <span>${x}</span></li>`).join('')}</ol></div></div>`;
   };
   // Senaryo parçaları
