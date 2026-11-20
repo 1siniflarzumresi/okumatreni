@@ -4,3 +4,7 @@ __pycache__/
 kaynak/test/cikti/
 kaynak/test/raporlar/tarama-*.txt
 kaynak/test/raporlar/tarama.bitti
+
+# toplu paket PDF'leri sitede gösterilmiyor; Pages 1 GB sınırı için depoya girmez (uret.js yerelde üretir)
+deneme/materyaller/*/*/grup-*.pdf
+deneme/materyaller/*/*/*-hafta-[0-9][0-9]-[0-9][0-9].pdf

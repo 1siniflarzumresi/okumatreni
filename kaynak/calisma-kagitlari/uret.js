@@ -793,6 +793,7 @@ const SAYFALAR = {};
     await p.close();
   }
   if (process.env.SADECE_HTML) return;
+  try { require('child_process').execFileSync('python3', [path.join(__dirname, '..', 'onizleme-kucult.py'), MATMOD ? CIKTI_D : CIKTI], { stdio: 'inherit' }); } catch (e) { console.log('önizleme küçültülemedi:', e.message); }
   if (MATMOD && arg.includes(dk)) for (const no of [...new Set(Object.values(KAG).map(m => m.unite))]) {   // ünite paketleri
     const ks = Object.keys(KAG).filter(k => KAG[k].unite === no), hs = ks.map(k => KAG[k].hafta), ad = `${D.paket}-hafta-${String(Math.min(...hs)).padStart(2, '0')}-${String(Math.max(...hs)).padStart(2, '0')}`;
     if (ks.length < 2) continue;
