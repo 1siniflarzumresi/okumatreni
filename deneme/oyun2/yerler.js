@@ -10,11 +10,11 @@ function sirikSVG(n, dugum){ let s = `<rect x="-4.5" y="-236" width="9" height="
   return s; }
 const simitUst = r => `<circle r="${r}" fill="#c9823b" stroke="#8a5420" stroke-width="2.5"/><circle r="${r * .38}" fill="#efd9b4" stroke="#8a5420" stroke-width="2"/>${Array.from({ length: 7 }, (_, i) => { const a = i * 0.9; return `<ellipse cx="${Math.cos(a) * r * .7}" cy="${Math.sin(a) * r * .7}" rx="2.4" ry="1.3" fill="#fff4d6" transform="rotate(${a * 57} ${Math.cos(a) * r * .7} ${Math.sin(a) * r * .7})"/>`; }).join('')}`;
 YER.firin = {
-  id: 'firin', ad: 'Simitçi Fırını', ders: 'Matematik', beceri: 'Onluk ve birlik, 100\'e kadar sayılar', ikon: '🥯', renk: '#e07a1f', harita: { x: 380, y: 480 },
+  id: 'firin', ad: 'Simitçi Fırını', ders: 'Matematik', beceri: 'Onluk ve birlik, 100\'e kadar sayılar', ikon: '🥯', renk: '#e07a1f', harita: { x: 380, y: 455 },
   hikaye: 'Ayı Usta sabahtan beri simit pişiriyor. Simitleri onar onar sırıklara diziyor. Siparişleri hazırlamasına yardım et.',
   seviyeler: [['Sırıklara diz', 'Siparişi dolu sırıklar ve tek simitlerle hazırla.'], ['Etiket yaz', 'Kasadaki simitleri say, etikete sayıyı yaz.'], ['Sırık çöz', 'Tek simit yetmezse bir sırığın düğümünü çöz.']],
-  bina(){ return `${golge(0, 4, 90)}<rect x="-80" y="-120" width="160" height="120" fill="#f6d7a7" stroke="#b07a3c" stroke-width="3"/><path d="M-96 -116 L0 -176 L96 -116 Z" fill="#b5533c"/><rect x="40" y="-190" width="22" height="50" fill="#8a3a2a"/>
-    ${RM ? '' : '<g fill="#fff" opacity=".7"><circle cx="51" cy="-205" r="9"><animate attributeName="cy" values="-205;-245" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="3s" repeatCount="indefinite"/></circle></g>'}
+  bina(){ return `${golge(0, 4, 90)}<rect x="-80" y="-120" width="160" height="120" fill="#f6d7a7" stroke="#b07a3c" stroke-width="3"/><path d="M-96 -116 L0 -176 L96 -116 Z" fill="#b5533c"/><rect x="-62" y="-190" width="22" height="50" fill="#8a3a2a"/>
+    ${RM ? '' : '<g fill="#fff" opacity=".7"><circle cx="-51" cy="-205" r="9"><animate attributeName="cy" values="-205;-245" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="3s" repeatCount="indefinite"/></circle></g>'}
     <rect x="-60" y="-86" width="56" height="44" rx="6" fill="#bfe6ff" stroke="#b07a3c" stroke-width="3"/><rect x="14" y="-80" width="44" height="80" rx="4" fill="#8a5a2b"/><g transform="translate(-32 -62) scale(.55)">${simitUst(22)}</g>`; },
   gorev(lvl, k, ctx){
     const MUS = ['Okul kantini', 'Kütüphane çay saati', 'Futbol takımı', 'Belediye toplantısı', 'Hastane kafeteryası', 'Köşedeki bakkal', 'Sinema salonu', 'Yüzme kulübü'];
@@ -237,7 +237,7 @@ const KART = [
 const ISARET = { '.': 'nokta', '?': 'soru işareti', '!': 'ünlem' };
 const KUCUK = s => s.toLocaleLowerCase('tr');
 YER.postane = {
-  id: 'postane', ad: 'Postane', ders: 'Türkçe', beceri: 'Cümle kurma, büyük harf, noktalama', ikon: '✉️', renk: '#1d4e89', harita: { x: 1000, y: 380 },
+  id: 'postane', ad: 'Postane', ders: 'Türkçe', beceri: 'Cümle kurma, büyük harf, noktalama', ikon: '✉️', renk: '#1d4e89', harita: { x: 1050, y: 370 },
   hikaye: 'Postacı Güvercin kartpostalları dağıtacak ama sözcük pulları karışmış. Cümleleri kur, büyük harfleri düzelt, sonuna doğru işaretin mührünü bas.',
   seviyeler: [['Kartpostal yaz', 'Kısa cümleler kur, nokta koy.'], ['Ne hissediyor?', 'Soru mu, sevinç mi, bilgi mi? Doğru işareti seç.'], ['Uzun mektuplar', 'Uzun cümleler ve özel adlar.']],
   bina(){ return `${golge(0, 4, 80)}<rect x="-76" y="-110" width="152" height="110" fill="#d8e6f7" stroke="#1d4e89" stroke-width="3"/><path d="M-88 -106 L0 -150 L88 -106 Z" fill="#1d4e89"/><rect x="-50" y="-84" width="60" height="40" fill="#fff" stroke="#1d4e89" stroke-width="3"/><path d="M-50 -84 L-20 -62 L10 -84" fill="none" stroke="#1d4e89" stroke-width="3"/><rect x="24" y="-70" width="34" height="70" fill="#8a5a2b"/><rect x="-74" y="-30" width="30" height="30" rx="4" fill="#f4a100"/>`; },

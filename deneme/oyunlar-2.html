@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Oyunlar · Ladin Ormanı</title>
-<meta name="description" content="Ladin Kasabası: 2. sınıf için sesli yönergeli oyun dünyası. Simitçi Fırını, Teleferik, Saat Kulesi, Postane ve Kütüphane'de onluk-birlik, toplama, çıkarma, saat, cümle kurma, noktalama ve alfabetik sıra.">
+<meta name="description" content="Ladin Kasabası: 2. sınıf için sesli yönergeli oyun dünyası. Onluk ve birlik, toplama, çıkarma, saat, para, çarpma, kesir, uzunluk; cümle kurma, noktalama, büyük harf, alfabetik sıra, eş ve zıt anlam.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#3a86ff">
 <link rel="stylesheet" href="ortak.css">
@@ -146,8 +146,7 @@
     <svg id="onizle" viewBox="0 0 1200 430" aria-hidden="true"></svg>
     <div class="yazi"><h1>Ladin Kasabası</h1><p>2. sınıf için sesli yönergeli oyun dünyası</p><br><button class="gir" id="gir">Kasabaya gir <span aria-hidden="true">➜</span></button></div>
   </section>
-  <h2 class="bolum">Kasabanın yerleri</h2>
-  <div class="yerler" id="yerler"></div>
+  <div id="yerler"></div>
   <div class="yakinda" id="yakinda"></div>
   <p class="not">Tablette ya da akıllı tahtada yatay ekranda oynanır. Yönergeleri robot sesli okur; sesi açın. Her yerde üç seviye var; bir seviye bitince sonraki açılır. Kazanılan yıldızlar bu cihazda saklanır.</p>
   <h2 class="bolum">1. Sınıf</h2>
@@ -179,24 +178,28 @@
 <script src="ortak.js"></script>
 <script src="oyun2/motor.js"></script>
 <script src="oyun2/yerler.js"></script>
+<script src="oyun2/yerler2.js"></script>
+<script src="oyun2/yerler3.js"></script>
 <script>
 "use strict";
 (function(){
-  const sira = ['firin', 'teleferik', 'saat', 'postane', 'kutuphane'].filter(id => YER[id]);
+  const sira = ['firin', 'teleferik', 'saat', 'pazar', 'fidanlik', 'pastane', 'terzi', 'postane', 'kutuphane', 'tabelaci', 'ayna'].filter(id => YER[id]);
   // giriş görseli: kasabanın binaları tepede
   $('onizle').innerHTML = `<rect width="1200" height="430" fill="#bfe6ff"/>${bulut(700, 60, .8)}${bulut(1020, 120, .6)}<circle cx="1110" cy="70" r="40" fill="#ffd23f"/>
     <path d="M0 300 Q300 230 600 280 Q900 330 1200 260 L1200 430 L0 430 Z" fill="#8cc97b"/><path d="M0 350 Q400 300 800 350 Q1000 375 1200 340 L1200 430 L0 430 Z" fill="#7cc46a"/>
     ${[[40, 390, .6], [1170, 380, .6], [990, 300, .4], [250, 330, .45]].map(([x, y, s]) => agac(x, y, s)).join('')}
-    ${sira.map((id, i) => `<g transform="translate(${370 + i * 175} ${395 - (i % 2) * 34}) scale(.9)">${YER[id].bina()}</g>`).join('')}
+    ${['firin', 'teleferik', 'saat', 'pastane', 'postane', 'kutuphane'].filter(id => YER[id]).map((id, i) => `<g transform="translate(${380 + i * 140} ${398 - (i % 2) * 30}) scale(.76)">${YER[id].bina()}</g>`).join('')}
     <g transform="translate(170 420) scale(.75)">${sincap()}</g>`;
   function kartlar(){
-    $('yerler').innerHTML = sira.map(id => { const Y = YER[id], top = yildizlar(id).reduce((a, b) => a + b, 0);
+    const kart = id => { const Y = YER[id], top = yildizlar(id).reduce((a, b) => a + b, 0);
       return `<button class="yerk" style="--r:${Y.renk}" data-yer="${id}"><svg viewBox="-150 -265 300 295" aria-hidden="true"><path d="M-150 8 Q0 -16 150 8 L150 30 L-150 30 Z" fill="#a9df86"/>${Y.bina()}</svg>
-        <span class="ic"><span class="ders">${esc(Y.ders)}</span><b>${esc(Y.ad)}</b><small>${esc(Y.beceri)}</small><span class="yil" aria-label="${top} yıldız">${'★'.repeat(top)}<i>${'★'.repeat(9 - top)}</i></span></span></button>`; }).join('');
+        <span class="ic"><span class="ders">${esc(Y.ders)}</span><b>${esc(Y.ad)}</b><small>${esc(Y.beceri)}</small><span class="yil" aria-label="${top} yıldız">${'★'.repeat(top)}<i>${'★'.repeat(9 - top)}</i></span></span></button>`; };
+    $('yerler').innerHTML = ['Matematik', 'Türkçe'].map(d => `<h2 class="bolum">${d}</h2><div class="yerler">${sira.filter(id => YER[id].ders === d).map(kart).join('')}</div>`).join('');
     $('yerler').querySelectorAll('.yerk').forEach(b => b.onclick = () => ac(b.dataset.yer));
   }
   kartlar();
-  $('yakinda').innerHTML = '<b>Yapım aşamasında:</b>' + YAKINDA.map(o => `<span>${esc(o.ad)} · ${esc(o.beceri)}</span>`).join('');
+  const yk = YAKINDA.filter(o => !sira.some(id => YER[id].ad === o.ad));
+  $('yakinda').innerHTML = yk.length ? '<b>Yapım aşamasında:</b>' + yk.map(o => `<span>${esc(o.ad)} · ${esc(o.beceri)}</span>`).join('') : '';
   $('gir').onclick = () => ac();
   const kapat0 = kapat, kapatYeni = () => { kapat0(); kartlar(); };
   window.kapat = kapatYeni;

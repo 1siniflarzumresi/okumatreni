@@ -137,7 +137,7 @@ function seviyeBasla(id, lvl){
   $('baslik').textContent = `${Y.ad} · ${Y.seviyeler[lvl][0]}`; kartKapat(); $('secim').hidden = true; $('sonuc').hidden = true;
   bildirimKapat(); ilerleme(N_GOREV, 0); gorevCiz();
 }
-function gorevCiz(){ const a = AKTIF; kartKapat(); app.classList.remove('haritada'); eylem(''); sv.innerHTML = ''; KILIT = false; YER[a.id].gorev(a.lvl, a.k, CTX); }
+function gorevCiz(){ const a = AKTIF; kartKapat(); bildirimKapat(); app.classList.remove('haritada'); eylem(''); sv.innerHTML = ''; KILIT = false; YER[a.id].gorev(a.lvl, a.k, CTX); }
 const CTX = {
   yanlis(t){ AKTIF.hata++; FB(t || 'Bir daha dene.', false); },
   dogru(t, kartHtml, sure, yer){ FB(t || pick(['Aferin!', 'Harika!', 'Çok güzel!', 'Süper!', 'Bravo!']), true); if (kartHtml) kart(kartHtml, yer);
@@ -192,7 +192,7 @@ function harita(){
     <path d="M600 760 L600 480 M600 480 C540 440 440 480 380 470 C300 455 240 380 170 330 M600 480 C700 430 880 420 1000 380 M600 480 C700 560 900 620 1040 620 M380 470 C330 520 260 540 210 590 M600 610 C530 640 480 660 440 690 M600 610 C680 640 740 660 780 690 M600 400 C700 380 740 300 770 260 M600 400 C520 380 470 300 440 240" fill="none" stroke="#e5cc97" stroke-width="34" stroke-dasharray="2 22" stroke-linecap="round"/>
     ${[[30, 300, .7], [70, 380, .6], [1160, 300, .7], [1130, 380, .55], [900, 250, .5], [960, 230, .45], [300, 250, .5], [380, 230, .4], [80, 720, .6], [1180, 730, .5], [300, 640, .45], [680, 330, .4], [480, 560, .4], [960, 700, .45]].map(([x, y, k]) => agac(x, y, k, ['#2e8b57', '#3a9d63', '#267a4a'][Math.round(x) % 3])).join('')}`;
   const yerler = Object.values(YER).sort((a, b) => a.harita.y - b.harita.y);
-  s += YAKINDA.map(o => `<g class="yakinda" transform="translate(${o.x} ${o.y})">${golge(0, 4, 60)}<rect x="-50" y="-80" width="100" height="80" fill="#f1eadb" stroke="#c9b48c" stroke-width="3"/><path d="M-50 -80 L50 0 M50 -80 L-50 0 M-50 -40 L50 -40" stroke="#c48a4f" stroke-width="5"/><path d="M-8 -6 L0 -26 L8 -6 Z" fill="#f4a100"/><path d="M-5 -14 L5 -14" stroke="#fff" stroke-width="3"/>
+  s += YAKINDA.filter(o => !Object.values(YER).some(Y => Y.ad === o.ad)).map(o => `<g class="yakinda" transform="translate(${o.x} ${o.y})">${golge(0, 4, 60)}<rect x="-50" y="-80" width="100" height="80" fill="#f1eadb" stroke="#c9b48c" stroke-width="3"/><path d="M-50 -80 L50 0 M50 -80 L-50 0 M-50 -40 L50 -40" stroke="#c48a4f" stroke-width="5"/><path d="M-8 -6 L0 -26 L8 -6 Z" fill="#f4a100"/><path d="M-5 -14 L5 -14" stroke="#fff" stroke-width="3"/>
     <g transform="translate(0 22)"><rect x="-64" y="-14" width="128" height="30" rx="8" fill="#fff" opacity=".9"/><text y="7" text-anchor="middle" class="ttkb" font-size="19" fill="#5b6b7b">${esc(o.ad)}</text></g><text y="-90" text-anchor="middle" font-size="15" font-family="Andika" fill="#8a6a3a" font-weight="700">Yapım aşamasında</text></g>`).join('');
   s += yerler.map(Y => { const { x, y } = Y.harita, st = yildizlar(Y.id);
     return `<g class="yer" data-yer="${Y.id}" transform="translate(${x} ${y})">${Y.bina()}<g transform="translate(0 28)"><rect x="-84" y="-18" width="168" height="40" rx="12" fill="#fff" stroke="${Y.renk}" stroke-width="4"/><text y="10" text-anchor="middle" class="ttkb" font-size="24" fill="#1f2a24">${esc(Y.ad)}</text>
