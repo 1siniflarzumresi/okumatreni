@@ -17,5 +17,5 @@ export const FIREBASE_AYAR = {
 export const DOGRULAMA_ZORUNLU = true;
 
 // KVKK aydınlatma metninde görünen veri sorumlusu adı ve başvuru e-postası. Boşsa ilgili cümleler gösterilmez.
-export const VERI_SORUMLUSU = "";
-export const ILETISIM_EPOSTA = "";
+export const VERI_SORUMLUSU = "Mirza Yağmur";
+export const ILETISIM_EPOSTA = "mrzayagmur@gmail.com";
