@@ -4,9 +4,9 @@
 // Her konu (KONU.x) şunları verir: st (doğru/yanlış ifadeler), es (eşleştirme), sr (sıralama), cq (çoktan seçmeli problemler), ort (ortak bağlam).
 // Üretim: node kaynak/calisma-kagitlari/uret.js m4
 module.exports = ({ T, S }) => {
-  const { cerceve, p, tablo, bilgi, kodDY, yolDY, kapDY, roma, sirala, esle, kacTane, kareYol, cocukSec, ortak, grafik, sayfa, optik, yeniHafta, cevapSayfasi } = T;
+  const { yedek, cerceve, p, tablo, bilgi, kodDY, yolDY, kapDY, roma, sirala, esle, kacTane, kareYol, cocukSec, ortak, grafik, sayfa, optik, yeniHafta, cevapSayfasi } = T;
   // Çoktan seçmeli: seçenekler 5 karakterden uzunsa iki sütun (4 sütunda taşıyor)
-  const coktan = (ic, kok, d, y0) => { const dd = String(d); let y = [...new Set(y0.map(String))].filter(x => x !== dd);
+  const coktan = (ic, kok, d, y0) => { const dd = String(d), nk = /^\d{1,3}(\.\d{3})+$/.test(dd); let y = [...new Set(y0.map(x => nk && /^\d{4,}$/.test(String(x)) ? f(+x) : String(x)))].filter(x => x !== dd);
     if (y.length < 3 && /^[\d.]+$/.test(dd)) { const v = +dd.replace(/\./g, ''); for (const k of [1, -1, 2, 10, -10, 100, 3]) { const c = Number(v + k).toLocaleString('tr-TR'); if (v + k >= 0 && c !== dd && !y.includes(c)) y.push(c); if (y.length >= 3) break; } }
     if (y.length < 3) throw new Error('Eksik çeldirici: ' + kok + ' ' + dd + ' ' + y);
     const l = [d, ...y].map(x => String(x).replace(/<[^>]+>/g, '')); return T.soru(ic, kok, T.sec(d, y, kok), l.every(x => x.length <= 3) ? { kolon: 4 } : { kolon: l.every(x => x.length <= 20) ? 2 : 1 }); };
@@ -24,7 +24,7 @@ module.exports = ({ T, S }) => {
   const oku = n => { if (n === 0) return 'sıfır'; const b = Math.floor(n / 1000), k = n % 1000; return [b ? (b === 1 ? 'bin' : uc(b) + ' bin') : '', uc(k)].filter(Boolean).join(' '); };
   const BAS = ['birler', 'onlar', 'yüzler', 'binler', 'on binler', 'yüz binler'];
   const yuvarla = (n, b) => Math.round(n / b) * b;
-  const ADLAR = ['Elif', 'Kaan', 'Defne', 'Mert', 'Zeynep', 'Emir', 'Ada', 'Yusuf', 'Ecrin', 'Alp', 'Nehir', 'Ömer', 'Duru', 'Kerem', 'Su', 'Aras'];
+  const ADLAR = ['Elif', 'Kaan', 'Defne', 'Mert', 'Zeynep', 'Emir', 'Ada', 'Yusuf', 'Ecrin', 'Alp', 'Nehir', 'Ömer', 'Duru', 'Kerem', 'Eylül', 'Aras'];
   const ad = r => sec1(r, ADLAR);
   // D/Y ifade çifti: aynı kalıptan doğru ya da (sayısı bozulmuş) yanlış ifade
   const ifade = (r, kalip, dogruDeger, bozuk) => { const d = r() < .5; return [kalip(d ? dogruDeger : bozuk), d]; };
@@ -47,7 +47,7 @@ module.exports = ({ T, S }) => {
     },
     es: r => { const l = new Set(); while (l.size < 4) l.add(tam(r, 101000, 999000)); return [...l].map(n => [oku(n), f(n)]); },
     sr: r => { const b = tam(r, 3, 9) * 100000 + tam(r, 0, 99) * 1000; const l = [b + tam(r, 100, 900), b + tam(r, 10, 99) * 10, b + 10000 + tam(r, 0, 999), b - tam(r, 1, 9) * 1000]; const u = [...new Set(l)].sort((a, c) => a - c);
-      return { giris: 'Bir kitap fuarının dört gününde satılan kitap sayıları kartlara yazıldı.', adim: u.map(f), kok: 'Buna göre kartlar küçükten büyüğe doğru hangi sırayla dizilir?' }; },
+      return { giris: `${ad(r)} kitap fuarında görevli. Dört günde satılan kitap sayılarını kartlara yazıp panoya en azdan en çoğa doğru asacak.`, adim: u.map(f), kok: 'Buna göre kartlar küçükten büyüğe doğru hangi sırayla dizilir?' }; },
     cq: [
       r => { const n = tam(r, 210000, 980000) + tam(r, 0, 9), s = String(n), i = tam(r, 2, 5), rak = +s[5 - i], dv = rak * 10 ** i; if (!rak) return KONU.dogal.cq[1](r); if (s.split(String(rak)).length > 2) return KONU.dogal.cq[0](r);
         return coktan(p(`Bir müzeyi bir yılda ${f(n)} kişi ziyaret etti. ${ad(r)}, bu sayıdaki rakamların basamak değerlerini inceliyor.`), `Buna göre ${rak} rakamının basamak değeri kaçtır?`, f(dv), yanN(dv, [rak, rak * 10 ** (i - 1), rak * 10 ** (i + 1), rak * 10 ** (i - 2)])); },
@@ -112,7 +112,7 @@ module.exports = ({ T, S }) => {
         ifade(r, v => `1000 − 350 işleminin sonucu ${v} olur.`, 650, 750)]; },
     es: r => { const l = [], k = new Set(); while (l.length < 4) { const a = tam(r, 30, 95) * 100, b = tam(r, 3, 28) * 100; if (k.has(a - b) || b >= a) continue; k.add(a - b); l.push([`${f(a)} − ${f(b)}`, f(a - b)]); } return l; },
     sr: r => { const a = tam(r, 6000, 9000), l = [a - tam(r, 100, 900), a - tam(r, 1000, 1900), a - tam(r, 2000, 2900), a - tam(r, 3000, 3900)];
-      return { giris: `Bir depoda ${f(a)} koli vardı. Dört farklı günde bir kısmı gönderildi ve depoda kalan koli sayıları kartlara yazıldı.`, adim: [...l].sort((x, y) => y - x).map(f), kok: 'Kalan koli sayıları büyükten küçüğe doğru hangi sırayla dizilir?' }; },
+      return { giris: `${ad(r)} depo sorumlusu. Depoda ${f(a)} koli vardı. Dört farklı günde bir kısmı gönderildi ve her gün sonunda kalan koli sayısı bir karta yazıldı.`, adim: [...l].sort((x, y) => y - x).map(f), kok: 'Gönderilen koli sayısı azdan çoğa doğru sıralanırsa kartlar hangi sırayla dizilir?' }; },
     cq: [
       r => { const a = tam(r, 5200, 9600), b = tam(r, 1300, 2900), c = tam(r, 800, 1900), k = a - b - c;
         return coktan(p(`Bir çiftlikte ${f(a)} fidan vardı. Birinci hafta ${f(b)}, ikinci hafta ${f(c)} fidan dikildi.`), 'Dikilmeyi bekleyen kaç fidan kalmıştır?', f(k), yanN(k, [a - b + c, a - b, k + 1000, k - 100])); },
@@ -144,7 +144,7 @@ module.exports = ({ T, S }) => {
         ifade(r, v => `${a} × 20 işleminin sonucu ${f(v)} olur.`, a * 20, a * 2)]; },
     es: r => { const l = [], k = new Set(); while (l.length < 4) { const a = tam(r, 11, 39), b = tam(r, 3, 9); if (k.has(a * b)) continue; k.add(a * b); l.push([`${a} × ${b}`, f(a * b)]); } return l; },
     sr: r => { const l = [[tam(r, 21, 29), 4], [tam(r, 15, 19), 9], [tam(r, 31, 39), 3], [tam(r, 11, 14), 6]].map(([a, b]) => [`${a} × ${b}`, a * b]).sort((x, y) => x[1] - y[1]);
-      return { giris: 'Öğrenciler kartlardaki çarpma işlemlerinin sonuçlarını bulacak.', adim: l.map(x => x[0]), kok: 'Kartlar sonuçları küçükten büyüğe doğru hangi sırayla dizilir?' }; },
+      return { giris: `${ad(r)} ile arkadaşları çarpma kartlarıyla oyun oynuyor. Sonucu en küçük olan kartı açan oyuna başlayacak.`, adim: l.map(x => x[0]), kok: 'Kartlar sonuçları küçükten büyüğe doğru hangi sırayla dizilir?' }; },
     cq: [
       r => { const a = tam(r, 12, 28), b = tam(r, 14, 36), t = a * b;
         return coktan(p(`Bir sinema salonunda ${a} sıra var. Her sırada ${b} koltuk bulunuyor.`), 'Salonda toplam kaç koltuk vardır?', f(t), yanN(t, [a + b, t + a, t - b, t + 10])); },
@@ -208,7 +208,7 @@ module.exports = ({ T, S }) => {
         ifade(r, v => `Paydası pay ile aynı olan kesir ${v} eşittir.`, 'bir bütüne', 'yarıma'),
         ifade(r, v => `${b + 3}/${b} kesri tam sayılı olarak ${v} şeklinde yazılır.`, `1 tam 3/${b}`, `3 tam 1/${b}`)]; },
     es: r => { const b = tam(r, 6, 9); return [[`${b * 4} sayısının 1/4 kadarı`, String(b)], [`${b * 3} sayısının 1/3 kadarı`, String(b + 0 === b ? b : b)].map((x, i) => i ? String(b) : x), [`${(b + 1) * 2} sayısının yarısı`, String(b + 1)], [`${(b + 2) * 5} sayısının 1/5 kadarı`, String(b + 2)], [`${(b + 3) * 6} sayısının 1/6 kadarı`, String(b + 3)]].filter((x, i) => i !== 1); },
-    sr: r => { const l = kar(r, [3, 4, 5, 6, 8, 9, 10]).slice(0, 4).sort((a, b) => b - a); return { giris: 'Kartlarda birim kesirler yazılıdır.', adim: l.map(x => `1/${x}`), kok: 'Kesirler küçükten büyüğe doğru hangi sırayla dizilir?' }; },
+    sr: r => { const l = kar(r, [3, 4, 5, 6, 8, 9, 10]).slice(0, 4).sort((a, b) => b - a); return { giris: `${ad(r)} bir pastayı eşit parçalara bölen dört arkadaşın aldığı payları kartlara yazdı. Her arkadaş bir parça aldı.`, adim: l.map(x => `1/${x}`), kok: 'Kesirler küçükten büyüğe doğru hangi sırayla dizilir?' }; },
     cq: [
       r => { const b = sec1(r, [4, 5, 6, 8]), a = tam(r, 1, b - 1), n = b * tam(r, 4, 9), x = n / b * a;
         return coktan(p(`${ad(r)} adlı öğrencinin ${n} çıkartması var. Çıkartmalarının ${a}/${b} kadarını kardeşine verdi.`), 'Kardeşine kaç çıkartma vermiştir?', String(x), yanN(x, [n / b, n - x, x + a, n / a])); },
@@ -236,7 +236,7 @@ module.exports = ({ T, S }) => {
         ifade(r, v => `${g} gün ${v} saattir.`, g * 24, g * 12), ifade(r, v => `${y} yıl ${v} aydır.`, y * 12, y * 10),
         ifade(r, v => `1 dakika ${v} saniyedir.`, 60, 100), ifade(r, v => `Artık yıllarda şubat ayı ${v} gün çeker.`, 29, 28)]; },
     es: r => { const s = tam(r, 2, 4), h = tam(r, 2, 5), g = tam(r, 2, 3), y = tam(r, 2, 4); return [[`${s} saat`, `${s * 60} dakika`], [`${h} hafta`, `${h * 7} gün`], [`${g} gün`, `${g * 24} saat`], [`${y} yıl`, `${y * 12} ay`]]; },
-    sr: r => ({ giris: 'Kartlarda farklı süreler yazılıdır.', adim: ['90 saniye', '45 dakika', '3 saat', '2 gün'], kok: 'Süreler kısadan uzuna doğru hangi sırayla dizilir?' }),
+    sr: r => ({ giris: `${ad(r)} yaz tatili planındaki etkinliklerin sürelerini kartlara yazdı.`, adim: ['90 saniye', '45 dakika', '3 saat', '2 gün'], kok: 'Süreler kısadan uzuna doğru hangi sırayla dizilir?' }),
     cq: [
       r => { const bs = tam(r, 8, 14), bd = sec1(r, [10, 15, 20, 25, 35, 40]), sd = tam(r, 75, 150), t = bs * 60 + bd + sd, ss = Math.floor(t / 60) % 24, sdk = t % 60, z = h => `${String(Math.floor(h / 60) % 24).padStart(2, '0')}.${String(h % 60).padStart(2, '0')}`;
         return coktan(p(`Bir tiyatro gösterisinin başlama saati ${z(bs * 60 + bd)} olarak duyuruldu. Gösteri ${sd} dakika sürdü.`), 'Gösteri saat kaçta bitmiştir?', `${String(ss).padStart(2, '0')}.${String(sdk).padStart(2, '0')}`, [z(t + 60), z(t - 30), z(t + 30), z(t - 60)]); },
@@ -296,7 +296,7 @@ module.exports = ({ T, S }) => {
       ifade(r, v => `Dikdörtgenin karşılıklı kenarlarının uzunlukları ${v}.`, 'eşittir', 'farklıdır'), ifade(r, v => `Küpün ${v} köşesi vardır.`, 8, 6),
       ifade(r, v => `Kare ve dikdörtgenin bütün açıları ${v} açıdır.`, 'dik', 'dar'), ifade(r, v => `Beşgenin ${v} kenarı vardır.`, 5, 6)],
     es: r => [['Kare prizma', 'Yüzlerinin ikisi kare'], ['Küp', 'Bütün yüzleri eş kare'], ['Üçgen prizma', 'İki yüzü üçgen'], ['Silindir', 'İki yüzü daire']],
-    sr: r => ({ giris: 'Kartlarda çokgen adları yazılıdır.', adim: ['Üçgen', 'Dörtgen', 'Beşgen', 'Altıgen'], kok: 'Kenar sayısı azdan çoğa doğru hangi sırayla dizilir?' }),
+    sr: r => ({ giris: `${ad(r)} çubuklarla şekil yapma oyununda dört kart çekti. Her kartta yapacağı şeklin adı yazıyor.`, adim: ['Üçgen', 'Dörtgen', 'Beşgen', 'Altıgen'], kok: 'Gereken çubuk sayısı azdan çoğa doğru sıralanırsa kartlar hangi sırayla dizilir?' }),
     cq: [
       r => { const n = [3, 4, 5, 6], k = kar(r, n), t = k.reduce((a, b) => a + b, 0);
         return coktan(p(`${ad(r)} çubuklarla aşağıdaki şekilleri yaptı. Her kenar için bir çubuk kullandı.`) + `<div class="m4-sekil">${k.map(x => sekilSvg(x)).join('')}</div>`, 'Toplam kaç çubuk kullanmıştır?', String(t), yanN(t, [t + 1, t - 2, 16, t + 4])); },
@@ -319,7 +319,7 @@ module.exports = ({ T, S }) => {
       ifade(r, v => `Doğru parçasının ${v} uç noktası vardır.`, 'iki', 'bir'), ifade(r, v => `Ölçüsü 90 dereceden küçük olan açıya ${v} denir.`, 'dar açı', 'geniş açı'),
       ifade(r, v => `Kare köşesi ${v} oluşturur.`, 'dik açı', 'dar açı'), ifade(r, v => `Ölçüsü 90 dereceden büyük olan açıya ${v} denir.`, 'geniş açı', 'dik açı')],
     es: r => [['Doğru', 'İki yönde sınırsız uzar'], ['Işın', 'Bir yönde sınırsız uzar'], ['Doğru parçası', 'İki ucu da bellidir'], ['Nokta', 'Boyutu yoktur, yer belirtir']],
-    sr: r => ({ giris: 'Kartlarda açıların ölçüleri yazılıdır.', adim: ['35°', '70°', '90°', '120°', '150°'].slice(0, 4), kok: 'Açılar küçükten büyüğe doğru hangi sırayla dizilir?' }),
+    sr: r => ({ giris: `${ad(r)} açıölçerle ölçtüğü dört açının ölçülerini kartlara yazdı.`, adim: ['35°', '70°', '90°', '120°', '150°'].slice(0, 4), kok: 'Açılar küçükten büyüğe doğru hangi sırayla dizilir?' }),
     cq: [
       r => { const l = kar(r, [40, 90, 130, 60, 150, 90]).slice(0, 4); const dar = l.filter(d => d < 90).length;
         return coktan(p(`${ad(r)} defterine aşağıdaki açıları çizdi.`) + `<div class="m4-sekil">${l.map(aciSvg).join('')}</div>`, 'Bu açılardan kaç tanesi dar açıdır?', String(dar), yanN(dar, [0, 1, 2, 3, 4])); },
@@ -342,7 +342,7 @@ module.exports = ({ T, S }) => {
       ifade(r, v => `ABC açısında açının köşesi ${v} noktasıdır.`, 'B', 'A'), ifade(r, v => `Açı ${v} sembolüyle gösterilir.`, '∠', '△'),
       ifade(r, v => `Düzlem, her yönde ${v} uzanan düz bir yüzeydir.`, 'sınırsız', 'sınırlı'), ifade(r, v => `Bir açının büyüklüğü kollarının ${v}.`, 'uzunluğuna bağlı değildir', 'uzunluğuna bağlıdır')],
     es: r => [['Açının kolları', 'Açıyı oluşturan iki ışın'], ['Açının köşesi', 'Kolların başladığı nokta'], ['∠ sembolü', 'Açıyı gösterir'], ['Düzlem', 'Her yönde uzanan düz yüzey']],
-    sr: r => { const l = kar(r, [['K', 2], ['L', 3], ['M', 5], ['N', 6]]).map(([a]) => a); const n = { K: 2, L: 3, M: 5, N: 6 }; return { giris: `Dört açının içine aynı büyüklükteki birim açılar yerleştirildi: ∠${l[0]} içine ${n[l[0]]}, ∠${l[1]} içine ${n[l[1]]}, ∠${l[2]} içine ${n[l[2]]}, ∠${l[3]} içine ${n[l[3]]} birim açı sığdı.`, adim: ['K', 'L', 'M', 'N'].map(x => `∠${x}`), kok: 'Açılar küçükten büyüğe doğru hangi sırayla dizilir?' }; },
+    sr: r => { const l = kar(r, [['P', 2], ['R', 3], ['S', 5], ['T', 6]]).map(([a]) => a); const n = { P: 2, R: 3, S: 5, T: 6 }; return { giris: `${ad(r)} dört açının içine aynı büyüklükteki birim açıları yerleştirdi: ∠${l[0]} içine ${n[l[0]]}, ∠${l[1]} içine ${n[l[1]]}, ∠${l[2]} içine ${n[l[2]]}, ∠${l[3]} içine ${n[l[3]]} birim açı sığdı.`, adim: ['P', 'R', 'S', 'T'].map(x => `∠${x}`), kok: 'Açılar küçükten büyüğe doğru hangi sırayla dizilir?' }; },
     cq: [
       r => { const [a, b, c] = sec1(r, [['A', 'B', 'C'], ['D', 'E', 'F'], ['K', 'L', 'M']]); return coktan(p(`${ad(r)} defterine bir açı çizip noktalarına harf verdi.`) + aciAdli(sec1(r, [40, 65, 110]), [a, b, c]), 'Bu açının köşesi hangi noktadır?', b, [a, c, 'Köşesi yoktur']); },
       r => { const [a, b, c] = sec1(r, [['A', 'B', 'C'], ['P', 'R', 'S'], ['K', 'L', 'M']]); return coktan(p('Öğretmen tahtaya bir açı çizdi.') + aciAdli(sec1(r, [50, 75, 125]), [a, b, c]), 'Bu açı nasıl adlandırılır?', `∠${a}${b}${c}`, [`∠${b}${a}${c}`, `∠${a}${c}${b}`, `∠${c}${a}${b}`]); },
@@ -361,7 +361,7 @@ module.exports = ({ T, S }) => {
       ifade(r, v => `Dikdörtgenin ${v} simetri doğrusu vardır.`, 2, 4), ifade(r, v => `Öteleme yapılan şeklin biçimi ve boyutu ${v}.`, 'değişmez', 'değişir'),
       ifade(r, v => `"A" harfinin ${v} simetri doğrusu vardır.`, 'bir', 'iki')],
     es: r => [['Kare', '4 simetri doğrusu'], ['Dikdörtgen', '2 simetri doğrusu'], ['Eşkenar üçgen', '3 simetri doğrusu'], ['İkizkenar üçgen', '1 simetri doğrusu']],
-    sr: r => ({ giris: 'Kartlarda şekiller yazılıdır.', adim: ['İkizkenar üçgen', 'Dikdörtgen', 'Eşkenar üçgen', 'Kare'], kok: 'Şekiller simetri doğrusu sayısı azdan çoğa doğru hangi sırayla dizilir?' }),
+    sr: r => ({ giris: `${ad(r)} pano için kâğıttan şekiller kesti ve her birini katlayarak simetri doğrularını arıyor.`, adim: ['İkizkenar üçgen', 'Dikdörtgen', 'Eşkenar üçgen', 'Kare'], kok: 'Şekiller simetri doğrusu sayısı azdan çoğa doğru hangi sırayla dizilir?' }),
     cq: [
       r => { const x = tam(r, 1, 3), y = tam(r, 1, 3), sa = tam(r, 2, 4), yu = tam(r, 1, 3);
         let s = ''; for (let i = 0; i <= 8; i++) s += `<line x1="${i * 15}" y1="0" x2="${i * 15}" y2="90" stroke="#cfe0ff"/>`; for (let j = 0; j <= 6; j++) s += `<line x1="0" y1="${j * 15}" x2="120" y2="${j * 15}" stroke="#cfe0ff"/>`;
@@ -383,10 +383,10 @@ module.exports = ({ T, S }) => {
       return [ifade(r, v => `${k} km ${f(v)} metredir.`, k * 1000, k * 100), ifade(r, v => `${m} m ${v} santimetredir.`, m * 100, m * 10), ifade(r, v => `${c} cm ${v} milimetredir.`, c * 10, c * 100),
         ifade(r, v => `İki şehir arasındaki uzaklık en uygun ${v} ile ölçülür.`, 'kilometre', 'santimetre'), ifade(r, v => `Bir silginin boyu en uygun ${v} ile ölçülür.`, 'santimetre', 'kilometre')]; },
     es: r => { const a = tam(r, 2, 5), b = tam(r, 2, 6), c = tam(r, 3, 9), d = tam(r, 11, 19); return [[`${a} km`, `${f(a * 1000)} m`], [`${b} m`, `${b * 100} cm`], [`${c} cm`, `${c * 10} mm`], [`${d}0 mm`, `${d} cm`]]; },
-    sr: r => ({ giris: 'Kartlarda uzunluklar yazılıdır.', adim: ['80 cm', '1 m 20 cm', '150 cm', '2 m'], kok: 'Uzunluklar kısadan uzuna doğru hangi sırayla dizilir?' }),
+    sr: r => ({ giris: `${ad(r)} bahçedeki dört fidanın boylarını ölçüp kartlara yazdı.`, adim: ['80 cm', '1 m 20 cm', '150 cm', '2 m'], kok: 'Uzunluklar kısadan uzuna doğru hangi sırayla dizilir?' }),
     cq: [
       r => { const a = tam(r, 2, 4) * 1000 + tam(r, 1, 9) * 100, b = tam(r, 1, 2) * 1000 + tam(r, 1, 9) * 100, t = a + b;
-        return coktan(p(`${ad(r)} sabah ${f(a)} metre, akşam ${f(b)} metre yürüdü.`), 'Toplam kaç kilometre kaç metre yürümüştür?', `${Math.floor(t / 1000)} km ${t % 1000} m`, [`${Math.floor(t / 1000) + 1} km ${t % 1000} m`, `${Math.floor(t / 100)} km ${t % 100} m`, `${Math.floor(t / 1000)} km ${(t % 1000 + 100) % 1000} m`]); },
+        return coktan(p(`${ad(r)} sabah ${f(a)} metre, akşam ${f(b)} metre yürüdü.`), 'Toplam kaç kilometre kaç metre yürümüştür?', `${Math.floor(t / 1000)} km ${t % 1000} m`, [`${Math.floor(t / 1000) + 1} km ${t % 1000} m`, `${f(t)} km`, `${Math.floor(t / 1000)} km ${(t % 1000 + 100) % 1000} m`]); },
       r => { const k = tam(r, 3, 8), p1 = tam(r, 25, 45), t = k * 100 - p1 * 2;
         return coktan(p(`${k} metre uzunluğundaki bir kurdeleden ${p1}'er santimetrelik iki parça kesildi.`.replace(`${p1}'er`, `${p1} santimetre uzunluğunda`).replace(' santimetrelik', '')), 'Kurdelenin kalan kısmı kaç santimetredir?', String(t), yanN(t, [k * 100 - p1, k * 10 - 2 * p1, t + 100, k * 100])); },
       r => { const c = tam(r, 3, 9), mm = c * 10 + tam(r, 1, 9);
@@ -410,7 +410,7 @@ module.exports = ({ T, S }) => {
       return [ifade(r, v => `Bir kenarı ${a} cm olan karenin çevresi ${v} cm olur.`, 4 * a, a * a === 4 * a ? 4 * a + 2 : a * a), ifade(r, v => `Kenarları ${a} cm ve ${b} cm olan dikdörtgenin çevresi ${v} cm olur.`, 2 * (a + b), a + b),
         ifade(r, v => `Bir şeklin çevresi, bütün kenar uzunluklarının ${v} bulunur.`, 'toplanmasıyla', 'çarpılmasıyla'), ifade(r, v => `Kenarları ${a}, ${a} ve ${a} cm olan üçgenin çevresi ${v} cm olur.`, 3 * a, 2 * a)]; },
     es: r => [['Kenarı 3 cm olan kare', '12 cm'], ['Kenarı 5 cm olan kare', '20 cm'], ['Kenarları 6 cm ve 2 cm olan dikdörtgen', '16 cm'], ['Kenarları 7 cm ve 4 cm olan dikdörtgen', '22 cm']],
-    sr: r => ({ giris: 'Kartlarda şekiller ve kenar uzunlukları yazılıdır.', adim: ['Kenarı 2 cm olan kare', 'Kenarları 3 cm ve 2 cm olan dikdörtgen', 'Kenarı 4 cm olan kare', 'Kenarları 6 cm ve 5 cm olan dikdörtgen'], kok: 'Şekiller çevre uzunluğu azdan çoğa doğru hangi sırayla dizilir?' }),
+    sr: r => ({ giris: `${ad(r)} dört bahçenin çevresine çit çekecek. Bahçelerin şekli ve kenar uzunlukları kartlarda yazıyor.`, adim: ['Kenarı 2 cm olan kare', 'Kenarları 3 cm ve 2 cm olan dikdörtgen', 'Kenarı 4 cm olan kare', 'Kenarları 6 cm ve 5 cm olan dikdörtgen'], kok: 'Gereken çit uzunluğu azdan çoğa doğru sıralanırsa kartlar hangi sırayla dizilir?' }),
     cq: [
       r => { const a = tam(r, 12, 30), b = tam(r, 8, 20), c = 2 * (a + b);
         return coktan(p(`Dikdörtgen şeklindeki bir bahçenin uzun kenarı ${a} m, kısa kenarı ${b} m'dir. Bahçenin çevresine tel çekilecek.`.replace(`${b} m'dir`, `${b} metredir`)) + dikSvg(a, b, a + ' m', b + ' m'), 'Kaç metre tel gerekir?', String(c), yanN(c, [a + b, a * b, c + a, 2 * a + b])); },
@@ -436,7 +436,7 @@ module.exports = ({ T, S }) => {
       return [ifade(r, v => `${a} sıra ve her sırada ${b} birim kare olan şeklin alanı ${v} birim karedir.`, a * b, 2 * (a + b)), ifade(r, v => `Alan, bir yüzeyin ${v} ölçüsüdür.`, 'kapladığı yerin', 'kenarlarının toplamının'),
         ifade(r, v => `Alanları eşit olan iki şeklin biçimi ${v} farklı olabilir.`, 'birbirinden', 'hiçbir zaman'), ifade(r, v => `Kenarı 3 birim olan karenin alanı ${v} birim karedir.`, 9, 12)]; },
     es: r => [['3 × 4 birim kareden oluşan dikdörtgen', '12 birim kare'], ['2 × 5 birim kareden oluşan dikdörtgen', '10 birim kare'], ['4 × 4 birim kareden oluşan kare', '16 birim kare'], ['2 × 3 birim kareden oluşan dikdörtgen', '6 birim kare']],
-    sr: r => ({ giris: 'Kartlarda dikdörtgenlerin birim kare sayıları yazılıdır.', adim: ['2 × 3', '2 × 4', '3 × 3', '4 × 3'], kok: 'Dikdörtgenler alanı küçükten büyüğe doğru hangi sırayla dizilir?' }),
+    sr: r => ({ giris: `${ad(r)} dört dikdörtgen halıyı birim kare karolarla kaplayacak. Kartlarda her halının satır ve sütun sayısı yazıyor.`, adim: ['2 × 3', '2 × 4', '3 × 3', '4 × 3'], kok: 'Dikdörtgenler alanı küçükten büyüğe doğru hangi sırayla dizilir?' }),
     cq: [
       r => { const en = tam(r, 4, 7), boy = tam(r, 3, 5), d = (i, j) => !(i >= en - 2 && j < 1); const al = en * boy - 2;
         return coktan(p(`${ad(r)} kareli kâğıda bir şekil boyadı. Her küçük kare 1 birim karedir.`) + izgara(en, boy, d), 'Boyalı şeklin alanı kaç birim karedir?', String(al), yanN(al, [en * boy, al + 2, 2 * (en + boy), al - 1])); },
@@ -459,7 +459,7 @@ module.exports = ({ T, S }) => {
       return [ifade(r, v => `${k} kg ${f(v)} gramdır.`, k * 1000, k * 100), ifade(r, v => `${t} ton ${f(v)} kilogramdır.`, t * 1000, t * 100), ifade(r, v => `Yarım kilogram ${v} gramdır.`, 500, 50),
         ifade(r, v => `Bir kamyonun yükü en uygun ${v} ile ölçülür.`, 'ton', 'gram'), ifade(r, v => `Bir silginin kütlesi en uygun ${v} ile ölçülür.`, 'gram', 'ton'), ifade(r, v => `Çeyrek kilogram ${v} gramdır.`, 250, 400)]; },
     es: r => [['Yarım kilogram', '500 g'], ['Çeyrek kilogram', '250 g'], ['2 kilogram', '2000 g'], ['1 ton', '1000 kg']],
-    sr: r => ({ giris: 'Kartlarda kütleler yazılıdır.', adim: ['750 g', '1 kg 200 g', '1500 g', '2 kg'], kok: 'Kütleler hafiften ağıra doğru hangi sırayla dizilir?' }),
+    sr: r => ({ giris: `${ad(r)} manavdan aldığı dört poşeti tartıp kütlelerini kartlara yazdı.`, adim: ['750 g', '1 kg 200 g', '1500 g', '2 kg'], kok: 'Kütleler hafiften ağıra doğru hangi sırayla dizilir?' }),
     cq: [
       r => { const a = tam(r, 2, 4), g = sec1(r, [250, 500, 750]), b = tam(r, 3, 6), t = (a * 1000 + g) * b;
         return coktan(p(`Bir paket un ${a} kg ${g} g geliyor. Bir fırın ${b} paket un aldı.`), 'Fırının aldığı unun kütlesi kaç gramdır?', f(t), yanN(t, [(a * 1000 + g) + b, a * 1000 * b, t + 1000, (a * 100 + g) * b])); },
@@ -484,8 +484,8 @@ module.exports = ({ T, S }) => {
     st: r => { const l = tam(r, 2, 9);
       return [ifade(r, v => `${l} L ${f(v)} mililitredir.`, l * 1000, l * 100), ifade(r, v => `Yarım litre ${v} mililitredir.`, 500, 50), ifade(r, v => `Çeyrek litre ${v} mililitredir.`, 250, 400),
         ifade(r, v => `Bir çay kaşığı ilaç en uygun ${v} ile ölçülür.`, 'mililitre', 'litre'), ifade(r, v => `Bir su deposu en uygun ${v} ile ölçülür.`, 'litre', 'mililitre'), ifade(r, v => `4 tane çeyrek litre ${v} litre eder.`, 1, 2)]; },
-    es: r => [['Yarım litre', '500 mL'], ['Çeyrek litre', '250 mL'], ['3 litre', '3000 mL'], ['1 litre 500 mililitre', '1500 mL']],
-    sr: r => ({ giris: 'Kartlarda sıvı miktarları yazılıdır.', adim: ['250 mL', 'yarım litre', '750 mL', '1 L 200 mL'], kok: 'Miktarlar azdan çoğa doğru hangi sırayla dizilir?' }),
+    es: r => [['Yarım litre', '500 mL'], ['Çeyrek litre', '250 mL'], ['3 litre', '3.000 mL'], ['1 litre 500 mililitre', '1.500 mL']],
+    sr: r => ({ giris: `${ad(r)} piknik için dört şişedeki su miktarını kartlara yazdı.`, adim: ['250 mL', 'yarım litre', '750 mL', '1 L 200 mL'], kok: 'Miktarlar azdan çoğa doğru hangi sırayla dizilir?' }),
     cq: [
       r => { const s = sec1(r, [200, 250, 500]), n = tam(r, 6, 12), t = s * n;
         return coktan(p(`Bir doğum günü partisinde ${n} bardak meyve suyu içildi. Her bardak ${s} mL'dir.`.replace(`${s} mL'dir`, `${s} mililitre alıyor`)), 'Toplam kaç mililitre meyve suyu içilmiştir?', f(t), yanN(t, [s + n, t + s, t - 100, s * 10])); },
@@ -519,7 +519,7 @@ module.exports = ({ T, S }) => {
       () => { const st = [...new Map(K.st(r).concat(K.st(r)).map(x => [x[0], x])).values()]; const y = st.find(x => !x[1]) || st[0], d = kar(r, st.filter(x => x[1])).slice(0, 3);
         return cocukSec(p('Dört arkadaş konuyla ilgili bildiklerini söylüyor.'), 'Buna göre hangi çocuğun söylediği yanlıştır?', [y[0], ...d.map(x => x[0])], t + 'c'); }],
   ];
-  ODAK = require('./matematik4-odak.js')({ coktan, p, tablo, f, tam, sec1, kar, yanN, ad, oku, yuvarla });
+  ODAK = require('./matematik4-odak.js')({ grafik, coktan, p, tablo, f, tam, sec1, kar, yanN, ad, oku, yuvarla });
   const W = (hafta, unite, baslik, konu, konular) => ({ unite, hafta, baslik, konu, sayfalar: () => {
     yeniHafta(); const r = RNG('m4-' + hafta), K = konular.map(k => KONU[k]), t = 'm4h' + hafta;
     const sp = SP[(hafta - 1) % 3](K[0], r, t);
@@ -530,8 +530,9 @@ module.exports = ({ T, S }) => {
     const odak = (ODAK[hafta] || []).map(g => r => g(r)), havuz = [...kar(r, odak), ...kar(r, cq)], gor = new Set(); let hi = 0;
     const sonraki = () => { let h; for (let n = 0; n < havuz.length * 2; n++) { const st = T.an(); h = havuz[hi++ % havuz.length](r); const im = imza(h); if (!gor.has(im) || n >= havuz.length) { gor.add(im); return h; } T.geriAl(st); } return h; };
     const o = K[K.length - 1].ort(r);
-    const A = [sp[0](), sonraki(), sp[1](), sonraki(), sonraki(), sonraki()];
+    const A = [sp[0](), sonraki(), sonraki(), sp[1](), sonraki(), sonraki()];
     const B = [ortak(o.ic, o.q), sp[2](), sonraki(), sonraki(), sonraki()];
+    A.push(...[sonraki(), sonraki(), sonraki()].map(yedek)); B.push(...[sonraki(), sonraki(), sonraki()].map(yedek));
     const ks = h => konular.includes('kesir') ? h.replace(/>([^<]*)</g, (m, t) => '>' + t.replace(/(^|[^\d.,\/])(\d{1,2})\/(\d{1,2})(?![\d\/])/g, (x, o, a, b) => o + kz(a, b)) + '<') : h;
     return [ks(sayfa(A)), ks(sayfa(B)).replace(/<\/div>$/, optik() + '</div>'), cevapSayfasi(`${hafta}. hafta · ${baslik}`)];
   } });
@@ -559,7 +560,7 @@ module.exports = ({ T, S }) => {
     'hafta-20': W(20, 3, 'Kesirlerle İşlemler', 'Paydaları eşit kesirlerle toplama-çıkarma', ['kesir']),
     'hafta-21': W(21, 3, 'Zaman Yolcusu', 'Zaman ölçü birimleri', ['zaman']),
     'hafta-22': W(22, 3, 'Saat ve Veri', 'Zaman problemleri, veri toplama', ['zaman', 'veri']),
-    'hafta-23': W(23, 4, 'Grafik Okuyalım', 'Veri ve grafik, geometrik cisimler', ['veri', 'sekil']),
+    'hafta-23': W(23, 4, 'Grafik Okuyalım', 'Veri ve grafik, geometrik cisimler', ['sekil', 'veri']),
     'hafta-24': W(24, 4, 'Şekil ve Cisim', 'Geometrik şekiller ve cisimler', ['sekil']),
     'hafta-25': W(25, 4, 'Nokta, Doğru, Işın', 'Şekiller, geometride temel kavramlar', ['sekil', 'kavram']),
     'hafta-26': W(26, 4, 'Açılar', 'Açının elemanları, adlandırılması ve ölçülmesi', ['aci']),

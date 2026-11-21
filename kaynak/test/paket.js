@@ -66,6 +66,12 @@ function olc() {
     for (const [a, b] of murekkep) { if (a - son > 22 * 3.78) bosluk.push(`${mm(a - son)} mm (${mm(son - S.top)}–${mm(a - S.top)} mm arası)`); son = Math.max(son, b); }
     if (altS - son > 22 * 3.78) bosluk.push(`${mm(altS - son)} mm (sayfa altı)`);
     if (bosluk.length) hata.push(`boş alan (22 mm üstü, ${bosluk.length}): ` + bosluk.slice(0, 4).join(' · '));
+    // Test sayfası: her sütunun boş payı (soru yükseklikleri dışındaki alan) 40 mm'yi geçmemeli
+    const t4 = (govde || s).querySelector('.t4');
+    if (t4 && !t4.querySelector('.t4-cevap')) { const R = t4.getBoundingClientRect(), mid = R.left + R.width / 2, op = t4.querySelector('.t4-optik'), altT = op ? op.getBoundingClientRect().top : R.bottom;
+      const I = [...t4.children].filter(e => !e.matches('.t4-optik') && e.getBoundingClientRect().height > 0);
+      [0, 1].forEach(c => { const L = I.filter(e => (e.getBoundingClientRect().left < mid) === (c === 0)); if (!L.length) return; const dolu = L.reduce((x, e) => x + e.getBoundingClientRect().height, 0), bos = altT - R.top - dolu;
+        if (bos > 45 * 3.78) hata.push(`${c ? "sağ" : "sol"} sütunda boş pay ${mm(bos)} mm (45 mm üstü)`); }); }
     // Yazma yeri: "yaz/düzelt/cevapla/tamamla" diyen etkinlikte belirgin yazma yeri olmalı (en az 0,4 mm kalınlıkta, yeterince koyu çizgi ya da çerçeveli boş kutu)
     const lum = c => { const m = c.match(/[\d.]+/g); if (!m) return 1; const [r, g, b] = m.map(Number); return (0.299 * r + 0.587 * g + 0.114 * b) / 255; };
     (govde || s).querySelectorAll('.etk, .t4-s').forEach(k => { const y = (k.querySelector('h2, .t4-kok') || {}).textContent || '';

@@ -16,7 +16,7 @@ module.exports = ({ S }) => {
     const duz = s.l.map(x => String(x).replace(/<[^>]+>/g, ''));
     const resimli = s.l.some(x => String(x).includes('<svg') || String(x).includes('<img') || String(x).includes('class="t4-av'));
     const kolon = o.kolon || (resimli ? 2 : duz.every(x => x.length <= 4) ? 4 : duz.every(x => x.length <= 22) ? 2 : 1);
-    return `<div class="t4-s"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><ol class="t4-sec k${kolon}">${s.l.map((x, i) => `<li><b>${H[i]})</b> <span>${x}</span></li>`).join('')}</ol></div></div>`;
+    return `<div class="t4-s" data-d="${H[s.d]}"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><ol class="t4-sec k${kolon}">${s.l.map((x, i) => `<li><b>${H[i]})</b> <span>${x}</span></li>`).join('')}</ol></div></div>`;
   };
   // Senaryo parçaları
   const p = (...l) => l.map(x => `<p class="t4-p">${x}</p>`).join('');
@@ -147,17 +147,19 @@ module.exports = ({ S }) => {
   // Seçenekleri tablo satırı olan soru (I, II, III… etiketleri)
   const tabloSec = (ic, kok, bas, dogru, yanlislar, t) => { const s = sec(dogru.join('|'), yanlislar.map(r => r.join('|')), t);
     const n = ++NO; ANAH.push(`${n}-${H[s.d]}`); TIP.push('tabloSec');
-    return `<div class="t4-s"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><table class="t4-ts"><tr><th></th>${bas.map(b => `<th>${b}</th>`).join('')}</tr>${s.l.map((r, i) => `<tr><td><b>${H[i]})</b></td>${r.split('|').map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</table></div></div>`; };
+    return `<div class="t4-s" data-d="${H[s.d]}"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><table class="t4-ts"><tr><th></th>${bas.map(b => `<th>${b}</th>`).join('')}</tr>${s.l.map((r, i) => `<tr><td><b>${H[i]})</b></td>${r.split('|').map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</table></div></div>`; };
   // Seçenekleri çocuk + konuşma balonu olan soru
   const cocukSec = (ic, kok, sozler, t) => { const dogru = sozler[0]; const s = sec(dogru, sozler.slice(1), t); const n = ++NO; ANAH.push(`${n}-${H[s.d]}`); TIP.push('cocukSec');
-    return `<div class="t4-s"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><div class="t4-csec">${s.l.map((x, i) => `<div><b>${H[i]})</b>${avatar(i + t.length, 10)}<p>${x}</p></div>`).join('')}</div></div></div>`; };
+    return `<div class="t4-s" data-d="${H[s.d]}"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><div class="t4-csec">${s.l.map((x, i) => `<div><b>${H[i]})</b>${avatar(i + t.length, 10)}<p>${x}</p></div>`).join('')}</div></div></div>`; };
   // Seçenekleri küçük sütun grafiği olan soru
   const grafikSec = (ic, kok, et, dogru, yanlislar, t, birim = '') => { const mini = de => { const m = Math.max(...de, 1), bw = 100 / et.length; let s = ''; de.forEach((v, i) => { const h = v / m * 40; s += `<rect x="${12 + i * bw + bw * .2}" y="${52 - h}" width="${bw * .6}" height="${h}" fill="#f4a100" stroke="#b45309" stroke-width=".6"/><text x="${12 + i * bw + bw / 2}" y="62" font-size="8.5" text-anchor="middle">${et[i]}</text><text x="${12 + i * bw + bw / 2}" y="${50 - h}" font-size="7.5" text-anchor="middle" fill="#b45309">${v}</text>`; }); return S(116, 64, `<line x1="10" y1="4" x2="10" y2="52" stroke="#1f2a24"/><line x1="10" y1="52" x2="114" y2="52" stroke="#1f2a24"/><text x="11" y="5" font-size="5.5" fill="#5b6b7b">${birim}</text>` + s, 40); };
     const s = sec(dogru.join(','), yanlislar.map(x => x.join(',')), t); const n = ++NO; ANAH.push(`${n}-${H[s.d]}`); TIP.push('grafikSec');
-    return `<div class="t4-s"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><ol class="t4-sec k2">${s.l.map((x, i) => `<li><b>${H[i]})</b>${mini(x.split(',').map(Number))}</li>`).join('')}</ol></div></div>`; };
+    return `<div class="t4-s" data-d="${H[s.d]}"><span class="t4-no">${n}</span><div class="t4-ic">${ic}<p class="t4-kok">${altCiz(kok)}</p><ol class="t4-sec k2">${s.l.map((x, i) => `<li><b>${H[i]})</b>${mini(x.split(',').map(Number))}</li>`).join('')}</ol></div></div>`; };
   // Ortak bağlamlı soru grubu
-  const ortak = (ic, sorular) => { const a = NO + 1, b = NO + sorular.length; return `<div class="t4-ortak"><p class="t4-ob">${a}${sorular.length > 2 ? ', ' + (a + 1) : ''} ve ${b}. soruları aşağıdaki bilgilere göre cevaplayınız.</p>${ic}</div>` + sorular.map(f => f()).join(''); };
+  const ortak = (ic, sorular) => { const a = NO + 1, b = NO + sorular.length; return `<div class="t4-ortak" data-n="${sorular.length}"><p class="t4-ob">${a}${sorular.length > 2 ? ', ' + (a + 1) : ''} ve ${b}. soruları aşağıdaki bilgilere göre cevaplayınız.</p>${ic}</div>` + sorular.map(f => f()).join(''); };
 
+  // Yedek soru: sayfada sütun boşluğu kalırsa tarayıcı açar, sığmazsa siler; numara, optik ve anahtar tarayıcıda yeniden kurulur
+  const yedek = h => String(h).replace('class="t4-s"', 'class="t4-s t4-yedek"');
   const sayfa = (sorular) => `<div class="t4">${sorular.join('')}</div>`;
   const optik = () => { const n = NO; return `<div class="t4-optik"><b>Cevap kâğıdı</b><div>${[...Array(n)].map((_, i) => `<span><em>${i + 1}</em>${'ABCD'.split('').map(h => `<i>${h}</i>`).join('')}</span>`).join('')}</div></div>`; };
   const yeniHafta = () => { NO = 0; ANAH = []; TIP = []; };
@@ -191,7 +193,7 @@ module.exports = ({ S }) => {
 .t4-ic svg{max-width:100%;height:auto}.t4-ic table{max-width:100%}.t4-g{text-align:center}.t4-g>b{font-size:3.8mm;font-weight:400;display:block}
 .t4 .b4-kimlik{width:100%}
 .t4-ry{display:grid;grid-template-columns:1fr auto;gap:2mm;align-items:center}
-.t4-optik{column-span:all;break-inside:avoid;border:.4mm solid #1f2a24;border-radius:2mm;padding:1.5mm 3mm;margin-top:2mm}.t4-optik>b{font-size:3.6mm;font-weight:400}.t4-optik>div{display:flex;flex-wrap:wrap;gap:1mm 4mm}.t4-optik span{display:flex;gap:.8mm;align-items:center;font-size:3.2mm}.t4-optik em{font-style:normal;width:4mm;text-align:right}.t4-optik i{font-style:normal;width:4.2mm;height:4.2mm;border:.3mm solid #1f2a24;border-radius:50%;display:grid;place-items:center;font-size:2.6mm}
+.t4-yedek{display:none}.t4-yedek.t4-ac{display:flex}.t4-optik{column-span:all;break-inside:avoid;border:.4mm solid #1f2a24;border-radius:2mm;padding:1.5mm 3mm;margin-top:2mm}.t4-optik>b{font-size:3.6mm;font-weight:400}.t4-optik>div{display:flex;flex-wrap:wrap;gap:1mm 4mm}.t4-optik span{display:flex;gap:.8mm;align-items:center;font-size:3.2mm}.t4-optik em{font-style:normal;width:4mm;text-align:right}.t4-optik i{font-style:normal;width:4.2mm;height:4.2mm;border:.3mm solid #1f2a24;border-radius:50%;display:grid;place-items:center;font-size:2.6mm}
 .t4-bilgi{border:.8mm solid var(--bk);border-radius:2mm;padding:1.5mm 2.5mm;font-size:3.95mm;line-height:1.4;background:#fffdf5}
 .t4-kareler{display:flex;align-items:flex-end;justify-content:center;gap:.7mm}.t4-kare{width:6.5mm;height:7.5mm;border:.4mm solid var(--kr);border-radius:1.2mm;display:inline-grid;place-items:center;font-size:4.2mm;color:var(--kr);background:#fff}.t4-kisi{margin:0 1mm;display:flex;flex-direction:column;align-items:center;gap:.5mm}
 .t4-ts{border-collapse:collapse;font-size:3.9mm;width:100%}.t4-ts th{background:#eef5ff;font-weight:400;padding:.6mm 1mm;font-size:3.6mm}.t4-ts td{padding:.6mm 1mm;text-align:center;border-bottom:.25mm solid #e3ecf5}.t4-ts td:first-child{text-align:left;width:7mm}
@@ -200,5 +202,5 @@ module.exports = ({ S }) => {
 .t4-cevap{flex:1;display:flex;flex-direction:column;align-items:center;gap:4mm;padding-top:10mm}.t4-cevap h3{font-size:9mm;font-weight:400;margin:0;color:#1d4e89}.t4-cevap p{margin:0;font-size:4.4mm;color:#5b6b7b}.t4-cevap table{border-collapse:collapse;font-size:6mm}.t4-cevap th,.t4-cevap td{border:.4mm solid #9db4c8;padding:2mm 4mm;text-align:center}.t4-cevap th{background:#eaf3ff;font-weight:400}
 .t4-anahtar{column-span:all;transform:rotate(180deg);font-size:2.8mm;color:#8a98a6;margin:1mm 0 0;text-align:center}
 `;
-  return { an, geriAl, cerceve, bilgi, kacTane, kareYol, tabloSec, cocukSec, grafikSec, ortak, cevapSayfasi, tipler, soru, coktan, p, madde, tablo, kartlar, avatar, balonlar, kodDY, yolDY, kapDY, konusma, roma, sirala, esle, bulmaca, grafik, sec, sayfa, optik, yeniHafta, CSS };
+  return { yedek, an, geriAl, cerceve, bilgi, kacTane, kareYol, tabloSec, cocukSec, grafikSec, ortak, cevapSayfasi, tipler, soru, coktan, p, madde, tablo, kartlar, avatar, balonlar, kodDY, yolDY, kapDY, konusma, roma, sirala, esle, bulmaca, grafik, sec, sayfa, optik, yeniHafta, CSS };
 };

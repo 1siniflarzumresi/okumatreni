@@ -63,7 +63,7 @@ module.exports = ({ p, tablo }) => {
       c('Ali\'nin dişleri sık sık çürüyor, kemikleri de zayıf. Diş hekimi Ali\'ye süt, yoğurt ve peynir yemesini söyledi.', 'Diş hekimi bu besinleri en çok hangi mineral için önermiştir?', 'Kalsiyum', ['Demir', 'Şeker', 'Tuz']),
       c('Kış aylarında sık hastalanan Ada\'ya annesi bol portakal, mandalina ve limon yedirmeye başladı.', 'Annesi bu besinlerle Ada\'nın en çok hangi besin içeriğini almasını amaçlamıştır?', 'Vitamin', ['Yağ', 'Karbonhidrat', 'Protein'])],
     ort: { ic: p('Aras, kahvaltı tabağındaki besinlerin hangi besin içeriği bakımından zengin olduğunu araştırıp tabloya yazdı.') + tablo(['Besin', 'Zengin olduğu içerik'], [['Yumurta', 'Protein'], ['Ekmek', 'Karbonhidrat'], ['Zeytin', 'Yağ'], ['Domates', 'Vitamin'], ['Peynir', 'Protein ve kalsiyum']]),
-      q: [['Aras\'ın sabah enerjiyle güne başlaması için tablodaki besinlerden hangisi en çok katkı sağlar?', 'Ekmek', ['Domates', 'Zeytin', 'Yumurta']],
+      q: [['Aras\'ın sabah enerjiyle güne başlaması için tablodaki besinlerden hangisi en çok katkı sağlar?', 'Ekmek', ['Domates', 'Su', 'Maydanoz']],
         ['Tablodaki besinlerin hepsinde ortak olarak bulunan içerik hangisidir?', 'Su ve mineraller', ['Yalnız protein', 'Yalnız yağ', 'Yalnız vitamin']]] } };
 
   HF[8] = { gir: 'Öğretmen tahtaya besinlerin tazeliği ve doğallığıyla ilgili bilgiler yazdı.',
@@ -142,6 +142,7 @@ module.exports = ({ p, tablo }) => {
       q: [['Hangi öğrencinin fikri bilimsel olarak uygulanamaz?', 'Aras', ['Lina', 'Ömer', 'Defne']], ['Defne\'nin fikri en çok hangi alanda yarar sağlar?', 'Geri dönüşüm', ['Aydınlatma', 'Beslenme', 'Isınma']]] } };
 
   HF[17] = { gir: 'Öğretmen tahtaya kütle ve hacim ölçmeyle ilgili bilgiler yazdı.',
+    es: [['Bir elmanın kütlesini bulmak', 'Eşit kollu terazi'], ['Bir taşın hacmini bulmak', 'Sulu dereceli silindir'], ['Bir karpuzun kütlesini yazmak', 'Kilogram'], ['Bir şişe suyun hacmini yazmak', 'Mililitre']],
     d: [['Kütle eşit kollu terazi ile ölçülür.', 'Kütle cetvel ile ölçülür.'], ['Hacim, bir maddenin kapladığı yerdir.', 'Hacim, bir maddenin rengidir.'],
       ['Sıvıların hacmi dereceli kapla ölçülür.', 'Sıvıların hacmi termometreyle ölçülür.'], ['Suya batırılan taş su seviyesini yükseltir.', 'Suya batırılan taş su seviyesini düşürür.'],
       ['Büyük görünen her cismin kütlesi daha fazla olmayabilir.', 'Büyük görünen cismin kütlesi her zaman daha fazladır.'], ['Hacmi aynı olan iki cismin kütlesi farklı olabilir.', 'Hacmi aynı olan cisimlerin kütlesi hep aynıdır.'],
@@ -172,6 +173,7 @@ module.exports = ({ p, tablo }) => {
       q: [['Tabloya göre suyun sıcaklığı zamanla nasıl değişmiştir?', 'Azalmıştır.', ['Artmıştır.', 'Hiç değişmemiştir.', 'Önce artmış sonra azalmıştır.']], ['Suyun sıcaklığının bu şekilde değişmesinin nedeni hangisidir?', 'Suyun çevresine ısı vermesi', ['Suyun çevreden ısı alması', 'Suyun donması', 'Termometrenin bozulması']]] } };
 
   HF[20] = { gir: 'Öğretmen tahtaya ısının hâl değiştirmeye etkisiyle ilgili bilgiler yazdı.',
+    es: [['Dondurucuya konan meyve suyu buz oldu.', 'Donma'], ['Güneşteki ıslak çamaşır kurudu.', 'Buharlaşma'], ['Soğuk şişenin dışında su damlaları belirdi.', 'Yoğuşma'], ['Tavadaki tereyağı sıvılaştı.', 'Erime']],
     d: [['Katı bir madde ısı alarak sıvı hâle geçebilir; buna erime denir.', 'Katı bir maddenin ısı vererek sıvı hâle geçmesine erime denir.'], ['Sıvı bir madde ısı vererek katı hâle geçebilir; buna donma denir.', 'Sıvının ısı alarak katı hâle geçmesine donma denir.'],
       ['Sıvının ısı alarak gaz hâline geçmesine buharlaşma denir.', 'Sıvının ısı vererek gaz hâline geçmesine buharlaşma denir.'], ['Su buharının soğuk yüzeyde suya dönüşmesine yoğuşma denir.', 'Su buharının soğuk yüzeyde buza dönüşmesine erime denir.'],
       ['Islak çamaşırlar güneşte daha çabuk kurur.', 'Islak çamaşırlar güneşte daha geç kurur.'], ['Mum ısıtılınca erir, soğuyunca yeniden katılaşır.', 'Mum ısıtılınca gaz olur, hiç katılaşmaz.'],
@@ -197,7 +199,7 @@ module.exports = ({ p, tablo }) => {
       c('Bir belediye, çöplerden kâğıt, cam, plastik ve metali ayırıp geri dönüşüme gönderiyor. Böylece yeni ürünler için daha az ham madde harcanıyor.', 'Bu çalışmanın en önemli yararı hangisidir?', 'Kaynakların etkili kullanılması ve ülke ekonomisine katkı', ['Daha çok çöp üretilmesi', 'Ormanların daha hızlı kesilmesi', 'Fabrikaların kapanması']),
       c('Zeynep, kum ve tuz karışımını ayırmak için önce karışımı suya koydu ve karıştırdı.', 'Zeynep\'in bundan sonra yapması gereken doğru adımlar hangisidir?', 'Karışımı süzüp kumu ayırmak, kalan tuzlu suyu buharlaştırmak', ['Karışıma mıknatıs tutmak', 'Karışımı hemen elemek', 'Karışımı dondurmak'])],
     ort: { ic: p('Ada\'nın sınıfı, okulda bir hafta boyunca ayrıştırılan atıkları tarttı.') + tablo(['Atık', 'Kütle'], [['Kâğıt', '18 kg'], ['Plastik', '9 kg'], ['Cam', '6 kg'], ['Metal', '3 kg']]),
-      q: [['Tabloya göre en çok hangi atık toplanmıştır?', 'Kâğıt', ['Plastik', 'Cam', 'Metal']], ['Toplanan metal atıklar çöpten en kolay hangi yöntemle ayrılabilir?', 'Mıknatısla', ['Buharlaştırarak', 'Suda eriterek', 'Isıtarak']]] } };
+      q: [['Tabloya göre en çok hangi atık toplanmıştır?', 'Kâğıt', ['Plastik', 'Cam', 'Metal']], ['Toplanan atıklar arasındaki demir konserve kutuları en kolay hangi yöntemle ayrılabilir?', 'Mıknatısla', ['Buharlaştırarak', 'Suda eriterek', 'Isıtarak']]] } };
 
   HF[24] = { gir: 'Öğretmen tahtaya gelecekteki aydınlatma araçları ve uygun aydınlatmayla ilgili bilgiler yazdı.',
     d: [['Ders çalışılan masa yeterince aydınlatılmalıdır.', 'Ders çalışırken masa karanlık olmalıdır.'], ['Çok parlak ışık gözü yorabilir.', 'Çok parlak ışık gözü dinlendirir.'],
@@ -243,6 +245,7 @@ module.exports = ({ p, tablo }) => {
       q: [['Zaman şeridine göre en eski ses aracı hangisidir?', 'Gramofon', ['Radyo', 'Kasetçalar', 'Akıllı telefon']], ['Zaman şeridinden çıkarılabilecek en doğru sonuç hangisidir?', 'Ses araçları zamanla gelişip değişmiştir.', ['Ses araçları hiç değişmemiştir.', 'Radyo gramofondan önce bulunmuştur.', 'Akıllı telefon en eski araçtır.']]] } };
 
   HF[29] = { gir: 'Öğretmen tahtaya ses kirliliğinin etkileri ve azaltma yollarıyla ilgili bilgiler yazdı.',
+    sr: { giris: 'Kaan\'ın sınıfı, okulun yanındaki inşaatın gürültüsü için bir çözüm planı hazırladı. Planın adımları karışık verilmiştir.', adim: ['Gürültünün kaynağını ve hangi saatlerde olduğunu belirlemek', 'Belirlenen saatlerde gürültüyü ses ölçerle ölçmek', 'Ölçümlere dayanarak belediyeye çözüm önerisi yazmak', 'Önerinin uygulanıp uygulanmadığını izlemek'], kok: 'Planın doğru sıralanışı hangisidir?' },
     d: [['Sürekli gürültü işitme kaybına neden olabilir.', 'Sürekli gürültü işitmeyi güçlendirir.'], ['Gürültü dikkat dağınıklığına ve baş ağrısına yol açabilir.', 'Gürültü dikkatimizi artırır ve baş ağrısını geçirir.'],
       ['Ses kirliliği hayvanların davranışlarını olumsuz etkileyebilir.', 'Ses kirliliği hayvanları hiç etkilemez.'], ['Yol kenarına ağaç dikmek gürültüyü azaltır.', 'Yol kenarındaki ağaçları kesmek gürültüyü azaltır.'],
       ['Kulaklıkla müzik dinlerken ses düzeyi düşük tutulmalıdır.', 'Kulaklıkla müzik dinlerken ses en yükseğe açılmalıdır.'], ['Ses yalıtımlı pencereler evlere gelen gürültüyü azaltır.', 'Ses yalıtımlı pencereler gürültüyü artırır.'],
@@ -281,7 +284,7 @@ module.exports = ({ p, tablo }) => {
       c('Elif, kurduğu devredeki anahtarı kapatınca ampul yandı, açınca söndü.', 'Elif\'in gözlemine göre anahtarın görevi hangisidir?', 'Devreden akımın geçip geçmemesini kontrol etmek', ['Elektrik enerjisi üretmek', 'Işığın rengini değiştirmek', 'Pili şarj etmek']),
       c('Mert odasının ışığını yakmak için duvardaki düğmeye bastı.', 'Mert\'in bastığı düğme, kurduğumuz basit devrelerdeki hangi elemana karşılık gelir?', 'Anahtar', ['Pil', 'Ampul', 'Duy']),
       c('Zeynep\'in devresinde pil, pil yatağı, ampul, duy, anahtar ve kablolar var. Ampul sallantıda olduğu için ışık yanıp sönüyor.', 'Zeynep ampulü sabitlemek için hangi elemanı kontrol etmelidir?', 'Duy', ['Pil yatağı', 'Anahtar', 'Pil']),
-      c('Ömer, el fenerinin çalışmadığını gördü. Ampul sağlam, düğme kapalı konumda.', 'Ömer\'in önce kontrol etmesi gereken şey en olası hangisidir?', 'Pilin bitip bitmediği', ['Fenerin rengi', 'Fenerin camının temizliği', 'Fenerin ağırlığı']),
+      c('Ömer, el fenerinin düğmesine bastı ama fener yanmadı. Ampulün sağlam olduğunu gördü.', 'Ömer\'in önce kontrol etmesi gereken şey en olası hangisidir?', 'Pilin bitip bitmediği', ['Fenerin rengi', 'Fenerin camının temizliği', 'Fenerin ağırlığı']),
       c('Defne, evde gördüğü elektrikli araçlar ile okulda kurduğu devreyi karşılaştırıyor.', 'Aşağıdakilerden hangisi Defne\'nin ulaşabileceği doğru bir sonuçtur?', 'Evdeki düğmeler ve kablolar da birer devre elemanıdır.', ['Evlerde hiç kablo kullanılmaz.', 'Evdeki lambalar pilsiz ve kablosuz çalışır.', 'Okuldaki devre ile evdeki devrenin hiçbir benzerliği yoktur.'])],
     ort: { ic: p('Aras, dört devre kurup ampullerin yanıp yanmadığını yazdı.') + tablo(['Devre', 'Pil', 'Anahtar', 'Kablolar', 'Ampul'], [['1', 'Dolu', 'Kapalı', 'Tam bağlı', 'Yanıyor'], ['2', 'Dolu', 'Açık', 'Tam bağlı', 'Yanmıyor'], ['3', 'Bitmiş', 'Kapalı', 'Tam bağlı', 'Yanmıyor'], ['4', 'Dolu', 'Kapalı', 'Biri kopuk', 'Yanmıyor']]),
       q: [['2 numaralı devrede ampulün yanması için ne yapılmalıdır?', 'Anahtar kapatılmalıdır.', ['Pil çıkarılmalıdır.', 'Kablolar sökülmelidir.', 'Ampul çıkarılmalıdır.']], ['Tabloya göre ampulün yanması için hangisi gerekli değildir?', 'Kabloların uzun olması', ['Pilin dolu olması', 'Anahtarın kapalı olması', 'Kabloların tam bağlı olması']]] } };

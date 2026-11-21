@@ -2,7 +2,7 @@
 // 2 sayfa + ayrı cevap anahtarı. Her konu: d (doğru ifade, yanlış eşi), es (eşleştirme), sr (sıralama), cq (çoktan seçmeli, ilk seçenek doğru), ort (ortak bağlam).
 // Kalıplar 3 haftalık döngüyle döner. Üretim: node kaynak/calisma-kagitlari/uret.js f4
 module.exports = ({ T, S }) => {
-  const { cerceve, p, tablo, kodDY, yolDY, kapDY, roma, sirala, esle, kacTane, kareYol, cocukSec, ortak, sayfa, optik, yeniHafta, cevapSayfasi } = T;
+  const { yedek, cerceve, p, tablo, kodDY, yolDY, kapDY, roma, sirala, esle, kacTane, kareYol, cocukSec, ortak, sayfa, optik, yeniHafta, cevapSayfasi } = T;
   const RNG = s => { let x = 0; for (const c of String(s)) x = (x * 31 + c.charCodeAt(0)) >>> 0; x = x || 1; return () => ((x = (x * 1103515245 + 12345) >>> 0) / 4294967296); };
   const kar = (r, l) => { const a = [...l]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const coktan = (ic, kok, d, y) => { const l = [d, ...y].map(x => String(x).replace(/<[^>]+>/g, '')); return T.soru(ic, kok, T.sec(d, y, kok), { kolon: l.every(x => x.length <= 6) ? 4 : l.every(x => x.length <= 20) ? 2 : 1 }); };
@@ -75,7 +75,7 @@ module.exports = ({ T, S }) => {
       ['Kapıyı açmak için itme ya da çekme kuvveti uygularız.', 'Kapıyı açmak için kuvvet gerekmez.'], ['Oyun hamurunu sıkınca şekli değişir.', 'Oyun hamurunu sıkınca şekli değişmez.'],
       ['Kalecinin topu tutması kuvvetin cismi durdurmasına örnektir.', 'Kalecinin topu tutması kuvvetin cismi hızlandırmasına örnektir.'], ['Bir topu ittiğimizde ona kuvvet uygularız.', 'Bir topu ittiğimizde ona hiç kuvvet uygulamayız.'], ['Kuvvet, hareket eden bir cismi durdurabilir.', 'Kuvvet, hareket eden bir cismi hiç etkilemez.'], ['Hamuru sıkınca şekli değişir.', 'Hamuru sıkınca şekli hiç değişmez.'], ['Kapıyı açarken çekme ya da itme kuvveti uygularız.', 'Kapıyı açmak için kuvvet gerekmez.'], ['Kuvvet, hareket eden bir cismin yönünü değiştirebilir.', 'Kuvvet, cisimlerin yalnız rengini değiştirir.']],
     es: [['Topa vurup harekete geçirmek', 'Hareket kazandırma'], ['Gelen topu tutmak', 'Durdurma'], ['Gelen topa kafa vurup yönünü değiştirmek', 'Yön değiştirme'], ['Hamuru sıkmak', 'Şekil değiştirme']],
-    sr: { giris: 'Bir futbol maçında topla ilgili olaylar karışık verilmiştir.', adim: ['Top orta noktada durur.', 'Oyuncu topa vurur, top harekete geçer.', 'Başka bir oyuncu kafayla topun yönünü değiştirir.', 'Kaleci topu tutup durdurur.'], kok: 'Olayların doğru sıralanışı hangisidir?' },
+    sr: { giris: 'Emir, bir golün tekrarını izleyip topla ilgili olayları not aldı; notları karıştı.', adim: ['Top orta noktada durur.', 'Bir oyuncu topa vurur, top harekete geçer.', 'Kaleye giden topun yönünü başka bir oyuncu kafayla değiştirir.', 'Yönü değişen top ağlara gider ve gol olur.'], kok: 'Olayların oluş sırası hangisidir?' },
     cq: [[p('Mert duran bir oyuncak arabayı iterek hareket ettirdi.'), 'Bu olayda kuvvetin etkisi hangisidir?', 'Hareket kazandırma', ['Şekil değiştirme', 'Durdurma', 'Etkisi yoktur']],
       [p('Bir boş alüminyum kutu ayakla ezildi.'), 'Bu olayda kuvvetin etkisi hangisidir?', 'Şekil değiştirme', ['Yön değiştirme', 'Hareket kazandırma', 'Hızlandırma']],
       [p('Nehir, kendisine doğru gelen voleybol topunu vurarak geri gönderdi.'), 'Topa uyguladığı kuvvet topta hangi değişikliği yapmıştır?', 'Yönünü değiştirmiştir.', ['Şeklini kalıcı olarak değiştirmiştir.', 'Topu eritmiştir.', 'Hiçbir değişiklik yapmamıştır.']],
@@ -229,8 +229,8 @@ module.exports = ({ T, S }) => {
       () => yolDY(cerceve(k.gir, 'y', r), al(k, r, 3), t + 'y'),
       () => kapDY(cerceve(k.gir, 'p', r), al(k, r, 5), t + 'p')],
     (k, r, t) => [() => { let l, n = 0; do { l = al(k, r, 3); } while (!l.some(x => x[1]) && ++n < 50); return roma(p(cerceve(k.gir, 'n', r)), 'Buna göre yukarıdaki ifadelerden hangileri doğrudur?', l); },
-      () => sirala(k.sr.giris, k.sr.adim, k.sr.kok, t + 's'),
-      () => esle('Soldaki kavramları sağdaki açıklamalarla eşleştiriniz.', k.es, 'Buna göre eşleştirme hangi seçenekte doğru verilmiştir?', t + 'e')],
+      () => sirala((ADLAR.some(a => k.sr.giris.includes(a)) ? '' : ADLAR[Math.floor(r() * ADLAR.length)] + ' fen panosu için bir afiş hazırlıyor. ') + k.sr.giris, k.sr.adim, k.sr.kok, t + 's'),
+      () => esle(ADLAR[Math.floor(r() * ADLAR.length)] + ', fen panosundaki kartları eşleştiriyor: soldaki her kart sağdaki bir karta bağlanacak.', k.es, 'Buna göre eşleştirme hangi seçenekte doğru verilmiştir?', t + 'e')],
     (k, r, t) => [() => kacTane(p(cerceve(k.gir, 'n', r)), al(k, r, 4)),
       () => kareYol(cerceve(k.gir, 'q', r), al(k, r, 4), t + 'q', 1, 1),
       () => { const d = cift(k, r, 4); return cocukSec(p('Dört arkadaş konuyla ilgili bildiklerini söylüyor.'), 'Buna göre hangi çocuğun söylediği yanlıştır?', [d[0][1], d[1][0], d[2][0], d[3][0]], t + 'c'); }],
@@ -243,8 +243,10 @@ module.exports = ({ T, S }) => {
     if (KK.length > 1) sp[1] = SP[(hafta - 1) % 3](KK[1], r, t + 'b')[1];
     const cq = []; const mx = Math.max(...KK.map(k => k.cq.length)); for (let i = 0; i < mx; i++) KK.forEach(k => { if (k.cq[i]) cq.push(k.cq[i]); });
     const u = kar(r, cq).map(([ic, kok, d, y]) => () => coktan(ic, kok, d, y)), o = KK[KK.length - 1].ort;
-    const A = [sp[0](), u[0](), sp[1](), u[1](), u[2](), u[3]()];
+    const A = [sp[0](), u[0](), u[1](), sp[1](), u[2](), u[3]()];
     const B = [ortak(o.ic, o.q.map(([kok, d, y]) => () => coktan('', kok, d, y))), sp[2](), ...u.slice(4, 6).map(g => g())];
+    const ekH = kar(r, [...cq.slice(6), ...konular.flatMap(k => K[k].cq).filter(x => !cq.some(y => y[1] === x[1]))]).slice(0, 6).map(([ic, kok, d, y]) => yedek(coktan(ic, kok, d, y)));
+    A.push(...ekH.slice(0, 3)); B.push(...ekH.slice(3));
     return [sayfa(A), sayfa(B).replace(/<\/div>$/, optik() + '</div>'), cevapSayfasi(`${hafta}. hafta · ${baslik}`)];
   } });
   const F4 = {

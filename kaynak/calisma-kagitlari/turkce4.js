@@ -2,7 +2,7 @@
 // + dil bilgisi bankalarından hesaplanan sorular (eş/zıt anlam, deyim, atasözü, noktalama). İki sayfa + ayrı cevap anahtarı.
 // Metin soruları: [kök, doğru, [yanlış, yanlış, yanlış]]. Üretim: node kaynak/calisma-kagitlari/uret.js t4
 module.exports = ({ T, S }) => {
-  const { cerceve, p, kodDY, yolDY, kapDY, roma, sirala, esle, kacTane, kareYol, cocukSec, ortak, sayfa, optik, yeniHafta, cevapSayfasi } = T;
+  const { yedek, cerceve, p, kodDY, yolDY, kapDY, roma, sirala, esle, kacTane, kareYol, cocukSec, ortak, sayfa, optik, yeniHafta, cevapSayfasi } = T;
   void S;
   const RNG = s => { let x = 0; for (const c of String(s)) x = (x * 31 + c.charCodeAt(0)) >>> 0; x = x || 1; return () => ((x = (x * 1103515245 + 12345) >>> 0) / 4294967296); };
   const kar = (r, l) => { const a = [...l]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -33,8 +33,8 @@ module.exports = ({ T, S }) => {
   const disla = (l, k) => l.filter(x => !(REZ.yok || []).some(w => x.includes(w)) && (!k || x !== REZ[k]) && !KUL.has(x[0]));
   const kul1 = x => { if (x) KUL.add(x[0]); return x; };
   const dilSt = r => { const kul = new Set(); const temiz = l => l.filter(x => !x.some(w => kul.has(w))); const tut = x => { x.forEach(w => kul.add(w)); return x; };
-    const me = kar(r, metindeBul(ES))[0], mz = kar(r, metindeBul(ZIT))[0]; if (me) [me.w, me.o].forEach(w => kul.add(w)); if (mz) [mz.w, mz.o].forEach(w => kul.add(w));
-    const e = kar(r, temiz(disla(ES, 'ES'))).slice(0, 4).map(tut), z = kar(r, temiz(disla(ZIT, 'ZIT'))).slice(0, 4).map(tut), d = kar(r, disla(DEYIM, 'DEYIM')), ai = kar(r, ATA.map((_, i) => i).filter(i => ATA[i] !== REZ.ATA && !KUL.has(ATA[i][0]))), n = kar(r, disla(NOKTA, 'NOKTA'));
+    const me = kar(r, metindeBul(ES))[0]; if (me) [me.w, me.o].forEach(w => { kul.add(w); KUL.add('m:' + w); }); const mz = kar(r, metindeBul(ZIT))[0]; if (mz) [mz.w, mz.o].forEach(w => { kul.add(w); KUL.add('m:' + w); });
+    const e = kar(r, temiz(disla(ES, 'ES'))).slice(0, 4).map(tut), z = kar(r, temiz(disla(ZIT, 'ZIT'))).slice(0, 4).map(tut), d = kar(r, disla(DEYIM, 'DEYIM')), ai = kar(r, ATA.map((_, i) => i).filter(i => ATA[i] !== REZ.ATA && !KUL.has(ATA[i][0]) && !(REZ.ATA && (ATA[i][1] === REZ.ATA[1] || (ATA_G[i] && ATA_G[i] === ATA_G[ATA.indexOf(REZ.ATA)]))))), n = kar(r, disla(NOKTA, 'NOKTA'));
     [e[0], e[1], e[2], z[0], z[1], z[2], d[0], n[0]].forEach(kul1); if (ai[0] != null) KUL.add(ATA[ai[0]][0]);
     const f = (t, y) => r() < .5 ? [t, true] : [y, false];
     const a0 = ai[0], a1 = ai.find(i => i !== a0 && (!ATA_G[a0] || ATA_G[i] !== ATA_G[a0]));
@@ -52,10 +52,10 @@ module.exports = ({ T, S }) => {
   const kucuk = x => x.toLocaleLowerCase('tr');
   const BILESIK = ['ilk yardım', 'zaman ölçer', 'büyük millet', 'millet meclisi', 'kara kalem', 'son söz'];
   let REZ = {};
-  const BELIRSIZ = ['kara', 'al', 'ak', 'iç', 'dış', 'yüz', 'yaş', 'son', 'düş', 'dar', 'az', 'çok', 'acı', 'ince', 'dolu', 'iyi', 'güç', 'kalp', 'yıl', 'anı'];
+  const BELIRSIZ = ['kara', 'al', 'ak', 'iç', 'dış', 'yüz', 'yaş', 'son', 'düş', 'dar', 'az', 'çok', 'acı', 'ince', 'dolu', 'iyi', 'güç', 'kalp', 'yıl', 'anı', 'doğru', 'eğri'];
   const EK_RE = /^(lar|ler|ı|i|u|ü|a|e|da|de|ta|te|dan|den|tan|ten|ın|in|un|ün|la|le|yla|yle|sı|si|su|sü|ları|leri|ca|ce|dı|di|du|dü|dır|dir|tır|tir|ydı|ydi|lık|lik|ya|ye|yı|yi|yu|yü)$/;
   const cumleler = () => METIN ? METIN.metin.join(' ').split(/(?<=[.!?])\s+/).map(x => x.trim()).filter(x => x.length > 12 && x.length < 110 && !/^[–-]/.test(x) && !/[“”"':]/.test(x)) : [];
-  const metindeBul = (liste) => { const out = []; for (const c of cumleler()) { const tk = c.split(/[^\p{L}]+/u).filter(Boolean); for (const [a, b] of liste) for (const [w, o] of [[a, b], [b, a]]) { if (BELIRSIZ.includes(w)) continue; const k = tk.find((x, i) => kucuk(x) === w && !(i > 0 && x[0] !== kucuk(x)[0]) && !BILESIK.some(b => kucuk(c).includes(b) && b.includes(w)) && !(REZ.yok || []).includes(w)); if (k && !out.some(z => z.w === w)) out.push({ w, o, k, c }); } } return out; };
+  const metindeBul = (liste) => { const out = []; for (const c of cumleler()) { const tk = c.split(/[^\p{L}]+/u).filter(Boolean); for (const [a, b] of liste) for (const [w, o] of [[a, b], [b, a]]) { if (BELIRSIZ.includes(w)) continue; const k = tk.find((x, i) => kucuk(x) === w && !(i > 0 && x[0] !== kucuk(x)[0]) && !BILESIK.some(b => kucuk(c).includes(b) && b.includes(w)) && !(REZ.yok || []).includes(w)); if (k && !out.some(z => z.w === w) && !KUL.has('m:' + w) && !KUL.has('m:' + o)) out.push({ w, o, k: kucuk(k), c }); } } return out; };
   const alinti = c => p(`Metinde geçen “${c}” cümlesini okuyunuz.`);
   const dilCq = [
     r => { const m = REZ.mES; if (!m) return dilCqB[0](r); const y = kar(r, ES.filter(x => !x.includes(m.w) && !x.includes(m.o))).slice(0, 2).map(x => x[1]).concat(kar(r, ZIT)[0][1]); return coktan(alinti(m.c), `Bu cümledeki “${m.k}” sözcüğünün eş anlamlısı hangisidir?`, m.o, y); },
@@ -90,13 +90,14 @@ module.exports = ({ T, S }) => {
   const metinKutu = M => `<div class="t4-metin"><b>${M.baslik}</b>${M.metin.map(x => `<p>${x}</p>`).join('')}</div>`;
   const W = (hafta, unite, baslik, konu, M) => ({ unite, hafta, baslik, konu, sayfalar: () => {
     yeniHafta(); METIN = M; const r = RNG('t4-' + hafta), t = 't4h' + hafta, c = (hafta - 1) % 3;
-    REZ = {}; KUL = new Set(); REZ.mES = kar(r, metindeBul(ES))[0]; REZ.mZ = kar(r, metindeBul(ZIT))[0];
+    REZ = { yok: [M.sozcuk[0]] }; KUL = new Set(); REZ.mES = kar(r, metindeBul(ES))[0]; if (REZ.mES) KUL.add('m:' + REZ.mES.w).add('m:' + REZ.mES.o); REZ.mZ = kar(r, metindeBul(ZIT))[0]; if (REZ.mZ) KUL.add('m:' + REZ.mZ.w).add('m:' + REZ.mZ.o);
     REZ.ES = kar(r, ES)[0]; REZ.ZIT = kar(r, ZIT)[0]; REZ.DEYIM = kar(r, DEYIM)[0]; REZ.SEN = SEN[(hafta * 3) % SEN.length]; REZ.ATA = ATA[REZ.SEN[1]]; REZ.ESSES = ESSES[(hafta * 5) % ESSES.length]; REZ.TERIM = TERIM[(hafta * 7) % TERIM.length]; REZ.NOKTA = kar(r, NOKTA)[0];
-    REZ.yok = [REZ.mES && REZ.mES.w, REZ.mES && REZ.mES.o, REZ.mZ && REZ.mZ.w, REZ.mZ && REZ.mZ.o, ...REZ.ES, ...REZ.ZIT, REZ.ESSES[0]].filter(Boolean);
+    REZ.yok = [M.sozcuk[0], REZ.mES && REZ.mES.w, REZ.mES && REZ.mES.o, REZ.mZ && REZ.mZ.w, REZ.mZ && REZ.mZ.o, ...REZ.ES, ...REZ.ZIT, REZ.ESSES[0]].filter(Boolean);
     const sp = SP[c](r, t, M), mq = M.sorular.map(([k, d, y]) => () => coktan('', k, d, y)), dq = kar(r, dilCq);
     const [s0, s1] = M.sozcuk;
     const A = [ortak(metinKutu(M), mq.slice(0, 3)), sp[0](), coktan(p(`Metinde geçen “${s0}” sözcüğünü düşününüz.`), `“${s0}” sözcüğünün metindeki anlamı hangisidir?`, s1[0], s1.slice(1))];
-    const B = [mq[3](), sp[1](), sp[2](), dq[0](r), dq[1](r), mq[4] ? mq[4]() : dq[2](r)];
+    const B = [mq[3](), sp[1](), dq[0](r), sp[2](), dq[1](r), mq[4] ? mq[4]() : dq[2](r)];
+    A.push(...dq.slice(3, 5).map(g => yedek(g(r)))); B.push(...dq.slice(5, 8).map(g => yedek(g(r))));
     return [sayfa(A).replace('soruları aşağıdaki bilgilere göre', 'soruları aşağıdaki metne göre'), sayfa(B).replace(/<\/div>$/, optik() + '</div>'), cevapSayfasi(`${hafta}. hafta · ${baslik}`)];
   } });
 
@@ -163,8 +164,8 @@ module.exports = ({ T, S }) => {
       sira: ['Ayşe Nine oğlunun mektubunu okudu.', 'Köyün kadınlarını topladı.', 'Kadınlar çorap ve eldiven ördü.', 'Giyecekler kağnılarla gönderildi.', 'Oğlundan yeni mektup geldi.'] }),
     'hafta-06': W(6, 2, 'İstiklal Marşı\'nın Şairi', 'Millî Mücadele ve Atatürk · Mehmet Âkif Ersoy, bilgilendirici metin', { baslik: 'Mehmet Âkif Ersoy',
       metin: ['Mehmet Âkif Ersoy 1873 yılında İstanbul\'da doğdu. Küçük yaşlardan itibaren kitap okumayı ve şiir yazmayı çok sevdi. Veteriner hekim olarak çalıştı, aynı zamanda birçok şiir yazdı.',
-        'Kurtuluş Savaşı yıllarında Anadolu\'yu dolaşarak halkı birlik olmaya çağıran konuşmalar yaptı. 1921 yılında Türkiye Büyük Millet Meclisi bir millî marş yarışması düzenledi.',
-        'Mehmet Âkif, yarışma için para ödülü verileceği için önce katılmak istemedi. Ödülün kendisine verilmemesi şartıyla şiirini gönderdi. Şiiri Meclis\'te büyük bir coşkuyla kabul edildi. Bu şiir, İstiklal Marşı\'mızdır.',
+        'Kurtuluş Savaşı yıllarında Anadolu\'yu dolaşarak halkı birlik olmaya çağıran konuşmalar yaptı. 1920 yılında bir millî marş yarışması düzenlendi.',
+        'Mehmet Âkif, yarışma için para ödülü verileceği için önce katılmak istemedi. Ödülün kendisine verilmemesi şartıyla şiirini gönderdi. Şiiri 12 Mart 1921\'de Meclis\'te büyük bir coşkuyla kabul edildi. Bu şiir, İstiklal Marşı\'mızdır.',
         'Mehmet Âkif, İstiklal Marşı\'nı “Allah bu millete bir daha İstiklal Marşı yazdırmasın.” sözüyle anlatırdı. Onun bu sözü, marşın ne zor günlerde yazıldığını gösterir.'],
       sorular: [['Mehmet Âkif Ersoy\'un mesleği hangisidir?', 'Veteriner hekim', ['Öğretmen', 'Mühendis', 'Asker']],
         ['Mehmet Âkif yarışmaya önce neden katılmak istememiştir?', 'Yarışmada para ödülü verileceği için', ['Şiir yazmayı sevmediği için', 'Hasta olduğu için', 'İstanbul\'da olmadığı için']],
@@ -245,7 +246,7 @@ module.exports = ({ T, S }) => {
         ['Metinde anlatılan kurallar hangi konuyla ilgilidir?', 'Hasta ziyareti görgü kuralları', ['Trafik kuralları', 'Oyun kuralları', 'Kütüphane kuralları']]],
       sozcuk: ['vedalaşmak', ['ayrılırken birbirine iyi dileklerde bulunmak', 'tanışmak', 'kavga etmek', 'hediye almak']],
       sira: ['Dede ameliyat oldu.', 'Annesi kuralları anlattı.', 'Kerem resim çizdi.', 'Hastanede dedesini ziyaret ettiler.', 'Vedalaşıp ayrıldılar.'] }),
-    'hafta-13': W(13, 3, 'Çiftçi ve Oğulları', 'Erdemler · Çalışkanlık, fabl', { baslik: 'Tarladaki Hazine',
+    'hafta-13': W(13, 3, 'Çiftçi ve Oğulları', 'Erdemler · Çalışkanlık, hikâye', { baslik: 'Tarladaki Hazine',
       metin: ['Bir zamanlar yaşlı bir çiftçinin üç oğlu vardı. Oğulları çok tembeldi; tarlada çalışmak yerine bütün gün gölgede uyurlardı.',
         'Çiftçi yaşlanıp hastalanınca oğullarını yanına çağırdı: “Tarlamızın toprağının altında bir hazine var. Onu bulursanız hiç sıkıntı çekmezsiniz.” dedi.',
         'Babaları vefat ettikten sonra üç kardeş kazmalarını alıp tarlaya koştu. Tarlanın her köşesini kazdılar, toprağı alt üst ettiler ama hiçbir sandık bulamadılar. Yorgun ve hayal kırıklığı içinde, kazdıkları tarlaya buğday ektiler.',
@@ -359,7 +360,7 @@ module.exports = ({ T, S }) => {
         'Isınma sonucunda buzullar erir, deniz seviyesi yükselir, bazı canlıların yaşam alanları daralır.',
         'Hepimiz bu soruna karşı bir şeyler yapabiliriz: Kısa mesafelerde yürüyebilir ya da bisiklet kullanabiliriz. Gereksiz ışıkları kapatabilir, ağaç dikebilir, atıklarımızı geri dönüşüme gönderebiliriz.'],
       sorular: [['Metne göre Dünya\'nın ısınmasının nedeni nedir?', 'Atmosferde biriken gazların ısıyı hapsetmesi', ['Güneş\'in Dünya\'ya yaklaşması', 'Ay\'ın büyümesi', 'Yağmurların artması']],
-        ['İklim nedir?', 'Bir yerde uzun yıllar görülen hava koşulları', ['Bir günlük hava durumu', 'Yalnız yağmurlu günler', 'Bir şehrin nüfusu']],
+        ['Ece, metni okuduktan sonra “Bugün hava çok sıcak, demek ki iklim değişti.” dedi. Metne göre Ece\'nin yanılgısı nedir?', 'Tek bir günün havasına bakması; iklim uzun yıllardaki hava koşullarıdır.', ['Sıcak havanın hiçbir zaman görülmemesi', 'Kuraklığın yalnız kışın yaşanması', 'Gazların ısıyı hapsetmemesi']],
         ['Hangisi ısınmanın sonuçlarından biri değildir?', 'Buzulların büyümesi', ['Deniz seviyesinin yükselmesi', 'Yaşam alanlarının daralması', 'Kuraklık yaşanması']],
         ['Son paragrafta okurlardan ne istenmektedir?', 'Günlük yaşamda iklimi korumaya katkı sağlamaları', ['Daha çok araç kullanmaları', 'Işıkları açık bırakmaları', 'Ağaçları kesmeleri']],
         ['Metnin başlığındaki “ateş” sözcüğü neyi anlatmaktadır?', 'Dünya\'nın ısınmasını', ['Orman yangınlarını', 'Ocaktaki ateşi', 'Güneş\'in rengini']]],
