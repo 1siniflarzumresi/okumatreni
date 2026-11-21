@@ -3,7 +3,7 @@
 //   1., 4., 7. … hafta: kodDY, yolDY, kapDY, konusma · 2., 5., 8. …: roma, sirala, esle, bulmaca · 3., 6., 9. …: kacTane, kareYol, tabloSec, cocukSec
 //   her hafta ayrıca belge/grafik/metin soruları + 1 ortak bağlamlı ikili grup. Motor: test4.js. Üretim: node kaynak/calisma-kagitlari/uret.js s4
 module.exports = ({ T }) => {
-  const { p, madde, tablo, bilgi, kodDY, yolDY, kapDY, konusma, roma, sirala, esle, bulmaca, kacTane, kareYol, tabloSec, cocukSec, grafikSec, ortak, coktan, grafik, sayfa, optik, yeniHafta, cevapSayfasi } = T;
+  const { yedek, p, madde, tablo, bilgi, kodDY, yolDY, kapDY, konusma, roma, sirala, esle, bulmaca, kacTane, kareYol, tabloSec, cocukSec, grafikSec, ortak, coktan, grafik, sayfa, optik, yeniHafta, cevapSayfasi } = T;
   const kimlik = o => `<div class="b4-kimlik"><div class="b4-k-ust">TÜRKİYE CUMHURİYETİ KİMLİK KARTI</div><div class="b4-k-ic"><div class="b4-k-foto">👤</div><dl>${o.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl></div></div>`;
   const serit = l => `<div class="b4-serit">${l.map(([a, b]) => `<div><b>${a}</b><span>${b}</span></div>`).join('')}</div>`;
   const etiket = o => `<div class="b4-etiket">${o.map(([a, b]) => `<div><span>${a}</span><b>${b}</b></div>`).join('')}</div>`;
@@ -41,7 +41,8 @@ module.exports = ({ T }) => {
     32: [["Okulda 19 Mayıs için üç etkinlik önerildi: gençlerin spor gösterisi, Atatürk'ün gençlere söylediklerinden oluşan bir dinleti ve sınıf eşyalarının sayımı.", "Hangi öneri 19 Mayıs'ın anlamıyla en az ilgilidir?", 'Sınıf eşyalarının sayımı', ['Gençlerin spor gösterisi', 'Atatürk\'ün sözlerinden oluşan dinleti', 'Gençlik koşusu']]],
     35: [["Büyük bir depremden sonra birçok ülke Türkiye'ye arama kurtarma ekibi ve yardım malzemesi gönderdi. Türkiye de daha önce başka ülkelerdeki afetlere yardım ekipleri göndermişti.", 'Bu bilgiler en çok neyi gösterir?', 'Ülkelerin zor zamanlarda iş birliği yaptığını', ['Ülkelerin hiç ilişki kurmadığını', 'Yalnız komşu ülkelerin yardım ettiğini', 'Afetlerin yalnız bir ülkede olduğunu']]],
   };
-  const W = (hafta, unite, baslik, konu, f) => ({ unite, hafta, baslik, konu, sayfalar: () => { yeniHafta(); const [a, b] = f(); (EK[hafta] || []).forEach(([ic, kok, d, y]) => b.push(coktan(p(ic), kok, d, y))); return [sayfa(a), sayfa(b).replace(/<\/div>$/, optik() + '</div>'), cevapSayfasi(`${hafta}. hafta · ${baslik}`)]; } });
+  const YED = require('./sosyal4-yedek.js');
+  const W = (hafta, unite, baslik, konu, f) => ({ unite, hafta, baslik, konu, sayfalar: () => { yeniHafta(); const [a, b] = f(); (EK[hafta] || []).forEach(([ic, kok, d, y]) => b.push(coktan(p(ic), kok, d, y))); (YED[hafta] || []).forEach(([ic, kok, d, y], i) => (i < 2 ? a : b).push(yedek(coktan(p(ic), kok, d, y)))); return [sayfa(a), sayfa(b).replace(/<\/div>$/, optik() + '</div>'), cevapSayfasi(`${hafta}. hafta · ${baslik}`)]; } });
   void madde; void bilgi; void grafikSec; void etiket;
 
   const S4 = {
@@ -466,7 +467,7 @@ module.exports = ({ T }) => {
     'hafta-34': W(34, 7, 'Ülkeler Arası Bağlar', 'Ülkemizin diğer ülkelerle ilişkileri', () => [[
       ortak(p('Bir şirketin yıllık fındık satışı:') + grafik('Fındık satışı (ton)', ['Almanya', 'İtalya', 'Fransa', 'Rusya'], [40, 70, 20, 30], 'Ton', '#8e5b2b'), [
         () => coktan('', 'Şirket toplam kaç ton fındık satmıştır?', '160', ['140', '150', '170']),
-        () => coktan('', 'Başka ülkelere ürün satmaya ne ad verilir?', 'İhracat', ['İthalat', 'Tüketim', 'Üretim'])]),
+        () => coktan('', 'Şirketin bu ülkelere fındık satması hangi ticaret türüne örnektir?', 'İhracat', ['İthalat', 'Tüketim', 'Üretim'])]),
       kodDY('Öğrenciler ülkeler arası ilişkilerle ilgili kartları değerlendiriyor.', [
         ['Turizm ülkeler arasında dostluğu artırır.', true], ['Başka ülkeden ürün almak ihracattır.', false], ['Afetlerde ülkeler birbirine yardım edebilir.', true], ['Ülkeler hiçbir konuda iş birliği yapmaz.', false]], 'al2'),
       yolDY('Mert, ticaret ve turizmle ilgili yol oyunu oynuyor.', [['Turistlerin gelmesi yöre ekonomisine katkı sağlamaz.', false], ['Türkiye fındık ihraç eden ülkelerdendir.', true], ['Ticaret yalnızca komşu ülkelerle yapılır.', false]], 'al3')], [
