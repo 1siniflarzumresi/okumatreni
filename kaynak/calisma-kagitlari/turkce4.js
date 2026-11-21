@@ -2,7 +2,7 @@
 // + dil bilgisi bankalarından hesaplanan sorular (eş/zıt anlam, deyim, atasözü, noktalama). İki sayfa + ayrı cevap anahtarı.
 // Metin soruları: [kök, doğru, [yanlış, yanlış, yanlış]]. Üretim: node kaynak/calisma-kagitlari/uret.js t4
 module.exports = ({ T, S }) => {
-  const { p, kodDY, yolDY, kapDY, roma, sirala, esle, kacTane, kareYol, cocukSec, ortak, sayfa, optik, yeniHafta, cevapSayfasi } = T;
+  const { cerceve, p, kodDY, yolDY, kapDY, roma, sirala, esle, kacTane, kareYol, cocukSec, ortak, sayfa, optik, yeniHafta, cevapSayfasi } = T;
   void S;
   const RNG = s => { let x = 0; for (const c of String(s)) x = (x * 31 + c.charCodeAt(0)) >>> 0; x = x || 1; return () => ((x = (x * 1103515245 + 12345) >>> 0) / 4294967296); };
   const kar = (r, l) => { const a = [...l]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -12,65 +12,87 @@ module.exports = ({ T, S }) => {
   // ——— Dil bilgisi bankaları (doğruluk bankadan hesaplanır) ———
   const ES = [['cevap', 'yanıt'], ['öğrenci', 'talebe'], ['armağan', 'hediye'], ['yurt', 'vatan'], ['kırmızı', 'al'], ['siyah', 'kara'], ['ihtiyar', 'yaşlı'], ['misafir', 'konuk'], ['sınav', 'imtihan'], ['okul', 'mektep'], ['hekim', 'doktor'], ['kelime', 'sözcük'], ['istek', 'arzu'], ['yıl', 'sene'], ['zaman', 'vakit'], ['soru', 'sual'], ['sevinç', 'neşe'], ['yürek', 'kalp'], ['hızlı', 'çabuk'], ['ödül', 'mükâfat'], ['güzel', 'hoş'], ['fikir', 'düşünce'], ['millet', 'ulus'], ['kuvvet', 'güç'], ['doğa', 'tabiat'], ['ilgi', 'alaka'], ['hayal', 'düş'], ['yardım', 'destek'], ['beyaz', 'ak'], ['anı', 'hatıra'], ['şehir', 'kent'], ['dost', 'arkadaş']];
   const ZIT = [['uzun', 'kısa'], ['sıcak', 'soğuk'], ['geniş', 'dar'], ['erken', 'geç'], ['kolay', 'zor'], ['temiz', 'kirli'], ['cesur', 'korkak'], ['eski', 'yeni'], ['ağır', 'hafif'], ['derin', 'sığ'], ['çalışkan', 'tembel'], ['gece', 'gündüz'], ['iç', 'dış'], ['ileri', 'geri'], ['büyük', 'küçük'], ['yüksek', 'alçak'], ['açık', 'kapalı'], ['iyi', 'kötü'], ['ilk', 'son'], ['az', 'çok'], ['genç', 'yaşlı'], ['önce', 'sonra'], ['mutlu', 'mutsuz'], ['sessiz', 'gürültülü'], ['hızlı', 'yavaş'], ['doğru', 'yanlış'], ['kalın', 'ince'], ['tatlı', 'acı'], ['dolu', 'boş'], ['aydınlık', 'karanlık'], ['güçlü', 'güçsüz'], ['kuru', 'ıslak'], ['zengin', 'yoksul']];
-  const DEYIM = [['kulak vermek', 'dikkatle dinlemek'], ['göz atmak', 'kısaca bakmak'], ['eli açık olmak', 'cömert olmak'], ['ağzı kulaklarına varmak', 'çok sevinmek'], ['kalbini kırmak', 'birini üzmek'], ['dili tutulmak', 'şaşırıp konuşamamak'], ['ayağını denk almak', 'dikkatli davranmak'], ['burnu havada olmak', 'kibirli olmak'], ['gözden düşmek', 'değerini yitirmek'], ['içi içine sığmamak', 'çok heyecanlanmak']];
-  const ATA = [['Damlaya damlaya göl olur.', 'Küçük birikimler zamanla büyür.'], ['Bugünün işini yarına bırakma.', 'İşleri zamanında yapmalıyız.'], ['Bir elin nesi var, iki elin sesi var.', 'Birlikte çalışmak başarı getirir.'], ['Ağaç yaşken eğilir.', 'Eğitim küçük yaşta başlamalıdır.'], ['Sakla samanı, gelir zamanı.', 'Gereksiz görünen şey bir gün işe yarar.'], ['Komşu komşunun külüne muhtaçtır.', 'İnsanlar birbirine ihtiyaç duyar.']];
-  const NOKTA = [['Ne güzel bir gün', '!'], ['Yarın okula gelecek misin', '?'], ['Kitabımı masaya koydum', '.'], ['Eyvah, süt taştı', '!'], ['Bu kitabı kim yazmış', '?'], ['Annem bahçede çiçek suluyor', '.']];
+  const DEYIM = [['kulak vermek', 'dikkatle dinlemek'], ['göz atmak', 'kısaca bakmak'], ['eli açık olmak', 'cömert olmak'], ['ağzı kulaklarına varmak', 'çok sevinmek'], ['kalbini kırmak', 'birini üzmek'], ['dili tutulmak', 'şaşırıp konuşamamak'], ['ayağını denk almak', 'dikkatli davranmak'], ['burnu havada olmak', 'kibirli olmak'], ['gözden düşmek', 'değerini yitirmek'], ['içi içine sığmamak', 'çok heyecanlanmak'],
+    ['etekleri zil çalmak', 'çok sevinçli olmak'], ['göz kulak olmak', 'korumak ve gözetmek'], ['ağzı açık kalmak', 'çok şaşırmak'], ['eli kulağında olmak', 'olmak üzere olmak'], ['dört gözle beklemek', 'büyük bir istekle beklemek'], ['burun kıvırmak', 'beğenmemek'], ['kulak asmamak', 'önemsememek'], ['sözünü tutmak', 'verdiği sözü yerine getirmek'], ['el ele vermek', 'birlikte çalışmak'], ['gözü yemek', 'bir işi yapmayı göze almak']];
+  const ATA = [['Damlaya damlaya göl olur.', 'Küçük birikimler zamanla büyür.'], ['Bugünün işini yarına bırakma.', 'İşleri zamanında yapmalıyız.'], ['Bir elin nesi var, iki elin sesi var.', 'Birlikte çalışmak başarı getirir.'], ['Ağaç yaşken eğilir.', 'Eğitim küçük yaşta başlamalıdır.'], ['Sakla samanı, gelir zamanı.', 'Gereksiz görünen şey bir gün işe yarar.'], ['Komşu komşunun külüne muhtaçtır.', 'Komşular zor günde birbirine yardım eder.'],
+    ['Sabreden derviş muradına ermiş.', 'Sabırlı olan sonunda isteğine kavuşur.'], ['Tatlı dil yılanı deliğinden çıkarır.', 'Güzel söz en zor insanı bile yumuşatır.'], ['Ayağını yorganına göre uzat.', 'Harcamanı gelirine göre yap.'], ['Üzüm üzüme baka baka kararır.', 'İnsanlar arkadaşlarından etkilenir.'], ['İşleyen demir ışıldar.', 'Çalışan kişi gelişir ve parlar.'], ['Görünen köy kılavuz istemez.', 'Apaçık olan şey için kanıt gerekmez.']];
+  const NOKTA = [['Ne güzel bir gün', '!'], ['Yarın okula gelecek misin', '?'], ['Kitabımı masaya koydum', '.'], ['Eyvah, süt taştı', '!'], ['Bu kitabı kim yazmış', '?'], ['Annem bahçede çiçek suluyor', '.'], ['Hangi takımı tutuyorsun', '?'], ['Yaşasın, tatil başladı', '!'], ['Dedem her sabah yürüyüş yapar', '.'], ['Saat kaçta buluşalım', '?'], ['Aman, düşeceksin', '!'], ['Kedimiz pencerenin önünde uyuyor', '.']];
   const ISAD = { '!': 'ünlem', '?': 'soru işareti', '.': 'nokta' };
   // Eş sesli sözcükler: [sözcük, cümle 1 (anlam 1), cümle 2 (anlam 2)]
-  const ESSES = [['yüz', 'Denizde yüz metre yüzdük.', 'Yüzünü yıkadı.'], ['gül', 'Bahçede kırmızı bir gül açtı.', 'Bu fıkraya çok gül!'], ['yaş', 'Kardeşim beş yaşında.', 'Çamaşırlar hâlâ yaş.'],
-    ['dolu', 'Bardak su dolu.', 'Gece dolu yağdı.'], ['çay', 'Dedem çay demledi.', 'Köyün yanından bir çay akıyor.'], ['kır', 'Pazar günü kıra gittik.', 'Ekmeği ikiye kır.'], ['at', 'Çiftlikte bir at gördük.', 'Topu bana at.']];
+  const ESSES = [['yüz', 'Denizde yüz metre yüzdük.', 'Yüzünü soğuk suyla yıkadı.'], ['gül', 'Bahçede kırmızı bir gül açtı.', 'Bu fıkraya sen de gül.'], ['yaş', 'Kardeşim beş yaşında.', 'Çamaşırlar hâlâ yaş.'],
+    ['dolu', 'Bardak su dolu.', 'Gece şiddetli dolu yağdı.'], ['çay', 'Dedem çay demledi.', 'Köyün yanından küçük bir çay akıyor.'], ['kır', 'Pazar günü kıra gittik.', 'Ekmeği ikiye kır.'], ['at', 'Çiftlikte bir at gördük.', 'Topu bana at.'],
+    ['yaz', 'Bu yaz denize gideceğiz.', 'Adını defterine yaz.'], ['dal', 'Kuş ağacın dalına kondu.', 'Havuza dikkatli dal.'], ['bin', 'Kütüphanede bin kitap var.', 'Otobüse sırayla bin.'], ['el', 'Elini yıkamayı unutma.', 'El kapısında misafir olduk.'],
+    ['diz', 'Dizimi masaya çarptım.', 'Kitapları rafa sırayla diz.'], ['saç', 'Annem saçımı ördü.', 'Tavuklara biraz yem saç.'], ['ekmek', 'Fırından taze ekmek aldık.', 'Çiftçi tarlaya buğday ekmek istiyor.']];
   // Terim anlamı: bir bilim ya da sanat dalına özgü anlam
-  const TERIM = [['Cümlenin öznesini bulmak için “kim?” sorusunu sorarız.', 'özne', 'Dil bilgisine özgü (terim)'], ['Üçgenin üç köşesi vardır.', 'köşe', 'Matematiğe özgü (terim)'], ['Kaleci topu ağlara gitmekten kurtardı.', 'kaleci', 'Spora özgü (terim)'], ['Ressam tuvaline önce açık renkleri sürdü.', 'tuval', 'Resim sanatına özgü (terim)']];
-  const dilSt = r => { const e = kar(r, ES), z = kar(r, ZIT), d = kar(r, DEYIM), a = kar(r, ATA), n = kar(r, NOKTA); const f = (t, y) => r() < .5 ? [t, true] : [y, false];
-    const me = kar(r, metindeBul(ES))[0], mz = kar(r, metindeBul(ZIT))[0];
+  const TERIM = [['Cümlenin öznesini bulmak için “kim?” sorusunu sorarız.', 'özne'], ['Üçgenin üç köşesi vardır.', 'köşe'], ['Kaleci topu ağlara gitmekten kurtardı.', 'kaleci'], ['Ressam tuvaline önce açık renkleri sürdü.', 'tuval'],
+    ['Dairenin çevresini ölçmek için ipten yararlandık.', 'çevre'], ['Hakem ilk yarının bittiğini düdükle bildirdi.', 'hakem'], ['Doktor hastanın nabzını ölçtü.', 'nabız'], ['Orkestra şefi ilk notayı verdi.', 'nota'],
+    ['Bu sayının birler basamağında 5 rakamı var.', 'basamak'], ['Mıknatısın kutupları birbirini itti.', 'kutup'], ['Şiirin her dizesi aynı uyakla bitiyor.', 'dize'], ['Yarışta oyuncu ofsayta düştü.', 'ofsayt']];
+  // Bir kâğıtta çoktan seçmeli dil bilgisi sorularının cevabı (REZ) doğru/yanlış ifadelerde geçmez; aynı sözcük iki ifadede yer almaz
+  const ATA_G = { 2: 'birlik', 5: 'birlik', 9: 'birlik' };
+  let KUL = new Set();   // bir kâğıtta kullanılan banka ögeleri: aynı deyim/atasözü/cümle iki soruda çıkmasın
+  const disla = (l, k) => l.filter(x => !(REZ.yok || []).some(w => x.includes(w)) && (!k || x !== REZ[k]) && !KUL.has(x[0]));
+  const kul1 = x => { if (x) KUL.add(x[0]); return x; };
+  const dilSt = r => { const kul = new Set(); const temiz = l => l.filter(x => !x.some(w => kul.has(w))); const tut = x => { x.forEach(w => kul.add(w)); return x; };
+    const me = kar(r, metindeBul(ES))[0], mz = kar(r, metindeBul(ZIT))[0]; if (me) [me.w, me.o].forEach(w => kul.add(w)); if (mz) [mz.w, mz.o].forEach(w => kul.add(w));
+    const e = kar(r, temiz(disla(ES, 'ES'))).slice(0, 4).map(tut), z = kar(r, temiz(disla(ZIT, 'ZIT'))).slice(0, 4).map(tut), d = kar(r, disla(DEYIM, 'DEYIM')), ai = kar(r, ATA.map((_, i) => i).filter(i => ATA[i] !== REZ.ATA && !KUL.has(ATA[i][0]))), n = kar(r, disla(NOKTA, 'NOKTA'));
+    [e[0], e[1], e[2], z[0], z[1], z[2], d[0], n[0]].forEach(kul1); if (ai[0] != null) KUL.add(ATA[ai[0]][0]);
+    const f = (t, y) => r() < .5 ? [t, true] : [y, false];
+    const a0 = ai[0], a1 = ai.find(i => i !== a0 && (!ATA_G[a0] || ATA_G[i] !== ATA_G[a0]));
     return [me ? f(`Metindeki “${me.k}” sözcüğünün eş anlamlısı “${me.o}” sözcüğüdür.`, `Metindeki “${me.k}” sözcüğünün eş anlamlısı “${z[0][1]}” sözcüğüdür.`) : f(`“${e[0][0]}” ile “${e[0][1]}” eş anlamlı sözcüklerdir.`, `“${z[0][0]}” ile “${z[0][1]}” eş anlamlı sözcüklerdir.`),
       mz ? f(`Metindeki “${mz.k}” sözcüğünün zıt anlamlısı “${mz.o}” sözcüğüdür.`, `Metindeki “${mz.k}” sözcüğünün zıt anlamlısı “${e[1][1]}” sözcüğüdür.`) : f(`“${z[1][0]}” ile “${z[1][1]}” zıt anlamlı sözcüklerdir.`, `“${e[1][0]}” ile “${e[1][1]}” zıt anlamlı sözcüklerdir.`),
       f(`“${d[0][0]}” deyimi “${d[0][1]}” anlamındadır.`, `“${d[0][0]}” deyimi “${d[1][1]}” anlamındadır.`),
-      f(`“${a[0][0]}” atasözü “${a[0][1]}” anlamındadır.`, `“${a[0][0]}” atasözü “${a[1][1]}” anlamındadır.`),
+      f(`“${ATA[a0][0]}” atasözü “${ATA[a0][1]}” anlamındadır.`, `“${ATA[a0][0]}” atasözü “${ATA[a1][1]}” anlamındadır.`),
       f(`“${n[0][0]}” cümlesinin sonuna ${ISAD[n[0][1]]} konur.`, `“${n[0][0]}” cümlesinin sonuna ${ISAD[n[0][1] === '.' ? '?' : '.']} konur.`),
       f(`“${e[2][0]}” sözcüğünün eş anlamlısı “${e[2][1]}” sözcüğüdür.`, `“${z[2][0]}” sözcüğünün eş anlamlısı “${z[2][1]}” sözcüğüdür.`),
-      (() => { const x = kar(r, ESSES)[0]; return f(`“${x[1]}” ve “${x[2]}” cümlelerindeki “${x[0]}” sözcükleri eş seslidir.`, `“${x[1]}” ve “${x[2]}” cümlelerindeki “${x[0]}” sözcükleri aynı anlamdadır.`); })(),
-      (() => { const t = kar(r, TERIM)[0]; return f(`“${t[0]}” cümlesindeki “${t[1]}” sözcüğü terim anlamıyla kullanılmıştır.`, `“${t[0]}” cümlesindeki “${t[1]}” sözcüğü mecaz anlamıyla kullanılmıştır.`); })()]; };
+      (() => { const x = kul1(kar(r, ESSES.filter(y => y !== REZ.ESSES && !KUL.has(y[0])))[0] || kar(r, ESSES.filter(y => y !== REZ.ESSES))[0]); return f(`“${x[1]}” ve “${x[2]}” cümlelerindeki “${x[0]}” sözcükleri eş seslidir.`, `“${x[1]}” ve “${x[2]}” cümlelerindeki “${x[0]}” sözcükleri aynı anlamdadır.`); })(),
+      (() => { const t = kul1(kar(r, TERIM.filter(y => y !== REZ.TERIM && !KUL.has(y[0])))[0] || kar(r, TERIM.filter(y => y !== REZ.TERIM))[0]); return f(`“${t[0]}” cümlesindeki “${t[1]}” sözcüğü terim anlamıyla kullanılmıştır.`, `“${t[0]}” cümlesindeki “${t[1]}” sözcüğü mecaz anlamıyla kullanılmıştır.`); })()]; };
   const DIL = { gir: 'Sınıfta okunan metinden yola çıkılarak sözcükler ve cümlelerle ilgili bilgiler yazıldı.' };
   // Metne bağlı dil bilgisi: haftanın metninde geçen sözcük ve cümleler kullanılır; bulunamazsa banka kullanılır.
   let METIN = null;
   const kucuk = x => x.toLocaleLowerCase('tr');
+  const BILESIK = ['ilk yardım', 'zaman ölçer', 'büyük millet', 'millet meclisi', 'kara kalem', 'son söz'];
+  let REZ = {};
   const BELIRSIZ = ['kara', 'al', 'ak', 'iç', 'dış', 'yüz', 'yaş', 'son', 'düş', 'dar', 'az', 'çok', 'acı', 'ince', 'dolu', 'iyi', 'güç', 'kalp', 'yıl', 'anı'];
   const EK_RE = /^(lar|ler|ı|i|u|ü|a|e|da|de|ta|te|dan|den|tan|ten|ın|in|un|ün|la|le|yla|yle|sı|si|su|sü|ları|leri|ca|ce|dı|di|du|dü|dır|dir|tır|tir|ydı|ydi|lık|lik|ya|ye|yı|yi|yu|yü)$/;
-  const cumleler = () => METIN ? METIN.metin.join(' ').replace(/[“”"]/g, '').split(/(?<=[.!?])\s+/).map(x => x.trim()).filter(x => x.length > 12 && x.length < 110 && !/^[–-]/.test(x)) : [];
-  const metindeBul = (liste) => { const out = []; for (const c of cumleler()) { const tk = c.split(/[^\p{L}]+/u).filter(Boolean); for (const [a, b] of liste) for (const [w, o] of [[a, b], [b, a]]) { if (BELIRSIZ.includes(w)) continue; const k = tk.find(x => { const l = kucuk(x); return l === w || (l.startsWith(w) && EK_RE.test(l.slice(w.length))); }); if (k && !out.some(z => z.w === w)) out.push({ w, o, k, c }); } } return out; };
+  const cumleler = () => METIN ? METIN.metin.join(' ').split(/(?<=[.!?])\s+/).map(x => x.trim()).filter(x => x.length > 12 && x.length < 110 && !/^[–-]/.test(x) && !/[“”"':]/.test(x)) : [];
+  const metindeBul = (liste) => { const out = []; for (const c of cumleler()) { const tk = c.split(/[^\p{L}]+/u).filter(Boolean); for (const [a, b] of liste) for (const [w, o] of [[a, b], [b, a]]) { if (BELIRSIZ.includes(w)) continue; const k = tk.find((x, i) => kucuk(x) === w && !(i > 0 && x[0] !== kucuk(x)[0]) && !BILESIK.some(b => kucuk(c).includes(b) && b.includes(w)) && !(REZ.yok || []).includes(w)); if (k && !out.some(z => z.w === w)) out.push({ w, o, k, c }); } } return out; };
   const alinti = c => p(`Metinde geçen “${c}” cümlesini okuyunuz.`);
   const dilCq = [
-    r => { const m = kar(r, metindeBul(ES))[0]; if (!m) return dilCqB[0](r); const y = kar(r, ES.filter(x => !x.includes(m.w) && !x.includes(m.o))).slice(0, 2).map(x => x[1]).concat(kar(r, ZIT)[0][1]); return coktan(alinti(m.c), `Bu cümledeki “${m.k}” sözcüğünün eş anlamlısı hangisidir?`, m.o, y); },
-    r => { const m = kar(r, metindeBul(ZIT))[0]; if (!m) return dilCqB[1](r); const y = kar(r, ZIT.filter(x => !x.includes(m.w) && !x.includes(m.o))).slice(0, 2).map(x => x[1]).concat(kar(r, ES)[0][1]); return coktan(alinti(m.c), `Bu cümledeki “${m.k}” sözcüğünün zıt anlamlısı hangisidir?`, m.o, y); },
+    r => { const m = REZ.mES; if (!m) return dilCqB[0](r); const y = kar(r, ES.filter(x => !x.includes(m.w) && !x.includes(m.o))).slice(0, 2).map(x => x[1]).concat(kar(r, ZIT)[0][1]); return coktan(alinti(m.c), `Bu cümledeki “${m.k}” sözcüğünün eş anlamlısı hangisidir?`, m.o, y); },
+    r => { const m = REZ.mZ; if (!m) return dilCqB[1](r); const y = kar(r, ZIT.filter(x => !x.includes(m.w) && !x.includes(m.o))).slice(0, 2).map(x => x[1]).concat(kar(r, ES)[0][1]); return coktan(alinti(m.c), `Bu cümledeki “${m.k}” sözcüğünün zıt anlamlısı hangisidir?`, m.o, y); },
     r => { const c = kar(r, cumleler().filter(x => /[.!?]$/.test(x)))[0]; if (!c) return dilCqB[4](r); const i = c.slice(-1); return coktan(p('Metindeki bir cümlenin sonundaki noktalama işareti silinmiştir.'), `“${c.slice(0, -1)}” cümlesinin sonuna hangi işaret konmalıdır?`, i + ' (' + ISAD[i] + ')', ['.', '?', '!', ','].filter(x => x !== i).slice(0, 3).map(x => x + ' (' + (ISAD[x] || 'virgül') + ')')); },
   ];
+  const AD = r => ADLAR[Math.floor(r() * ADLAR.length)];
+  const SEN = [['her gün kumbarasına biraz para atıyor. Bir yıl sonra bisiklet alacak kadar parası oldu.', 0], ['ödevini akşama bırakınca yetiştiremedi; ertesi gün ödevlerini hemen yapmaya karar verdi.', 1], ['ile arkadaşları sınıf panosunu birlikte hazırlayınca iş bir saatte bitti.', 2], ['eski kumaş parçalarını bir kutuda saklıyordu; okul tiyatrosunda kostüm gerekince hepsi işe yaradı.', 4],
+    ['aylardır beklediği kitabın çıkmasını sabırla bekledi ve sonunda kitabı imzalı olarak aldı.', 6], ['kızgın komşusuna gülümseyerek ve nazikçe konuşunca komşusu da sakinleşti.', 7], ['harçlığından fazlasını harcamamak için alışveriş listesini parasına göre yaptı.', 8], ['her gün piyano çalışınca birkaç ay içinde parçaları kolayca çalmaya başladı.', 10]];
   const dilCqB = [
-    r => { const e = kar(r, ES), z = kar(r, ZIT); return coktan(p(`${ADLAR[Math.floor(r() * 12)]} sözcük kartlarını eşleştiriyor.`), `“${e[0][0]}” sözcüğünün eş anlamlısı hangisidir?`, e[0][1], [z[0][1], e[1][1], z[1][0]]); },
-    r => { const z = kar(r, ZIT), e = kar(r, ES); return coktan(p('Öğretmen tahtaya bir sözcük yazdı ve zıt anlamlısını sordu.'), `“${z[0][0]}” sözcüğünün zıt anlamlısı hangisidir?`, z[0][1], [e[0][1], z[1][1], e[1][0]]); },
-    r => { const d = kar(r, DEYIM); return coktan(p('Öğretmen tahtaya bir deyim yazdı ve anlamını sordu.'), `“${d[0][0]}” deyiminin anlamı hangisidir?`, d[0][1], d.slice(1, 4).map(x => x[1])); },
-    r => { const SEN = [['her gün kumbarasına biraz para atıyor. Bir yıl sonra bisiklet alacak kadar parası oldu.', 0], ['ödevini akşama bırakınca yetiştiremedi; ertesi gün ödevlerini hemen yapmaya karar verdi.', 1], ['ile arkadaşları sınıf panosunu birlikte hazırlayınca iş bir saatte bitti.', 2], ['eski kumaş parçalarını bir kutuda saklıyordu; okul tiyatrosunda kostüm gerekince hepsi işe yaradı.', 4]];
-      const [sen, k] = SEN[Math.floor(r() * SEN.length)]; return coktan(p(`${ADLAR[Math.floor(r() * 12)]} ${sen}`), 'Bu durumu en iyi anlatan atasözü hangisidir?', ATA[k][0], kar(r, ATA.filter((_, i) => i !== k)).slice(0, 3).map(x => x[0])); },
-    r => { const n = kar(r, NOKTA); return coktan(p('Bir öğrenci noktalama işaretlerini unutmuş.'), `“${n[0][0]}” cümlesinin sonuna hangi işaret konmalıdır?`, n[0][1] + ' (' + ISAD[n[0][1]] + ')', ['.', '?', '!', ','].filter(x => x !== n[0][1]).slice(0, 3).map(x => x + ' (' + (ISAD[x] || 'virgül') + ')')); },
+    r => { const e = REZ.ES || kar(r, ES)[0], y = kar(r, ES.filter(x => x !== e)).slice(0, 2).map(x => x[1]).concat(kar(r, ZIT)[0][1]); return coktan(p(`${AD(r)}, kardeşiyle sözcük kartı oyunu oynuyor. Kartta “${e[0]}” yazıyor; aynı anlamdaki kartı bulan puan alacak.`), `“${e[0]}” sözcüğünün eş anlamlısı hangisidir?`, e[1], y); },
+    r => { const z = REZ.ZIT || kar(r, ZIT)[0], y = kar(r, ZIT.filter(x => x !== z)).slice(0, 2).map(x => x[1]).concat(kar(r, ES)[0][1]); return coktan(p(`${AD(r)}, sınıftaki “Zıttını Bul” yarışmasında “${z[0]}” kartını çekti.`), `“${z[0]}” sözcüğünün zıt anlamlısı hangisidir?`, z[1], y); },
+    r => { const d = REZ.DEYIM || kar(r, DEYIM)[0]; return coktan(p(`${AD(r)}, okuduğu hikâyede “${d[0]}” deyimiyle karşılaştı ve anlamını tahmin etmeye çalıştı.`), `“${d[0]}” deyiminin anlamı hangisidir?`, d[1], kar(r, DEYIM.filter(x => x !== d)).slice(0, 3).map(x => x[1])); },
+    r => { const [sen, k] = REZ.SEN || SEN[0]; return coktan(p(`${AD(r)} ${sen}`), 'Bu durumu en iyi anlatan atasözü hangisidir?', ATA[k][0], kar(r, ATA.filter((_, i) => i !== k && (!ATA_G[k] || ATA_G[i] !== ATA_G[k]))).slice(0, 3).map(x => x[0])); },
+    r => { const n = REZ.NOKTA || kar(r, NOKTA)[0]; return coktan(p(`${AD(r)}, arkadaşına yazdığı mektupta bir cümlenin sonundaki işareti unuttu: “${n[0]}”`), 'Cümlenin sonuna hangi işaret konmalıdır?', n[1] + ' (' + ISAD[n[1]] + ')', ['.', '?', '!', ','].filter(x => x !== n[1]).slice(0, 3).map(x => x + ' (' + (ISAD[x] || 'virgül') + ')')); },
   ];
   dilCq.push(dilCqB[2], dilCqB[3]);
   dilCq.push(
-    r => { const x = kar(r, ESSES), y = x.slice(1, 4); return coktan(p(`“${x[0][1]}” ve “${x[0][2]}”`), `Bu iki cümlede yazılışı ve okunuşu aynı, anlamı farklı olan sözcük hangisidir?`, x[0][0], y.map(z => z[0])); },
-    r => { const t = kar(r, TERIM)[0]; return coktan(p(`“${t[0]}”`), `Bu cümledeki “${t[1]}” sözcüğü hangi anlamda kullanılmıştır?`, t[2], ['Mecaz anlamda', 'Gerçek anlamda, günlük konuşmaya özgü', 'Eş sesli olarak']); });
+    r => { const x = REZ.ESSES || kar(r, ESSES)[0], y = kar(r, ESSES.filter(z => z !== x)).slice(0, 3); return coktan(p(`${AD(r)} günlüğüne şu iki cümleyi yazdı: “${x[1]}” “${x[2]}”`), `Bu iki cümlede yazılışı ve okunuşu aynı, anlamı farklı olan sözcük hangisidir?`, x[0], y.map(z => z[0])); },
+    r => { const t = REZ.TERIM || kar(r, TERIM)[0]; return coktan(p(`${AD(r)}, bir kitapta şu cümleyi okudu: “${t[0]}”`), `Bu cümledeki “${t[1]}” sözcüğü hangi anlamda kullanılmıştır?`, 'Terim anlamında', ['Mecaz anlamında', 'Gerçek ve günlük anlamında', 'Eş sesli bir sözcük olarak']); });
   const SP = [
-    (r, t) => [() => kodDY(DIL.gir + ' Bilgi doğruysa "Doğru", yanlışsa "Yanlış" bölümündeki rakamı boyayacaksınız.', kar(r, dilSt(r)).slice(0, 4), t + 'k'),
-      () => yolDY(DIL.gir + ' Öğrenciler ifade doğruysa "D", yanlışsa "Y" okunu izliyor.', kar(r, dilSt(r)).slice(0, 3), t + 'y'),
-      () => kapDY(DIL.gir + ' Bilgi doğruysa "Doğru Bilgi", yanlışsa "Yanlış Bilgi" kabına atılıyor.', kar(r, dilSt(r)).slice(0, 5), t + 'p')],
-    (r, t, M) => [() => { let l, n = 0; do { l = kar(r, dilSt(r)).slice(0, 3); } while (!l.some(x => x[1]) && ++n < 50); return roma(p(DIL.gir), 'Buna göre yukarıdaki ifadelerden hangileri doğrudur?', l); },
+    (r, t) => [() => kodDY(cerceve(DIL.gir, 'k', r), kar(r, dilSt(r)).slice(0, 4), t + 'k'),
+      () => yolDY(cerceve(DIL.gir, 'y', r), kar(r, dilSt(r)).slice(0, 3), t + 'y'),
+      () => kapDY(cerceve(DIL.gir, 'p', r), kar(r, dilSt(r)).slice(0, 5), t + 'p')],
+    (r, t, M) => [() => { let l, n = 0; do { l = kar(r, dilSt(r)).slice(0, 3); } while (!l.some(x => x[1]) && ++n < 50); return roma(p(cerceve(DIL.gir, 'n', r)), 'Buna göre yukarıdaki ifadelerden hangileri doğrudur?', l); },
       () => sirala('Metindeki olaylar karışık verilmiştir.', M.sira, 'Olayların oluş sırası hangisidir?', t + 's'),
-      () => { const e = kar(r, ES).slice(0, 4); return esle('Soldaki sözcükleri sağdaki eş anlamlılarıyla eşleştiriniz.', e, 'Buna göre eşleştirme hangi seçenekte doğru verilmiştir?', t + 'e'); }],
-    (r, t) => [() => kacTane(p(DIL.gir), kar(r, dilSt(r)).slice(0, 4)),
-      () => kareYol(DIL.gir + ' ' + ADLAR[Math.floor(r() * 12)] + ' bu bilgilerle bir kare oyunu oynuyor.', kar(r, dilSt(r)).slice(0, 4), t + 'q', 1, 1),
+      () => { const e = kar(r, disla(ES, 'ES')).slice(0, 4); return esle('Soldaki sözcükleri sağdaki eş anlamlılarıyla eşleştiriniz.', e, 'Buna göre eşleştirme hangi seçenekte doğru verilmiştir?', t + 'e'); }],
+    (r, t) => [() => kacTane(p(cerceve(DIL.gir, 'n', r)), kar(r, dilSt(r)).slice(0, 4)),
+      () => kareYol(cerceve(DIL.gir, 'q', r), kar(r, dilSt(r)).slice(0, 4), t + 'q', 1, 1),
       () => { const s = dilSt(r).concat(dilSt(r)); const y = s.find(x => !x[1]) || s[0], d = kar(r, s.filter(x => x[1])).slice(0, 3); return cocukSec(p('Dört arkadaş sözcükler ve cümlelerle ilgili bildiklerini söylüyor.'), 'Buna göre hangi çocuğun söylediği yanlıştır?', [y[0], ...d.map(x => x[0])], t + 'c'); }],
   ];
   const metinKutu = M => `<div class="t4-metin"><b>${M.baslik}</b>${M.metin.map(x => `<p>${x}</p>`).join('')}</div>`;
   const W = (hafta, unite, baslik, konu, M) => ({ unite, hafta, baslik, konu, sayfalar: () => {
     yeniHafta(); METIN = M; const r = RNG('t4-' + hafta), t = 't4h' + hafta, c = (hafta - 1) % 3;
+    REZ = {}; KUL = new Set(); REZ.mES = kar(r, metindeBul(ES))[0]; REZ.mZ = kar(r, metindeBul(ZIT))[0];
+    REZ.ES = kar(r, ES)[0]; REZ.ZIT = kar(r, ZIT)[0]; REZ.DEYIM = kar(r, DEYIM)[0]; REZ.SEN = SEN[(hafta * 3) % SEN.length]; REZ.ATA = ATA[REZ.SEN[1]]; REZ.ESSES = ESSES[(hafta * 5) % ESSES.length]; REZ.TERIM = TERIM[(hafta * 7) % TERIM.length]; REZ.NOKTA = kar(r, NOKTA)[0];
+    REZ.yok = [REZ.mES && REZ.mES.w, REZ.mES && REZ.mES.o, REZ.mZ && REZ.mZ.w, REZ.mZ && REZ.mZ.o, ...REZ.ES, ...REZ.ZIT, REZ.ESSES[0]].filter(Boolean);
     const sp = SP[c](r, t, M), mq = M.sorular.map(([k, d, y]) => () => coktan('', k, d, y)), dq = kar(r, dilCq);
     const [s0, s1] = M.sozcuk;
     const A = [ortak(metinKutu(M), mq.slice(0, 3)), sp[0](), coktan(p(`Metinde geçen “${s0}” sözcüğünü düşününüz.`), `“${s0}” sözcüğünün metindeki anlamı hangisidir?`, s1[0], s1.slice(1))];
@@ -121,7 +143,7 @@ module.exports = ({ T, S }) => {
         'Ecrin her hafta kütüphaneye gelip birkaç sayfa yazdı. Kaplumbağanın maceraları büyüdükçe kitap da mutlu oluyordu. Yıl sonunda kitap baştan sona dolmuştu.',
         'Kütüphaneci kitabı rafın en önüne koydu. Artık çocuklar sırayla onu okumak istiyordu. Hikâyesi olmayan kitap, en çok okunan kitap olmuştu.'],
       sorular: [['Hikâyedeki olaylar nerede geçmektedir?', 'Kütüphanede', ['Denizin dibinde', 'Ecrin\'in evinde', 'Okul bahçesinde']],
-        ['Kitabın üzgün olmasının nedeni nedir?', 'İçinde hiç yazı olmaması', ['Yırtılmış olması', 'Rafın en altında durması', 'Çok kalın olması']],
+        ['Diğer kitaplar beyaz kitaptan ne bekliyordu?', 'İlginç hikâyeler', ['Renkli resimler', 'Yeni bir kapak', 'Rafın önünde durmasını']],
         ['Hikâyenin ana karakterleri kimlerdir?', 'Beyaz kitap ve Ecrin', ['Kütüphaneci ve deniz', 'Kaplumbağa ve balık', 'Diğer kitaplar ve öğretmen']],
         ['Hikâyenin sonunda kitapta nasıl bir değişiklik olmuştur?', 'En çok okunan kitap olmuştur.', ['Atılmıştır.', 'Satılmıştır.', 'Yeniden bembeyaz olmuştur.']],
         ['Bu hikâyeden hangi sonuç çıkarılır?', 'Yazmak ve okumak kitaplara hayat verir.', ['Boş kitaplar işe yaramaz.', 'Kütüphanelere gitmemeliyiz.', 'Deniz kaplumbağaları konuşur.']]],
@@ -354,7 +376,7 @@ module.exports = ({ T, S }) => {
         ['Son paragrafta hangi düşünce vurgulanmaktadır?', 'Bu gelenek bugün de yaşatılmaktadır.', ['Birlik tamamen unutulmuştur.', 'Kooperatifler zararlıdır.', 'El sanatları yok olmuştur.']],
         ['Metnin konusu hangisidir?', 'Anadolu\'da kadınların kurduğu tarihî bir birlik', ['Anadolu\'nun coğrafyası', 'Bir dokuma tezgâhının yapımı', 'Yolcuların tatil anıları']]],
       sozcuk: ['kooperatif', ['ortak çıkar için birleşen kişilerin kurduğu kuruluş', 'büyük bir pazar', 'eski bir saray', 'el yazması kitap']],
-      sira: ['Kadınlar bir araya geldi.', 'Anadolu Bacıları birliği kuruldu.', 'Genç kızlara meslek öğretildi.', 'Topluma yardım edildi.', 'Gelenek kooperatiflerle sürdü.'] }),
+      sira: ['Kadınlar yaklaşık yedi yüz yıl önce bir araya geldi.', 'Kadınlar Anadolu Bacıları birliğini kurdu.', 'Bacılar genç kızlara meslek öğretti.', 'Bugün kadın kooperatifleri bu geleneği sürdürüyor.'] }),
     'hafta-24': W(24, 6, 'Kapalıçarşı', 'Millî kültürümüz · Bilgilendirici metin, gezi', { baslik: 'Dünyanın İlk Alışveriş Merkezi',
       metin: ['İstanbul\'un en eski ve en büyük çarşılarından biri Kapalıçarşı\'dır. Çarşının yapımına Fatih Sultan Mehmet döneminde, beş yüz yılı aşkın süre önce başlanmıştır.',
         'Kapalıçarşı\'nın üstü kubbelerle örtülüdür. Bu yüzden yağmurda da karda da insanlar rahatça alışveriş yapabilir. Çarşıda altmıştan fazla sokak ve yaklaşık dört bin dükkân bulunur.',
@@ -368,11 +390,11 @@ module.exports = ({ T, S }) => {
       sozcuk: ['esnaf', ['dükkânda alım satım ya da zanaat yapanlar', 'müze rehberi', 'yabancı turist', 'çarşının kubbesi']],
       sira: ['Çarşının yapımına başlandı.', 'Üstü kubbelerle örtüldü.', 'Her sokağa bir meslek yerleşti.', 'Çarşı büyüdü.', 'Bugün ziyaretçileri ağırlıyor.'] }),
     'hafta-25': W(25, 6, 'Yatıya Misafir', 'Millî kültürümüz · Misafirlik geleneği, hikâye', { baslik: 'Fıldır\'ın Misafirleri',
-      metin: ['Fıldır, Nehir\'lerin evinde yaşayan meraklı bir kediydi. Bir akşam kapı çaldı ve Anneanne, köyden yatıya misafir olarak geldi. Fıldır hemen kapıya koştu.',
+      metin: ['Fıldır, Nehir\'lerin evinde yaşayan meraklı bir kediydi. Bir akşam kapı çaldı ve anneanne, köyden yatıya misafir olarak geldi. Fıldır hemen kapıya koştu.',
         'Nehir\'in annesi misafir için en güzel yatağı hazırladı. Babası anneannenin bavulunu taşıdı. Nehir de çay demledi, anneannesine en sevdiği bardakla ikram etti. Fıldır bütün bunları koltuğun üstünden izliyordu.',
         'Akşam yemeğinden sonra anneanne çantasından ev yapımı tarhana, ceviz ve el örgüsü patikler çıkardı. “Eli boş gelmek olmaz.” dedi gülümseyerek. Nehir patikleri hemen giydi.',
         'Gece herkes uyurken Fıldır, anneannenin ayakucunda kıvrılıp yattı. Sabah anneanne “Bu evde kediler bile misafir ağırlamayı biliyor!” dedi ve herkes güldü.'],
-      sorular: [['Anneanne neden Nehir\'lere gelmiştir?', 'Yatıya misafir olarak', ['Kedi almak için', 'Doktora gitmek için', 'Taşınmak için']],
+      sorular: [['Anneanne Nehir\'lere nasıl bir ziyaret için gelmiştir?', 'Yatıya misafir olarak', ['Kedi almak için', 'Doktora gitmek için', 'Taşınmak için']],
         ['Ailenin misafire davranışı hangi geleneği yansıtır?', 'Misafirperverlik', ['Bayram ziyareti', 'Sünnet düğünü', 'Kına gecesi']],
         ['“Eli boş gelmek olmaz.” sözüyle anneanne ne anlatmak istemiştir?', 'Ziyarete giderken hediye götürülür.', ['Ellerimizi yıkamalıyız.', 'Çanta taşımak zordur.', 'Misafirlik yapılmamalıdır.']],
         ['Metindeki mizahi (güldürücü) unsur hangisidir?', 'Kedinin de misafir ağırlaması', ['Çay demlenmesi', 'Bavul taşınması', 'Yatağın hazırlanması']],
@@ -390,7 +412,7 @@ module.exports = ({ T, S }) => {
         ['Hangisi okçuluğun gerektirdiği özelliklerden biri değildir?', 'Hız için koşmak', ['Sabır', 'Dikkat', 'Denge']],
         ['Metne göre okçuluk bugün nasıl yaşatılmaktadır?', 'Okçuluk kulüpleriyle', ['Okmeydanı\'nda savaşlarla', 'Avcılıkla', 'Yalnız müzelerde']]],
       sozcuk: ['dayanıklılık', ['kolay bozulmama, sağlamlık', 'hafiflik', 'renklilik', 'yumuşaklık']],
-      sira: ['Ağaç, boynuz ve sinir hazırlanır.', 'Malzemeler birleştirilir.', 'Yay aylarca kurutulur.', 'Okçu atış yapar.', 'Rekor menzil taşına yazılır.'] }),
+      sira: ['Yay için ağaç, boynuz ve sinir hazırlanır.', 'Malzemeler birleştirilerek yay yapılır.', 'Okçu, Okmeydanı\'nda en uzağa atış yapar.', 'Rekor atış menzil taşına yazılır.'] }),
     'hafta-27': W(27, 6, 'Keloğlan\'ın Bilmecesi', 'Millî kültürümüz · Halk edebiyatı, masal', { baslik: 'Keloğlan ve Üç Soru',
       metin: ['Evvel zaman içinde, bir köyde Keloğlan adında akıllı bir genç yaşardı. Bir gün ülkenin padişahı, kim üç sorusunu bilirse ona bir kese altın vereceğini duyurdu.',
         'Saraya pek çok bilgin geldi ama hiçbiri soruları bilemedi. Sıra Keloğlan\'a gelince padişah sordu: “Dünyada en hızlı giden nedir?” Keloğlan güldü: “Düşüncedir padişahım, göz açıp kapayıncaya kadar her yere varır.”',
@@ -444,7 +466,7 @@ module.exports = ({ T, S }) => {
         'Önce taşları yere saçtı. Birini havaya attı, o taş düşmeden yerden bir taş daha aldı ve havadaki taşı yakaladı. Böylece taşları birer birer topladı. Sonra ikişer ikişer, üçer üçer topladı. Taşlardan birini düşüren sırayı arkadaşına bırakıyordu.',
         'İlk denemelerimde taşlar hep elimden kaydı. Dedem “Acele etme. Gözün havadaki taşta olsun.” dedi. Bir saat sonra ben de ikişerli turu geçebiliyordum.',
         'Kardeşim bile tableti bırakıp oyuna katıldı. O gün anladık ki eğlenmek için pahalı oyuncaklara gerek yok. Beş küçük taş, dedemle aramızda kocaman bir köprü kurmuştu.'],
-      sorular: [['Dedenin önerdiği oyunun adı nedir?', 'Beştaş', ['Saklambaç', 'Seksek', 'Körebe']],
+      sorular: [['Dede oyunu öğretmek için cebinden ne çıkarmıştır?', 'Beş küçük taş', ['Bir top', 'Bir ip', 'Bir zar']],
         ['Oyunda sıra ne zaman arkadaşa geçer?', 'Taşlardan biri düşürülünce', ['Bütün taşlar toplanınca', 'Bir saat geçince', 'Yağmur durunca']],
         ['Dedenin “Gözün havadaki taşta olsun.” sözü hangi amaçla söylenmiştir?', 'Torununa ipucu vermek için', ['Torununu kızdırmak için', 'Oyunu bitirmek için', 'Taşları saklamak için']],
         ['“Beş küçük taş, dedemle aramızda kocaman bir köprü kurmuştu.” cümlesiyle anlatılmak istenen nedir?', 'Oyun, dede ile torunlarını birbirine yakınlaştırmıştır.', ['Taşlarla köprü yapılmıştır.', 'Dede köprü ustasıdır.', 'Oyun çok zordur.']],
@@ -462,7 +484,7 @@ module.exports = ({ T, S }) => {
         ['Metne göre uçurtmalar oyuncak olmanın dışında ne amaçla kullanılmıştır?', 'Hava durumunu incelemek için', ['Mektup göndermek için', 'Yemek pişirmek için', 'Ev ısıtmak için']],
         ['Metnin türü hangisidir?', 'Bilgilendirici metin', ['Masal', 'Anı', 'Şiir']]],
       sozcuk: ['gergin', ['iyice çekilmiş, gevşek olmayan', 'kopmuş', 'renkli', 'kısa']],
-      sira: ['Çıtalarla iskelet yapılır.', 'İskelet kâğıtla kaplanır.', 'Kuyruk ve ip bağlanır.', 'Açık bir alana gidilir.', 'Rüzgârla uçurtma uçurulur.'] }),
+      sira: ['Rüzgâr uçurtmanın yüzeyine çarpar.', 'Rüzgâr uçurtmayı yukarı doğru iter.', 'İpi tutan kişi ipi gergin tutar.', 'Uçurtma rüzgâra karşı doğru açıyla havada kalır.'] }),
     'hafta-33': W(33, 7, 'Sağlığımı Korurum', 'Çocuk dünyası · Sağlıklı yaşam, öneri', { baslik: 'Kerem\'in Bir Günü',
       metin: ['Kerem son günlerde çok yorgundu. Derslerde uykusu geliyor, teneffüste oynamak istemiyordu. Okul hemşiresi Kerem\'e günlük alışkanlıklarını sordu.',
         'Kerem gece geç saatlere kadar tablette oyun oynadığını, sabahları kahvaltı yapmadan okula geldiğini ve suyu çok az içtiğini anlattı. Hemşire gülümsedi: “Vücudumuz bir bitki gibidir; uykuyla, suyla ve iyi besinle büyür.”',
@@ -494,10 +516,10 @@ module.exports = ({ T, S }) => {
         'Tören sırasında hakem mikrofonu aldı: “Bugün kupayı bir takım kazandı ama en büyük ödülü Emir hak etti.” Turnuvanın centilmenlik ödülü Emir\'e verildi. Arda topallayarak gelip Emir\'e sarıldı. O an kaybettiğimizi unuttuk.'],
       sorular: [['Emir topu neden taça atmıştır?', 'Rakip oyuncu sakatlandığı için', ['Gol atmaktan korktuğu için', 'Top patladığı için', 'Hakem öyle istediği için']],
         ['Maçın sonucu nedir?', 'Penaltılarda kaybettiler.', ['Emir\'in golüyle kazandılar.', 'Maç iptal edildi.', 'Hükmen kazandılar.']],
-        ['Emir\'in davranışı hangi değere örnektir?', 'Centilmenlik', ['Kıskançlık', 'Bencillik', 'Kurnazlık']],
+        ['Emir\'in topu taça atması hangi değeri gösterir?', 'Rakibine saygı ve dürüstlük', ['Kıskançlık', 'Bencillik', 'Kurnazlık']],
         ['“O an kaybettiğimizi unuttuk.” cümlesinden hangi sonuç çıkarılır?', 'Dostluk ve saygı, kazanmaktan daha değerli gelmiştir.', ['Takım maçı unutmuştur.', 'Kupa onlara verilmiştir.', 'Maç tekrar oynanacaktır.']],
-        ['Metne en uygun başlık hangisidir?', 'Kazanmaktan Güzel', ['Penaltı Atışları', 'Buzun Faydaları', 'Futbol Kuralları']]],
-      sozcuk: ['centilmenlik', ['kurallara ve rakibe saygıyla davranma', 'çok hızlı koşma', 'gol atma', 'kupa kazanma']],
+        ['Metnin ana fikri hangisidir?', 'Rakibe saygı göstermek kazanmaktan daha değerlidir.', ['Futbolda her fırsatta gol atılmalıdır.', 'Penaltılar maçın en önemli bölümüdür.', 'Sakatlanan oyuncu oyundan çıkarılmaz.']]],
+      sozcuk: ['yığıldı', ['birden düştü', 'koşmaya başladı', 'sevinçten zıpladı', 'topu yakaladı']],
       sira: ['Final maçı başladı.', 'Arda\'nın ayağı burkuldu.', 'Emir topu taça attı.', 'Penaltılarda kaybettiler.', 'Emir centilmenlik ödülü aldı.'] }),
     'hafta-36': W(36, 8, 'Doğa Yürüyüşü', 'Sağlık ve spor · Yönerge, yaz tatili', { baslik: 'Haydi Doğa Yürüyüşüne!',
       metin: ['Yaz tatili geldi! Bu tatilde ailenle doğa yürüyüşüne çıkmaya ne dersin? Doğa yürüyüşü hem bedenini güçlendirir hem de zihnini dinlendirir.',

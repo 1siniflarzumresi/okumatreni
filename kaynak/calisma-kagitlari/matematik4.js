@@ -4,7 +4,7 @@
 // Her konu (KONU.x) şunları verir: st (doğru/yanlış ifadeler), es (eşleştirme), sr (sıralama), cq (çoktan seçmeli problemler), ort (ortak bağlam).
 // Üretim: node kaynak/calisma-kagitlari/uret.js m4
 module.exports = ({ T, S }) => {
-  const { p, tablo, bilgi, kodDY, yolDY, kapDY, roma, sirala, esle, kacTane, kareYol, cocukSec, ortak, grafik, sayfa, optik, yeniHafta, cevapSayfasi } = T;
+  const { cerceve, p, tablo, bilgi, kodDY, yolDY, kapDY, roma, sirala, esle, kacTane, kareYol, cocukSec, ortak, grafik, sayfa, optik, yeniHafta, cevapSayfasi } = T;
   // Çoktan seçmeli: seçenekler 5 karakterden uzunsa iki sütun (4 sütunda taşıyor)
   const coktan = (ic, kok, d, y0) => { const dd = String(d); let y = [...new Set(y0.map(String))].filter(x => x !== dd);
     if (y.length < 3 && /^[\d.]+$/.test(dd)) { const v = +dd.replace(/\./g, ''); for (const k of [1, -1, 2, 10, -10, 100, 3]) { const c = Number(v + k).toLocaleString('tr-TR'); if (v + k >= 0 && c !== dd && !y.includes(c)) y.push(c); if (y.length >= 3) break; } }
@@ -31,7 +31,9 @@ module.exports = ({ T, S }) => {
   const boz = (r, v, adim = 1) => v + (r() < .5 ? -1 : 1) * adim * tam(r, 1, 3);
 
   // ——— KONULAR ———
+  const fark = (r, n, a, b) => { const k = new Set(); while (k.size < n) k.add(tam(r, a, b)); return [...k]; };
   const KONU = {};
+  let ODAK = {};
   // 1) Doğal sayılar (6 basamaklı): okuma-yazma, basamak/bölük, sıralama, yuvarlama, örüntü
   KONU.dogal = {
     st: r => { const n = tam(r, 120000, 989999), s = String(n), i = tam(r, 0, 5), rak = +s[5 - i];
@@ -257,7 +259,7 @@ module.exports = ({ T, S }) => {
   // 8) Veri: sütun grafiği, tablo, şekil grafiği
   KONU.veri = {
     gir: 'Öğrenciler sınıfta yapılan anketin sonuçlarını inceliyor.',
-    st: r => { const et = ['Kedi', 'Köpek', 'Kuş', 'Balık'], de = et.map(() => tam(r, 2, 12)), t = de.reduce((a, b) => a + b, 0), mx = et[de.indexOf(Math.max(...de))];
+    st: r => { const et = ['Kedi', 'Köpek', 'Kuş', 'Balık'], de = fark(r, et.length, 2, 12), t = de.reduce((a, b) => a + b, 0), mx = et[de.indexOf(Math.max(...de))];
       return [ifade(r, v => `Ankete toplam ${v} öğrenci katılmıştır (veriler: ${et.map((e, i) => e + ' ' + de[i]).join(', ')}).`, t, t + 2),
         ifade(r, v => `Bu ankette en çok ${v} seçilmiştir.`, mx, et.find(e => e !== mx)),
         ifade(r, v => `Sütun grafiğinde sütunun ${v}, o seçeneği seçen kişi sayısını gösterir.`, 'yüksekliği', 'rengi'),
@@ -270,18 +272,18 @@ module.exports = ({ T, S }) => {
         return coktan(p('Okulda öğrencilerin en sevdiği sporlar araştırıldı.') + grafik('En sevilen spor', et, de, 'Öğrenci'), 'En çok ve en az seçilen sporu seçen öğrenci sayıları farkı kaçtır?', String(fk), yanN(fk, [mx, mn, fk + 2, mx + mn])); },
       r => { const et = ['Pzt', 'Sal', 'Çar', 'Per', 'Cum'], de = et.map(() => tam(r, 2, 9) * 5), t = de.reduce((a, b) => a + b, 0);
         return coktan(p('Bir kütüphaneden bir hafta boyunca ödünç alınan kitap sayıları grafikte gösterilmiştir.') + grafik('Ödünç alınan kitap', et, de, 'Kitap', '#12b886'), 'Hafta boyunca toplam kaç kitap ödünç alınmıştır?', String(t), yanN(t, [t + 5, t - 10, Math.max(...de) * 5, t + 10])); },
-      r => { const et = ['Elma', 'Muz', 'Çilek'], de = et.map(() => tam(r, 4, 12)), mx = et[de.indexOf(Math.max(...de))];
+      r => { const et = ['Elma', 'Muz', 'Çilek'], de = fark(r, et.length, 4, 12), mx = et[de.indexOf(Math.max(...de))];
         if (new Set(de).size < 3) de[2] = de[0] + de[1];
         const mxx = et[de.indexOf(Math.max(...de))];
         return coktan(p('Sınıfta en sevilen meyve araştırması yapıldı ve sonuçlar sıklık tablosuna yazıldı.') + tablo(['Meyve', 'Öğrenci sayısı'], et.map((e, i) => [e, de[i]])), 'Sınıf gezisine tek çeşit meyve götürülecekse en çok öğrenciyi memnun etmek için hangisi seçilmelidir?', mxx, et.filter(e => e !== mxx).concat(['Hepsinden eşit miktarda'])); },
-      r => { const s = tam(r, 3, 8) * 2, b = s / 2, et = ['Pazartesi', 'Salı', 'Çarşamba'], de = et.map(() => tam(r, 2, 6)), t = de.reduce((a, c) => a + c, 0) * s;
+      r => { const s = tam(r, 3, 8) * 2, b = s / 2, et = ['Pazartesi', 'Salı', 'Çarşamba'], de = fark(r, et.length, 2, 6), t = de.reduce((a, c) => a + c, 0) * s;
         return coktan(p(`Bir şekil grafiğinde her ☀ sembolü ${s} öğrenciyi gösteriyor. Üç günde gelen sembol sayıları: ${et.map((e, i) => e + ' ' + de[i]).join(', ')}.`), 'Üç günde toplam kaç öğrenci gösterilmiştir?', String(t), yanN(t, [t / s, t + s, t - b, de.reduce((a, c) => a + c, 0) * b])); },
       r => { const l = ['||||| ||', '||||| ||||| |', '||||| ||||', '|||'], n = [7, 11, 9, 3], et = ['Mavi', 'Kırmızı', 'Yeşil', 'Sarı'], mx = et[1];
         return coktan(p('Sınıfın en sevdiği renkler çetele tablosuyla kaydedildi.') + tablo(['Renk', 'Çetele'], et.map((e, i) => [e, l[i]])), 'Kırmızıyı seçenler sarıyı seçenlerden kaç kişi fazladır?', String(n[1] - n[3]), yanN(n[1] - n[3], [n[1], n[3], n[1] - n[0], 7])); },
       r => { const de = [tam(r, 4, 9), tam(r, 4, 9), tam(r, 4, 9)], t = de.reduce((a, b) => a + b, 0);
         return coktan(p('Bir anket sonucunda sıklık tablosu oluşturuldu.') + tablo(['Ulaşım', 'Kişi'], [['Yürüyerek', de[0]], ['Servisle', de[1]], ['Bisikletle', de[2]]]), 'Ankete kaç kişi katılmıştır?', String(t), yanN(t, [t + 1, t - 2, Math.max(...de) * 3, t + 3])); },
     ],
-    ort: r => { const et = ['Kitap', 'Spor', 'Müzik', 'Resim'], de = et.map(() => tam(r, 3, 10)), t = de.reduce((a, b) => a + b, 0), i = de.indexOf(Math.min(...de));
+    ort: r => { const et = ['Kitap', 'Spor', 'Müzik', 'Resim'], de = fark(r, et.length, 3, 10), t = de.reduce((a, b) => a + b, 0), i = de.indexOf(Math.min(...de));
       return { ic: p('4-B sınıfındaki her öğrenci bir kulübe katıldı. Kulüplere katılan öğrenci sayıları grafikte verilmiştir.') + grafik('Kulüpler', et, de, 'Öğrenci', '#8b5cf6'),
         q: [() => coktan('', 'Sınıfta kaç öğrenci vardır?', String(t), yanN(t, [t + 1, t - 2, Math.max(...de) * 4, t + 3])),
           () => coktan('', 'En az öğrencinin katıldığı kulüp hangisidir?', et[i], et.filter((_, j) => j !== i))] }; },
@@ -332,8 +334,8 @@ module.exports = ({ T, S }) => {
       q: [() => coktan('', 'Saat 3.00\'teki açı hangi türdendir?', 'Dik açı', ['Dar açı', 'Geniş açı', 'Açı oluşmaz']), () => coktan('', 'Saat 5.00\'teki açı hangi türdendir?', 'Geniş açı', ['Dar açı', 'Dik açı', 'Açı oluşmaz'])] }),
   };
   // 10b) Açının elemanları, adlandırma (∠), düzlem, standart olmayan birimle açı ölçme (M.4.2.3.1-3)
-  const aciAdli = (d, [a, b, c]) => { const r1 = 58, x = 20 + r1 * Math.cos(-d * Math.PI / 180), y = 62 + r1 * Math.sin(-d * Math.PI / 180);
-    return S(110, 76, `<line x1="20" y1="62" x2="100" y2="62" stroke="#1f2a24" stroke-width="2"/><line x1="20" y1="62" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#1f2a24" stroke-width="2"/>` + [[20, 62, b], [100, 62, c], [x, y, a]].map(([px, py, t]) => `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="2.5" fill="#e63946"/><text x="${(px - 3).toFixed(1)}" y="${(py + (py > 60 ? 12 : -4)).toFixed(1)}" font-size="10">${t}</text>`).join(''), 34); };
+  const aciAdli = (d, [a, b, c]) => { const r1 = 58, x = 20 + r1 * Math.cos(-d * Math.PI / 180), y = 72 + r1 * Math.sin(-d * Math.PI / 180);
+    return S(110, 88, `<line x1="20" y1="72" x2="100" y2="72" stroke="#1f2a24" stroke-width="2"/><line x1="20" y1="72" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#1f2a24" stroke-width="2"/>` + [[20, 72, b], [100, 72, c], [x, y, a]].map(([px, py, t]) => `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="2.5" fill="#e63946"/><text x="${(px - 3).toFixed(1)}" y="${(py + (py > 70 ? 12 : -4)).toFixed(1)}" font-size="10">${t}</text>`).join(''), 34); };
   KONU.aci = {
     gir: 'Öğretmen tahtaya açılarla ilgili bilgiler yazdı.',
     st: r => [ifade(r, v => `Açıyı oluşturan ışınlara açının ${v} denir.`, 'kolları', 'köşesi'), ifade(r, v => `İki kolun başladığı ortak noktaya açının ${v} denir.`, 'köşesi', 'kolu'),
@@ -506,25 +508,30 @@ module.exports = ({ T, S }) => {
   // ——— HAFTA KURUCU ———
   // Özel kalıplar: soru numarası çağrılma sırasıyla verildiği için hepsi sırayla çağrılan işlevler (thunk) döndürür
   const SP = [
-    (K, r, t) => [() => kodDY(K.gir + ' Bilgi doğruysa "Doğru", yanlışsa "Yanlış" bölümündeki rakamı boyayacaksınız.', kar(r, K.st(r)).slice(0, 4), t + 'k'),
-      () => yolDY(K.gir + ' Öğrenciler ifade doğruysa "D", yanlışsa "Y" okunu izliyor.', kar(r, K.st(r)).slice(0, 3), t + 'y'),
-      () => kapDY(K.gir + ' Bilgi doğruysa "Doğru Bilgi", yanlışsa "Yanlış Bilgi" kabına atılıyor.', kar(r, K.st(r)).slice(0, 5), t + 'p')],
-    (K, r, t) => [() => { let l, n = 0; do { l = kar(r, K.st(r)).slice(0, 3); } while (!l.some(x => x[1]) && ++n < 50); return roma(p(K.gir), 'Buna göre yukarıdaki ifadelerden hangileri doğrudur?', l); },
+    (K, r, t) => [() => kodDY(cerceve(K.gir, 'k', r), kar(r, K.st(r)).slice(0, 4), t + 'k'),
+      () => yolDY(cerceve(K.gir, 'y', r), kar(r, K.st(r)).slice(0, 3), t + 'y'),
+      () => kapDY(cerceve(K.gir, 'p', r), kar(r, K.st(r)).slice(0, 5), t + 'p')],
+    (K, r, t) => [() => { let l, n = 0; do { l = kar(r, K.st(r)).slice(0, 3); } while (!l.some(x => x[1]) && ++n < 50); return roma(p(cerceve(K.gir, 'n', r)), 'Buna göre yukarıdaki ifadelerden hangileri doğrudur?', l); },
       () => { const s = K.sr(r); return sirala(s.giris, s.adim, s.kok, t + 's'); },
       () => esle('Soldaki ifadeleri sağdaki eşleriyle eşleştiriniz.', K.es(r), 'Buna göre eşleştirme hangi seçenekte doğru verilmiştir?', t + 'e')],
-    (K, r, t) => [() => kacTane(p(K.gir), kar(r, K.st(r)).slice(0, 4)),
-      () => kareYol(K.gir + ' ' + ad(r) + ' bu bilgilerle bir kare oyunu oynuyor.', kar(r, K.st(r)).slice(0, 4), t + 'q', 1, 1),
+    (K, r, t) => [() => kacTane(p(cerceve(K.gir, 'n', r)), kar(r, K.st(r)).slice(0, 4)),
+      () => kareYol(cerceve(K.gir, 'q', r), kar(r, K.st(r)).slice(0, 4), t + 'q', 1, 1),
       () => { const st = [...new Map(K.st(r).concat(K.st(r)).map(x => [x[0], x])).values()]; const y = st.find(x => !x[1]) || st[0], d = kar(r, st.filter(x => x[1])).slice(0, 3);
         return cocukSec(p('Dört arkadaş konuyla ilgili bildiklerini söylüyor.'), 'Buna göre hangi çocuğun söylediği yanlıştır?', [y[0], ...d.map(x => x[0])], t + 'c'); }],
   ];
+  ODAK = require('./matematik4-odak.js')({ coktan, p, tablo, f, tam, sec1, kar, yanN, ad, oku, yuvarla });
   const W = (hafta, unite, baslik, konu, konular) => ({ unite, hafta, baslik, konu, sayfalar: () => {
     yeniHafta(); const r = RNG('m4-' + hafta), K = konular.map(k => KONU[k]), t = 'm4h' + hafta;
     const sp = SP[(hafta - 1) % 3](K[0], r, t);
     if (K.length > 1) sp[1] = SP[(hafta - 1) % 3](K[1], r, t + 'b')[1];
     const cq = []; const mx = Math.max(...K.map(k => k.cq.length)); for (let i = 0; i < mx; i++) K.forEach(k => { if (k.cq[i]) cq.push(k.cq[i]); });
-    const u = kar(r, cq), o = K[K.length - 1].ort(r);
-    const A = [sp[0](), u[0](r), sp[1](), u[1](r), u[2](r), u[3](r)];
-    const B = [ortak(o.ic, o.q), sp[2](), ...u.slice(4, 6).map(g => g(r))];
+    // aynı kalıp aynı kâğıtta iki kez çıkmasın: soru metninin rakamsız ilk 45 harfi imza; tekrar çıkarsa numara geri alınıp sıradaki üreteç denenir
+    const imza = h => String(h).replace(/<[^>]+>/g, ' ').replace(/[\d.,]+/g, '#').replace(/\s+/g, ' ').trim().slice(0, 45);
+    const odak = (ODAK[hafta] || []).map(g => r => g(r)), havuz = [...kar(r, odak), ...kar(r, cq)], gor = new Set(); let hi = 0;
+    const sonraki = () => { let h; for (let n = 0; n < havuz.length * 2; n++) { const st = T.an(); h = havuz[hi++ % havuz.length](r); const im = imza(h); if (!gor.has(im) || n >= havuz.length) { gor.add(im); return h; } T.geriAl(st); } return h; };
+    const o = K[K.length - 1].ort(r);
+    const A = [sp[0](), sonraki(), sp[1](), sonraki(), sonraki(), sonraki()];
+    const B = [ortak(o.ic, o.q), sp[2](), sonraki(), sonraki(), sonraki()];
     const ks = h => konular.includes('kesir') ? h.replace(/>([^<]*)</g, (m, t) => '>' + t.replace(/(^|[^\d.,\/])(\d{1,2})\/(\d{1,2})(?![\d\/])/g, (x, o, a, b) => o + kz(a, b)) + '<') : h;
     return [ks(sayfa(A)), ks(sayfa(B)).replace(/<\/div>$/, optik() + '</div>'), cevapSayfasi(`${hafta}. hafta · ${baslik}`)];
   } });
@@ -565,7 +572,7 @@ module.exports = ({ T, S }) => {
     'hafta-33': W(33, 4, 'Tartalım', 'Kütle ölçme', ['tartma']),
     'hafta-34': W(34, 4, 'Ton ve Kilogram', 'Kütle problemleri', ['tartma']),
     'hafta-35': W(35, 4, 'Sıvı Ölçme', 'Litre ve mililitre', ['sivi']),
-    'hafta-36': W(36, 4, 'Yıl Sonu Karışık', 'Sıvı ölçme ve yıl sonu tekrarı', ['sivi', 'tartma']),
+    'hafta-36': W(36, 4, 'Sıvı Ölçme Ustası', 'Sıvı ölçmede tahmin ve problemler', ['sivi']),
   };
   const CSS = `
 .m4-kz{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1}.m4-kz>span{display:block;padding:0 .4mm}.m4-kz>span:first-child{border-bottom:.3mm solid}.m4-sekil{display:flex;gap:2mm;justify-content:center;flex-wrap:wrap}.m4-kart{display:flex;gap:1.5mm;justify-content:center}.m4-kart span{width:7mm;height:9mm;border:.5mm solid #1d6fd8;border-radius:1.5mm;display:grid;place-items:center;font-size:5mm;background:#eef5ff}

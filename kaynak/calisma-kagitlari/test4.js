@@ -7,7 +7,7 @@ module.exports = ({ S }) => {
   const H = 'ABCD';
   const R = s => { let x = 0; for (const c of String(s)) x = (x * 31 + c.charCodeAt(0)) >>> 0; return () => ((x = (x * 1103515245 + 12345) >>> 0) / 4294967296); };
   const karistir = (l, t) => { const r = R(t), a = [...l]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-  const altCiz = s => s.replace(/(?<!\p{L})(değildir|yanlıştır|söylenemez|olamaz|yapmamalıdır|yapılmamalıdır|etmemelidir|ulaşamaz|yoktur|almaz|yapılamaz|bulunmaz|kullanılmaz|edemez|ulaşılamaz|gerekmez|çıkarılamaz|ulaşılamaz|uygun değildir|hatalıdır|yanlış|değil|\p{L}+(?:mamıştır|memiştir|mamaktadır|memektedir|namaz|nemez|ılamaz|ilemez|ulamaz|ülemez))(?!\p{L})/gu, '<u>$1</u>');
+  const altCiz = s => s.replace(/(?<!\p{L})(değildir|yanlıştır|söylenemez|olamaz|yapmamalıdır|yapılmamalıdır|etmemelidir|ulaşamaz|yoktur|almaz|yapılamaz|bulunmaz|kullanılmaz|edemez|ulaşılamaz|gerekmez|çıkarılamaz|ulaşılamaz|uygun değildir|hatalıdır|yanlış|değil|\p{L}+(?:mamıştır|memiştir|mamaktadır|memektedir|namaz|nemez|ılamaz|ilemez|ulamaz|ülemez|maması|memesi|mamalıdır|memelidir))(?!\p{L})/gu, '<u>$1</u>');
   // Seçenek dizisi + doğru seçenek değeri → karıştırılmış seçenekler ve doğru indeks
   const sec = (dogru, yanlislar, t, sirali) => { const l = sirali ? [dogru, ...yanlislar].sort((a, b) => String(a).localeCompare(String(b), 'tr', { numeric: true })) : karistir([dogru, ...yanlislar.slice(0, 3)], t); return { l, d: l.indexOf(dogru) }; };
   // Ana soru kalıbı: ic = senaryo + görsel (HTML), kok = soru kökü, secenek = {l, d}
@@ -41,15 +41,27 @@ module.exports = ({ S }) => {
     return soru(ic, kok, sec(dogru, [...y], t, true), { tip: 'kodDY' });
   };
   // 2) Doğru/yanlış yol: başlangıç ifadesi doğruysa D, yanlışsa Y okunu izle; 3 ifade, 4 çıkış
+  // Kurgu çerçevesi (kullanıcı kararı: her soruda adı olan kişi, durum, amaç). "Öğretmen tahtaya X ilgili bilgiler yazdı." girişinden X alınır.
+  const KAD = ['Elif', 'Kaan', 'Defne', 'Mert', 'Zeynep', 'Emir', 'Ada', 'Yusuf', 'Ecrin', 'Alp', 'Nehir', 'Ömer', 'Duru', 'Kerem', 'Aras', 'Lina'];
+  const cerceve = (gir, tip, r) => {
+    const m = String(gir).match(/tahtaya (.+?) ilgili bilgiler yazdı/) || String(gir).match(/yola çıkılarak (.+?) ilgili bilgiler yazıldı/);
+    if (!m) return { k: gir + ' Bilgi doğruysa "Doğru", yanlışsa "Yanlış" bölümündeki rakamı boyayacaksınız.', y: gir + ' Öğrenciler ifade doğruysa "D", yanlışsa "Y" okunu izliyor.', p: gir + ' Bilgi doğruysa "Doğru Bilgi", yanlışsa "Yanlış Bilgi" kabına atılıyor.', n: gir, q: gir }[tip];
+    const X = m[1], i = Math.floor(r() * KAD.length), A = KAD[i], B = KAD[(i + 5) % KAD.length];
+    const L = {
+      k: [`${A} ile ${B}, ${X} ilgili bilgi kartlarıyla bir şifre oyunu oynuyor. Kart doğruysa "Doğru", yanlışsa "Yanlış" bölümündeki rakamı boyayacaklar.`, `${A}, kardeşi için ${X} ilgili bir şifre bulmacası hazırladı. Bilgi doğruysa "Doğru", yanlışsa "Yanlış" bölümündeki rakam boyanacak.`],
+      y: [`${A}, sınıftaki bilgi yolu oyununda ${X} ilgili kutuları okuyor. Bilgi doğruysa "D", yanlışsa "Y" okunu izliyor.`, `Okul şenliğindeki yol oyununda ${A}, ${X} ilgili bilgileri değerlendirerek ilerliyor. Doğruysa "D", yanlışsa "Y" okunu izliyor.`],
+      p: [`${A}, sınıf panosu için ${X} ilgili kartları ayırıyor. Doğru bilgileri "Doğru Bilgi", yanlışları "Yanlış Bilgi" kabına atıyor.`, `${A} ile ${B}, ${X} ilgili kartları iki kutuya topluyor. Doğru bilgiler "Doğru Bilgi", yanlış bilgiler "Yanlış Bilgi" kabına gidiyor.`],
+      n: [`${A}, ${X} ilgili öğrendiklerini kardeşine anlatmak için şu notları yazdı.`, `${A}, ${X} ilgili bir sunuma hazırlanırken şu notları aldı.`, `${B}, ${X} ilgili sorulara cevap verirken şunları söyledi.`],
+      q: [`${A}, ${X} ilgili kartlarla bir kare oyunu oynuyor.`, `${A} ile ${B}, ${X} ilgili bilgilerle kare oyunu oynuyor.`] }[tip];
+    return L[Math.floor(r() * L.length)];
+  };
   const yolDY = (giris, [a, b, c], t, kok = 'Buna göre ifadeleri doğru değerlendiren öğrenci hangi çıkışa ulaşır?') => {
     const cikis = a[1] ? (b[1] ? 1 : 2) : (c[1] ? 3 : 4);
-    const kutu = (x, y, s, w = 150) => `<foreignObject x="${x - w / 2}" y="${y - 22}" width="${w}" height="44"><div xmlns="http://www.w3.org/1999/xhtml" class="t4-yk">${s}</div></foreignObject>`;
-    const ok = (x1, y1, x2, y2, et, r) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${r}" stroke-width="2.5" marker-end="url(#t4ok)"/><text x="${(x1 + x2) / 2 + (x2 > x1 ? 6 : -6)}" y="${(y1 + y2) / 2}" font-size="11" font-weight="700" fill="${r}" text-anchor="middle">${et}</text>`;
-    let s = '<defs><marker id="t4ok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1f2a24"/></marker></defs>';
-    s += kutu(160, 26, a[0], 200) + ok(110, 50, 80, 78, 'D', '#12b886') + ok(210, 50, 240, 78, 'Y', '#f2546b') + kutu(80, 102, b[0]) + kutu(240, 102, c[0]);
-    s += ok(50, 126, 34, 152, 'D', '#12b886') + ok(110, 126, 126, 152, 'Y', '#f2546b') + ok(210, 126, 194, 152, 'D', '#12b886') + ok(270, 126, 286, 152, 'Y', '#f2546b');
-    [34, 126, 194, 286].forEach((x, i) => { s += `<rect x="${x - 22}" y="154" width="44" height="22" rx="11" fill="#fff3c4" stroke="#e08a00"/><text x="${x}" y="169" font-size="10" text-anchor="middle">${i + 1}. çıkış</text>`; });
-    return soru(p(giris) + S(320, 180, s, 74), kok, { l: ['1. çıkış', '2. çıkış', '3. çıkış', '4. çıkış'], d: cikis - 1 }, { tip: 'yolDY' });
+    // Kutular düz HTML: yazı soru metniyle aynı boyda kalır, kutudan taşmaz (eski SVG sürümünde yazı 2 mm'ye düşüyordu)
+    const yol = `<div class="t4-yol"><div class="yk yk-a">${a[0]}</div><div class="yo"><span class="yd">D ↙</span><span class="yy">Y ↘</span></div>`
+      + `<div class="yk2"><div class="yk">${b[0]}</div><div class="yk">${c[0]}</div></div><div class="yo4"><span class="yd">D ↓</span><span class="yy">Y ↓</span><span class="yd">D ↓</span><span class="yy">Y ↓</span></div>`
+      + `<div class="yc">${[1, 2, 3, 4].map(i => `<span>${i}. çıkış</span>`).join('')}</div></div>`;
+    return soru(p(giris) + yol, kok, { l: ['1. çıkış', '2. çıkış', '3. çıkış', '4. çıkış'], d: cikis - 1 }, { tip: 'yolDY' });
   };
   // 3) Kaplar: numaralı kartlar doğruysa "Doğru Bilgi", yanlışsa "Yanlış Bilgi" kabına; kaplarla ilgili hangisi yanlış/doğru?
   const kapDY = (giris, ifadeler, t, istenen = 'yanlış') => {
@@ -149,10 +161,12 @@ module.exports = ({ S }) => {
   const sayfa = (sorular) => `<div class="t4">${sorular.join('')}</div>`;
   const optik = () => { const n = NO; return `<div class="t4-optik"><b>Cevap kâğıdı</b><div>${[...Array(n)].map((_, i) => `<span><em>${i + 1}</em>${'ABCD'.split('').map(h => `<i>${h}</i>`).join('')}</span>`).join('')}</div></div>`; };
   const yeniHafta = () => { NO = 0; ANAH = []; TIP = []; };
+  // soru üretip vazgeçmek için (aynı kalıp aynı kâğıtta olmasın): numara ve anahtarı geri al
+  const an = () => [NO, ANAH.length, TIP.length], geriAl = ([n, a, t]) => { NO = n; ANAH.length = a; TIP.length = t; };
   const cevapSayfasi = (baslik) => `<div class="t4-cevap"><h3>Cevap Anahtarı</h3><p>${baslik} · öğretmen için</p><table><tr>${ANAH.map(a => `<th>${a.split('-')[0]}</th>`).join('')}</tr><tr>${ANAH.map(a => `<td>${a.split('-')[1]}</td>`).join('')}</tr></table><p class="t4-tip">Soru tipleri: ${[...new Set(TIP)].length} farklı tip</p></div>`;
   const tipler = () => [...TIP];
   const CSS = `
-.t4{flex:1;column-count:2;column-gap:7mm;column-rule:.4mm solid #dfe7ef;column-fill:balance}
+.t4-yol{display:flex;flex-direction:column;gap:.8mm;margin:1.5mm 0}.t4-yol .yk{border:.4mm solid #1d6fd8;border-radius:2mm;padding:1mm 1.8mm;background:#f2f8ff;text-align:center;line-height:1.3}.t4-yol .yk-a{margin:0 14%}.t4-yol .yo{display:flex;justify-content:space-around;font-weight:700}.t4-yol .yk2{display:grid;grid-template-columns:1fr 1fr;gap:2mm}.t4-yol .yo4,.t4-yol .yc{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;font-weight:700}.t4-yol .yd{color:#12805c}.t4-yol .yy{color:#c0392b}.t4-yol .yc span{background:#fff3c4;border:.3mm solid #e08a00;border-radius:3mm;margin:0 .6mm;padding:.3mm 0;font-weight:400;font-size:.9em}.t4{flex:1;column-count:2;column-gap:7mm;column-rule:.4mm solid #dfe7ef;column-fill:balance}
 .t4-s{break-inside:avoid;display:flex;gap:2mm;margin:0 0 5mm}
 .t4-no{flex:none;width:8mm;height:8mm;border-radius:50%;border:.8mm solid #f4a100;background:#fff8e1;display:grid;place-items:center;font-size:4.6mm;color:#1f2a24;margin-top:-.5mm}
 .t4-ic{flex:1;min-width:0;display:flex;flex-direction:column;gap:1.6mm}
@@ -186,5 +200,5 @@ module.exports = ({ S }) => {
 .t4-cevap{flex:1;display:flex;flex-direction:column;align-items:center;gap:4mm;padding-top:10mm}.t4-cevap h3{font-size:9mm;font-weight:400;margin:0;color:#1d4e89}.t4-cevap p{margin:0;font-size:4.4mm;color:#5b6b7b}.t4-cevap table{border-collapse:collapse;font-size:6mm}.t4-cevap th,.t4-cevap td{border:.4mm solid #9db4c8;padding:2mm 4mm;text-align:center}.t4-cevap th{background:#eaf3ff;font-weight:400}
 .t4-anahtar{column-span:all;transform:rotate(180deg);font-size:2.8mm;color:#8a98a6;margin:1mm 0 0;text-align:center}
 `;
-  return { bilgi, kacTane, kareYol, tabloSec, cocukSec, grafikSec, ortak, cevapSayfasi, tipler, soru, coktan, p, madde, tablo, kartlar, avatar, balonlar, kodDY, yolDY, kapDY, konusma, roma, sirala, esle, bulmaca, grafik, sec, sayfa, optik, yeniHafta, CSS };
+  return { an, geriAl, cerceve, bilgi, kacTane, kareYol, tabloSec, cocukSec, grafikSec, ortak, cevapSayfasi, tipler, soru, coktan, p, madde, tablo, kartlar, avatar, balonlar, kodDY, yolDY, kapDY, konusma, roma, sirala, esle, bulmaca, grafik, sec, sayfa, optik, yeniHafta, CSS };
 };

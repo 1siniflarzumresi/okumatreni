@@ -2,12 +2,13 @@
 // 2 sayfa + ayrı cevap anahtarı. Her konu: d (doğru ifade, yanlış eşi), es (eşleştirme), sr (sıralama), cq (çoktan seçmeli, ilk seçenek doğru), ort (ortak bağlam).
 // Kalıplar 3 haftalık döngüyle döner. Üretim: node kaynak/calisma-kagitlari/uret.js f4
 module.exports = ({ T, S }) => {
-  const { p, tablo, kodDY, yolDY, kapDY, roma, sirala, esle, kacTane, kareYol, cocukSec, ortak, sayfa, optik, yeniHafta, cevapSayfasi } = T;
+  const { cerceve, p, tablo, kodDY, yolDY, kapDY, roma, sirala, esle, kacTane, kareYol, cocukSec, ortak, sayfa, optik, yeniHafta, cevapSayfasi } = T;
   const RNG = s => { let x = 0; for (const c of String(s)) x = (x * 31 + c.charCodeAt(0)) >>> 0; x = x || 1; return () => ((x = (x * 1103515245 + 12345) >>> 0) / 4294967296); };
   const kar = (r, l) => { const a = [...l]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const coktan = (ic, kok, d, y) => { const l = [d, ...y].map(x => String(x).replace(/<[^>]+>/g, '')); return T.soru(ic, kok, T.sec(d, y, kok), { kolon: l.every(x => x.length <= 6) ? 4 : l.every(x => x.length <= 20) ? 2 : 1 }); };
   const ADLAR = ['Elif', 'Kaan', 'Defne', 'Mert', 'Zeynep', 'Emir', 'Ada', 'Yusuf', 'Ecrin', 'Alp', 'Nehir', 'Ömer', 'Duru', 'Kerem'];
 
+  const HF = require('./fen4-hafta.js')({ p, tablo });
   const K = {};
   K.yerkabugu = { gir: 'Öğretmen tahtaya yer kabuğuyla ilgili bilgiler yazdı.',
     d: [['Yer kabuğunun kara kısmı kayaçlardan oluşur.', 'Yer kabuğunun kara kısmı yalnız topraktan oluşur.'], ['Mermer, inşaatlarda kullanılan bir kayaçtır.', 'Mermer, yiyeceklerde kullanılan bir besindir.'],
@@ -43,7 +44,7 @@ module.exports = ({ T, S }) => {
     d: [['Karbonhidratlar vücudumuza enerji verir.', 'Karbonhidratlar vücudumuzda hiçbir işe yaramaz.'], ['Proteinler büyüme ve gelişmeyi sağlar.', 'Proteinler yalnız tatlılarda bulunur.'],
       ['Yağlar enerji verir ve vücudu soğuktan korur.', 'Yağlar vücuda hiç enerji vermez.'], ['Vitaminler hastalıklara karşı direnç kazandırır.', 'Vitaminler yalnız şekerli içeceklerde bulunur.'],
       ['Su ve mineraller vücudumuzun düzenli çalışmasına yardım eder.', 'Su ve mineraller vücudumuza en çok enerji veren besinlerdir.'], ['Ambalajlı besinlerin son kullanma tarihine bakmalıyız.', 'Ambalajlı besinlerin son kullanma tarihi önemli değildir.'],
-      ['Dengeli beslenmek için her besin grubundan yeterli miktarda yemeliyiz.', 'Dengeli beslenmek için yalnız bir çeşit besin yemeliyiz.'], ['Taze ve doğal besinler sağlığımız için daha yararlıdır.', 'Bayatlamış besinler sağlığımız için daha yararlıdır.'], ['Süt, kemiklerimizin gelişimi için önemlidir.', 'Süt, kemiklerimize zarar verir.'], ['Sebze ve meyveler vitamin bakımından zengindir.', 'Sebze ve meyvelerde hiç vitamin yoktur.'], ['Ekmek ve makarna enerji veren besinlerdir.', 'Ekmek ve makarna vücuda hiç enerji vermez.'], ['Taze besinlerin rengi ve kokusu doğaldır.', 'Bozulmuş besinlerin kokusu her zaman güzeldir.'], ['Dengeli beslenmek için farklı besin gruplarından yemeliyiz.', 'Dengeli beslenmek için tek çeşit besin yemek yeterlidir.']],
+      ['Dengeli beslenmek için her besin grubundan yeterli miktarda yemeliyiz.', 'Dengeli beslenmek için öğün atlamak gerekir.'], ['Taze ve doğal besinler sağlığımız için daha yararlıdır.', 'Bayatlamış besinler sağlığımız için daha yararlıdır.'], ['Süt, kemiklerimizin gelişimi için önemlidir.', 'Süt, kemiklerimize zarar verir.'], ['Sebze ve meyveler vitamin bakımından zengindir.', 'Sebze ve meyvelerde hiç vitamin yoktur.'], ['Ekmek ve makarna enerji veren besinlerdir.', 'Ekmek ve makarna vücuda hiç enerji vermez.'], ['Taze besinlerin rengi ve kokusu doğaldır.', 'Bozulmuş besinlerin kokusu her zaman güzeldir.'], ['Dengeli beslenmek için farklı besin gruplarından yemeliyiz.', 'Dengeli beslenmek için tek çeşit besin yemek yeterlidir.']],
     es: [['Ekmek, makarna', 'Karbonhidrat'], ['Yumurta, et', 'Protein'], ['Tereyağı, zeytinyağı', 'Yağ'], ['Meyve, sebze', 'Vitamin']],
     sr: { giris: 'Bir öğrenci markette süt alırken şu adımları izliyor; adımlar karışık verilmiştir.', adim: ['Ürünün ambalajının sağlam olup olmadığına bakar.', 'Son kullanma tarihini okur.', 'Ürünü kasada öder.', 'Eve gelince buzdolabına koyar.'], kok: 'Adımların doğru sıralanışı hangisidir?' },
     cq: [[p('Bir sporcu antrenmandan önce enerji almak istiyor.'), 'Hangi besin grubunu daha çok tüketmelidir?', 'Karbonhidrat', ['Vitamin', 'Mineral', 'Su']],
@@ -78,7 +79,7 @@ module.exports = ({ T, S }) => {
     cq: [[p('Mert duran bir oyuncak arabayı iterek hareket ettirdi.'), 'Bu olayda kuvvetin etkisi hangisidir?', 'Hareket kazandırma', ['Şekil değiştirme', 'Durdurma', 'Etkisi yoktur']],
       [p('Bir boş alüminyum kutu ayakla ezildi.'), 'Bu olayda kuvvetin etkisi hangisidir?', 'Şekil değiştirme', ['Yön değiştirme', 'Hareket kazandırma', 'Hızlandırma']],
       [p('Nehir, kendisine doğru gelen voleybol topunu vurarak geri gönderdi.'), 'Topa uyguladığı kuvvet topta hangi değişikliği yapmıştır?', 'Yönünü değiştirmiştir.', ['Şeklini kalıcı olarak değiştirmiştir.', 'Topu eritmiştir.', 'Hiçbir değişiklik yapmamıştır.']],
-      [p('Bir çocuk bisikletini fren yaparak durdurdu.'), 'Fren yapılınca bisiklete uygulanan kuvvet ne yapmıştır?', 'Bisikleti durdurmuştur.', ['Bisikleti hızlandırmıştır.', 'Bisikletin rengini değiştirmiştir.', 'Etkisi olmamıştır.']],
+      [p('Ece yokuş aşağı inerken bisikletinin hızlandığını fark etti. Önüne bir kedi çıkınca frenlere bastı.'), 'Ece\'nin frenlere basarak uyguladığı kuvvetin bisiklete etkisi hangisidir?', 'Hareketini yavaşlatıp durdurmak', ['Bisikleti hızlandırmak', 'Bisikletin rengini değiştirmek', 'Bisikleti harekete geçirmek']],
       [p('Aşağıda bazı günlük olaylar verilmiştir.'), 'Hangisinde kuvvetin şekil değiştirme etkisi görülür?', 'Ekmek hamurunu yoğurmak', ['Topu yuvarlamak', 'Kapıyı itmek', 'Çekmeceyi çekmek']],
       [p('Duvara atılan bir top geri sekti.'), 'Duvar topa hangi etkiyi yapmıştır?', 'Topun yönünü değiştirmiştir.', ['Topu hızlandırıp delip geçmiştir.', 'Topu durdurup yapıştırmıştır.', 'Hiçbir etki yapmamıştır.']]],
     ort: { ic: p('Ece, eşit büyüklükteki iki oyuncak arabayı aynı zeminde itti. Kırmızı arabayı hafifçe, mavi arabayı güçlü itti.'),
@@ -111,21 +112,21 @@ module.exports = ({ T, S }) => {
       [p('Ece dereceli bir kaba 200 mL su koydu. İçine bir taş bırakınca su 260 mL çizgisine yükseldi.'), 'Taşın hacmi kaç mililitredir?', '60', ['200', '260', '460']],
       [p('Laboratuvarda etiketi olmayan beyaz bir toz var.'), 'Bu tozla ilgili yapılmaması gereken davranış hangisidir?', 'Tadına bakmak', ['Rengini gözlemek', 'Öğretmene sormak', 'Etiket yazdırmak']],
       [p('Bir öğrenci aynı büyüklükte bir demir küp ile bir tahta küpü tarttı.'), 'Hangisi söylenebilir?', 'Hacimleri aynı olsa da kütleleri farklı olabilir.', ['Hacmi aynı olan maddelerin kütlesi hep aynıdır.', 'Tahta küp her zaman daha ağırdır.', 'Kütle ölçülemez.']]],
-    ort: { ic: p('Üç farklı kaptaki su miktarları ölçüldü: A kabı 350 mL, B kabı 500 mL, C kabı 250 mL.'),
-      q: [['En çok su hangi kaptadır?', 'B', ['A', 'C', 'Hepsi eşittir']], ['A ve C kaplarındaki su birleştirilirse kaç mililitre olur?', '600', ['850', '500', '100']]] } };
+    ort: { ic: p('Kaan, gözleri bağlı arkadaşı Ada\'ya dört maddeyi tek tek tanıttı. Ada her birini dokunarak ve koklayarak tanımaya çalıştı; bilmediği hiçbir şeyin tadına bakmadı.') + tablo(['Madde', 'Ada\'nın notu'], [['Limon', 'Pürüzlü, ekşi kokulu'], ['Sünger', 'Yumuşak, esnek'], ['Taş', 'Sert, pürüzlü'], ['Pamuk', 'Yumuşak, hafif']]),
+      q: [['Ada "yumuşak ve esnek" maddeyi hangi duyusuyla tanımıştır?', 'Dokunma', ['Görme', 'İşitme', 'Tatma']], ['Ada\'nın limonu kokusundan tanıması hangi duyu organıyla olmuştur?', 'Burun', ['Kulak', 'Dil', 'Göz']]] } };
   K.hal = { gir: 'Öğretmen tahtaya maddenin hâlleriyle ilgili bilgiler yazdı.',
     d: [['Katıların belirli bir şekli vardır.', 'Katıların belirli bir şekli yoktur.'], ['Sıvılar konuldukları kabın şeklini alır.', 'Sıvılar her zaman küp şeklindedir.'],
       ['Gazlar bulundukları ortamı doldurur.', 'Gazların hiç hacmi yoktur.'], ['Buz ısınınca erir ve suya dönüşür.', 'Buz ısınınca daha sert buz olur.'],
       ['Su yeterince soğutulunca donar.', 'Su soğutulunca buharlaşır.'], ['Kaynayan suyun buharı soğuk bir yüzeye değince yoğuşur.', 'Su buharı soğuk yüzeyde katıya dönüşüp taş olur.'],
-      ['Maddeler ısı alınca genellikle genleşir.', 'Maddeler ısı alınca her zaman küçülür.'], ['Islak çamaşırlar güneşte buharlaşma ile kurur.', 'Islak çamaşırlar donma ile kurur.'], ['Su doğada katı, sıvı ve gaz hâlinde bulunabilir.', 'Su doğada yalnız sıvı hâlde bulunur.'], ['Buz eriyince sıvı suya dönüşür.', 'Buz eriyince taşa dönüşür.'], ['Sıvılar konuldukları kabın şeklini alır.', 'Sıvıların belirli bir şekli vardır.'], ['Gazlar bulundukları kabı tamamen doldurur.', 'Gazlar bulundukları kabın yalnız dibinde durur.'], ['Isınan maddeler genellikle genleşir.', 'Isınan maddeler her zaman büzülür.']],
+      ['Islak çamaşırlar güneşte buharlaşma ile kurur.', 'Islak çamaşırlar donma ile kurur.'], ['Su doğada katı, sıvı ve gaz hâlinde bulunabilir.', 'Su doğada yalnız sıvı hâlde bulunur.'], ['Buz eriyince sıvı suya dönüşür.', 'Buz eriyince taşa dönüşür.'], ['Sıvılar konuldukları kabın şeklini alır.', 'Sıvıların belirli bir şekli vardır.'], ['Gazlar bulundukları kabı tamamen doldurur.', 'Gazlar bulundukları kabın yalnız dibinde durur.'], ['Isınan maddeler genellikle genleşir.', 'Isınan maddeler her zaman büzülür.']],
     es: [['Erime', 'Buzun suya dönüşmesi'], ['Donma', 'Suyun buza dönüşmesi'], ['Buharlaşma', 'Suyun su buharına dönüşmesi'], ['Yoğuşma', 'Su buharının suya dönüşmesi']],
     sr: { giris: 'Bir buz küpü tencerede ısıtılıyor. Gözlenen olaylar karışık verilmiştir.', adim: ['Buz küpü katıdır.', 'Buz erimeye başlar.', 'Tencerede sıvı su kalır.', 'Su kaynar ve buharlaşır.'], kok: 'Olayların doğru sıralanışı hangisidir?' },
     cq: [[p('Soğuk bir sabah araba camının iç yüzeyinde su damlaları oluştu.'), 'Bu olay hangisidir?', 'Yoğuşma', ['Erime', 'Donma', 'Kaynama']],
       [p('Dondurma güneşin altında kaldı ve akmaya başladı.'), 'Dondurmada hangi değişim olmuştur?', 'Erime', ['Donma', 'Yoğuşma', 'Kırılma']],
       [p('Su, buz ve su buharı ile ilgili bir tablo hazırlanıyor.'), 'Bu üç madde için hangisi doğrudur?', 'Aynı maddenin farklı hâlleridir.', ['Üçü farklı maddelerdir.', 'Üçü de katıdır.', 'Üçü de sıvıdır.']],
-      [p('Demir yollarındaki raylar arasında küçük boşluklar bırakılır.'), 'Bunun nedeni hangisidir?', 'Raylar sıcakta genleşir.', ['Raylar soğukta erir.', 'Trenlerin sesi azalsın.', 'Raylar daha hafif olsun.']],
+      [p('Defne, bir şırıngaya önce su, sonra hava çekip ucunu parmağıyla kapattı. Pistonu itince havayı biraz sıkıştırabildi ama suyu sıkıştıramadı.'), 'Defne\'nin gözlemine göre hangisi söylenebilir?', 'Gazlar sıkıştırılabilir, sıvılar hemen hemen sıkıştırılamaz.', ['Sıvılar gazlardan kolay sıkıştırılır.', 'Hava hiç sıkıştırılamaz.', 'Su ve hava aynı şekilde sıkıştırılır.']],
       [p('Bir şişeye konan meyve suyu şişenin şeklini, bardağa dökülünce bardağın şeklini aldı.'), 'Meyve suyunun bu özelliği hangi hâle aittir?', 'Sıvı', ['Katı', 'Gaz', 'Hiçbiri']],
-      [p('Balon şişirildiğinde içindeki hava balonun her yerini doldurdu.'), 'Hava hangi hâldedir?', 'Gaz', ['Katı', 'Sıvı', 'Buz']]],
+      [p('Zeynep odanın bir köşesinde parfüm sıktı. Birkaç dakika sonra kokuyu odanın öbür köşesindeki Elif de duydu.'), 'Bu durum gazların hangi özelliğini gösterir?', 'Bulundukları ortama yayılmasını', ['Belirli bir şekilleri olmasını', 'Kabın dibinde toplanmasını', 'Hiç hareket etmemesini']]],
     ort: { ic: p('Bir öğrenci aynı büyüklükteki iki buz küpünden birini güneşe, diğerini gölgeye koydu ve 10 dakika sonra baktı.'),
       q: [['Hangi buz küpünün daha çok erimesi beklenir?', 'Güneştekinin', ['Gölgedekinin', 'İkisinin de eşit', 'Hiçbirinin']], ['Bu deneyde değiştirilen etken hangisidir?', 'Buzun aldığı ısı', ['Buzun büyüklüğü', 'Bekleme süresi', 'Buzun cinsi']]] } };
   K.karisim = { gir: 'Öğretmen tahtaya saf madde ve karışımlarla ilgili bilgiler yazdı.',
@@ -146,7 +147,7 @@ module.exports = ({ T, S }) => {
   K.aydinlatma = { gir: 'Öğretmen tahtaya aydınlatma araçlarıyla ilgili bilgiler yazdı.',
     d: [['Geçmişte aydınlanmak için gaz lambası ve mum kullanılırdı.', 'Geçmişte aydınlanmak için LED ampul kullanılırdı.'], ['LED ampuller daha az elektrik harcar.', 'LED ampuller en çok elektrik harcayan ampullerdir.'],
       ['Okuma yaparken ışık yeterli ve göz kamaştırmayan olmalıdır.', 'Okuma yaparken karanlık ortam gözlerimiz için en iyisidir.'], ['Boş odada ışıkları kapatmak enerji tasarrufu sağlar.', 'Boş odada ışıkları açık bırakmak tasarruf sağlar.'],
-      ['Gün ışığından yararlanmak elektrik tasarrufu sağlar.', 'Gündüz perdeleri kapatıp lamba yakmak tasarrufludur.'], ['Aydınlatma araçları zamanla gelişmiştir.', 'Aydınlatma araçları hiç değişmemiştir.'], ['Geçmişte insanlar aydınlanmak için mum ve gaz lambası kullanırdı.', 'Geçmişte insanlar elektrikli ampul kullanırdı.'], ['LED lambalar daha az enerji harcar.', 'LED lambalar en çok enerji harcayan lambalardır.'], ['Ders çalışırken yeterli ışık gözümüzü korur.', 'Karanlıkta ders çalışmak gözümüze iyi gelir.'], ['Gereksiz yanan lambaları kapatmak enerji tasarrufu sağlar.', 'Lambaları açık bırakmak enerji tasarrufu sağlar.'], ['Aydınlatma araçları zamanla gelişmiştir.', 'Aydınlatma araçları hiç değişmemiştir.'], ['Çok parlak ışığa doğrudan bakmak gözümüze zarar verir.', 'Çok parlak ışığa uzun süre bakmak gözümüzü güçlendirir.']],
+      ['Gün ışığından yararlanmak elektrik tasarrufu sağlar.', 'Gündüz perdeleri kapatıp lamba yakmak tasarrufludur.'], ['Aydınlatma araçları zamanla gelişmiştir.', 'Aydınlatma araçları hiç değişmemiştir.'], ['Geçmişte insanlar aydınlanmak için mum ve gaz lambası kullanırdı.', 'Geçmişte insanlar aydınlanmak için LED lamba kullanırdı.'], ['LED lambalar daha az enerji harcar.', 'LED lambalar en çok enerji harcayan lambalardır.'], ['Ders çalışırken yeterli ışık gözümüzü korur.', 'Karanlıkta ders çalışmak gözümüze iyi gelir.'], ['Gereksiz yanan lambaları kapatmak enerji tasarrufu sağlar.', 'Lambaları açık bırakmak enerji tasarrufu sağlar.'], ['Aydınlatma araçları zamanla gelişmiştir.', 'Aydınlatma araçları hiç değişmemiştir.'], ['Çok parlak ışığa doğrudan bakmak gözümüze zarar verir.', 'Çok parlak ışığa uzun süre bakmak gözümüzü güçlendirir.']],
     es: [['Kandil', 'Çok eski aydınlatma'], ['Gaz lambası', 'Elektrikten önceki aydınlatma'], ['Akkor ampul', 'Elektrikli ilk ampullerden'], ['LED ampul', 'Günümüzde tasarruflu aydınlatma']],
     sr: { giris: 'Aydınlatma araçları kartlara yazılmıştır.', adim: ['Meşale', 'Kandil', 'Gaz lambası', 'Akkor ampul', 'LED ampul'], kok: 'Araçlar eskiden yeniye doğru hangi sırayla dizilir?' },
     cq: [[p('Bir ailenin elektrik faturası çok yüksek geliyor. Evde eski tip ampuller var.'), 'Faturayı azaltmak için en uygun öneri hangisidir?', 'LED ampul kullanmak', ['Bütün ışıkları gece gündüz açık tutmak', 'Daha çok lamba takmak', 'Perdeleri hep kapalı tutmak']],
@@ -205,35 +206,39 @@ module.exports = ({ T, S }) => {
       ['Anahtar kapatılınca devre tamamlanır ve ampul yanar.', 'Anahtar açıkken ampul her zaman yanar.'], ['Devrede bir kablo kopuksa ampul yanmaz.', 'Devrede kablo kopuk olsa da ampul yanar.'],
       ['Islak elle prize dokunmak tehlikelidir.', 'Islak elle prize dokunmak güvenlidir.'], ['Prize çatal, tel gibi cisimler sokmamalıyız.', 'Prize çatal sokmak elektriği güçlendirir.'], ['Basit bir elektrik devresinde pil, ampul, anahtar ve kablo bulunur.', 'Basit bir elektrik devresinde pil bulunmaz.'], ['Anahtar açıkken ampul yanmaz.', 'Anahtar açıkken ampul en parlak yanar.'], ['Pil, devreye elektrik enerjisi sağlar.', 'Ampul, devreye elektrik enerjisi sağlar.'], ['Kablolar elektriği devre elemanları arasında iletir.', 'Kablolar elektriğin geçmesini her zaman engeller.'], ['Evdeki elektrik düğmeleri birer anahtardır.', 'Evdeki elektrik düğmeleri birer pildir.'], ['Prize metal cisim sokmak tehlikelidir.', 'Prize metal cisim sokmak güvenlidir.']],
     es: [['Pil', 'Enerji kaynağı'], ['Ampul', 'Işık verir'], ['Kablo', 'Elektriği iletir'], ['Anahtar', 'Devreyi açar ve kapatır']],
-    sr: { giris: 'Basit bir elektrik devresi kuran öğrencinin adımları karışık verilmiştir.', adim: ['Gerekli malzemeleri toplamak', 'Pili duy yuvasına yerleştirmek', 'Ampulü ve anahtarı kablolarla bağlamak', 'Anahtarı kapatıp ampulün yandığını gözlemek'], kok: 'Adımların doğru sıralanışı hangisidir?' },
+    sr: { giris: 'Basit bir elektrik devresi kuran öğrencinin adımları karışık verilmiştir.', adim: ['Gerekli malzemeleri toplamak', 'Pili pil yatağına, ampulü duya takmak', 'Ampulü ve anahtarı kablolarla bağlamak', 'Anahtarı kapatıp ampulün yandığını gözlemek'], kok: 'Adımların doğru sıralanışı hangisidir?' },
     cq: [[p('Alp devresini kurdu ama ampul yanmadı. Kablolardan birinin pile bağlı olmadığını fark etti.'), 'Ampulün yanmamasının nedeni hangisidir?', 'Devre tamamlanmamıştır.', ['Ampul çok parlak yanmaktadır.', 'Pil fazla doludur.', 'Anahtar kapalıdır.']],
       [p('Bir devrede pil, ampul, kablo ve anahtar var.'), 'Devrede elektrik enerjisini sağlayan eleman hangisidir?', 'Pil', ['Ampul', 'Kablo', 'Anahtar']],
       [p('Evde bir prizin kapağı kırık ve içi görünüyor.'), 'Yapılması gereken en doğru davranış hangisidir?', 'Prize dokunmadan bir büyüğe haber vermek', ['Kırık prizi çatalla tamir etmeye çalışmak', 'Prizin içine bakmak için parmakla dokunmak', 'Prize su dökmek']],
       [p('Ada, anahtarı açtığında ampulün söndüğünü gördü.'), 'Anahtarın devredeki görevi hangisidir?', 'Devreyi açıp kapatmak', ['Işık vermek', 'Elektrik üretmek', 'Isı vermek']],
       [p('Bir öğrenci kablonun plastik kılıfının neden olduğunu soruyor.'), 'Kablonun dışındaki plastik kılıfın görevi hangisidir?', 'Elektrik çarpmasını önlemek', ['Elektriği artırmak', 'Kabloyu ısıtmak', 'Işık vermek']],
       [p('Bir devrede pil bitmek üzeredir.'), 'Ampulde ne gözlenir?', 'Ampul daha sönük yanar.', ['Ampul daha parlak yanar.', 'Ampulün rengi değişir.', 'Hiçbir değişiklik olmaz.']]],
-    ort: { ic: p('Mert iki devre kurdu. Birinci devrede 1 pil ve 1 ampul, ikinci devrede aynı türden 2 pil ve 1 ampul var. İki devrede de anahtar kapalı ve kablolar sağlam.'),
-      q: [['Hangi devredeki ampul daha parlak yanar?', 'İkinci devredeki', ['Birinci devredeki', 'İkisi aynı', 'Hiçbiri yanmaz']], ['Bu deneyde değiştirilen etken hangisidir?', 'Pil sayısı', ['Ampul sayısı', 'Kablo rengi', 'Anahtar türü']]] } };
+    ort: { ic: p('Mert, basit bir devrenin elemanlarını ve görevlerini kartlara yazdı.') + tablo(['Eleman', 'Görevi'], [['Pil', 'Elektrik enerjisi kaynağı'], ['Ampul', 'Işık verir'], ['Anahtar', 'Devreyi açar ve kapatır'], ['Kablo', 'Elemanları birbirine bağlar']]),
+      q: [['Mert devresindeki ampulü söndürmek için hangi elemanı kullanmalıdır?', 'Anahtar', ['Pil', 'Ampul', 'Kablo']], ['Devredeki pil bittiğinde ampulde ne gözlenir?', 'Ampul yanmaz.', ['Ampul daha parlak yanar.', 'Ampulün rengi değişir.', 'Kablolar ışık verir.']]] } };
 
   // ——— hafta kurucu (matematik4.js ile aynı) ———
   const st = (k, r) => k.d.map(([t, f]) => r() < .5 ? [t, true] : [f, false]);
   // Bir haftada aynı ifade iki kez çıkmasın: çiftler karıştırılmış bir kuyruktan sırayla çekilir.
   let KUYRUK = new Map();
-  const cift = (k, r, n) => { let q = KUYRUK.get(k) || []; if (q.length < n) q = q.concat(kar(r, k.d.filter(x => !q.includes(x)))); KUYRUK.set(k, q.slice(n)); return q.slice(0, n); };
+  // haftanın kendi ifadeleri (d1) önce, konu bankası (d) sonra; aynı metin iki kez kullanılmaz
+  const cift = (k, r, n) => { let q = KUYRUK.get(k); if (!q) { const gor = new Set(); q = [...kar(r, k.d1 || []), ...kar(r, k.d)].filter(x => !gor.has(x[0]) && !gor.has(x[1]) && gor.add(x[0]) && gor.add(x[1])); }
+    if (q.length < n) q = q.concat(kar(r, k.d)); KUYRUK.set(k, q.slice(n)); return q.slice(0, n); };
   const al = (k, r, n) => cift(k, r, n).map(([t, f]) => r() < .5 ? [t, true] : [f, false]);
   const SP = [
-    (k, r, t) => [() => kodDY(k.gir + ' Bilgi doğruysa "Doğru", yanlışsa "Yanlış" bölümündeki rakamı boyayacaksınız.', al(k, r, 4), t + 'k'),
-      () => yolDY(k.gir + ' Öğrenciler ifade doğruysa "D", yanlışsa "Y" okunu izliyor.', al(k, r, 3), t + 'y'),
-      () => kapDY(k.gir + ' Bilgi doğruysa "Doğru Bilgi", yanlışsa "Yanlış Bilgi" kabına atılıyor.', al(k, r, 5), t + 'p')],
-    (k, r, t) => [() => { let l, n = 0; do { l = al(k, r, 3); } while (!l.some(x => x[1]) && ++n < 50); return roma(p(k.gir), 'Buna göre yukarıdaki ifadelerden hangileri doğrudur?', l); },
+    (k, r, t) => [() => kodDY(cerceve(k.gir, 'k', r), al(k, r, 4), t + 'k'),
+      () => yolDY(cerceve(k.gir, 'y', r), al(k, r, 3), t + 'y'),
+      () => kapDY(cerceve(k.gir, 'p', r), al(k, r, 5), t + 'p')],
+    (k, r, t) => [() => { let l, n = 0; do { l = al(k, r, 3); } while (!l.some(x => x[1]) && ++n < 50); return roma(p(cerceve(k.gir, 'n', r)), 'Buna göre yukarıdaki ifadelerden hangileri doğrudur?', l); },
       () => sirala(k.sr.giris, k.sr.adim, k.sr.kok, t + 's'),
       () => esle('Soldaki kavramları sağdaki açıklamalarla eşleştiriniz.', k.es, 'Buna göre eşleştirme hangi seçenekte doğru verilmiştir?', t + 'e')],
-    (k, r, t) => [() => kacTane(p(k.gir), al(k, r, 4)),
-      () => kareYol(k.gir + ' ' + ADLAR[Math.floor(r() * ADLAR.length)] + ' bu bilgilerle bir kare oyunu oynuyor.', al(k, r, 4), t + 'q', 1, 1),
+    (k, r, t) => [() => kacTane(p(cerceve(k.gir, 'n', r)), al(k, r, 4)),
+      () => kareYol(cerceve(k.gir, 'q', r), al(k, r, 4), t + 'q', 1, 1),
       () => { const d = cift(k, r, 4); return cocukSec(p('Dört arkadaş konuyla ilgili bildiklerini söylüyor.'), 'Buna göre hangi çocuğun söylediği yanlıştır?', [d[0][1], d[1][0], d[2][0], d[3][0]], t + 'c'); }],
   ];
   const W = (hafta, unite, baslik, konu, konular) => ({ unite, hafta, baslik, konu, sayfalar: () => {
-    yeniHafta(); KUYRUK = new Map(); const r = RNG('f4-' + hafta), KK = konular.map(k => K[k]), t = 'f4h' + hafta;
+    yeniHafta(); KUYRUK = new Map(); const r = RNG('f4-' + hafta), t = 'f4h' + hafta; let KK = konular.map(k => K[k]);
+    const H = HF[hafta];
+    if (H) { const b = KK[0]; KK = [{ gir: H.gir || b.gir, d1: H.d || [], d: KK.flatMap(k => k.d), es: H.es || b.es, sr: H.sr || b.sr, cq: H.cq, ort: H.ort || KK[KK.length - 1].ort }]; }
     const sp = SP[(hafta - 1) % 3](KK[0], r, t);
     if (KK.length > 1) sp[1] = SP[(hafta - 1) % 3](KK[1], r, t + 'b')[1];
     const cq = []; const mx = Math.max(...KK.map(k => k.cq.length)); for (let i = 0; i < mx; i++) KK.forEach(k => { if (k.cq[i]) cq.push(k.cq[i]); });
