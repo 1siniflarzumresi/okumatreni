@@ -715,7 +715,7 @@ ${T4MODUL.CSS}
 ${T4.CSS}
 /* Kullanıcı kararı: kâğıtlardaki bütün yazılar TTKB; TTKB'de olmayan işaretler (× → ↔ ✓) Andika'ya düşer */
 *,svg text{font-family:TTKB,Andika,sans-serif !important}
-andika-is{display:inline!important;font-family:Andika,sans-serif !important;font-style:normal}andika-is.kesme{margin:0 -.06em}
+andika-is{display:inline!important;font-family:Andika,sans-serif !important;font-style:normal;line-height:0;vertical-align:baseline}andika-is.kesme{margin:0 -.06em}
 .harf.mat{font-size:10.5mm;letter-spacing:.2mm}
 .sayfa:has(.harf.mat) .harf.mat{white-space:nowrap}
 .sayfa:has(.harf.mat) .baslik{flex:1 1 auto}
