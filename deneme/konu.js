@@ -3,7 +3,10 @@
   function bul(ders, id){ var D = (window.KONU || {})[ders]; if (!D) return null; for (var i = 0; i < D.K.length; i++) if (D.K[i].id === id) return {D: D, k: D.K[i], i: i}; return null; }
   window.KONU_SAHIP = function(id){ return Object.keys(window.KONU || {}).filter(function(d){ return !!bul(d, id); })[0] || null; };
   window.KONU_BASLIK = function(ders, id){ var b = bul(ders, id); return b ? b.k.baslik : id; };
-  window.KONU_PDF = function(ders, id){ return "materyaller/konu/" + ders + "/" + id + ".pdf"; };
+  // PDF ve önizlemeler Cloudflare R2 kovasında; dosya kapısı (Worker) üzerinden verilir (kaynak/cloudflare/dosya-worker.js)
+  window.DOSYA_KOK = "https://ladinormani-dosya.ladinormani.workers.dev/";
+  window.DOSYA = function(y){ return /^materyaller\//.test(y || "") ? window.DOSYA_KOK + y : y; };
+  window.KONU_PDF = function(ders, id){ return window.DOSYA("materyaller/konu/" + ders + "/" + id + ".pdf"); };
   window.KONU_CIZ = function(ders, id, no){
     var b = bul(ders, id); if (!b) return "";
     var k = b.k, G = b.D.GRUP[k.grup];

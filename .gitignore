@@ -8,3 +8,8 @@ kaynak/test/raporlar/tarama.bitti
 # toplu paket PDF'leri sitede gösterilmiyor; Pages 1 GB sınırı için depoya girmez (uret.js yerelde üretir)
 deneme/materyaller/*/*/grup-*.pdf
 deneme/materyaller/*/*/*-hafta-[0-9][0-9]-[0-9][0-9].pdf
+
+# PDF'ler ve önizlemeler Cloudflare R2'de (kaynak/r2-yukle.py ile yüklenir, dosya kapısı kaynak/cloudflare/dosya-worker.js).
+# Depoya girmez: GitHub Pages 1 GB sınırı ve depo büyümesi. Kaynak resimler (resimler-*/) depoda kalır.
+deneme/materyaller/**/*.pdf
+deneme/materyaller/**/*-onizleme.png

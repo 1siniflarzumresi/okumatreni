@@ -196,7 +196,7 @@ h1 em{font-style:normal;color:var(--mavi)}
   }
 
   function kagitKart(m){
-    return '<div class="on"><img src="'+m.resim+'" alt="" loading="lazy"></div><b>'+m.baslik.replace(/^\d+\. Hafta · /,"")+'</b><a class="indir" href="'+m.dosya+'">Çalışma kâğıdını indir (PDF)</a>';
+    return '<div class="on"><img src="'+DOSYA(m.resim)+'" alt="" loading="lazy"></div><b>'+m.baslik.replace(/^\d+\. Hafta · /,"")+'</b><a class="indir" href="'+DOSYA(m.dosya)+'">Çalışma kâğıdını indir (PDF)</a>';
   }
   function adimSec(v){
     sec = v;
