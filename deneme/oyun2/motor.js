@@ -3,6 +3,8 @@
 // afterSay = robot konuşmasını bitirmeden ekran değişmez, doğru cevapta tahta kilitlenir.
 "use strict";
 const NS = 'http://www.w3.org/2000/svg';
+// Oyun dünyası: sayfa window.DUNYA ile ad, kayıt anahtarı, harita arka planı ve maskotu değiştirebilir (varsayılan Ladin Kasabası)
+const DUNYA = Object.assign({ ad: 'Ladin Kasabası', kayit: 'lk2_ilerleme', giris: 'Ladin Kasabası sana yardım için bekliyor. Bir yere dokun.' }, window.DUNYA || {});
 const $ = id => document.getElementById(id);
 const rint = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
 const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -123,8 +125,8 @@ function kartKapat(){ $('kart').hidden = true; }
 
 /* ---------- ilerleme kaydı (cihazda; açılmazsa oyun yine çalışır) ---------- */
 let KAYIT = {};
-try { KAYIT = JSON.parse(localStorage.getItem('lk2_ilerleme') || '{}') || {}; } catch(e){ KAYIT = {}; }
-const kaydet = () => { try { localStorage.setItem('lk2_ilerleme', JSON.stringify(KAYIT)); } catch(e){} };
+try { KAYIT = JSON.parse(localStorage.getItem(DUNYA.kayit) || '{}') || {}; } catch(e){ KAYIT = {}; }
+const kaydet = () => { try { localStorage.setItem(DUNYA.kayit, JSON.stringify(KAYIT)); } catch(e){} };
 const yildizlar = id => KAYIT[id] || [0, 0, 0];
 
 /* ---------- yerler ve seviye akışı ---------- */
@@ -172,7 +174,7 @@ function yerSec(id){
 }
 
 /* ---------- harita ---------- */
-const YAKINDA = [
+const YAKINDA = (window.DUNYA && window.DUNYA.yakinda) || [
   { ad: 'Pazar Yeri', beceri: 'Para, alışveriş ve para üstü', x: 430, y: 700 },
   { ad: 'Fidanlık', beceri: 'Eş gruplar ve çarpma', x: 200, y: 590 },
   { ad: 'Pastane', beceri: 'Bütün, yarım, çeyrek', x: 790, y: 700 },
@@ -180,10 +182,7 @@ const YAKINDA = [
   { ad: 'Tabelacı', beceri: 'Büyük harf ve yazım', x: 770, y: 250 },
   { ad: 'Ayna Gölü', beceri: 'Eş ve zıt anlam', x: 440, y: 230 },
 ];
-function harita(){
-  GEN++; try { speechSynthesis.cancel(); } catch(e){} AKTIF = null; KILIT = false;
-  $('baslik').textContent = 'Ladin Kasabası'; app.classList.add('haritada'); ilerleme(0, 0); eylem(''); kartKapat(); bildirimKapat(); $('sonuc').hidden = true; $('secim').hidden = true;
-  let s = `<defs><linearGradient id="hGok" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd3ff"/><stop offset="1" stop-color="#e8f7ff"/></linearGradient><linearGradient id="hCim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9df86"/><stop offset="1" stop-color="#7cc46a"/></linearGradient></defs>
+const kasabaArka = () => `<defs><linearGradient id="hGok" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd3ff"/><stop offset="1" stop-color="#e8f7ff"/></linearGradient><linearGradient id="hCim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9df86"/><stop offset="1" stop-color="#7cc46a"/></linearGradient></defs>
     <rect x="-3000" y="-400" width="7200" height="1600" fill="url(#hGok)"/>${bulut(260, 60, .9)}${bulut(760, 40, .7)}${bulut(1060, 90, .8)}
     <path d="M-3000 200 Q-100 80 160 60 Q300 50 420 170 Q700 120 900 170 Q1100 110 4200 160 L4200 1200 L-3000 1200 Z" fill="#8cc97b"/>
     <rect x="-3000" y="180" width="7200" height="1100" fill="url(#hCim)"/>
@@ -191,15 +190,19 @@ function harita(){
     <path d="M600 760 L600 480 M600 480 C540 440 440 480 380 470 C300 455 240 380 170 330 M600 480 C700 430 880 420 1000 380 M600 480 C700 560 900 620 1040 620 M380 470 C330 520 260 540 210 590 M600 610 C530 640 480 660 440 690 M600 610 C680 640 740 660 780 690 M600 400 C700 380 740 300 770 260 M600 400 C520 380 470 300 440 240" fill="none" stroke="#f1dfb8" stroke-width="34" stroke-linecap="round"/>
     <path d="M600 760 L600 480 M600 480 C540 440 440 480 380 470 C300 455 240 380 170 330 M600 480 C700 430 880 420 1000 380 M600 480 C700 560 900 620 1040 620 M380 470 C330 520 260 540 210 590 M600 610 C530 640 480 660 440 690 M600 610 C680 640 740 660 780 690 M600 400 C700 380 740 300 770 260 M600 400 C520 380 470 300 440 240" fill="none" stroke="#e5cc97" stroke-width="34" stroke-dasharray="2 22" stroke-linecap="round"/>
     ${[[30, 300, .7], [70, 380, .6], [1160, 300, .7], [1130, 380, .55], [900, 250, .5], [960, 230, .45], [300, 250, .5], [380, 230, .4], [80, 720, .6], [1180, 730, .5], [300, 640, .45], [680, 330, .4], [480, 560, .4], [960, 700, .45]].map(([x, y, k]) => agac(x, y, k, ['#2e8b57', '#3a9d63', '#267a4a'][Math.round(x) % 3])).join('')}`;
+function harita(){
+  GEN++; try { speechSynthesis.cancel(); } catch(e){} AKTIF = null; KILIT = false;
+  $('baslik').textContent = DUNYA.ad; app.classList.add('haritada'); ilerleme(0, 0); eylem(''); kartKapat(); bildirimKapat(); $('sonuc').hidden = true; $('secim').hidden = true;
+  let s = DUNYA.arka ? DUNYA.arka() : kasabaArka();
   const yerler = Object.values(YER).sort((a, b) => a.harita.y - b.harita.y);
   s += YAKINDA.filter(o => !Object.values(YER).some(Y => Y.ad === o.ad)).map(o => `<g class="yakinda" transform="translate(${o.x} ${o.y})">${golge(0, 4, 60)}<rect x="-50" y="-80" width="100" height="80" fill="#f1eadb" stroke="#c9b48c" stroke-width="3"/><path d="M-50 -80 L50 0 M50 -80 L-50 0 M-50 -40 L50 -40" stroke="#c48a4f" stroke-width="5"/><path d="M-8 -6 L0 -26 L8 -6 Z" fill="#f4a100"/><path d="M-5 -14 L5 -14" stroke="#fff" stroke-width="3"/>
     <g transform="translate(0 22)"><rect x="-64" y="-14" width="128" height="30" rx="8" fill="#fff" opacity=".9"/><text y="7" text-anchor="middle" class="ttkb" font-size="19" fill="#5b6b7b">${esc(o.ad)}</text></g><text y="-90" text-anchor="middle" font-size="15" font-family="Andika" fill="#8a6a3a" font-weight="700">Yapım aşamasında</text></g>`).join('');
   s += yerler.map(Y => { const { x, y } = Y.harita, st = yildizlar(Y.id);
     return `<g class="yer" data-yer="${Y.id}" transform="translate(${x} ${y})">${Y.bina()}<g transform="translate(0 28)"><rect x="-84" y="-18" width="168" height="40" rx="12" fill="#fff" stroke="${Y.renk}" stroke-width="4"/><text y="10" text-anchor="middle" class="ttkb" font-size="24" fill="#1f2a24">${esc(Y.ad)}</text>
       <text y="44" text-anchor="middle" font-size="22" fill="#f4a100" stroke="#b45309" stroke-width=".8">${st.map(v => v ? '★' : '☆').join('')}</text></g></g>`; }).join('');
-  s += `<g transform="translate(1120 210)">${sincap()}<g transform="translate(-190 -150)"><rect x="-150" y="-40" width="300" height="74" rx="18" fill="#fff" stroke="#3a86ff" stroke-width="3"/><path d="M110 30 L160 70 L130 30 Z" fill="#fff" stroke="#3a86ff" stroke-width="3"/><path d="M108 31 L134 31" stroke="#fff" stroke-width="5"/><text y="-6" text-anchor="middle" class="ttkb" font-size="22">Kasabaya hoş geldin!</text><text y="24" text-anchor="middle" class="ttkb" font-size="22">Bir yere dokun.</text></g></g>`;
+  s += DUNYA.maskot ? DUNYA.maskot() : `<g transform="translate(1120 210)">${sincap()}<g transform="translate(-190 -150)"><rect x="-150" y="-40" width="300" height="74" rx="18" fill="#fff" stroke="#3a86ff" stroke-width="3"/><path d="M110 30 L160 70 L130 30 Z" fill="#fff" stroke="#3a86ff" stroke-width="3"/><path d="M108 31 L134 31" stroke="#fff" stroke-width="5"/><text y="-6" text-anchor="middle" class="ttkb" font-size="22">Kasabaya hoş geldin!</text><text y="24" text-anchor="middle" class="ttkb" font-size="22">Bir yere dokun.</text></g></g>`;
   sv.innerHTML = s;
-  setInstr('Ladin Kasabası sana yardım için bekliyor. Bir yere dokun.');
+  setInstr(DUNYA.giris);
   sv.querySelectorAll('.yer').forEach(g => { g.addEventListener('click', () => { sPop(); yerSec(g.dataset.yer); }); });
 }
 
