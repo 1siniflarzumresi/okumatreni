@@ -38,8 +38,8 @@ module.exports = ({ T, S }) => {
     [e[0], e[1], e[2], z[0], z[1], z[2], d[0], n[0]].forEach(kul1); if (ai[0] != null) KUL.add(ATA[ai[0]][0]);
     const f = (t, y) => r() < .5 ? [t, true] : [y, false];
     const a0 = ai[0], a1 = ai.find(i => i !== a0 && (!ATA_G[a0] || ATA_G[i] !== ATA_G[a0]));
-    return [me ? f(`Metindeki “${me.k}” sözcüğünün eş anlamlısı “${me.o}” sözcüğüdür.`, `Metindeki “${me.k}” sözcüğünün eş anlamlısı “${z[0][1]}” sözcüğüdür.`) : f(`“${e[0][0]}” ile “${e[0][1]}” eş anlamlı sözcüklerdir.`, `“${z[0][0]}” ile “${z[0][1]}” eş anlamlı sözcüklerdir.`),
-      mz ? f(`Metindeki “${mz.k}” sözcüğünün zıt anlamlısı “${mz.o}” sözcüğüdür.`, `Metindeki “${mz.k}” sözcüğünün zıt anlamlısı “${e[1][1]}” sözcüğüdür.`) : f(`“${z[1][0]}” ile “${z[1][1]}” zıt anlamlı sözcüklerdir.`, `“${e[1][0]}” ile “${e[1][1]}” zıt anlamlı sözcüklerdir.`),
+    return [me ? f(`Metindeki “${me.k}” sözcüğünün eş anlamlısı “${me.o}” sözcüğüdür.`, `Metindeki “${me.k}” sözcüğünün eş anlamlısı “${((ZIT.find(x => x.includes(me.w)) || []).find(w => w !== me.w)) || z[0][1]}” sözcüğüdür.`) : f(`“${e[0][0]}” ile “${e[0][1]}” eş anlamlı sözcüklerdir.`, `“${z[0][0]}” ile “${z[0][1]}” eş anlamlı sözcüklerdir.`),
+      mz ? f(`Metindeki “${mz.k}” sözcüğünün zıt anlamlısı “${mz.o}” sözcüğüdür.`, `Metindeki “${mz.k}” sözcüğünün zıt anlamlısı “${((ES.find(x => x.includes(mz.w)) || []).find(w => w !== mz.w)) || e[1][1]}” sözcüğüdür.`) : f(`“${z[1][0]}” ile “${z[1][1]}” zıt anlamlı sözcüklerdir.`, `“${e[1][0]}” ile “${e[1][1]}” zıt anlamlı sözcüklerdir.`),
       f(`“${d[0][0]}” deyimi “${d[0][1]}” anlamındadır.`, `“${d[0][0]}” deyimi “${d[1][1]}” anlamındadır.`),
       f(`“${ATA[a0][0]}” atasözü “${ATA[a0][1]}” anlamındadır.`, `“${ATA[a0][0]}” atasözü “${ATA[a1][1]}” anlamındadır.`),
       f(`“${n[0][0]}” cümlesinin sonuna ${ISAD[n[0][1]]} konur.`, `“${n[0][0]}” cümlesinin sonuna ${ISAD[n[0][1] === '.' ? '?' : '.']} konur.`),

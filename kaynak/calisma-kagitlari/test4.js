@@ -7,7 +7,7 @@ module.exports = ({ S }) => {
   const H = 'ABCD';
   const R = s => { let x = 0; for (const c of String(s)) x = (x * 31 + c.charCodeAt(0)) >>> 0; return () => ((x = (x * 1103515245 + 12345) >>> 0) / 4294967296); };
   const karistir = (l, t) => { const r = R(t), a = [...l]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-  const altCiz = s => s.replace(/(?<!\p{L})(değildir|yanlıştır|söylenemez|olamaz|yapmamalıdır|yapılmamalıdır|etmemelidir|ulaşamaz|yoktur|almaz|yapılamaz|bulunmaz|kullanılmaz|edemez|ulaşılamaz|gerekmez|çıkarılamaz|ulaşılamaz|uygun değildir|hatalıdır|yanlış|değil|\p{L}+(?:mamıştır|memiştir|mamaktadır|memektedir|namaz|nemez|ılamaz|ilemez|ulamaz|ülemez|maması|memesi|mamalıdır|memelidir))(?!\p{L})/gu, '<u>$1</u>');
+  const altCiz = s => /(^|\s)(neden|niçin|niye)(\s|$)/i.test(s) ? s : s.replace(/(?<!\p{L})(değildir|yanlıştır|söylenemez|olamaz|yapmamalıdır|yapılmamalıdır|etmemelidir|ulaşamaz|yoktur|almaz|yapılamaz|bulunmaz|kullanılmaz|edemez|ulaşılamaz|gerekmez|çıkarılamaz|ulaşılamaz|uygun değildir|hatalıdır|yanlış|değil|\p{L}+(?:mamıştır|memiştir|mamaktadır|memektedir|namaz|nemez|ılamaz|ilemez|ulamaz|ülemez|maması|memesi|mamalıdır|memelidir))(?!\p{L})/gu, '<u>$1</u>');
   // Seçenek dizisi + doğru seçenek değeri → karıştırılmış seçenekler ve doğru indeks
   const sec = (dogru, yanlislar, t, sirali) => { const l = sirali ? [dogru, ...yanlislar].sort((a, b) => String(a).localeCompare(String(b), 'tr', { numeric: true })) : karistir([dogru, ...yanlislar.slice(0, 3)], t); return { l, d: l.indexOf(dogru) }; };
   // Ana soru kalıbı: ic = senaryo + görsel (HTML), kok = soru kökü, secenek = {l, d}
