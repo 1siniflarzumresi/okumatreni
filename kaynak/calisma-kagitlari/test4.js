@@ -128,7 +128,7 @@ module.exports = ({ S }) => {
   // Sütun grafiği
   const grafik = (baslik, et, de, birim, renk = '#3a86ff') => { const m = Math.max(...de), bw = 200 / et.length; const adim = m <= 10 ? 2 : m <= 20 ? 5 : m <= 50 ? 10 : m <= 100 ? 20 : m <= 500 ? 100 : 1000, ust = Math.ceil(m / adim) * adim; let s = '';
     for (let v = 0; v <= ust; v += adim) { const y = 110 - v / ust * 95; s += `<line x1="34" y1="${y}" x2="240" y2="${y}" stroke="#e3ecf5"/><text x="30" y="${y + 3}" text-anchor="end" font-size="8">${v}</text>`; }
-    et.forEach((e, i) => { const x = 38 + i * bw, bh = de[i] / ust * 95; s += `<rect x="${x + bw * .18}" y="${110 - bh}" width="${bw * .64}" height="${bh}" rx="2" fill="${renk}"/><text x="${x + bw / 2}" y="122" text-anchor="middle" font-size="8">${e}</text>`; });
+    et.forEach((e, i) => { const x = 38 + i * bw, bh = de[i] / ust * 95; s += `<rect x="${x + bw * .18}" y="${110 - bh}" width="${bw * .64}" height="${bh}" rx="2" fill="${renk}"/><text x="${x + bw / 2}" y="${107 - bh}" text-anchor="middle" font-size="8" font-weight="700">${de[i]}</text><text x="${x + bw / 2}" y="122" text-anchor="middle" font-size="8">${e}</text>`; });
     return `<div class="t4-g"><b>${baslik}</b>${S(245, 128, s + `<line x1="34" y1="15" x2="34" y2="110" stroke="#1f2a24"/><line x1="34" y1="110" x2="240" y2="110" stroke="#1f2a24"/><text x="4" y="10" font-size="8" fill="#5b6b7b">${birim}</text>`, 80)}</div>`; };
 
 
@@ -138,7 +138,7 @@ module.exports = ({ S }) => {
   const kacTane = (ic, ifadeler, kok = 'Buna göre verilen ifadelerden kaç tanesi doğrudur?') => { const n = ifadeler.filter(x => x[1]).length; const l = [1, 2, 3, 4].includes(n) ? [1, 2, 3, 4] : [0, 1, 2, 3, 4].filter(x => x !== (n === 0 ? 4 : 0)).slice(0, 4); return soru(ic + `<ul class="t4-madde">${ifadeler.map(([s]) => `<li>${s}</li>`).join('')}</ul>`, kok, { l: l.map(String), d: l.indexOf(n) }, { kolon: 4, tip: 'kacTane' }); };
   // Kare yürüyüşü: doğruysa sağa a, yanlışsa sola b kare
   const kareYol = (giris, ifadeler, t, sag = 2, sol = 1) => { let x = 0; ifadeler.forEach(([, d]) => x += d ? sag : -sol);
-    const sl = ['E', 'D', 'C', 'B', 'A'], sg = ['1', '2', '3', '4', '5', '6'], ad = v => v === 0 ? '0' : v < 0 ? sl[5 + v] : sg[v - 1]; ifadeler = karistir(ifadeler, R('ky' + t));
+    const sl = ['T', 'S', 'R', 'P', 'N'], sg = ['1', '2', '3', '4', '5', '6'], ad = v => v === 0 ? '0' : v < 0 ? sl[5 + v] : sg[v - 1]; ifadeler = karistir(ifadeler, R('ky' + t));
     const kare = (s, r) => `<span class="t4-kare" style="--kr:${r}">${s}</span>`;
     const ic = p(giris) + `<div class="t4-kareler">${sl.map(s => kare(s, '#8b5cf6')).join('')}<span class="t4-kisi">${avatar(t.length % 6, 10)}${kare('0', '#12b886')}</span>${sg.map(s => kare(s, '#1d6fd8')).join('')}</div>` + p(`Başlangıç karesi 0'dır. Bilgi doğruysa sağa ${sag} kare, yanlışsa sola ${sol} kare ilerliyor.`) + `<ul class="t4-madde">${ifadeler.map(([s]) => `<li>${s}</li>`).join('')}</ul>`;
     const dogru = ad(x); const aday = [...sl, '0', ...sg].filter(v => v !== dogru); const y = karistir(aday.filter(v => Math.abs((sg.includes(v) ? +v : -(5 - sl.indexOf(v))) - x) <= 3), t).slice(0, 3);

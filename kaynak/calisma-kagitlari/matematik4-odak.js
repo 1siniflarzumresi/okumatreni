@@ -218,8 +218,7 @@ module.exports = H => {
       return coktan(p(`${ad(r)} kâğıda bir açı çizdi. Açının köşesine ${k}, kollarının üzerine ${x} ve ${y} harflerini yazdı.`), 'Bu açı nasıl adlandırılır?', `∠${x}${k}${y}`, [`∠${k}${x}${y}`, `∠${x}${y}${k}`, `∠${k}${y}${x}`]); },
     r => { const [a1, a2] = ikiAd(r), m = tam(r, 5, 8), n = tam(r, 3, m - 1);
       return coktan(p(`${a1} ve ${a2} kâğıttan kestikleri dilimlerle açı ölçüyor. ${ilgi(a2)} kullandığı dilim, ${ilgi(a1)} diliminin iki katı büyüklüğünde. ${ilgi(a1)} açısına ${m} küçük dilim, ${ilgi(a2)} açısına ${n} büyük dilim sığdı.`), 'Hangi açı daha büyüktür?', 2 * n > m ? `${ilgi(a2)} açısı` : 2 * n < m ? `${ilgi(a1)} açısı` : 'İki açı eşittir', [`${ilgi(a2)} açısı`, `${ilgi(a1)} açısı`, 'İki açı eşittir', 'Karşılaştırılamaz'].filter(x => x !== (2 * n > m ? `${ilgi(a2)} açısı` : 2 * n < m ? `${ilgi(a1)} açısı` : 'İki açı eşittir'))); },
-    r => coktan(p(`${ad(r)} duvar saatine bakıyor. Akrep ile yelkovan arasında bir açı oluştuğunu fark etti.`), 'Bu açının köşesi neresidir?', 'Akrep ile yelkovanın birleştiği nokta', ['Yelkovanın ucu', 'Saatteki 12 rakamı', 'Akrebin ucu']),
-    r => coktan(p(`${ad(r)} sınıfta düzlem modeli olabilecek bir yüzey arıyor.`), 'Aşağıdakilerden hangisi düzlem modeline örnektir?', 'Masanın üst yüzü', ['Bir top', 'Bir ipin ucu', 'Kalemin sivri ucu'])];
+    r => coktan(p(`${ad(r)} duvar saatine bakıyor. Akrep ile yelkovan arasında bir açı oluştuğunu fark etti.`), 'Bu açının köşesi neresidir?', 'Akrep ile yelkovanın birleştiği nokta', ['Yelkovanın ucu', 'Saatteki 12 rakamı', 'Akrebin ucu'])];
 
   O[27] = [
     r => { const a = sec1(r, [10, 20, 30, 40]), b = a + sec1(r, [45, 60, 70, 90, 110]);
@@ -301,8 +300,15 @@ module.exports = H => {
       return coktan(p(`${ad(r)} terazinin sol kefesine "${a} × ${b}", sağ kefesine "${c}" yazan kartı koydu. Terazi dengede değil.`), 'Teraziyi dengelemek için sağ kefeye hangi kart eklenmelidir?', `+ ${d}`, [`+ ${a * b}`, `+ ${d + 2}`, `+ ${a + b}`]); },
     r => { const y = sec1(r, [3, 4, 6]), t = tam(r, 1, 3), k = tam(r, 1, y - 1);
       return coktan(p(`${ad(r)}, her biri ${y} dilime bölünmüş börekten ${t} tanesini bütün olarak, bir tanesinden de ${k} dilim aldı.`), 'Aldığı börek miktarını gösteren kesir hangisidir?', `${t} tam ${k}/${y}`, [`${k} tam ${t}/${y}`, `${t + k}/${y}`, `${t} tam ${y}/${k}`]); });
+  O[20].yalniz = true;
   O[20].push(
-    r => { const y = sec1(r, [6, 8, 10]), a = tam(r, 1, y - 2);
+    r => { const y = sec1(r, [7, 9, 11]), a = tam(r, 1, 3), b = tam(r, 1, 3), c = tam(r, 2, y - 1), [a1, a2] = ikiAd(r), t = a + b;
+      if (t === c) return O[20][0](r);
+      return coktan(p(`${a1} bir pizzanın ${a}/${y} kesri kadarını öğlen, ${b}/${y} kesri kadarını akşam yedi. ${a2} aynı büyüklükteki pizzanın ${c}/${y} kesri kadarını yedi.`), 'Hangisi doğrudur?', t > c ? `${a1} daha çok yemiştir.` : `${a2} daha çok yemiştir.`, [t > c ? `${a2} daha çok yemiştir.` : `${a1} daha çok yemiştir.`, 'İkisi eşit yemiştir.', 'Karşılaştırılamaz.']); },
+    r => { const y = sec1(r, [8, 10, 12]), a = tam(r, 1, 4), b = tam(r, 2, y - a - 1), t = a + b;
+      return coktan(p(`${ad(r)} bir yapbozun ${a}/${y} kesri kadarını tamamlamıştı. Bugün biraz daha yaptı ve yapbozun ${t}/${y} kesri kadarı tamamlandı.`), 'Bugün yapbozun ne kadarını yapmıştır?', `${b}/${y}`, [`${t}/${y}`, `${a + t}/${y}`, `${b}/${2 * y}`]); });
+  O[20].push(
+    r => { const y = sec1(r, [6, 8, 10]), a0 = tam(r, 1, y - 2), a = a0 * 2 === y ? a0 - 1 : a0;
       return coktan(p(`${ad(r)} bir şişe suyun ${a}/${y} kesri kadarını içti.`), 'Şişede suyun ne kadarı kalmıştır?', `${y - a}/${y}`, [`${a}/${y}`, `${y}/${y - a}`, `${y - a}/${a}`]); },
     r => { const y = sec1(r, [5, 7, 9]), a = tam(r, 1, 2), b = tam(r, 1, 2), c = tam(r, 1, 2);
       return coktan(p(`${ad(r)} bir kitabın ${a}/${y} kesri kadarını pazartesi, ${b}/${y} kesri kadarını salı, ${c}/${y} kesri kadarını çarşamba okudu.`), 'Üç günde kitabın ne kadarını okumuştur?', `${a + b + c}/${y}`, [`${a + b + c}/${3 * y}`, `${a * b * c}/${y}`, `${a + b + c + 1}/${y}`]); },

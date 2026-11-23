@@ -208,7 +208,7 @@ module.exports = ({ T, S }) => {
         ifade(r, v => `Paydası pay ile aynı olan kesir ${v} eşittir.`, 'bir bütüne', 'yarıma'),
         ifade(r, v => `${b + 3}/${b} kesri tam sayılı olarak ${v} şeklinde yazılır.`, `1 tam 3/${b}`, `3 tam 1/${b}`)]; },
     es: r => { const b = tam(r, 6, 9); return [[`${b * 4} sayısının 1/4 kadarı`, String(b)], [`${b * 3} sayısının 1/3 kadarı`, String(b + 0 === b ? b : b)].map((x, i) => i ? String(b) : x), [`${(b + 1) * 2} sayısının yarısı`, String(b + 1)], [`${(b + 2) * 5} sayısının 1/5 kadarı`, String(b + 2)], [`${(b + 3) * 6} sayısının 1/6 kadarı`, String(b + 3)]].filter((x, i) => i !== 1); },
-    sr: r => { const l = kar(r, [3, 4, 5, 6, 8, 9, 10]).slice(0, 4).sort((a, b) => b - a); return { giris: `${ad(r)} bir pastayı eşit parçalara bölen dört arkadaşın aldığı payları kartlara yazdı. Her arkadaş bir parça aldı.`, adim: l.map(x => `1/${x}`), kok: 'Kesirler küçükten büyüğe doğru hangi sırayla dizilir?' }; },
+    sr: r => { const l = kar(r, [3, 4, 5, 6, 8, 9, 10]).slice(0, 4).sort((a, b) => b - a); return { giris: `${ad(r)} ve üç arkadaşı aynı büyüklükte dört pasta aldı. Her pasta farklı sayıda eş parçaya bölündü; her arkadaş kendi pastasından bir parça yedi ve payını karta yazdı.`, adim: l.map(x => `1/${x}`), kok: 'Kesirler küçükten büyüğe doğru hangi sırayla dizilir?' }; },
     cq: [
       r => { const b = sec1(r, [4, 5, 6, 8]), a = tam(r, 1, b - 1), n = b * tam(r, 4, 9), x = n / b * a;
         return coktan(p(`${ad(r)} adlı öğrencinin ${n} çıkartması var. Çıkartmalarının ${a}/${b} kadarını kardeşine verdi.`), 'Kardeşine kaç çıkartma vermiştir?', String(x), yanN(x, [n / b, n - x, x + a, n / a])); },
@@ -305,7 +305,7 @@ module.exports = ({ T, S }) => {
       r => coktan(p(`${ad(r)} oyuncak kutusundan bir cisim çıkardı. Cismin 6 yüzünün her birinin kenarlarını cetvelle ölçtü; bütün kenarlar 4 cm çıktı.`), 'Bu cisim hangisidir?', 'Küp', ['Dikdörtgen prizma', 'Üçgen prizma', 'Silindir']),
       r => { const n = sec1(r, [5, 6, 8]), adlar = { 5: 'Beşgen', 6: 'Altıgen', 8: 'Sekizgen' };
         return coktan(p(`${ad(r)} aşağıdaki şeklin köşelerini saydı.`) + `<div class="m4-sekil">${sekilSvg(n, '#fff3c4')}</div>`, 'Bu şeklin adı nedir?', adlar[n], Object.values(adlar).filter(x => x !== adlar[n]).concat(['Dörtgen'])); },
-      r => coktan(p(`${ad(r)} bahçede çiçek tarhı için bir alan işaretledi. Dört kenarı ölçtü, hepsi 5 m çıktı; dört köşesi de dik açı.`), 'İşaretlenen alan hangi şekildedir?', 'Kare', ['Dikdörtgen', 'Beşgen', 'Üçgen']),
+      r => coktan(p(`${ad(r)} bahçede çiçek tarhı için bir alan işaretledi. Dört kenarı ölçtü, hepsi 5 m çıktı; dört köşesi de dik açı.`), 'İşaretlenen alan hangi şekildedir?', 'Kare', ['Üçgen', 'Beşgen', 'Altıgen']),
     ],
     ort: r => ({ ic: p('Bir öğrenci kibrit çöpleriyle yan yana 3 eş kare yaptı. Ortak kenarlarda tek çöp kullandı.') + S(130, 40, [0, 1, 2].map(i => `<rect x="${5 + i * 40}" y="5" width="40" height="30" fill="#fff6dc" stroke="#8e5b2b" stroke-width="3"/>`).join(''), 40),
       q: [() => coktan('', 'Kaç kibrit çöpü kullanmıştır?', '10', ['12', '9', '11']), () => coktan('', 'Aynı kuralla 5 kare yaparsa kaç çöp kullanır?', '16', ['20', '15', '18'])] }),
@@ -334,8 +334,8 @@ module.exports = ({ T, S }) => {
       q: [() => coktan('', 'Saat 3.00\'teki açı hangi türdendir?', 'Dik açı', ['Dar açı', 'Geniş açı', 'Açı oluşmaz']), () => coktan('', 'Saat 5.00\'teki açı hangi türdendir?', 'Geniş açı', ['Dar açı', 'Dik açı', 'Açı oluşmaz'])] }),
   };
   // 10b) Açının elemanları, adlandırma (∠), düzlem, standart olmayan birimle açı ölçme (M.4.2.3.1-3)
-  const aciAdli = (d, [a, b, c]) => { const r1 = 58, x = 20 + r1 * Math.cos(-d * Math.PI / 180), y = 72 + r1 * Math.sin(-d * Math.PI / 180);
-    return S(110, 88, `<line x1="20" y1="72" x2="100" y2="72" stroke="#1f2a24" stroke-width="2"/><line x1="20" y1="72" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#1f2a24" stroke-width="2"/>` + [[20, 72, b], [100, 72, c], [x, y, a]].map(([px, py, t]) => `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="2.5" fill="#e63946"/><text x="${(px - 3).toFixed(1)}" y="${(py + (py > 70 ? 12 : -4)).toFixed(1)}" font-size="10">${t}</text>`).join(''), 34); };
+  const aciAdli = (d, [a, b, c]) => { const r1 = 58, x = 30 + r1 * Math.cos(-d * Math.PI / 180), y = 72 + r1 * Math.sin(-d * Math.PI / 180);
+    return S(120, 88, `<line x1="30" y1="72" x2="110" y2="72" stroke="#1f2a24" stroke-width="2"/><line x1="30" y1="72" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#1f2a24" stroke-width="2"/>` + [[30, 72, b], [110, 72, c], [x, y, a]].map(([px, py, t]) => `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="2.5" fill="#e63946"/><text x="${(px - 3).toFixed(1)}" y="${(py + (py > 70 ? 12 : -4)).toFixed(1)}" font-size="10">${t}</text>`).join(''), 34); };
   KONU.aci = {
     gir: 'Öğretmen tahtaya açılarla ilgili bilgiler yazdı.',
     st: r => [ifade(r, v => `Açıyı oluşturan ışınlara açının ${v} denir.`, 'kolları', 'köşesi'), ifade(r, v => `İki kolun başladığı ortak noktaya açının ${v} denir.`, 'köşesi', 'kolu'),
@@ -398,7 +398,7 @@ module.exports = ({ T, S }) => {
       r => { const k = tam(r, 2, 5), m = tam(r, 1, 9) * 100, t = k * 1000 + m;
         return coktan(p(`Okul ile stadyum arası ${k} km ${m} m'dir.`.replace(`${m} m'dir`, `${m} metredir`)), 'Bu uzaklık kaç metredir?', f(t), yanN(t, [k * 100 + m, k + m, t + 1000, k * 1000])); },
     ],
-    ort: r => { const a = tam(r, 12, 25) * 100, b = tam(r, 8, 18) * 100, c = tam(r, 5, 12) * 100, t = a + b + c;
+    ort: r => { const a = tam(r, 1200, 2500), b = tam(r, 800, 1800), c = tam(r, 500, 1200), t = a + b + c;
       return { ic: p(`Bir bisiklet yolu üç bölümden oluşuyor: Birinci bölüm ${f(a)} m, ikinci bölüm ${f(b)} m, üçüncü bölüm ${f(c)} m.`),
         q: [() => coktan('', 'Yolun tamamı kaç metredir?', f(t), yanN(t, [a + b, t + 100, t - 1000, b + c])), () => coktan('', 'Yolun tamamı en yakın yüzlüğe yuvarlanırsa kaç metre olur?', f(yuvarla(t, 100)), yanN(yuvarla(t, 100), [yuvarla(t, 10), yuvarla(t, 100) + 100, yuvarla(t, 1000), t]))] }; },
   };
@@ -513,7 +513,7 @@ module.exports = ({ T, S }) => {
       () => kapDY(cerceve(K.gir, 'p', r), kar(r, K.st(r)).slice(0, 5), t + 'p')],
     (K, r, t) => [() => { let l, n = 0; do { l = kar(r, K.st(r)).slice(0, 3); } while (!l.some(x => x[1]) && ++n < 50); return roma(p(cerceve(K.gir, 'n', r)), 'Buna göre yukarıdaki ifadelerden hangileri doğrudur?', l); },
       () => { const s = K.sr(r); return sirala(s.giris, s.adim, s.kok, t + 's'); },
-      () => esle('Soldaki ifadeleri sağdaki eşleriyle eşleştiriniz.', K.es(r), 'Buna göre eşleştirme hangi seçenekte doğru verilmiştir?', t + 'e')],
+      () => esle(`${ad(r)}, matematik panosundaki kartları eşleştiriyor: soldaki her kart sağdaki eşine bağlanacak.`, K.es(r), 'Buna göre eşleştirme hangi seçenekte doğru verilmiştir?', t + 'e')],
     (K, r, t) => [() => kacTane(p(cerceve(K.gir, 'n', r)), kar(r, K.st(r)).slice(0, 4)),
       () => kareYol(cerceve(K.gir, 'q', r), kar(r, K.st(r)).slice(0, 4), t + 'q', 1, 1),
       () => { const st = [...new Map(K.st(r).concat(K.st(r)).map(x => [x[0], x])).values()]; const y = st.find(x => !x[1]) || st[0], d = kar(r, st.filter(x => x[1])).slice(0, 3);
@@ -527,7 +527,7 @@ module.exports = ({ T, S }) => {
     const cq = []; const mx = Math.max(...K.map(k => k.cq.length)); for (let i = 0; i < mx; i++) K.forEach(k => { if (k.cq[i]) cq.push(k.cq[i]); });
     // aynı kalıp aynı kâğıtta iki kez çıkmasın: soru metninin rakamsız ilk 45 harfi imza; tekrar çıkarsa numara geri alınıp sıradaki üreteç denenir
     const imza = h => ADLAR.reduce((s, a) => s.split(a).join(''), String(h)).replace(/<[^>]+>/g, ' ').replace(/[\d.,]+/g, '#').replace(/\s+/g, ' ').trim().slice(0, 45);
-    const odak = (ODAK[hafta] || []).map(g => r => g(r)), havuz = [...kar(r, odak), ...kar(r, cq)], gor = new Set(); let hi = 0;
+    const odak = (ODAK[hafta] || []).map(g => r => g(r)), havuz = ODAK[hafta] && ODAK[hafta].yalniz ? kar(r, odak) : [...kar(r, odak), ...kar(r, cq)], gor = new Set(); let hi = 0;
     const kul = new Set(); const sonraki = (yed) => { for (let n = 0; n < havuz.length; n++) { const i = (hi + n) % havuz.length; if (kul.has(i)) continue; const st = T.an(), h = havuz[i](r), im = imza(h); kul.add(i); if (gor.has(im)) { T.geriAl(st); continue; } gor.add(im); hi = i + 1; return h; } if (yed) return null; return havuz[hi++ % havuz.length](r); };
     const o = K[K.length - 1].ort(r);
     const A = [sp[0](), sonraki(), sonraki(), sp[1](), sonraki(), sonraki()];

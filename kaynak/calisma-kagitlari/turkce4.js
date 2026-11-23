@@ -13,7 +13,28 @@ module.exports = ({ T, S }) => {
   const ES = [['cevap', 'yanıt'], ['öğrenci', 'talebe'], ['armağan', 'hediye'], ['yurt', 'vatan'], ['kırmızı', 'al'], ['siyah', 'kara'], ['ihtiyar', 'yaşlı'], ['misafir', 'konuk'], ['sınav', 'imtihan'], ['okul', 'mektep'], ['hekim', 'doktor'], ['kelime', 'sözcük'], ['istek', 'arzu'], ['yıl', 'sene'], ['zaman', 'vakit'], ['soru', 'sual'], ['sevinç', 'neşe'], ['yürek', 'kalp'], ['hızlı', 'çabuk'], ['ödül', 'mükâfat'], ['güzel', 'hoş'], ['fikir', 'düşünce'], ['millet', 'ulus'], ['kuvvet', 'güç'], ['doğa', 'tabiat'], ['ilgi', 'alaka'], ['hayal', 'düş'], ['yardım', 'destek'], ['beyaz', 'ak'], ['anı', 'hatıra'], ['şehir', 'kent'], ['dost', 'arkadaş']];
   const ZIT = [['uzun', 'kısa'], ['sıcak', 'soğuk'], ['geniş', 'dar'], ['erken', 'geç'], ['kolay', 'zor'], ['temiz', 'kirli'], ['cesur', 'korkak'], ['eski', 'yeni'], ['ağır', 'hafif'], ['derin', 'sığ'], ['çalışkan', 'tembel'], ['gece', 'gündüz'], ['iç', 'dış'], ['ileri', 'geri'], ['büyük', 'küçük'], ['yüksek', 'alçak'], ['açık', 'kapalı'], ['iyi', 'kötü'], ['ilk', 'son'], ['az', 'çok'], ['genç', 'yaşlı'], ['önce', 'sonra'], ['mutlu', 'mutsuz'], ['sessiz', 'gürültülü'], ['hızlı', 'yavaş'], ['doğru', 'yanlış'], ['kalın', 'ince'], ['tatlı', 'acı'], ['dolu', 'boş'], ['aydınlık', 'karanlık'], ['güçlü', 'güçsüz'], ['kuru', 'ıslak'], ['zengin', 'yoksul']];
   const DEYIM = [['kulak vermek', 'dikkatle dinlemek'], ['göz atmak', 'kısaca bakmak'], ['eli açık olmak', 'cömert olmak'], ['ağzı kulaklarına varmak', 'çok sevinmek'], ['kalbini kırmak', 'birini üzmek'], ['dili tutulmak', 'şaşırıp konuşamamak'], ['ayağını denk almak', 'dikkatli davranmak'], ['burnu havada olmak', 'kibirli olmak'], ['gözden düşmek', 'değerini yitirmek'], ['içi içine sığmamak', 'çok heyecanlanmak'],
-    ['etekleri zil çalmak', 'çok sevinçli olmak'], ['göz kulak olmak', 'korumak ve gözetmek'], ['ağzı açık kalmak', 'çok şaşırmak'], ['eli kulağında olmak', 'olmak üzere olmak'], ['dört gözle beklemek', 'büyük bir istekle beklemek'], ['burun kıvırmak', 'beğenmemek'], ['kulak asmamak', 'önemsememek'], ['sözünü tutmak', 'verdiği sözü yerine getirmek'], ['el ele vermek', 'birlikte çalışmak'], ['gözü yemek', 'bir işi yapmayı göze almak']];
+    ['etekleri zil çalmak', 'çok sevinçli olmak'], ['göz kulak olmak', 'korumak ve gözetmek'], ['ağzı açık kalmak', 'çok şaşırmak'], ['eli kulağında olmak', 'çok yakında gerçekleşecek olmak'], ['dört gözle beklemek', 'büyük bir istekle beklemek'], ['burun kıvırmak', 'beğenmemek'], ['kulak asmamak', 'önemsememek'], ['sözünü tutmak', 'verdiği sözü yerine getirmek'], ['el ele vermek', 'birlikte çalışmak'], ['gözü yemek', 'bir işi yapmayı göze almak']];
+  const DEYIM_C = {
+    'kulak vermek': 'Öğretmen konuşurken bütün sınıf ona kulak verdi.',
+    'göz atmak': 'Babam gazeteye şöyle bir göz attı ve masaya bıraktı.',
+    'eli açık olmak': 'Dedemin eli açıktır; bayramda bütün torunlarına harçlık verir.',
+    'ağzı kulaklarına varmak': 'Kaan karnesini görünce ağzı kulaklarına vardı.',
+    'kalbini kırmak': 'Elif arkadaşına kaba bir söz söyleyerek onun kalbini kırdı.',
+    'dili tutulmak': 'Sahneye çıkınca heyecandan dili tutuldu, tek söz söyleyemedi.',
+    'ayağını denk almak': 'Öğretmen uyarınca öğrenciler ayaklarını denk aldı.',
+    'burnu havada olmak': 'Yeni bisikleti alınca burnu havada oldu, kimseyle konuşmadı.',
+    'gözden düşmek': 'Sürekli yalan söyleyen çocuk arkadaşlarının gözünden düştü.',
+    'içi içine sığmamak': 'Yarınki geziyi düşündükçe içi içine sığmıyordu.',
+    'etekleri zil çalmak': 'Bayram sabahı Zeynep\'in etekleri zil çalıyordu.',
+    'göz kulak olmak': 'Annem markete giderken kardeşime göz kulak olmamı istedi.',
+    'ağzı açık kalmak': 'Sihirbazın gösterisini izleyen çocukların ağzı açık kaldı.',
+    'eli kulağında olmak': 'Kara bulutlar toplandı, yağmurun eli kulağında.',
+    'dört gözle beklemek': 'Yaz tatilini dört gözle bekliyorum.',
+    'burun kıvırmak': 'Kardeşim sebze yemeğine burun kıvırdı.',
+    'kulak asmamak': 'Uyarılara kulak asmayan çocuk düşüp dizini yaraladı.',
+    'sözünü tutmak': 'Mert arkadaşına kitabı getireceğini söylemişti, sözünü tuttu.',
+    'el ele vermek': 'Mahalleli el ele verip parkı temizledi.',
+    'gözü yemek': 'Ağacın tepesindeki kediyi kurtarmayı kimsenin gözü yemedi.' };
   const ATA = [['Damlaya damlaya göl olur.', 'Küçük birikimler zamanla büyür.'], ['Bugünün işini yarına bırakma.', 'İşleri zamanında yapmalıyız.'], ['Bir elin nesi var, iki elin sesi var.', 'Birlikte çalışmak başarı getirir.'], ['Ağaç yaşken eğilir.', 'Eğitim küçük yaşta başlamalıdır.'], ['Sakla samanı, gelir zamanı.', 'Gereksiz görünen şey bir gün işe yarar.'], ['Komşu komşunun külüne muhtaçtır.', 'Komşular zor günde birbirine yardım eder.'],
     ['Sabreden derviş muradına ermiş.', 'Sabırlı olan sonunda isteğine kavuşur.'], ['Tatlı dil yılanı deliğinden çıkarır.', 'Güzel söz en zor insanı bile yumuşatır.'], ['Ayağını yorganına göre uzat.', 'Harcamanı gelirine göre yap.'], ['Üzüm üzüme baka baka kararır.', 'İnsanlar arkadaşlarından etkilenir.'], ['İşleyen demir ışıldar.', 'Çalışan kişi gelişir ve parlar.'], ['Görünen köy kılavuz istemez.', 'Apaçık olan şey için kanıt gerekmez.']];
   const NOKTA = [['Ne güzel bir gün', '!'], ['Yarın okula gelecek misin', '?'], ['Kitabımı masaya koydum', '.'], ['Eyvah, süt taştı', '!'], ['Bu kitabı kim yazmış', '?'], ['Annem bahçede çiçek suluyor', '.'], ['Hangi takımı tutuyorsun', '?'], ['Yaşasın, tatil başladı', '!'], ['Dedem her sabah yürüyüş yapar', '.'], ['Saat kaçta buluşalım', '?'], ['Aman, düşeceksin', '!'], ['Kedimiz pencerenin önünde uyuyor', '.']];
@@ -38,8 +59,8 @@ module.exports = ({ T, S }) => {
     [e[0], e[1], e[2], z[0], z[1], z[2], d[0], n[0]].forEach(kul1); if (ai[0] != null) KUL.add(ATA[ai[0]][0]);
     const f = (t, y) => r() < .5 ? [t, true] : [y, false];
     const a0 = ai[0], a1 = ai.find(i => i !== a0 && (!ATA_G[a0] || ATA_G[i] !== ATA_G[a0]));
-    return [me ? f(`Metindeki “${me.k}” sözcüğünün eş anlamlısı “${me.o}” sözcüğüdür.`, `Metindeki “${me.k}” sözcüğünün eş anlamlısı “${((ZIT.find(x => x.includes(me.w)) || []).find(w => w !== me.w)) || z[0][1]}” sözcüğüdür.`) : f(`“${e[0][0]}” ile “${e[0][1]}” eş anlamlı sözcüklerdir.`, `“${z[0][0]}” ile “${z[0][1]}” eş anlamlı sözcüklerdir.`),
-      mz ? f(`Metindeki “${mz.k}” sözcüğünün zıt anlamlısı “${mz.o}” sözcüğüdür.`, `Metindeki “${mz.k}” sözcüğünün zıt anlamlısı “${((ES.find(x => x.includes(mz.w)) || []).find(w => w !== mz.w)) || e[1][1]}” sözcüğüdür.`) : f(`“${z[1][0]}” ile “${z[1][1]}” zıt anlamlı sözcüklerdir.`, `“${e[1][0]}” ile “${e[1][1]}” zıt anlamlı sözcüklerdir.`),
+    return [me ? f(`Metindeki “${me.k}” sözcüğünün eş anlamlısı “${me.o}” sözcüğüdür.`, (() => { const z1 = (ZIT.find(x => x.includes(me.w)) || []).find(w => w !== me.w); return z1 ? `Metindeki “${me.k}” sözcüğünün eş anlamlısı “${z1}” sözcüğüdür.` : `Metindeki “${me.k}” sözcüğünün zıt anlamlısı “${me.o}” sözcüğüdür.`; })()) : f(`“${e[0][0]}” ile “${e[0][1]}” eş anlamlı sözcüklerdir.`, `“${z[0][0]}” ile “${z[0][1]}” eş anlamlı sözcüklerdir.`),
+      mz ? f(`Metindeki “${mz.k}” sözcüğünün zıt anlamlısı “${mz.o}” sözcüğüdür.`, (() => { const es1 = (ES.find(x => x.includes(mz.w)) || []).find(w => w !== mz.w); return es1 ? `Metindeki “${mz.k}” sözcüğünün zıt anlamlısı “${es1}” sözcüğüdür.` : `Metindeki “${mz.k}” sözcüğünün eş anlamlısı “${mz.o}” sözcüğüdür.`; })()) : f(`“${z[1][0]}” ile “${z[1][1]}” zıt anlamlı sözcüklerdir.`, `“${e[1][0]}” ile “${e[1][1]}” zıt anlamlı sözcüklerdir.`),
       f(`“${d[0][0]}” deyimi “${d[0][1]}” anlamındadır.`, `“${d[0][0]}” deyimi “${d[1][1]}” anlamındadır.`),
       f(`“${ATA[a0][0]}” atasözü “${ATA[a0][1]}” anlamındadır.`, `“${ATA[a0][0]}” atasözü “${ATA[a1][1]}” anlamındadır.`),
       f(`“${n[0][0]}” cümlesinin sonuna ${ISAD[n[0][1]]} konur.`, `“${n[0][0]}” cümlesinin sonuna ${ISAD[n[0][1] === '.' ? '?' : '.']} konur.`),
@@ -68,7 +89,7 @@ module.exports = ({ T, S }) => {
   const dilCqB = [
     r => { const e = REZ.ES || kar(r, ES)[0], y = kar(r, ES.filter(x => x !== e)).slice(0, 2).map(x => x[1]).concat(kar(r, ZIT)[0][1]); return coktan(p(`${AD(r)}, kardeşiyle sözcük kartı oyunu oynuyor. Kartta “${e[0]}” yazıyor; aynı anlamdaki kartı bulan puan alacak.`), `“${e[0]}” sözcüğünün eş anlamlısı hangisidir?`, e[1], y); },
     r => { const z = REZ.ZIT || kar(r, ZIT)[0], y = kar(r, ZIT.filter(x => x !== z)).slice(0, 2).map(x => x[1]).concat(kar(r, ES)[0][1]); return coktan(p(`${AD(r)}, sınıftaki “Zıttını Bul” yarışmasında “${z[0]}” kartını çekti.`), `“${z[0]}” sözcüğünün zıt anlamlısı hangisidir?`, z[1], y); },
-    r => { const d = REZ.DEYIM || kar(r, DEYIM)[0]; return coktan(p(`${AD(r)}, okuduğu hikâyede “${d[0]}” deyimiyle karşılaştı ve anlamını tahmin etmeye çalıştı.`), `“${d[0]}” deyiminin anlamı hangisidir?`, d[1], kar(r, DEYIM.filter(x => x !== d)).slice(0, 3).map(x => x[1])); },
+    r => { const d = REZ.DEYIM || kar(r, DEYIM)[0]; return coktan(p(`${AD(r)} okuduğu hikâyede şu cümleyi gördü: “${DEYIM_C[d[0]] || d[0]}”`), `Bu cümledeki “${d[0]}” deyimi hangi anlamda kullanılmıştır?`, d[1], kar(r, DEYIM.filter(x => x !== d)).slice(0, 3).map(x => x[1])); },
     r => { const [sen, k] = REZ.SEN || SEN[0]; return coktan(p(`${AD(r)} ${sen}`), 'Bu durumu en iyi anlatan atasözü hangisidir?', ATA[k][0], kar(r, ATA.filter((_, i) => i !== k && (!ATA_G[k] || ATA_G[i] !== ATA_G[k]))).slice(0, 3).map(x => x[0])); },
     r => { const n = REZ.NOKTA || kar(r, NOKTA)[0]; return coktan(p(`${AD(r)}, arkadaşına yazdığı mektupta bir cümlenin sonundaki işareti unuttu: “${n[0]}”`), 'Cümlenin sonuna hangi işaret konmalıdır?', n[1] + ' (' + ISAD[n[1]] + ')', ['.', '?', '!', ','].filter(x => x !== n[1]).slice(0, 3).map(x => x + ' (' + (ISAD[x] || 'virgül') + ')')); },
   ];
@@ -254,7 +275,7 @@ module.exports = ({ T, S }) => {
       sorular: [['Kardeşler tarlayı neden kazmıştır?', 'Hazine bulmak için', ['Kuyu açmak için', 'Ev yapmak için', 'Ağaç dikmek için']],
         ['Babanın sözündeki “hazine” aslında nedir?', 'Çalışarak elde edilen ürün', ['Toprağa gömülü altın', 'Eski bir sandık', 'Kardeşlerin evi']],
         ['Hikâyenin başında kardeşlerin hangi özelliği vardır?', 'Tembellik', ['Çalışkanlık', 'Cömertlik', 'Cesaret']],
-        ['Bu hikâyeden çıkarılabilecek ders hangisidir?', 'Emek vermeden kazanç elde edilmez.', ['Tarlada hazine aranmalıdır.', 'Babalar her zaman şaka yapar.', 'Buğday yazın ekilir.']],
+        ['Babanın oğullarına bırakmak istediği asıl hazine neydi?', 'Çalışma alışkanlığı', ['Tarladaki altınlar', 'Bir sandık dolusu para', 'Yeni bir tarla']],
         ['Hikâyeye en uygun atasözü hangisidir?', 'Emek olmadan yemek olmaz.', ['Damlaya damlaya göl olur.', 'Ağaç yaşken eğilir.', 'Komşu komşunun külüne muhtaçtır.']]],
       sozcuk: ['hasat', ['olgunlaşan ürünü toplama', 'tohum ekme', 'tarlayı sulama', 'toprağı kazma']],
       sira: ['Çiftçi oğullarını çağırdı.', 'Hazineden söz etti.', 'Kardeşler tarlayı kazdı.', 'Tarlaya buğday ektiler.', 'Bol hasat yaptılar.'] }),

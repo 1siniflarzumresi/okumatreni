@@ -247,7 +247,7 @@ module.exports = ({ T, S }) => {
     const B = [ortak(o.ic, o.q.map(([kok, d, y]) => () => coktan('', kok, d, y))), sp[2](), ...u.slice(4, 6).map(g => g())];
     const AD2 = [...ADLAR, 'Ali', 'Ece', 'Can', 'Aras', 'Eylül', 'Ayşe', 'Lina', 'Deniz', 'Emre', 'Melis', 'Selin'], kisi = x => AD2.some(a => String(x[0]).includes(a));
     const cevaplar = new Set([...cq.map(x => String(x[2])), ...(o.q || []).map(x => String(x[1]))]);
-    const ekH = (H && H.yedekYok ? [] : kar(r, [...cq.slice(6), ...konular.flatMap(k => K[k].cq).filter(x => !cq.includes(x))]).filter(x => kisi(x) && !cevaplar.has(String(x[2])) && (cevaplar.add(String(x[2])), true))).slice(0, 6).map(([ic, kok, d, y]) => yedek(coktan(ic, kok, d, y)));
+    const ekH = (H ? [] : kar(r, cq.slice(6)).filter(x => kisi(x) && !cevaplar.has(String(x[2])) && (cevaplar.add(String(x[2])), true))).slice(0, 6).map(([ic, kok, d, y]) => yedek(coktan(ic, kok, d, y)));
     A.push(...ekH.slice(0, 3)); B.push(...ekH.slice(3));
     return [sayfa(A), sayfa(B).replace(/<\/div>$/, optik() + '</div>'), cevapSayfasi(`${hafta}. hafta · ${baslik}`)];
   } });

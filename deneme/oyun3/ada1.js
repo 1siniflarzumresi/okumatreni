@@ -28,12 +28,12 @@ YER.liman = {
   seviyeler: [['Gemiyi yükle', 'Siparişteki sayı kadar unu yükle.'], ['Yükü oku', 'Gemideki unun sayısını bul.'], ['Paketle', '10 çuvalı bir sandığa, 10 sandığı bir konteynere koy.']],
   bina(){ return `${golge(0, 4, 90)}<path d="M-80 -20 L80 -20 L60 10 L-60 10 Z" fill="#1d4e89"/><rect x="-60" y="-44" width="40" height="24" fill="#e03131"/><rect x="-14" y="-40" width="22" height="20" fill="#c98d55"/><rect x="14" y="-40" width="22" height="20" fill="#c98d55"/><rect x="-4" y="-120" width="8" height="76" fill="#7a4a26"/><path d="M4 -116 L60 -64 L4 -64 Z" fill="#fff" stroke="#ccc"/><path d="M-4 -110 L-50 -64 L-4 -64 Z" fill="#fff" stroke="#ccc"/>`; },
   gorev(lvl, k, ctx){
-    const kaptan = `<g transform="translate(1040 300)">${resA('ordek', 150)}</g>`;
-    const siparis = (t1, t2) => `<g transform="translate(1050 140)"><rect x="-130" y="-70" width="260" height="140" rx="14" fill="#fff" stroke="#1d4e89" stroke-width="4"/><text y="-28" text-anchor="middle" class="ttkb" font-size="26" fill="#1d4e89">${t1}</text><text y="40" text-anchor="middle" class="ttkb" font-size="58" fill="#c0392b">${t2}</text></g>`;
+    const kaptan = `<g transform="translate(800 300)">${resA('ordek', 130)}</g>`;
+    const siparis = (t1, t2) => `<g transform="translate(520 150)"><rect x="-130" y="-70" width="260" height="140" rx="14" fill="#fff" stroke="#1d4e89" stroke-width="4"/><text y="-28" text-anchor="middle" class="ttkb" font-size="26" fill="#1d4e89">${t1}</text><text y="40" text-anchor="middle" class="ttkb" font-size="58" fill="#c0392b">${t2}</text></g>`;
     const kart3 = (n) => { const a = Math.floor(n / 100), b = Math.floor(n / 10) % 10, c = n % 10; return `<b>${n}</b> = ${a * 100} + ${b * 10} + ${c}<small>${a} yüzlük, ${b} onluk, ${c} birlik</small>`; };
     if (lvl === 0) {
       const n = rint(1, 9) * 100 + (k % 3 === 2 ? 0 : rint(1, 9)) * 10 + rint(0, 9), A = Math.floor(n / 100), B = Math.floor(n / 10) % 10, C = n % 10; let a = 0, b = 0, c = 0;
-      const ciz = () => { sv.innerHTML = limanArka() + gemi(a, b, c) + siparis('Sipariş: çuval', n) +
+      const ciz = () => { sv.innerHTML = limanArka() + gemi(a, b, c) + siparis('Sipariş: çuval', n) + kaptan +
         [['k', konteyner, 'Konteyner', 620], ['s', sandik, 'Sandık', 690], ['c', cuval, 'Çuval', 750]].map(([id, f, ad, y], i) => `<g class="kaynak" data-k="${id}" transform="translate(${1000 + i * 0} ${y - 80})" style="cursor:pointer"><rect x="-80" y="-34" width="250" height="64" rx="14" fill="#fff" stroke="#1d4e89" stroke-width="3"/><g transform="translate(-40 -2) scale(${id === 'k' ? .8 : 1.1})">${f()}</g><text x="10" y="10" class="ttkb" font-size="28">${ad}</text></g>`).join('');
         sv.querySelectorAll('.kaynak').forEach(g => g.addEventListener('click', () => { if (KILIT) return; const t = g.dataset.k;
           if ((t === 'k' && a >= 9) || (t === 's' && b >= 9) || (t === 'c' && c >= 9)) { FB('Gemide bu yükten en çok 9 tane olabilir.', false); return; }
@@ -91,7 +91,7 @@ const KARISIM = [['demir tozu ile kum', 'mıknatıs', 'Mıknatıs demir tozunu �
 const ARAC = ['mıknatıs', 'elek', 'süzgeç kâğıdı', 'elle ayıklama'];
 const labArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#e7f5ff"/>${Array.from({ length: 14 }, (_, i) => `<rect x="${-200 + i * 120}" y="0" width="100" height="70" rx="6" fill="#d0ebff"/>`).join('')}
   <rect x="-3000" y="560" width="7200" height="40" fill="#adb5bd"/><rect x="-3000" y="600" width="7200" height="700" fill="#dee2e6"/>
-  <g transform="translate(1110 520) scale(.85)">${baykus()}</g>`;
+  <g transform="translate(1150 520) scale(.8)">${baykus()}</g>`;
 YER.lab = {
   id: 'lab', ad: 'Laboratuvar', ders: 'Fen Bilimleri', beceri: 'Katı, sıvı, gaz; karışımları ayırma', ikon: '⚗️', renk: '#7048e8', harita: { x: 640, y: 440 },
   hikaye: 'Bilge Baykuş adanın laboratuvarında maddeleri inceliyor. Maddeleri katı, sıvı ve gaz kavanozlarına ayır; sonra karışımları ayırmanın yolunu bul.',
@@ -162,7 +162,7 @@ const DEYIM = [['Elif, öğretmeninin anlattıklarını dikkatle dinledi.', 'kul
 const fenerArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#ffe8cc"/><circle cx="160" cy="120" r="60" fill="#ffd43b" opacity=".8"/>
   <rect x="-3000" y="470" width="7200" height="900" fill="#1f8fd6"/><path d="M820 470 Q960 360 1250 380 L4200 380 L4200 470 Z" fill="#8cc97b"/>
   <g transform="translate(1040 400)"><path d="M-40 0 L-26 -260 L26 -260 L40 0 Z" fill="#fff" stroke="#c92a2a" stroke-width="4"/><path d="M-37 -60 L37 -60 L34 -110 L-34 -110 Z M-31 -160 L31 -160 L29 -210 L-29 -210 Z" fill="#e03131"/><rect x="-34" y="-300" width="68" height="40" rx="6" fill="#ffe066" stroke="#c92a2a" stroke-width="4"/><path d="M-40 -300 L0 -340 L40 -300 Z" fill="#c92a2a"/></g>
-  <g transform="translate(920 560)">${resA('papagan', 150)}</g>`;
+  <g transform="translate(1130 610)">${resA('papagan', 150)}</g>`;
 YER.fener = {
   id: 'fener', ad: 'Deniz Feneri', ders: 'Türkçe', beceri: 'Eş sesli sözcükler, gerçek ve mecaz anlam, deyimler', ikon: '🗼', renk: '#c92a2a', harita: { x: 980, y: 330 },
   hikaye: 'Kaptan Papağan fenerde gemilere sözcüklerle mesaj gönderiyor. Bazı sözcüklerin birden çok anlamı var. Cümleye bak, doğru anlamı bul.',
@@ -171,8 +171,8 @@ YER.fener = {
   gorev(lvl, k, ctx){
     if (lvl === 0) {
       const l = AKTIF.e1 || (AKTIF.e1 = shuffle(ESSESLI).slice(0, N_GOREV)); const [s, cumle, dog, yan, r1, r2] = l[k];
-      const kartS = (t, r, id, x) => `<g class="anlam" data-id="${id}" transform="translate(${x} 470)" style="cursor:pointer"><rect x="-220" y="-150" width="440" height="270" rx="24" fill="#fff" stroke="#c92a2a" stroke-width="4"/>${r ? resA(r, 150, 0, -50) : t.includes('100') ? '<text y="-20" text-anchor="middle" font-size="90" class="ttkb" fill="#c92a2a">100</text>' : t === 'surat' ? '<g transform="translate(0 -50)"><circle r="62" fill="#ffd8a8" stroke="#c2763a" stroke-width="4"/><circle cx="-22" cy="-12" r="7"/><circle cx="22" cy="-12" r="7"/><path d="M-26 18 Q0 40 26 18" fill="none" stroke="#333" stroke-width="5" stroke-linecap="round"/></g>' : '<g transform="translate(0 -50)"><rect x="-60" y="-56" width="120" height="112" rx="10" fill="#fff" stroke="#c92a2a" stroke-width="4"/><rect x="-60" y="-56" width="120" height="34" rx="10" fill="#c92a2a"/><text y="-30" text-anchor="middle" fill="#fff" font-size="22" class="ttkb">OCAK</text><text y="38" text-anchor="middle" font-size="54" class="ttkb">1</text></g>'}<text y="80" text-anchor="middle" class="ttkb" font-size="${sigdir(t, 34, 400)}">${esc(t)}</text></g>`;
-      const sol = Math.random() < .5; sv.innerHTML = fenerArka() + serit(cumle, s) + kartS(sol ? dog : yan, sol ? r1 : r2, sol ? 'd' : 'y', 330) + kartS(sol ? yan : dog, sol ? r2 : r1, sol ? 'y' : 'd', 820 - 60);
+      const kartS = (t, r, id, x) => `<g class="anlam" data-id="${id}" transform="translate(${x} 470)" style="cursor:pointer"><rect x="-200" y="-150" width="400" height="270" rx="24" fill="#fff" stroke="#c92a2a" stroke-width="4"/>${r ? resA(r, 150, 0, -50) : t.includes('100') ? '<text y="-20" text-anchor="middle" font-size="90" class="ttkb" fill="#c92a2a">100</text>' : t === 'surat' ? '<g transform="translate(0 -50)"><circle r="62" fill="#ffd8a8" stroke="#c2763a" stroke-width="4"/><circle cx="-22" cy="-12" r="7"/><circle cx="22" cy="-12" r="7"/><path d="M-26 18 Q0 40 26 18" fill="none" stroke="#333" stroke-width="5" stroke-linecap="round"/></g>' : '<g transform="translate(0 -50)"><rect x="-60" y="-56" width="120" height="112" rx="10" fill="#fff" stroke="#c92a2a" stroke-width="4"/><rect x="-60" y="-56" width="120" height="34" rx="10" fill="#c92a2a"/><text y="-30" text-anchor="middle" fill="#fff" font-size="22" class="ttkb">OCAK</text><text y="38" text-anchor="middle" font-size="54" class="ttkb">1</text></g>'}<text y="80" text-anchor="middle" class="ttkb" font-size="${sigdir(t, 34, 370)}">${esc(t)}</text></g>`;
+      const sol = Math.random() < .5; sv.innerHTML = fenerArka() + serit(cumle, s) + kartS(sol ? dog : yan, sol ? r1 : r2, sol ? 'd' : 'y', 320) + kartS(sol ? yan : dog, sol ? r2 : r1, sol ? 'y' : 'd', 830);
       setInstr(k === 0 ? `Cümleyi oku: ${cumle} Bu cümlede “${s}” hangi anlamda? Doğru karta dokun.` : `${cumle} Bu cümlede “${s}” hangi anlamda?`);
       sv.querySelectorAll('.anlam').forEach(g => g.addEventListener('click', () => { if (KILIT) return;
         if (g.dataset.id === 'd') ctx.dogru(`Evet! Bu cümlede “${s}”, ${dog} anlamında.`, `<b>${esc(s)}</b>: ${esc(dog)}<small>Yazılışı aynı, anlamı farklı: eş sesli sözcük.</small>`, 2600, 'sag');
