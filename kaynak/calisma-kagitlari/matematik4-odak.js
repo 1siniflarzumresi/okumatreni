@@ -48,8 +48,8 @@ module.exports = H => {
       return coktan(p(`${ilgi(a1)} kumbarasında ${f(c)} TL vardı. Önce ${f(a)} TL\'ye bir bisiklet, sonra ${f(b)} TL\'ye bir kask aldı.`), 'Kumbarada kaç TL kaldı?', f(k), yanN(k, [c - a, c - b, k + 100, a + b])); },
     r => { const a = tam(r, 3000, 6000), d = tam(r, 400, 1500), b = a - d;
       return coktan(p(`İki ilçede kütüphane üyeleri sayıldı. Birinci ilçede ${f(a)} üye var, ikinci ilçede ${f(d)} üye daha az var.`), 'İki ilçede toplam kaç üye vardır?', f(a + b), yanN(a + b, [a + d, b, a + b + d, 2 * a + d])); },
-    r => { const a = tam(r, 2000, 5000), b = tam(r, 1000, 3000), s = a + b;
-      return coktan(p(`${ad(r)} bir çıkarma işleminin sağlamasını yapıyor: ${f(s)} − ${f(b)} işleminin sonucunu buldu ve sonucu ${f(b)} ile topladı.`), 'Sağlama doğruysa toplama işleminin sonucu kaç olmalıdır?', f(s), yanN(s, [a, b, s + b, a + 2 * b])); }];
+    r => { const a = tam(r, 2000, 5000), b = tam(r, 1000, 3000), s = a + b, x = r() < .5 ? a : a + sec1(r, [10, 100]), t2 = x + b, dg = t2 === s, k = (v, d) => `Toplam ${f(v)} çıkar; sonuç ${d ? 'doğrudur' : 'yanlıştır'}.`;
+      return coktan(p(`${ad(r)} ${f(s)} − ${f(b)} işleminin sonucunu ${f(x)} buldu. Sağlama yapmak için bulduğu sonucu ${f(b)} ile topladı.`), 'Sağlama için hangisi doğrudur?', k(t2, dg), [k(t2, !dg), k(dg ? s + 100 : s, dg), k(x, true)]); }];
 
   O[6] = [
     r => { const a = tam(r, 5, 9) * 100, b = tam(r, 1, 4) * 100 + tam(r, 1, 9) * 10, s = a - b;
@@ -141,7 +141,7 @@ module.exports = H => {
 
   O[17] = [
     r => { const a = tam(r, 2, 9), b = tam(r, 2, 9) * 2, c = sec1(r, [2, 4].filter(x => (a * b) % x === 0)) || 2, d = a * b / c;
-      return coktan(p(`${ad(r)} eşit kollu teraziyle oynuyor. Sol kefede "${a} × ${b}" yazan kart var. Sağ kefeye "${c} × ?" kartını koyacak; terazi dengede kalmalı.`), 'Soru işaretinin yerine hangi sayı gelmelidir?', String(d), yanN(d, [d + 1, a * b, d - 1, c * a], String)); },
+      return coktan(p(`${ad(r)} eşit kollu teraziyle oynuyor. Sol kefede "${a} × ${b}" yazan kart var. Sağ kefeye "${c} × ?" kartını koyacak; terazi dengeye gelmeli.`), 'Soru işaretinin yerine hangi sayı gelmelidir?', String(d), yanN(d, [d + 1, a * b, d - 1, c * a], String)); },
     r => { const a = tam(r, 12, 40), b = tam(r, 5, 15), c = tam(r, 15, 45), d = a + b - c;
       if (d <= 0) return O[17][1](r);
       return coktan(p(`${ad(r)} tahtaya bir eşitlik yazdı: ${a} + ${b} = ${c} + ?`), 'Eşitliğin korunması için soru işaretinin yerine hangi sayı yazılmalıdır?', String(d), yanN(d, [a + b, a + b + c, d + 1, c - b], String)); },

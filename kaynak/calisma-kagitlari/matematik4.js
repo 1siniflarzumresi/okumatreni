@@ -224,7 +224,7 @@ module.exports = ({ T, S }) => {
         return coktan(p(`Ali bir pizzanın ${a}/${b} kadarını, Can aynı büyüklükteki başka bir pizzanın ${c}/${b} kadarını yedi.`), 'Kim daha çok pizza yemiştir?', buy, [buy === 'Ali' ? 'Can' : 'Ali', 'İkisi eşit yemiştir', 'Bilinemez']); },
     ],
     ort: r => { const n = sec1(r, [24, 30, 36]), y = n / 2, c = n / 3;
-      return { ic: p(`Bir sınıfta ${n} öğrenci var. Öğrencilerin yarısı spor kulübüne, 1/3'ü müzik kulübüne katıldı. Kalanlar resim kulübüne katıldı.`),
+      return { ic: p(`Bir sınıfta ${n} öğrenci var. Öğrencilerin yarısı spor kulübüne, 1/3 kadarı müzik kulübüne katıldı. Kalanlar resim kulübüne katıldı.`),
         q: [() => coktan('', 'Müzik kulübüne kaç öğrenci katılmıştır?', String(c), yanN(c, [y, n - y - c, c + 3, n / 4])),
           () => coktan('', 'Resim kulübüne kaç öğrenci katılmıştır?', String(n - y - c), yanN(n - y - c, [c, y, n - y, n - c]))] }; },
   };
@@ -295,17 +295,17 @@ module.exports = ({ T, S }) => {
     st: r => [ifade(r, v => `Karenin ${v} kenarı vardır.`, 4, 3), ifade(r, v => `Üçgenin ${v} köşesi vardır.`, 3, 4), ifade(r, v => `Küpün ${v} yüzü vardır.`, 6, 8),
       ifade(r, v => `Dikdörtgenin karşılıklı kenarlarının uzunlukları ${v}.`, 'eşittir', 'farklıdır'), ifade(r, v => `Küpün ${v} köşesi vardır.`, 8, 6),
       ifade(r, v => `Kare ve dikdörtgenin bütün açıları ${v} açıdır.`, 'dik', 'dar'), ifade(r, v => `Beşgenin ${v} kenarı vardır.`, 5, 6)],
-    es: r => [['Kare prizma', 'Yüzlerinin ikisi kare'], ['Küp', 'Bütün yüzleri eş kare'], ['Üçgen prizma', 'İki yüzü üçgen'], ['Silindir', 'İki yüzü daire']],
+    es: r => [['Kare prizma', 'İki yüzü kare, dört yüzü kare olmayan dikdörtgen'], ['Küp', 'Bütün yüzleri eş kare'], ['Üçgen prizma', 'İki yüzü üçgen'], ['Silindir', 'İki yüzü daire']],
     sr: r => ({ giris: `${ad(r)} çubuklarla şekil yapma oyununda dört kart çekti. Her kartta yapacağı şeklin adı yazıyor.`, adim: ['Üçgen', 'Dörtgen', 'Beşgen', 'Altıgen'], kok: 'Gereken çubuk sayısı azdan çoğa doğru sıralanırsa kartlar hangi sırayla dizilir?' }),
     cq: [
       r => { const n = [3, 4, 5, 6], k = kar(r, n), t = k.reduce((a, b) => a + b, 0);
         return coktan(p(`${ad(r)} çubuklarla aşağıdaki şekilleri yaptı. Her kenar için bir çubuk kullandı.`) + `<div class="m4-sekil">${k.map(x => sekilSvg(x)).join('')}</div>`, 'Toplam kaç çubuk kullanmıştır?', String(t), yanN(t, [t + 1, t - 2, 16, t + 4])); },
       r => coktan(p(`${ad(r)} bir kutunun bütün yüzlerini kaplamak için eş kareler kesti. Kutu bir küptür.`), 'Kaç kare kesmesi gerekir?', '6', ['4', '8', '12']),
-      r => coktan(p('Bir cismin 2 yüzü kare, 4 yüzü dikdörtgendir.'), 'Bu cisim aşağıdakilerden hangisidir?', 'Kare prizma', ['Küp', 'Üçgen prizma', 'Silindir']),
-      r => coktan(p('Bir cismin 6 yüzü, 8 köşesi ve 12 ayrıtı vardır. Bütün yüzleri eş karedir.'), 'Bu cisim hangisidir?', 'Küp', ['Kare prizma', 'Üçgen prizma', 'Silindir']),
+      r => coktan(p(`${ad(r)} bir hediye kutusunun yüzlerini sayıyor: 2 yüzü kare, 4 yüzü kare olmayan dikdörtgen.`), 'Kutu hangi geometrik cismin modelidir?', 'Kare prizma', ['Küp', 'Üçgen prizma', 'Silindir']),
+      r => coktan(p(`${ad(r)} oyuncak kutusundan bir cisim çıkardı. Cismin 6 yüzünün her birinin kenarlarını cetvelle ölçtü; bütün kenarlar 4 cm çıktı.`), 'Bu cisim hangisidir?', 'Küp', ['Dikdörtgen prizma', 'Üçgen prizma', 'Silindir']),
       r => { const n = sec1(r, [5, 6, 8]), adlar = { 5: 'Beşgen', 6: 'Altıgen', 8: 'Sekizgen' };
         return coktan(p(`${ad(r)} aşağıdaki şeklin köşelerini saydı.`) + `<div class="m4-sekil">${sekilSvg(n, '#fff3c4')}</div>`, 'Bu şeklin adı nedir?', adlar[n], Object.values(adlar).filter(x => x !== adlar[n]).concat(['Dörtgen'])); },
-      r => coktan(p('Bir dörtgenin dört kenarı eşit uzunlukta ve dört açısı dik açıdır.'), 'Bu dörtgen hangisidir?', 'Kare', ['Dikdörtgen', 'Beşgen', 'Üçgen']),
+      r => coktan(p(`${ad(r)} bahçede çiçek tarhı için bir alan işaretledi. Dört kenarı ölçtü, hepsi 5 m çıktı; dört köşesi de dik açı.`), 'İşaretlenen alan hangi şekildedir?', 'Kare', ['Dikdörtgen', 'Beşgen', 'Üçgen']),
     ],
     ort: r => ({ ic: p('Bir öğrenci kibrit çöpleriyle yan yana 3 eş kare yaptı. Ortak kenarlarda tek çöp kullandı.') + S(130, 40, [0, 1, 2].map(i => `<rect x="${5 + i * 40}" y="5" width="40" height="30" fill="#fff6dc" stroke="#8e5b2b" stroke-width="3"/>`).join(''), 40),
       q: [() => coktan('', 'Kaç kibrit çöpü kullanmıştır?', '10', ['12', '9', '11']), () => coktan('', 'Aynı kuralla 5 kare yaparsa kaç çöp kullanır?', '16', ['20', '15', '18'])] }),
@@ -386,7 +386,7 @@ module.exports = ({ T, S }) => {
     sr: r => ({ giris: `${ad(r)} bahçedeki dört fidanın boylarını ölçüp kartlara yazdı.`, adim: ['80 cm', '1 m 20 cm', '150 cm', '2 m'], kok: 'Uzunluklar kısadan uzuna doğru hangi sırayla dizilir?' }),
     cq: [
       r => { const a = tam(r, 2, 4) * 1000 + tam(r, 1, 9) * 100, b = tam(r, 1, 2) * 1000 + tam(r, 1, 9) * 100, t = a + b;
-        return coktan(p(`${ad(r)} sabah ${f(a)} metre, akşam ${f(b)} metre yürüdü.`), 'Toplam kaç kilometre kaç metre yürümüştür?', `${Math.floor(t / 1000)} km ${t % 1000} m`, [`${Math.floor(t / 1000) + 1} km ${t % 1000} m`, `${f(t)} km`, `${Math.floor(t / 1000)} km ${(t % 1000 + 100) % 1000} m`]); },
+        return coktan(p(`${ad(r)} sabah ${f(a)} metre, akşam ${f(b)} metre yürüdü.`), 'Toplam kaç kilometre kaç metre yürümüştür?', `${Math.floor(t / 1000)} km ${t % 1000} m`, [`${Math.floor(t / 1000) + 1} km ${t % 1000} m`, `${f(t)} km`, `${Math.floor(t / 1000)} km ${t % 1000 >= 900 ? t % 1000 - 100 : t % 1000 + 100} m`]); },
       r => { const k = tam(r, 3, 8), p1 = tam(r, 25, 45), t = k * 100 - p1 * 2;
         return coktan(p(`${k} metre uzunluğundaki bir kurdeleden ${p1}'er santimetrelik iki parça kesildi.`.replace(`${p1}'er`, `${p1} santimetre uzunluğunda`).replace(' santimetrelik', '')), 'Kurdelenin kalan kısmı kaç santimetredir?', String(t), yanN(t, [k * 100 - p1, k * 10 - 2 * p1, t + 100, k * 100])); },
       r => { const c = tam(r, 3, 9), mm = c * 10 + tam(r, 1, 9);
@@ -400,7 +400,7 @@ module.exports = ({ T, S }) => {
     ],
     ort: r => { const a = tam(r, 12, 25) * 100, b = tam(r, 8, 18) * 100, c = tam(r, 5, 12) * 100, t = a + b + c;
       return { ic: p(`Bir bisiklet yolu üç bölümden oluşuyor: Birinci bölüm ${f(a)} m, ikinci bölüm ${f(b)} m, üçüncü bölüm ${f(c)} m.`),
-        q: [() => coktan('', 'Yolun tamamı kaç metredir?', f(t), yanN(t, [a + b, t + 100, t - 1000, b + c])), () => coktan('', 'Yolun tamamı yaklaşık kaç kilometredir? (En yakın kilometreye yuvarlayınız.)', String(Math.round(t / 1000)), yanN(Math.round(t / 1000), [Math.floor(t / 1000) === Math.round(t / 1000) ? Math.round(t / 1000) + 1 : Math.floor(t / 1000), t / 100, Math.round(t / 1000) + 2, 1]))] }; },
+        q: [() => coktan('', 'Yolun tamamı kaç metredir?', f(t), yanN(t, [a + b, t + 100, t - 1000, b + c])), () => coktan('', 'Yolun tamamı en yakın yüzlüğe yuvarlanırsa kaç metre olur?', f(yuvarla(t, 100)), yanN(yuvarla(t, 100), [yuvarla(t, 10), yuvarla(t, 100) + 100, yuvarla(t, 1000), t]))] }; },
   };
   // 13) Çevre ölçme
   const dikSvg = (a, b, ea, eb) => S(120, 70, `<rect x="10" y="10" width="${Math.min(100, a * 8)}" height="${Math.min(45, b * 8)}" fill="#d8f5e9" stroke="#1f2a24" stroke-width="2"/><text x="${10 + Math.min(100, a * 8) / 2}" y="8" font-size="9" text-anchor="middle">${ea}</text><text x="${14 + Math.min(100, a * 8)}" y="${12 + Math.min(45, b * 8) / 2}" font-size="9">${eb}</text>`, 38);
@@ -526,13 +526,13 @@ module.exports = ({ T, S }) => {
     if (K.length > 1) sp[1] = SP[(hafta - 1) % 3](K[1], r, t + 'b')[1];
     const cq = []; const mx = Math.max(...K.map(k => k.cq.length)); for (let i = 0; i < mx; i++) K.forEach(k => { if (k.cq[i]) cq.push(k.cq[i]); });
     // aynı kalıp aynı kâğıtta iki kez çıkmasın: soru metninin rakamsız ilk 45 harfi imza; tekrar çıkarsa numara geri alınıp sıradaki üreteç denenir
-    const imza = h => String(h).replace(/<[^>]+>/g, ' ').replace(/[\d.,]+/g, '#').replace(/\s+/g, ' ').trim().slice(0, 45);
+    const imza = h => ADLAR.reduce((s, a) => s.split(a).join(''), String(h)).replace(/<[^>]+>/g, ' ').replace(/[\d.,]+/g, '#').replace(/\s+/g, ' ').trim().slice(0, 45);
     const odak = (ODAK[hafta] || []).map(g => r => g(r)), havuz = [...kar(r, odak), ...kar(r, cq)], gor = new Set(); let hi = 0;
-    const sonraki = () => { let h; for (let n = 0; n < havuz.length * 2; n++) { const st = T.an(); h = havuz[hi++ % havuz.length](r); const im = imza(h); if (!gor.has(im) || n >= havuz.length) { gor.add(im); return h; } T.geriAl(st); } return h; };
+    const kul = new Set(); const sonraki = (yed) => { for (let n = 0; n < havuz.length; n++) { const i = (hi + n) % havuz.length; if (kul.has(i)) continue; const st = T.an(), h = havuz[i](r), im = imza(h); kul.add(i); if (gor.has(im)) { T.geriAl(st); continue; } gor.add(im); hi = i + 1; return h; } if (yed) return null; return havuz[hi++ % havuz.length](r); };
     const o = K[K.length - 1].ort(r);
     const A = [sp[0](), sonraki(), sonraki(), sp[1](), sonraki(), sonraki()];
     const B = [ortak(o.ic, o.q), sp[2](), sonraki(), sonraki(), sonraki()];
-    A.push(...[sonraki(), sonraki(), sonraki()].map(yedek)); B.push(...[sonraki(), sonraki(), sonraki()].map(yedek));
+    A.push(...[sonraki(1), sonraki(1)].filter(Boolean).map(yedek)); B.push(...[sonraki(1), sonraki(1)].filter(Boolean).map(yedek));
     const ks = h => konular.includes('kesir') ? h.replace(/>([^<]*)</g, (m, t) => '>' + t.replace(/(^|[^\d.,\/])(\d{1,2})\/(\d{1,2})(?![\d\/])/g, (x, o, a, b) => o + kz(a, b)) + '<') : h;
     return [ks(sayfa(A)), ks(sayfa(B)).replace(/<\/div>$/, optik() + '</div>'), cevapSayfasi(`${hafta}. hafta · ${baslik}`)];
   } });
@@ -576,7 +576,7 @@ module.exports = ({ T, S }) => {
     'hafta-36': W(36, 4, 'Sıvı Ölçme Ustası', 'Sıvı ölçmede tahmin ve problemler', ['sivi']),
   };
   const CSS = `
-.m4-kz{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1}.m4-kz>span{display:block;padding:0 .4mm}.m4-kz>span:first-child{border-bottom:.3mm solid}.m4-sekil{display:flex;gap:2mm;justify-content:center;flex-wrap:wrap}.m4-kart{display:flex;gap:1.5mm;justify-content:center}.m4-kart span{width:7mm;height:9mm;border:.5mm solid #1d6fd8;border-radius:1.5mm;display:grid;place-items:center;font-size:5mm;background:#eef5ff}
+.m4-kz{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1}.m4-kz>span{display:block;padding:0 .4mm}.m4-kz>span:first-child{border-bottom:.3mm solid;padding-bottom:.5mm}.m4-kz>span:last-child{padding-top:.7mm}.m4-sekil{display:flex;gap:2mm;justify-content:center;flex-wrap:wrap}.m4-kart{display:flex;gap:1.5mm;justify-content:center}.m4-kart span{width:7mm;height:9mm;border:.5mm solid #1d6fd8;border-radius:1.5mm;display:grid;place-items:center;font-size:5mm;background:#eef5ff}
 `;
   return { M4, CSS };
 };
