@@ -50,7 +50,7 @@ module.exports = ({ T, S }) => {
   // Metne bağlı dil bilgisi: haftanın metninde geçen sözcük ve cümleler kullanılır; bulunamazsa banka kullanılır.
   let METIN = null;
   const kucuk = x => x.toLocaleLowerCase('tr');
-  const BILESIK = ['ilk yardım', 'zaman ölçer', 'büyük millet', 'millet meclisi', 'kara kalem', 'son söz'];
+  const BILESIK = ['ilk yardım', 'zaman ölçer', 'büyük millet', 'millet meclisi', 'kara kalem', 'son söz', 'geri dönüşüm', 'geri dönüş'];
   let REZ = {};
   const BELIRSIZ = ['kara', 'al', 'ak', 'iç', 'dış', 'yüz', 'yaş', 'son', 'düş', 'dar', 'az', 'çok', 'acı', 'ince', 'dolu', 'iyi', 'güç', 'kalp', 'yıl', 'anı', 'doğru', 'eğri'];
   const EK_RE = /^(lar|ler|ı|i|u|ü|a|e|da|de|ta|te|dan|den|tan|ten|ın|in|un|ün|la|le|yla|yle|sı|si|su|sü|ları|leri|ca|ce|dı|di|du|dü|dır|dir|tır|tir|ydı|ydi|lık|lik|ya|ye|yı|yi|yu|yü)$/;
