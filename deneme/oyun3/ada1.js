@@ -2,7 +2,7 @@
 "use strict";
 const resA = (ad, w, x = 0, y = 0) => `<image href="${R(ad)}" x="${x - w / 2}" y="${y - w / 2}" width="${w}" height="${w}"/>`;
 // Metin seçenek düğmeleri (eylem çubuğunda): l = [{t, ok}], iyi() / kotu(secilen)
-const secT = (l, iyi, kotu) => { eylem(shuffle(l).map((o, i) => `<button class="cta sec3" data-i="${l.indexOf(o)}">${kes(o.t)}</button>`).join(''));
+const secT = (l, iyi, kotu) => { eylem(shuffle(l).map((o, i) => `<button class="cta sec3" data-i="${l.indexOf(o)}">${o.h || kes(o.t)}</button>`).join(''));
   $('eylem').querySelectorAll('.sec3').forEach(b => b.onclick = () => { if (KILIT) return; const o = l[+b.dataset.i]; if (o.ok) iyi(o); else { b.disabled = true; kotu(o); } }); };
 const sigdir = (t, px, w) => Math.min(px, Math.floor(px * w / Math.max(1, olc(t, px))));
 // Cümle şeridi: vurgulanan sözcük kırmızı ve kalın

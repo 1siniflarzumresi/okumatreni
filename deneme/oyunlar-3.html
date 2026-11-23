@@ -69,6 +69,7 @@
 .cta:focus-visible{outline:3px solid #1d4e89;outline-offset:2px}
 .cta.alt{background:#fff;color:#1d4e89;box-shadow:0 0 0 2px #9cc3ff inset}
 .cta:disabled{opacity:.4;cursor:default}
+.kz{display:inline-flex;flex-direction:column;align-items:center;line-height:1;vertical-align:middle}.kz>span:first-child{border-bottom:3px solid;padding:0 6px 3px}.kz>span:last-child{padding-top:3px}#kart .kz{font-size:.9em}
 .cta.sec3{font-size:22px;background:#fff;color:#1f2a24;box-shadow:0 0 0 3px #7048e8 inset,0 4px 0 #5f3dc4;font-family:TTKB,Andika,sans-serif}
 .cta.sec{min-width:70px;font-size:30px;background:#fff;color:#1f2a24;box-shadow:0 0 0 3px #f4a100 inset,0 4px 0 #b45309}
 .cta.muhur-b{background:#fff;color:#1d4e89;box-shadow:0 0 0 3px #f2546b inset,0 4px 0 #b4233a}
@@ -180,15 +181,17 @@
 <script src="oyun3/dunya.js"></script>
 <script src="oyun2/motor.js"></script>
 <script src="oyun3/ada1.js"></script>
+<script src="oyun3/ada2.js"></script>
+<script src="oyun3/ada3.js"></script>
 <script>
 "use strict";
 (function(){
-  const sira = ['liman', 'lab', 'fener'].filter(id => YER[id]);
+  const sira = ['liman', 'bahce', 'kervan', 'kule', 'lab', 'maden', 'degirmen', 'fener', 'koy'].filter(id => YER[id]);
   // giriş görseli: kasabanın binaları tepede
   $('onizle').innerHTML = `<rect width="1200" height="430" fill="#9fdcff"/>${bulut(700, 60, .8)}${bulut(1020, 110, .6)}<circle cx="1110" cy="70" r="40" fill="#ffd23f"/>
     <rect y="250" width="1200" height="180" fill="#1f8fd6"/><path d="M300 430 C320 330 480 260 760 255 C980 252 1120 330 1150 430 Z" fill="#f3d9a4"/><path d="M340 430 C360 345 500 285 760 282 C960 280 1090 345 1110 430 Z" fill="#8cc97b"/>
     ${[[400, 410, .5], [1090, 400, .5], [560, 330, .4]].map(([x, y, s]) => agac(x, y, s)).join('')}
-    ${sira.map((id, i) => `<g transform="translate(${640 + i * 160} ${390 - (i % 2) * 34}) scale(.8)">${YER[id].bina()}</g>`).join('')}
+    ${['liman', 'lab', 'kule', 'degirmen', 'fener'].filter(id => YER[id]).map((id, i) => `<g transform="translate(${560 + i * 130} ${392 - (i % 2) * 30}) scale(.72)">${YER[id].bina()}</g>`).join('')}
     <image href="oyun2/r/papagan.webp" x="120" y="250" width="160" height="160"/>`;
   function kartlar(){
     const kart = id => { const Y = YER[id], top = yildizlar(id).reduce((a, b) => a + b, 0);
