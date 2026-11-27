@@ -89,9 +89,7 @@ const KARISIM = [['demir tozu ile kum', 'mıknatıs', 'Mıknatıs demir tozunu �
   ['pirinç ile küçük taşlar', 'elle ayıklama', 'Taşlar az ve göze görünür; elle tek tek ayıklanır.', ['#fff', '#868e96'], [4, 7]],
   ['mercimek ile fasulye', 'elle ayıklama', 'Taneler iri ve farklı; elle ayrılabilir.', ['#e8590c', '#fff'], [6, 10]]];
 const ARAC = ['mıknatıs', 'elek', 'süzgeç kâğıdı', 'elle ayıklama'];
-const labArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#e7f5ff"/>${Array.from({ length: 14 }, (_, i) => `<rect x="${-200 + i * 120}" y="0" width="100" height="70" rx="6" fill="#d0ebff"/>`).join('')}
-  <rect x="-3000" y="560" width="7200" height="40" fill="#adb5bd"/><rect x="-3000" y="600" width="7200" height="700" fill="#dee2e6"/>
-  <g transform="translate(1120 470)">${resO('bilge-baykus', 220)}</g>`;
+const labArka = () => `<rect x="-3000" y="-400" width="7200" height="780" fill="#f3ead6"/><rect x="-3000" y="380" width="7200" height="900" fill="#c9a57a"/><image href="oyun3/s/lab.webp" x="-240" y="0" width="1680" height="760" preserveAspectRatio="xMidYMid slice"/><g transform="translate(1120 470)">${resO('bilge-baykus', 220)}</g>`;
 YER.lab = {
   id: 'lab', ad: 'Laboratuvar', ders: 'Fen Bilimleri', beceri: 'Katı, sıvı, gaz; karışımları ayırma', ikon: '⚗️', renk: '#7048e8', harita: { x: 596, y: 395 },
   hikaye: 'Bilge Baykuş adanın laboratuvarında maddeleri inceliyor. Maddeleri katı, sıvı ve gaz kavanozlarına ayır; sonra karışımları ayırmanın yolunu bul.',
@@ -159,10 +157,7 @@ const DEYIM = [['Elif, öğretmeninin anlattıklarını dikkatle dinledi.', 'kul
   ['Zeynep bayram sabahı sevinçten yerinde duramıyordu.', 'etekleri zil çalmak', 'çok sevinçli olmak'], ['Emir sahneye çıkınca heyecandan hiçbir şey söyleyemedi.', 'dili tutulmak', 'heyecandan konuşamamak'],
   ['Ada zor bulmacanın çözümünü uzun uzun düşündü.', 'kafa yormak', 'bir konu üzerinde çok düşünmek'], ['Yusuf arkadaşına verdiği sözü tuttu.', 'sözünde durmak', 'verdiği sözü yerine getirmek'],
   ['Ecrin\'in dedesi herkese yardım eder, cömerttir.', 'eli açık', 'cömert'], ['Ömer bütün gün koşturunca çok yoruldu.', 'canı çıkmak', 'çok yorulmak']];
-const fenerArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#ffe8cc"/><circle cx="160" cy="120" r="60" fill="#ffd43b" opacity=".8"/>
-  <rect x="-3000" y="470" width="7200" height="900" fill="#1f8fd6"/><path d="M820 470 Q960 360 1250 380 L4200 380 L4200 470 Z" fill="#8cc97b"/>
-  <g transform="translate(1040 400)"><path d="M-40 0 L-26 -260 L26 -260 L40 0 Z" fill="#fff" stroke="#c92a2a" stroke-width="4"/><path d="M-37 -60 L37 -60 L34 -110 L-34 -110 Z M-31 -160 L31 -160 L29 -210 L-29 -210 Z" fill="#e03131"/><rect x="-34" y="-300" width="68" height="40" rx="6" fill="#ffe066" stroke="#c92a2a" stroke-width="4"/><path d="M-40 -300 L0 -340 L40 -300 Z" fill="#c92a2a"/></g>
-  <g transform="translate(1130 610)">${resO('kaptan-papagan', 190)}</g>`;
+const fenerArka = () => `<rect x="-3000" y="-400" width="7200" height="780" fill="#f6c9b0"/><rect x="-3000" y="380" width="7200" height="900" fill="#2f6f8f"/><image href="oyun3/s/fener.webp" x="-240" y="0" width="1680" height="760" preserveAspectRatio="xMidYMid slice"/><g transform="translate(1130 610)">${resO('kaptan-papagan', 190)}</g>`;
 YER.fener = {
   id: 'fener', ad: 'Deniz Feneri', ders: 'Türkçe', beceri: 'Eş sesli sözcükler, gerçek ve mecaz anlam, deyimler', ikon: '🗼', renk: '#c92a2a', harita: { x: 1093, y: 455 },
   hikaye: 'Kaptan Papağan fenerde gemilere sözcüklerle mesaj gönderiyor. Bazı sözcüklerin birden çok anlamı var. Cümleye bak, doğru anlamı bul.',

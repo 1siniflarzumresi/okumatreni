@@ -107,9 +107,7 @@ const saatC = (T, r = 150) => { const h = (T / 60) % 12, m = T % 60; const el = 
   return `<circle r="${r + 14}" fill="#1d4e89"/><circle r="${r}" fill="#fff"/>${Array.from({ length: 60 }, (_, i) => { const a = i * 6 * Math.PI / 180, L = i % 5 ? 8 : 16; return `<line x1="${(Math.sin(a) * (r - L)).toFixed(1)}" y1="${(-Math.cos(a) * (r - L)).toFixed(1)}" x2="${(Math.sin(a) * (r - 2)).toFixed(1)}" y2="${(-Math.cos(a) * (r - 2)).toFixed(1)}" stroke="#495057" stroke-width="${i % 5 ? 2 : 4}"/>`; }).join('')}
     ${Array.from({ length: 12 }, (_, i) => { const a = (i + 1) * 30 * Math.PI / 180; return `<text x="${(Math.sin(a) * (r - 38)).toFixed(1)}" y="${(-Math.cos(a) * (r - 38) + r * .09).toFixed(1)}" text-anchor="middle" font-size="${r * .2}" class="ttkb">${i + 1}</text>`; }).join('')}
     ${el(h * 30, r * .5, r * .07, '#c0392b')}${el(m * 6, r * .78, r * .045, '#1d4e89')}<circle r="${r * .06}" fill="#1f2a24"/>`; };
-const kuleArka = () => `<defs><linearGradient id="kGece" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2a5a"/><stop offset="1" stop-color="#4c6ef5"/></linearGradient></defs><rect x="-3000" y="-400" width="7200" height="1600" fill="url(#kGece)"/>
-  ${Array.from({ length: 40 }, (_, i) => `<circle cx="${(i * 137) % 1300 - 50}" cy="${(i * 71) % 300 + 20}" r="${i % 3 + 1.5}" fill="#fff" opacity=".8"/>`).join('')}<rect x="-3000" y="640" width="7200" height="600" fill="#2b8a3e"/>
-  <g transform="translate(1110 470) scale(.85)">${resO('saatci-kaplumbaga', 200, 0, -60)}</g>`;
+const kuleArka = () => `<rect x="-3000" y="-400" width="7200" height="780" fill="#2b2a6e"/><rect x="-3000" y="380" width="7200" height="900" fill="#2f5a2e"/><image href="oyun3/s/kule.webp" x="-240" y="0" width="1680" height="760" preserveAspectRatio="xMidYMid slice"/><g transform="translate(1100 560)">${resO('saatci-kaplumbaga', 200, 0, -60)}</g>`;
 YER.kule = {
   id: 'kule', ad: 'Gözlem Kulesi', ders: 'Matematik', beceri: 'Saati okuma, kurma ve süre', ikon: '🔭', renk: '#4c6ef5', harita: { x: 959, y: 396 },
   hikaye: 'Saatçi Tıkır gözlem kulesinde yıldızları izliyor. Gözlemler belli saatlerde başlıyor. Saati oku, kur ve ne kadar sürdüğünü bul.',
