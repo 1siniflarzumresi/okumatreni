@@ -108,3 +108,19 @@ Create exactly ONE 4x2 grid: exactly 4 columns and exactly 2 rows, 8 cells in to
 ---
 
 Gönderince: A grubunu `deneme/oyun3/s/` (geniş, 1600 px webp), B ve C'yi `deneme/oyun3/r/` (300 px, saydam) olarak işleyip oyunlara yerleştireceğim. Önce A1, A2, B1 ve C1'i gönderirsen Liman'ı yeni görsellerle hemen gösteririm.
+
+---
+
+## D. Harita binaları (haritadaki boş alanlara konur)
+
+### D1 · Sekiz bina (4x2 ızgara)
+Sıra: bina-liman, bina-bahce, bina-kervan, bina-kule, bina-lab, bina-maden, bina-degirmen, bina-koy
+```
+Create exactly ONE 4x2 grid: exactly 4 columns and exactly 2 rows, 8 cells in total, no extra rows, no repeated buildings. Pure white background, image ratio 2:1. Each cell is an equal square separated by thin light-gray lines. Style: warm hand-painted children's picture-book illustration, gouache and colored-pencil texture, soft natural shading, like small buildings on a game map. All eight drawn at the same small scale, seen from the same three-quarter view slightly from above, each standing on a small patch of grass or sand. No text, no letters, no numbers, no signs with writing anywhere. No people. Each building alone in its cell, centered, with generous white space around it, no background scenery. Buildings in order, left to right, top row then bottom row: 1) a tiny wooden harbor pier with a small red cargo ship and a little yellow crane, 2) a small orchard cottage with a red roof, two fruit trees with red apples and a basket of fruit in front, 3) a small sandy-colored caravan inn with an arched gate and one camel standing beside it, 4) a small round white observatory tower with a blue dome and a brass telescope, 5) a small cream-colored school laboratory building with a purple roof and a round window showing a glass flask, 6) a mine entrance carved into a grey rock with wooden support beams and a small mine cart on rails, 7) a white wooden windmill with four sails on a small green hill, 8) a tiny light-blue wooden book hut with open shutters showing colorful book spines without writing, on a patch of sand.
+```
+
+### D2 · Deniz Feneri (tek resim)
+DOSYA ADI: `ka-17-bina-fener.png`
+```
+Create one single square illustration, aspect ratio 1:1, no grid. Pure white background. Style: warm hand-painted children's picture-book illustration, gouache and colored-pencil texture, soft natural shading, like a small building on a game map, seen from a three-quarter view slightly from above. A small red and white striped lighthouse with a little keeper's cottage, standing on a few grey rocks. No text, no letters, no numbers. The building alone, centered, with generous white space around it, no background scenery.
+```
