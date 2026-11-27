@@ -18,7 +18,7 @@ const bahceArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fil
   <rect x="300" y="560" width="600" height="18" fill="#a0522d"/><rect x="330" y="578" width="16" height="180" fill="#7a4a26"/><rect x="854" y="578" width="16" height="180" fill="#7a4a26"/>`;
 const ADLAR_K = { 2: 'yarım', 4: 'çeyrek' };
 YER.bahce = {
-  id: 'bahce', ad: 'Meyve Bahçesi', ders: 'Matematik', beceri: 'Bütün, eş parçalar ve kesirler', ikon: '🥧', renk: '#e8590c', harita: { x: 430, y: 690 },
+  id: 'bahce', ad: 'Meyve Bahçesi', ders: 'Matematik', beceri: 'Bütün, eş parçalar ve kesirler', ikon: '🥧', renk: '#e8590c', harita: { x: 326, y: 512 },
   hikaye: 'Bahçıvan Ayı meyvelerden turtalar yaptı. Turtalar eş parçalara bölünürse herkes aynı payı alır. Parçalara bak, kesirleri bul.',
   seviyeler: [['Eş parçalar mı?', 'Parçalar aynı büyüklükte mi?'], ['Kesri bul', 'Boyalı parçaları gösteren kesir.'], ['Payı boya', 'Kesir kadar parçayı boya.']],
   bina(){ return `${golge(0, 4, 70)}<rect x="-6" y="-70" width="12" height="70" fill="#7a4a26"/><circle cy="-100" r="56" fill="#40c057"/><circle cx="-24" cy="-104" r="9" fill="#e03131"/><circle cx="18" cy="-86" r="9" fill="#e03131"/><circle cx="10" cy="-124" r="9" fill="#e03131"/><g transform="translate(46 -12) scale(.18)"><circle r="176" fill="#c98d55"/><path d="${dilimYol(160, 0, 90)}" fill="#e8590c"/></g>`; },
@@ -57,10 +57,9 @@ YER.bahce = {
 
 /* ===================== 5) KERVAN YOLU: eşit gruplar, çarpma ve bölme ===================== */
 const deve = (k, x, y) => `<g transform="translate(${x} ${y})">${golge(0, 70, 70)}${resA('deve', 170, 0, 0)}${Array.from({ length: k }, (_, i) => `<g transform="translate(${-30 + (i % 3) * 30} ${-58 - Math.floor(i / 3) * 28}) scale(.85)">${sandik()}</g>`).join('')}</g>`;
-const colArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#ffe8a3"/><circle cx="1080" cy="100" r="60" fill="#ffd43b"/>
-  <path d="M-3000 420 Q300 360 600 410 Q900 460 4200 400 L4200 1200 L-3000 1200 Z" fill="#f2c879"/><path d="M-3000 560 Q400 520 800 560 Q1000 580 4200 540 L4200 1200 L-3000 1200 Z" fill="#e9b65f"/>`;
+const colArka = () => `<rect x="-3000" y="-400" width="7200" height="780" fill="#f3e6cf"/><rect x="-3000" y="380" width="7200" height="900" fill="#e3b56f"/><image href="oyun3/s/kervan.webp" x="-80" y="0" width="1360" height="760" preserveAspectRatio="xMidYMid slice"/>`;
 YER.kervan = {
-  id: 'kervan', ad: 'Kervan Yolu', ders: 'Matematik', beceri: 'Eşit gruplar: çarpma ve bölme', ikon: '🐫', renk: '#b07a3a', harita: { x: 820, y: 690 },
+  id: 'kervan', ad: 'Kervan Yolu', ders: 'Matematik', beceri: 'Eşit gruplar: çarpma ve bölme', ikon: '🐫', renk: '#b07a3a', harita: { x: 835, y: 532 },
   hikaye: 'Kervancı Fil, develerle pazara mal taşıyor. Her deveye eşit yük verilmeli. Sandıkları say, eşit paylaştır, yolculuğun hesabını yap.',
   seviyeler: [['Yükü say', 'Eşit gruplardaki sandıklar.'], ['Eşit paylaştır', 'Sandıkları develere eşit dağıt.'], ['Pazar yolu', 'Dört işlemle problem çöz.']],
   bina(){ return `${golge(0, 4, 70)}<g transform="scale(.42)">${resA('deve', 220, 0, -100)}</g><g transform="translate(-14 -88) scale(.7)">${sandik()}</g><g transform="translate(14 -88) scale(.7)">${sandik()}</g>`; },
@@ -114,7 +113,7 @@ const kuleArka = () => `<defs><linearGradient id="kGece" x1="0" y1="0" x2="0" y2
   ${Array.from({ length: 40 }, (_, i) => `<circle cx="${(i * 137) % 1300 - 50}" cy="${(i * 71) % 300 + 20}" r="${i % 3 + 1.5}" fill="#fff" opacity=".8"/>`).join('')}<rect x="-3000" y="640" width="7200" height="600" fill="#2b8a3e"/>
   <g transform="translate(1110 470) scale(.85)">${kaplumbaga()}</g>`;
 YER.kule = {
-  id: 'kule', ad: 'Gözlem Kulesi', ders: 'Matematik', beceri: 'Saati okuma, kurma ve süre', ikon: '🔭', renk: '#4c6ef5', harita: { x: 1060, y: 560 },
+  id: 'kule', ad: 'Gözlem Kulesi', ders: 'Matematik', beceri: 'Saati okuma, kurma ve süre', ikon: '🔭', renk: '#4c6ef5', harita: { x: 959, y: 396 },
   hikaye: 'Saatçi Tıkır gözlem kulesinde yıldızları izliyor. Gözlemler belli saatlerde başlıyor. Saati oku, kur ve ne kadar sürdüğünü bul.',
   seviyeler: [['Saati oku', 'Akrep ve yelkovana bak.'], ['Saati kur', 'Yelkovanı ve akrebi doğru yere getir.'], ['Ne kadar sürdü?', 'Başlangıç ve bitiş arasındaki süre.']],
   bina(){ return `${golge(0, 4, 50)}<path d="M-30 0 L-22 -120 L22 -120 L30 0 Z" fill="#dbe4ff" stroke="#4c6ef5" stroke-width="3"/><path d="M-36 -120 Q0 -170 36 -120 Z" fill="#4c6ef5"/><rect x="10" y="-150" width="40" height="14" rx="5" fill="#495057" transform="rotate(-25 10 -150)"/><circle cy="-70" r="18" fill="#fff" stroke="#4c6ef5" stroke-width="3"/><line x1="0" y1="-70" x2="0" y2="-82" stroke="#1d4e89" stroke-width="3"/><line x1="0" y1="-70" x2="8" y2="-70" stroke="#c0392b" stroke-width="3"/>`; },

@@ -17,7 +17,7 @@ const FOSIL = [['Taşın içinde bir yaprağın izi var.', true, '<path d="M-60 
 const madenArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#3b2f2a"/>${Array.from({ length: 10 }, (_, i) => `<path d="M${-100 + i * 150} 0 L${-60 + i * 150} 120 L${-20 + i * 150} 0" fill="#4a3b33"/>`).join('')}
   <rect x="-3000" y="620" width="7200" height="600" fill="#5c4a3f"/><path d="M-3000 620 L4200 620" stroke="#8a6d5a" stroke-width="6"/><g transform="translate(1120 540)">${resA('kopek', 150)}</g>`;
 YER.maden = {
-  id: 'maden', ad: 'Maden Ocağı', ders: 'Fen Bilimleri', beceri: 'Madenler, kayaçlar ve fosiller', ikon: '⛏️', renk: '#7a5a2a', harita: { x: 470, y: 250 },
+  id: 'maden', ad: 'Maden Ocağı', ders: 'Fen Bilimleri', beceri: 'Madenler, kayaçlar ve fosiller', ikon: '⛏️', renk: '#7a5a2a', harita: { x: 400, y: 284 },
   hikaye: 'Madenci Karabaş dağın içinde madenleri ve fosilleri arıyor. Ürünlerin hangi madenden yapıldığını bul, fosilleri tanı, katmanları oku.',
   seviyeler: [['Hangi maden?', 'Ürünü yapıldığı madenle eşleştir.'], ['Fosil mi?', 'Fosil olanı ayırt et.'], ['Katmanları oku', 'Hangi fosil daha eski?']],
   bina(){ return `${golge(0, 4, 70)}<path d="M-70 0 Q-70 -110 0 -110 Q70 -110 70 0 Z" fill="#495057"/><path d="M-40 0 Q-40 -66 0 -66 Q40 -66 40 0 Z" fill="#1f1a17"/><path d="M-46 0 L-46 -70 L46 -70 L46 0" fill="none" stroke="#a0522d" stroke-width="8"/><rect x="40" y="-24" width="44" height="22" rx="4" fill="#868e96"/><circle cx="50" cy="0" r="6" fill="#343a40"/><circle cx="76" cy="0" r="6" fill="#343a40"/>`; },
@@ -64,7 +64,7 @@ const ETKI = [['Elif hamuru avucunda sıktı; hamurun biçimi değişti.', 'Şek
 const degArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#d0ebff"/>${bulut(300, 70, .8)}${bulut(900, 50, .6)}<rect x="-3000" y="600" width="7200" height="700" fill="#94d82d"/>
   <g transform="translate(1110 600)"><path d="M-50 0 L-36 -200 L36 -200 L50 0 Z" fill="#f8f9fa" stroke="#868e96" stroke-width="3"/><g transform="translate(0 -200) scale(.9)">${[0, 90, 180, 270].map(a => `<path transform="rotate(${a + 20})" d="M0 0 L-16 -100 L16 -100 Z" fill="#fff" stroke="#495057" stroke-width="3"/>`).join('')}<circle r="10" fill="#495057"/></g></g>`;
 YER.degirmen = {
-  id: 'degirmen', ad: 'Rüzgâr Değirmeni', ders: 'Fen Bilimleri', beceri: 'Hareket türleri, itme-çekme, kuvvetin etkileri', ikon: '🌬️', renk: '#1098ad', harita: { x: 220, y: 380 },
+  id: 'degirmen', ad: 'Rüzgâr Değirmeni', ders: 'Fen Bilimleri', beceri: 'Hareket türleri, itme-çekme, kuvvetin etkileri', ikon: '🌬️', renk: '#1098ad', harita: { x: 252, y: 394 },
   hikaye: 'Değirmenci Zürafa çevresindeki hareketleri inceliyor. Varlıkların nasıl hareket ettiğini, itme mi çekme mi olduğunu ve kuvvetin neyi değiştirdiğini bul.',
   seviyeler: [['Nasıl hareket ediyor?', 'Dönme, sallanma, ileri-geri, düz.'], ['İt mi, çek mi?', 'Kuvvet itme mi, çekme mi?'], ['Kuvvet ne yaptı?', 'Kuvvetin etkisini bul.']],
   bina(){ return `${golge(0, 4, 50)}<path d="M-34 0 L-24 -110 L24 -110 L34 0 Z" fill="#f8f9fa" stroke="#1098ad" stroke-width="3"/><rect x="-10" y="-30" width="20" height="30" fill="#1098ad"/><g transform="translate(0 -110)">${[0, 90, 180, 270].map(a => `<path transform="rotate(${a + 20})" d="M0 0 L-10 -62 L10 -62 Z" fill="#fff" stroke="#1098ad" stroke-width="2.5"/>`).join('')}<circle r="7" fill="#1098ad"/></g>`; },
@@ -105,7 +105,7 @@ const YAZIM = [['Ben de seninle geleceğim.', 'Bende seninle geleceğim.', '“d
 const koyArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#fff3bf"/><rect x="-3000" y="560" width="7200" height="700" fill="#4dabf7"/><path d="M-3000 560 Q600 520 4200 560" fill="none" stroke="#e9c46a" stroke-width="30"/>
   <g transform="translate(1120 600)">${resA('kaplumbaga', 160)}</g>${Array.from({ length: 6 }, (_, i) => `<rect x="${-40 + i * 32}" y="${580 - (i % 3) * 8 - 90}" width="26" height="${90 + (i % 3) * 8}" fill="${['#e03131', '#3a86ff', '#12b886', '#f4a100', '#7048e8', '#e8590c'][i]}" stroke="#333" stroke-width="2"/>`).join('')}`;
 YER.koy = {
-  id: 'koy', ad: 'Kitap Koyu', ders: 'Türkçe', beceri: 'Noktalama işaretleri ve yazım kuralları', ikon: '📚', renk: '#e8590c', harita: { x: 760, y: 230 },
+  id: 'koy', ad: 'Kitap Koyu', ders: 'Türkçe', beceri: 'Noktalama işaretleri ve yazım kuralları', ikon: '📚', renk: '#e8590c', harita: { x: 773, y: 287 },
   hikaye: 'Kitapçı Kaplumbağa koydaki şişelerden çıkan mektupları düzeltiyor. Cümlelerdeki eksik işaretleri koy, doğru yazılmış cümleyi bul.',
   seviyeler: [['Son işaret', 'Nokta, soru, ünlem.'], ['Virgül mü, kesme mi?', 'Boşluğa doğru işareti koy.'], ['Doğru yazım', 'de, da, ki, mi nasıl yazılır?']],
   bina(){ return `${golge(0, 4, 70)}<rect x="-60" y="-80" width="120" height="80" fill="#fff4e6" stroke="#e8590c" stroke-width="3"/><path d="M-72 -76 L0 -116 L72 -76 Z" fill="#e8590c"/>${Array.from({ length: 5 }, (_, i) => `<rect x="${-44 + i * 18}" y="-60" width="14" height="44" fill="${['#e03131', '#3a86ff', '#12b886', '#f4a100', '#7048e8'][i]}"/>`).join('')}`; },
