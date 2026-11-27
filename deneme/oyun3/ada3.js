@@ -135,3 +135,6 @@ YER.koy = {
     }
   },
 };
+
+/* ===================== Harita binaları: el boyaması (oyun3/r/bina-*.webp) ===================== */
+['liman', 'bahce', 'kervan', 'kule', 'lab', 'maden', 'degirmen', 'fener', 'koy'].forEach(id => { if (YER[id]) YER[id].bina = () => `${golge(0, 2, 70)}<image href="oyun3/r/bina-${id}.webp" x="-95" y="-182" width="190" height="190"/>`; });

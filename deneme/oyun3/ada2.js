@@ -109,7 +109,7 @@ const saatC = (T, r = 150) => { const h = (T / 60) % 12, m = T % 60; const el = 
     ${el(h * 30, r * .5, r * .07, '#c0392b')}${el(m * 6, r * .78, r * .045, '#1d4e89')}<circle r="${r * .06}" fill="#1f2a24"/>`; };
 const kuleArka = () => `<rect x="-3000" y="-400" width="7200" height="780" fill="#2b2a6e"/><rect x="-3000" y="380" width="7200" height="900" fill="#2f5a2e"/><image href="oyun3/s/kule.webp" x="-240" y="0" width="1680" height="760" preserveAspectRatio="xMidYMid slice"/><g transform="translate(1100 560)">${resO('saatci-kaplumbaga', 200, 0, -60)}</g>`;
 YER.kule = {
-  id: 'kule', ad: 'Gözlem Kulesi', ders: 'Matematik', beceri: 'Saati okuma, kurma ve süre', ikon: '🔭', renk: '#4c6ef5', harita: { x: 959, y: 396 },
+  id: 'kule', ad: 'Gözlem Kulesi', ders: 'Matematik', beceri: 'Saati okuma, kurma ve süre', ikon: '🔭', renk: '#4c6ef5', harita: { x: 935, y: 392 },
   hikaye: 'Saatçi Tıkır gözlem kulesinde yıldızları izliyor. Gözlemler belli saatlerde başlıyor. Saati oku, kur ve ne kadar sürdüğünü bul.',
   seviyeler: [['Saati oku', 'Akrep ve yelkovana bak.'], ['Saati kur', 'Yelkovanı ve akrebi doğru yere getir.'], ['Ne kadar sürdü?', 'Başlangıç ve bitiş arasındaki süre.']],
   bina(){ return `${golge(0, 4, 50)}<path d="M-30 0 L-22 -120 L22 -120 L30 0 Z" fill="#dbe4ff" stroke="#4c6ef5" stroke-width="3"/><path d="M-36 -120 Q0 -170 36 -120 Z" fill="#4c6ef5"/><rect x="10" y="-150" width="40" height="14" rx="5" fill="#495057" transform="rotate(-25 10 -150)"/><circle cy="-70" r="18" fill="#fff" stroke="#4c6ef5" stroke-width="3"/><line x1="0" y1="-70" x2="0" y2="-82" stroke="#1d4e89" stroke-width="3"/><line x1="0" y1="-70" x2="8" y2="-70" stroke="#c0392b" stroke-width="3"/>`; },

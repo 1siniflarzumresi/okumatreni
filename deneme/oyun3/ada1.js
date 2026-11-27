@@ -23,7 +23,7 @@ const gemi = (a, b, c) => { const satir = (n, w, f, y0) => Array.from({ length: 
   const yK = 456, yS = yK - 24 - Math.max(1, Math.ceil(a / 10)) * 0 - 22, yC = yS - (b > 10 ? 2 : 1) * 30 - 6;
   return `<g><image href="oyun3/r/gemi-yan.webp" x="40" y="-13" width="960" height="960"/>${satir(a, 44, konteyner, yK)}${satir(b, 38, sandik, yS)}${satir(c, 30, cuval, yC)}</g>`; };
 YER.liman = {
-  id: 'liman', ad: 'Liman', ders: 'Matematik', beceri: 'Sayıları çözümleme: yüzler, onlar, birler', ikon: '⚓', renk: '#1d4e89', harita: { x: 565, y: 565 },
+  id: 'liman', ad: 'Liman', ders: 'Matematik', beceri: 'Sayıları çözümleme: yüzler, onlar, birler', ikon: '⚓', renk: '#1d4e89', harita: { x: 580, y: 610 },
   hikaye: 'Kaptan Ördek, adaya un taşıyan gemiyi yüklüyor. Her sandıkta 10 çuval, her konteynerde 100 çuval un var. Gemiyi siparişe göre yükle.',
   seviyeler: [['Gemiyi yükle', 'Siparişteki sayı kadar unu yükle.'], ['Yükü oku', 'Gemideki unun sayısını bul.'], ['Paketle', '10 çuvalı bir sandığa, 10 sandığı bir konteynere koy.']],
   bina(){ return `${golge(0, 4, 90)}<path d="M-80 -20 L80 -20 L60 10 L-60 10 Z" fill="#1d4e89"/><rect x="-60" y="-44" width="40" height="24" fill="#e03131"/><rect x="-14" y="-40" width="22" height="20" fill="#c98d55"/><rect x="14" y="-40" width="22" height="20" fill="#c98d55"/><rect x="-4" y="-120" width="8" height="76" fill="#7a4a26"/><path d="M4 -116 L60 -64 L4 -64 Z" fill="#fff" stroke="#ccc"/><path d="M-4 -110 L-50 -64 L-4 -64 Z" fill="#fff" stroke="#ccc"/>`; },
@@ -159,7 +159,7 @@ const DEYIM = [['Elif, öğretmeninin anlattıklarını dikkatle dinledi.', 'kul
   ['Ecrin\'in dedesi herkese yardım eder, cömerttir.', 'eli açık', 'cömert'], ['Ömer bütün gün koşturunca çok yoruldu.', 'canı çıkmak', 'çok yorulmak']];
 const fenerArka = () => `<rect x="-3000" y="-400" width="7200" height="780" fill="#f6c9b0"/><rect x="-3000" y="380" width="7200" height="900" fill="#2f6f8f"/><image href="oyun3/s/fener.webp" x="-240" y="0" width="1680" height="760" preserveAspectRatio="xMidYMid slice"/><g transform="translate(1130 610)">${resO('kaptan-papagan', 190)}</g>`;
 YER.fener = {
-  id: 'fener', ad: 'Deniz Feneri', ders: 'Türkçe', beceri: 'Eş sesli sözcükler, gerçek ve mecaz anlam, deyimler', ikon: '🗼', renk: '#c92a2a', harita: { x: 1093, y: 455 },
+  id: 'fener', ad: 'Deniz Feneri', ders: 'Türkçe', beceri: 'Eş sesli sözcükler, gerçek ve mecaz anlam, deyimler', ikon: '🗼', renk: '#c92a2a', harita: { x: 1145, y: 515 },
   hikaye: 'Kaptan Papağan fenerde gemilere sözcüklerle mesaj gönderiyor. Bazı sözcüklerin birden çok anlamı var. Cümleye bak, doğru anlamı bul.',
   seviyeler: [['Eş sesli sözcükler', 'Yazılışı aynı, anlamı farklı sözcükler.'], ['Gerçek mi, mecaz mı?', 'Sözcük kendi anlamında mı?'], ['Deyim avı', 'Durumu anlatan deyimi bul.']],
   bina(){ return `${golge(0, 4, 50)}<path d="M-26 0 L-16 -130 L16 -130 L26 0 Z" fill="#fff" stroke="#c92a2a" stroke-width="3"/><path d="M-24 -30 L24 -30 L22 -60 L-22 -60 Z M-20 -90 L20 -90 L18 -115 L-18 -115 Z" fill="#e03131"/><rect x="-22" y="-152" width="44" height="24" rx="4" fill="#ffe066" stroke="#c92a2a" stroke-width="3"/><path d="M-26 -152 L0 -176 L26 -152 Z" fill="#c92a2a"/><path d="M22 -140 L110 -170 L110 -110 Z" fill="#ffe066" opacity=".5"/>`; },
