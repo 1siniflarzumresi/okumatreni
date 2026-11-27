@@ -15,7 +15,7 @@ const FOSIL = [['Taşın içinde bir yaprağın izi var.', true, '<path d="M-60 
   ['Kumsalda bugün bulunan bir deniz kabuğu.', false, '', 'Kabuk yeni; gömülüp taşlaşmamış.'], ['Taşın üstüne sonradan çizilmiş bir balık resmi.', false, '<path d="M-50 10 Q0 -40 50 10 Q0 60 -50 10 Z M50 10 L80 -15 L80 35 Z" fill="none" stroke="#c92a2a" stroke-width="5"/>', 'Bu bir canlının kalıntısı değil, sonradan yapılmış bir çizim.'],
   ['Dün çamura basan kedinin pati izi.', false, '<circle r="18" fill="#6b4423"/>' + [[-26, -30], [0, -40], [26, -30]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="10" fill="#6b4423"/>`).join(''), 'İz yeni; taşlaşması için çok uzun yıllar gerekir.']];
 const madenArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#3b2f2a"/>${Array.from({ length: 10 }, (_, i) => `<path d="M${-100 + i * 150} 0 L${-60 + i * 150} 120 L${-20 + i * 150} 0" fill="#4a3b33"/>`).join('')}
-  <rect x="-3000" y="620" width="7200" height="600" fill="#5c4a3f"/><path d="M-3000 620 L4200 620" stroke="#8a6d5a" stroke-width="6"/><g transform="translate(1120 540)">${resA('kopek', 150)}</g>`;
+  <rect x="-3000" y="620" width="7200" height="600" fill="#5c4a3f"/><path d="M-3000 620 L4200 620" stroke="#8a6d5a" stroke-width="6"/><g transform="translate(1120 540)">${resO('madenci-kopek', 190)}</g>`;
 YER.maden = {
   id: 'maden', ad: 'Maden Ocağı', ders: 'Fen Bilimleri', beceri: 'Madenler, kayaçlar ve fosiller', ikon: '⛏️', renk: '#7a5a2a', harita: { x: 400, y: 284 },
   hikaye: 'Madenci Karabaş dağın içinde madenleri ve fosilleri arıyor. Ürünlerin hangi madenden yapıldığını bul, fosilleri tanı, katmanları oku.',
@@ -57,6 +57,11 @@ const CIZIM = {
   testere: '<rect x="-90" y="10" width="180" height="40" fill="#c98d55"/><path d="M-70 -10 L50 -10 L50 6 L-70 6 Z" fill="#adb5bd"/><path d="M-70 6 ' + Array.from({ length: 12 }, (_, i) => `l5 8 l5 -8`).join(' ') + '" fill="#adb5bd" stroke="#495057"/><rect x="50" y="-22" width="40" height="32" rx="8" fill="#e03131"/><path d="M-100 -40 L100 -40 M-100 -40 l14 -8 M-100 -40 l14 8 M100 -40 l-14 -8 M100 -40 l-14 8" stroke="#1d4e89" stroke-width="4"/>',
   araba: `${resA('araba', 170, 0, -10)}<path d="M-110 70 L110 70 M110 70 l-16 -9 M110 70 l-16 9" stroke="#1d4e89" stroke-width="5"/>`,
 };
+// Görseli olanlar el boyaması nesne + hareket oku ile çizilir (oyun3/r)
+const OK_YAY = '<path d="M-60 72 Q0 98 60 72" fill="none" stroke="#1d4e89" stroke-width="5" stroke-dasharray="8 6"/><path d="M60 72 l-14 -2 l7 12 Z" fill="#1d4e89"/>';
+const CIZIM_R = { salincak: () => resO('salincak', 160, 0, -10) + OK_YAY, sarkac: () => resO('sarkacli-saat', 160, 0, -10) + '<path d="M-28 50 Q0 64 28 50" fill="none" stroke="#1d4e89" stroke-width="5" stroke-dasharray="6 5"/>',
+  dolap: () => resO('donme-dolap', 170, 0, -10) + '<path d="M78 -60 A96 96 0 0 1 78 40" fill="none" stroke="#1d4e89" stroke-width="5"/><path d="M78 40 l-14 2 l8 -13 Z" fill="#1d4e89"/>',
+  testere: () => resO('testere', 170, 0, 0) + '<path d="M-90 -70 L90 -70 M-90 -70 l14 -8 M-90 -70 l14 8 M90 -70 l-14 -8 M90 -70 l-14 8" stroke="#1d4e89" stroke-width="5"/>' };
 const HAREKET = [['salıncak', 'Sallanma', 'salincak'], ['duvar saatinin sarkacı', 'Sallanma', 'sarkac'], ['değirmenin kanatları', 'Dönme', 'pervane'], ['dönme dolap', 'Dönme', 'dolap'], ['testereyle tahta kesmek', 'İleri-geri', 'testere'], ['düz yolda giden araba', 'Düz (doğrusal)', 'araba']];
 const ITCEK = [['El arabasını önümüzde sürmek', 'İtme'], ['Kovayı kuyudan ip ile yukarı almak', 'Çekme'], ['Çekmeceyi açmak', 'Çekme'], ['Topa ayakla vurmak', 'İtme'], ['İp çekme oyununda ipi kendine doğru almak', 'Çekme'], ['Zile parmakla basmak', 'İtme'], ['Kapıyı kendimize doğru açmak', 'Çekme'], ['Bebek arabasını önümüzde götürmek', 'İtme']];
 const ETKI = [['Elif hamuru avucunda sıktı; hamurun biçimi değişti.', 'Şekil değiştirme'], ['Kaleci kaleye gelen topu tuttu.', 'Durdurma'], ['Kaan kendisine gelen topa vurup başka yöne gönderdi.', 'Yön değiştirme'], ['Mert duran oyuncak arabayı itti; araba gitmeye başladı.', 'Hareket ettirme'],
@@ -64,15 +69,15 @@ const ETKI = [['Elif hamuru avucunda sıktı; hamurun biçimi değişti.', 'Şek
 const degArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#d0ebff"/>${bulut(300, 70, .8)}${bulut(900, 50, .6)}<rect x="-3000" y="600" width="7200" height="700" fill="#94d82d"/>
   <g transform="translate(1110 600)"><path d="M-50 0 L-36 -200 L36 -200 L50 0 Z" fill="#f8f9fa" stroke="#868e96" stroke-width="3"/><g transform="translate(0 -200) scale(.9)">${[0, 90, 180, 270].map(a => `<path transform="rotate(${a + 20})" d="M0 0 L-16 -100 L16 -100 Z" fill="#fff" stroke="#495057" stroke-width="3"/>`).join('')}<circle r="10" fill="#495057"/></g></g>`;
 YER.degirmen = {
-  id: 'degirmen', ad: 'Rüzgâr Değirmeni', ders: 'Fen Bilimleri', beceri: 'Hareket türleri, itme-çekme, kuvvetin etkileri', ikon: '🌬️', renk: '#1098ad', harita: { x: 252, y: 394 },
+  id: 'degirmen', ad: 'Rüzgâr Değirmeni', ders: 'Fen Bilimleri', beceri: 'Hareket türleri, itme-çekme, kuvvetin etkileri', ikon: '🌬️', renk: '#1098ad', harita: { x: 228, y: 392 },
   hikaye: 'Değirmenci Zürafa çevresindeki hareketleri inceliyor. Varlıkların nasıl hareket ettiğini, itme mi çekme mi olduğunu ve kuvvetin neyi değiştirdiğini bul.',
   seviyeler: [['Nasıl hareket ediyor?', 'Dönme, sallanma, ileri-geri, düz.'], ['İt mi, çek mi?', 'Kuvvet itme mi, çekme mi?'], ['Kuvvet ne yaptı?', 'Kuvvetin etkisini bul.']],
   bina(){ return `${golge(0, 4, 50)}<path d="M-34 0 L-24 -110 L24 -110 L34 0 Z" fill="#f8f9fa" stroke="#1098ad" stroke-width="3"/><rect x="-10" y="-30" width="20" height="30" fill="#1098ad"/><g transform="translate(0 -110)">${[0, 90, 180, 270].map(a => `<path transform="rotate(${a + 20})" d="M0 0 L-10 -62 L10 -62 Z" fill="#fff" stroke="#1098ad" stroke-width="2.5"/>`).join('')}<circle r="7" fill="#1098ad"/></g>`; },
   gorev(lvl, k, ctx){
-    const zur = `<g transform="translate(110 600)">${resA('zurafa', 200, 0, -80)}</g>`;
+    const zur = `<g transform="translate(110 600)">${resO('degirmenci-zurafa', 240, 0, -110)}</g>`;
     if (lvl === 0) {
       const [ad, tur, c] = (AKTIF.d1 || (AKTIF.d1 = shuffle(HAREKET)))[k];
-      sv.innerHTML = degArka() + zur + `<g transform="translate(580 300) scale(1.4)">${CIZIM[c]}</g>` + `<g transform="translate(580 530)"><rect x="${-olc(ad, 34) / 2 - 20}" y="-32" width="${olc(ad, 34) + 40}" height="52" rx="12" fill="#fff" stroke="#1098ad" stroke-width="3"/><text y="5" text-anchor="middle" class="ttkb" font-size="34">${esc(ad)}</text></g>`;
+      sv.innerHTML = degArka() + zur + `<g transform="translate(580 300) scale(1.4)">${CIZIM_R[c] ? CIZIM_R[c]() : CIZIM[c]}</g>` + `<g transform="translate(580 530)"><rect x="${-olc(ad, 34) / 2 - 20}" y="-32" width="${olc(ad, 34) + 40}" height="52" rx="12" fill="#fff" stroke="#1098ad" stroke-width="3"/><text y="5" text-anchor="middle" class="ttkb" font-size="34">${esc(ad)}</text></g>`;
       setInstr(k === 0 ? `Mavi oklar hareketi gösteriyor. ${BUYUK(ad)} nasıl hareket ediyor?` : `${BUYUK(ad)} nasıl hareket ediyor?`);
       secT(['Dönme', 'Sallanma', 'İleri-geri', 'Düz (doğrusal)'].map(t => ({ t, ok: t === tur })), () => ctx.dogru(`Evet! ${tur}.`, `<b>${esc(tur)}</b><small>${{ Dönme: 'Bir merkezin çevresinde döner.', Sallanma: 'Bir noktaya asılıdır, bir o yana bir bu yana gider.', 'İleri-geri': 'Aynı yol üzerinde bir ileri bir geri gider.', 'Düz (doğrusal)': 'Düz bir yol boyunca ilerler.' }[tur]}</small>`, 2600, 'sag'),
         () => ctx.yanlis('Oklara bak. Bir merkezin çevresinde mi dönüyor, iki yana mı sallanıyor, ileri geri mi gidiyor, yoksa düz mü ilerliyor?'));
@@ -102,8 +107,7 @@ const YAZIM = [['Ben de seninle geleceğim.', 'Bende seninle geleceğim.', '“d
   ['Bu oyunu sever misin?', 'Bu oyunu severmisin?', 'Soru eki “mi” ayrı yazılır.'], ['Duydum ki yarın tatilmiş.', 'Duydumki yarın tatilmiş.', '“ki” bağlacı ayrı yazılır.'],
   ['Evdeki kedi uyuyor.', 'Evde ki kedi uyuyor.', '“-ki” eki bitişik yazılır.'], ['Kardeşim de okula başladı.', 'Kardeşimde okula başladı.', '“de” bağlacı ayrı yazılır.'],
   ['Sınıfta kimse yok.', 'Sınıf ta kimse yok.', 'Yer bildiren “-ta” eki bitişik yazılır.'], ['Yarın bize gelecek misin?', 'Yarın bize gelecekmisin?', 'Soru eki “mi” ayrı yazılır.']];
-const koyArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#fff3bf"/><rect x="-3000" y="560" width="7200" height="700" fill="#4dabf7"/><path d="M-3000 560 Q600 520 4200 560" fill="none" stroke="#e9c46a" stroke-width="30"/>
-  <g transform="translate(1120 600)">${resA('kaplumbaga', 160)}</g>${Array.from({ length: 6 }, (_, i) => `<rect x="${-40 + i * 32}" y="${580 - (i % 3) * 8 - 90}" width="26" height="${90 + (i % 3) * 8}" fill="${['#e03131', '#3a86ff', '#12b886', '#f4a100', '#7048e8', '#e8590c'][i]}" stroke="#333" stroke-width="2"/>`).join('')}`;
+const koyArka = () => `<rect x="-3000" y="-400" width="7200" height="780" fill="#d6e8f2"/><rect x="-3000" y="380" width="7200" height="900" fill="#e3c58f"/><image href="oyun3/s/koy.webp" x="-240" y="0" width="1680" height="760" preserveAspectRatio="xMidYMid slice"/><g transform="translate(1110 640)">${resO('saatci-kaplumbaga', 170)}</g>`;
 YER.koy = {
   id: 'koy', ad: 'Kitap Koyu', ders: 'Türkçe', beceri: 'Noktalama işaretleri ve yazım kuralları', ikon: '📚', renk: '#e8590c', harita: { x: 773, y: 287 },
   hikaye: 'Kitapçı Kaplumbağa koydaki şişelerden çıkan mektupları düzeltiyor. Cümlelerdeki eksik işaretleri koy, doğru yazılmış cümleyi bul.',

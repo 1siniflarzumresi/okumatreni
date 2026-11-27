@@ -2,10 +2,12 @@
 """Gemini ızgaralarını keser, dış beyaz arka planı şeffaf yapar, 600 px PNG kaydeder.
 Kullanım: python3 kaynak/resim-isle.py renkli <izgara-no> <dosya> [<izgara-no> <dosya> ...]
   renkli: kaynak/resim-promptlari/renkli-sira.json sırasına göre deneme/materyaller/resimler-renkli/<ad>.png
+  oyun3: oyun3-sira.json sırasına göre deneme/oyun3/r/<ad>.webp (320 px; 1 karakterler, 2-5 nesne ızgaraları C1-C4)
 """
 import sys, json, os
 from PIL import Image, ImageDraw, ImageOps
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BOYUT = 600
 
 def cizgiler(im, eksen):
     W, H = im.size; px = im.load(); out = []
@@ -37,21 +39,29 @@ def kes(dosya, adlar, hedef):
     im = Image.open(dosya).convert('RGB'); gri = im.convert('L'); W, H = im.size
     cx, cy = cizgiler(gri, 'x'), cizgiler(gri, 'y')
     # 4×2 beklenir: fazla/eksik çizgi bulunursa eşit bölmeye düş (ör. kürek sapı sütun çizgisi sanılmasın)
-    if len(cx) != 3: cx = [round(W * k / 4) for k in (1, 2, 3)]
-    if len(cy) != 1: cy = [round(H / 2)]
-    xs = [0] + cx + [W]; ys = [0] + cy + [H]
+    # çerçeveli ızgara: dış çizgiler de bulunursa (5 dikey / 3 yatay) onları sınır al
+    if len(cx) == 5: xs = cx
+    else:
+        if len(cx) != 3: cx = [round(W * k / 4) for k in (1, 2, 3)]
+        xs = [0] + cx + [W]
+    if len(cy) == 3: ys = cy
+    else:
+        if len(cy) != 1: cy = [round(H / 2)]
+        ys = [0] + cy + [H]
     for k, ad in enumerate(adlar):
         c, r = k % 4, k // 4
         h = im.crop((xs[c] + 6, ys[r] + 6, xs[c + 1] - 6, ys[r + 1] - 6))
         s = seffaf(h); bb = s.getbbox(); s = s.crop(bb)
         w, hh = s.size; kenar = max(w, hh) + 16
         kare = Image.new('RGBA', (kenar, kenar), (255, 255, 255, 0)); kare.paste(s, ((kenar - w) // 2, (kenar - hh) // 2), s)
-        kare.resize((600, 600), Image.LANCZOS).save(os.path.join(hedef, ad + '.png'), optimize=True)
+        if BOYUT == 600: kare.resize((600, 600), Image.LANCZOS).save(os.path.join(hedef, ad + '.png'), optimize=True)
+        else: kare.resize((BOYUT, BOYUT), Image.LANCZOS).save(os.path.join(hedef, ad + '.webp'), 'WEBP', quality=86, method=6)
     return xs, ys
 
 if __name__ == '__main__':
     tur, args = sys.argv[1], sys.argv[2:]
     sira = json.load(open(os.path.join(KOK, 'kaynak/resim-promptlari', tur + '-sira.json')))
-    hedef = os.path.join(KOK, 'deneme/materyaller/resimler-' + tur); os.makedirs(hedef, exist_ok=True)
+    hedef = os.path.join(KOK, 'deneme/oyun3/r' if tur == 'oyun3' else 'deneme/materyaller/resimler-' + tur); os.makedirs(hedef, exist_ok=True)
+    if tur == 'oyun3': BOYUT = 320   # oyun nesneleri: 320 px saydam webp
     for no, dosya in zip(args[::2], args[1::2]):
         print(no, kes(dosya, sira[int(no) - 1], hedef), sira[int(no) - 1])

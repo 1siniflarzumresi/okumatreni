@@ -12,26 +12,29 @@ const serit = (cumle, vurgu, y = 150) => { const px = sigdir(cumle, 44, 1040); l
 
 /* ===================== 1) LİMAN: sayıları çözümleme ===================== */
 // 1 çuval = 1, 1 sandık = 10 çuval, 1 konteyner = 100 çuval
-const konteyner = () => `<rect x="-34" y="-22" width="68" height="44" rx="4" fill="#e03131" stroke="#8a1c1c" stroke-width="3"/>${[-22, -11, 0, 11, 22].map(x => `<line x1="${x}" y1="-18" x2="${x}" y2="18" stroke="#b02525" stroke-width="3"/>`).join('')}<text y="7" text-anchor="middle" font-size="18" font-weight="700" fill="#fff" class="ttkb">100</text>`;
-const sandik = () => `<rect x="-16" y="-15" width="32" height="30" rx="3" fill="#c98d55" stroke="#7a4a26" stroke-width="2.5"/><path d="M-16 -15 L16 15 M16 -15 L-16 15" stroke="#9a6532" stroke-width="2"/><text y="6" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" stroke="#7a4a26" stroke-width=".6" class="ttkb">10</text>`;
-const cuval = () => `<path d="M-10 -10 Q0 -16 10 -10 L12 10 Q0 15 -12 10 Z" fill="#f3e1b6" stroke="#a8864a" stroke-width="2"/><path d="M-6 -12 L6 -12" stroke="#a8864a" stroke-width="3"/><text y="7" text-anchor="middle" font-size="12" font-weight="700" fill="#7a5a2a" class="ttkb">1</text>`;
-const limanArka = () => `<rect x="-3000" y="-400" width="7200" height="780" fill="#cfe1ee"/><rect x="-3000" y="380" width="7200" height="900" fill="#5f8fbf"/><image href="oyun3/s/liman.webp" x="-80" y="0" width="1360" height="760" preserveAspectRatio="xMidYMid slice"/>`;
-const gemi = (a, b, c) => { const satir = (n, w, f, y) => Array.from({ length: n }, (_, i) => `<g transform="translate(${170 + i * w} ${y})">${f()}</g>`).join('');
-  return `<g><path d="M80 420 L900 420 L840 520 L140 520 Z" fill="#1d4e89"/><rect x="80" y="404" width="820" height="20" fill="#f4f7fb"/><text x="200" y="490" class="ttkb" font-size="34" fill="#fff">KÂŞİF</text>
-    ${satir(a, 76, konteyner, 378)}${satir(b, b > 9 ? 36 : 40, sandik, 330)}${satir(c, c > 9 ? 26 : 30, cuval, 294)}</g>`; };
+// El boyaması görseller (oyun3/r, 320 px saydam): karakterler ve nesneler
+const resO = (ad, w, x = 0, y = 0) => `<image href="oyun3/r/${ad}.webp" x="${x - w / 2}" y="${y - w / 2}" width="${w}" height="${w}"/>`;
+const konteyner = (s = 62) => resO('konteyner', s);
+const sandik = (s = 34) => resO('sandik', s);
+const cuval = (s = 28) => resO('un-cuvali', s);
+const limanArka = () => `<rect x="-3000" y="-400" width="7200" height="780" fill="#cfe1ee"/><rect x="-3000" y="380" width="7200" height="900" fill="#5f8fbf"/><image href="oyun3/s/liman.webp" x="-240" y="0" width="1680" height="760" preserveAspectRatio="xMidYMid slice"/>`;
+// Gemi görseli 3 kat (960 px): güverte x 385-805, y 470. Yükler güvertede satır satır; 10'dan fazlası üst satıra.
+const gemi = (a, b, c) => { const satir = (n, w, f, y0) => Array.from({ length: n }, (_, i) => `<g transform="translate(${408 + (i % 10) * Math.min(w + 2, 41)} ${y0 - Math.floor(i / 10) * w * .82})">${f(w)}</g>`).join('');
+  const yK = 456, yS = yK - 24 - Math.max(1, Math.ceil(a / 10)) * 0 - 22, yC = yS - (b > 10 ? 2 : 1) * 30 - 6;
+  return `<g><image href="oyun3/r/gemi-yan.webp" x="40" y="-13" width="960" height="960"/>${satir(a, 44, konteyner, yK)}${satir(b, 38, sandik, yS)}${satir(c, 30, cuval, yC)}</g>`; };
 YER.liman = {
   id: 'liman', ad: 'Liman', ders: 'Matematik', beceri: 'Sayıları çözümleme: yüzler, onlar, birler', ikon: '⚓', renk: '#1d4e89', harita: { x: 565, y: 565 },
   hikaye: 'Kaptan Ördek, adaya un taşıyan gemiyi yüklüyor. Her sandıkta 10 çuval, her konteynerde 100 çuval un var. Gemiyi siparişe göre yükle.',
   seviyeler: [['Gemiyi yükle', 'Siparişteki sayı kadar unu yükle.'], ['Yükü oku', 'Gemideki unun sayısını bul.'], ['Paketle', '10 çuvalı bir sandığa, 10 sandığı bir konteynere koy.']],
   bina(){ return `${golge(0, 4, 90)}<path d="M-80 -20 L80 -20 L60 10 L-60 10 Z" fill="#1d4e89"/><rect x="-60" y="-44" width="40" height="24" fill="#e03131"/><rect x="-14" y="-40" width="22" height="20" fill="#c98d55"/><rect x="14" y="-40" width="22" height="20" fill="#c98d55"/><rect x="-4" y="-120" width="8" height="76" fill="#7a4a26"/><path d="M4 -116 L60 -64 L4 -64 Z" fill="#fff" stroke="#ccc"/><path d="M-4 -110 L-50 -64 L-4 -64 Z" fill="#fff" stroke="#ccc"/>`; },
   gorev(lvl, k, ctx){
-    const kaptan = `<g transform="translate(110 330)">${resA('ordek', 130)}</g>`;
+    const kaptan = `<g transform="translate(120 330)">${resO('kaptan-ordek', 170)}</g>`;
     const siparis = (t1, t2) => `<g transform="translate(520 150)"><rect x="-130" y="-70" width="260" height="140" rx="14" fill="#fff" stroke="#1d4e89" stroke-width="4"/><text y="-28" text-anchor="middle" class="ttkb" font-size="26" fill="#1d4e89">${t1}</text><text y="40" text-anchor="middle" class="ttkb" font-size="58" fill="#c0392b">${t2}</text></g>`;
     const kart3 = (n) => { const a = Math.floor(n / 100), b = Math.floor(n / 10) % 10, c = n % 10; return `<b>${n}</b> = ${a * 100} + ${b * 10} + ${c}<small>${a} yüzlük, ${b} onluk, ${c} birlik</small>`; };
     if (lvl === 0) {
       const n = rint(1, 9) * 100 + (k % 3 === 2 ? 0 : rint(1, 9)) * 10 + rint(0, 9), A = Math.floor(n / 100), B = Math.floor(n / 10) % 10, C = n % 10; let a = 0, b = 0, c = 0;
       const ciz = () => { sv.innerHTML = limanArka() + gemi(a, b, c) + siparis('Sipariş: çuval', n) + kaptan +
-        [['k', konteyner, 'Konteyner', 620], ['s', sandik, 'Sandık', 690], ['c', cuval, 'Çuval', 750]].map(([id, f, ad, y], i) => `<g class="kaynak" data-k="${id}" transform="translate(${1000 + i * 0} ${y - 80})" style="cursor:pointer"><rect x="-80" y="-34" width="250" height="64" rx="14" fill="#fff" stroke="#1d4e89" stroke-width="3"/><g transform="translate(-40 -2) scale(${id === 'k' ? .8 : 1.1})">${f()}</g><text x="10" y="10" class="ttkb" font-size="28">${ad}</text></g>`).join('');
+        [['k', konteyner, 'Konteyner · 100', 620], ['s', sandik, 'Sandık · 10', 690], ['c', cuval, 'Çuval · 1', 760]].map(([id, f, ad, y], i) => `<g class="kaynak" data-k="${id}" transform="translate(${960} ${y - 80})" style="cursor:pointer"><rect x="-90" y="-34" width="300" height="64" rx="14" fill="#fff" stroke="#1d4e89" stroke-width="3"/><g transform="translate(-50 -2)">${f(56)}</g><text x="0" y="10" class="ttkb" font-size="28">${ad}</text></g>`).join('');
         sv.querySelectorAll('.kaynak').forEach(g => g.addEventListener('click', () => { if (KILIT) return; const t = g.dataset.k;
           if ((t === 'k' && a >= 9) || (t === 's' && b >= 9) || (t === 'c' && c >= 9)) { FB('Gemide bu yükten en çok 9 tane olabilir.', false); return; }
           if (t === 'k') a++; else if (t === 's') b++; else c++; sPop(); ciz(); })); };
@@ -88,7 +91,7 @@ const KARISIM = [['demir tozu ile kum', 'mıknatıs', 'Mıknatıs demir tozunu �
 const ARAC = ['mıknatıs', 'elek', 'süzgeç kâğıdı', 'elle ayıklama'];
 const labArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#e7f5ff"/>${Array.from({ length: 14 }, (_, i) => `<rect x="${-200 + i * 120}" y="0" width="100" height="70" rx="6" fill="#d0ebff"/>`).join('')}
   <rect x="-3000" y="560" width="7200" height="40" fill="#adb5bd"/><rect x="-3000" y="600" width="7200" height="700" fill="#dee2e6"/>
-  <g transform="translate(1150 520) scale(.8)">${baykus()}</g>`;
+  <g transform="translate(1120 470)">${resO('bilge-baykus', 220)}</g>`;
 YER.lab = {
   id: 'lab', ad: 'Laboratuvar', ders: 'Fen Bilimleri', beceri: 'Katı, sıvı, gaz; karışımları ayırma', ikon: '⚗️', renk: '#7048e8', harita: { x: 596, y: 395 },
   hikaye: 'Bilge Baykuş adanın laboratuvarında maddeleri inceliyor. Maddeleri katı, sıvı ve gaz kavanozlarına ayır; sonra karışımları ayırmanın yolunu bul.',
@@ -159,7 +162,7 @@ const DEYIM = [['Elif, öğretmeninin anlattıklarını dikkatle dinledi.', 'kul
 const fenerArka = () => `<rect x="-3000" y="-400" width="7200" height="1600" fill="#ffe8cc"/><circle cx="160" cy="120" r="60" fill="#ffd43b" opacity=".8"/>
   <rect x="-3000" y="470" width="7200" height="900" fill="#1f8fd6"/><path d="M820 470 Q960 360 1250 380 L4200 380 L4200 470 Z" fill="#8cc97b"/>
   <g transform="translate(1040 400)"><path d="M-40 0 L-26 -260 L26 -260 L40 0 Z" fill="#fff" stroke="#c92a2a" stroke-width="4"/><path d="M-37 -60 L37 -60 L34 -110 L-34 -110 Z M-31 -160 L31 -160 L29 -210 L-29 -210 Z" fill="#e03131"/><rect x="-34" y="-300" width="68" height="40" rx="6" fill="#ffe066" stroke="#c92a2a" stroke-width="4"/><path d="M-40 -300 L0 -340 L40 -300 Z" fill="#c92a2a"/></g>
-  <g transform="translate(1130 610)">${resA('papagan', 150)}</g>`;
+  <g transform="translate(1130 610)">${resO('kaptan-papagan', 190)}</g>`;
 YER.fener = {
   id: 'fener', ad: 'Deniz Feneri', ders: 'Türkçe', beceri: 'Eş sesli sözcükler, gerçek ve mecaz anlam, deyimler', ikon: '🗼', renk: '#c92a2a', harita: { x: 1093, y: 455 },
   hikaye: 'Kaptan Papağan fenerde gemilere sözcüklerle mesaj gönderiyor. Bazı sözcüklerin birden çok anlamı var. Cümleye bak, doğru anlamı bul.',
